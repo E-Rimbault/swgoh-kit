@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+    <title>Jedi</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="icon" type="image/png" href="../image/jedi.png">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cells = document.querySelectorAll('td');
+            let filledCount = 0;
+            let imageCount = 0;
+
+            cells.forEach(cell => {
+                if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
+                    filledCount++;
+                    if (cell.querySelector('img')) {
+                        imageCount++;
+                    }
+                }
+            });
+
+            const th = document.querySelector('thead th');
+            th.textContent += ` (${imageCount}/${filledCount})`;
+        });
+    </script>
+</head>
+<body class="faction">
+
+<div>
+    <table>
+        <thead>
+        <tr><th colspan="8">Personnage avec le tag : Jedi</th></tr>
+        </thead>
+
+        <tr>
+            <td>Aayla Secura</td>
+            <td>
+                <a href="..//html/ahsoka_tano.html"><img src="https://i.ibb.co/y6h9C0Z/Ahsoka-image.png"  alt="Ahsoka tano"></a>
+                <br>
+                Ahsoka Tano (chipie)
+            </td>
+            <td>Barriss Offee</td>
+            <td>
+                <a href="..//html/bastila_shan.html"><img src="https://i.ibb.co/bgkj5Sq/bastila-image.webp" alt="Bastila"></a>
+                <br>
+                Bastila Shan
+            </td>
+            <td>Eeth Koth</td>
+            <td>
+                <a href="..//html/ezra.html"><img src="" alt="Ezra"></a>
+                <br>
+                Ezra Bridger
+            </td>
+            <td>General Kenobi</td>
+            <td>
+                <a href="..//html/general_skywalker.html"><img src="https://i.ibb.co/kJ5M1Rx/gas-image.webp" alt="gas"></a>
+                <br>
+                General Skywalker
+            </td>
+        </tr>
+        <tr>
+            <td>Grand Master Yoda</td>
+            <td>Hermit Yoda</td>
+            <td>Ima-Gun Di</td>
+            <td>Jedi Consular</td>
+            <td>
+                <a href="..//html/jedi__kinght_anakin.html"><img src="" alt="Jedi Knight Anakin"></a>
+                <br>
+                Jedi Knight Anakin
+            </td>
+            <td>
+                <a href="..//html/jkck.html"><img src="" alt="jkck"></a>
+                <br>
+                Jedi Knight Cal Kestis
+            </td>
+            <td>Jedi Knight Guardian</td>
+            <td>
+                <a href="..//html/jedi_knight_luke.html"><img src="" alt="JKL"></a>
+                <br>
+                Jedi Knight Luke Skywalker
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="..//html/Jedi_Revan.html"><img src="https://i.ibb.co/nLsWK0R/jkr-image.png" alt="jkr"></a>
+                <br>
+                Jedi Knight Revan
+            </td>
+            <td>
+                <a href="..//html/JMK.html"><img src="" alt="JMK"></a>
+                <br>
+                Jedi Master Kenobi
+            </td>
+            <td>
+                <a href="..//html/jml.html"><img src="" alt="JML"></a>
+                <br>
+                Jedi Master Luke Skywalker
+            </td>
+            <td>
+                <a href="..//html/jolee.html"><img src="https://i.ibb.co/S309jdv/jolee-bindo.png" alt="Jolee"></a>
+                <br>
+                Jolee Bindo
+            </td>
+            <td>Juhani</td>
+            <td>
+                <a href="..//html/kanan.html"><img src="" alt="Kanan"></a>
+                <br>
+                Kanan Jarrus
+            </td>
+            <td>
+                <a href="..//html/Kelleran_Beq.html"><img src="" alt="Kelleran"></a>
+                <br>
+                Kelleran Beq
+            </td>
+            <td>
+                <a href="..//html/ki-adi-mundi.html"><img src="" alt="Ki-Adi-Mundi"></a>
+                <br>
+                Ki-Adi-Mundi
+            </td>
+        </tr>
+        <tr>
+            <td>Kit Fisto</td>
+            <td>Kyle Katarn</td>
+            <td>Luminara Unduli</td>
+            <td>
+                <a href="..//html/windu.html"><img src="https://i.ibb.co/Vv5GWTg/windu-image.webp" alt="Windu"></a>
+                <br>
+                Mace Windu
+            </td>
+            <td>
+                <a href="..//html/master_qui_gon.html"><img src="" alt="Qui-Gon"></a>
+                <br>
+                Master Qui-Gon
+            </td>
+            <td>Obi-Wan Kenobi (Old Ben)</td>
+            <td>
+                <a href="..//html/pow.html"><img src="" alt="Padawan Obi-wan"></a>
+                <br>
+                Padawan Obi-Wan
+            </td>
+            <td>Plo Koon</td>
+        </tr>
+        <tr>
+            <td>Qui-Gon Jinn</td>
+            <td>Shaak Ti</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+<br>
+
+<footer>
+    <a href="..//filtre-recherche/filtre-personnage.html">
+        <img style="width: 10%; height: 10%;" class="position" src="..//image/logo_star_wars.png" alt="filtre personnage">
+    </a>
+</footer>
+</body>
+</html>

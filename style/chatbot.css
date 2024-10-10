@@ -1,0 +1,91 @@
+
+    #chatbot-section {
+        background-image: url("..//image/Hyperespace.png");
+        background-size: cover; /* Pour répartir l'image sur toute la surface de #chatbot-section */
+        background-repeat: no-repeat; /* Pour éviter la répétition de l'image */
+        background-position: center; /* Pour centrer l'image de fond */
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        max-width: 600px;
+        margin: 20px auto;
+        font-family: Arial, sans-serif;
+        position: fixed;
+        bottom: 90px;
+        right: 20px;
+        z-index: 9999; /* Définir un z-index plus élevé pour être sûr que l'élément est au premier plan */
+        display: none;
+    }
+
+    #chatbot-section h2 {
+        text-align: center;
+        color: black;
+    }
+
+    #questions {
+        margin-bottom: 20px;
+    }
+
+    #question-dropdown {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    #reponse {
+        background-color: #e9ecef;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-top: 20px;
+        display: none;
+        position: relative;
+        z-index: 9999; /* Même z-index que le parent pour être sûr qu'il est au premier plan */
+    }
+
+    button {
+        background-color: #0073aa;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        position: relative;
+        z-index: 9999; /* Définir un z-index plus élevé pour être sûr que l'élément est au premier plan */
+    }
+
+    button:hover {
+        background-color: #005f8d;
+    }
+
+    #new-question-btn {
+        display: block;
+        margin: 20px auto 0;
+    }
+
+    #chatbot-icon {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: black;
+        color: #fff;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 9999; /* Définir un z-index plus élevé pour être sûr que l'élément est au premier plan */
+    }
+
+    #chatbot-icon:hover {
+        background-color: black;
+    }
+
+    .chatbot-icon-img {
+        width: 30px;
+        height: 30px;
+    }

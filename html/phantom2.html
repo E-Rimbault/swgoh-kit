@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Rimbault Enzo">
+    <title>Phantom 2</title>
+    <link rel="icon" type="image/png" href="../vaisseaux/phantom2/phantom_2.png">
+    <link rel="stylesheet" href="../style/styles.css">
+    <style>
+        img {
+            width: 40%;
+            height: auto; /* Ajustement pour maintenir les proportions */
+        }
+
+        table,
+        tr,
+        td {
+            margin: auto;
+        }
+
+        .crew-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .crew-container figure {
+            margin: 0 30px; /* Espace de 30 pixels entre les membres */
+            text-align: center;
+            color: white;
+            font-size: 14px;
+        }
+
+        .crew-container img {
+            width: 100px; /* Ajustez la taille des images comme vous le souhaitez */
+            height: auto;
+        }
+
+        .crew-container figcaption {
+            margin-top: 5px; /* Espace au-dessus du nom */
+            font-size: 14px; /* Taille de police pour les noms */
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Ajout de styles pour le bouton de retour en haut */
+        #scrollBtn {
+            display: none; /* Caché par défaut */
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: #555;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        #scrollBtn:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+
+<body class="simple">
+
+    <header class="perso">
+        <h1><u>Phantom 2</u></h1>
+        <p>
+            Attaquant rebelle insaisissable qui sert de leurre au Ghost<br>
+            tout en conférant des améliorations à ses alliés.
+        </p>
+
+        <nav class="perso" style="font-size: 20px;">
+            <a class="capacite" style="color: blue;" href="../html/vaisseau-coté-lumineux.html">Coté Lumineux</a>
+            <a class="class" href="../html/vaisseau-attaquant.html">Attaquant</a>
+            <a class="capacite" href="../html/vaisseaux-rebelle.html">Rebelle</a>
+            <a class="capacite" href="../html/vaisseaux-phoenix.html">Phoenix</a>
+            <a class="capacite" href="../html/vaisseaux-de-marchandise.html">Vaisseau de Marchandise</a>
+        </nav>
+    </header>
+    <br>
+
+    <img class="first" src="../vaisseaux/phantom2/phantom2.jpg" alt="Phantom 2"><br>
+
+    <h2 class="titre" style="text-align: center;"><u>Membres équipages</u></h2>
+    <div class="crew-container">
+        <figure id="sabine">
+            <a href="../html/sabine_wren.html"><img src="https://media.discordapp.net/attachments/1282378206757785611/1282378314580754532/sabine_image.png?ex=66df235f&is=66ddd1df&hm=73f1a08aa68331de535530c9a3698dd3f498b43a8d849f8657ec71e09c337f80&=&format=webp&quality=lossless" alt="Sabine Wren"></a>
+            <figcaption><a style="color: white; font-size: 30px;" href="#speciale-1">Sabine Wren</a></figcaption>
+        </figure>
+        <figure id="ezra">
+            <a href="../html/ezra.html"><img src="../personnage/ezra/ezra_image.png" alt="Ezra Bridger"></a>
+            <figcaption><a style="color: white; font-size: 30px;" href="#speciale-2">Ezra Bridger</a></figcaption>
+        </figure>
+        <figure id="chopper">
+            <a href="../html/chopper.html"><img src="../personnage/chopper/chopper_image.png" alt="Chopper"></a>
+            <figcaption><a style="color: white; font-size: 30px;" href="#unique-chopper">Chopper</a></figcaption>
+        </figure>
+    </div>
+
+    <section id="attaque-basique">
+        <h2 class="titre"><u>Attaque basique : Dérobade</u></h2>
+        <img class="crew" src="../vaisseaux/phantom2/phantom2_basic.png" alt="Attaque basique">
+        <p class="attaque">
+            Inflige des dégâts physiques à une cible ennemie, avec 75% de chances de gagner le camouflage pendant 2 tours.
+        </p>
+    </section>
+
+    <section id="speciale-1">
+        <h2 class="titre"><u>1ère spéciale : Cibles en vue (délai : 3)</u></h2>
+        <img class="crew" src="../vaisseaux/phantom2/phantom2_spe1.png" alt="1ère spé">
+        <p class="attaque">
+            Inflige le verrouillage à une cible ennemie pendant 2 tours, avec 70% de chances d'infliger également le<br>
+            verrouillage à un autre ennemi qui n'est pas verrouillé. Ces effets ne peuvent pas être esquivés ou résistés.<br>
+            Si la cible ennemie est un allié de l'Empire, inflige également un malus de vitesse pendant 2 tours,<br>
+            ce qui ne peut pas être esquivé.
+        </p>
+    </section>
+
+    <section id="speciale-2">
+        <h2 class="titre"><u>2ème spéciale : Impact maximum (délai : 3)</u></h2>
+        <img class="crew" src="../vaisseaux/phantom2/phantom2_spe2.png" alt="2ème spé">
+        <p class="attaque">
+            Inflige des dégâts physiques à une cible ennemie, avec 70% de chances de conférer un<br>
+            bonus de chances de coup critique à tous les alliés pendant 2 tours.
+        </p>
+    </section>
+
+    <section id="unique-chopper">
+        <h2 class="titre"><u>Capacité unique : Chopper multi-fonctions</u></h2>
+        <img class="crew" src="../vaisseaux/phantom2/phantom2_crew_chopper.png" alt="Unique Chopper">
+        <p class="attaque">
+            Tant que le Phantom II ne dispose pas de protection, il a 60% de chances d'obtenir l'avantage, la prévoyance,<br>
+            un bonus de défense, un bonus de vitesse ou un bonus d'attaque pendant 2 tours à la fin de son tour.<br>
+            Tant que le Phantom II est actif, le Ghost dispose également de cette capacité.
+        </p>
+    </section>
+
+    <section id="unique-tactique">
+        <h2 class="titre"><u>Capacité unique : Tactique de distraction</u></h2>
+        <img class="crew" src="../vaisseaux/phantom2/phantom2_unique.png" alt="Unique">
+        <p class="attaque">
+            Le Phantom II obtient un bonus d'esquive de 5% pour chaque allié Rebelle actif. De plus, à chaque fois<br>
+            que le Ghost souffre d'un affaiblissement ou subit un coup critique, le Phantom II obtient la prévoyance<br>
+            et utilise la raillerie jusqu'à sa prochaine esquive. Lorsque le Ghost est présent, le Phantom II<br>
+            obtient l'immunité aux coups critiques, ce qui ne peut pas être évité ou dissipé.
+        </p>
+    </section>
+
+    <section id="renfort">
+        <h2 class="renfort"><u>Capacité de renfort : Frappe discrète</u></h2>
+        <img class="crew" src="../vaisseaux/phantom2/phantom2_allie.png" alt="Renfort">
+        <p class="attaque">
+            <u class="speciale">Rejoindre la bataille :</u> Le Phantom II gagne le camouflage, l'avantage et un bonus d'attaque<br>
+            pendant 2 tours, et réduit le délai d'Appeler des renforts sur le vaisseau amiral allié de 1.
+        </p>
+    </section>
+
+    <footer>
+        <!-- Bouton pour remonter en haut de la page -->
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+
+        <!-- Script JavaScript pour le bouton -->
+        <script src="../javascript/bouton.js"></script>
+    </footer>
+
+    <script>
+        // JavaScript pour le bouton de retour en haut
+        window.onscroll = function () {
+            var scrollBtn = document.getElementById("scrollBtn");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+
+</body>
+
+</html>
