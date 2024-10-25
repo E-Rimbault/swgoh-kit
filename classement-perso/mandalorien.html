@@ -7,6 +7,26 @@
     <meta name="author" content="Rimbault Enzo">
     <link rel="icon" type="image/png" href="../image/mandalore.png">
     <link rel="stylesheet" href="../style/styles.css">
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cells = document.querySelectorAll('td');
+            let filledCount = 0;
+            let imageCount = 0;
+    
+            cells.forEach(cell => {
+                if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
+                    filledCount++;
+                    if (cell.querySelector('img')) {
+                        imageCount++;
+                    }
+                }
+            });
+    
+            const th = document.querySelector('thead th');
+            th.textContent += ` (${imageCount}/${filledCount})`;
+        });
+    </script>
 </head>
 <body class="faction">
     <div>
@@ -63,7 +83,7 @@
                         <br> Sabine Wren
                     </td>
                     <td>
-                        <a href="..//html/armorer.html"><img src="..//personnage/armorer/armorer_image.png" alt="armorer"></a>
+                        <a href="..//html/armorer.html"><img src="https://i.ibb.co/wh5qmbb/armorer-image.webp" alt="armorer"></a>
                         <br> The Armorer
                     </td>
                     <td>
