@@ -16,6 +16,7 @@ function afficherQuestions() {
         "filtre vaisseaux",
         "recherche perso",
         "recherche vaisseaux",
+        "Guide du voyage",
         "CGU"
     ];
     const selectElement = document.getElementById('question-dropdown');
@@ -36,7 +37,8 @@ function obtenirReponse(selection) {
         3: "<a href='filtre-recherche/filtre-vaisseaux.html'>Filtre vaisseaux</a>",
         4: "<a href='filtre-recherche/recherche-perso.html'>Recherche personnage</a>",
         5: "<a href='filtre-recherche/recherche-vaisseaux.html'>Recherche vaisseaux</a>",
-        6 :"<a href='CGU.html'>CGU</a>"
+        6: "<a href='guide-du-voyage/guide-voyage.html'>Guide du voyage</a>",
+        7 :"<a href='CGU.html'>CGU</a>"
     };
     return reponses[selection] || "Sélection invalide. Veuillez choisir une question valide.";
 }
