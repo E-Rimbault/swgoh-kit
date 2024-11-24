@@ -24,7 +24,6 @@
             padding: 1rem;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             position: relative;
-            cursor: pointer;
         }
         .event-card img {
             width: 100%;
@@ -35,55 +34,23 @@
         .event-card:hover {
             background-color: #34345a;
         }
+        .event-card p {
+            margin: 0;
+        }
+        .event-card a {
+            color: #feda4a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .event-card a:hover {
+            text-decoration: underline;
+        }
         footer {
             text-align: center;
             background-color: rgba(31, 31, 59, 0.9);
             padding: 1rem;
             color: #ffffff;
             margin-top: 1rem;
-        }
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #252540;
-            border-radius: 8px;
-            padding: 1.5rem;
-            width: 80%;
-            max-width: 400px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-        }
-        .popup h2 {
-            color: #feda4a;
-        }
-        .popup p {
-            margin: 1rem 0;
-        }
-        .popup button {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 4px;
-            background-color: #feda4a;
-            color: #000;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .popup button:hover {
-            background-color: #d4b542;
-        }
-        #overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 999;
         }
     </style>
 </head>
@@ -94,52 +61,18 @@
     <main>
         <div class="container">
             <!-- Exemple d'événements -->
-            <div class="event-card" onclick="showPopup('Luke Skywalker', 'Nécessite : R2-D2, Han Solo, Princesse Leia, Chewbacca.')">
+            <div class="event-card">
                 <img src="https://i.ibb.co/p0pKqpj/cls.webp" alt="Luke Skywalker">
-                <p>Commander Luke Skywalker</p>
+                <p><a href="details-luke.html">Commander Luke Skywalker</a></p>
             </div>
             <!-- Ajoutez d'autres événements ici -->
         </div>
     </main>
 
-    <!-- Pop-up pour afficher les prérequis -->
-    <div id="overlay"></div>
-    <div class="popup" id="popup">
-        <h2 id="popup-title">Titre de l'événement</h2>
-        <p id="popup-content">Contenu des prérequis.</p>
-        <button onclick="closePopup()">Fermer</button>
-    </div>
-
     <footer>
-        <a href="../index.html" style="background-color: white;"><img style="width: 10%; height: 10%;" class="position" src="..//image/logo_star_wars.png" alt="filtre personnage"></a>
+        <a href="../index.html" style="background-color: white;">
+            <img style="width: 10%; height: 10%;" class="position" src="..//image/logo_star_wars.png" alt="filtre personnage">
+        </a>
     </footer>
-
-    <script>
-        function showPopup(title, content) {
-            document.getElementById('popup-title').innerText = title;
-    
-            // Créer une liste à partir du contenu des prérequis
-            const contentList = content.split(',').map(item => item.trim()); // Diviser le contenu par les virgules
-            const ul = document.createElement('ul');
-            contentList.forEach(item => {
-                const li = document.createElement('li');
-                li.innerText = item;
-                ul.appendChild(li);
-            });
-    
-            const popupContent = document.getElementById('popup-content');
-            popupContent.innerHTML = ''; // Vider le contenu existant
-            popupContent.appendChild(ul); // Ajouter la liste
-    
-            document.getElementById('popup').style.display = 'block';
-            document.getElementById('overlay').style.display = 'block';
-        }
-    
-        function closePopup() {
-            document.getElementById('popup').style.display = 'none';
-            document.getElementById('overlay').style.display = 'none';
-        }
-    </script>
-    
 </body>
 </html>
