@@ -33,8 +33,8 @@ function obtenirReponse(selection) {
     const reponses = {
         0: "",
         1: "<a href='https://swgoh.gg/' target='_blank'>page swgoh.gg</a>",
-        2: "<a href='filtre-recherche/filtre-personnage.html'>Filtre personnage</a>",
-        3: "<a href='filtre-recherche/filtre-vaisseaux.html'>Filtre vaisseaux</a>",
+        2: "<a href='https://e-rimbault.github.io/swgoh-kit/filtre-recherche/filtre-personnage.html'>Filtre personnage</a>",
+        3: "<a href='https://e-rimbault.github.io/swgoh-kit/filtre-recherche/filtre-vaisseaux.html'>Filtre vaisseaux</a>",
         4: "<a href='filtre-recherche/recherche-perso.html'>Recherche personnage</a>",
         5: "<a href='filtre-recherche/recherche-vaisseaux.html'>Recherche vaisseaux</a>",
         6: "<a href='guide-du-voyage/guide-voyage.html'>Guide du voyage</a>",
