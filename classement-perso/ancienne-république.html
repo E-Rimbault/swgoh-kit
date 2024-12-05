@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+<title>ancienne république</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="author" content="Rimbault Enzo" >
+
+<link rel="stylesheet" href="../style/styles.css">
+<link rel="icon" type="image/png" href="../image/old-republic.png">
+
+ 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cells = document.querySelectorAll('td');
+        let filledCount = 0;
+        let imageCount = 0;
+
+        cells.forEach(cell => {
+            if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
+                filledCount++;
+                if (cell.querySelector('img')) {
+                    imageCount++;
+                }
+            }
+        });
+
+        const th = document.querySelector('thead th');
+        th.textContent += ` (${imageCount}/${filledCount})`;
+    });
+</script>
+</head>
+<body class="faction">
+
+    <div><table>
+        <thead>     
+            <tr><th colspan="5">personnage avec le tag : Ancienne République</th></tr>
+        </thead>
+
+        <tr>
+            <td>
+                <a href="../html/50r-t.html"><img src="../image-perso/50-rt/50-image.png" alt="50R-T"></a>
+                <br>
+                50R-T
+            </td>
+            <td>
+                <a href="../html/bastila_shan.html"><img src="../image-perso/bastila-shan/bastila-image.png" alt="Bastila Shan"></a>
+                <br>
+                Bastila Shan
+            </td>
+            <td>
+                <a href="../html/canderous.html"><img src="../image-perso/canderous/canderous.png" alt="Canderous"></a>
+                <br>
+                Canderous Ordo
+            </td>
+            <td>
+                <a href="../html/carth_onasi.html"><img src="../image-perso/carth_onasi/carth-image.png" alt="Carth onasi"></a>
+                <br>
+                Carth Onasi
+            </td>
+            <td>
+                <a href="../html/Jedi_Revan.html"><img src="../image-perso/jkr/jkr-image.png" alt="Revan"></a>
+                <br>
+                Jedi Knight Revan
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="../html/jolee.html"><img src="../image-perso/jolee/jolee-bindo.png" alt="Jolee"></a>
+                <br>
+                Jolee Bindo
+            </td>
+            <td>
+                <a href="../html/juhani.html"><img src="../image-perso/juhani/juhani-image.png" alt="Juhani"></a>
+                <br>
+                Juhani
+            </td>
+            <td>
+                <a href="../html/mission_vao.html"><img src="../image-perso/mission/mission-image.png" alt="Mission Vao"></a>
+                <br>
+                Mission Vao
+            </td>
+            <td>
+                T3-M4
+            </td>
+            <td>
+                Zaalbar
+            </td>
+        </tr>
+    </table></div><br>
+
+   
+    <footer>
+        <a href="../filtre-recherche/filtre-personnage.html">
+            <img style="width: 10%;height: 10%;" class="position" src="../image/logo_star_wars.png" alt="filtre personnage"></a>
+    </footer>
+</body>
+
+</html>

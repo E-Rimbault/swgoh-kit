@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+<title>vaisseau rogue one</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="author" content="Rimbault Enzo" >
+
+<link rel="stylesheet" href="../style/styles.css">
+<style>
+    table, th.début{
+        border:1px solid black;
+        font-size:150%;
+        color: black;
+        margin: 0 auto;
+    }
+    table, td ,tr.fin{
+        border:1px solid black;
+        font-size:120%;
+        text-align: center;
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cells = document.querySelectorAll('td');
+        let filledCount = 0;
+        let imageCount = 0;
+  
+        cells.forEach(cell => {
+            if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
+                filledCount++;
+                if (cell.querySelector('img')) {
+                    imageCount++;
+                }
+            }
+        });
+  
+        const th = document.querySelector('thead th');
+        th.textContent += ` (${imageCount}/${filledCount})`;
+    });
+  </script>
+</head>
+
+<body class="faction">
+    <div><table>
+        <thead>     
+            <tr><th colspan="2">vaisseau Rogue One</th></tr>
+        </thead>
+    
+        <tr>
+            <td>Bistan's U-wing</td>
+            <td>Cassian's U-wing</td>
+        </tr>
+    </table></div><br>
+    
+    <footer>
+        <a href="../filtre-recherche/filtre-vaisseaux.html"><img style="width: 10%;height: 10%;" class="position" src="../image/home.PNG" alt="filtre vaisseau"></a>
+    </footer>
+</body>    
+</html>

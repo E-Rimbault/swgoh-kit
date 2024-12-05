@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+    <title>STAR WARS SWGOH</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <meta name="google-site-verification" content="google290e36499abaed59" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
+    <link rel="icon" type="image/png" href="image/logo_star_wars.png">
+    <link rel="stylesheet" href="style/styles.css">
+    <link rel="stylesheet" href="style/chatbot.css">
+    <style>
+        header {
+            background-color: transparent; /* Rend le header transparent */
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            border: none; /* Supprime la bordure du header */
+        }
+        video{
+            position: fixed;
+            position: center;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1000;
+            overflow: hidden;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <video autoplay muted loop>
+        <source src="image/swgoh.mp4" type="video/mp4">
+    </video>
+    <header>
+        <p style="text-align: center; color: purple; font-size: 200%;">SWGOH SITE WEB</p>
+    </header>
+ 
+    <footer>
+        <div id="chatbot-icon" onclick="toggleChatbot()">
+            <img src="image/logo_star_wars.png" alt="Chatbot Icon" class="chatbot-icon-img">
+        </div>
+        
+        <div id="chatbot-section">
+            <h2>SWGOH<br>Bonjour ! Que recherchez-vous ?</h2>
+            <div id="questions">
+                <select id="question-dropdown"></select>
+                <button onclick="getReponse()">Obtenir la réponse</button>
+            </div>
+            <p id="reponse"></p>
+            <button id="new-question-btn" style="display:none;" onclick="nouvelleQuestion()">Nouvelle question</button>
+        </div>
+
+        <script src="javascript/chatbot.js"></script>
+    </footer>
+</body>
+</html>

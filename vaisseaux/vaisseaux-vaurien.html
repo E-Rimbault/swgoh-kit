@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+<title>vaisseau vaurien</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="author" content="Rimbault Enzo" >
+
+<link rel="stylesheet" href="../style/styles.css">
+<style>
+    table, th.début{
+        border:1px solid black;
+        font-size:150%;
+        color: black;
+        text-align: center;
+        margin: 0 auto;
+    }
+    table, td ,tr.fin{
+        border:1px solid black;
+        font-size:150%;
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cells = document.querySelectorAll('td');
+        let filledCount = 0;
+        let imageCount = 0;
+  
+        cells.forEach(cell => {
+            if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
+                filledCount++;
+                if (cell.querySelector('img')) {
+                    imageCount++;
+                }
+            }
+        });
+  
+        const th = document.querySelector('thead th');
+        th.textContent += ` (${imageCount}/${filledCount})`;
+    });
+  </script>
+</head>
+
+<body class="faction">
+    <div><table>
+        <thead>     
+            <tr><th colspan="5">vaisseau Vaurien</tr>
+        </thead>
+        <tr>
+            <td>Comeuppance</td>
+            <td>Han's Millennium Falcon</td>
+            <td>Hound's Tooth</td>
+            <td>IG-2000</td>
+            <td>Lando's Millenum Falcon</td>
+        </tr>
+        <tr>
+            <td>Outrider</td>
+            <td>Razor Crest</td>
+            <td>Slave I</td>
+            <td>Xanadu Blood</td>
+            <td></td>
+        </tr>
+    </table></div><br>
+
+
+    <footer>
+        <a href="../filtre-recherche/filtre-vaisseaux.html"><img style="width: 10%;height: 10%;" class="position" src="../image/home.PNG" alt="filtre personnage"></a>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+
+        <script src="../javascript/bouton.js"></script>
+    </footer>
+
+</body>
+</html>
