@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+
+<head>
+    <title>Zombie Soeur de la nuit</title>
+
+    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+
+    <!-- Lien vers l'icône du site -->
+    <link rel="icon" type="image/png" href="../image-perso/zombie-nightsister/nightsisters-zombie-image.png">
+
+    <!-- Lien vers la feuille de style -->
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/capacite.css">
+</head>
+
+<body class="simple">
+
+    <!-- Entête de la page -->
+    <header class="perso">
+        <h1><u>Zombie Soeur de la nuit</u></h1>
+        <p>
+            Infâme tank des Soeur de la nuit qui inflige des malus de ténacité et ne peut être empeché de revenir à la vie indéfiniment.
+        </p>
+        <br>
+        <!-- Navigation pour les capacités du personnage -->
+        <nav class="perso" style="font-size: 20px;">
+            <a class="capacite" style="color: red;" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
+            <a class="class" href="../classement-perso/tank.html">Tank</a>
+            <a class="capacite" href="../classement-perso/soeur-de-la-nuit.html">Soeur de la nuit</a>
+        </nav>
+    </header>
+    <br>
+
+    <!-- Image principale du personnage -->
+    <img class="first" src="../image-perso/zombie-nightsister/zombie-nightsister.png" alt="Zombie"><br>
+
+    <!-- Section pour les différentes attaques spéciales -->
+    <h2 class="titre"><u>attaque basique : Fléau</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="zombie basique" src="../image-perso/zombie-nightsister/zombie-basique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque">
+                Inflige des dégâts physiques à une cible ennemie et lui inflige un malus de ténacité pendant 2 tours.
+            </p>
+        </div>
+    </div>
+
+
+    <h2 class="titre"><u>1ere spéciale: Voracité (délai: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="zombie spé" src="../image-perso/zombie-nightsister/zombie-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque">
+                Inflige des dégâts physiques à la cible ennemie. Si la santé du Zombie Soeur de la nuit est au maximum, tous ses<br>
+                affaiblissemets sont dissipés. Toutes les Soeurs de la nuit alliés récupèrent 20% de la santé maximale du Zombie.
+            </p>
+        </div>
+    </div>
+
+
+    <h2 class="titre"><u>capacité unique: Armée éternelle</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="zombie unique 1" src="../image-perso/zombie-nightsister/zombie-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque">
+                A la fin de son tour, le Zombie Soeur de la nuit gagne la raillerie pour 1 tour. S'il est vaincu alors qu'une ou plusieurs<br>
+                Soeurs de la nuit sont encore actives, le Zombie revient à la vie avec 100% de santé, ce qui ne peut pas etre évité.<br>
+                <br>
+                Si le Zombie Soeur de la nuit survit aux dégâts d'une attaque ennemie entre 2 de ses tours, il bénéficie d'un bonus<br>
+                de vitesse de 50% (cumulatif) en début de tour. Lorsqu'il est vaincu, sa vitese diminue de 50% (cumulatif). Ces effets ne sont<br>
+                ni des amélioration, ni des affaiblissemets, et ils se cumulent jusqu'à un maximum de +100% de vitesse ou un minimum de -100%<br>
+                de vitesse. Si le zombie est vaincu alors que sa vitesse est à -100% à cause de cet effet, il ne peut pas revenir à la vie.
+            </p>
+        </div>
+    </div>
+
+
+    <h2 class="titre"><u>capacité unique: Sacrifice immortel</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="zombie unique 2" src="../image-perso/zombie-nightsister/zombie-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque">
+                Le Zombie Soeur de la nuit peut revenir même s'il a été vaincu avec un malus de vitesse de -100% dù à Armée éternelle. Lorsqu'une Soeur de la nuit<br>
+                alliée est active, les 2 premières fois que qu'une Soeur de la nuit alliée est vaincu par une attaque ennemie, elle revient à la vie avec 100% de la<br>
+                santé maximale du zombie, qui est vaincu à sa place.<br>
+                <br>
+                Lorsque le Zombie Soeur de la nuit est vaincu par cet effet, il perd toute sa protection et revient à la vie avec 50% de jauge de tour.<br>
+                Tous les effets de vitesse négatifs dus à Armée éternelle sont dissipés. Cet effet ne déclenche pas l'effett réducteur de vitesse d'Armée éternelle.
+            </p>
+        </div>
+    </div>
+
+
+    <footer>
+        <!-- Bouton pour remonter en haut de la page -->
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+
+        <!-- Script JavaScript pour le bouton -->
+        <script src="../javascript/bouton.js"></script>
+    </footer>
+</body>
+</html>    

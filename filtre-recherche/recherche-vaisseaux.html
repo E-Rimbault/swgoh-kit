@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+
+<head>
+    <title>recherche</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+
+    <link rel="stylesheet" href="../style/styles.css">
+
+    <style>
+        /* Ajout de styles pour la liste des vaisseaux */
+        #listevaisseaux li {
+            color: white;
+            /* Changer la couleur du texte en blanc */
+            display: none;
+            /* Cacher initialement les éléments de la liste */
+        }
+    </style>
+</head>
+
+<body class="simple">
+    <input type="text" id="recherche" placeholder="Rechercher un vaisseaux..." onkeyup="recherchevaisseaux()">
+    <ol id="listevaisseaux">
+        <li> 
+            <figure> 
+                <a href="../html/phantom2.html"><img src="../vaisseaux/phantom2/phantom_2.png" alt="PhantomII"></a> 
+                <figcaption>PhantomII</figcaption> 
+            </figure> 
+            <a class="recherche" href="../html/vaisseau-coté-lumineux.html">Coté Lumineux</a> 
+            <a class="recherche" href="../html/vaisseau-attaquant.html">Attaquant</a> 
+            <a class="recherche" href="../html/vaisseaux-rebelle.html">Rebelle</a> 
+            <a class="recherche" href="../html/vaisseaux-phoenix.html">Phoenix</a> 
+            <a class="recherche" href="../html/vaisseux-de-marchandise.html">Vaisseau de Marchandise</a> 
+        </li>
+    </ol>
+
+    <script>
+        function supprimerAccents(texte) {
+            return texte.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        }
+    
+        function afficherTousLesVaisseaux() {
+            var vaisseaux = document.getElementById('listevaisseaux').getElementsByTagName('li');
+            for (var k = 0; k < vaisseaux.length; k++) {
+                vaisseaux[k].style.display = 'block';
+            }
+        }
+    
+        function recherchevaisseaux() {
+            var recherche = supprimerAccents(document.getElementById('recherche').value.toLowerCase()); // Récupérer le texte de recherche, le convertir en minuscules et supprimer les accents
+            var vaisseaux = document.getElementById('listevaisseaux').getElementsByTagName('li'); // Sélectionner les éléments de la liste
+    
+            if (recherche === "") { // Si le champ de recherche est vide
+                afficherTousLesVaisseaux(); // Afficher tous les vaisseaux
+                return;
+            }
+    
+            var criteres = recherche.split(/[\s,.]+/); // Diviser le terme de recherche en plusieurs critères sur les espaces ou les virgules
+    
+            for (var i = 0; i < vaisseaux.length; i++) {
+                var nomvaisseaux = supprimerAccents(vaisseaux[i].textContent.toLowerCase()); // Récupérer le nom du vaisseaux, le convertir en minuscules et supprimer les accents
+    
+                var correspond = criteres.every(function (critere) {
+                    return nomvaisseaux.includes(critere); // Vérifier si chaque critère est inclus dans le nom du vaisseaux
+                });
+    
+                if (correspond) {
+                    vaisseaux[i].style.display = 'block'; // Afficher le vaisseaux s'il correspond à tous les critères
+                } else {
+                    vaisseaux[i].style.display = 'none'; // Masquer le vaisseaux s'il ne correspond pas à tous les critères
+                }
+            }
+    
+            if (recherche === ".") { // Si l'utilisateur entre "."
+                afficherTousLesVaisseaux(); // Afficher tous les vaisseaux
+            }
+        }
+    
+        window.onload = afficherTousLesVaisseaux; // Afficher tous les vaisseaux au chargement de la page
+    </script>
+    
+    <footer>
+        <!-- Bouton pour remonter en haut de la page -->
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+
+        <!-- Script JavaScript pour le bouton -->
+        <script src="../javascript/bouton.js"></script>
+    </footer>
+</body>
+
+</html>

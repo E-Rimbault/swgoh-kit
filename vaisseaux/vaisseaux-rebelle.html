@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+<title>vaisseau rebelle</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="author" content="Rimbault Enzo" >
+
+<link rel="stylesheet" href="../style/styles.css">
+<style>
+    table, th.début{
+        border:1px solid black;
+        font-size:150%;
+        color: black;
+        text-align: center;
+        margin: 0 auto;
+    }
+    table, td ,tr.fin{
+        border:1px solid black;
+        font-size:150%;
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cells = document.querySelectorAll('td');
+        let filledCount = 0;
+        let imageCount = 0;
+  
+        cells.forEach(cell => {
+            if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
+                filledCount++;
+                if (cell.querySelector('img')) {
+                    imageCount++;
+                }
+            }
+        });
+  
+        const th = document.querySelector('thead th');
+        th.textContent += ` (${imageCount}/${filledCount})`;
+    });
+  </script>
+</head>
+
+<body class="faction">
+    <div><table>
+        <thead>     
+            <tr><th colspan="6">vaisseau Rebelle</th></tr>
+        </thead>
+        <tr>
+            <td>Biggs Darkligter's X-wing</td>
+            <td>Bistan's U-wing</td>
+            <td>Cassian's U-wing</td>
+            <td>Ghost</td>
+            <td>Han's Millenium Falcon</td>
+            <td>Home One</td>
+        </tr>
+        <tr>
+            <td>Outrider</td>
+            <td>
+                <!-- Lien avec une image -->
+                <a href="../html/phantom2.html"><img class="first" src="../vaisseaux/phantom2/phantom_2.png" alt="PhantomII"></a>
+                <br>
+                PhantomII
+            </td>
+            <td>
+                <!-- Lien avec une image -->
+                <a href="../html/profundity.html"><img class="first" src="../vaisseaux/profundity/profundity_image.png" alt="Profundity"></a>
+                <br>
+                Profundity
+            </td>
+            <td>Raven's Claw</td>
+            <td>Rebel Y-wing</td>
+            <td>Wedge Antilles's X-wing</td>
+        </tr>
+    </table></div><br>
+
+
+    <footer>
+        <a href="../filtre-recherche/filtre-vaisseaux.html"><img style="width: 10%;height: 10%;" class="position" src="../image/home.PNG" alt="filtre personnage"></a>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+
+        <script src="../javascript/bouton.js"></script>
+    </footer>
+
+</body>
+</html>

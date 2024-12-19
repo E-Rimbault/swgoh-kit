@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+
+<head>
+    <title>Jango Fett</title>
+
+    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+
+    <!-- Lien vers l'icône du site -->
+    <link rel="icon" type="image/png" href="../image-perso/jango-fett/jango.png">
+
+    <!-- Lien vers la feuille de style -->
+    <link rel="stylesheet" href="../style/capacite.css">
+    <link rel="stylesheet" href="../style/styles.css">
+</head>
+
+<body class="simple">
+
+    <!-- Entête de la page -->
+    <header class="perso">
+        <h1><u>Jango Fett</u></h1>
+        <p>
+            célèbre chasseur de primes qui exploite les ennemis subissant un affaiblissements et inflige des brûlures.
+        </p>
+        <br>
+        <!-- Navigation pour les capacités du personnage -->
+        <nav class="perso" style="font-size: 20px;">
+            <a class="capacite" style="color: red;" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
+            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
+            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
+            <a class="capacite" href="../classement-perso/chasseur-de-primes.html">Chasseur de primes</a>
+            <a class="capacite" href="../classement-perso/mandalorien.html">mandalorien</a>
+            <a class="capacite" href="../classement-perso/mercenaire.html">Mercenaire</a>
+            <a class="capacite" href="../classement-perso/vaurien.html">Vaurien</a>
+            <a class="capacite" href="../classement-perso/séparatiste.html">Séparatiste</a>
+        </nav>
+    </header>
+    <br>
+
+    <!-- Image principale du personnage -->
+    <img class="first" src="../image-perso/jango-fett/jango-image.png" alt="Jango Fett"><br>
+
+    <h2 class="titre"><u>attaque basique : Tir déloyal</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Jango Basic" src="../image-perso/jango-fett/jango-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque">
+                Inflige des dégâts physiques à la cible ennemie, et confère un bonus d'attaque de 15% pour chaque<br>
+                ennemi souffrant d'un affaiblissement pendant cette attaque. Si la cible subit un affaiblissement, Jango
+                Fett attaque à nouveau.
+            </p>
+        </div>
+    </div>
+
+
+    <h2 class="titre"><u>1ere spéciale: Explosion de shrapnel (délai: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Jango spé 1" src="../image-perso/jango-fett/jango-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque">
+                Inflige des dégâts physiques à une cible ennemie et à un autre ennemi aléatoire.<br>
+                Inflige l'immunité aux soins et Faux pas pendant 2 tours.
+            </p>
+        </div>
+    </div>
+
+
+    <h2 class="titre"><u>2eme spéciale: Conflagration (délai: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Jango spé 2" src="../image-perso/jango-fett/jango-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque">
+                Inflige une brûlure pendant 3 tours, puis inflige des dégâts physiques<br>
+                à tous les ennemis. Cette attaque ne peut pas être esquivée.<br>
+                <br>
+                Conflagration sur une cible ennemie :<br>
+                <br>
+                Perte de santé maximale de 25% (cumulatif) si la cible ennemie subit un affaiblissement.<br><br>
+                Conflagration sur un boss de raid ou une Légende Galactique:<br><br>
+                -10% de ténacité (cumulatif) si la cible subit un affaiblissement.
+            </p>
+        </div>
+    </div>
+
+
+    <!-- Capacités spéciales du personnage -->
+    <h2 class="titre"><u>Capacité de chef: Gagner du terrain</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Jango Lead" src="../image-perso/jango-fett/jango-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque">
+                Les Vauriens alliés bénéficient d'un bonus de vitesse de +30. Tous les ennemis subissent un malus de<br>
+                pouvoir de -20% pour chaque affaiblissement infligé à un chasseur de primes allié, et un malus de<br>
+                ténacité de -40%. Les ennemis souffrant de brûlures ne peuvent pas obtenir un bonus de jauge de tour.<br>
+                Les chasseurs de primes bénéficient d'un bonus de +35% d'attaque tant que <u class="speciale">Détermination de
+                    chasseur de primes</u><br>
+                est actif. Lorsque Jango Fett est placé dans l'emplacement de chef et non dans l'emplacement d'allié, le contrat
+                suivant est actif:<br>
+                <br>
+                <u class="speciale">Contrat :</u> Infliger 20 fois des dégâts à un ennemi subissant un affaiblissement.<br>
+                Les ennemis doivent déjà être affaiblis avant le début de l'attaque pour être pris en compte.<br>
+                (Seuls les chasseurs de primes alliés peuvent participer au contrat).<br>
+                <br>
+                <u class="speciale">Récompense :</u> Tous les chasseurs de primes bénéficient de <u
+                    class="speciale">Détermination de chasseur de primes</u><br>
+                au début de leur prochain tour et d'un bonus de chances de coup critique de +25% .<br>
+                Les primes de tous les chasseurs de primes sont activées.
+            </p>
+        
+        </div>
+    </div>
+
+    <h2 class="titre"><u>capacité unique: Mauvaise réputation</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Jango Unique" src="../image-perso/jango-fett/jango-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque">
+                Jango Fett obtient un bonus de santé maximale +50% et de pénétration de défense de +100%.<br>
+                Les ennemis vaincus pendant son tour ne peuvent pas être ranimés.<br>
+                <br>
+                Au début de l'affrontement, et à chaque fois qu'il élimine un ennemi, Jango Fett récupère 100%<br>
+                de protection et obtient la capacité <u class="speciale">Détérmination du chasseur de primes</u>jusqu'à ce qu'il
+                soit vaincu<br>
+                <br>
+                <u class="speciale">Détermination du chasseur de primes :</u> Cette unité ignore la raillerie pendant son
+                tour<br>
+                et est ranimée avec 100% de santé lorsqu'elle vaincue. Ne peut pas être dissipé ou empéché.
+            </p>
+        </div>
+    </div>
+
+
+    <h2 class="prime">Prime de Jango Fett</h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Jango prime" src="../image-perso/jango-fett/jango-prime.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque">
+                A chaque fois que Jango Fett reçoit des récompenses pour un contrat rempli, ou lorsque le chef de l'escouade est
+                un<br>
+                autre allié Séparatiste, il bénéficie également de la prime suivate. (Les contrats sont conféres par certaines
+                capacités de chef des chasseurs de primes)<br><br>
+        
+                <u class="speciale">Prime :</u> Jango Fett obtient l'immunité aux dégâts pendant 2 tours (ne peut pas être
+                dissipés ou empeché) et gagne +50% d'attaque.
+            </p>
+        </div>
+    </div>
+
+
+    <footer>
+        <!-- Bouton pour remonter en haut de la page -->
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+
+        <!-- Script JavaScript pour le bouton -->
+        <script src="../javascript/bouton.js"></script>
+    </footer>
+</body>
+
+</html>

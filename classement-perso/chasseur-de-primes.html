@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+    <title>chasseur de primes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="stylesheet" href="../style/styles.css">
+    
+    <link rel="icon" type="image/png" href="../image/prime.png">
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cells = document.querySelectorAll('td');
+            let filledCount = 0;
+            let imageCount = 0;
+
+            cells.forEach(cell => {
+                if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
+                    filledCount++;
+                    if (cell.querySelector('img')) {
+                        imageCount++;
+                    }
+                }
+            });
+
+            const th = document.querySelector('thead th');
+            th.textContent += ` (${imageCount}/${filledCount})`;
+        });
+    </script>
+</head>
+<body class="faction">
+    <div>
+        <table>
+            <thead>
+                <tr><th colspan="7">personnage avec le tag : Chasseur de Prime</th></tr>
+            </thead>
+            <tr>
+                <td>Aurra Sing</td>
+                <td>
+                    <a href="../html/boba.html"><img src="../image-perso/boba-fett/boba-image.png" alt="Boba Fett"></a>
+                    <br>Boba Fett
+                </td>
+                <td>
+                    <a href="../html/Boba_son_of_jango.html"><img src="../image-perso/boba-scion-jango/boba-image.png" alt="Boba Fett, scion of Jango"></a>
+                    <br>Boba Fett, Scion of Jango
+                </td>
+                <td>Bossk</td>
+                <td>Boushh (Leia Organa)</td>
+                <td>Cad Bane</td>
+                <td>Dengar</td>
+            </tr>
+            <tr>
+                <td>Embo</td>
+                <td>
+                    <a href="../html/fennec.html"><img src="../image-perso/fennec/fennec.png" alt="Fennec"></a>
+                    <br>Fennec Shand
+                </td>
+                <td>Greedo</td>
+                <td>Greef Karga</td>
+                <td>Ig-88</td>
+                <td>
+                    <a href="../html/jabba.html"><img src="../image-perso/jabba/jabba-image.png" alt="Jabba"></a>
+                    <br>Jabba the Hutt
+                </td>
+                <td>
+                    <a href="../html/jango_fett.html"><img src="../image-perso/jango-fett/jango.png" alt="Jango Fett"></a>
+                    <br>
+                    Jango Fett
+                </td>
+            </tr>
+            <tr>
+                <td>Krrsantan</td>
+                <td>
+                    <a href="../html/the_mandalorian.html"><img src="../image-perso/mando/mando-image.png" alt="The Mandalorian"></a>
+                    <br>The Mandalorian
+                </td>
+                <td>Zam Wessel</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    
+    <footer>
+        <a href="../filtre-recherche/filtre-personnage.html">
+            <img style="width: 10%;height: 10%;" class="position" src="../image/logo_star_wars.png" alt="filtre personnage">
+        </a>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+    </footer>
+</body>
+</html>
