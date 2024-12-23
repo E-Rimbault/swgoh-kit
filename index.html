@@ -72,28 +72,67 @@
 </head>
 
 <body>
+    <div class="language-switcher">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" onclick="switchLanguage('fr')">
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" onclick="switchLanguage('en')">
+    </div>
     <video autoplay muted loop>
         <source src="image/swgoh.mp4" type="video/mp4">
     </video>
 
-    <header>SWGOH SITE WEB</header>
+    <header><span id="title">Site Web Star wars les héros de la galaxie</span></header>
 
     <div class="main-sections">
         <div class="section">
-            <h3>Personnages</h3>
-            <p>Explorez les personnages emblématiques de l'univers Star Wars et leurs capacités uniques dans SWGOH.</p>
+            <h3 id="Character">Personnages</h3>
             <a href="filtre-recherche/filtre-personnage.html">Voir les personnages</a>
         </div>
         <div class="section">
-            <h3>Vaisseaux</h3>
-            <p>Découvrez les vaisseaux les plus puissants et stratégiques utilisés dans les batailles galactiques.</p>
+            <h3 id="ship">Vaisseaux</h3>
             <a href="filtre-recherche/filtre-vaisseaux.html">Voir les vaisseaux</a>
         </div>
         <div class="section">
-            <h3>Événements</h3>
-            <p>Restez informé des événements en cours et planifiez vos stratégies pour obtenir les meilleures récompenses.</p>
+            <h3 id="journey">guides du voyages</h3>
             <a href="guide-du-voyage/guide-voyage.html">Voir les événements</a>
         </div>
     </div>
+
+    <script>
+        // Object to store translations
+        const translations = {
+            en: {
+                "title": "Star Wars galaxy of heros website",
+                "Character": "Character",
+                "ship": "Ship",
+                "journey" : "journey's guid"
+                
+            },
+            fr: {
+                "title": "Site Web Star wars les héros de la galaxie",
+                "Character": "personnages",
+                "ship": "vaisseaux",
+                "journey" : "Guides du voyages"
+            }
+        };
+
+        // Set the default language to English on page load
+        window.onload = function () {
+            switchLanguage('en');
+        };
+
+        // Function to switch language
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[id]'); // Select all elements with an id
+
+            elements.forEach(function(element) {
+                const translationKey = element.id;
+                if (translations[lang] && translations[lang][translationKey]) {
+                    element.textContent = translations[lang][translationKey]; // Update text content based on the selected language
+                }
+            });
+        }
+    </script>
+
+
 </body>
 </html>
