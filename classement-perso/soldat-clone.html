@@ -1,108 +1,136 @@
 <!DOCTYPE HTML>
 <html lang="fr">
+
 <head>
-<title>soldat clone</title>
+    <title>soldat clone</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="utf-8">
-<meta name="author" content="Rimbault Enzo">
-<link rel="icon" type="image/png" href="../image/républiqe.png">
-<link rel="stylesheet" href="../style/styles.css">
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const cells = document.querySelectorAll('td');
-        let filledCount = 0;
-        let imageCount = 0;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image/républiqe.png">
+    <link rel="stylesheet" href="../style/styles.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cells = document.querySelectorAll('td');
+            let filledCount = 0;
+            let imageCount = 0;
 
-        cells.forEach(cell => {
-            if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
-                filledCount++;
-                if (cell.querySelector('img')) {
-                    imageCount++;
+            cells.forEach(cell => {
+                if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
+                    filledCount++;
+                    if (cell.querySelector('img')) {
+                        imageCount++;
+                    }
                 }
-            }
-        });
+            });
 
-        const th = document.querySelector('thead th');
-        th.textContent += ` (${imageCount}/${filledCount})`;
-    });
-</script>
+            const th = document.querySelector('thead th');
+            th.textContent += ` (${imageCount}/${filledCount})`;
+        });
+    </script>
+    <style>
+        .table-container {
+            flex: 1;
+            /* Occupy all available space */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            height: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
+
 </head>
 
 <body class="faction">
-    
-    <div><table>
-        <thead>     
-            <tr><th colspan="6">personnage avec le tag : Soldat Clone</th></tr>
-        </thead>
 
-        <tr>
-            <td>
-                <a href="../html/arc_trooper.html"><img src="../image-perso/arc-trooper/arc-image.png" alt="Arc Trooper"></a>
-                <br>
-                Arc Trooper
-            </td>
-            <td>
-                <a href="../html/cody.html"><img src="../image-perso/cody/cody-image.png" alt="Cody"></a>
-                <br>
-                CC-2224 "Cody"
-            </td>
-            <td>
-                <a href="../html/ct-21_0408_echo.html"><img src="../image-perso/echo-501/echo-image.png" alt="Echo"></a>
-                <br>
-                CT-21-0408 "Echo"
-            </td>
-            <td>
-                <a href="../html/fives.html"><img src="../image-perso/fives/fives-image.png" alt="CT-5555-Fives"></a>
-                <br>
-                CT-5555 "Fives"
-            </td>
-            <td>
-                <a href="../html/rex.html"><img src="../image-perso/rex/rex-image.png" alt="CT-7567-Rex"></a>
-                <br>
-                CT-7576 "Rex"
-            </td>
-            <td>
-                <a href="../html/Captain_Rex.html"><img src="../image-perso/c-rex/Captain-Rex-image.png" alt="Capitaine Rex"></a>
-                <br>
-                Captain Rex
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Clone Sergeant - Phase 1
-            </td>
-            <td>
-                <a href="../html/echo.html"><img src="../image-perso/echo/echo-image.png" alt="Echo"></a>
-                <br>
-                Echo
-            </td>
-            <td>
-                <a href="../html/hunter.html"><img src="../image-perso/hunter/hunter-image.png" alt="Hunter"></a>
-                <br>
-                Hunter
-            </td>
-            <td>
-                <a href="../html/omega.html"><img src="../image-perso/omega/omega-image.png" alt="Omega"></a>
-                <br>
-                Omega
-            </td>
-            <td>
-                <a href="../html/tech.html"><img src="../image-perso/tech/tech-image.png" alt="Tech"></a>
-                <br>
-                Tech
-            </td>
-            <td>
-                <a href="../html/wrecker.html"><img src="../image-perso/wrecker/wreker-image.png" alt="Wrecker"></a>
-                <br>
-                Wrecker
-            </td>
-        </tr>
-    </table></div><br>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="6">personnage avec le tag : Soldat Clone</th>
+                </tr>
+            </thead>
+
+            <tr>
+                <td>
+                    <a href="../html/arc_trooper.html"><img src="../image-perso/arc-trooper/arc-image.png"
+                            alt="Arc Trooper"></a>
+                    <br>
+                    Arc Trooper
+                </td>
+                <td>
+                    <a href="../html/cody.html"><img src="../image-perso/cody/cody-image.png" alt="Cody"></a>
+                    <br>
+                    CC-2224 "Cody"
+                </td>
+                <td>
+                    <a href="../html/ct-21_0408_echo.html"><img src="../image-perso/echo-501/echo-image.png"
+                            alt="Echo"></a>
+                    <br>
+                    CT-21-0408 "Echo"
+                </td>
+                <td>
+                    <a href="../html/fives.html"><img src="../image-perso/fives/fives-image.png"
+                            alt="CT-5555-Fives"></a>
+                    <br>
+                    CT-5555 "Fives"
+                </td>
+                <td>
+                    <a href="../html/rex.html"><img src="../image-perso/rex/rex-image.png" alt="CT-7567-Rex"></a>
+                    <br>
+                    CT-7576 "Rex"
+                </td>
+                <td>
+                    <a href="../html/Captain_Rex.html"><img src="../image-perso/c-rex/Captain-Rex-image.png"
+                            alt="Capitaine Rex"></a>
+                    <br>
+                    Captain Rex
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Clone Sergeant - Phase 1
+                </td>
+                <td>
+                    <a href="../html/echo.html"><img src="../image-perso/echo/echo-image.png" alt="Echo"></a>
+                    <br>
+                    Echo
+                </td>
+                <td>
+                    <a href="../html/hunter.html"><img src="../image-perso/hunter/hunter-image.png" alt="Hunter"></a>
+                    <br>
+                    Hunter
+                </td>
+                <td>
+                    <a href="../html/omega.html"><img src="../image-perso/omega/omega-image.png" alt="Omega"></a>
+                    <br>
+                    Omega
+                </td>
+                <td>
+                    <a href="../html/tech.html"><img src="../image-perso/tech/tech-image.png" alt="Tech"></a>
+                    <br>
+                    Tech
+                </td>
+                <td>
+                    <a href="../html/wrecker.html"><img src="../image-perso/wrecker/wreker-image.png" alt="Wrecker"></a>
+                    <br>
+                    Wrecker
+                </td>
+            </tr>
+        </table>
+    </div><br>
 
     <footer>
-        <a href="../filtre-recherche/filtre-personnage.html"><img style="width: 10%;height: 10%;" class="position" src="../image/logo_star_wars.png" alt="filtre personnage"></a>
+        <a href="../filtre-recherche/filtre-personnage.html"><img style="width: 10%;height: 10%;" class="position"
+                src="../image/logo_star_wars.png" alt="filtre personnage"></a>
     </footer>
 
 </body>
+
 </html>

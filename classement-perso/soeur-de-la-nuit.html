@@ -1,97 +1,123 @@
 <!DOCTYPE HTML>
 <html lang="fr">
+
 <head>
-<title>soeur de la nuit</title>
+    <title>soeur de la nuit</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="utf-8">
-<meta name="author" content="Rimbault Enzo">
-<link rel="icon" type="image/png" href="../image/nightsister.png">
-<link rel="stylesheet" href="../style/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image/nightsister.png">
+    <link rel="stylesheet" href="../style/styles.css">
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const cells = document.querySelectorAll('td');
-        let filledCount = 0;
-        let imageCount = 0;
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cells = document.querySelectorAll('td');
+            let filledCount = 0;
+            let imageCount = 0;
 
-        cells.forEach(cell => {
-            if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
-                filledCount++;
-                if (cell.querySelector('img')) {
-                    imageCount++;
+            cells.forEach(cell => {
+                if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
+                    filledCount++;
+                    if (cell.querySelector('img')) {
+                        imageCount++;
+                    }
                 }
-            }
-        });
+            });
 
-        const th = document.querySelector('thead th');
-        th.textContent += ` (${imageCount}/${filledCount})`;
-    });
-</script>
+            const th = document.querySelector('thead th');
+            th.textContent += ` (${imageCount}/${filledCount})`;
+        });
+    </script>
+    <style>
+        .table-container {
+            flex: 1;
+            /* Occupy all available space */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            height: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body class="faction">
 
-    <div><table>
-        <thead>     
-            <tr><th colspan="7">personnage avec le tag : Soeur de la nuit</th></tr>
-        </thead>
-        <tr>
-            <td>
-                Asajj Ventress
-            </td>
-            <td>
-                <a href="../html/death_peridea.html"><img src="../image-perso/death-trooper-peridea/death-peridea-image.png" alt="Death Troopper"></a>
-                <br>
-                Death Trooper (Peridea)
-            </td>
-            <td>Great Mother</td>
-            <td>
-                <a href="../html/merrin.html"><img src="../image-perso/merrin/merrin-image.png" alt="Merrin"></a>
-                <br>
-                Merrin
-            </td>
-            <td>
-                Morgan Elsbeth
-            </td>
-            <td>
-                Mother Talzin
-            </td>
-            <td>
-                <a href="../html/night_trooper.html"><img src="../image-perso/night-trooper/trooper-image.png" alt="Night Trooper"></a>
-                <br>
-                Night Trooper
-            </td>
-        </tr>    
-        <tr>
-            <td>
-                Nightsister Acolyte
-            </td>
-            <td>
-                Nightsister Initiate
-            </td>
-            <td>
-                Nightsister Spirit
-            </td>
-            <td>
-                <a href="../html/night-sister_zombie.html"><img src="../image-perso/zombie-nightsister/nightsisters-zombie-image.png" alt="Zombie"></a>
-                <br>
-                Nightsister zombie
-            </td>
-            <td>
-                Old Daka
-            </td>
-            <td>
-                Talia
-            </td>
-            <td></td>
-        </tr>
-    </table></div><br>
-    
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="7">personnage avec le tag : Soeur de la nuit</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>
+                    Asajj Ventress
+                </td>
+                <td>
+                    <a href="../html/death_peridea.html"><img
+                            src="../image-perso/death-trooper-peridea/death-peridea-image.png" alt="Death Troopper"></a>
+                    <br>
+                    Death Trooper (Peridea)
+                </td>
+                <td>Great Mother</td>
+                <td>
+                    <a href="../html/merrin.html"><img src="../image-perso/merrin/merrin-image.png" alt="Merrin"></a>
+                    <br>
+                    Merrin
+                </td>
+                <td>
+                    Morgan Elsbeth
+                </td>
+                <td>
+                    Mother Talzin
+                </td>
+                <td>
+                    <a href="../html/night_trooper.html"><img src="../image-perso/night-trooper/trooper-image.png"
+                            alt="Night Trooper"></a>
+                    <br>
+                    Night Trooper
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Nightsister Acolyte
+                </td>
+                <td>
+                    Nightsister Initiate
+                </td>
+                <td>
+                    Nightsister Spirit
+                </td>
+                <td>
+                    <a href="../html/night-sister_zombie.html"><img
+                            src="../image-perso/zombie-nightsister/nightsisters-zombie-image.png" alt="Zombie"></a>
+                    <br>
+                    Nightsister zombie
+                </td>
+                <td>
+                    Old Daka
+                </td>
+                <td>
+                    Talia
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </div><br>
+
     <footer>
-        <a href="../filtre-recherche/filtre-personnage.html"><img style="width: 10%;height: 10%;" class="position" src="../image/logo_star_wars.png" alt="filtre personnage"></a>
+        <a href="../filtre-recherche/filtre-personnage.html"><img style="width: 10%;height: 10%;" class="position"
+                src="../image/logo_star_wars.png" alt="filtre personnage"></a>
     </footer>
-        
+
 
 </body>
+
 </html>

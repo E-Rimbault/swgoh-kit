@@ -9,11 +9,11 @@
     <link rel="icon" type="image/png" href="../image/contrebandier.png">
     <link rel="stylesheet" href="../style/styles.css">
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const cells = document.querySelectorAll('td');
             let filledCount = 0;
             let imageCount = 0;
-    
+
             cells.forEach(cell => {
                 if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
                     filledCount++;
@@ -22,11 +22,27 @@
                     }
                 }
             });
-    
+
             const th = document.querySelector('thead th');
             th.textContent += ` (${imageCount}/${filledCount})`;
         });
     </script>
+    <style>
+        .table-container {
+            flex: 1;
+            /* Occupy all available space */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            height: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body class="faction">
@@ -41,12 +57,14 @@
                 <td>Aurra Sing</td>
                 <td>Baylan Skoll</td>
                 <td>
-                    <a href="../html/Boba_son_of_jango.html"><img src="../image-perso/boba-scion-jango/boba-image.png" alt="Boba Fett, scion of Jango"></a>
+                    <a href="../html/Boba_son_of_jango.html"><img src="../image-perso/boba-scion-jango/boba-image.png"
+                            alt="Boba Fett, scion of Jango"></a>
                     <br>Boba Fett, Scion of Jango
                 </td>
                 <td>Cad Bane</td>
                 <td>
-                    <a href="../html/canderous.html"><img src="../image-perso/canderous/canderous.png" alt="Canderous Ordo"></a>
+                    <a href="../html/canderous.html"><img src="../image-perso/canderous/canderous.png"
+                            alt="Canderous Ordo"></a>
                     <br>
                     Canderous Ordo
                 </td>
@@ -66,7 +84,8 @@
             <tr>
                 <td>Hondo Ohnaka</td>
                 <td>
-                    <a href="../html/jango_fett.html"><img src="../image-perso/jango-fett/jango.png" alt="Jango Fett"></a>
+                    <a href="../html/jango_fett.html"><img src="../image-perso/jango-fett/jango.png"
+                            alt="Jango Fett"></a>
                     <br>
                     Jango Fett
                 </td>
@@ -78,7 +97,8 @@
             <tr>
                 <td>Marrok</td>
                 <td>
-                    <a href="../html/mission_vao.html"><img src="../image-perso/mission/mission-image.png" alt="Mission Vao"></a>
+                    <a href="../html/mission_vao.html"><img src="../image-perso/mission/mission-image.png"
+                            alt="Mission Vao"></a>
                     <br>
                     Mission Vao
                 </td>
@@ -101,7 +121,8 @@
 
     <footer>
         <a href="../filtre-recherche/filtre-personnage.html">
-            <img style="width: 10%; height: 10%;" class="position" src="../image/logo_star_wars.png" alt="filtre personnage">
+            <img style="width: 10%; height: 10%;" class="position" src="../image/logo_star_wars.png"
+                alt="filtre personnage">
         </a>
     </footer>
 </body>

@@ -1,15 +1,16 @@
 <!DOCTYPE HTML>
 <html lang="fr">
+
 <head>
     <title>rebelle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="author" content="Rimbault Enzo" >
+    <meta name="author" content="Rimbault Enzo">
     <link rel="icon" type="image/png" href="../image/rebelle.png">
     <link rel="stylesheet" href="../style/styles.css">
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const cells = document.querySelectorAll('td');
             let filledCount = 0;
             let imageCount = 0;
@@ -27,18 +28,37 @@
             th.textContent += ` (${imageCount}/${filledCount})`;
         });
     </script>
+    <style>
+        .table-container {
+            flex: 1;
+            /* Occupy all available space */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            height: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body class="faction">
     <table>
-        <thead>     
-            <tr><th colspan="8">personnage avec le tag : Rebelle</th></tr>
+        <thead>
+            <tr>
+                <th colspan="8">personnage avec le tag : Rebelle</th>
+            </tr>
         </thead>
         <tr>
             <td>Admiral Ackbar</td>
             <td>Admiral Raddus</td>
             <td>
-                <a href="../html/fulcrum.html"><img src="../image-perso/fulcrum/fulcrum-image.png" alt="Ahsoka Tano (fulcrum)"></a>
+                <a href="../html/fulcrum.html"><img src="../image-perso/fulcrum/fulcrum-image.png"
+                        alt="Ahsoka Tano (fulcrum)"></a>
                 <br>
                 Ahsoka Tano (fulcrum)
             </td>
@@ -59,7 +79,8 @@
             <td>Cara Dune</td>
             <td>Cassian Andor</td>
             <td>
-                <a href="../html/chewbacca.html"><img src="../image-perso/chewbacca/chewie-image.png" alt="Chewbacca"></a>
+                <a href="../html/chewbacca.html"><img src="../image-perso/chewbacca/chewie-image.png"
+                        alt="Chewbacca"></a>
                 <br>
                 Chewbacca
             </td>
@@ -72,7 +93,8 @@
         </tr>
         <tr>
             <td>
-                <a href="../html/cls.html"><img src="../image-perso/cls/cls-image.png" alt="Commander Luke Skywalker"></a>
+                <a href="../html/cls.html"><img src="../image-perso/cls/cls-image.png"
+                        alt="Commander Luke Skywalker"></a>
                 <br>
                 Commander Luke Skywalker
             </td>
@@ -88,7 +110,8 @@
             </td>
             <td>Han Solo</td>
             <td>
-                <a href="../html/hera_syndulla.html"><img src="../image-perso/hera-syndulla/hera-image.png" alt="Hera"></a>
+                <a href="../html/hera_syndulla.html"><img src="../image-perso/hera-syndulla/hera-image.png"
+                        alt="Hera"></a>
                 <br>
                 Hera Syndulla
             </td>
@@ -130,7 +153,8 @@
             </td>
             <td>Rebel Officer Leia Organa</td>
             <td>
-                <a href="../html/sabine_wren.html"><img src="../image-perso/sabine-wren/sabine-image.png" alt="Sabine Wren"></a>
+                <a href="../html/sabine_wren.html"><img src="../image-perso/sabine-wren/sabine-image.png"
+                        alt="Sabine Wren"></a>
                 <br>
                 Sabine Wren
             </td>
@@ -152,11 +176,13 @@
     *
     <footer>
         <a href="../filtre-recherche/filtre-personnage.html">
-            <img style="width: 10%;height: 10%;" class="position" src="../image/logo_star_wars.png" alt="filtre personnage">
+            <img style="width: 10%;height: 10%;" class="position" src="../image/logo_star_wars.png"
+                alt="filtre personnage">
         </a>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
     </footer>
 
     <!-- Include the external JavaScript files -->
 </body>
+
 </html>

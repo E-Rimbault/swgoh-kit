@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="fr">
+
 <head>
     <title>gungan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,7 @@
     <link rel="stylesheet" href="../style/styles.css">
     <link rel="icon" type="image/png" href="../image/gungan.png">
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const cells = document.querySelectorAll('td');
             let filledCount = 0;
             let imageCount = 0;
@@ -26,13 +27,32 @@
             th.textContent += ` (${imageCount}/${filledCount})`;
         });
     </script>
+    <style>
+        .table-container {
+            flex: 1;
+            /* Occupy all available space */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            height: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body class="faction">
-    
+
     <div>
         <table>
-            <thead>     
-                <tr><th colspan="5">personnage avec le tag : Gungan</th></tr>
+            <thead>
+                <tr>
+                    <th colspan="5">personnage avec le tag : Gungan</th>
+                </tr>
             </thead>
             <tr>
                 <td>Boss Nass</td>
@@ -47,9 +67,11 @@
 
     <footer>
         <a href="../filtre-recherche/filtre-personnage.html">
-            <img style="width: 10%;height: 10%;" class="position" src="../image/logo_star_wars.png" alt="filtre personnage">
+            <img style="width: 10%;height: 10%;" class="position" src="../image/logo_star_wars.png"
+                alt="filtre personnage">
         </a>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
     </footer>
 </body>
+
 </html>

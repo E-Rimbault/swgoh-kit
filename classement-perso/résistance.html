@@ -1,117 +1,141 @@
 <!DOCTYPE HTML>
 <html lang="fr">
+
 <head>
-<title>résistance</title>
+    <title>résistance</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="utf-8">
-<meta name="author" content="Rimbault Enzo">
-<link rel="icon" type="image/png" href="../image/resistance.png">
-<link rel="stylesheet" href="../style/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image/resistance.png">
+    <link rel="stylesheet" href="../style/styles.css">
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const cells = document.querySelectorAll('td');
-        let filledCount = 0;
-        let imageCount = 0;
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cells = document.querySelectorAll('td');
+            let filledCount = 0;
+            let imageCount = 0;
 
-        cells.forEach(cell => {
-            if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
-                filledCount++;
-                if (cell.querySelector('img')) {
-                    imageCount++;
+            cells.forEach(cell => {
+                if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
+                    filledCount++;
+                    if (cell.querySelector('img')) {
+                        imageCount++;
+                    }
                 }
-            }
-        });
+            });
 
-        const th = document.querySelector('thead th');
-        th.textContent += ` (${imageCount}/${filledCount})`;
-    });
-</script>
+            const th = document.querySelector('thead th');
+            th.textContent += ` (${imageCount}/${filledCount})`;
+        });
+    </script>
+    <style>
+        .table-container {
+            flex: 1;
+            /* Occupy all available space */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            height: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body class="faction">
-    <div><table>
-        <thead>     
-            <tr><th colspan="7">personnage avec le tag : Résistance</th></tr>
-        </thead>
-        <tr>
-            <td>
-                Amilyn Holdo
-            </td>
-            <td>
-                <a href="../html/bb-8.html"><img src="../image-perso/bb-8/bb-8-image.png" alt="BB-8"></a>
-                <br>
-                BB-8
-            </td>
-            <td>
-                C-3PO
-            </td>
-            <td>
-                Finn
-            </td>
-            <td>
-                Poe Dameron
-            </td>
-            <td>
-                <a href="../html/r2-2d.html"><img src="../image-perso/r2-d2/r2-image.png" alt="R2-D2"></a><br>
-                R2-D2
-            </td>
-            <td>
-                <a href="../html/hero_finn.html"><img src="../image-perso/hero-finn/finn-image.png" alt="Finn"></a>
-                <br>
-                Resistance Hero Finn
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a href="../html/hero_poe.html"><img src="../image-perso/h-poe/poe-image.png" alt="hero_poe"></a>
-                <br>
-                Resistance Hero Poe
-            </td>
-            <td>
-                Resistance Pilot
-            </td>
-            <td>
-                Resistance Trooper
-            </td>
-            <td>                
-                <a href="../html/rey.html"><img src="../image-perso/rey_gl/rey-image.png" alt="rey"><br></a>
-                Rey
-            </td>
-            <td>
-                <a href="../html/rjt.html"><img src="../image-perso/rjt/rjt-image.png"></a>
-                <br>
-                Rey (Jedi Training)
-            </td>
-            <td>
-                <a href="../html/rey_pilleuse.html"><img src="../image-perso/rey_pilleuse/rey-image.png" alt="Rey"></a>
-                <br>
-                Rey (Scavenger)
-            </td>
-            <td>
-                Rose Tico
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Veteran Smuggler Chewbacca
-            </td>
-            <td>
-                Veteran Smuggler Han Solo
-            </td>
-            <td>
-                Zorii Bliss
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table></div><br>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="7">personnage avec le tag : Résistance</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>
+                    Amilyn Holdo
+                </td>
+                <td>
+                    <a href="../html/bb-8.html"><img src="../image-perso/bb-8/bb-8-image.png" alt="BB-8"></a>
+                    <br>
+                    BB-8
+                </td>
+                <td>
+                    C-3PO
+                </td>
+                <td>
+                    Finn
+                </td>
+                <td>
+                    Poe Dameron
+                </td>
+                <td>
+                    <a href="../html/r2-2d.html"><img src="../image-perso/r2-d2/r2-image.png" alt="R2-D2"></a><br>
+                    R2-D2
+                </td>
+                <td>
+                    <a href="../html/hero_finn.html"><img src="../image-perso/hero-finn/finn-image.png" alt="Finn"></a>
+                    <br>
+                    Resistance Hero Finn
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="../html/hero_poe.html"><img src="../image-perso/h-poe/poe-image.png" alt="hero_poe"></a>
+                    <br>
+                    Resistance Hero Poe
+                </td>
+                <td>
+                    Resistance Pilot
+                </td>
+                <td>
+                    Resistance Trooper
+                </td>
+                <td>
+                    <a href="../html/rey.html"><img src="../image-perso/rey_gl/rey-image.png" alt="rey"><br></a>
+                    Rey
+                </td>
+                <td>
+                    <a href="../html/rjt.html"><img src="../image-perso/rjt/rjt-image.png"></a>
+                    <br>
+                    Rey (Jedi Training)
+                </td>
+                <td>
+                    <a href="../html/rey_pilleuse.html"><img src="../image-perso/rey_pilleuse/rey-image.png"
+                            alt="Rey"></a>
+                    <br>
+                    Rey (Scavenger)
+                </td>
+                <td>
+                    Rose Tico
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Veteran Smuggler Chewbacca
+                </td>
+                <td>
+                    Veteran Smuggler Han Solo
+                </td>
+                <td>
+                    Zorii Bliss
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div><br>
     <footer>
-        <a href="../filtre-recherche/filtre-personnage.html"><img style="width: 10%;height: 10%;" class="position" src="../image/logo_star_wars.png" alt="filtre personnage"></a>
+        <a href="../filtre-recherche/filtre-personnage.html"><img style="width: 10%;height: 10%;" class="position"
+                src="../image/logo_star_wars.png" alt="filtre personnage"></a>
     </footer>
 
 </body>
+
 </html>
