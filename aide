@@ -1,7 +1,7 @@
 <!DOCTYPE html
 <html lang="fr">
 
-<head>
+<head id="big-title">
     <title></title>
 
     <!-- Les métadonnées pour le rendu sur différents appareils -->
@@ -21,14 +21,20 @@
 
     <!-- Entête de la page -->
     <header class="perso">
-        <h1><u></u></h1>
-        <p> 
+        <div class="language-switcher">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                onclick="switchLanguage('fr')">
+            <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                onclick="switchLanguage('en')">
+        </div>
+        <h1 id="title"><u></u></h1>
+        <p id="description"> 
 
         </p>
         <br>
         <!-- Navigation pour les capacités du personnage -->
         <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" href="../classement-perso"></a>
+            <a class="capacite" style="color: blue or red ;" href="../classement-perso"></a>
             <a class="class" href="../classement-perso"></a>
             <a class="capacite" href="../classement-perso"></a>
         </nav>
@@ -39,7 +45,7 @@
     <img class="first" src="" alt=""><br>
 
     <!-- Section pour les différentes attaques spéciales -->
-    <h2 class="titre" id="basic-attack"><u>attaque basique : </u></h2>
+    <h2 class="titre" id="basic-attack"><u>Basic Attack: </u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="" src="">
@@ -75,20 +81,20 @@
         </div>
     </div>
 
-    <h2 class="titre"><u>Ultime: </u></h2>
+    <h2 class="titre"><u id="ultime-title">Ultimate: </u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="" src="">
         </div>
         <div class="right-column">
-            <p class="attaque">
+            <p class="attaque" id="ulti">
 
             </p>
         </div>
     </div>
 
     <!-- Capacités spéciales du personnage -->
-    <h2 class="titre"><u id="lead-ability-title">Capacité de chef: </u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: </u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="" src="">
