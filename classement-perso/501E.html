@@ -31,6 +31,21 @@
         });
     </script>
     <style>
+        .language-switcher {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .language-switcher img {
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+        }
+    </style>
+    <style>
         .table-container {
             flex: 1;
             /* Occupy all available space */
@@ -49,11 +64,17 @@
 </head>
 
 <body class="faction">
+    <div class="language-switcher">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+            onclick="switchLanguage('fr')">
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+            onclick="switchLanguage('en')">
+    </div>
     <div>
         <table>
             <thead>
                 <tr>
-                    <th colspan="6">personnage avec le tag : 501E</th>
+                    <th colspan="6" id="filter-title">personnage avec le tag : 501E</th>
                 </tr>
             </thead>
             <tr>
@@ -61,40 +82,39 @@
                     <a href="../html/ahsoka_tano.html"><img src="../image-perso/ahsoka-tano/Ahsoka-image.png"
                             alt="Ahsoka tano"></a>
                     <br>
-                    Ahsoka Tano (chipie)
+                    <p class="traduction" id="chipie">Ahsoka Tano (Snips)</p>
                 </td>
                 <td>
                     <a href="../html/arc_trooper.html"><img src="../image-perso/arc-trooper/arc-image.png"
                             alt="Arc Trooper"></a>
                     <br>
-                    Arc Trooper
+                    <p class="traduction" id="arc">Arc Trooper</p>
                 </td>
                 <td>
-                    <a href="../html/ct-21_0408_echo.html"><img src="../image-perso/echo-501/echo-image.png"
-                            alt="Echo"></a>
+                    <a href="../html/ct-21_0408_echo.html"><img src="../image-perso/echo-501/echo-image.png" alt="Echo"></a>
                     <br>
-                    CT-21-0408 "Echo"
+                    <p class="traduction" id="echo">CT-21-0408 "Echo"</p>
                 </td>
                 <td>
-                    <a href="../html/fives.html"><img src="../image-perso/fives/fives-image.png"
-                            alt="CT-5555-Fives"></a>
+                    <a href="../html/fives.html"><img src="../image-perso/fives/fives-image.png" alt="CT-5555-Fives"></a>
                     <br>
-                    CT-5555 "Fives"
+                    <p class="traduction" id="fives">CT-5555 "Fives"</p>
                 </td>
                 <td>
                     <a href="../html/rex.html"><img src="../image-perso/rex/rex-image.png" alt="CT-7567-Rex"></a>
                     <br>
-                    CT-7567 "Rex"
+                    <p class="traduction" id="rex">CT-7567 "Rex"</p>
                 </td>
                 <td>
-                    <a href="../html/general_skywalker.html"><img src="../image-perso/gas/gas-image.png"
-                            alt="General skywalker"></a>
+                    <a href="../html/general_skywalker.html"><img src="../image-perso/gas/gas-image.png" alt="General skywalker"></a>
                     <br>
-                    General Skywalker
+                    <p class="traduction" id="gas">General Skywalker</p>
                 </td>
             </tr>
         </table>
     </div><br>
+
+
 
 
     <footer>
@@ -104,6 +124,45 @@
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
 
         <script src="../javascript/bouton.js"></script>
+            <script>
+        // Object to store translations
+        const translations = {
+            en: {
+                "filter-title": "Character with the tag : 501ST",
+                "chipie": "Ahsoka Tano (Snips)",
+                "arc": "Arc Trooper",
+                "echo": 'CT-21-0408 "Echo"',
+                "fives": 'CT-5555 "Fives"',
+                "rex": 'CT-7567 "Rex"',
+                'gas': "General Skywalker"
+            },
+            fr: {
+                "filter-title": "Personnage avec le tag : 501E",
+                "chipie": "Ahsoka Tano (Chipie)",
+                "arc": "Soldat CRA",
+                "echo": 'CT-21-0408 "Écho"',
+                "fives": 'CT-5555 "Cinqs"',
+                "rex": 'CT-7567 "Rex"',
+                "gas": "General Skywalker"
+            }
+        };
+        // Set the default language to English on page load
+        window.onload = function () {
+            switchLanguage('en');
+        };
+
+        // Function to switch language
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[id]'); // Select all elements with an id
+
+            elements.forEach(function (element) {
+                const translationKey = element.id;
+                if (translations[lang] && translations[lang][translationKey]) {
+                    element.textContent = translations[lang][translationKey]; // Update text content based on the selected language
+                }
+            });
+        }
+    </script>
     </footer>
 
 </body>
