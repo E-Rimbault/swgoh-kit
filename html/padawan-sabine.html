@@ -31,28 +31,35 @@
 
 <body class="simple">
 
-    <header class="perso">
-        <div class="language-switcher">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                onclick="switchLanguage('fr')">
-            <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                onclick="switchLanguage('en')">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/padawin/sabine-image.png" alt="malak image"
+                style="max-width: 100%; max-height: 100%;">
         </div>
-        <h1 id="title"><u>Padawn Sabine Wren</u></h1>
-        <p id="description">
-            Trained by the legendary Ahsoka Tano in the ways of the Force, Padawan Sabine Wren<br>
-            utilizes both her Master's Jedi training and her family's Mandalorian armor to defeat her foes
-        </p>
-        <br>
+        <div style="flex: 1; padding-left: 20px;">
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    onclick="switchLanguage('fr')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    onclick="switchLanguage('en')">
+            </div>
+            <h1 id="title"><u>Padawn Sabine Wren</u></h1>
+            <p id="description">
+                Trained by the legendary Ahsoka Tano in the ways of the Force, Padawan Sabine Wren<br>
+                utilizes both her Master's Jedi training and her family's Mandalorian armor to defeat her foes
+            </p>
+            <br>
 
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html" id="light-side">Light Side</a>
-            <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
-            <a class="capacite" href="../classement-perso/mandalorien.html" id="mandalorian">Mandalorian</a>
-            <a class="capacite" href="../classement-perso/spectre.html" id="spectre">Spectre</a>
-            <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html"
-                id="neutral-force-user">Unaligned Force User</a>
-        </nav>
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html"
+                    id="light-side">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/mandalorien.html" id="mandalorian">Mandalorian</a>
+                <a class="capacite" href="../classement-perso/spectre.html" id="spectre">Spectre</a>
+                <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html"
+                    id="neutral-force-user">Unaligned Force User</a>
+            </nav>
+        </div>   
     </header>
     <br>
     <!-- Image principale du personnage -->
@@ -148,86 +155,86 @@
             </p>
         </div>
 
-    <footer>
-        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-        <script src="../javascript/bouton.js"></script>
-        <script>
-            const translations = {
-                en: {
-                    "title" : "Padawan Sabine Wren",
-                    "description" : "Trained by the legendary Ahsoka Tano in the ways of the Force, Padawan Sabine Wren\nutilizes both her Master's Jedi training and her family's Mandalorian armor to defeat her foes",
-                    "lightside" : "Light Side",
-                    "attacker" : "Attacker",
-                    "mandalorian" : "Mandalorian",
-                    "spectre" : "Spectre",
-                    "neutral-force-user": "Unaligned Force User",
-                    "basic-attack-title" : "<u>Basic Attack: Practiced Swing</u>",
-                    "basic-attack" : "Sabine gains +20% Armor Penetration for 1 turn (stacking, max 60%). Deal Physical damage to target enemy.\n This ability gains 15% Critical Chance for each ally below 100% health.",
-                    "special-attack1-title" : "<u>1st Special: Frantic Strike (cooldown: 3)</u>",
-                    "special-attack1" : "Deal Physical damage to target enemy and inflict Pinned for 2 turns. Then deal Physical damage to all enemies and inflict <u class='speciale'>Off Balance</u> on them for 1 turn. Enemies that are critically hit by this attack are inflicted with another stack of Off Balance for 1 turn, which can't be evaded or resisted.\n\n <u class='speciale'>Off Balance:</u> Lose 10% Health and 10% Turn Meter if damaged by an attack",
-                    "special-attack2-title": "<u>2nd Special: Fallback Tactic (cooldown: 3)</u>",
-                    "special-attack2" : "Deal Physical damage twice to target enemy. For each buff and debuff on the target enemy this attack gains 10% Critical Damage (max 100%). This attack gains 5% Critical Chance for each Mandalorian ally, doubled for Spectre allies. Remove 25% Turn Meter and an additional 5% Turn Meter per Relic Amplifier Level for each critical hit scored.",
-                    "unique-ability-title" : "<u>Unique Ability: Sentinel of Lothal</u>",
-                    "unique-ability" : "Padawan Sabine Wren has +70% counter chance and +25% Critical Chance and Critical Damage.\n\n If there is a Light Side Mandalorian ally in the Leader slot, whenever Sabine uses a Special ability, she gains a stack of Ancestral Resolve (max 100) for the rest of battle, which can't be copied,dispelled, or prevented.\n\nWhenever another Spectre ally uses a Special ability, Sabine gains 1 stack of Force Connection, doubled if the ally is Ahsoka Tano, for the rest of battle, which can't be copied, dispelled, or prevented.\n\nWhenever Sabine gains a stack of Force Connection from another Spectre ally, she gains an additional stack of Force Connection.\n\n Whenever Ahsoka Tano uses an Ultimate ability, Sabine gains 10 stacks of Force Connection and 5% Mastery for the rest of battle, which can't be copied, dispelled, or prevented.\n\n  At 20 stacks of Force Connection, and every 10 stacks after, Sabine gains 50% Critical Damage for the rest of battle.\n\n <u class='omicron'>While in Territory Wars:</u> Light Side Mandalorian allies have +50% Defense, Offense, and +30 Speed, doubled for Spectre allies.\n\nWhenever Sabine gains a stack of Ancestral Resolve or Force Connection, she also gains 2% Critical Damage and Defense Penetration.\n\n If the ally in the Leader slot is Ahsoka Tano, Sabine starts the battle with 20 stacks of Force Connection.\n\n Whenever Ahsoka Tano uses a Special ability, she gains 10% Ultimate charge.\n\n Whenever Ezra Bridger (Exile) gains Purrgil Migration, he gains an additional 5 stacks of Purrgil Migration.\n\n Whenever a Spectre ally loses Exile, they gain 300% Offense for 2 turns.",
-                },
-                fr: {
-                    "title" : "Padawan Sabine Wren",
-                    "description" : "Formée par la légendaire Ahsoka Tano aux voies de la force, la Padawan Sabine Wren utilise à la fois\n l'entrainement jedi de son Maitre et l'armure Mandalorienne de sa famille pour vaincre ses ennemis.",
-                    "lightside" : "Coté Lumineux",
-                    "attacker" : "Attaquant",
-                    "mandalorian" : "Mandalorien",
-                    "spectre" : "Spectre",
-                    "neutral-force-user": "Utilisateur de la Force non aligné",
-                    "basic-attack-title" : "<u>Attaque Basique : Attaque Maitrisée</u>",
-                    "basic-attack" : "Sabine gagne +20% de pénétration d'armure pendant 1 tour (cumulable, max 60%). Inflige des dégâts physiques à la cible ennemie.\n Cette capacité gagne 15% de chances de coup critique pour chaque allié ayant moins de 100% de santé.",
-                    "special-attack1-title" : "<u>1ere Spéciale : Frappe effrénée (délai : 3)</u>",
-                    "special-attack1" : "Inflige des dégâts physiques à la cible ennemie et lui inflige Coincé pendant 2 tours Ensuite, inflige des dégâts physiques à tous les ennemis et leur inflige <u class='speciale'>Déséquilibre</u> pendant 1 tour. Les ennemis touchés par un coup critique avec cette attaque subissent un autre cumul de Déséquilibre pendant 1 tour (ne peut pas être esquivé ou résisté).\n\n <u class='speciale'>Déséquilibre:</u> Perd 10% de santé et 10% de jauge de tour en cas de dégâts d'attaque subis",
-                    "special-attack2-title" : "<u>2eme spéciale : Tactique de Repli (délai : 3)</u>",
-                    "special-attack2" : "Inflige des dégâts physiques deux fois à la cible ennemie. Pour chaque amélioration et affaiblissement sur la cible ennemie, cette attaque obtient 10% de dégâts critiques (max 100%). Cette attaque obtient 5% de chances de coup critique pour chaque alliés Mandalorien, doublé pour les alliés Spectre. Réduit la jauge de tour de 25% et de 5% supplémentaires la jauge de tour par niveau d'amplificateur de relique pour chaque coup critique infligé.",
-                    "unique-ability-title" : "<u>Sentinelle de Lothal</u>",
-                    "unique-ability" : "La Padawan Sabine Wren a +70% de chances de contre-attaque et +25% de chances de coup critique et de dégâts critiques.\n\n S'il y a un allié Mandalorien du Coté Lumineux dans la position de chef, chaque fois que Sabine utilise une capacité spéciale, elle gagne un cumul de Détermination Ancestrale (max 100) pour le reste de la bataille (ne peut pas être copié, dissipé ou évité).\n\n Chaque fois qu'un autre allié Specre utilise une capacité Spéciale, Sabine gagne 1 cumul de connexion de Force, doublé si l'allié est Ahsoka Tano, pour le reste de la bataille (ne peut pas être copié, dissipé ou évité).\n\n Chaque fois que Sabine gagne un cumul de connexion de Force d'un autre allié Spectre, elle gagne un cumul supplémentaire de Conenxion avec la force.\n\nChaque fois qu'Ahsoka Tano utilise une capacité ultime, Sabine gagne 10 cumuls de Connexion avec la Force et 5% de cumul pour le reste de la bataille (ne peut pas être copié, dissipé ou évité).\n\nA 20 cumuls de Connexion avec la Force et tous les 10 cumuls supplémentaires après cela, Sabine gagne 50% de dégâts critique supplémentaires pour le reste de la bataille.\n\n<u class='omicron'>Dans les Guerres de Territoire:</u>\n\n Les alliés Mandaloriens du Coté Lumineux ont +50% de défense et d'attaque et +30 en vitess, doublés pour les alliés Spectre.\n\nChaque fois que Sabine gagne un cumul de Détermination ancestrale ou Connexion avec la Force, elle gagne également 2% en déégâts critiques et pénétration défensive.\n\n Si l'allié dans l'emplacement de chef est Ahsoka Tano, Sabine commence la bataille avec 20 cumuls de Connexion avec la Force.\n\n Chaque fois qu'Ahsoka Tano utilise une capacité spéciale, elle gagne 10% de charge ultime.\n\n Chaque fois qu'Ezra Bridger (Exilé) obtient Migration dees purrgils, il obtient 5 cumuls supplémentaires de Migration des purrgils.\n\n Chaque fois qu'un allié Spectre perd Exil, il obtient +300% d'attaque pendant 2 tours.",
-                }
-            };
-            // Set the default language to English on page load
-            window.onload = function () {
-                switchLanguage('en');
-            };
-            function switchLanguage(lang) {
-                const elements = {
-                    "title": "title",
-                    "description": "description",
-                    "lightside": "light-side",
-                    "attacker": "attacker",
-                    "mandalorian": "mandalorian",
-                    "spectre": "spectre",
-                    "neutral-force-user" : "neutral-force-user",
-                    "basic-attack-title" : "basic-attack-title",
-                    "basic-attack" : "basic-attack",
-                    "special-attack1-title" : "special-attack1-title",
-                    "special-attack1" : "special-attack1",
-                    "special-attack2-title" : "special-attack2-title",
-                    "special-attack2" : "special-attack2",
-                    "unique-ability-title" : "unique-ability-title",
-                    "unique-ability" : "unique-ability",
-                };
-
-            
-
-                for (const [key, id] of Object.entries(elements)) {
-                    let textContent = translations[lang][key];
-
-                    // Remplacer les '\n' par des balises <br> pour ajouter des sauts de ligne
-                    if (textContent) {
-                        textContent = textContent.replace(/\n/g, '<br>');
+        <footer>
+            <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+            <script src="../javascript/bouton.js"></script>
+            <script>
+                const translations = {
+                    en: {
+                        "title": "Padawan Sabine Wren",
+                        "description": "Trained by the legendary Ahsoka Tano in the ways of the Force, Padawan Sabine Wren\nutilizes both her Master's Jedi training and her family's Mandalorian armor to defeat her foes",
+                        "lightside": "Light Side",
+                        "attacker": "Attacker",
+                        "mandalorian": "Mandalorian",
+                        "spectre": "Spectre",
+                        "neutral-force-user": "Unaligned Force User",
+                        "basic-attack-title": "<u>Basic Attack: Practiced Swing</u>",
+                        "basic-attack": "Sabine gains +20% Armor Penetration for 1 turn (stacking, max 60%). Deal Physical damage to target enemy.\n This ability gains 15% Critical Chance for each ally below 100% health.",
+                        "special-attack1-title": "<u>1st Special: Frantic Strike (cooldown: 3)</u>",
+                        "special-attack1": "Deal Physical damage to target enemy and inflict Pinned for 2 turns. Then deal Physical damage to all enemies and inflict <u class='speciale'>Off Balance</u> on them for 1 turn. Enemies that are critically hit by this attack are inflicted with another stack of Off Balance for 1 turn, which can't be evaded or resisted.\n\n <u class='speciale'>Off Balance:</u> Lose 10% Health and 10% Turn Meter if damaged by an attack",
+                        "special-attack2-title": "<u>2nd Special: Fallback Tactic (cooldown: 3)</u>",
+                        "special-attack2": "Deal Physical damage twice to target enemy. For each buff and debuff on the target enemy this attack gains 10% Critical Damage (max 100%). This attack gains 5% Critical Chance for each Mandalorian ally, doubled for Spectre allies. Remove 25% Turn Meter and an additional 5% Turn Meter per Relic Amplifier Level for each critical hit scored.",
+                        "unique-ability-title": "<u>Unique Ability: Sentinel of Lothal</u>",
+                        "unique-ability": "Padawan Sabine Wren has +70% counter chance and +25% Critical Chance and Critical Damage.\n\n If there is a Light Side Mandalorian ally in the Leader slot, whenever Sabine uses a Special ability, she gains a stack of Ancestral Resolve (max 100) for the rest of battle, which can't be copied,dispelled, or prevented.\n\nWhenever another Spectre ally uses a Special ability, Sabine gains 1 stack of Force Connection, doubled if the ally is Ahsoka Tano, for the rest of battle, which can't be copied, dispelled, or prevented.\n\nWhenever Sabine gains a stack of Force Connection from another Spectre ally, she gains an additional stack of Force Connection.\n\n Whenever Ahsoka Tano uses an Ultimate ability, Sabine gains 10 stacks of Force Connection and 5% Mastery for the rest of battle, which can't be copied, dispelled, or prevented.\n\n  At 20 stacks of Force Connection, and every 10 stacks after, Sabine gains 50% Critical Damage for the rest of battle.\n\n <u class='omicron'>While in Territory Wars:</u> Light Side Mandalorian allies have +50% Defense, Offense, and +30 Speed, doubled for Spectre allies.\n\nWhenever Sabine gains a stack of Ancestral Resolve or Force Connection, she also gains 2% Critical Damage and Defense Penetration.\n\n If the ally in the Leader slot is Ahsoka Tano, Sabine starts the battle with 20 stacks of Force Connection.\n\n Whenever Ahsoka Tano uses a Special ability, she gains 10% Ultimate charge.\n\n Whenever Ezra Bridger (Exile) gains Purrgil Migration, he gains an additional 5 stacks of Purrgil Migration.\n\n Whenever a Spectre ally loses Exile, they gain 300% Offense for 2 turns.",
+                    },
+                    fr: {
+                        "title": "Padawan Sabine Wren",
+                        "description": "Formée par la légendaire Ahsoka Tano aux voies de la force, la Padawan Sabine Wren utilise à la fois\n l'entrainement jedi de son Maitre et l'armure Mandalorienne de sa famille pour vaincre ses ennemis.",
+                        "lightside": "Coté Lumineux",
+                        "attacker": "Attaquant",
+                        "mandalorian": "Mandalorien",
+                        "spectre": "Spectre",
+                        "neutral-force-user": "Utilisateur de la Force non aligné",
+                        "basic-attack-title": "<u>Attaque Basique : Attaque Maitrisée</u>",
+                        "basic-attack": "Sabine gagne +20% de pénétration d'armure pendant 1 tour (cumulable, max 60%). Inflige des dégâts physiques à la cible ennemie.\n Cette capacité gagne 15% de chances de coup critique pour chaque allié ayant moins de 100% de santé.",
+                        "special-attack1-title": "<u>1ere Spéciale : Frappe effrénée (délai : 3)</u>",
+                        "special-attack1": "Inflige des dégâts physiques à la cible ennemie et lui inflige Coincé pendant 2 tours Ensuite, inflige des dégâts physiques à tous les ennemis et leur inflige <u class='speciale'>Déséquilibre</u> pendant 1 tour. Les ennemis touchés par un coup critique avec cette attaque subissent un autre cumul de Déséquilibre pendant 1 tour (ne peut pas être esquivé ou résisté).\n\n <u class='speciale'>Déséquilibre:</u> Perd 10% de santé et 10% de jauge de tour en cas de dégâts d'attaque subis",
+                        "special-attack2-title": "<u>2eme spéciale : Tactique de Repli (délai : 3)</u>",
+                        "special-attack2": "Inflige des dégâts physiques deux fois à la cible ennemie. Pour chaque amélioration et affaiblissement sur la cible ennemie, cette attaque obtient 10% de dégâts critiques (max 100%). Cette attaque obtient 5% de chances de coup critique pour chaque alliés Mandalorien, doublé pour les alliés Spectre. Réduit la jauge de tour de 25% et de 5% supplémentaires la jauge de tour par niveau d'amplificateur de relique pour chaque coup critique infligé.",
+                        "unique-ability-title": "<u>Sentinelle de Lothal</u>",
+                        "unique-ability": "La Padawan Sabine Wren a +70% de chances de contre-attaque et +25% de chances de coup critique et de dégâts critiques.\n\n S'il y a un allié Mandalorien du Coté Lumineux dans la position de chef, chaque fois que Sabine utilise une capacité spéciale, elle gagne un cumul de Détermination Ancestrale (max 100) pour le reste de la bataille (ne peut pas être copié, dissipé ou évité).\n\n Chaque fois qu'un autre allié Specre utilise une capacité Spéciale, Sabine gagne 1 cumul de connexion de Force, doublé si l'allié est Ahsoka Tano, pour le reste de la bataille (ne peut pas être copié, dissipé ou évité).\n\n Chaque fois que Sabine gagne un cumul de connexion de Force d'un autre allié Spectre, elle gagne un cumul supplémentaire de Conenxion avec la force.\n\nChaque fois qu'Ahsoka Tano utilise une capacité ultime, Sabine gagne 10 cumuls de Connexion avec la Force et 5% de cumul pour le reste de la bataille (ne peut pas être copié, dissipé ou évité).\n\nA 20 cumuls de Connexion avec la Force et tous les 10 cumuls supplémentaires après cela, Sabine gagne 50% de dégâts critique supplémentaires pour le reste de la bataille.\n\n<u class='omicron'>Dans les Guerres de Territoire:</u>\n\n Les alliés Mandaloriens du Coté Lumineux ont +50% de défense et d'attaque et +30 en vitess, doublés pour les alliés Spectre.\n\nChaque fois que Sabine gagne un cumul de Détermination ancestrale ou Connexion avec la Force, elle gagne également 2% en déégâts critiques et pénétration défensive.\n\n Si l'allié dans l'emplacement de chef est Ahsoka Tano, Sabine commence la bataille avec 20 cumuls de Connexion avec la Force.\n\n Chaque fois qu'Ahsoka Tano utilise une capacité spéciale, elle gagne 10% de charge ultime.\n\n Chaque fois qu'Ezra Bridger (Exilé) obtient Migration dees purrgils, il obtient 5 cumuls supplémentaires de Migration des purrgils.\n\n Chaque fois qu'un allié Spectre perd Exil, il obtient +300% d'attaque pendant 2 tours.",
                     }
+                };
+                // Set the default language to English on page load
+                window.onload = function () {
+                    switchLanguage('en');
+                };
+                function switchLanguage(lang) {
+                    const elements = {
+                        "title": "title",
+                        "description": "description",
+                        "lightside": "light-side",
+                        "attacker": "attacker",
+                        "mandalorian": "mandalorian",
+                        "spectre": "spectre",
+                        "neutral-force-user": "neutral-force-user",
+                        "basic-attack-title": "basic-attack-title",
+                        "basic-attack": "basic-attack",
+                        "special-attack1-title": "special-attack1-title",
+                        "special-attack1": "special-attack1",
+                        "special-attack2-title": "special-attack2-title",
+                        "special-attack2": "special-attack2",
+                        "unique-ability-title": "unique-ability-title",
+                        "unique-ability": "unique-ability",
+                    };
 
-                    // Mettre à jour l'élément avec le texte modifié
-                    document.getElementById(id).innerHTML = textContent;
+
+
+                    for (const [key, id] of Object.entries(elements)) {
+                        let textContent = translations[lang][key];
+
+                        // Remplacer les '\n' par des balises <br> pour ajouter des sauts de ligne
+                        if (textContent) {
+                            textContent = textContent.replace(/\n/g, '<br>');
+                        }
+
+                        // Mettre à jour l'élément avec le texte modifié
+                        document.getElementById(id).innerHTML = textContent;
+                    }
                 }
-            }
-            
-        </script>
-    </footer>
+
+            </script>
+        </footer>
 </body>
 
 </html>

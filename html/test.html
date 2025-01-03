@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Darth Malak</title>
+
+    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+
+    <!-- Lien vers l'icône du site -->
+    <link rel="icon" type="image/png" href="../image-perso/malak/malak-image.png">
+
+    <!-- Lien vers la feuille de style -->
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/capacite.css">
+</head>
+
+<body class="simple">
+
+    <!-- Entête de la page -->
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/malak/malak-image.png" alt="malak image" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <div class="language-switcher" style="display: flex; gap: 10px; margin-bottom: 10px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    onclick="switchLanguage('fr')" style="cursor: pointer;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    onclick="switchLanguage('en')" style="cursor: pointer;">
+            </div>
+            <h1 id="title" style="margin: 0;"><u>Darth Malak</u></h1>
+            <p id="description" style="margin: 5px 0;">
+                Brutal Sith Tank who terrorizes and drains enemies to stay alive
+            </p>
+            <nav class="perso" style="font-size: 20px; margin-top: 10px;">
+                <a style="color:red" class="capacite" href="../classement-perso/coté-obscur.html" id="dark-side">Dark Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">tank</a>
+                <a class="capacite" href="../classement-perso/sith.html" id="sith">Sith</a>
+                <a class="capacite" href="../classement-perso/empire-sith.html" id="sith-empire">Sith Empire</a>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <!-- Image principale du personnage -->
+    <img class="first" src="../image-perso/malak/Dark-malak.png" alt="image malak"><br>
+
+    <!-- Section pour les différentes attaques spéciales -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Rend</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="image basique malak" src="../image-perso/malak/malak-basique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Tenacity Down for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+        <script>
+            const translations = {
+                en: {
+                    "big-title": "Darth Malak",
+                    "title": "Darth Malak",
+                    "description": "Brutal Sith Tank who terrorizes and drains enemies to stay alive",
+                    "dark-side" : "Darth Side",
+                    "tank" : "tank",
+                    "sith" : "sith",
+                    "sith-empire" : "Sith Empire",
+                    "basic-attack-title" : "<u>Basic Attack: Rend</u>",
+                    "basic-attack" : "Deal Physical damage to target enemy and inflict Tenacity Down for 2 turns.",
+
+
+                },
+                fr: {
+                    "big-title": "Dark Malak",
+                    "title": "Dark Malak",
+                    "description": "Tank sith brutal qui terrorise ses ennemis et absorbe leur pouvoir pour rester en vie",
+                    "dark-side" : "Coté Obscur",
+                    "tank" : "tank",
+                    "sith" : "sith",
+                    "sith-empire" : "Empire Sith",
+                    "basic-attack-title" : "<u>attaque basique : Déchiquetage</u>",
+                    "basic-attack" : "Inflige des dégâts physiques à une cible ennemie et lui inflige un malus de ténacité pendant 2 tours.",
+
+                }
+            };
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\n/g, '<br><br>');
+            }
+
+            function switchLanguage(lang) {
+                for (const [key, text] of Object.entries(translations[lang])) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        // Convert \n\n to <br><br> before injecting
+                        element.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                }
+            }
+
+            window.onload = () => switchLanguage('en');
+        </script>
+
+    </footer>
+</body>
+
+</html>
