@@ -1,103 +1,166 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Ahsoka Tano (chipie)</title>
+    <title id="big-title">Ahsoka Tano (Snips)</title>
 
+    <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
 
+    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/ahsoka-tano/Ahsoka-image.png">
-    <link rel="stylesheet" href="../style/capacite.css">
+
+    <!-- Lien vers la feuille de style -->
     <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/capacite.css">
 </head>
 
 <body class="simple">
 
+    <!-- Entête de la page -->
     <header class="perso">
-        <h1><u>Ahsoka Tano (chipie)</u></h1>
-        <p>
-            Attaquant polyvalent qui vient sans cesse en aide à ses alliés, tout en les soignants<br>
-            et en dissipants leurs affaiblissements.
+        <div class="language-switcher">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                onclick="switchLanguage('fr')">
+            <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                onclick="switchLanguage('en')">
+        </div>
+        <h1 id="title"><u>Ahsoka Tano (Snips)</u></h1>
+        <p id="description"> 
+            Versatile Attacker who constantly assists while healing and dispelling
         </p>
         <br>
-       
+
         <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/chef.html">chef</a>
-            <a class="capacite" href="../classement-perso/501E.html">501e</a>
-            <a class="capacite" href="../classement-perso/république-galactique.html">République Galactique</a>
-            <a class="capacite" href="../classement-perso/jedi.html">Jedi</a>
-            <a class="pilote" href="../classement-perso/membres-équipages.html">Membres Equipages</a>
+            <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html" id="lightSide">Light Side</a>
+            <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+            <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+            <a class="capacite" href="../classement-perso/501E.html" id="501e">501ST</a>
+            <a class="capacite" href="../classement-perso/république-galactique.html" id="Galactic-Republic">Galactic Republic</a>
+            <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
+            <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
         </nav>      
     </header>
     <br>
 
     <img class="first" src="../image-perso/ahsoka-tano/Ahsoka.png" alt="Ahsoka Tano"><br>
 
-    <h2 class="titre"><u>attaque basique : Taillade controlée</u></h2>
+    <!-- Section pour les différentes attaques spéciales -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Focused Slash</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Ahsoka Basic" src="../image-perso/ahsoka-tano/ahsoka-basic.png">
+            <img class="attaque" alt="Ahsoka Tano basic" src="../image-perso/ahsoka-tano/ahsoka-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie et dissipe toutes ses améliorations. En cas de coup critique, dissipe tous les affaiblissements<br>
-                en cours sur Ahsoka et un autre allié aléatoire de la République Galactique. Cette attaque ne peut pas être esquivée si la cible dispose<br>
-                de prévoyance. Si un autre allié de la 501E est présent, Ahsoka récupère 15% de santé.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and dispel all buffs on them. On a critical hit, dispel all debuffs on Ahsoka and another random Galactic Republic ally. This attack can't be evaded if the target has Foresight. If another 501st ally is present, Ahsoka also recovers 15% Health.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>1ere spéciale: Manoeuvre de protection (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>1st Special: Protective Maneuver (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="1ere Spé" src="../image-perso/ahsoka-tano/ahsoka-spe.png">
+            <img class="attaque" alt="Ahsoka Tano Spé 1" src="../image-perso/ahsoka-tano/ahsoka-spe.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie. Si le Chevalier Jedi Anakin ou le Général Kenobi sont des alliés, inflige des dégâts<br>
-                supplémentaires et si les deux sont des alliés, inflige des dégâts une troisième fois. Si le chef allié appartient à la République<br>
-                Galactique, cette attaque inflige 50% de dégâts en plus. Tous les alliés récupèrent 20% de santé, et tous les alliés de la<br>
-                république Galactique obtiennent une hausse de protection (20%) pendant 1 tour.
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy. If Jedi Knight Anakin or General Kenobi is an ally, deal damage again, and if both are allies, deal damage a third time. If the ally leader is Galactic Republic, this attack deals 50% more damage. All allies recover 20% Health and all Galactic Republic allies gain Protection Up (20%) for 1 turn.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>Capacité de chef: Grandes Foulées</u></h2>
+    <!-- Capacités spéciales du personnage -->
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Quick Steps</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Ahsoka Lead" src="../image-perso/ahsoka-tano/ahsoka-lead.png">
+            <img class="attaque" alt="Ahsoka Tano lead" src="../image-perso/ahsoka-tano/ahsoka-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Les alliés Jedi et Soeurs de la Nuit gagnent un bonus d'esquive de +14% et remplissent leut jauge de tour de 20% à chaque esquive.
+            <p class="attaque" id="lead-ability">
+                Jedi and Nightsister allies have +14% Evasion, and gain 20% Turn Meter whenever they Evade.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>capacité unique: Padawan téméraire</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability: Daring Padawan</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Ahsoka unique" src="../image-perso/ahsoka-tano/ahsoka-unique.png">
+            <img class="attaque" alt="Ahsoka Tano unique" src="../image-perso/ahsoka-tano/ahsoka-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Ahsoka a +40% de santé maxiamle, +10% d'esquive, +10% de chances de coup critique et +25% de vitesse. Ces valeurs sont doublées lorsqu'elle dispose de l'immunité aux coup critique<br>
-                <br>
-                Si le chavalier Jedi Anakin est un allié, Ahsoka obtient l'immunité aux coup critiques pendant 2 tours au début de chaque affrontement et<br>
-                lorsqu'elle utilise une capacité spéciale.<br>
-                <br>
-                Si le chef allié appartient à la République Galactique, Ahsoka est invoqué à chaque fois qu'un autre allié de la République<br>
-                Galactique utilise une capacité spéciale.
+            <p class="attaque" id="unique-ability">
+                Ahsoka has +40% Max Health, +10% Evasion, +10% Critical Chance, and +25 Speed. These values are doubled while she has Critical Hit Immunity.
+                <br><br>
+                If Jedi Knight Anakin is an ally, Ahsoka gains Critical Hit Immunity for 2 turns at the start of each encounter and whenever she uses a Special ability.
+                <br><br>
+                If the ally leader is Galactic Republic, Ahsoka is called to assist whenever another Galactic Republic ally uses a Special ability.
             </p>
         </div>
     </div>
 
-    <footer>
-        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
 
-        <script src="../javascript/bouton.js"></script>
-    </footer>
+
+        <footer>
+            <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+            <script src="../javascript/bouton.js"></script>
+            <script>
+                const translations = {
+                    en: {
+                        "big-title" : "Aksoka Tano (Snips)",
+                        "title" : "Ahsoka Tano (Snips)",
+                        "description" : "Versatile Attacker who constantly assists while healing and dispelling",
+                        "lightSide" : "Light Side",
+                        "attacker" : "Attacker",
+                        "leader" : "leader",
+                        "501e" : "501ST",
+                        "Galactic-Republic" : "Galactic Republic",
+                        "jedi" : "Jedi",
+                        "crew-members" : "crew-members",
+                        "basic-attack-title" : "<u>Basic Attack: Focused Slash</u>",
+                        "basic-attack" : "Deal Physical damage to target enemy and dispel all buffs on them. On a critical hit, dispel all debuffs on Ahsoka and another random Galactic Republic ally. This attack can't be evaded if the target has Foresight. If another 501st ally is present, Ahsoka also recovers 15% Health.",
+                        "special-attack1-title" : "<u>1st Special: Protective Maneuver (cooldown: 3)</u>",
+                        "special-attack1" : "Deal Physical damage to target enemy. If Jedi Knight Anakin or General Kenobi is an ally, deal damage again, and if both are allies, deal damage a third time. If the ally leader is Galactic Republic, this attack deals 50% more damage. All allies recover 20% Health and all Galactic Republic allies gain Protection Up (20%) for 1 turn.",
+                        "lead-ability-title" : "Leader Ability: Quick Steps</u>",
+                        "lead-ability" : "Jedi and Nightsister allies have +14% Evasion, and gain 20% Turn Meter whenever they Evade.",
+                        "unique-ability-title": "Unique Ability: Daring Padawan</u>",
+                        "unique-ability" : "Ahsoka has +40% Max Health, +10% Evasion, +10% Critical Chance, and +25 Speed. These values are doubled while she has Critical Hit Immunity.\n\nIf Jedi Knight Anakin is an ally, Ahsoka gains Critical Hit Immunity for 2 turns at the start of each encounter and whenever she uses a Special ability.\n\nIf the ally leader is Galactic Republic, Ahsoka is called to assist whenever another Galactic Republic ally uses a Special ability.",
+                    },
+                    fr: {
+                        "big-title" : "Ahsoka Tano (Chipie)",
+                        "title" : "Ahsoka Tano (Chipie)",
+                        "description" : "Attaquant polyvalent qui vient sans cesse en aide à ses alliés, tout en les soignants et en dissipants leurs affaiblissements.",
+                        "lightSide" : "Coté Lumineux",
+                        "attacker" : "Attaquant",
+                        "leader" : "chef",
+                        "501e" : "501E",
+                        "Galactic-Republic" : "République Galactique",
+                        "jedi" : "Jedi",
+                        "crew-members" : "Membres d'Équipages",
+                        "basic-attack-title" : "<u>Attaque Basique : Taillade controlée</u>",
+                        "basic-attack" : "Inflige des dégâts physiques à une cible ennemie et dissipe toutes ses améliorations. En cas de coup critique, dissipe tous les affaiblissements en cours sur Ahsoka et un autre allié aléatoire de la République Galactique. Cette attaque ne peut pas être esquivée si la cible dispose de prévoyance. Si un autre allié de la 501E est présent, Ahsoka récupère 15% de santé.", 
+                        "special-attack1-title" : "<u>1ere spéciale: Manoeuvre de protection (délai: 3)</u>",
+                        "special-attack1" : "Inflige des dégâts physiques à une cible ennemie. Si le Chevalier Jedi Anakin ou le Général Kenobi sont des alliés, inflige des dégâts supplémentaires et si les deux sont des alliés, inflige des dégâts une troisième fois. Si le chef allié appartient à la République Galactique, cette attaque inflige 50% de dégâts en plus. Tous les alliés récupèrent 20% de santé, et tous les alliés de la république Galactique obtiennent une hausse de protection (20%) pendant 1 tour.",
+                        "lead-ability-title" : "<u>Capacité de chef: Grandes Foulées</u>",
+                        "lead-ability" : "Les alliés Jedi et Soeurs de la Nuit gagnent un bonus d'esquive de +14% et remplissent leut jauge de tour de 20% à chaque esquive.",
+                        "unique-ability-title" : "<u>capacité unique: Padawan téméraire</u>",
+                        "unique-ability" : "Ahsoka a +40% de santé maxiamle, +10% d'esquive, +10% de chances de coup critique et +25% de vitesse. Ces valeurs sont doublées lorsqu'elle dispose de l'immunité aux coup critique\n\nSi le chavalier Jedi Anakin est un allié, Ahsoka obtient l'immunité aux coup critiques pendant 2 tours au début de chaque affrontement et lorsqu'elle utilise une capacité spéciale.\n\nSi le chef allié appartient à la République Galactique, Ahsoka est invoqué à chaque fois qu'un autre allié de la République  Galactique utilise une capacité spéciale.",
+                    }
+                };
+    
+                function switchLanguage(lang) {
+                    for (const [key, text] of Object.entries(translations[lang])) {
+                        const element = document.getElementById(key);
+                        if (element) element.innerHTML = text;
+                    }
+                }
+    
+                window.onload = () => switchLanguage('en');
+            </script>
+            
+        </footer>
+    </body>
+    
+    </html>
