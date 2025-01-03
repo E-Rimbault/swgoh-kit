@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <title id="big-title"></title>
@@ -134,14 +134,38 @@
 
     <!-- Pied de page -->
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+        <script>
+            const translations = {
+                en: {
+
+                },
+                fr: {
+}
+            };
+
+            function replaceNewLinesWithBr(text) {
+        return text.replace(/\n\n/g, '<br><br>');
+    }
+
+    function switchLanguage(lang) {
+        for (const [key, text] of Object.entries(translations[lang])) {
+            const element = document.getElementById(key);
+            if (element) {
+                // Convert \n\n to <br><br> before injecting
+                element.innerHTML = replaceNewLinesWithBr(text);
+            }
+        }
+    }
+
+    window.onload = () => switchLanguage('en');
+</script>
+        
     </footer>
 </body>
-</html>    
+
+</html>
 
 <!-- Cette partie est en dehors du corps principal du document html -->
 <div>
