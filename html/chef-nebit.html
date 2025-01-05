@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Chief Nebit</title>
+
+    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+
+    <!-- Lien vers l'icône du site -->
+    <link rel="icon" type="image/png" href="../image-perso/nebit/nebit-image.png">
+
+    <!-- Lien vers la feuille de style -->
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/capacite.css">
+</head>
+
+<body class="simple">
+
+    <!-- Entête de la page -->
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/nebit/nebit-image.png" alt="Chief Nebit"
+                style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    onclick="switchLanguage('fr')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    onclick="switchLanguage('en')">
+            </div>
+            <h1 id="title">Chief Nebit<u></u></h1>
+            <p id="description">
+                Cunning Jawa Tank with Stealth synergies who can reduce cooldowns
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/jawa.html">Jawa</a>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <!-- Image principale du personnage -->
+    <img class="first" src="../image-perso/nebit/chef_nebit.jpg" alt="Chief Nebit image"><br>
+
+    <!-- Section pour les différentes attaques spéciales -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Sheltering Shot</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Nebit basic" src="../image-perso/nebit/nebit-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 70% chance to grant Protection Up equal to 20% of Nebit's Max Health for 3 turns to a random ally who is not Stealthed.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>1st Special: Distracting Negotiations (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Nebit Spé 1" src="../image-perso/nebit/nebit-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Nebit taunts for 2 turns and gain Heal Over Time for 3 turns. Reduce the cooldowns of all Jawa and Droid allies by 1.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>2nd Special: Desert Ambush (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Nebit Spé 2" src="../image-perso/nebit/nebit-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to target enemy and call a random ally to Assist dealing 20% less damage. If the Assisting ally is a Jawa or a Droid, call another random ally to Assist. All Jawa called to Assist gain Stealth for 3 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Raiding Parties</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Nebit Lead" src="../image-perso/nebit/nebit-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Jawa and Droid allies gain 30% Critical Chance and inflict Critical Chance Down for 3 turns on a critical hit.
+                <br><br>
+                <u class="omicron">While in Territory Wars:</u> When a Jawa ally deals damage to an enemy, they dispel all buffs on that enemy. For every buff dispelled, that enemy is inflicted with a Thermal Detonator for 2 turns, which can't be dispelled, prevented, or resisted.
+                <br><br>
+                When an enemy takes damage from a Thermal Detonator, Jawa allies recover 5% Health and Protection, gain 5% Turn Meter, and there is a 50% chance that enemy is inflicted with a Thermal Detonator for 2 turns, which can't be dispelled, prevented, or resisted.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+        <script>
+            const translations = {
+                en: {
+                    "big-title" : "Chief Nebit",
+                    "title" : "<u>Chief Nebit</u>",
+                    "description" : "Cunning Jawa Tank with Stealth synergies who can reduce cooldowns",
+                    "lightside" : "Light Side",
+                    "tank" : "Tank",
+                    "leader" : "Leader",
+                    "jawa" : "Jawa",
+                    "basic-attack-title" : "<u>Basic Attack: Sheltering Shot</u>",
+                    "basic-attack" : "Deal Physical damage to target enemy with a 70% chance to grant Protection Up equal to 20% of Nebit's Max Health for 3 turns to a random ally who is not Stealthed.",
+                    "special-attack1-title" : "<u>1st Special: Distracting Negotiations (cooldown: 3)</u>",
+                    "special-attack1" : "Nebit taunts for 2 turns and gain Heal Over Time for 3 turns. Reduce the cooldowns of all Jawa and Droid allies by 1.",
+                    "special-attack2-title" : "<u>2nd Special: Desert Ambush (cooldown: 3)</u>",
+                    "special-attack2" : "Deal Physical damage to target enemy and call a random ally to Assist dealing 20% less damage. If the Assisting ally is a Jawa or a Droid, call another random ally to Assist. All Jawa called to Assist gain Stealth for 3 turns.",
+                    "lead-ability-title" : "Leader Ability: Raiding Parties</u>",
+                    "lead-ability" : "Jawa and Droid allies gain 30% Critical Chance and inflict Critical Chance Down for 3 turns on a critical hit.\n\n<u class='omicron'>While in Territory Wars:</u> When a Jawa ally deals damage to an enemy, they dispel all buffs on that enemy. For every buff dispelled, that enemy is inflicted with a Thermal Detonator for 2 turns, which can't be dispelled, prevented, or resisted.\n\nWhen an enemy takes damage from a Thermal Detonator, Jawa allies recover 5% Health and Protection, gain 5% Turn Meter, and there is a 50% chance that enemy is inflicted with a Thermal Detonator for 2 turns, which can't be dispelled, prevented, or resisted.",
+                },
+                fr: {
+                    "big-title" : "Chef Nebit",
+                    "title" : "<u>Chef Nebit</u>",
+                    "description" : "Tank Jawa rusé, alimenté par le camouflage et qui peut diminuer les délais",
+                    "lightside" : "Coté Lumineux",
+                    "tank" : "Tank",
+                    "leader" : "Chef",
+                    "jawa" : "Jawa",
+                    "basic-attack-title" : "<u>Attaque Basique : Tir Protecteur</u>",
+                    "basic-attack" : "Inflige des dégâts physiques à la cible ennemie avec 70% de chances de conférer un bonus de protection égal à 20% de la santé maximale de Nebit pendant 3 tours à un allié aléatoire qui n'est pas camouflé",
+                    "special-attack1-title" : "<u>1ere Spéciale : Négociations gênantes (délai : 3)</u>",
+                    "special-attack1" : "Nebit utilise la Raillerie pendant 2 tours et obtient des soins sur la durée pendant 3 tours. Diminue les délais de tous les alliés Jawa et Droïdes de 1.",
+                    "special-attack2-title" : "<u>2eme Spéciale : Embuscade dans le desert (délai : 3)</u>",
+                    "special-attack2" : "Inflige des dégâts physiques à une cible ennemie et invoque un allié aléatoir qui inflige 20% de dégâts en moins. Si ce dernier est un Jawa ou un DroÏde, invoque un autre allié aléatoire. Tous les Jawas invoqués obtiennent le camouflage pendant 3 tours.",
+                    "lead-ability-title" : "<u>Capacité de leader : Groupes de raid</u>",
+                    "lead-ability" : "Les alliés Jawa et Droïdes obtiennent 30% de chances de coup critique et infligent un malus de chances de coup critique pendant 3 tours en cas de coup critiques.\n\n<u class='omicron'>Dans les Guerres de territoire:</u>Lorsqu'un Jawa inflige des dégâts à un ennemi, il dissipe toutes les amélioratins dont dispose cet ennemi. Pour chaque amélioration dissipés, l'ennemi reçoit un détonateur thermique pendant 2 tours (ne peur pas être dissipé, évité ou résisté).\n\nLorsqu'un ennemi subit des dégâts infligés par un détonateur thermiques, les alliés Jawa récupèrent 5% de santé et de protection, ils obtiennent 5% de jauge de tour, et ils ont 50% de chances d'infliger un détonateur thermique à l'ennemi pendant 2 tours (ne peut pas être dissipé, évité ou résisté).",
+                }
+            };
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\n/g, '<br><br>');
+            }
+
+            function switchLanguage(lang) {
+                for (const [key, text] of Object.entries(translations[lang])) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        // Convert \n\n to <br><br> before injecting
+                        element.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                }
+            }
+
+            window.onload = () => switchLanguage('en');
+        </script>
+
+    </footer>
+</body>
+
+</html>

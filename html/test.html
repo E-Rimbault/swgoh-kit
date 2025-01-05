@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title id="big-title">Chief Nebit</title>
+    <title id="big-title">Jawa</title>
 
     <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
     <meta name="author" content="Rimbault Enzo">
 
     <!-- Lien vers l'icône du site -->
-    <link rel="icon" type="image/png" href="../image-perso/nebit/nebit-image.png">
+    <link rel="icon" type="image/png" href="">
 
     <!-- Lien vers la feuille de style -->
     <link rel="stylesheet" href="../style/styles.css">
@@ -22,8 +22,7 @@
     <!-- Entête de la page -->
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/nebit/nebit-image.png" alt="Chief Nebit"
-                style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/jawa/jawa-image.png" alt="Jawa" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
             <div class="language-switcher">
@@ -32,37 +31,97 @@
                 <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
                     onclick="switchLanguage('en')">
             </div>
-            <h1 id="title">Chief Nebit<u></u></h1>
+            <h1 id="title"><u>Jawa</u></h1>
             <p id="description">
-                Cunning Jawa Tank with Stealth synergies who can reduce cooldowns
+                Attacker effective against debuffed enemies as well as Droids
             </p>
             <br>
 
             <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color:blue or red" href="../classement-perso/"></a>
-                <a class="class" href="../classement-perso/"></a>
-                <a class="capacite" href="../classement-perso/"></a>
+                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html"
+                    id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/jawa.html" id="jawa">Jawa</a>
             </nav>
         </div>
     </header>
-    <br>
 
     <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/nebit/chef_nebit.jpg" alt="Chief Nebit image"><br>
+    <img class="first" src="../image-perso/jawa/jawa.jpg" alt="Jawa image"><br>
 
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Exploit Weakness</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Jawa Basic" src="../image-perso/jawa/jawa-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 50% chance to inflict Speed Down for 2 turns. This attack
+                deals 35% more damage to enemies suffering from a negative status effect.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>1st Special: Stun Surprise (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="jawa spé" src="../image-perso/jawa/jawa-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to all enemies with a 75% chance to Stun Droids for 1 turn and a 25% chance to Stun other enemies for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability: Ambush Tactics</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="jawa unique" src="../image-perso/jawa/jawa-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Jawa gains 6% Evasion for each living Jawa ally, and gains 30% Turn Meter whenever he Evades an attack.
+            </p>
+        </div>
+    </div>
+
+    <!-- Pied de page -->
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
         <script>
             const translations = {
                 en: {
-                    "big-title" : "Chief Nebit",
-                    "title" : "Chief Nebit",
+                    "big-title": "Jawa",
+                    "title": "<u>Jawa</u>",
+                    "description": "Attacker effective against debuffed enemies as well as Droids",
+                    "lightside": "Light Side",
+                    "attacker": "Attacker",
+                    "jawa": "Jawa",
+                    "basic-attack-title" : "<u>Basic Attack: Exploit Weakness</u>",
+                    "basic-attack" : "Deal Physical damage to target enemy with a 50% chance to inflict Speed Down for 2 turns. This attack deals 35% more damage to enemies suffering from a negative status effect.",
+                    "special-attack1-title" : "<u>1st Special: Stun Surprise (cooldown: 3)</u>",
+                    "special-attack1" : "Deal Special damage to all enemies with a 75% chance to Stun Droids for 1 turn and a 25% chance to Stun other enemies for 1 turn.",
+                    "unique-ability-title" : "<u>Unique Ability: Ambush Tactics</u>",
+                    "unique-ability" : "Jawa gains 6% Evasion for each living Jawa ally, and gains 30% Turn Meter whenever he Evades an attack."
+
 
                 },
                 fr: {
-                    "big-title" : "Chef Nebit",
-                    "title" : "Chef Nebit",
+                    "big-title": "Jawa",
+                    "title": "<u>Jawa</u>",
+                    "description": "Attaquant très efficace contre les ennemis subissant un affaiblissement et les droïdes.",
+                    "lightside": "Coté Lumineux",
+                    "attacker": "Attaquant",
+                    "jawa": "Jawa",
+                    "basic-attack-title" : "<u>Attaque Basique : Exploitation de faiblesse</u>",
+                    "basic-attack" : "Inflige des dégâts physiques à une cible avec 50% de chances d'infliger un malus de vitesse pendant 2 tours. Les dégâts de cette attque augmentent de 35% si la cible subit un affaiblisement.",
+                    "special-attack1-title" : "<u>Attaque spéciale : Étourdissement surprise",
+                    "special-attack1" : "Inflige des dégâts spéciaux à tous les ennemis avec 75% d'étourdir les droïdes pendant 1 tour et 25% de chances d'étourdir les autres ennemis pendant 1 tour",
+                    "unique-ability-title" : "<u>Tactique d'embuscade</u>",
+                    "unique-ability" : "le Jawa gagne un bonus d'esquive de 6% par allié Jawa et voit sa jauge de tour augmenter de 30% s'il esquive une attaque."
+                
                 }
             };
 

@@ -47,6 +47,41 @@
     <!-- Image principale du personnage -->
     <img class="first" src="" alt=""><br>
 
+      <!-- Pied de page -->
+      <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+        <script>
+            const translations = {
+                en: {
+
+                },
+                fr: {
+}
+            };
+
+            function replaceNewLinesWithBr(text) {
+        return text.replace(/\n\n/g, '<br><br>');
+    }
+
+    function switchLanguage(lang) {
+        for (const [key, text] of Object.entries(translations[lang])) {
+            const element = document.getElementById(key);
+            if (element) {
+                // Convert \n\n to <br><br> before injecting
+                element.innerHTML = replaceNewLinesWithBr(text);
+            }
+        }
+    }
+
+    window.onload = () => switchLanguage('en');
+</script>
+        
+    </footer>
+</body>
+
+</html>
+
     <!-- Section pour les différentes attaques spéciales -->
     <h2 class="titre" id="basic-attack-title"><u>Basic Attack: </u></h2>
     <div class="capacity-container">
@@ -135,40 +170,7 @@
     <h2><u></u></h2>
     <a href="../classement-perso"><img class="tail" src="../vaisseaux/" alt=""></a>
 
-    <!-- Pied de page -->
-    <footer>
-        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-        <script src="../javascript/bouton.js"></script>
-        <script>
-            const translations = {
-                en: {
-
-                },
-                fr: {
-}
-            };
-
-            function replaceNewLinesWithBr(text) {
-        return text.replace(/\n\n/g, '<br><br>');
-    }
-
-    function switchLanguage(lang) {
-        for (const [key, text] of Object.entries(translations[lang])) {
-            const element = document.getElementById(key);
-            if (element) {
-                // Convert \n\n to <br><br> before injecting
-                element.innerHTML = replaceNewLinesWithBr(text);
-            }
-        }
-    }
-
-    window.onload = () => switchLanguage('en');
-</script>
-        
-    </footer>
-</body>
-
-</html>
+  
 
 <!-- Cette partie est en dehors du corps principal du document html -->
 <div>

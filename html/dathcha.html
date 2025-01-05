@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Dathcha</title>
+
+    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+
+    <!-- Lien vers l'icône du site -->
+    <link rel="icon" type="image/png" href="../image-perso/dathcha/dathcha-image.png">
+
+    <!-- Lien vers la feuille de style -->
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/capacite.css">
+</head>
+
+<body class="simple">
+    <!-- Entête de la page -->
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/dathcha/dathcha-image.png" alt="Dathcha"
+                style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    onclick="switchLanguage('fr')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    onclick="switchLanguage('en')">
+            </div>
+            <h1 id="title"><u>Dathcha</u></h1>
+            <p id="description">
+                Versatile Support able to Ability Block and Stealth, effective against Droids or with Jawas
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html"
+                    id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/jawa.html" id="jawa">Jawa</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Image principale du personnage -->
+    <img class="first" src="../image-perso/dathcha/dathcha.jpg" alt="Dathcha"><br>
+
+    <!-- Section pour les différentes attaques spéciales -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Hit and Run</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Dathca basic" src="../image-perso/dathcha/dathcha-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 60% chance to gain Stealth for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>1st Special: Scout Instincts (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="dathcha spe" src="../image-perso/dathcha/dathcha-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to all enemies with a 50% chance to inflict Ability Block for 1 turn and a 50% chance to Stun Droids for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Decommission</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="dathcha lead" src="../image-perso/dathcha/dathcha-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Whenever an ally damages a Droid, they have an 80% chance to inflict Defense Down for 3 turns and a 25% chance to remove 25% Turn Meter.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability: Droid Hunter</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="dathcha unique" src="../image-perso/dathcha/dathcha-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Dathcha gains 4.5% Critical Chance for each living Jawa ally. In addition, he has +15% Critical Damage.
+            </p>
+        </div>
+    </div>
+
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+        <script>
+            const translations = {
+                en: {
+                    "big-title": "Dathcha",
+                    "title": "<u>Dathcha</u>",
+                    "description": "Versatile Support able to Ability Block and Stealth, effective against Droids or with Jawas",
+                    "lightside": "Light Side",
+                    "support": "Support",
+                    "leader": "Leader",
+                    "jawa": "Jawa",
+                    "basic-attack-title" : "<u>Basic Attack: Hit and Run</u>",
+                    "basic-attack" : "Deal Physical damage to target enemy with a 60% chance to gain Stealth for 2 turns.",
+                    "special-attack1-title" : "<u>1st Special: Scout Instincts (cooldown: 4)</u>",
+                    "special-attack1" : "Deal Special damage to all enemies with a 50% chance to inflict Ability Block for 1 turn and a 50% chance to Stun Droids for 1 turn.",
+                    "lead-ability-title" : "Leader Ability: Decommission</u>",
+                    "lead-ability" : "Whenever an ally damages a Droid, they have an 80% chance to inflict Defense Down for 3 turns and a 25% chance to remove 25% Turn Meter.",
+                    "unique-ability-title" : "<u>Unique Ability: Droid Hunter</u>",
+                    "unique-ability" : "Dathcha gains 4.5% Critical Chance for each living Jawa ally. In addition, he has +15% Critical Damage.",
+
+                },
+                fr: {
+                    "big-title" : "Dathcha",
+                    "title" : "<u>Dathcha</u>",
+                    "description" : "Personnage de Soutien polyvalent doté de l'entrave des capacités et du camouflages, très efficace contre les Droïdes ou avec les Jawas.",
+                    "lightside" : "Coté Lumineux",
+                    "support" : "Soutien",
+                    "leader" : "Chef",
+                    "jawa" : "Jawa",
+                    "basic-attack-title" : "<u>Attaque Basique : <u>Attaque éclair</u>",
+                    "basic-attack" : "Inflige des dégâts physiques à une cible ennemie avec 60% de chances de gagner le camouflage pendant 2 tours",
+                    "special-attack1-title" : "<u>Attaque spéciale : Instinct d'éclaireur (délai : 4)</u>",
+                    "special-attack1" : "Inflige des dégâts spéciaux à tous les ennemis avec 50% de chances d'entrave des capacités pendant 1 tour et 50% de chances d'étourdir les droïdes pendant 1 tour.",
+                    "lead-ability-title" : "<u>Capacité de leader : Expédition à la casse</u>",
+                    "lead-ability" : "Chaque fois qu'un allié inflige des dégâts à un Droïdes, il a 80% de chances de lui infliger un malus de défense pendant 3 tours et 25% de chances de réduire la jauge de tour du Droïdes de 25%.",
+                    "unique-ability-title" : "<u>Capacité Unique : Chasseur de droïdes</u>",
+                    "unique-ability" : "Dathcha gagne un bonus aux chances de coup critique de 4.5% par Jawa allié en vie. De plus il gagne un bonus de dégâts critiques de 15%"
+                }
+            };
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\n/g, '<br><br>');
+            }
+
+            function switchLanguage(lang) {
+                for (const [key, text] of Object.entries(translations[lang])) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        // Convert \n\n to <br><br> before injecting
+                        element.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                }
+            }
+
+            window.onload = () => switchLanguage('en');
+        </script>
+
+    </footer>
+</body>
+
+</html>
