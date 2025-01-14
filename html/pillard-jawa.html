@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Jawa Scavenger</title>
+
+    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+
+    <!-- Lien vers l'icône du site -->
+    <link rel="icon" type="image/png" href="">
+
+    <!-- Lien vers la feuille de style -->
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/capacite.css">
+</head>
+
+<body class="simple">
+
+    <!-- Entête de la page -->
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/jawa-scavenger/scavenger-image.png" alt=""
+                style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    onclick="switchLanguage('fr')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    onclick="switchLanguage('en')">
+            </div>
+            <h1 id="title"><u>Jawa Scavenger</u></h1>
+            <p id="description">
+                Versatile Jawa Support who can detonate Thermal Detonators to inflict a large variety of status effects
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html"
+                    id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/jawa.html" id="jawa">Jawa</a>
+            </nav>
+        </div>
+    </header>
+    <br>
+    <!-- Image principale du personnage -->
+    <img class="first" src="../image-perso/jawa-scavenger/pillard_jawa.jpg" alt="Scavenger"><br>
+
+    <!-- Section pour les différentes attaques spéciales -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Dismantle</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Scavenger jawa basic" src="../image-perso/jawa-scavenger/scavenger-basique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 50% chance to inflict Offense Down for 2 turns. This chance
+                is doubled against Droids.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>1st Special: Scrap Bomb (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Scavenger spe 1" src="../image-perso/jawa-scavenger/scavenger-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies and immediately detonate all Thermal Detonators with a 50% chance
+                each to inflict Defense Down, Healing Immunity and Tenacity Down for 2 turns on detonated targets.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="unique-ability1-title"><u>Unique Ability: Line in the Sand</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Scavenger unique 1" src="../image-perso/jawa-scavenger/scavenger-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the end of each turn, if a Jawa ally was damaged by an attack that turn, Jawa Scavenger has an 80% chance to inflict 2 Thermal Detonators for 2 turns on each enemy that used an ability during that turn. This effect occurs for each time a Jawa ally was damaged by an attack that turn.
+                <br>
+                Whenever Jawa Scavenger scores a critical hit, he gains Stealth for 3 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="unique-ability2-title"><u>Unique Ability: Salvaged Equipment</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Scavenger unique 2" src="../image-perso/jawa-scavenger/scavenger-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                At the end of each of his turns, if Jawa Scavenger is Stealthed, he has an 80% chance to give two random allies Defense Up for 2 turns, and an 80% chance to give a random ally Offense Up for 2 turns.
+            </p>
+        </div>
+    </div>
+
+
+    <!-- Pied de page -->
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+        <script>
+            const translations = {
+                en: {
+                    "big-title": "Jawa Scavenger",
+                    "title": "<u>Jawa Scavenger</u>",
+                    "description": "Versatile Jawa Support who can detonate Thermal Detonators to inflict a large variety of status effects",
+                    "lightside": "Light Side",
+                    "support": "Support",
+                    "jawa": "Jawa",
+                    "basic-attack-title": "<u>Basic Attack: Dismantle</u>",
+                    "basic-attack": "Deal Physical damage to target enemy with a 50% chance to inflict Offense Down for 2 turns. This chance is doubled against Droids.",
+                    "special-attack1-title": "<u>1st Special: Scrap Bomb (cooldown: 3)</u>",
+                    "special-attack1": "Deal Physical damage to all enemies and immediately detonate all Thermal Detonators with a 50% chance each to inflict Defense Down, Healing Immunity and Tenacity Down for 2 turns on detonated targets.",
+                    "unique-ability1-title" : "<u>Unique Ability: Salvaged Equipment</u>",
+                    "unique-ability1" :  "At the end of each turn, if a Jawa ally was damaged by an attack that turn, Jawa Scavenger has an 80% chance to inflict 2 Thermal Detonators for 2 turns on each enemy that used an ability during that turn. This effect occurs for each time a Jawa ally was damaged by an attack that turn.\n\nWhenever Jawa Scavenger scores a critical hit, he gains Stealth for 3 turns.",
+                    "unique-ability2-title" : "<u>Unique Ability: Salvaged Equipment</u>",
+                    "unique-ability2" : "At the end of each of his turns, if Jawa Scavenger is Stealthed, he has an 80% chance to give two random allies Defense Up for 2 turns, and an 80% chance to give a random ally Offense Up for 2 turns.",
+                },
+                fr: {
+                    "big-title": "Pillard Jawa",
+                    "title": "<u>Pillard Jawa</u>",
+                    "description": "Soutien Jawa polyvalent qui peut faire exploser les dénoateurs thermiques pour infliger une grande variété d'effets",
+                    "lightside": "Coté Lumineux",
+                    "support": "Soutien",
+                    "jawa": "Jawa",
+                    "basic-attack-title": "<u>Attaque Basique : Démantèlement</u>",
+                    "basic-attack": "Inflige des dégâts physiques à une cible ennemie, avec 50% de chances d'infliger un malus d'attaque pendant 2 tours. Ces chances sont doublées contre les droïdes.",
+                    "special-attack1-title": "<u>1ere spéciale : Bombe artisanale (délai : 3)",
+                    "special-attack1": "Inflige des dégâts physiques à tous les ennemiis et fait exploser tous les détonateurs thermique. Chaque détonateur thermique a 50% de chances d'infliger un malus de défense, l'immunité aux soins et un malus de ténacité pendant 2 tours sur les cibles affectés par l'explosion.",
+                    "unique-ability1-title" : "<u>Capacité Unique : une ligne dans le sable</u>",
+                    "unique-ability1" : "A la fin de chaque tour, si un allié Jawa a subi les dégâts d'une attaque pendant ce tour, le Pillard Jawa a 80% de chances d'infliger 2 détonateurs thermiqies pendant 2 tours à chaque ennemi ayant utilisé une capacité lors du tour. Cet effet est activé à chaque fois qu'un allié Jawe subit les dégâts d'une attaque lors de ce tour\n\nA chaque fois que le Pillard Jawa inflige un coup critique, il obtient le camouflage pendant 3 tours.",
+                    "unique-ability2-title" : "<u>Capacité Unique : Équipement recyclé</u>",
+                    "unique-ability2" : "A la fin de chacun de ses tours, si le Pillard Jawa est camouflé, il a 80% de chances de conférer un bonus de défense à un allié aléatoire pendant 2 tours, et 80% de chances de conférer un bonus d'attaque pendant 2 tours.",
+
+                }
+            };
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\n/g, '<br><br>');
+            }
+
+            function switchLanguage(lang) {
+                for (const [key, text] of Object.entries(translations[lang])) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        // Convert \n\n to <br><br> before injecting
+                        element.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                }
+            }
+
+            window.onload = () => switchLanguage('en');
+        </script>
+
+    </footer>
+</body> 
+</html>
