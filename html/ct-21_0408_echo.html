@@ -1,104 +1,175 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>CT-21-0408 "Echo"</title>
+    <title id="big-title">CT-21-0408 "Echo"</title>
 
+    <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
 
+    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/echo-501/echo-image.png">
 
+    <!-- Lien vers la feuille de style -->
     <link rel="stylesheet" href="../style/styles.css">
     <link rel="stylesheet" href="../style/capacite.css">
 </head>
 
 <body class="simple">
 
-    <header class="perso">
-        <h1><u>CT-21-0408 "Echo"</u></h1>
-        <p>
-            Soldat Clone qui assiste automatiquement les alliés et peut<br>
-            dissiper toutes les améliorations des ennemis.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-                <a class="class" href="../classement-perso/soutien.html">Soutien</a>
-                <a class="capacite" href="../classement-perso/501E.html">501E</a>
-                <a class="capacite" href="../classement-perso/soldat-clone.html">Soldat Clone</a>
-                <a class="capacite" href="../classement-perso/république-galactique.html">République Galactique</a>
-        </nav>
+    <!-- Entête de la page -->
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/echo-501/echo-image.png" alt="CT-21-0408 'Echo'"
+                style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    onclick="switchLanguage('fr')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    onclick="switchLanguage('en')">
+            </div>
+            <h1 id="title"><u>CT-21-0408 "Echo"</u></h1>
+            <p id="description">
+                Clone Trooper Support that automatically assists allies and can dispel all enemy buffs
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/501E.html" id="501e">501ST</a>
+                <a class="capacite" href="../classement-perso/soldat-clone.html" id="clone">Clone Trooper</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html"
+                    id="galactic-republic">Galactic Republic</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/echo-501/21-0408-echo.png" alt="Echo"><br>
+    <!-- Image principale du personnage -->
+    <img class="first" src="../image-perso/echo-501/21-0408-echo.png" alt="echo-501"><br>
 
-    <h2 class="titre"><u>attaque basique : Tir de soutien</u></h2>
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Supporting Fire</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Echo basic" src="../image-perso/echo-501/echo-basic.png">
+            <img class="attaque" alt="Echo Basic" src="../image-perso/echo-501/echo-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie et remplit de 15% la jauge de tour<br>
-                d'un allié aléatoire dont la jauge de tour est inférieure à 50%. Cette attaque inflige<br>
-                15% de dégâts supplémentaires si Echo dispose d'un bonus de dégâts critiques.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and grant 15% Turn Meter to another random ally with less than 50% Turn Meter. This attack deals 15% more damage if Echo has Critical Damage Up.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>1ere spéciale: Grenade IEM (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>1st Special: EMP Grenade (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Echo spéciale" src="../image-perso/echo-501/echo-spe.png">
+            <img class="attaque" alt="Echo spé 1" src="../image-perso/echo-501/echo-spe.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à tous les ennemis et dissipe toutes<br>
-                leurs améliorations. Etourdit tous les droïdes pendant 1 tour.
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to all enemies and dispel all buffs on them. Stun all Droid enemies for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="unique-ability1-title"><u>Unique Ability: Copy That</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Echo unique 1" src="../image-perso/echo-501/echo-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Whenever another Clone Trooper or 501st ally uses their Basic ability during their turn, Echo assists. Whenever another Clone Trooper or 501st ally critically hits an enemy, Echo's next attack will be a critical hit.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="unique-ability2-title"><u>Unique Ability: Domino Squad</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Echo unique 2" src="../image-perso/echo-501/echo-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                Clone Trooper and 501st allies have +20% Critical Chance. When an enemy evades an attack from a Clone Trooper or 501st ally, Echo deals damage to them equal to 20% of their Max Health, which can't be evaded.
+                <br><br>
+                If Fives is present, Echo deals +100% more damage when Fives is Taunting, or has +100% Defense when Fives is not Taunting.
             </p>
         </div>
     </div>
 
 
-    <h2 class="titre"><u>capacité unique: Bien reçu</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="Unique bien reçu" src="../image-perso/echo-501/echo-unique1.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Lorsqu'un soldat clone allié ou un allié de la 501e utilise une capacité de base pendant son tour,<br>
-                Echo l'assiste. Lorsqu'un soldat clone allié ou un allié de la 501e inflige un coup critique<br>
-                à un ennemi, la prochaine attaque d'Echo infligera aussi un coup critique.
-            </p>
-        </div>
-    </div>
-
-
-    <h2 class="titre"><u>capacité unique: Escouade domino</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="Unique Echo escoaude domino" src="../image-perso/echo-501/echo-unique2.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Les soldats clones alliés et les alliés de la 501e ont +20% de chances de coup critique.<br>
-                Lorsqu'un ennemi esquive l'attaque d'un soldat clone ou d'un allié de la 501e, Echo<br>
-                lui inflige des dégâts à hauteur de 20% de sa santé maximale (ne peut pas être esquivée).<br>
-                <br>
-                Si Cinqs est présent, Echo inflige +100% de dégâts supplémentaires lorsque Cinqs utilise la raillerie,<br>
-                ou il dispose de +100% de défense lorsque Cinqs n'utilise pas la raillerie.
-            </p>
-        </div>
-    </div>
-
+    <!-- Pied de page -->
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
+        <script>
+            const translations = {
+                en: {
+                    "big-title" : 'CT-21-0408 "Echo"',
+                    "title" : '<u>CT-21-0408 "Echo"</u>',
+                    "description" : "Clone Trooper Support that automatically assists allies and can dispel all enemy buffs",
+                    "lightside" : "Light Side",
+                    "support" : "Support",
+                    "501e" : "501ST",
+                    "clone" : "Clone Trooper",
+                    "galactic-republic" : "Galactic Republic",
+                    "basic-attack-title" : "<u>Basic Attack: Supporting Fire</u>",
+                    "basic-attack" : "Deal Physical damage to target enemy and grant 15% Turn Meter to another random ally with less than 50% Turn Meter. This attack deals 15% more damage if Echo has Critical Damage Up.",
+                    "special-attack1-title" : "<u>1st Special: EMP Grenade (cooldown: 4)</u>",
+                    "special-attack" : "Deal Special damage to all enemies and dispel all buffs on them. Stun all Droid enemies for 1 turn.",
+                    "unique-ability1-title" : "<u>Unique Ability: Copy That</u>",
+                    "unique-ability1" : "Whenever another Clone Trooper or 501st ally uses their Basic ability during their turn, Echo assists. Whenever another Clone Trooper or 501st ally critically hits an enemy, Echo's next attack will be a critical hit.",
+                    "unique-ability2-title" : "<u>Unique Ability: Domino Squad</u>",
+                    "unique-ability2" : "Clone Trooper and 501st allies have +20% Critical Chance. When an enemy evades an attack from a Clone Trooper or 501st ally, Echo deals damage to them equal to 20% of their Max Health, which can't be evaded.\n\n If Fives is present, Echo deals +100% more damage when Fives is Taunting, or has +100% Defense when Fives is not Taunting."
+
+
+                },
+                fr: {
+                    "big-title" : 'CT-21-0408 "Echo"',
+                    "title" : '<u>CT-21-0408 "Echo"</u>',
+                    "description" : "            Soldat Clone qui assiste automatiquement les alliés et peut dissiper toutes les améliorations des ennemis.",
+                    "lightside" : "Coté Lumineux",
+                    "support" : "Soutien",
+                    "501e" : "501E",
+                    "clone" : "Soldat Clone",
+                    "galactic-republic" : "République Galactique",
+                    "basic-attack-title" : "<u>Attaque basique: Tir de soutien</u>",
+                    "basic-attack" : "Inflige des dégâts physiques à une cible ennemie et remplit de 15% la jauge de tour d'un allié aléatoire dont la jauge de tour est inférieure à 50%. Cette attaque inflige 15% de dégâts supplémentaires si Echo dispose d'un bonus de dégâts critiques.",
+                    "special-attack1-title" : "<u>Attaque spéciale : Grenade IEM (délai: 4)</u>",
+                    "special-attack1" : "Inflige des dégâts spéciaux à tous les ennemis et dissipe toutes leurs améliorations. Etourdit tous les droïdes pendant 1 tour.",
+                    "unique-ability1-title" : "<u>capacité unique: Bien reçu</u>",
+                    "unique-ability1" : "Lorsqu'un soldat clone allié ou un allié de la 501e utilise une capacité de base pendant son tour, Echo l'assiste. Lorsqu'un soldat clone allié ou un allié de la 501e inflige un coup critique à un ennemi, la prochaine attaque d'Echo infligera aussi un coup critique.",
+                    "unique-ability2-title" : "<u>capacité unique: Escouade domino</u>",
+                    "unique-ability2" : "Les soldats clones alliés et les alliés de la 501e ont +20% de chances de coup critique. Lorsqu'un ennemi esquive l'attaque d'un soldat clone ou d'un allié de la 501e, Echo lui inflige des dégâts à hauteur de 20% de sa santé maximale (ne peut pas être esquivée).\n\nSi Cinqs est présent, Echo inflige +100% de dégâts supplémentaires lorsque Cinqs utilise la raillerie,ou il dispose de +100% de défense lorsque Cinqs n'utilise pas la raillerie."
+                    
+                
+                }
+            };
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\n/g, '<br><br>');
+            }
+
+            function switchLanguage(lang) {
+                for (const [key, text] of Object.entries(translations[lang])) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        // Convert \n\n to <br><br> before injecting
+                        element.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                }
+            }
+
+            window.onload = () => switchLanguage('en');
+        </script>
+
     </footer>
 </body>
-</html>    
+
+</html>
