@@ -1,125 +1,205 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>CT-5555 "Fives"</title>
+    <title id="big-title">CT-5555 "Fives"</title>
 
+    <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
 
+    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/fives/fives-image.png">
-    <link rel="stylesheet" href="../style/capacite.css">
+
+    <!-- Lien vers la feuille de style -->
     <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/capacite.css">
 </head>
 
 <body class="simple">
 
-    <header class="perso">
-        <h1><u>CT-5555 "Fives"</u></h1>
-        <p>
-            Tank doté d'une grande défense, de capacité de réduction de la vitesse des ennemis,<br>
-            et de bonus de stats pour toute l'escoaude.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-                <a class="class" href="../classement-perso/tank.html">Tank</a>
-                <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-                <a class="capacite" href="../classement-perso/501E.html">501E</a>
-                <a class="capacite" href="../classement-perso/soldat-clone.html">Soldat Clone</a>
-                <a class="capacite" href="../classement-perso/république-galactique.html">République Galactique</a>
-                <a class="pilote" href="../classement-perso/membres-équipages.html">Membres Equipages</a>
-        </nav>
-    </header>
-    <br>
-
-        <img class="first" src="../image-perso/fives/Fives.png" alt="Fives"><br>
-
-        <h2 class="titre"><u>attaque basique : Doubles blasters DC-17</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="Five basique" src="../image-perso/fives/fives-basic.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Inflige des dégâts physiques à une cible ennemie, ainsi qu'un malus de vitesse pendant 2 tours.<br>
-                    Attaque à nouveau si l'ennemie souffrait déjà d'un malus de vitesse.
-                </p>
-            </div>
+    <!-- Entête de la page -->
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/fives/fives-image.png" alt="Fives image"
+                style="max-width: 100%; max-height: 100%;">
         </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    onclick="switchLanguage('fr')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    onclick="switchLanguage('en')">
+            </div>
+            <h1 id="title"><u>CT-5555 "Fives"</u></h1>
+            <p id="description">
+                Tank with high Defense, enemy Speed reduction, and team-wide stat bonuses
+            </p>
+            <br>
 
-        <h2 class="titre"><u>1ere spéciale: Tir de couverture(délai: 3)</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="Fives spe" src="../image-perso/fives/fives-spe.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Inflige des dégâts physiques à une cible ennemie et invoque la cible alliée.<br>
-                    Si l'allié invoqué est un soldat clone ou fait partie de la 501e, les deux<br>
-                    attaquants infligent 35% de dégâts supplémentaires. Si aucun autre allié<br>
-                    n'utilise la raillerie, Cinqs utilises la raillerie pendant 2 tours à la fin de son tour.
-                </p>
-            </div>
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html" id="ightside">Light
+                    Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/501E.html" id="501e">501ST</a>
+                <a class="capacite" href="../classement-perso/soldat-clone.html" id="clone">Clone Trooper</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html"
+                    id="galactic-republic">Galactic Republic</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
+            </nav>
         </div>
+    </header><br>
 
-        <h2 class="titre"><u>Capacité de chef: Soldat clone véteran</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="Fives lead" src="../image-perso/fives/fives-veteran-unique.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Les soldats clones alliés gagnent +50% de défense, et les autres<br>
-                    gagnent la moitié de cette valeur. Les alliés de la 501e, obtiennent<br>
-                    la protection sur la durée (5%) pendant 2 tours à chaque fois<br>
-                    qu'ils subissent un coup critique. 
-                </p>
-            </div>
+    <!-- Image principale du personnage -->
+    <img class="first" src="../image-perso/fives/fives.png" alt="Fives"><br>
+
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Dual DC-17 Blasters</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="fives basic" src="../image-perso/fives/fives-basic.png">
         </div>
-
-
-        <h2 class="titre"><u>capacité unique: Escoaude Domino</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="Fives unique" src="../image-perso/fives/fives-unique2.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Cinqs a +85% de chances de contre-attaque. Lorsqu'un soldat clone ou<br>
-                    un allié de la 501e subit des dégâts, la jauge de tour de Cinqs se remplit<br>
-                    de 15%, et celles des autres se remplit de la moitié de cette valeur.<br>
-                    <br>
-                    Si CT-21-0408 "Echo" est présent, Cinqs a +100% de défense lorsqu'il<br>
-                    utilise la raillerie, ou alors il inflige 100% de dégâts supplémentaires<br>
-                    lorqu'il n'utilise pas la raillerie.
-                </p>
-            </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Speed Down for 2 turns. If the enemy was already
+                inflicted with Speed Down, attack again.
+            </p>
         </div>
+    </div>
 
-        <h2 class="titre"><u>capacité unique: Conscience tactique</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="Fives unique 2" src="../image-perso/fives/fives-veteran-unique.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Cinqs ne peut etre ranimé. Lorsqu'un autre soldat clone de 501e peut<br>
-                    être vaincu alors que Cinqs est actif, cet allié récupère 100% de santé<br>
-                    et Cinqs est vaincu à la fin de ce tour.<br>
-                    <br>
-                    Si Cinqs est vaincu de cette façon, les soldats clones alliés les stats de<br>
-                    santé maximale, protection maximale, vitesse et attaque de Cinqs jusqu'à la<br>
-                    fin de la bataille, en plus de leurs propres stats.
-                </p>
-            </div>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Cover Fire (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="fives spe" src="../image-perso/fives/fives-spe.png">
         </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and call target ally to assist. If the assisting ally is a Clone
+                Trooper or 501st, both attackers deal 35% more damage. At the end of his turn if no allies are Taunting,
+                Fives Taunts for 2 turns.
+            </p>
+        </div>
+    </div>
 
-        <footer>
-            <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-    
-            <script src="../javascript/bouton.js"></script>
-        </footer>
+    <h2 class="titre" id="lead-ability-title"><u>Leader Ability : Veteran Clone Trooper</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="fives lead" src="../image-perso/fives/fives-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Clone Trooper allies have +50% Defense, and other allies gain half that amount. 501st allies gain
+                Protection Over Time (5%) for 2 turns whenever they are critically hit.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="unique-ability1-title"><u>Unique Ability : Domino Squad</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="fives unique 1" src="../image-perso/fives/fives-domino-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Fives has +85% counter chance. Fives gains 15% Turn Meter whenever another Clone Trooper or 501st ally
+                takes damage and half that amount for other allies.
+                <br>
+                If CT-21-0408 "Echo" is present, Fives has +100% Defense when Taunting, or deals 100% more damage when
+                not Taunting.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="unique-ability2-title"><u>Unique Ability : Tactical Awareness</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="fives unique" src="../image-perso/fives/fives-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                Fives can't be revived. When another 501st Clone Trooper ally would be defeated while Fives is active,
+                they recover 100% Health and Fives is defeated at the end of that turn.
+                <br>
+                If Fives is defeated this way, 501st Clone Trooper allies gain his Max Health, Max Protection, Speed,
+                and Offense stats in addition to their own until the end of battle.
+            </p>
+        </div>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+        <script>
+            const translations = {
+                en: {
+                    "big-title": 'CT-5555 "Fives"',
+                    "title": '<u>CT-5555 "Fives"</u>',
+                    "description" : "Tank with high Defense, enemy Speed reduction, and team-wide stat bonuses",
+                    "lightside": "Light Side",
+                    "tank": "Tank",
+                    "leader": "Leader",
+                    "501e": "501ST",
+                    "clone": "Clone Trooper",
+                    "galactic-republic": "Galactic Republic",
+                    "crew-members": "Crew Members",
+                    "basic-attack-title": "<u>Basic Attack: Dual DC-17 Blasters</u>",
+                    "basic-attack": "Deal Physical damage to target enemy and inflict Speed Down for 2 turns. If the enemy was already inflicted with Speed Down, attack again.",
+                    "special-attack1-title": "<u>Special Attack: Cover Fire (cooldown: 3)</u>",
+                    "special-attack1": "Deal Physical damage to target enemy and call target ally to assist. If the assisting ally is a Clone Trooper or 501st, both attackers deal 35% more damage. At the end of his turn if no allies are Taunting, Fives Taunts for 2 turns.",
+                    "lead-ability-title": "<u>Leader Ability: Veteran Clone Trooper</u>",
+                    "lead-ability": "Clone Trooper allies have +50% Defense, and other allies gain half that amount. 501st allies gain Protection Over Time (5%) for 2 turns whenever they are critically hit.",
+                    "unique-ability1-title": "<u>Unique Ability: Domino Squad</u>",
+                    "unique-ability1": "Fives has +85% counter chance. Fives gains 15% Turn Meter whenever another Clone Trooper or 501st ally takes damage and half that amount for other allies.\n\nIf CT-21-0408 \"Echo\" is present, Fives has +100% Defense when Taunting, or deals 100% more damage when not Taunting.",
+                    "unique-ability2-title": "<u>Unique Ability: Tactical Awareness</u>",
+                    "unique-ability2": "Fives can't be revived. When another 501st Clone Trooper ally would be defeated while Fives is active, they recover 100% Health and Fives is defeated at the end of that turn.\n\nIf Fives is defeated this way, 501st Clone Trooper allies gain his Max Health, Max Protection, Speed, and Offense stats in addition to their own until the end of battle."
+                },
+                fr: {
+                    "big-title": 'CT-5555 "Cinqs"',
+                    "title": '<u>CT-5555 "Cinqs"</u>',
+                    "description" : "Tank doté d'une grande défense, de capacité de réduction de la vitesse des ennemis, et de bonus de stats pour toute l'escoaude.",
+                    "lightside": "Côté Lumineux",
+                    "tank": "Tank",
+                    "leader": "Chef",
+                    "501e": "501e",
+                    "clone": "Soldat Clone",
+                    "galactic-republic": "République Galactique",
+                    "crew-members": "Membres d'Équipage",
+                    "basic-attack-title": "<u>Attaque Basique : Doubles blasters DC-17</u>",
+                    "basic-attack": "Inflige des dégâts physiques à une cible ennemie, ainsi qu'un malus de vitesse pendant 2 tours. Attaque à nouveau si l'ennemi souffrait déjà d'un malus de vitesse.",
+                    "special-attack1-title": "<u>Attaque Spéciale : Tir de couverture (délai : 3)</u>",
+                    "special-attack1": "Inflige des dégâts physiques à une cible ennemie et appelle un allié ciblé à assister. Si l'allié appelé est un Soldat Clone ou fait partie de la 501e, les deux attaquants infligent 35% de dégâts supplémentaires. À la fin de son tour, si aucun autre allié n'utilise la raillerie, Cinqs utilise la raillerie pendant 2 tours.",
+                    "lead-ability-title": "<u>Capacité de Chef : Soldat clone vétéran</u>",
+                    "lead-ability": "Les Soldats Clones alliés gagnent +50% de défense, et les autres alliés gagnent la moitié de cette valeur. Les alliés de la 501e obtiennent la protection sur la durée (5%) pendant 2 tours à chaque fois qu'ils subissent un coup critique.",
+                    "unique-ability1-title": "<u>Capacité Unique : Escouade Domino</u>",
+                    "unique-ability1": "Cinqs a +85% de chances de contre-attaque. Lorsqu'un Soldat Clone ou un allié de la 501e subit des dégâts, la jauge de tour de Cinqs se remplit de 15%, et celle des autres alliés se remplit de la moitié de cette valeur.\n\nSi CT-21-0408 \"Echo\" est présent, Cinqs a +100% de défense lorsqu'il utilise la raillerie, ou inflige 100% de dégâts supplémentaires lorsqu'il n'utilise pas la raillerie.",
+                    "unique-ability2-title": "<u>Capacité Unique : Conscience tactique</u>",
+                    "unique-ability2": "Cinqs ne peut être ranimé. Lorsqu'un autre Soldat Clone de la 501e devrait être vaincu alors que Cinqs est actif, cet allié récupère 100% de santé et Cinqs est vaincu à la fin de ce tour.\n\nSi Cinqs est vaincu de cette façon, les Soldats Clones alliés gagnent sa santé maximale, protection maximale, vitesse et attaque en plus des leurs jusqu'à la fin de la bataille."
+                }
+            };
+
+
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\n/g, '<br><br>');
+            }
+
+            function switchLanguage(lang) {
+                for (const [key, text] of Object.entries(translations[lang])) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        // Convert \n\n to <br><br> before injecting
+                        element.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                }
+            }
+
+            window.onload = () => switchLanguage('en');
+        </script>
+
+    </footer>
 </body>
-</html>        
+
+</html>
