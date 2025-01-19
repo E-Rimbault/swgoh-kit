@@ -1,135 +1,200 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>CT-7567 "Rex"</title>
+    <title id="big-title">CT-7567 "Rex"</title>
 
+    <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
 
+    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/rex/rex-image.png">
-    <link rel="stylesheet" href="../style/capacite.css">
-    <link rel="stylesheet" href="../style/styles.css">
-    <style>
-        img {
-            width: 40%;
-            height: 40%;
-        }
 
-        table,
-        tr,
-        td {
-            margin: auto;
-        }
-    </style>
+    <!-- Lien vers la feuille de style -->
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/capacite.css">
 </head>
 
 <body class="simple">
 
-    <header class="perso">
-        <h1><u>CT-7567 "Rex"</u></h1>
-        <p>
-            Chef clone qui soutient et protège farouchement ses alliés de<br>
-            la 501e et les soldats clones alliés.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;"> 
-                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-                <a class="class" href="../classement-perso/soutien.html">Soutien</a>
-                <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-                <a class="capacite" href="../classement-perso/501E.html">501E</a>
-                <a class="capacite" href="../classement-perso/soldat-clone.html">Soldat Clone</a>
-                <a class="capacite" href="../classement-perso/république-galactique.html">République Galactique</a>
-                <a class="pilote" href="../classement-perso/membres-équipages.html">Membre Equipage</a>
-        </nav>
-    </header>
-    <br>
+    <!-- Entête de la page -->
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/rex/rex-image.png" alt="rex" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    onclick="switchLanguage('fr')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    onclick="switchLanguage('en')">
+            </div>
+            <h1 id="title"><u>CT-7567 "Rex"</u></h1>
+            <p id="description">
+                Clone Leader who fiercely supports and protects his 501st and Clone Trooper allies
+            </p>
+            <br>
 
-    <img class="first" src="../image-perso/rex/Rex.png" alt="Rex"><br>
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html"
+                    id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/501E.html" id="501e">501ST</a>
+                <a class="capacite" href="../classement-perso/soldat-clone.html" id="clone">Clone Trooper</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html"
+                    id="galactic-republic">Galactic Republic</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
+            </nav>
+        </div>
+    </header><br>
 
-    <h2 class="titre"><u>attaque basique : Tir imminent</u></h2>
+    <!-- Image principale du personnage -->
+    <img class="first" src="../image-perso/rex/Rex.png" alt="rex image"><br>
+
+    <!-- Section pour les différentes attaques spéciales -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Impeding Shot</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="rex basique" src="../image-perso/rex/rex-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physique à une cible ennemie et réduit sa jauge de tour de 25%.<br>
-                Confère un bonus de pouvoir pendant 1 tour de manière aléatoire à un soldat<br>
-                clone allié de la 501e qui n'en dispose pas déjà.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and remove 25% Turn Meter. Grant Potency Up for 1 turn to a random
+                501st Clone Trooper ally who doesn't already have it.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>1ere spéciale: Formation (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack: Form Up (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="rex spé 1" src="../image-perso/rex/rex-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe tous les affaiblissements affectant les alliés et leur confère<br>
-                un bonus de ténacité pendant 3 tours. La jauge de tour des soldats clones<br>
-                alliés se remplit de 60%, et de 10% pour chaque affaiblissements ainsi dissipés.<br>
-                Les autres alliés gagnent la moitié de ces valeurs.
+            <p class="attaque" id="special-attack1">
+                Dispel all debuffs on all allies and grant them Tenacity Up for 3 turns. Clone Trooper allies gain 60%
+                Turn Meter, plus an additional 10% Turn Meter for each debuff dispelled this way, and other allies gain
+                half of these amounts.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>2eme spéciale: Avantage aérien (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack: Aerial Advantage (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Rex spé 2" src="../image-perso/rex/rex-spe2.png">
+            <img class="attaque" alt="rex spé 2" src="../image-perso/rex/rex-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                inflige des dégâts physiques à une cible ennemie, ainsi que des dégâts<br>
-                bonus à hauteur de 25% de la santé maximale de la cible pour chaque<br>
-                tour utilisé par un soldat clone allié pendant cette affrontement.<br>
-                Cette capacité commence avec un délai.
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to the target enemy, plus bonus damage equal to 25% of the target's Max Health for
+                each turn a Clone Trooper ally has taken during this encounter. This ability starts on cooldown.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>Capacité de chef: Frères d'armes</u></h2>
+    <!-- Capacités spéciales du personnage -->
+    <h2 class="titre" id="lead-ability-title"><u>Leader Ability: Brothers in Arms</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Rex lead" src="../image-perso/rex/rex-lead.png">
+            <img class="attaque" alt="rex lead" src="../image-perso/rex/rex-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Les soldats clones alliés de la 501e gagnent +20% de leur santé maximale.<br>
-                Cette augmentation est doublée pour les soldats clones de la 501e, et<br>
-                divisée par deux pour les autres alliés. De plus, lorsqu'un allié subit<br>
-                un coup critique, la jauge de tour de tous les soldats clones alliés se<br>
-                remplit de 15%, et celle des autres alliés se remplit de la moitié de cette valeur.
+            <p class="attaque" id="lead-ability">
+                Clone Trooper allies and 501st allies have +20% Max Health. This increase is doubled for 501st Clone
+                Troopers and halved for other allies. In addition, whenever an ally suffers a critical hit, all Clone
+                Trooper allies gain 15% Turn Meter and other allies gain half that amount.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>capacité unique: Capitaine de la 501e</u></h2>
+    <h2 class="titre" id="unique-ability-title"><u>Unique Ability: Captain of the 501st</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Rex unique" src="../image-perso/rex/rex-unique2.png">
+            <img class="attaque" alt="rex unique" src="../image-perso/rex/rex-unique2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Tous les alliés de la 501e ont +4% de vitesse pour chaque allié de la<br>
-                501 présent au début de la bataille. Les autres soldats clones alliés<br>
-                de la 501e diminuent les délais de leurs capacités de 1 au début de chacun<br>
-                de leurs tours.<br>
+            <p class="attaque" id="unique-ability">
+                All 501st allies have +4% Speed for each 501st ally present at the start of battle. Other 501st Clone
+                Trooper allies reduce their own ability cooldowns by 1 at the start of each of their turns.
                 <br>
-                Si Ahsoka Tano fait partie des alliés, elle obtient l'immunité aux coups critiques<br>
-                pendant 2 tours à chaque fois que sa santé est réduite à moins de 100%.
+                If Ahsoka Tano (Snips) is an ally, she gains Critical Hit Immunity for 2 turns whenever she falls below
+                100% Health.
             </p>
         </div>
     </div>
 
+
+    <!-- Pied de page -->
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
+        <script>
+            const translations = {
+                en: {
+                    "big-title": 'CT-7567 "Rex"',
+                    "title": '<u>CT-7567 "Rex</u>"',
+                    "description": "Clone Leader who fiercely supports and protects his 501st and Clone Trooper allies",
+                    "lightside": "Light Side",
+                    "support": "Support",
+                    "501e": "501ST",
+                    "clone": "Clone Trooper",
+                    "galactic-republic": "Galactic Republic",
+                    "crew-members": "Crew Members",
+                    "basic-attack-title": "Basic Attack: Impeding Shot",
+                    "basic-attack": "Deal Physical damage to target enemy and remove 25% Turn Meter. Grant Potency Up for 1 turn to a random 501st Clone Trooper ally who doesn't already have it.",
+                    "special-attack1-title": "Special Attack: Form Up (cooldown: 4)",
+                    "special-attack1": "Dispel all debuffs on all allies and grant them Tenacity Up for 3 turns. Clone Trooper allies gain 60% Turn Meter, plus an additional 10% Turn Meter for each debuff dispelled this way, and other allies gain half of these amounts.",
+                    "special-attack2-title": "Special Attack: Aerial Advantage (cooldown: 4)",
+                    "special-attack2": "Deal Physical damage to the target enemy, plus bonus damage equal to 25% of the target's Max Health for each turn a Clone Trooper ally has taken during this encounter. This ability starts on cooldown.",
+                    "lead-ability-title": "Leader Ability: Brothers in Arms",
+                    "lead-ability": "Clone Trooper allies and 501st allies have +20% Max Health. This increase is doubled for 501st Clone Troopers and halved for other allies. In addition, whenever an ally suffers a critical hit, all Clone Trooper allies gain 15% Turn Meter and other allies gain half that amount.",
+                    "unique-ability-title": "Unique Ability: Captain of the 501st",
+                    "unique-ability": "All 501st allies have +4% Speed for each 501st ally present at the start of battle. Other 501st Clone Trooper allies reduce their own ability cooldowns by 1 at the start of each of their turns.\n\nIf Ahsoka Tano (Snips) is an ally, she gains Critical Hit Immunity for 2 turns whenever she falls below 100% Health."
+                },
+                fr: {
+                    "big-title": 'CT-7567 "Rex"',
+                    "title": '<u>CT-7567 "Rex"</u>',
+                    "description": "Chef clone qui soutient et protège farouchement ses alliés de la 501e et les soldats clones alliés.",
+                    "lightside": "Coté Lumineux",
+                    "support": "Soutien",
+                    "501e": "501E",
+                    "clone": "Soldat Clone",
+                    "galactic-republic": "République Galactique",
+                    "crew-members": "Membre Equipage",
+                    "basic-attack-title": "Attaque Basique : Tir imminent",
+                    "basic-attack": "Inflige des dégâts physiques à une cible ennemie et réduit sa jauge de tour de 25%. Confère un bonus de puissance pendant 1 tour à un soldat clone allié de la 501e qui n'en dispose pas déjà.",
+                    "special-attack1-title": "Attaque Spéciale : Formation (délai : 4)",
+                    "special-attack1": "Dissipe tous les affaiblissements affectant les alliés et leur confère un bonus de ténacité pendant 3 tours. La jauge de tour des soldats clones alliés se remplit de 60%, plus 10% supplémentaires pour chaque affaiblissement dissipé de cette manière, et les autres alliés gagnent la moitié de ces montants.",
+                    "special-attack2-title": "Attaque Spéciale : Avantage aérien (délai : 4)",
+                    "special-attack2": "Inflige des dégâts physiques à la cible ennemie, plus des dégâts bonus égaux à 25% de la santé maximale de la cible pour chaque tour qu'un soldat clone allié a pris pendant cet affrontement. Cette capacité commence avec un délai.",
+                    "lead-ability-title": "Capacité de Chef : Frères d'armes",
+                    "lead-ability": "Les soldats clones alliés et les alliés de la 501e ont +20% de santé maximale. Cette augmentation est doublée pour les soldats clones de la 501e et réduite de moitié pour les autres alliés. De plus, chaque fois qu'un allié subit un coup critique, tous les soldats clones alliés gagnent 15% de jauge de tour et les autres alliés gagnent la moitié de ce montant.",
+                    "unique-ability-title": "Capacité Unique : Capitaine de la 501e",
+                    "unique-ability": "Tous les alliés de la 501e ont +4% de vitesse pour chaque allié de la 501e présent au début de la bataille. Les autres soldats clones alliés de la 501e réduisent leurs propres délais de capacité de 1 au début de chacun de leurs tours.\n\nSi Ahsoka Tano est une alliée, elle obtient l'immunité aux coups critiques pendant 2 tours chaque fois que sa santé tombe en dessous de 100%."
+                }
+
+            };
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\n/g, '<br><br>');
+            }
+
+            function switchLanguage(lang) {
+                for (const [key, text] of Object.entries(translations[lang])) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        // Convert \n\n to <br><br> before injecting
+                        element.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                }
+            }
+
+            window.onload = () => switchLanguage('en');
+        </script>
+
     </footer>
 </body>
-</html>    
+
+</html>
