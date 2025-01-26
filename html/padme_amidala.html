@@ -1,128 +1,195 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Padmé Amidala</title>
+    <title id="big-title">Padmé Amidala</title>
 
+    <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
 
+    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/padme-amidala/padme-image.png">
 
-    <link rel="stylesheet" href="../style/capacite.css">
+    <!-- Lien vers la feuille de style -->
     <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/capacite.css">
 </head>
 
 <body class="simple">
 
-    <header class="perso">
-        <h1><u>Padmé Amidala</u></h1>
-        <p>
-            Courageuse dirigeante qui aide ses alliés en permanence et s'adapte à toutes les circonstances.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/soutien.html">Soutien</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/république-galactique.html">République Galactique</a>
-        </nav> 
-    </header>
-    <br>
+    <!-- Entête de la page -->
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/padme-amidala/padme-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    onclick="switchLanguage('fr')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    onclick="switchLanguage('en')">
+            </div>
+            <h1 id="title"><u>Padmé Amidala</u></h1>
+            <p id="description">
+                Courageous leader who continuously helps her allies and adapts to any circumstance
+            </p>
+            <br>
 
-    <img class="first" src="../image-perso/padme-amidala/Padm.png" alt="Padmé"><br>
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html"
+                    id="galactic-republic">Galactic Republic</a>
+            </nav>
+        </div>
+    </header><br>
 
-    <h2 class="titre"><u>attaque basique : Négociation musclée</u></h2>
+    <!-- Image principale du personnage -->
+    <img class="first" src="../image-perso/padme-amidala/padmé.png" alt="Padme"><br>
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Aggressive Negotiations</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="padmé basique" src="../image-perso/padme-amidala/padm-basique.png">
+            <img class="attaque" alt="padme basic" src="../image-perso/padme-amidala/padm-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie, qui ne peuvent pas être esquivées.<br>
-                Tous les alliés de la République Galactique obtiennent une hausse de protection<br>
-                (10%, ne se cumule pas) pendant 1 tour.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy, which can't be evaded. All Galactic Republic allies gain
+                Protection Up (10%, does not stack with itself) for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack: Cunning Plan (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Padmé spé 1" src="../image-perso/padme-amidala/padm-sp-1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Dispel all debuffs on Light Side allies, and they recover 50% Health. For each Galactic Republic ally
+                and each debuff dispelled from themselves, Galactic Republic allies gain Protection Up (10%, stacking)
+                for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack: Graceful Assault (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Padmé Spé 2" src="../image-perso/padme-amidala/padm-sp-2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to target enemy and Stun them for 1 turn, which can't be copied or dispelled. Then,
+                call all Light Side allies with Protection Up and Jedi Knight Anakin to assist.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="lead-ability-title"><u>Leader Ability: Unwavering Courage</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Padmé Lead" src="../image-perso/padme-amidala/padm-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Light Side allies have +50% Max Health, and while they have Protection Up they resist all debuffs and
+                can't be critically hit.
+                <br><br>
+                At the start of their turn, Galactic Republic allies dispel Protection Up buffs on themselves and gain 1
+                stack of <u class="speciale">Courage</u> for each 5% Protection Up dispelled this way. Courage can't be
+                copied, dispelled, or prevented.
+                <br><br>
+                <u class="speciale">Courage:</u> When damaging the target enemy with an ability, for each 5 stacks of
+                Courage, dispel 5 stacks and deal bonus damage equal to 40% of the target's Max Health
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="unique-ability-title"><u>Unique Ability: Always a Choice</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Padmé Unique" src="../image-perso/padme-amidala/padm-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Padmé is immune to Fear. Whenever a Light Side ally loses Protection Up, they recover 5% Health. Allies
+                can't gain or lose bonus Turn Meter.
+                <br><br>
+                Whenever an enemy attacks out of turn against a Galactic Republic ally, that ally gains Protection Up
+                (10%, does not stack with itself) for 1 turn, increased to 40% if Padmé is their leader. This Protection
+                Up can't be prevented or dispelled.
             </p>
         </div>
     </div>
 
 
-    <h2 class="titre"><u>1ere spéciale: Plan rusé(délai: 3)</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="padmé spé 1" src="../image-perso/padme-amidala/padm-sp-1.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Dissipe tous les affaiblissements en cours sur les alliés du Coté Lumineux qui<br>
-                récupèrent 50% de santé. Les alliés de la République Galactique obtiennent une<br>
-                hausse de protection (10%, cumulatif) pendant 1 tour pour chaque allié de la <br>
-                République Galactique présent et chacun de leurs affaiblissements dissipés.
-            </p>
-        </div>
-    </div>
-
-
-    <h2 class="titre"><u>2eme spéciale: Assaut gracieux(délai: 3)</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="padmé spé 2" src="../image-perso/padme-amidala/padm-sp-2.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physique à la cible ennemie et l'étourdit pendant 1 tour<br>
-                (ne peut pas être copié ni dissipé). Ensuite, invoque tous les alliés du Coté<br>
-                Lumineux qui disposent d'une hausse de protection, ainsi que le Chevalier jedi Anakin.
-            </p>
-        </div>
-    </div>
-
-
-    <h2 class="titre"><u>Capacité de chef: Courage inébranlable</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="padmé lead" src="../image-perso/padme-amidala/padm-lead.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Les alliés du Coté Lumineux ont +50% de santé maximale, et tant qu'ils<br>
-                disposent d'une hausse de protection ils résistent  tous les affaiblissements<br>
-                et ne peuvent pas subir de coups critiques.<br>
-                <br>
-                Au début de leur tour, les alliés de la République Galactique dissipent leurs<br>
-                améliorations de hausse de protection et obtiennent 1 cumul de <u class="speciale">courage</u> à chaque<br>
-                tranche de 5% de hausse de protection dissipée de cette manière. Le courage ne peut pas<br>
-                être copié, dissipé ou empeché.<br>
-                <br>
-                <u class="speciale">Courage:</u> Lorsqu'une capacité inflige des dégâts à la cible ennemie, pour chaque<br>
-                5 cumuls de courage, dissipe 5 cumuls et inflige des dégâts à hauteur de 40% de la santé maximale de la cible.
-            </p>
-        </div>
-    </div>
-
-
-    <h2 class="titre"><u>capacité unique: Toujours le choix</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="padmé unique" src="../image-perso/padme-amidala/padm-unique.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Padmé est immunisée contre la peur. Lorsqu'un allié du Coté Lumineux perd sa hausse de protection,<br>
-                il récupère 5% de santé. Les alliés ne peuvent pas obtenir ou perde des bonus de jauge de tour.<br>
-                <br>
-                Lorsqu'un ennemi attaque un allié de la République Galactique en dehors de son tour, cet allié<br>
-                obtient une hausse de protection(10%, ne se cumule pas) pendant 1 tour. Cette hausse de<br>
-                protection ne peut être empechée ou dissipée, et augmente de 40% si Padmé est dans l'emplacement chef.
-            </p>
-        </div>
-    </div>
-
+    <!-- Pied de page -->
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
+        <script>
+            const translations = {
+                en: {
+                    "big-title" : "Padmé Amidala",
+                    "title" : "<u>Padmé Amidala</u>",
+                    "description" : "Courageous leader who continuously helps her allies and adapts to any circumstance",
+                    "lightside": "Light Side",
+                    "support" : "Support",
+                    "leader" : "Leader",
+                    "galactic-republic" : "Galactic Republic",
+                    "basic-attack-title" : "<u>Basic Attack : Aggressive Negotiations</u>",
+                    "basic-attack" : "Deal Physical damage to target enemy, which can't be evaded. All Galactic Republic allies gain Protection Up (10%, does not stack with itself) for 1 turn.",
+                    "special-attack1-title" : "<u>Special Attack: Cunning Plan (cooldown: 3)</u>",
+                    "special-attack1" : "Dispel all debuffs on Light Side allies, and they recover 50% Health. For each Galactic Republic ally and each debuff dispelled from themselves, Galactic Republic allies gain Protection Up (10%, stacking) for 1 turn.",
+                    "special-attack2-title" : "<u>Special Attack: Graceful Assault (cooldown: 3)</u>",
+                    "special-attack2" : "Deal Physical damage to target enemy and Stun them for 1 turn, which can't be copied or dispelled. Then, call all Light Side allies with Protection Up and Jedi Knight Anakin to assist.",
+                    "lead-ability-title" : "<u>Leader Ability: Unwavering Courage</u>",
+                    "lead-ability" : "Light Side allies have +50% Max Health, and while they have Protection Up they resist all debuffs and can't be critically hit.\n\nAt the start of their turn, Galactic Republic allies dispel Protection Up buffs on themselves and gain 1 stack of <u class='speciale'>Courage</u> for each 5% Protection Up dispelled this way. Courage can't be copied, dispelled, or prevented.\n\n <u class='speciale'>Courage:</u> When damaging the target enemy with an ability, for each 5 stacks of Courage, dispel 5 stacks and deal bonus damage equal to 40% of the target's Max Health",
+                    "unique-ability-title" : "<u>Unique Ability: Always a Choice</u>",
+                    "unique-ability" : "Padmé is immune to Fear. Whenever a Light Side ally loses Protection Up, they recover 5% Health. Allies can't gain or lose bonus Turn Meter.\n\n Whenever an enemy attacks out of turn against a Galactic Republic ally, that ally gains Protection Up (10%, does not stack with itself) for 1 turn, increased to 40% if Padmé is their leader. This Protection Up can't be prevented or dispelled.",
+                },
+                fr: {
+                    "big-title" : "Padmé Amidala",
+                    "title" : "<u>Padmé Amidala</u>",
+                    "description" : "Courageuse dirigeante qui aide ses alliés en permanence et s'adapte à toutes les circonstances.",
+                    "lightside" : "Coté Lumineux",
+                    "support" : "Soutien",
+                    "leader" : "Chef",
+                    "galactic-republic" : "République Galactique",
+                    "basic-attack-title" : "<u>Attaque Basique : Négociation musclée</u>",
+                    "basic-attack" : "Inflige des dégâts physiques à une cible ennemie, qui ne peuvent pas être esquivées. Tous les alliés de la République Galactique obtiennent une hausse de protection (10%, ne se cumule pas) pendant 1 tour.",
+                    "special-attack1-title" : "<u>Attaque Special : Plan rusé (délai: 3)</u>",
+                    "special-attack1" : "Dissipe tous les affaiblissements en cours sur les alliés du Coté Lumineux qui récupèrent 50% de santé. Les alliés de la République Galactique obtiennent une hausse de protection (10%, cumulatif) pendant 1 tour pour chaque allié de la République Galactique présent et chacun de leurs affaiblissements dissipés.",
+                    "special-attack2-title" : "<u>Attaque Speciale : Assaut gracieux (délai: 3)</u>",
+                    "special-attack2" : "Inflige des dégâts physique à la cible ennemie et l'étourdit pendant 1 tour (ne peut pas être copié ni dissipé). Ensuite, invoque tous les alliés du Coté Lumineux qui disposent d'une hausse de protection, ainsi que le Chevalier jedi Anakin.",
+                    "lead-ability-title" : "<u>Capacité de chef: Courage inébranlable</u>",
+                    "lead-ability" : "Les alliés du Coté Lumineux ont +50% de santé maximale, et tant qu'ils disposent d'une hausse de protection ils résistent  tous les affaiblissements et ne peuvent pas subir de coups critiques.\n\nAu début de leur tour, les alliés de la République Galactique dissipent leurs améliorations de hausse de protection et obtiennent 1 cumul de <u class='speciale'>courage</u> à chaque tranche de 5% de hausse de protection dissipée de cette manière. Le courage ne peut pas être copié, dissipé ou empeché.\n\n<u class='speciale'>Courage:</u> Lorsqu'une capacité inflige des dégâts à la cible ennemie, pour chaque 5 cumuls de courage, dissipe 5 cumuls et inflige des dégâts à hauteur de 40% de la santé maximale de la cible.",
+                    "unique-ability-title" : "<u>Capacité Unique: Toujours le choix</u>",
+                    "unique-ability" : "Padmé est immunisée contre la peur. Lorsqu'un allié du Coté Lumineux perd sa hausse de protection, il récupère 5% de santé. Les alliés ne peuvent pas obtenir ou perde des bonus de jauge de tour.\n\n Lorsqu'un ennemi attaque un allié de la République Galactique en dehors de son tour, cet allié obtient une hausse de protection(10%, ne se cumule pas) pendant 1 tour. Cette hausse de protection ne peut être empechée ou dissipée, et augmente de 40% si Padmé est dans l'emplacement chef.",
+                }
+            };
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\n/g, '<br><br>');
+            }
+
+            function switchLanguage(lang) {
+                for (const [key, text] of Object.entries(translations[lang])) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        // Convert \n\n to <br><br> before injecting
+                        element.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                }
+            }
+
+            window.onload = () => switchLanguage('en');
+        </script>
+
     </footer>
 </body>
-</html>    
