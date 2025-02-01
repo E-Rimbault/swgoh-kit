@@ -1,107 +1,179 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<title>Echo</title>
+    <title id="big-title">Echo</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="utf-8">
-<meta name="author" content="Rimbault Enzo" >
+    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
 
-<link rel="icon" type="image/png" href="../image-perso/echo/echo-image.png">
+    <!-- Lien vers l'icône du site -->
+    <link rel="icon" type="image/png" href="../image-perso/echo/echo-image.png">
 
-<link rel="stylesheet" href="../style/styles.css">
-<link rel="stylesheet" href="../style/capacite.css">
+    <!-- Lien vers la feuille de style -->
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/capacite.css">
 </head>
 
 <body class="simple">
 
-    <header class="perso">
-        <h1><u>Echo</u></h1>
-        <p>
-            Soldat clone loyal qui soutient ses alliés au combat.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;"> 
-            <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/soutien.html">Soutien</a>
-            <a class="capacite" href="../classement-perso/bad-batch.html">Bad Batch</a>
-            <a class="capacite" href="../classement-perso/soldat-clone.html">Soldat Clone</a>
-            <a class="capacite" href="../classement-perso/république-galactique.html">République Galactique</a>
-        </nav>
+    <!-- Entête de la page -->
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/echo/echo-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    onclick="switchLanguage('fr')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    onclick="switchLanguage('en')">
+            </div>
+            <h1 id="title"><u>Echo</u></h1>
+            <p id="description">
+                Loyal Clone Trooper who supports his allies in battle
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html"
+                    id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/bad-batch.html" id="bad-batch">Bad Batch</a>
+                <a class="capacite" href="../classement-perso/soldat-clone.html" id="clone">Clone Trooper</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html" id="galactic-republic">Galactic Republic</a>
+            </nav>
+        </div>
     </header>
     <br>
 
+    <!-- Image principale du personnage -->
     <img class="first" src="../image-perso/echo/echo.png" alt="Echo"><br>
 
-    <h2 class="titre"><u>attaque basique : Défense audacieuse</u></h2>
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Daring Defense</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Echo basic" src="../image-perso/echo/echo-basic.png">
+            <img class="attaque" alt="Echo Basic" src="../image-perso/echo/echo-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cibe ennemie. Confère un bonus de défense et un bonus d'esquive<br>
-                pendant 2 tours au soldat clone allié le plus faible qui n'en dispose pas déjà. 
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. Grant Defense Up and Evasion Up for 2 turns to the weakest Clone
+                Trooper ally who doesn't have them.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Un coup d'avance (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack: One Step Ahead (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Echo spé 1" src="../image-perso/echo/echo-spe1.png">
+            <img class="attaque" alt="Echo spé" src="../image-perso/echo/echo-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige l'immunité aux amélioration à la cible ennemie pendant 2 tours. Expose tous les ennemis pendant 2 tours.<br>
-                <br>
-                Dissipe tous les affaiblissements en cours sur le soldat clone alliéciblé et l'invoque. Si cet allié fait partie<br>
-                du Bad Batch, cette immunitéaux améliorations ne peut pas être dissipé et Echo augmente les délais de<br>
-                la cible ennemie de 1 (exclut les légendes galactiques). Cette attaque ne peut être esquivée. 
+            <p class="attaque" id="special-attack1">
+                Inflict Buff Immunity on target enemy for 2 turns. Inflict Expose on all enemies for 2 turns.
+                <br><br>
+                Dispel all debuffs on target other Clone Trooper ally and call them to assist. If that ally was Bad
+                Batch, this Buff Immunity can't be dispelled, and Echo increases the target enemy's cooldowns by 1
+                (excludes Galactic Legends). This attack can't be evaded.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Jamais de doute (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack: Never Any Doubt (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="Echo spé 2" src="../image-perso/echo/echo-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Les soldats clones alliés obtiennent un bonus d'esquive pendant 2 tours. Dissipe toutes les améliorations<br>
-                des ennemis et inflige la confusion et l'immunité qux soins pendant 2 tours.<br>
-                <br>
-                Pour chaque amélioration dissipée, les soldats clones alliés obtiennent 10% d'attaque jusquà la fin de leur<br> 
-                prochain tour, et la jauge de tour des alliés du Bad Batch se remplit de 5%. Cette attaque ne peut pas être esquivée ou résistée.
+            <p class="attaque" id="special-attack2">
+                Clone Trooper allies gain Evasion Up for 2 turns. Dispel all buffs on all enemies and inflict Daze and
+                Healing Immunity for 2 turns.
+                <br><br>
+                For each buff dispelled, Clone Trooper allies gain 10% Offense until the end of their next turn and Bad
+                Batch allies gain 5% Turn Meter. This attack can't be evaded or resisted.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Un qui survit</u></h2>
+    <h2 class="titre" id="unique-ability-title"><u>Unique Ability: One That Survives</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Echo unique" src="../image-perso/ECHO/eco-unique.png">
+            <img class="attaque" alt="Echo unique" src="../image-perso/echo/eco-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Chaque fois qu'un soldat clone allié obtient ou perd une amélioration à cause de la capacité d'un allié du Bad Batch,<br> 
-                il récupère 4% de santé et de protection (doublé pour les alliés du Bad Batch).<br>
-                <br>
-                Lorsqu'un allié du Bad Batch inflige un affaiblissement à un ennemi, ce dernier perd 8% de protection.<br> 
-                Si cet ennemi a moins de 50% de protectionet plus de 50% de santé, il perd également 8% de santé.<br>
-                Cet effet exclut les boss de raid et les Légendes Galactiques.
+            <p class="attaque" id="unique-ability">
+                Whenever a Clone Trooper ally gains or loses a buff from a Bad Batch ally's ability, they recover 4% Health and Protection, doubled for Bad Batch allies.
+                <br><br>
+                Whenever a Bad Batch ally inflicts a debuff on an enemy, that enemy loses 8% Protection. If that enemy had less than 50% Protection and more than 50% Health, they also lose 8% Health. This effect excludes raid bosses and Galactic Legends.
             </p>
         </div>
     </div>
 
+    <!-- Pied de page -->
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
+        <script>
+            const translations = {
+                en: {
+                    "big-title" : "Echo",
+                    "title" : "<u>Echo</u>",
+                    "description" : "Loyal Clone Trooper who supports his allies in battle",
+                    "lightside" : "Light Side",
+                    "support" : "Support",
+                    "bad-batch" : "Bad Batch",
+                    "clone" : "Clone Trooper",
+                    "galactic-republic" : "Galactic Republic",
+                    "basic-attack-title" : "<u>Basic Attack: Daring Defense</u>",
+                    "basic-attack" : "Deal Physical damage to target enemy. Grant Defense Up and Evasion Up for 2 turns to the weakest Clone Trooper ally who doesn't have them.",
+                    "special-attack1-title" : "<u>Special Attack: One Step Ahead (cooldown: 3)</u>",
+                    "special-attack1" : "Inflict Buff Immunity on target enemy for 2 turns. Inflict Expose on all enemies for 2 turns.\n\nDispel all debuffs on target other Clone Trooper ally and call them to assist. If that ally was Bad Batch, this Buff Immunity can't be dispelled, and Echo increases the target enemy's cooldowns by 1 (excludes Galactic Legends). This attack can't be evaded.",
+                    "special-attack2-title" : "<u>Special Attack: Never Any Doubt (cooldown: 3)</u>",
+                    "special-attack2" : "Clone Trooper allies gain Evasion Up for 2 turns. Dispel all buffs on all enemies and inflict Daze and Healing Immunity for 2 turns.\n\nFor each buff dispelled, Clone Trooper allies gain 10% Offense until the end of their next turn and Bad Batch allies gain 5% Turn Meter. This attack can't be evaded or resisted.",
+                    "unique-ability-title" : "<u>Unique Ability: One That Survives</u>",
+                    "unique-ability" : "Whenever a Clone Trooper ally gains or loses a buff from a Bad Batch ally's ability, they recover 4% Health and Protection, doubled for Bad Batch allies.\n\nWhenever a Bad Batch ally inflicts a debuff on an enemy, that enemy loses 8% Protection. If that enemy had less than 50% Protection and more than 50% Health, they also lose 8% Health. This effect excludes raid bosses and Galactic Legends.",
+                },
+                fr: {
+                    "big-title" : "Echo",
+                    "title" : "<u>Echo</u>",
+                    "description" : "Soldat clone loyal qui soutient ses alliés au combat.",
+                    "lightside" : "Coté Lumineux",
+                    "support" : "Soutien",
+                    "bad-batch" : "Bad Batch",
+                    "clone" : "Soldat Clone",
+                    "galactic-republic" : "République Galactique",
+                    "basic-attack-title" : "<u>Attaque Basique : Défense audacieuse</u>",
+                    "basic-attack" : "Inflige des dégâts physiques à une cibe ennemie. Confère un bonus de défense et un bonus d'esquive pendant 2 tours au soldat clone allié le plus faible qui n'en dispose pas déjà.",
+                    "special-attack1-title" : "<u>Attaque Spéciale : Un coup d'avance (délai: 3)</u>",
+                    "special-attack1" : "Inflige l'immunité aux amélioration à la cible ennemie pendant 2 tours. Expose tous les ennemis pendant 2 tours.\n\nDissipe tous les affaiblissements en cours sur le soldat clone alliéciblé et l'invoque. Si cet allié fait partie du Bad Batch, cette immunité aux améliorations ne peut pas être dissipé et Echo augmente les délais de la cible ennemie de 1 (exclut les légendes galactiques). Cette attaque ne peut être esquivée.",
+                    "special-attack2-title" : "<u>Attaque Spéciale : Jamais de doute (délai: 3)</u>",
+                    "special-attack2" : "Inflige l'immunité aux amélioration à la cible ennemie pendant 2 tours. Expose tous les ennemis pendant 2 tours.\n\nDissipe tous les affaiblissements en cours sur le soldat clone alliéciblé et l'invoque. Si cet allié fait partie du Bad Batch, cette immunitéaux améliorations ne peut pas être dissipé et Echo augmente les délais de la cible ennemie de 1 (exclut les légendes galactiques). Cette attaque ne peut être esquivée.",
+                    "unique-ability-title" : "<u>Capacité Unique : Un qui survit</u>",
+                    "unique-ability" : "Chaque fois qu'un soldat clone allié obtient ou perd une amélioration à cause de la capacité d'un allié du Bad Batch, il récupère 4% de santé et de protection (doublé pour les alliés du Bad Batch).\n\nLorsqu'un allié du Bad Batch inflige un affaiblissement à un ennemi, ce dernier perd 8% de protection. Si cet ennemi a moins de 50% de protectionet plus de 50% de santé, il perd également 8% de santé. Cet effet exclut les boss de raid et les Légendes Galactiques.",
+
+                }
+            };
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\n/g, '<br><br>');
+            }
+
+            function switchLanguage(lang) {
+                for (const [key, text] of Object.entries(translations[lang])) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        // Convert \n\n to <br><br> before injecting
+                        element.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                }
+            }
+
+            window.onload = () => switchLanguage('en');
+        </script>
+
     </footer>
 </body>
-</html>        
+
+</h
