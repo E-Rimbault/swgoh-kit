@@ -1,111 +1,182 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<title>Hunter</title>
+    <title id="big-title">Hunter</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="utf-8">
-<meta name="author" content="Rimbault Enzo" >
+    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
 
-<link rel="icon" type="image/png" href="../image-perso/hunter/hunter-image.png">
-<link rel="stylesheet" href="../style/capacite.css">
-<link rel="stylesheet" href="../style/styles.css">
+    <!-- Lien vers l'icône du site -->
+    <link rel="icon" type="image/png" href="../image-perso/hunter/hunter-image.png">
+
+    <!-- Lien vers la feuille de style -->
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/capacite.css">
 </head>
 
 <body class="simple">
 
-    <header class="perso">
-        <h1><u>Hunter</u></h1>
-        <p>
-            Chef tactique du Bad Batch qui détruit<br>
-            subtilement ses adversaires.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;"> 
-            <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/bad-batch.html">Bad Batch</a>
-            <a class="capacite" href="../classement-perso/soldat-clone.html">Soldat Clone</a>
-            <a class="capacite" href="../classement-perso/république-galactique.html">République Galactique</a>
-            <a class="pilote" href="../classement-perso/membres-équipages.html">Membres Equipages</a>
-        </nav>
-    </header>
-    <br>
+    <!-- Entête de la page -->
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/hunter/hunter-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    onclick="switchLanguage('fr')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    onclick="switchLanguage('en')">
+            </div>
+            <h1 id="title"><u>Hunter</u></h1>
+            <p id="description">
+                Tactical leader of the Bad Batch who subtly destroys his enemies.
+            </p>
+            <br>
 
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/bad-batch.html" id="bad-batch">Bad Batch</a>
+                <a class="capacite" href="../classement-perso/soldat-clone.html" id="clone">Clone Trooper</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html" id="galactic-republic">Republic Galactic</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew">Crew Members</a>
+            </nav>
+        </div>
+    </header><br>
+
+    <!-- Image principale du personnage -->
     <img class="first" src="../image-perso/hunter/Hunter.png" alt="Hunter"><br>
-    
-        <h2 class="titre"><u>attaque basique : Prouesse au combat</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="Hunter Basic" src="../image-perso/hunter/hunter-basic.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Inflige des dégâts physiques à une cible ennemie et l'expose pendant 2 tours.<br>
-                    Si la cible ennemie souffre d'un affaiblissement, attaquez à nouveau.
-                </p>
-            </div>
+
+    <!-- Section pour les différentes attaques spéciales -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Combat Prowess</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Hunter Basic" src="../image-perso/hunter/hunter-basic.png">
         </div>
-
-
-        <h2 class="titre"><u>1ere spéciale: Approche Dissimulée (délai: 3)</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="Hunter spé 1" src="../image-perso/hunter/hunter-spe1.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Les soldats clones alliés gagnent un bonus d'esquive et le camouflage<br>
-                    pendant 2 tours. Inflige des dégâts physiques à tous les ennemis<br>
-                    <br>
-                    Si Hunter est déjà camouflé, tous les alliés du Bad Batch obtiennent un bonus de<br>
-                    chances de coup critiques et un bonus d'attaque pendant 2 tours.
-                </p>
-            </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Expose for 2 turns. If target enemy was debuffed, attack again.
+            </p>
         </div>
+    </div>
 
-        <h2 class="titre"><u>2eme spéciale: Terminé ce que l'on a commence (délai: 3)</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="Hunter spé 2" src="../image-perso/hunter/hunter-spe2.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Inflige Exposition à la cible ennemie pendant 2 tours (ne peut pas être esquivé). Hunter échange sa jauge de<br>
-                    tour avec celle d'un autre soldat clone allié. Si la cible alliée fait partie du Bad Batch, elle ignore<br>
-                    les effets de Raillerie et inflige étourdissement pendant 1 tour à sa cible ennemie pendant ce tour.<br>
-                    Cet étourdissement ne peut pas être esquivé.
-                </p>
-            </div>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack: Shrouded Approach (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Hunter spé 1" src="../image-perso/hunter/hunter-spe1.png">
         </div>
-
-        <h2 class="titre"><u>Capacité de chef: Une voie différente</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="Hunter unique" src="../image-perso/hunter/hunter-lead.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Les alliés du Bad Batch ont +35% de santé maxiamle, +35% de protection maximum et +50% de pouvoir.<br>
-                    <br>
-                    Lorsque les alliés du Bad Batch utilisent una capacitétout en bénéficiant d'un bonus de défense,<br>
-                    ils infligent des dégâts réels à tous les ennemis.<br>
-                    <br>
-                    Lorsque les alliés du Bad Batch ont un bonus d'esquive, ils obtiennt +50% d'esquive des critiques. Lorsque vous<br>
-                    utilisez une capacité contre un ennemi verouillé, les alliés du Bad Batch ne peuvent pas être contrés.<br>
-                    <br>
-                    Lorsqu'ils infligent des dégâts à une cible exposé, les alliés du Bad Batch suppriment 50% de la jauge de tour<br>
-                    de cet ennemi. Cet effet est doublé pour les ennemis droïdes et séparatistes (à l'exception des boss de raid<br>
-                    et des légendes galactiques). cet effet ne peut pas être esquivé ou résisté. 
-                </p>
-            </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Clone Trooper allies gain Evasion Up and Stealth for 2 turns. Then, deal Physical damage to all enemies.
+                <br><br>
+                If Hunter was already Stealthed, all Bad Batch allies gain Critical Chance Up and Offense Up for 2 turns.
+            </p>
         </div>
+    </div>
 
-        <footer>
-            <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-    
-            <script src="../javascript/bouton.js"></script>
-        </footer>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack: Finish What We Started (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Hunter spe 2" src="../image-perso/hunter/hunter-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Inflict Expose on target enemy for 2 turns, which can't be evaded. Hunter swaps Turn Meter with target other Clone Trooper ally. If they were Bad Batch, they ignore Taunt effects and inflict Stun for 1 turn on their target enemy during that turn. This Stun can't be evaded.
+            </p>
+        </div>
+    </div>
+
+    <!-- Capacités spéciales du personnage -->
+    <h2 class="titre" id="lead-ability-title"><u>Leader Ability: A Different Path</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Hunter lead" src="../image-perso/hunter/hunter-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Bad Batch allies have +35% Max Health, +35% Max Protection, and +50% Potency.
+                <br><br>
+                When Bad Batch allies use an ability while they have Defense Up, they deal true damage to all enemies.
+                <br><br>
+                While Bad Batch allies have Evasion Up, they have +50% Critical Avoidance. When using an ability against a Target Locked enemy, Bad Batch allies can't be countered.
+                <br><br>
+                When damaging an enemy with Expose, Bad Batch allies remove 50% Turn Meter from that enemy, doubled for Droid and Separatist enemies (excludes raid bosses and Galactic Legends), which can't be evaded or resisted.
+            </p>
+        </div>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+        <script>
+            const translations = {
+                en: {
+                    "big-title" : "Hunter",
+                    "title" : "<u>Hunter</u>",
+                    "description" : "Tactical leader of the Bad Batch who subtly destroys his enemies.",
+                    "lightside" : "Light Side",
+                    "attacker" : "Attacker",
+                    "leader" : "Leader",
+                    "bad-batch" : "Bad Batch",
+                    "clone" : "Clone Trooper",
+                    "galactic-republic" : "Republic Galactic",
+                    "crew" : "Crew Members",
+                    "basic-attack-title" : "<u>Basic Attack: Combat Prowess</u>",
+                    "basic-attack" : "Deal Physical damage to target enemy and inflict Expose for 2 turns. If target enemy was debuffed, attack again.",
+                    "special-attack1-title" : "<u>Special Attack: Shrouded Approach (cooldown: 3)</u>",
+                    "special-attack1" : "Clone Trooper allies gain Evasion Up and Stealth for 2 turns. Then, deal Physical damage to all enemies.\n\nIf Hunter was already Stealthed, all Bad Batch allies gain Critical Chance Up and Offense Up for 2 turns.",
+                    "special-attack2-title" : "<u>Special Attack: Finish What We Started (cooldown: 3)</u>",
+                    "special-attack2" : "Inflict Expose on target enemy for 2 turns, which can't be evaded. Hunter swaps Turn Meter with target other Clone Trooper ally. If they were Bad Batch, they ignore Taunt effects and inflict Stun for 1 turn on their target enemy during that turn. This Stun can't be evaded.",
+                    "lead-ability-title" : "<u>Leader Ability: A Different Path</u>",
+                    "lead-ability": "Bad Batch allies have +35% Max Health, +35% Max Protection, and +50% Potency.\n\nWhen Bad Batch allies use an ability while they have Defense Up, they deal true damage to all enemies.\n\nWhile Bad Batch allies have Evasion Up, they have +50% Critical Avoidance. When using an ability against a Target Locked enemy, Bad Batch allies can't be countered.\n\nWhen damaging an enemy with Expose, Bad Batch allies remove 50% Turn Meter from that enemy, doubled for Droid and Separatist enemies (excludes raid bosses and Galactic Legends), which can't be evaded or resisted.",
+
+                },
+                fr: {
+                    "big-title" : "Hunter",
+                    "title" : "<u>Hunter</u>",
+                    "description" : "Chef tactique du Bad Batch qui détruit subtilement ses adversaires.",
+                    "lightside" : "Coté Lumineux",
+                    "attacker" : "Attaquant",
+                    "leader" : "Chef",
+                    "bad-batch" : "Bad Batch",
+                    "clone" : "Soldat CLone",
+                    "galactic-republic" : "République Galactique",
+                    "crew" : "Membres Équipages",
+                    "basic-attack-title" : "<u>attaque basique : Prouesse au combat</u>",
+                    "basic-attack" : "Inflige des dégâts physiques à une cible ennemie et l'expose pendant 2 tours. Si la cible ennemie souffre d'un affaiblissement, attaquez à nouveau.",
+                    "special-attack1-title" : "<u>Attaque Spéciale: Approche Dissimulée (délai: 3)</u>",
+                    "special-attack1" : "Les soldats clones alliés gagnent un bonus d'esquive et le camouflage pendant 2 tours. Inflige des dégâts physiques à tous les ennemis.\n\nSi Hunter est déjà camouflé, tous les alliés du Bad Batch obtiennent un bonus de chances de coup critiques et un bonus d'attaque pendant 2 tours.",
+                    "special-attack2-title" : "<u>Attaque Spéciale: Terminé ce que l'on a commence (délai: 3)</u>",
+                    "special-attack2" : "Inflige Exposition à la cible ennemie pendant 2 tours (ne peut pas être esquivé). Hunter échange sa jauge de tour avec celle d'un autre soldat clone allié. Si la cible alliée fait partie du Bad Batch, elle ignore les effets de Raillerie et inflige étourdissement pendant 1 tour à sa cible ennemie pendant ce tour. Cet étourdissement ne peut pas être esquivé.",
+                    "lead-ability-title" : "<u>Capacité de chef: Une voie différente</u>",
+                    "lead-ability": "Les alliés du Bad Batch ont +35% de santé maxiamle, +35% de protection maximum et +50% de pouvoir.\n\nLorsque les alliés du Bad Batch utilisent una capacitétout en bénéficiant d'un bonus de défense, ils infligent des dégâts réels à tous les ennemis.\n\nLorsque les alliés du Bad Batch ont un bonus d'esquive, ils obtiennt +50% d'esquive des critiques. Lorsque vous utilisez une capacité contre un ennemi verouillé, les alliés du Bad Batch ne peuvent pas être contrés.\n\nLorsqu'ils infligent des dégâts à une cible exposé, les alliés du Bad Batch suppriment 50% de la jauge de tour de cet ennemi. Cet effet est doublé pour les ennemis droïdes et séparatistes (à l'exception des boss de raid et des légendes galactiques). cet effet ne peut pas être esquivé ou résisté. ",
+                }
+            };
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\n/g, '<br><br>');
+            }
+
+            function switchLanguage(lang) {
+                for (const [key, text] of Object.entries(translations[lang])) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        // Convert \n\n to <br><br> before injecting
+                        element.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                }
+            }
+
+            window.onload = () => switchLanguage('en');
+        </script>
+
+    </footer>
 </body>
-</html>    
+
+</html>
