@@ -1,188 +1,97 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-
 <head>
-    <title id="big-title">Omega</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title>faction personnages</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
 
-    <!-- Lien vers l'icône du site -->
-    <link rel="icon" type="image/png" href="../image-perso/omega/omega-image.png">
-
-    <!-- Lien vers la feuille de style -->
     <link rel="stylesheet" href="../style/styles.css">
-    <link rel="stylesheet" href="../style/capacite.css">
+    <link rel="icon" type="image/png" href="../image/logo_star_wars.png">
+
+    <style>
+        .table-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body class="simple">
+    <div class="language-switcher">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" onclick="switchLanguage('fr')">
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" onclick="switchLanguage('en')">
+    </div>
 
-    <!-- Entête de la page -->
-    <header class="perso" style="display: flex; align-items: center;">
-        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/omega/omega-image.png" alt="Omega" style="max-width: 100%; max-height: 100%;">
-        </div>
-        <div style="flex: 1; padding-left: 20px;">
-            <div class="language-switcher">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                    onclick="switchLanguage('fr')">
-                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                    onclick="switchLanguage('en')">
-            </div>
-            <h1 id="title"><u>Omega</u></h1>
-            <p id="description">
-                Clever and empathetic attacker who utilizes buffs, debuffs, and the presence of her Bad Batch allies to take out her foes.
-            </p>
-            <br>
-
-            <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
-                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
-                <a class="capacite" href="../classement-perso/bad-batch.html" id="bad-batch">Bad Batch</a>
-                <a class="capacite" href="../classement-perso/soldat-clone.html" id="clone">Clone Trooper</a>
-            </nav>
-        </div>
-    </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/omega/omega.png" alt="Omega"><br>
+    <div><table>
+        <thead>     
+            <tr><th colspan="9" style="color: white;" id="filter-title">Filtre des catégories de personnages</th></tr>
+        </thead>
+        <tr>
+            <td style="background-color: white;"><a href="../filtre-recherche/recherche-perso.html" id="character">Personnage</a></td>
+            <td style="background-color: blue;"><a href="../classement-perso/coté-lumineux.html" id="light-side">Côté Lumineux</a></td>
+            <td style="background-color: red;"><a href="../classement-perso/coté-obscur.html" id="dark-side">Côté Obscur</a></td>
+            <td style="background-color: violet;"><a href="../classement-perso/coté-neutre.html" id="neutral">Neutre</a></td>
+            <td style="background-color: goldenrod;"><a href="../classement-perso/legendes-galactiques.html" id="galactic-legends">Légendes Galactiques</a></td>
+            <td style="background-color: grey;"><a href="../classement-perso/membres-équipages.html" id="crew-members">Membres de l'équipage</a></td>
+            <td style="background-color: grey;"><a href="../classement-perso/chef.html" id="leader">Chef</a></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="background-color: skyblue;"><a href="../classement-perso/attaquant.html" id="attacker">Attaquant</a></td>
+            <td style="background-color: skyblue;"><a href="../classement-perso/soigneur.html" id="healer">Soigneur</a></td>
+            <td style="background-color: skyblue;"><a href="../classement-perso/soutien.html" id="support">Soutien</a></td>
+            <td style="background-color: skyblue;"><a href="../classement-perso/tank.html" id="tank">Tank</a></td>
+            <td style="background-color: pink;"><a href="../classement-perso/501E.html" id="501E">501E</a></td>
+            <td style="background-color: pink;"><a href="../classement-perso/ancienne-république.html" id="old-republic">Ancienne République</a></td>
+            <td style="background-color: pink;"><a href="../classement-perso/bad-batch.html" id="bad-batch">Bad Batch</a></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="background-color: pink;"><a href="../classement-perso/hutt-cartel.html" id="hutt-cartel">Cartel des Hutt</a></td>
+            <td style="background-color: pink;"><a href="../classement-perso/bounty-hunter.html" id="bounty-hunter">Chasseur de primes</a></td>
+            <td style="background-color: pink;"><a href="../classement-perso/rebel-fighter.html" id="rebel-fighter">Combattant Rebelle</a></td>
+            <td style="background-color: pink;"><a href="../classement-perso/commandant-de-la-flotte.html" id="fleet-commander">Commandant de la flotte</a></td>
+            <td style="background-color: pink;"><a href="../classement-perso/contrebandier.html" id="smuggler">Contrebandier</a></td>
+            <td style="background-color: pink;"><a href="../classement-perso/droïde.html" id="droid">Droïde</a></td>
+            <td style="background-color: pink;"><a href="../classement-perso/empire.html" id="empire">Empire</a></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="background-color: pink;"><a href="../classement-perso/sith-empire.html" id="sith-empire">Empire Sith</a></td>
+            <td style="background-color: pink;"><a href="../classement-perso/ewok.html" id="ewok">Ewok</a></td>
+            <td style="background-color: pink;"><a href="../classement-perso/géonosien.html" id="geonosian">Géonosien</a></td>
+            <td style="background-color: pink;"><a href="../classement-perso/gungan.html" id="gungan">Gungan</a></td>
+            <td style="background-color: pink;"><a href="../classement-perso/inquisitorious.html" id="inquisitorious">Inquisitorious</a></td>
+            <td style="background-color: pink;"><a href="../classement-perso/jawa.html" id="jawa">Jawa</a></td>
+            <td style="background-color: pink;"><a href="../classement-perso/jedi.html" id="jedi">Jedi</a></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="background-color: pink;"><a href="../classement-perso/jedi-vanguard.html" id="jedi-vanguard">Jedi Vanguard</a></td>
+            <td style="background-color: pink;"><a href="../classement-perso/mandalorien.html" id="mandalorian">Mandalorien</a></td>
+            <td style="background-color: pink;"><a href="../classement-perso/mercenaire.html" id="mercenary">Mercenaire</a></td>
+            <td style="background-color: pink;"><a href="../classement-perso/phoenix.html" id="phoenix">Phoenix</a></td>
+            <td style="background-color: pink;"><a href="../classement-perso/premier-ordre.html" id="first-order">Premier Ordre</a></td>
+            <td style="background-color: pink;"><a href="../classement-perso/rebelle.html" id="rebel">Rebelle</a></td>
+            <td style="background-color: pink;"><a href="../classement-perso/république-galactique.html" id="galactic-republic">République Galactique</a></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table></div>
 
-    <!-- Section pour les différentes attaques spéciales -->
-    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Disarming Shot</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="Omega Basic" src="../image-perso/omega/omega-basic.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque" id="basic-attack">
-                Deal Physical damage to target enemy. If Omega has Evasion Up, inflict Blind and Daze for 1 turn.
-                <br><br>
-                If Omega has a buff that can be dispelled and it's her turn, she deals damage again dealing 50% less damage.
-            </p>
-        </div>
-    </div>
-
-    <h2 class="titre" id="special-attack1-title"><u>Special Attack: Adaptive Learner (cooldown: 3)</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="Omega Spé 1" src="../image-perso/omega/omega-spe1.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque" id="special-attack1">
-                Deal Physical damage and inflict target enemy with <u class="speciale">Zeroed In</u>. Dispel Zeroed In from all other enemies and Omega gains a stack of <u class="speciale">Target Practice</u>. These effects can't be copied, dispelled, prevented, or resisted and last until the end of the encounter, Zeroed In is removed from an enemy, or Omega is defeated.
-                <br><br>
-                If the target enemy is Exposed, this attack inflicts Target Lock for 2 turns and removes 10% Turn Meter.
-                <br><br>
-                <u class="speciale">Zeroed In</u>: Omega has Target Practice while a character is afflicted by this; Omega can ignore Taunt to target this enemy
-                <br><br>
-                <u class="speciale">Target Practice</u>: +5% Critical Chance, and Offense, and +10% Critical Damage per stack
-            </p>
-        </div>
-    </div>
-
-    <h2 class="titre" id="special-attack2-title"><u>Special Attack: Empathy First (cooldown: 3)</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="Omega spé 2" src="../image-perso/omega/omega-spe2.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque" id="special-attack2">
-                Omega dispels all debuffs on herself and gains Stealth for 2 turns. Bad Batch allies gain Protection Up (40%) and Defense Penetration Up for 2 turns and 10% Turn Meter.
-                <br><br>
-                If Omega has Critical Chance Up, Bad Batch allies gain an additional 20% Turn Meter, and Protection Over Time (20%) for 2 turns.
-                <br><br>
-                If Omega already had Stealth and an enemy has Zeroed In, she gains a stack of Target Practice.
-            </p>
-        </div>
-    </div>
-
-    <h2 class="titre" id="unique-ability-title"><u>Unique Ability: Part of the Squad</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="Omega Unique" src="../image-perso/omega/omega-unique.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque" id="unique-ability">
-                At the start of the encounter, if all allies are Bad Batch, whenever the allied leader begins their turn, Omega gains 5 Speed and 2% Offense (stacking, max 50 Speed and 20% Offense) for the rest of the encounter.
-                <br><br>
-                While Omega has Stealth, she has +10% Critical Damage, and when another Bad Batch ally uses a Special ability, Omega assists, dealing 60% less damage. While Omega has Defense Up, she has +10% Critical Chance.
-                <br><br>
-                Omega's attacks deal 5% more damage for each buff she has and 5% more damage for each debuff the enemy has.
-                <br><br>
-                <u class="omicron">While in Territory Battles:</u><br><br>
-                At the start of battle, all Bad Batch allies gain Max Health equal to 10% of their Max Protection for each of their own Relic Amplifier levels (max 100%). Then, they lose all Protection. Bad Batch allies take reduced damage from percent Health damage effects. These bonuses last until the first time Omega is defeated.
-                <br><br>
-                At the start of each encounter, Bad Batch allies gain 10% bonus Protection for 2 turns for each of Omega's Relic Amplifier levels. Whenever Omega uses her Basic ability, she deals damage again for each other Bad Batch ally, dealing 50% less damage.
-            </p>
-        </div>
-    </div>
-
-    <u class="speciale"></u>
-
-    <!-- Pied de page -->
-    <footer>
-        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-        <script src="../javascript/bouton.js"></script>
-        <script>
-            const translations = {
-                en: {
-                    "big-title" : "Omega",
-                    "title" : "<u>Omega</u>",
-                    "description" : "Clever and empathetic attacker who utilizes buffs, debuffs, and the presence of her Bad Batch allies to take out her foes.",
-                    "lightside" : "Light Side",
-                    "attacker" : "Attacker",
-                    "bad-batch" : "Bad Batch",
-                    "clone" : "Clone Trooper",
-                    "basic-attack-title": "<u>Basic Attack: Disarming Shot</u>",
-                    "basic-attack" : "Deal Physical damage to target enemy. If Omega has Evasion Up, inflict Blind and Daze for 1 turn.\n\nIf Omega has a buff that can be dispelled and it's her turn, she deals damage again dealing 50% less damage.",
-                    "special-attack1-title" : "",
-                    "special-attack1" : "",
-                    "special-attack2-title" : "",
-                    "special-attack2" : "",
-                    "unique-ability-title" : "",
-                    "unique-ability" : "",
-
-                },
-                fr: {
-                    "big-title" : "Omega",
-                    "title" : "<u>Omega</u>",
-                    "description" : "Attaquant intelligente et pleine d'empathie qui utilise les améliorations, les affaiblissements et la présence de ses alliés du Bad Batch pour éliminer ses ennemis.",
-                    "lightside" : "Coté Lumineux",
-                    "attacker" : "Attaquant",
-                    "bad-batch" : "Bad Batch",
-                    "clone" : "Soldat Clone",
-                    "basic-attack-title": "<u>attaque basique : Tir Accablant</u>",
-                    "basic-attack" : "",
-                    "special-attack1-title" : "",
-                    "special-attack1" : "",
-                    "special-attack2-title" : "",
-                    "special-attack2" : "",
-                    "unique-ability-title" : "",
-                    "unique-ability" : "",
-                }
-            };
-
-            function replaceNewLinesWithBr(text) {
-                return text.replace(/\n\n/g, '<br><br>');
-            }
-
-            function switchLanguage(lang) {
-                for (const [key, text] of Object.entries(translations[lang])) {
-                    const element = document.getElementById(key);
-                    if (element) {
-                        // Convert \n\n to <br><br> before injecting
-                        element.innerHTML = replaceNewLinesWithBr(text);
-                    }
-                }
-            }
-
-            window.onload = () => switchLanguage('en');
-        </script>
-
-    </footer>
 </body>
-
 </html>
