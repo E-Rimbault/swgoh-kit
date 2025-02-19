@@ -1,136 +1,211 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Bastila Shan</title>
+    <title id="big-title">bastila Shan</title>
 
+    <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
 
+    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/bastila-shan/bastila-image.png">
-    <link rel="stylesheet" href="../style/capacite.css">
+
+    <!-- Lien vers la feuille de style -->
     <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/capacite.css">
 </head>
 
 <body class="simple">
 
-    <header class="perso">
-        <h1><u>Bastila Shan</u></h1>
-        <p>
-           Puissante Jedi de soutien qui confère d'extraordinaires améliorations dès le<br>
-           prmier tour grâce à sa capacité de chef. 
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a style="color: blue;" class="capacite" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/soutien.html">soutien</a>
-            <a class="capacite" href="../classement-perso/chef.html">chef</a>
-            <a class="capacite" href="../classement-perso/jedi.html">Jedi</a>
-            <a class="capacite" href="../classement-perso/ancienne-république.html">Ancienne république</a>
-        </nav>
-    </header>
-    <br>
+    <!-- Entête de la page -->
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/bastila-shan/bastila-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    onclick="switchLanguage('fr')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    onclick="switchLanguage('en')">
+            </div>
+            <h1 id="title"><u>bastila Shan</u></h1>
+            <p id="description">
+                Strong Jedi Support that grants allies an overwhelming first turn with her Leader ability
+            </p>
+            <br>
 
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html"
+                    id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
+                <a class="capacite" href="../classement-perso/ancienne-république.html" id="old">Old Republic</a>
+            </nav>
+        </div>
+    </header><br>
+
+    <!-- Image principale du personnage -->
     <img class="first" src="../image-perso/bastila-shan/Bastila-shan.png" alt="Bastila"><br>
 
-    <h2 class="titre"><u>attaque basique : Assaut Jedi</u></h2>
+    <!-- Section pour les différentes attaques spéciales -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Jedi Assault</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Bastila Basic" src="../image-perso/bastila-shan/bastila-basic.png">
+            <img class="attaque" alt="bastila basic" src="../image-perso/bastila-shan/bastila-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à la cible ennemie et entrave ses capacités pendant 1 tour. Cette attaque<br>
-                confère un bonus de dégâts de 20% et un bonus de pouvoir de 20% pour chaque allié Jedi actif.
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy and inflict Ability Block for 1 turn. This attack deals 20% more
+                damage and has +20% Potency for each active Jedi ally.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Ralliement (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack: Rally (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Bastila Spe 1" src="../image-perso/bastila-shan/bastila-spe1.png">
+            <img class="attaque" alt="Bastila spe 1" src="../image-perso/bastila-shan/bastila-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Bastila dissipe tous les affaiblissements l'affectant elle et une cible allié. tous les deux bénéficient<br>
-                d'un bonus d'attaque, de défense, de vitesse, de précision et de chances de coups critiques pendant 3 tours,<br>
-                puis Bastila invoque cet allié.
+            <p class="attaque" id="special-attack1">
+                Bastila dispels all debuffs from herself and another target ally. They both gain Offense, Defense,
+                Speed, Accuracy, and Critical Chance Up for 3 turns, then Bastila calls that ally to assist.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Sabotage des défenses (délai: 2)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack: Subvert Defenses (cooldown: 2)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Bastila Shan Spe 2" src="../image-perso/bastila-shan/bastila-spe2.png">
+            <img class="attaque" alt="bastila spe 2" src="../image-perso/bastila-shan/bastila-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à une cible ennemie et dissipe toutes ses améliorations.<br>
-                Inflige l'étourdissement pendant 1 tour et l'immunité aux améliorations pendant 2 tours.
+            <p class="attaque" id="special-attack2">
+                Deal Special damage to target enemy and dispel all buffs on them. Stun them for 1 turn and inflict Buff
+                Immunity for 2 turns..
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Capacité de chef: Initiative</u></h2>
+    <h2 class="titre" id="lead-ability-title"><u>Leader Ability: Initiative</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Bastila Shan lead" src="../image-perso/bastila-shan/bastila-lead.png">
+            <img class="attaque" alt="basila lead" src="../image-perso/bastila-shan/bastila-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Au début de la bataille, les alliés Jedi bénéficient d'une hausse de protection (200%, ne peut pas être dissipé),<br>
-                leur jauge de tour se remplit de 15% et les tanks Jedi alliés utilisent la Raillerie pendant 1 tour. Si les alliés<br>
-                Jedi bénéficient d'une hausse de protection, ils ont un bonus de ténacité de +150% et infligent 35% de dégâts supplémentaires.
+            <p class="attaque" id="lead-ability">
+                At the start of the battle, Jedi allies gain 15% Turn Meter and Protection Up (200%, can't be
+                dispelled), and Jedi Tank allies Taunt for 1 turn. While Jedi allies have Protection Up, they have +150%
+                Tenacity and deal 35% more damage.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Méditation de combat légendaire</u></h2>
+    <h2 class="titre" id="unique-ability1-title"><u>Unique Ability: Legendary Battle Meditation</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Bastila Shan unique 1" src="../image-perso/bastila-shan/bastila-unique1.png">
+            <img class="attaque" alt="bastila unic" src="../image-perso/bastila-shan/bastila-unique1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Au début de son tour, Bastila récupère 2% de protection pour chaque amélioration dont elle bénéficie. La jauge de tour de tous<br>
-                les alliés se remplit de 3% (doublé pour les Jedi), et ils obtiennent la <u class="speciale">méditation de combat légendaire</u> pendant 1 tour.<br>
-                <br>
-                <u class="speciale">méditation de combat légendaire : </u> +50% de pouvoir et +35% de chances de contre-attaque (doublé pour les Jedi).<br>
-                La méditation de combat légendaire ne peut pas être dissipée.
+            <p class="attaque" id="unique-ability1">
+                At the start of Bastila's turn, she recovers 2% Protection for each buff she has and all other allies
+                gain 3% Turn Meter (doubled for Jedi) and <u class="speciale">Legendary Battle Meditation</u> for 1
+                turn.
+                <br><br>
+                <u class="speciale">Legendary Battle Meditation:</u> +50% Potency and +35% counter chance (doubled for
+                Jedi). Legendary Battle Meditation can't be dispelled.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Lien de force</u></h2>
+    <h2 class="titre" id="unique-ability2-title"><u>Unique Ability: Force Bond</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Bastila Shan unique 2" src="../image-perso/bastila-shan/bastila-uniqu-2.png">
+            <img class="attaque" alt="bastila unique 2" src="../image-perso/bastila-shan/bastila-uniqu-2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Si le Chevalier Jedi Revan est dans l'emplacement de chef; Bastila et le Chevalier Jedi Revan bénéficient tous les deux de +70% de précision,<br>
-                de pouvoir et de ténacité. Le Chevalier Jedi Revan récupère également de la protection avec la méditation de combat légendaire.<br>
-                <br>
-                Si Dark Revan est dans l'escouade ennemie, Bastila gagne l'avantage et la rétribution au début du tour de Dark Revan.
+            <p class="attaque" id="unique-ability2">
+                If Jedi Knight Revan is in the leader slot: Bastila and Jedi Knight Revan have +70% Accuracy, Potency,
+                and Tenacity. Jedi Knight Revan also recovers Protection from Legendary Battle Meditation.
+                <br><br>
+                If Darth Revan is on the enemy squad: Bastila gains Advantage and Retribution for 1 turn at the start of
+                Darth Revan's turns.
             </p>
         </div>
-    </div> 
+    </div>
 
-
+    <!-- Pied de page -->
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-    
         <script src="../javascript/bouton.js"></script>
+        <script>
+            const translations = {
+                en: {
+                    "title": "<u>Bastila Shan</u>",
+                    "description": "Strong Jedi Support that grants allies an overwhelming first turn with her Leader ability.",
+                    "lightside": "Light Side",
+                    "support": "Support",
+                    "leader": "Leader",
+                    "jedi": "Jedi",
+                    "old": "Old Republic",
+                    "basic-attack-title": "<u>Basic Attack: Jedi Assault</u>",
+                    "basic-attack": "Deal Special damage to target enemy and inflict Ability Block for 1 turn. This attack deals 20% more damage and has +20% Potency for each active Jedi ally.",
+                    "special-attack1-title": "<u>Special Attack: Rally (cooldown: 4)</u>",
+                    "special-attack1": "Bastila dispels all debuffs from herself and another target ally. They both gain Offense, Defense, Speed, Accuracy, and Critical Chance Up for 3 turns, then Bastila calls that ally to assist.",
+                    "special-attack2-title": "<u>Special Attack: Subvert Defenses (cooldown: 2)</u>",
+                    "special-attack2": "Deal Special damage to target enemy and dispel all buffs on them. Stun them for 1 turn and inflict Buff Immunity for 2 turns.",
+                    "lead-ability-title": "<u>Leader Ability: Initiative</u>",
+                    "lead-ability": "At the start of the battle, Jedi allies gain 15% Turn Meter and Protection Up (200%, can't be dispelled), and Jedi Tank allies Taunt for 1 turn. While Jedi allies have Protection Up, they have +150% Tenacity and deal 35% more damage.",
+                    "unique-ability1-title": "<u>Unique Ability: Legendary Battle Meditation</u>",
+                    "unique-ability1": "At the start of Bastila's turn, she recovers 2% Protection for each buff she has and all other allies gain 3% Turn Meter (doubled for Jedi) and <u class='speciale'>Legendary Battle Meditation:</u> for 1 turn.\n\n<u class='speciale'>Legendary Battle Meditation:</u> +50% Potency and +35% counter chance (doubled for Jedi). Legendary Battle Meditation can't be dispelled.",
+                    "unique-ability2-title": "<u>Unique Ability: Force Bond</u>",
+                    "unique-ability2": "If Jedi Knight Revan is in the leader slot: Bastila and Jedi Knight Revan have +70% Accuracy, Potency, and Tenacity. Jedi Knight Revan also recovers Protection from Legendary Battle Meditation.\n\nIf Darth Revan is on the enemy squad: Bastila gains Advantage and Retribution for 1 turn at the start of Darth Revan's turns."
+                },
+                fr: {
+                    "title": "<u>Bastila Shan</u>",
+                    "description": "Puissante Jedi de soutien qui confère d'extraordinaires améliorations dès le premier tour grâce à sa capacité de chef.",
+                    "lightside": "Côté Lumineux",
+                    "support": "Soutien",
+                    "leader": "Chef",
+                    "jedi": "Jedi",
+                    "old": "Ancienne République",
+                    "basic-attack-title": "<u>Attaque Basique : Assaut Jedi</u>",
+                    "basic-attack": "Inflige des dégâts spéciaux à la cible ennemie et entrave ses capacités pendant 1 tour. Cette attaque confère un bonus de dégâts de 20% et un bonus de puissance de 20% pour chaque allié Jedi actif.",
+                    "special-attack1-title": "<u>Attaque Spéciale : Ralliement (délai : 4)</u>",
+                    "special-attack1": "Bastila dissipe tous les affaiblissements l'affectant elle et une cible alliée. Tous deux bénéficient d'un bonus d'attaque, de défense, de vitesse, de précision et de chances de coup critique pendant 3 tours, puis Bastila appelle cet allié à l'assister.",
+                    "special-attack2-title": "<u>Attaque Spéciale : Sabotage des défenses (délai : 2)</u>",
+                    "special-attack2": "Inflige des dégâts spéciaux à la cible ennemie et dissipe toutes ses améliorations. L'étourdit pendant 1 tour et lui inflige l'immunité aux améliorations pendant 2 tours.",
+                    "lead-ability-title": "<u>Capacité de Chef : Initiative</u>",
+                    "lead-ability": "Au début de la bataille, les alliés Jedi gagnent 15% de jauge de tour et une hausse de protection (200%, ne peut pas être dissipée), et les tanks Jedi alliés provoquent pendant 1 tour. Tant que les alliés Jedi ont une hausse de protection, ils ont +150% de ténacité et infligent 35% de dégâts supplémentaires.",
+                    "unique-ability1-title": "<u>Capacité Unique : Méditation de combat légendaire</u>",
+                    "unique-ability1": "Au début du tour de Bastila, elle récupère 2% de protection pour chaque amélioration dont elle bénéficie, et tous les autres alliés gagnent 3% de jauge de tour (doublé pour les Jedi) et la <u class='speciale'>Méditation de combat légendaire :</u> pendant 1 tour.\n\n<u class='speciale'>Méditation de combat légendaire :</u> +50% de puissance et +35% de chances de contre-attaque (doublé pour les Jedi). La Méditation de combat légendaire ne peut pas être dissipée.",
+                    "unique-ability2-title": "<u>Capacité Unique : Lien de Force</u>",
+                    "unique-ability2": "Si le Chevalier Jedi Revan est dans l'emplacement de chef : Bastila et le Chevalier Jedi Revan ont +70% de précision, de puissance et de ténacité. Le Chevalier Jedi Revan récupère également de la protection grâce à la Méditation de combat légendaire.\n\nSi Dark Revan est dans l'escouade ennemie : Bastila gagne Avantage et Rétribution pendant 1 tour au début des tours de Dark Revan."
+                }
+            };
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\n/g, '<br><br>');
+            }
+
+            function switchLanguage(lang) {
+                for (const [key, text] of Object.entries(translations[lang])) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        // Convert \n\n to <br><br> before injecting
+                        element.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                }
+            }
+
+            window.onload = () => switchLanguage('en');
+        </script>
+
     </footer>
-    
-    
 </body>
-</html>  
+
+</

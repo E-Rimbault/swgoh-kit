@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title id="big-title">Omega</title>
+    <title id="big-title">bastila Shan</title>
 
     <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
     <meta name="author" content="Rimbault Enzo">
 
     <!-- Lien vers l'icône du site -->
-    <link rel="icon" type="image/png" href="../image-perso/omega/omega-image.png">
+    <link rel="icon" type="image/png" href="../image-perso/bastila-shan/bastila-image.png">
 
     <!-- Lien vers la feuille de style -->
     <link rel="stylesheet" href="../style/styles.css">
@@ -22,7 +22,7 @@
     <!-- Entête de la page -->
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/omega/omega-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/bastila-shan/bastila-image.png" alt="" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
             <div class="language-switcher">
@@ -31,111 +31,109 @@
                 <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
                     onclick="switchLanguage('en')">
             </div>
-            <h1 id="title"><u>Omega</u></h1>
+            <h1 id="title"><u>bastila Shan</u></h1>
             <p id="description">
-                Clever and empathetic attacker who utilizes buffs, debuffs, and the presence of her Bad Batch allies to
-                take out her foes.
+                Strong Jedi Support that grants allies an overwhelming first turn with her Leader ability
             </p>
             <br>
 
             <nav class="perso" style="font-size: 20px;">
                 <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html"
                     id="lightside">Light Side</a>
-                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
-                <a class="capacite" href="../classement-perso/bad-batch.html" id="bad-batch">Bad Batch</a>
-                <a class="capacite" href="../classement-perso/soldat-clone.html" id="clone">Clone Troopee</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
+                <a class="capacite" href="../classement-perso/ancienne-république.html" id="old">Old Republic</a>
             </nav>
         </div>
     </header><br>
 
     <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/omega/omega.png" alt="omega"><br>
+    <img class="first" src="../image-perso/bastila-shan/Bastila-shan.png" alt="Bastila"><br>
 
     <!-- Section pour les différentes attaques spéciales -->
-    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Disarming Shot</u></h2>
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Jedi Assault</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="omage spe 1" src="../image-perso/omega/omega-basic.png">
+            <img class="attaque" alt="bastila basic" src="../image-perso/bastila-shan/bastila-basic.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
-                Deal Physical damage to target enemy. If Omega has Evasion Up, inflict Blind and Daze for 1 turn.
-                <br><br>
-                If Omega has a buff that can be dispelled and it's her turn, she deals damage again dealing 50% less
-                damage.
+                Deal Special damage to target enemy and inflict Ability Block for 1 turn. This attack deals 20% more
+                damage and has +20% Potency for each active Jedi ally.
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack1-title"><u>Special Attack: Adaptive Learner (cooldown: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack: Rally (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="omega spe 1" src="../image-perso/omega/omega-spe1.png">
+            <img class="attaque" alt="Bastila spe 1" src="../image-perso/bastila-shan/bastila-spe1.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1">
-                Deal Physical damage and inflict target enemy with <u class="speciale">Zeroed In</u>. Dispel Zeroed In
-                from all other enemies and Omega gains a stack of <u class="speciale">Target Practice</u>. These effects
-                can't be copied, dispelled, prevented, or resisted and last until the end of the encounter, Zeroed In is
-                removed from an enemy, or Omega is defeated.
-                <br><br>
-                If the target enemy is Exposed, this attack inflicts Target Lock for 2 turns and removes 10% Turn Meter.
-                <br><br>
-                <u class="speciale">Zeroed In:</u> Omega has Target Practice while a character is afflicted by this;
-                Omega can ignore Taunt to target this enemy
-                <br><br>
-                <u class="speciale">Target Practice:</u> +5% Critical Chance, and Offense, and +10% Critical Damage per
-                stack
+                Bastila dispels all debuffs from herself and another target ally. They both gain Offense, Defense,
+                Speed, Accuracy, and Critical Chance Up for 3 turns, then Bastila calls that ally to assist.
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack2-title"><u>Special Attack: Empathy First (cooldown: 4)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack: Subvert Defenses (cooldown: 2)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="omega spe 2" src="../image-perso/omega/omega-spe2.png">
+            <img class="attaque" alt="bastila spe 2" src="../image-perso/bastila-shan/bastila-spe2.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack2">
-                Omega dispels all debuffs on herself and gains Stealth for 2 turns. Bad Batch allies gain Protection Up
-                (40%) and Defense Penetration Up for 2 turns and 10% Turn Meter.
-                <br><br>
-                If Omega has Critical Chance Up, Bad Batch allies gain an additional 20% Turn Meter, and Protection Over
-                Time (20%) for 2 turns.
-                <br><br>
-                If Omega already had Stealth and an enemy has Zeroed In, she gains a stack of Target Practice.
+                Deal Special damage to target enemy and dispel all buffs on them. Stun them for 1 turn and inflict Buff
+                Immunity for 2 turns..
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="unique-ability-title"><u>Unique Ability: Part of the Squad</u></h2>
+    <h2 class="titre" id="lead-ability-title"><u>Leader Ability: Initiative</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="omega unic" src="../image-perso/omega/omega-unique.png">
+            <img class="attaque" alt="basila lead" src="../image-perso/bastila-shan/bastila-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque" id="unique-ability">
-                At the start of the encounter, if all allies are Bad Batch, whenever the allied leader begins their
-                turn, Omega gains 5 Speed and 2% Offense (stacking, max 50 Speed and 20% Offense) for the rest of the
-                encounter.
+            <p class="attaque" id="lead-ability">
+                At the start of the battle, Jedi allies gain 15% Turn Meter and Protection Up (200%, can't be
+                dispelled), and Jedi Tank allies Taunt for 1 turn. While Jedi allies have Protection Up, they have +150%
+                Tenacity and deal 35% more damage.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="unique-ability1-title"><u>Unique Ability: Legendary Battle Meditation</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="bastila unic" src="../image-perso/bastila-shan/bastila-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of Bastila's turn, she recovers 2% Protection for each buff she has and all other allies
+                gain 3% Turn Meter (doubled for Jedi) and <u class="speciale">Legendary Battle Meditation</u> for 1
+                turn.
                 <br><br>
-                While Omega has Stealth, she has +10% Critical Damage, and when another Bad Batch ally uses a Special
-                ability, Omega assists, dealing 60% less damage. While Omega has Defense Up, she has +10% Critical
-                Chance.
+                <u class="speciale">Legendary Battle Meditation:</u> +50% Potency and +35% counter chance (doubled for
+                Jedi). Legendary Battle Meditation can't be dispelled.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="unique-ability2-title"><u>Unique Ability: Force Bond</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="bastila unique 2" src="../image-perso/bastila-shan/bastila-uniqu-2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                If Jedi Knight Revan is in the leader slot: Bastila and Jedi Knight Revan have +70% Accuracy, Potency,
+                and Tenacity. Jedi Knight Revan also recovers Protection from Legendary Battle Meditation.
                 <br><br>
-                Omega's attacks deal 5% more damage for each buff she has and 5% more damage for each debuff the enemy
-                has.
-                <br><br>
-                <u class="omicron">While in Territory Battles:</u>
-                <br><br>
-                At the start of battle, all Bad Batch allies gain Max Health equal to 10% of their Max Protection for
-                each of their own Relic Amplifier levels (max 100%). Then, they lose all Protection. Bad Batch allies
-                take reduced damage from percent Health damage effects. These bonuses last until the first time Omega is
-                defeated.
-                <br><br>
-                At the start of each encounter, Bad Batch allies gain 10% bonus Protection for 2 turns for each of
-                Omega's Relic Amplifier levels. Whenever Omega uses her Basic ability, she deals damage again for each
-                other Bad Batch ally, dealing 50% less damage.
+                If Darth Revan is on the enemy squad: Bastila gains Advantage and Retribution for 1 turn at the start of
+                Darth Revan's turns.
             </p>
         </div>
     </div>
@@ -146,38 +144,48 @@
         <script src="../javascript/bouton.js"></script>
         <script>
             const translations = {
-                "en": {
-                    "title": "<u>Omega</u>",
-                    "description": "Clever and empathetic attacker who utilizes buffs, debuffs, and the presence of her Bad Batch allies to take out her foes.",
+                en: {
+                    "title": "<u>Bastila Shan</u>",
+                    "description": "Strong Jedi Support that grants allies an overwhelming first turn with her Leader ability.",
                     "lightside": "Light Side",
-                    "attacker": "Attacker",
-                    "bad-batch": "Bad Batch",
-                    "clone": "Clone Trooper",
-                    "basic-attack-title": "<u>Basic Attack: Disarming Shot</u>",
-                    "basic-attack": "Deal Physical damage to target enemy. If Omega has Evasion Up, inflict Blind and Daze for 1 turn.\n\nIf Omega has a buff that can be dispelled and it's her turn, she deals damage again dealing 50% less damage.",
-                    "special-attack1-title": "<u>Special Attack: Adaptive Learner (cooldown: 3)</u>",
-                    "special-attack1": "Deal Physical damage and inflict target enemy with <u class='speciale'>Zeroed In</u>. Dispel Zeroed In from all other enemies and Omega gains a stack of <u class='speciale'>Target Practice</u>. These effects can't be copied, dispelled, prevented, or resisted and last until the end of the encounter, Zeroed In is removed from an enemy, or Omega is defeated.\n\nIf the target enemy is Exposed, this attack inflicts Target Lock for 2 turns and removes 10% Turn Meter.\n\n<u class='speciale'>Zeroed In:</u> Omega has Target Practice while a character is afflicted by this; Omega can ignore Taunt to target this enemy.\n\n<u class='speciale'>Target Practice:</u> +5% Critical Chance, and Offense, and +10% Critical Damage per stack.",
-                    "special-attack2-title": "<u>Special Attack: Empathy First (cooldown: 4)</u>",
-                    "special-attack2": "Omega dispels all debuffs on herself and gains Stealth for 2 turns. Bad Batch allies gain Protection Up (40%) and Defense Penetration Up for 2 turns and 10% Turn Meter.\n\nIf Omega has Critical Chance Up, Bad Batch allies gain an additional 20% Turn Meter, and Protection Over Time (20%) for 2 turns.\n\nIf Omega already had Stealth and an enemy has Zeroed In, she gains a stack of Target Practice.",
-                    "unique-ability-title": "<u>Unique Ability: Part of the Squad</u>",
-                    "unique-ability": "At the start of the encounter, if all allies are Bad Batch, whenever the allied leader begins their turn, Omega gains 5 Speed and 2% Offense (stacking, max 50 Speed and 20% Offense) for the rest of the encounter.\n\nWhile Omega has Stealth, she has +10% Critical Damage, and when another Bad Batch ally uses a Special ability, Omega assists, dealing 60% less damage. While Omega has Defense Up, she has +10% Critical Chance.\n\nOmega's attacks deal 5% more damage for each buff she has and 5% more damage for each debuff the enemy has.\n\n<u class='omicron'>While in Territory Battles:</u>\n\nAt the start of battle, all Bad Batch allies gain Max Health equal to 10% of their Max Protection for each of their own Relic Amplifier levels (max 100%). Then, they lose all Protection. Bad Batch allies take reduced damage from percent Health damage effects. These bonuses last until the first time Omega is defeated.\n\nAt the start of each encounter, Bad Batch allies gain 10% bonus Protection for 2 turns for each of Omega's Relic Amplifier levels. Whenever Omega uses her Basic ability, she deals damage again for each other Bad Batch ally, dealing 50% less damage."
+                    "support": "Support",
+                    "leader": "Leader",
+                    "jedi": "Jedi",
+                    "old": "Old Republic",
+                    "basic-attack-title": "<u>Basic Attack: Jedi Assault</u>",
+                    "basic-attack": "Deal Special damage to target enemy and inflict Ability Block for 1 turn. This attack deals 20% more damage and has +20% Potency for each active Jedi ally.",
+                    "special-attack1-title": "<u>Special Attack: Rally (cooldown: 4)</u>",
+                    "special-attack1": "Bastila dispels all debuffs from herself and another target ally. They both gain Offense, Defense, Speed, Accuracy, and Critical Chance Up for 3 turns, then Bastila calls that ally to assist.",
+                    "special-attack2-title": "<u>Special Attack: Subvert Defenses (cooldown: 2)</u>",
+                    "special-attack2": "Deal Special damage to target enemy and dispel all buffs on them. Stun them for 1 turn and inflict Buff Immunity for 2 turns.",
+                    "lead-ability-title": "<u>Leader Ability: Initiative</u>",
+                    "lead-ability": "At the start of the battle, Jedi allies gain 15% Turn Meter and Protection Up (200%, can't be dispelled), and Jedi Tank allies Taunt for 1 turn. While Jedi allies have Protection Up, they have +150% Tenacity and deal 35% more damage.",
+                    "unique-ability1-title": "<u>Unique Ability: Legendary Battle Meditation</u>",
+                    "unique-ability1": "At the start of Bastila's turn, she recovers 2% Protection for each buff she has and all other allies gain 3% Turn Meter (doubled for Jedi) and <u class='speciale'>Legendary Battle Meditation:</u> for 1 turn.\n\n<u class='speciale'>Legendary Battle Meditation:</u> +50% Potency and +35% counter chance (doubled for Jedi). Legendary Battle Meditation can't be dispelled.",
+                    "unique-ability2-title": "<u>Unique Ability: Force Bond</u>",
+                    "unique-ability2": "If Jedi Knight Revan is in the leader slot: Bastila and Jedi Knight Revan have +70% Accuracy, Potency, and Tenacity. Jedi Knight Revan also recovers Protection from Legendary Battle Meditation.\n\nIf Darth Revan is on the enemy squad: Bastila gains Advantage and Retribution for 1 turn at the start of Darth Revan's turns."
                 },
                 fr: {
-                    "title": "<u>Omega</u>",
-                    "description": "Attaquant intelligente et pleine d'empathie qui utilise les améliorations, les affaiblissements et la présence de ses alliés du Bad Batch pour éliminer ses ennemis.",
-                    "lightside": "Coté Lumineux",
-                    "attacker": "Attaquant",
-                    "bad-batch": "Bad Batch",
-                    "clone": "Soldat Clone",
-                    "basic-attack-title": "<u>Attaque Basique : Tir accablant</u>",
-                    "basic-attack": "Inflige des dégâts physiques à une cible ennemie. Si Omega dispose d'un bonus d'esquive, inflige la cécité et la confusion pendant 1 tour.\n\nSi, pendant son tour, Omega dispose d'une amélioration qui peut être dissipée, elle inflige à nouveau des dégâts à hauteur de 50% en moins.",
-                    "special-attack1-title": "<u>Attaque spéciale : Capacité D'adaptation (délai : 3)</u>",
-                    "special-attack1": "Inflige des dégâts physiques et inflige <u class='speciale'>Focalisation</u> à une cible ennemie. Dissipe Focalisation infligée par tous les autres ennemis et Omega obtient un cumul de <u class='speciale'>Tir sur cibles</u>. Ces effets ne peuvent pas être copiés, dissipés, évités ou résistés, et durent jusqu'à l'affrontement, jusqu'à ce que Focalisation soit dissipée sur un ennemi ou jusqu'à ce qu'Omega soit vaincue.\n\nSi la cible est exposée, cette attaque verouille la cible pendant 2 tours et réduit sa jauge de tour de 10%.\n\n<u class='speciale'>Focalisation:</u>Omega dispose de Tir sur cibles lorsqu'un personnage est affecté par cet effet. Omega peut ignorer la raillerie pour cibler cet ennemi.<u class='speciale'>Tir sur cibles:</u>+5% de chances de coup critique et d'attaque, et +10% de dégâts critiques par cumul.",
-                    "special-attack2-title": "<u>Attaque Spéciale : Priorité à l'empathie (délai : 4)</u>",
-                    "special-attack2": "Omega dissipe tous les affaiblissements l'affectant et gagne le camouflage pendant 2 tours. Les alliés du Bad Batch obtiennent une hausse de protection (40%) et un bonus de pénétration de défense pendant 2 tours et gagnent 10% de jauge de tour.\n\nSi Omega dispose d'un bonus de chances de coup critique, les alliés du Bad Batch obtiennent 20% de jauge de tour supplémentaires et la protection sur la duréer (20%) pendant 2 tours.\n\nSi Omega est déjà camouflée et qu'un ennemi subit Focalisation, elle obtient un cumul de Tir sur cibles",
-                    "unique-ability-title": "<u>Capacité Unique : Membre de l'escouade</u>",
-                    "unique-ability": "Au début de l'affrontement, si tous les alliés font partie du Bad Batch, à chaque fois que le chef allié commence son tour, Omega obtient +5 de vitesse et +2% d'attaque (cumulable, maximum 50 de vitesse et 20% d'attaque) pendant le reste de l'affrontement.\n\nLorsqu'elle est camouflée, Omega inflige +10% de dégâts critiques. Lorsqu'un allié du Bad Batch utilise une capacité spéciale, Omega est invoquée et inflige 60% de dégâts en moins. Lorsqu'elle dispose d'un bonus de défense, Omega a +10% de chances de coup critique.\n\nLes attaques d'Omega infligent 5% de dégâts supplémentaires pour chaque amélioration dont elle dispose, et 5% de dégâts supplémentaires pour chaque affaiblissement que subit l'ennemi.\n\n<u class='speciale'>Dans les Batailles de territoire :</u>\n\nAu début de la bataille, tous les alliés appartenant au Bad Batch obtiennent de la santé maximale à hauteur de 10% de leur protection maximale pour chacun de leurs propres niveaux d'amplificateur de relique (maximul 100%). Ensuite, ils perdent toute leur protection. Les alliés appartenant au Bad Batchsubissent des dégâs réduits des effets de dégâts de pourcentage de santé. Ces bonus durent jusqu'à ce que Omega soit vaincue pour la premiere fois.\n\nAu début de chaque affrontement, Les alliés appartenant au Bad Batch obtiennent 10% de bonus de protection pendant 2 tours pour chaque niveau d'amplificateur de relique d'Omega. Lorsqu'Omega utilise sa capacité de base, elle inflige à nouveau des dégâts pour chaque autre allié appartenant au Bad Batch, infligeant 50% de dégâts en moins."
-                }               
+                    "title": "<u>Bastila Shan</u>",
+                    "description": "Puissante Jedi de soutien qui confère d'extraordinaires améliorations dès le premier tour grâce à sa capacité de chef.",
+                    "lightside": "Côté Lumineux",
+                    "support": "Soutien",
+                    "leader": "Chef",
+                    "jedi": "Jedi",
+                    "old": "Ancienne République",
+                    "basic-attack-title": "<u>Attaque Basique : Assaut Jedi</u>",
+                    "basic-attack": "Inflige des dégâts spéciaux à la cible ennemie et entrave ses capacités pendant 1 tour. Cette attaque confère un bonus de dégâts de 20% et un bonus de puissance de 20% pour chaque allié Jedi actif.",
+                    "special-attack1-title": "<u>Attaque Spéciale : Ralliement (délai : 4)</u>",
+                    "special-attack1": "Bastila dissipe tous les affaiblissements l'affectant elle et une cible alliée. Tous deux bénéficient d'un bonus d'attaque, de défense, de vitesse, de précision et de chances de coup critique pendant 3 tours, puis Bastila appelle cet allié à l'assister.",
+                    "special-attack2-title": "<u>Attaque Spéciale : Sabotage des défenses (délai : 2)</u>",
+                    "special-attack2": "Inflige des dégâts spéciaux à la cible ennemie et dissipe toutes ses améliorations. L'étourdit pendant 1 tour et lui inflige l'immunité aux améliorations pendant 2 tours.",
+                    "lead-ability-title": "<u>Capacité de Chef : Initiative</u>",
+                    "lead-ability": "Au début de la bataille, les alliés Jedi gagnent 15% de jauge de tour et une hausse de protection (200%, ne peut pas être dissipée), et les tanks Jedi alliés provoquent pendant 1 tour. Tant que les alliés Jedi ont une hausse de protection, ils ont +150% de ténacité et infligent 35% de dégâts supplémentaires.",
+                    "unique-ability1-title": "<u>Capacité Unique : Méditation de combat légendaire</u>",
+                    "unique-ability1": "Au début du tour de Bastila, elle récupère 2% de protection pour chaque amélioration dont elle bénéficie, et tous les autres alliés gagnent 3% de jauge de tour (doublé pour les Jedi) et la <u class='speciale'>Méditation de combat légendaire :</u> pendant 1 tour.\n\n<u class='speciale'>Méditation de combat légendaire :</u> +50% de puissance et +35% de chances de contre-attaque (doublé pour les Jedi). La Méditation de combat légendaire ne peut pas être dissipée.",
+                    "unique-ability2-title": "<u>Capacité Unique : Lien de Force</u>",
+                    "unique-ability2": "Si le Chevalier Jedi Revan est dans l'emplacement de chef : Bastila et le Chevalier Jedi Revan ont +70% de précision, de puissance et de ténacité. Le Chevalier Jedi Revan récupère également de la protection grâce à la Méditation de combat légendaire.\n\nSi Dark Revan est dans l'escouade ennemie : Bastila gagne Avantage et Rétribution pendant 1 tour au début des tours de Dark Revan."
+                }
             };
 
             function replaceNewLinesWithBr(text) {
