@@ -11,164 +11,64 @@
     <link rel="stylesheet" href="../style/styles.css">
     <link rel="stylesheet" href="../style/classement.css">
 
-    <style>
-        .login-container {
-            text-align: center;
-            margin: 20px;
-        }
-
-        .character-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .character {
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            margin: 10px;
-            padding: 15px;
-            border-radius: 10px;
-            width: 200px;
-            text-align: center;
-        }
-
-        .character img {
-            width: 100px;
-            height: 100px;
-        }
-    </style>
 </head>
 
 <body class="classe">
     <h1 style="color: black;" id="character"><u>Character</u></h1>
-
     <div class="language-switcher">
         <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
             onclick="switchLanguage('fr')">
         <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
             onclick="switchLanguage('en')">
     </div>
-
-    <!-- Connexion avec code allié -->
-    <div class="login-container">
-        <h2 id="login-title">Connexion</h2>
-        <p id="enter-ally-code">Entrez votre code allié SWGOH</p>
-        <input type="text" id="allyCode" placeholder="Ex: 329-615-792">
-        <button onclick="fetchCharacters()" id="login-button">Se connecter</button>
+    <div class="characters-container">
+        <div class="character">
+            <figure>
+                <a href="../html/0_0_0.html"><img src="../image-perso/0-0-0/0-0-0-image.png" alt="0_0_0"></a>
+                <figcaption class="figcaption-personnage" id="0_0_0">0_0_0</figcaption>
+            </figure>
+        </div>
     </div>
+        <footer>
+            <a href="../filtre-recherche/filtre-personnage.html">
+                <img style="width: 10%;height: 10%;" class="position" src="../image/logo_star_wars.png" alt="filtre personnage"></a>
+            <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
 
-    <!-- Section des personnages -->
-    <div id="charactersSection" style="display:none;">
-        <h2 id="your-characters">Vos Personnages</h2>
-        <div class="character-list" id="characterList"></div>
-    </div>
+            <script src="../javascript/bouton.js"></script>
+            <script>
+                // Object to store translations
+                const translations = {
+                    en: {
+                        "character-title" : "Character",
+                        "character" : "Character",
+                        "0_0_0" : "0_0_0",
 
-    <footer>
-        <a href="../filtre-recherche/filtre-personnage.html">
-            <img style="width: 10%;height: 10%;" class="position" src="../image/logo_star_wars.png"
-                alt="filtre personnage"></a>
-        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+                    },
+                    fr: {
+                        "character-title" : "Personnage",
+                        "character" : "Personnage",
+                        "0_0_0" : "0_0_0",
 
-        <script src="../javascript/bouton.js"></script>
-        <script>
-            // Traductions
-            const translations = {
-                en: {
-                    "character-title": "Character",
-                    "character": "Character",
-                    "login-title": "Login",
-                    "enter-ally-code": "Enter your SWGOH Ally Code",
-                    "login-button": "Login",
-                    "your-characters": "Your Characters"
-                },
-                fr: {
-                    "character-title": "Personnage",
-                    "character": "Personnage",
-                    "login-title": "Connexion",
-                    "enter-ally-code": "Entrez votre code allié SWGOH",
-                    "login-button": "Se connecter",
-                    "your-characters": "Vos Personnages"
-                }
-            };
-
-            // Changer la langue
-            function switchLanguage(lang) {
-                const elements = document.querySelectorAll('[id]');
-                elements.forEach(element => {
-                    if (translations[lang][element.id]) {
-                        element.textContent = translations[lang][element.id];
                     }
-                });
-            }
+                };
+                // Set the default language to English on page load
+                window.onload = function () {
+                    switchLanguage('en');
+                };
 
-            // Définir la langue par défaut
-            window.onload = function () {
-                switchLanguage('en');
-            };
+                // Function to switch language
+                function switchLanguage(lang) {
+                    const elements = document.querySelectorAll('[id]'); // Select all elements with an id
 
-            // Récupération des personnages depuis l'API
-            async function fetchCharacters() {
-                const allyCode = document.getElementById("allyCode").value.trim().replace(/-/g, "");
-                if (!allyCode) {
-                    alert("Veuillez entrer un code allié valide !");
-                    return;
-                }
-
-                try {
-                    const response = await fetch("api.php", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ allyCode: allyCode })
+                    elements.forEach(function (element) {
+                        const translationKey = element.id;
+                        if (translations[lang] && translations[lang][translationKey]) {
+                            element.textContent = translations[lang][translationKey]; // Update text content based on the selected language
+                        }
                     });
-
-                    if (!response.ok) {
-                        throw new Error('Erreur HTTP: ' + response.status);
-                    }
-
-                    const data = await response.json();
-                    console.log("Données reçues :", data);
-
-                    if (data.error) {
-                        alert("Erreur API : " + data.error);
-                        return;
-                    }
-
-                    displayCharacters(data.characters);
-                } catch (error) {
-                    console.error("Erreur de requête:", error);
-                    alert("Erreur : " + error.message);
                 }
-            }
-
-            // Affichage des personnages
-            function displayCharacters(characters) {
-                const characterList = document.getElementById("characterList");
-                characterList.innerHTML = "";
-
-                if (characters && characters.length > 0) {
-                    characters.forEach(character => {
-                        const charDiv = document.createElement("div");
-                        charDiv.classList.add("character");
-                        charDiv.innerHTML = `
-                            <img src="${character.image}" alt="${character.name}">
-                            <h4>${character.name}</h4>
-                            <p>Niveau : ${character.level}</p>
-                            <p>Étoiles : ${"⭐".repeat(character.rarity)}</p>
-                            <p>Gear : ${character.gear_level}</p>
-                            <p>Puissance : ${character.power}</p>
-                        `;
-                        characterList.appendChild(charDiv);
-                    });
-                } else {
-                    characterList.innerHTML = "<p>Aucun personnage trouvé.</p>";
-                }
-
-                document.getElementById("charactersSection").style.display = "block";
-            }
-        </script>
-    </footer>
+            </script>
+        </footer>
 
 </body>
 
