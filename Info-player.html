@@ -57,38 +57,44 @@
 
     <script>
 async function fetchCharacters() {
-    const allyCode = document.getElementById("allyCode").value.trim().replace(/-/g, "");
-    if (!allyCode) {
+    let allyCode = document.getElementById("allyCode").value.trim().replace(/\D/g, "");
+    if (allyCode.length < 6 || allyCode.length > 12) {
         alert("Veuillez entrer un code allié valide !");
         return;
     }
 
-    // Afficher le loader
     document.getElementById("loader").style.display = "block";
     document.getElementById("charactersSection").style.display = "none";
 
+    const proxyUrl = "https://corsproxy.io/?";
+    const apiUrl = `https://swgoh.gg/api/player/${allyCode}/`;
+
     try {
-        // Tester avec GET car InfinityFree bloque parfois POST
-        const response = await fetch(`https://swgoh-projet-api.infinityfreeapp.com/api.php?allyCode=${allyCode}`);
-
+        const response = await fetch(proxyUrl + apiUrl);
         if (!response.ok) {
-            throw new Error('Erreur HTTP: ' + response.status);
+            throw new Error("Impossible de récupérer les données");
         }
-
         const data = await response.json();
-        console.log("Données reçues :", data);
 
-        if (data.error) {
-            alert("Erreur API : " + data.error);
+        if (!data || !data.units) {
+            alert("Aucun personnage trouvé");
             return;
         }
 
-        displayCharacters(data.characters);
+        const characters = data.units.map(unit => ({
+            name: unit.data.name,
+            level: unit.data.level,
+            rarity: unit.data.rarity,
+            gear_level: unit.data.gear_level,
+            power: unit.data.power,
+            image: `https://swgoh.gg/static/img/assets/characters/${unit.data.base_id}.png`
+        })).sort((a, b) => a.name.localeCompare(b.name));
+
+        displayCharacters(characters);
     } catch (error) {
         console.error("Erreur de requête:", error);
         alert("Impossible de récupérer les données. Vérifiez votre connexion et réessayez.");
     } finally {
-        // Cacher le loader
         document.getElementById("loader").style.display = "none";
     }
 }
@@ -97,7 +103,7 @@ function displayCharacters(characters) {
     const characterList = document.getElementById("characterList");
     characterList.innerHTML = "";
 
-    if (characters && characters.length > 0) {
+    if (characters.length > 0) {
         characters.forEach(character => {
             const charDiv = document.createElement("div");
             charDiv.classList.add("character");
