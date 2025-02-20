@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+    <title>Star Wars SWGOH</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style/styles.css">
+    <style>
+        .character-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .character {
+            background: rgba(0, 0, 0, 0.7);
+            margin: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            width: 200px;
+            text-align: center;
+            color: white;
+        }
+
+        .character img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .loader {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>Star Wars Galaxy of Heroes</header>
+
+    <div class="login-container">
+        <h2>Connexion</h2>
+        <p>Entrez votre code allié SWGOH</p>
+        <input type="text" id="allyCode" placeholder="Ex: 329-615-792">
+        <button onclick="fetchCharacters()">Se connecter</button>
+    </div>
+
+    <div class="loader" id="loader">
+        <p>Chargement des personnages...</p>
+    </div>
+
+    <div id="charactersSection" style="display:none;">
+        <h2>Vos Personnages</h2>
+        <div class="character-list" id="characterList"></div>
+    </div>
+
+    <script>
+async function fetchCharacters() {
+    const allyCode = document.getElementById("allyCode").value.trim().replace(/-/g, "");
+    if (!allyCode) {
+        alert("Veuillez entrer un code allié valide !");
+        return;
+    }
+
+    // Afficher le loader
+    document.getElementById("loader").style.display = "block";
+    document.getElementById("charactersSection").style.display = "none";
+
+    try {
+        const response = await fetch("https://swgoh-projet-api.infinityfreeapp.com/api.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ allyCode: allyCode })
+        });
+
+        if (!response.ok) {
+            throw new Error('Erreur HTTP: ' + response.status);
+        }
+
+        const data = await response.json();
+        console.log("Données reçues :", data);
+
+        if (data.error) {
+            alert("Erreur API : " + data.error);
+            return;
+        }
+
+        displayCharacters(data.characters);
+    } catch (error) {
+        console.error("Erreur de requête:", error);
+        alert("Erreur : " + error.message);
+    } finally {
+        // Cacher le loader
+        document.getElementById("loader").style.display = "none";
+    }
+}
+
+function displayCharacters(characters) {
+    const characterList = document.getElementById("characterList");
+    characterList.innerHTML = "";
+
+    if (characters && characters.length > 0) {
+        characters.forEach(character => {
+            const charDiv = document.createElement("div");
+            charDiv.classList.add("character");
+            charDiv.innerHTML = `
+                <img src="${character.image}" alt="${character.name}">
+                <h4>${character.name}</h4>
+                <p>Niveau : ${character.level}</p>
+                <p>Étoiles : ${"⭐".repeat(character.rarity)}</p>
+                <p>Gear : ${character.gear_level}</p>
+                <p>Puissance : ${character.power}</p>
+            `;
+            characterList.appendChild(charDiv);
+        });
+    } else {
+        characterList.innerHTML = "<p>Aucun personnage trouvé.</p>";
+    }
+
+    document.getElementById("charactersSection").style.display = "block";
+}
+    </script>
+
+</body>
+</html>
