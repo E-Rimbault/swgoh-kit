@@ -68,11 +68,8 @@ async function fetchCharacters() {
     document.getElementById("charactersSection").style.display = "none";
 
     try {
-        const response = await fetch("https://swgoh-projet-api.infinityfreeapp.com/api.php", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ allyCode: allyCode })
-        });
+        // Tester avec GET car InfinityFree bloque parfois POST
+        const response = await fetch(`https://swgoh-projet-api.infinityfreeapp.com/api.php?allyCode=${allyCode}`);
 
         if (!response.ok) {
             throw new Error('Erreur HTTP: ' + response.status);
@@ -89,7 +86,7 @@ async function fetchCharacters() {
         displayCharacters(data.characters);
     } catch (error) {
         console.error("Erreur de requête:", error);
-        alert("Erreur : " + error.message);
+        alert("Impossible de récupérer les données. Vérifiez votre connexion et réessayez.");
     } finally {
         // Cacher le loader
         document.getElementById("loader").style.display = "none";
