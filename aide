@@ -37,18 +37,18 @@
             <br>
 
             <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color:blue or red" href="../classement-perso/" ></a>
-                <a class="class" href="../classement-perso/" ></a>
-                <a class="capacite" href="../classement-perso/" ></a>
+                <a class="capacite" style="color:blue or red" href="../classement-perso/"></a>
+                <a class="class" href="../classement-perso/"></a>
+                <a class="capacite" href="../classement-perso/"></a>
             </nav>
-        </div>   
-    </header>
+        </div>
+    </header><br>
 
     <!-- Image principale du personnage -->
     <img class="first" src="" alt=""><br>
 
-      <!-- Pied de page -->
-      <footer>
+    <!-- Pied de page -->
+    <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
         <script>
@@ -57,125 +57,127 @@
 
                 },
                 fr: {
-}
+                }
             };
 
             function replaceNewLinesWithBr(text) {
-        return text.replace(/\n\n/g, '<br><br>');
-    }
-
-    function switchLanguage(lang) {
-        for (const [key, text] of Object.entries(translations[lang])) {
-            const element = document.getElementById(key);
-            if (element) {
-                // Convert \n\n to <br><br> before injecting
-                element.innerHTML = replaceNewLinesWithBr(text);
+                return text.replace(/\n\n/g, '<br><br>');
             }
-        }
-    }
 
-    window.onload = () => switchLanguage('en');
-</script>
-        
+            function switchLanguage(lang) {
+                for (const [key, text] of Object.entries(translations[lang])) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        // Convert \n\n to <br><br> before injecting
+                        element.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                }
+            }
+
+            window.onload = () => switchLanguage('en');
+        </script>
+
     </footer>
 </body>
 
 </html>
 
-    <!-- Section pour les différentes attaques spéciales -->
-    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: </u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="" src="">
-        </div>
-        <div class="right-column">
-            <p class="attaque" id="basic-attack">
-
-            </p>
-        </div>
+<!-- Section pour les différentes attaques spéciales -->
+<h2 class="titre" id="basic-attack-title"><u>Basic Attack: </u></h2>
+<div class="capacity-container">
+    <div class="left-column">
+        <img class="attaque" alt="" src="">
     </div>
+    <div class="right-column">
+        <p class="attaque" id="basic-attack">
 
-    <h2 class="titre" id="special-attack1-title"><u>Special Attack: (cooldown: )</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="" src="">
-        </div>
-        <div class="right-column">
-            <p class="attaque" id="special-attack1">
-
-            </p>
-        </div>
+        </p>
     </div>
+</div>
 
-    <h2 class="titre" id="special-attack2-title"><u>Special Attack: (cooldown: )</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="" src="">
-        </div>
-        <div class="right-column">
-            <p class="attaque" id="special-attack2">
-
-            </p>
-        </div>
+<h2 class="titre" id="special-attack1-title"><u>Special Attack: (cooldown: )</u></h2>
+<div class="capacity-container">
+    <div class="left-column">
+        <img class="attaque" alt="" src="">
     </div>
+    <div class="right-column">
+        <p class="attaque" id="special-attack1">
 
-    <h2 class="titre"><u id="ultime-title">Ultimate: </u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="" src="">
-        </div>
-        <div class="right-column">
-            <p class="attaque" id="ulti">
-
-            </p>
-        </div>
+        </p>
     </div>
+</div>
 
-    <h2 class="titre" id="lead-ability-title"><u>Leader Ability: </u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="" src="">
-        </div>
-        <div class="right-column">
-            <p class="attaque" id="lead-ability">
-
-            </p>
-        </div>
+<h2 class="titre" id="special-attack2-title"><u>Special Attack: (cooldown: )</u></h2>
+<div class="capacity-container">
+    <div class="left-column">
+        <img class="attaque" alt="" src="">
     </div>
+    <div class="right-column">
+        <p class="attaque" id="special-attack2">
 
-    <h2 class="titre" id="unique-ability-title"><u>Unique Ability: </u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="" src="">
-        </div>
-        <div class="right-column">
-            <p class="attaque" id="unique-ability">
-
-            </p>
-        </div>
+        </p>
     </div>
+</div>
 
-    <u class="speciale"></u>
+<h2 class="titre"><u id="ultime-title">Ultimate: </u></h2>
+<div class="capacity-container">
+    <div class="left-column">
+        <img class="attaque" alt="" src="">
+    </div>
+    <div class="right-column">
+        <p class="attaque" id="ulti">
 
-    <!-- Section pour les invocations -->
-    <h2 class="invocation"></h2>
-    <img class="tail" src="../personnage/" alt="invocation">
+        </p>
+    </div>
+</div>
 
-    <!-- Section pour les caractéristiques spéciales -->
-    <h2 class="prime"></h2>
-    <img class="tail" src="../personnage/" alt="prime">
+<h2 class="titre" id="lead-ability-title"><u>Leader Ability: </u></h2>
+<div class="capacity-container">
+    <div class="left-column">
+        <img class="attaque" alt="" src="">
+    </div>
+    <div class="right-column">
+        <p class="attaque" id="lead-ability">
 
-    <!-- Lien vers une autre page (vaisseau) -->
-    <h2><u></u></h2>
-    <a href="../classement-perso"><img class="tail" src="../vaisseaux/" alt=""></a>
+        </p>
+    </div>
+</div>
 
-  
+<h2 class="titre" id="unique-ability-title"><u>Unique Ability: </u></h2>
+<div class="capacity-container">
+    <div class="left-column">
+        <img class="attaque" alt="" src="">
+    </div>
+    <div class="right-column">
+        <p class="attaque" id="unique-ability">
+
+        </p>
+    </div>
+</div>
+
+<u class="speciale"></u>
+
+<!-- Section pour les invocations -->
+<h2 class="invocation"></h2>
+<img class="tail" src="../personnage/" alt="invocation">
+
+<!-- Section pour les caractéristiques spéciales -->
+<h2 class="prime"></h2>
+<img class="tail" src="../personnage/" alt="prime">
+
+<!-- Lien vers une autre page (vaisseau) -->
+<h2><u></u></h2>
+<a href="../classement-perso"><img class="tail" src="../vaisseaux/" alt=""></a>
+
+
 
 <!-- Cette partie est en dehors du corps principal du document html -->
 <div>
     <table>
-        <thead>     
-            <tr><th colspan="">personnage avec le tag : </th></tr>
+        <thead>
+            <tr>
+                <th colspan="">personnage avec le tag : </th>
+            </tr>
         </thead>
     </table>
 </div>
@@ -200,4 +202,3 @@
         <figcaption></figcaption>
     </figure>
 </div>
-

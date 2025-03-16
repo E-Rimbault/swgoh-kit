@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Aayla Secura</title>
+
+    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+
+    <!-- Lien vers l'icône du site -->
+    <link rel="icon" type="image/png" href="../image-perso/aayla/aayla_image.png">
+
+    <!-- Lien vers la feuille de style -->
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/capacite.css">
+</head>
+
+<body class="simple">
+
+    <!-- Entête de la page -->
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/aayla/aayla_image.png" alt="" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    onclick="switchLanguage('fr')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    onclick="switchLanguage('en')">
+            </div>
+            <h1 id="title"><u>Aayla Secura</u></h1>
+            <p id="description">
+                Versatile attacker with high survivability through Dodge, Hitpoints, and self healing.
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html"
+                    id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html"
+                    id="galactic-republic">Galactic republic</a>
+                <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
+                <a class="capacite" href="../classement-perso/vanguard.html" id="vangaurd">Jedi Vanguard</a>
+            </nav>
+        </div>
+    </header>
+    <br>
+    <!-- Image principale du personnage -->
+    <img class="first" src="../image-perso/aayla/aayla.png" alt="Aayla"><br>
+
+    <!-- Section pour les différentes attaques spéciales -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Inspiring Strike</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="aayla basic" src="../image-perso/aayla/aayla_basique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 35% chance to call an ally to Assist. If the assisting ally
+                is a Jedi, they deal 50% more damage.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack: Survivor (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="aayla spé" src="../image-perso/aayla/aayla_spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and recover Health equal to 65% of the damage dealt.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="lead-ability-title"><u>Leader Ability: Jedi Valor</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="aayla lead" src="../image-perso/aayla/aayla_lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Jedi allies gain 40% Tenacity and recover 10% of their Max Health when they resist an effect.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="unique-ability-title"><u>Unique Ability: Superior Riposte</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="aayla unique" src="../image-perso/aayla/aayla_unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Aayla has +10% Critical Chance, 65% Counter Chance and +50% Counter Damage. In addition, she Stuns her
+                target for 1 turn whenever she critically hits.
+            </p>
+        </div>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+        <script>
+
+            const translations = {
+                en: {
+                "big- title" : "Aayla Secura",
+                "title" : "<u>Aayla Secura</u>",
+                "description" : "Versatile attacker with high survivability through Dodge, Hitpoints, and self healing.",
+                "lightside" : "Light Side",
+                "support" : "Support",
+                "leader" : "Leader",
+                "galactic-republic" : "Galactic Republic",
+                "jedi" : "Jedi",
+                "vangaurd" : "Jedi Vanguard",
+                "basic-attack-title": "<u>Basic Attack: Inspiring Strike</u>",
+                "basic-attack" : "Deal Physical damage to target enemy with a 35% chance to call an ally to Assist. If the assisting ally is a Jedi, they deal 50% more damage.",
+                "special-attack1-title": "<u>Special Attack: Survivor (cooldown: 3)</u>",
+                "special-attack1" : "Deal Physical damage to target enemy and recover Health equal to 65% of the damage dealt.",
+                "lead-ability-title": "<u>Leader Ability: Jedi Valor</u>",
+                "lead-ability" : "Jedi allies gain 40% Tenacity and recover 10% of their Max Health when they resist an effect.",
+                "unique-ability-title" : "<u>Unique Ability: Superior Riposte</u>",
+                "unique-ability" : "Aayla has +10% Critical Chance, 65% Counter Chance and +50% Counter Damage. In addition, she Stuns her target for 1 turn whenever she critically hits."
+        },
+            fr: {
+                "big- title" : "Aayla Secura",
+                "title" : "<u>Aayla Secura</u>",
+                "description" : "Attaquante polyvalente pourvue d'une grande capacité à la survie grâce à l'esquive, les PV et l'auto-guérison.",
+                "lightside" : "Coté Lumineux",
+                "support" : "Soutien",
+                "leader" : "Chef",
+                "galactic-republic" : "République Galactique",
+                "jedi" : "Jedi",
+                "vangaurd" : "Avant-garde Jedi",
+                "basic-attack-title": "<u>Attaque Basique : frappe inspirante</u>",
+                "basic-attack" : "Inflige des dégâts physiques à une cible ennemie unique avec 35% de chances de demander de l'aide à un allié. Si un Jedi apporte son aide, il inflige 50% de dégâts supplémentaires",
+                "special-attack1-title": "<u>Attaque Spéciale : Survivante (délai : 3)</u>",
+                "special-attack1" : "Inflige des dégâts physiques à une cible ennemie et régénère la santé à hauteur de 65% des dégâts infligés.",
+                "lead-ability-title": "<u>Capacité de chef : Bravoure Jedi</u>",
+                "lead-ability" : "Les alliés Jedi gagnent 40% de ténacité et récupèrent 10% de leur santé maximale quand ils résistent à un effet..",
+                "unique-ability-title" : "<u>Capacité unique : Riposte supérieure</u>",
+                "unique-ability" : "Aayla gagne 10% de chances de coup critique, 65% de chances de contre-attaque et 50% de chances de dégâts en contre-attaque. De plus, elle étourdit sa cible pendant 1 tour à chaque coup critique",
+        },
+    };
+        function replaceNewLinesWithBr(text) {
+        return text.replace(/\n\n/g, '<br><br>');
+        }
+
+        function switchLanguage(lang) {
+        for (const [key, text] of Object.entries(translations[lang])) {
+        const element = document.getElementById(key);
+        if (element) {
+        // Convert \n\n to <br><br> before injecting
+        element.innerHTML = replaceNewLinesWithBr(text);
+        }
+        }
+        }
+
+        window.onload = () => switchLanguage('en');
+        </script>
+
+    </footer>
+</body>
+
+</html>
