@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Jedi Knight Guardian</title>
+
+    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+
+    <!-- Lien vers l'icône du site -->
+    <link rel="icon" type="image/png" href="../image-perso/guardian/guardian_image.png">
+
+    <!-- Lien vers la feuille de style -->
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/capacite.css">
+</head>
+
+<body class="simple">
+
+    <!-- Entête de la page -->
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/guardian/guardian_image.png" alt="" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    onclick="switchLanguage('fr')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    onclick="switchLanguage('en')">
+            </div>
+            <h1 id="title"><u>Jedi Knight Guardian</u></h1>
+            <p id="description">
+                Tenacious Jedi tank with crippling debuffs and natural recovery at low Health
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html" id="lghtside">Light
+                    Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">tank</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html"
+                    id="republic-galactic">républic Galactic</a>
+                <a class="capacite" href="../classement-perso/jedi.html" id="jedi">jedi</a>
+                <a class="capacite" href="../classement-perso/vanguard.html" id="vanguard">Jedi Vanguard</a>
+            </nav>
+        </div>
+    </header><br>
+
+    <!-- Image principale du personnage -->
+    <img class="first" src="../image-perso/guardian/gardien.png" alt=""><br>
+
+    <!-- Section pour les différentes attaques spéciales -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Saber Sweep</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="jkg basic" src="../image-perso/guardian/guardian_basique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 55% chance of inflicting Offense Down for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack: Saber Throw (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="guardian spé" src="../image-perso/guardian/guardian_spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies with a 55% chance to inflict Ability Block for 1 turn. This chance is increased to 100% on a Critical Hit. In addition, Jedi Knight Guardian gains Defense Up for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="unique-ability-title"><u>Unique Ability: Defend the Order</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="guardian unique" src="../image-perso/guardian/jedi_guardian.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                While below 50% Health, Jedi Knight Guardian has +30% Tenacity and recovers 15% of her Max Health at the start of each of her turns.
+            </p>
+        </div>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+        <script>
+            const translations = {
+                en: {
+                    "big-title" : "Jedi Knight Guardian",
+                    "title" : "<u>Jedi Knight Guardian</u>",
+                    "description" : "Tenacious Jedi tank with crippling debuffs and natural recovery at low Health",
+                    "lightside" : "Light Side",
+                    "tank" : "tank",
+                    "republic-galactic" : "Galactic Republic",
+                    "jedi" : "Jedi",
+                    "vanguard" : "Jedi Vanguard",
+                    "basic-attack-title" : "<u>Basic Attack: Saber Sweep</u>",
+                    "basic-attack" : "Deal Physical damage to target enemy with a 55% chance of inflicting Offense Down for 2 turns.",
+                    "special-attack1-title" : "<u>Special Attack: Saber Throw (cooldown: 4)</u>",
+                    "special-attack1" : "Deal Physical damage to all enemies with a 55% chance to inflict Ability Block for 1 turn. This chance is increased to 100% on a Critical Hit. In addition, Jedi Knight Guardian gains Defense Up for 2 turns.",
+                    "unique-ability-title" : "<u>Unique Ability: Defend the Order</u>",
+                    "unique-ability" : "While below 50% Health, Jedi Knight Guardian has +30% Tenacity and recovers 15% of her Max Health at the start of each of her turns.",
+                },
+                fr: {
+                    "big-title" : "Jedi Knight Guardian",
+                    "title" : "<u>Jedi Knight Guardian</u>",
+                    "description" : "Jedi défensive tenace avec des capacités d'affaiblissement handicapantes et la récupération de santé lorsqu'elle est basse.",
+                    "lightside" : "Coté Lumineux",
+                    "tank" : "Tank",
+                    "republic-galactic" : "République Galactique",
+                    "jedi" : "Jedi",
+                    "vanguard" : "Avant-garde Jedi",
+                    "basic-attack-title" : "<u>Attaque Basique : Coup de sabre</u>",
+                    "basic-attack" : "inflige des dégâts physiques à une cible ennemie avec 55% de chances d'infliger un malus d'attaque pendant 2 tours.",
+                    "special-attack1-title" : "<u>Attaque Spéciale : Lancer de sabre (délai : 4)</u>",
+                    "special-attack1" : "inflige des dégâts à tous les ennemis avec 55% de chances d'entraver les capacités pendant 1 tour. Ces chances passent à 100% en cas de coup critique. De plus, le Chevalier Jedi Gardien obtient un bonus de défense pendant 2 tours.",
+                    "unique-ability-title" : "<u>capacité unique : défenseur de l'ordre</u>",
+                    "unique-ability" : "Lorsque le Chevalier Jedi Gardien dispose de moins de 50% de santé, elle dispose d'un bonus de ténacité de +30% et récupère 15% de sa santé maximale au début de chaque tour.",
+                }
+            };
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\n/g, '<br><br>');
+            }
+
+            function switchLanguage(lang) {
+                for (const [key, text] of Object.entries(translations[lang])) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        // Convert \n\n to <br><br> before injecting
+                        element.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                }
+            }
+
+            window.onload = () => switchLanguage('en');
+        </script>
+
+    </footer>
+</body>
+
+</html>
