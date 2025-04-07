@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Clone Sergeant - Phase I</title>
+
+    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+
+    <!-- Lien vers l'icône du site -->
+    <link rel="icon" type="image/png" href="../image-perso/sergent/sergeant-image.png">
+
+    <!-- Lien vers la feuille de style -->
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/capacite.css">
+</head>
+
+<body class="simple">
+
+    <!-- Entête de la page -->
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/sergent/sergeant-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    onclick="switchLanguage('fr')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    onclick="switchLanguage('en')">
+            </div>
+            <h1 id="title"><u>Clone Sergeant - Phase I</u></h1>
+            <p id="description">
+                Clone Attacker with AoE damage and Turn Meter Reduction
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html"
+                    id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/soldat-clone.html" id="clone">Clone Trooper</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html"
+                    id="republic-galactic">Galactic Republic</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew">Crew member</a>
+            </nav>
+        </div>
+    </header><br>
+
+    <!-- Image principale du personnage -->
+    <img class="first" src="../image-perso/sergent/sergeant.png" alt="Sergent Phase 1"><br>
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Z-6 Rotary Blaster</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="sergent basic" src="../image-perso/sergent/sergeant-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and gain 50% Turn Meter on a critical hit.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack: Suppressive Fire (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="sergent spé" src="../image-perso/sergent/sergent-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies and remove 50% of their Turn Meters.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="unique-ability-title"><u>Unique Ability: Concentrated Fire</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="sergent unique" src="../image-perso/sergent/sergent-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Clone Sergeant Phase I gains 4.5% Critical Chance for each living Clone ally. In addition, he has +10% Critical Damage and Offense Up for 2 turns whenever he critically hits.
+            </p>
+        </div>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+        <script>
+            const translations = {
+                en: {
+                    "big-title" : "Clone Sergeant - Phase I",
+                    "title" : "<u>Clone Sergeant - Phase I</u>",
+                    "description" : "Clone Attacker with AoE damage and Turn Meter Reduction",
+                    "lightside" : "light Side",
+                    "attacker" : "Attacker",
+                    "clone" : "Clone Trooper",
+                    "republic-galactic" : "galactic republic",
+                    "crew" : "Crew Member",
+                    "basic-attack-title" : "<u>Basic Attack: Z-6 Rotary Blaster</u>",
+                    "basic-attack" : "Deal Physical damage to target enemy and gain 50% Turn Meter on a critical hit.",
+                    "special-attack1-title" : "<u>Special Attack: Suppressive Fire (cooldown: 3)</u>",
+                    "special-attack1" : "Deal Physical damage to all enemies and remove 50% of their Turn Meters.",
+                    "unique-ability-title" : "<u>Unique Ability: Concentrated Fire</u>",
+                    "unique-ability" : "Clone Sergeant Phase I gains 4.5% Critical Chance for each living Clone ally. In addition, he has +10% Critical Damage and Offense Up for 2 turns whenever he critically hits."
+                },
+                fr: {
+                    "big-title" : "Sergent clone - Phase 1",
+                    "title" : "<u>Sergent clone - Phase 1</u>",
+                    "description" : "Attaquant clone qui inflige des dégâts de zone et réduit les jauges de tour",
+                    "lightside" : "Coté Lumineux",
+                    "attacker" : "Attaquant",
+                    "clone" : "Soldat clone",
+                    "republic-galactic" : "République Galactique",
+                    "crew" : "Membres d'équipages",
+                    "basic-attack-title" : "<u>Attaque Basique : Blaster rotatif Z-6</u>",
+                    "basic-attack" : "Inflige des dégâts physiques à une cible ennemie et fait croître la jauge de tour de 50% en cas de coup critique",
+                    "special-attack1-title" : "<u>Attaque Spéciale : Tir de uppression (délai : 3)</u>",
+                    "special-attack1" : "inflige des dégâts à tous les ennemis et réduit leur jauge de tour de 50%.",
+                    "unique-ability-title" : "<u>Capacité unique : Feu concentré</u>",
+                    "unique-ability" : "Le Sergent clone (Phase I) Gagne 4,5% de chances de coup critique pour chaque allié clone. De plus, il obtient un bonus de dégâts critiques de 10% et un bonus d'attaque de 10% pendant 2 tours à chaque coup critique."
+                }
+            };
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\n/g, '<br><br>');
+            }
+
+            function switchLanguage(lang) {
+                for (const [key, text] of Object.entries(translations[lang])) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        // Convert \n\n to <br><br> before injecting
+                        element.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                }
+            }
+
+            window.onload = () => switchLanguage('en');
+        </script>
+
+    </footer>
+</body>
+
+</html
