@@ -10,7 +10,7 @@
     <meta name="author" content="Rimbault Enzo">
 
     <!-- Lien vers l'icône du site -->
-    <link rel="icon" type="image/png" href="">
+    <link rel="icon" type="image/png" href="../image-perso/barriss/barris_image.png">
 
     <!-- Lien vers la feuille de style -->
     <link rel="stylesheet" href="../style/styles.css">
@@ -22,7 +22,7 @@
     <!-- Entête de la page -->
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/barriss/barris_image.png" alt="" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/barriss/barris_image.png" alt="barriss" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
             <div class="language-switcher">
@@ -38,15 +38,71 @@
             <br>
 
             <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html"></a>
-                <a class="class" href="../classement-perso/"></a>
-                <a class="capacite" href="../classement-perso/"></a>
+                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html"
+                    id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soigneur.html" id="healer">Healer</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
+                <a class="capacite" href="../classement-perso/vanguard.html" id="vanguard">Jedi Vanguard</a>
             </nav>
         </div>
     </header><br>
 
     <!-- Image principale du personnage -->
     <img class="first" src="../image-perso/barriss/barris.png" alt=""><br>
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Invigorating Strike</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="barriss basic" src="../image-perso/barriss/barris_basique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 45% chance for all allies to recover 6% of Barriss Offee's
+                Max Health.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack: Force Healer (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="barriss spe 1" src="../image-perso/barriss/barris_spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                All allies have their current Health percentages equalized. (Health equalizing effects ignore Healing
+                Immunity.) Then, each ally recovers 14% of their Max Health and gains Defense Up for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="lead-ability-title"><u>Leader Ability: No One Left Behind</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="barriss lead" src="../image-perso/barriss/barris_lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Jedi allies gain 20% Max Health, and other allies gain half that amount. In addition, at the start of each of their turns, Jedi allies heal for 8% of Barriss Offee's Max Health, and other allies heal half that amount.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="unique-ability-title"><u>Unique Ability: Swift Recovery</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="barriss unique" src="../image-perso/barriss/barriss_unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">   
+                At the end of each of her turns, Barriss dispels all debuffs from the weakest debuffed ally and gains 10% Turn Meter for each debuff removed.
+                <br><br>
+                Whenever an ally is critically hit, that ally recovers 20% Health and Barriss gains 10% Turn Meter.
+            </p>
+        </div>
+    </div>
+
 
     <!-- Pied de page -->
     <footer>
@@ -55,9 +111,40 @@
         <script>
             const translations = {
                 en: {
-
+                    "big-title" : "Barriss Offee",
+                    "title" : "<u>Barriss Offee</u>",
+                    "description" : "Jedi Healer that can balance party Health and Dispel allied Jedi frequently",
+                    "lightside" : "Light Side",
+                    "healer" : "Healer",
+                    "leader" : "Leader",
+                    "jedi" : "Jedi",
+                    "vanguard" : "Jedi Vanguard",
+                    "basic-attack-title" : "<u>Basic Attack: Invigorating Strike</u>",
+                    "basic-attack" : "Deal Physical damage to target enemy with a 45% chance for all allies to recover 6% of Barriss Offee's Max Health.",
+                    "special-attack1-title" : "<u>Special Attack: Force Healer (cooldown: 4)</u>",
+                    "special-attack1" : "All allies have their current Health percentages equalized. (Health equalizing effects ignore Healing Immunity.) Then, each ally recovers 15% of their Max Health and gains Defense Up for 2 turns.",
+                    "lead-ability-title" : "<u>Leader Ability: No One Left Behind</u>",
+                    "lead-ability" : "Jedi allies gain 20% Max Health, and other allies gain half that amount. In addition, at the start of each of their turns, Jedi allies heal for 8% of Barriss Offee's Max Health, and other allies heal half that amount.",
+                    "unique-ability-title" :"<u>Unique Ability: Swift Recovery</u>",
+                    "unique-ability" : "At the end of each of her turns, Barriss dispels all debuffs from the weakest debuffed ally and gains 10% Turn Meter for each debuff removed.\n\nWhenever an ally is critically hit, that ally recovers 20% Health and Barriss gains 10% Turn Meter.",
                 },
                 fr: {
+                    "big-title" : "Barriss Offee",
+                    "title" : "<u>Barriss Offee</u>",
+                    "description" : "Guérisseuse Jedi qui peut équilibrer la santé de l'équipe et dissiper les effets négatifs affectant les Jedi fréquemment.",
+                    "lightside" : "Coté Lumineux",
+                    "healer" : "Soigneur",
+                    "leader" : "Chef",
+                    "jedi" : "Jedi",
+                    "vanguard" : "Avant-garde Jedi",
+                    "basic-attack-title" : "<u>Attaque Basique : Frappe revigorante</u>",
+                    "basic-attack" : "Inflige des dégâts physiques à une cible ennemie avec 45% de chances pour tous les alliés de récupérer 6% de la santé maximale de Barriss Offee.",
+                    "special-attack1-title" : "<u>Attaque Spéciale : Guérisseuse de Force (délai : 4)</u>",
+                    "special-attack1" : "Équilibre le pourcentage de remplissage de la jauge de PV entre tous les personnages alliés (cet effet ignore l'immunité aux soins). Ensuite, chaque allié récupère 15% de sa santé maximale et obtient un bonus de défense pendant 2 tours.",
+                    "lead-ability-title" : "<u>Capacité de chef : Personne ne reste derrière</u>",
+                    "lead-ability" : "Les alliés Jedi gagnent 20% de leur santé maximale et les uatres alliés un nombre de PV moitié moins élévé. De plus, au début de chacun de leurs tours, les alliés Jedi récupèrent 8% de la santé maximale de Barriss Offee et les autres alliés un nombre de PV moitié moins élévé.",
+                    "unique-ability-title" :"<u>Capacité Unique : Convalescence rapide</u>",
+                    "unique-ability" : "A la fin de chacun de ses tours, Barriss dissipe tous les affaiblissement de l'allié le plus faible, et sa jauge de tour se remplit de 10% pour chaque effet ainsi dissipé.\n\nLorsqu'un allié subit un coup critique, il récupère 20% de sa santé et la jauge de tour de Barriss se remplit de 10%.",
                 }
             };
 
