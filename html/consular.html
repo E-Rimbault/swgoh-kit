@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Jedi Consular</title>
+
+    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+
+    <!-- Lien vers l'icône du site -->
+    <link rel="icon" type="image/png" href="../image-perso/consular/consular-image.png">
+
+    <!-- Lien vers la feuille de style -->
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/capacite.css">
+</head>
+
+<body class="simple">
+
+    <!-- Entête de la page -->
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/consular/consular-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    onclick="switchLanguage('fr')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    onclick="switchLanguage('en')">
+            </div>
+            <h1 id="title"><u>Jedi Consular</u></h1>
+            <p id="description">
+                Well-rounded Jedi Healer with a mix of offense and defense
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html"
+                    id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soigneur.html" id="healer">Healer</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html"
+                    id="galactic-republic">Galactic Républic</a>
+                <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
+                <a class="capacite" href="../classement-perso/vanguard.html" id="vanguard">Jedi Vanguard</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew">Crew Members</a>
+            </nav>
+        </div>
+    </header><br>
+
+    <!-- Image principale du personnage -->
+    <img class="first" src="../image-perso/consular/consular.png" alt="Jedi Consular"><br>
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Saber Strike</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="consular basic" src="../image-perso/consular/consular-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 50% chance to reduce Jedi Consular's Cooldowns by 1.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack: Jedi Healing (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="jedi consular spé 1" src="../image-perso/consular/consular-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Each ally recovers Health equal to 40% of Jedi Consular's Max Health, with a 50% chance of granting Jedi Consular 25% Turn Meter.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack: Attack as Defense (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="jedi consular spé 2" src="../image-perso/consular/consular-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Special damage to target enemy and recover Health equal to 30% of the damage dealt. This attack has a 50% chance to ignore the target's Armor.
+            </p>
+        </div>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+        <script>
+            const translations = {
+                en: {
+                    "big-title" : "Jedi Consular",
+                    "title" : "<u>Jedi Consular</u>",
+                    "description" : "Well-rounded Jedi Healer with a mix of offense and defense",
+                    "lightside" : "Light Side",
+                    "healer" : "Healer",
+                    "galactic-republic" : "galactic Républic",
+                    "jedi" : "Jedi",
+                    "vanguard" : "Jedi Vanguard",
+                    "crew" : "Crew Members",
+                    "basic-attack-title" : "<u>Basic Attack: Saber Strike</u>",
+                    "basic-attack" : "Deal Physical damage to target enemy with a 50% chance to reduce Jedi Consular's Cooldowns by 1.",
+                    "special-attack1-title" : "<u></u>",
+                    "special-attack1" : "",
+                    "special-attack2-title" : "<u></u>",
+                    "special-attack2" : ""
+                },
+                fr: {
+                    "big-title" : "",
+                    "title" : "<u></u>",
+                    "description" : "",
+                    "lightside" : "",
+                    "healer" : "",
+                    "galactic-republic" : "",
+                    "jedi" : "",
+                    "vanguard" : "",
+                    "crew" : "",
+                    "basic-attack-title" : "<u></u>",
+                    "basic-attack" : "",
+                    "special-attack1-title" : "<u></u>",
+                    "special-attack1" : "",
+                    "special-attack2-title" : "<u></u>",
+                    "special-attack2" : ""
+                }
+            };
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\n/g, '<br><br>');
+            }
+
+            function switchLanguage(lang) {
+                for (const [key, text] of Object.entries(translations[lang])) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        // Convert \n\n to <br><br> before injecting
+                        element.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                }
+            }
+
+            window.onload = () => switchLanguage('en');
+        </script>
+
+    </footer>
+</body>
+
+</html>
