@@ -7,7 +7,11 @@
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
     <link rel="icon" type="image/png" href="../image/mandalore.png">
-    <link rel="stylesheet" href="../style/styles.css">
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style/styles.css"> <!-- Garde si tu as encore des styles spécifiques -->
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -28,116 +32,126 @@
             th.textContent += ` (${imageCount}/${filledCount})`;
         });
     </script>
-    <style>
-        .table-container {
-            flex: 1;
-            /* Occupy all available space */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        table {
-            width: 100%;
-            height: 100%;
-            border-collapse: collapse;
-            text-align: center;
-        }
-    </style>
 </head>
 
-<body class="faction">
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th colspan="7">personnage avec le tag : Mandalorien</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <a href="../html/bo_katan.html"><img src="../image-perso/bo-katan/bo-katan-image.png"
-                                alt="Bo-katan"></a>
-                        <br> Bo-Katan Kryze
-                    </td>
-                    <td>
-                        <a href="../html/bo_katan(mandalore).html"><img
-                                src="../image-perso/bo-mandalore/bo-katan-image.png" alt="Bo-katan Kryze"></a>
-                        <br> Bo-Katan (Mand'alor)
-                    </td>
-                    <td>
-                        <a href="../html/canderous.html"><img src="../image-perso/canderous/canderous.png"
-                                alt="Canderous Ordo"></a>
-                        <br> Canderous Ordo
-                    </td>
-                    <td>
-                        <a href="../html/gar_saxon.html"><img src="../image-perso/gar-saxon/saxon-image.png"
-                                alt="Saxon"></a>
-                        <br> Gar Saxon
-                    </td>
-                    <td>
-                        <a href="../html/IG12_&_Grogu.HTML"><img
-                                src="../image-perso/ig-12-et-grogu/IG12-grogu-image.png" alt="Ig-12 & Grogu"></a>
-                        <br> IG12 & Grogu
-                    </td>
-                    <td>
-                        <a href="../html/isc.html"><img src="../image-perso/isc/isc-image.png" alt="Isc"></a>
-                        <br> Imperial Super Commando
-                    </td>
-                    <td>
-                        <a href="../html/jango_fett.html"><img src="../image-perso/jango-fett/jango.png"
-                                alt="Jango Fett"></a>
-                        <br> Jango Fett
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="../html/maul.html"><img src="../image-perso/maul/maul-image.png" alt="Maul"></a>
-                        <br> Maul
-                    </td>
-                    <td>
-                        <a href="../html/padawan-sabine.html"><img src="../image-perso/padawin/sabine-image.png" alt="padawin"></a>
-                        <br>
-                        Padawan Sabine Wren
-                    </td>
-                    <td>
-                        <a href="../html/Paz_Vizsla.html"><img src="../image-perso/paz-vizsla/Paz-Vizsla-image.png"
-                                alt="Paz Vizsla"></a>
-                        <br> Paz Vizsla
-                    </td>
-                    <td>
-                        <a href="../html/sabine_wren.html"><img src="../image-perso/sabine-wren/sabine-image.png"
-                                alt="Sabine Wren"></a>
-                        <br> Sabine Wren
-                    </td>
-                    <td>
-                        <a href="../html/armorer.html"><img src="../image-perso/armorer/armorer-image.png"
-                                alt="armorer"></a>
-                        <br> The Armorer
-                    </td>
-                    <td>
-                        <a href="../html/the_mandalorian.html"><img src="../image-perso/mando/mando-image.png"
-                                alt="The Mandalorian"></a>
-                        <br> The Mandalorian
-                    </td>
-                    <td>
-                        <a href="../html/The_mandalorian_beskar.html"><img
-                                src="../image-perso/bam/The-Mandalorian-image.png" alt="Mando Beskar"></a>
-                        <br> The Mandalorian (beskar armor)
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <br>
+<body class="faction bg-dark text-light">
 
-    <footer>
+    <div class="container my-5">
+        <div class="table-responsive">
+            <table class="table table-bordered text-center table-dark align-middle">
+                <thead class="table-light text-dark">
+                    <tr>
+                        <th colspan="7">personnage avec le tag : Mandalorien</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../html/bo_katan.html">
+                                <img src="../image-perso/bo-katan/bo-katan-image.png" alt="Bo-katan" class="img-fluid">
+                            </a>
+                            <br> Bo-Katan Kryze
+                        </td>
+                        <td>
+                            <a href="../html/bo_katan(mandalore).html">
+                                <img src="../image-perso/bo-mandalore/bo-katan-image.png" alt="Bo-katan Kryze"
+                                    class="img-fluid">
+                            </a>
+                            <br> Bo-Katan (Mand'alor)
+                        </td>
+                        <td>
+                            <a href="../html/canderous.html">
+                                <img src="../image-perso/canderous/canderous.png" alt="Canderous Ordo"
+                                    class="img-fluid">
+                            </a>
+                            <br> Canderous Ordo
+                        </td>
+                        <td>
+                            <a href="../html/gar_saxon.html">
+                                <img src="../image-perso/gar-saxon/saxon-image.png" alt="Saxon" class="img-fluid">
+                            </a>
+                            <br> Gar Saxon
+                        </td>
+                        <td>
+                            <a href="../html/IG12_&_Grogu.HTML">
+                                <img src="../image-perso/ig-12-et-grogu/IG12-grogu-image.png" alt="Ig-12 & Grogu"
+                                    class="img-fluid">
+                            </a>
+                            <br> IG12 & Grogu
+                        </td>
+                        <td>
+                            <a href="../html/isc.html">
+                                <img src="../image-perso/isc/isc-image.png" alt="Isc" class="img-fluid">
+                            </a>
+                            <br> Imperial Super Commando
+                        </td>
+                        <td>
+                            <a href="../html/jango_fett.html">
+                                <img src="../image-perso/jango-fett/jango.png" alt="Jango Fett" class="img-fluid">
+                            </a>
+                            <br> Jango Fett
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="../html/maul.html">
+                                <img src="../image-perso/maul/maul-image.png" alt="Maul" class="img-fluid">
+                            </a>
+                            <br> Maul
+                        </td>
+                        <td>
+                            <a href="../html/padawan-sabine.html">
+                                <img src="../image-perso/padawin/sabine-image.png" alt="padawin" class="img-fluid">
+                            </a>
+                            <br> Padawan Sabine Wren
+                        </td>
+                        <td>
+                            <a href="../html/Paz_Vizsla.html">
+                                <img src="../image-perso/paz-vizsla/Paz-Vizsla-image.png" alt="Paz Vizsla"
+                                    class="img-fluid">
+                            </a>
+                            <br> Paz Vizsla
+                        </td>
+                        <td>
+                            <a href="../html/sabine_wren.html">
+                                <img src="../image-perso/sabine-wren/sabine-image.png" alt="Sabine Wren"
+                                    class="img-fluid">
+                            </a>
+                            <br> Sabine Wren
+                        </td>
+                        <td>
+                            <a href="../html/armorer.html">
+                                <img src="../image-perso/armorer/armorer-image.png" alt="armorer" class="img-fluid">
+                            </a>
+                            <br> The Armorer
+                        </td>
+                        <td>
+                            <a href="../html/the_mandalorian.html">
+                                <img src="../image-perso/mando/mando-image.png" alt="The Mandalorian" class="img-fluid">
+                            </a>
+                            <br> The Mandalorian
+                        </td>
+                        <td>
+                            <a href="../html/The_mandalorian_beskar.html">
+                                <img src="../image-perso/bam/The-Mandalorian-image.png" alt="Mando Beskar"
+                                    class="img-fluid">
+                            </a>
+                            <br> The Mandalorian (beskar armor)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer class="text-center mt-4">
         <a href="../filtre-recherche/filtre-personnage.html">
-            <img style="width: 10%; height: 10%;" class="position" src="../image/logo_star_wars.png"
-                alt="filtre personnage"></a>
+            <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px; height: auto;">
         </a>
     </footer>
+
+    <!-- Bootstrap JS (Optionnel si pas d'interaction JS requise) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
