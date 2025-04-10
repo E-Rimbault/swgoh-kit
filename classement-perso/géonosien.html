@@ -2,12 +2,13 @@
 <html lang="fr">
 
 <head>
-    <title>géonosien</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Géonosien</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Rimbault Enzo">
 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../style/styles.css">
     <link rel="icon" type="image/png" href="../image/separatist.png">
 
@@ -30,61 +31,42 @@
             th.textContent += ` (${imageCount}/${filledCount})`;
         });
     </script>
-    <style>
-        .table-container {
-            flex: 1;
-            /* Occupy all available space */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        table {
-            width: 100%;
-            height: 100%;
-            border-collapse: collapse;
-            text-align: center;
-        }
-    </style>
 </head>
 
-<body class="faction">
+<body class="faction bg-dark text-light">
 
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th colspan="5">personnage avec le tag : Géonosien</th>
-                </tr>
-            </thead>
-            <tr>
-                <td>
-                    <a href="../html/alpha_geo.html"><img src="../image-perso/alpha-geo/alpha-image.png"
-                            alt="alpha"></a>
-                    <br>
-                    Geonosian brood Alpha
-                </td>
-                <td>
-                    Geonosian Soldier
-                </td>
-                <td>
-                    Geonosian Spy
-                </td>
-                <td>
-                    Poggle the Lesser
-                </td>
-                <td>
-                    Sun Fac
-                </td>
-            </tr>
-        </table>
-    </div><br>
+    <div class="container my-5">
+        <div class="table-responsive">
+            <table class="table table-bordered table-dark text-center align-middle">
+                <thead class="table-light text-dark">
+                    <tr>
+                        <th colspan="5">Personnages avec le tag : Géonosien</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../html/alpha_geo.html"><img src="../image-perso/alpha-geo/alpha-image.png" alt="Alpha Geonosian" class="img-fluid"></a>
+                            <br>Geonosian Brood Alpha
+                        </td>
+                        <td>Geonosian Soldier</td>
+                        <td>Geonosian Spy</td>
+                        <td>Poggle the Lesser</td>
+                        <td>Sun Fac</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-    <footer>
+    <footer class="text-center mt-4">
         <a href="../filtre-recherche/filtre-personnage.html">
-            <img style="width: 10%;height: 10%;" class="position" src="../image/logo_star_wars.png"
-                alt="filtre personnage"></a>
+            <img src="../image/logo_star_wars.png" alt="Filtre Personnage" style="width: 80px; height: auto;">
+        </a>
     </footer>
+
+    <script src="../javascript/bouton.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
