@@ -2,12 +2,15 @@
 <html lang="fr">
 
 <head>
-    <title>rogue one</title>
+    <title>Rogue One</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
     <link rel="icon" type="image/png" href="../image/rogue_one.png">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../style/styles.css">
 
     <script>
@@ -29,79 +32,51 @@
             th.textContent += ` (${imageCount}/${filledCount})`;
         });
     </script>
-    <style>
-        .table-container {
-            flex: 1;
-            /* Occupy all available space */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        table {
-            width: 100%;
-            height: 100%;
-            border-collapse: collapse;
-            text-align: center;
-        }
-    </style>
 </head>
 
-<body class="faction">
+<body class="faction bg-dark text-light">
+    <div class="container my-5">
+        <div class="table-responsive">
+            <table class="table table-bordered text-center table-dark align-middle">
+                <thead class="table-light text-dark">
+                    <tr>
+                        <th colspan="5">personnage avec le tag : Rogue One</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Admiral Raddus</td>
+                        <td>Baze Malbus</td>
+                        <td>Bistan</td>
+                        <td>Bodhi Rook</td>
+                        <td>Cassian Andor</td>
+                    </tr>
+                    <tr>
+                        <td>Chirrut Ïmwe</td>
+                        <td>
+                            <a href="../html/Jyn.html"><img src="../image-perso/jyn/jyn-image.png" alt="Jyn Erso" class="img-fluid"></a>
+                            <br>Jyn Erso
+                        </td>
+                        <td>
+                            <a href="../html/k-2SO.html"><img src="../image-perso/k-2so/k-2s0-image.png" alt="K-2SO" class="img-fluid"></a>
+                            <br>K-2SO
+                        </td>
+                        <td>Pao</td>
+                        <td>Scarif Rebel Pathfinder</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th colspan="5">personnage avec le tag : Rogue One</th>
-                </tr>
-            </thead>
-            <tr>
-                <td>
-                    Admiral Raddus
-                </td>
-                <td>
-                    Baze Malbus
-                </td>
-                <td>
-                    Bistan
-                </td>
-                <td>
-                    Bodhi Rook
-                </td>
-                <td>
-                    Cassian Andor
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Chirrut Ïmwe
-                </td>
-                <td>
-                    <a href="../html/Jyn.html"><img src="../image-perso/jyn/jyn-image.png" alt="jyn"></a>
-                    <br>
-                    Jyn Erso
-                </td>
-                <td>
-                    <a href="../html/k-2SO.html"><img src="../image-perso/k-2so/k-2s0-image.png" alt="K-2SO"></a>
-                    <br>
-                    K-2SO
-                </td>
-                <td>
-                    Pao
-                </td>
-                <td>
-                    Scarif Rebel Pathfinder
-                </td>
-            </tr>
-        </table>
-    </div><br>
-
-    <footer>
-        <a href="../filtre-recherche/filtre-personnage.html"><img style="width: 10%;height: 10%;" class="position"
-                src="../image/logo_star_wars.png" alt="filtre personnage"></a>
+    <footer class="text-center mt-4">
+        <a href="../filtre-recherche/filtre-personnage.html">
+            <img style="width: 80px; height: auto;" src="../image/logo_star_wars.png" alt="filtre personnage">
+        </a>
     </footer>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

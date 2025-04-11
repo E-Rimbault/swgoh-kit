@@ -2,13 +2,17 @@
 <html lang="fr">
 
 <head>
-    <title>tusken</title>
+    <title>Tusken</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
     <link rel="icon" type="image/png" href="../image/tusken.png">
-    <link rel="stylesheet" href="../style/styles.css">
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style/styles.css"> <!-- Garde si tu as encore des styles spécifiques -->
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -29,60 +33,52 @@
             th.textContent += ` (${imageCount}/${filledCount})`;
         });
     </script>
-    <style>
-        .table-container {
-            flex: 1;
-            /* Occupy all available space */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        table {
-            width: 100%;
-            height: 100%;
-            border-collapse: collapse;
-            text-align: center;
-        }
-    </style>
 </head>
 
-<body class="faction">
+<body class="faction bg-dark text-light">
 
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th colspan="5">personnage avec le tag : Tusken</th>
-                </tr>
-            </thead>
-            <tr>
-                <td>
-                    <a href="../html/chef_tusken.html"><img src="../image-perso/chef_tusken/chef-tusken-image.png"
-                            alt="chef Tusken"></a>
-                    <br>
-                    Tusken Chieftain
-                </td>
-                <td>
-                    Tusken Raider
-                </td>
-                <td>
-                    Tusken Shaman
-                </td>
-                <td>
-                    Tusken Warrior
-                </td>
-                <td>
-                    URoRRuR'R'R
-                </td>
-            </tr>
-        </table>
-    </div><br>
+    <div class="container my-5">
+        <div class="table-responsive">
+            <table class="table table-bordered text-center table-dark align-middle">
+                <thead class="table-light text-dark">
+                    <tr>
+                        <th colspan="5">personnage avec le tag : Tusken</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="../html/chef_tusken.html">
+                                <img src="../image-perso/chef_tusken/chef-tusken-image.png" alt="Chef Tusken" class="img-fluid">
+                            </a>
+                            <br> Tusken Chieftain
+                        </td>
+                        <td>
+                            Tusken Raider
+                        </td>
+                        <td>
+                            Tusken Shaman
+                        </td>
+                        <td>
+                            Tusken Warrior
+                        </td>
+                        <td>
+                            URoRRuR'R'R
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-    <footer>
-        <a href="../filtre-recherche/filtre-personnage.html"><img style="width: 10%;height: 10%;" class="position"
-                src="../image/logo_star_wars.png" alt="filtre personnage"></a>
+    <footer class="text-center mt-4">
+        <a href="../filtre-recherche/filtre-personnage.html">
+            <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px; height: auto;">
+        </a>
     </footer>
+
+    <!-- Bootstrap JS (Optionnel si pas d'interaction JS requise) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
