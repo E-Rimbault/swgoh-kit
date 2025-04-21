@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Shin Hati</title>
+
+    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+
+    <!-- Lien vers l'icône du site -->
+    <link rel="icon" type="image/png" href="../image-perso/shin/shin-image.png">
+
+    <!-- Lien vers la feuille de style -->
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/capacite.css">
+</head>
+
+<body class="simple">
+
+    <!-- Entête de la page -->
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/shin/shin-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    onclick="switchLanguage('fr')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    onclick="switchLanguage('en')">
+            </div>
+            <h1 id="title"><u>Shin Hati</u></h1>
+            <p id="description">
+                An exceptional lightsaber combatant who ignores Taunt to ruin her foes.
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:red" href="../classement-perso/coté-obscur.html" id="darkside">dark
+                    Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/mercenaire.html" id="mercenary">Mercenary</a>
+                <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html"
+                    id="force-unaligned">Unaligned Force User</a>
+            </nav>
+        </div>
+    </header><br>
+
+    <!-- Image principale du personnage -->
+    <img class="first" src="../image-perso/shin/shin.png" alt="Shin"><br>
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Fierce Foray</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="shin basic" src="../image-perso/shin/shin-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Critical Chance Down for 1 turn. If Shin Hati has 10 or more stacks of Soldier of Fortune, she inflicts Critical Chance Down on all enemies for 1 turn instead. During Shin Hati's turn, call target other Mercenary ally to assist.
+                <br><br>
+                If the target enemy was Stunned, deal 10% more damage per stack of Soldier of Fortune on Shin Hati (max 100%).
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack: I've Eyes On Them (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="shin spé 1" src="../image-perso/shin/shin-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies and inflict them with Offense Down and Vulnerable for 2 turns. Shin Hati gains 10% Crit Avoidance (stacking, max 50%) for rest of the encounter whenever each of these debuffs are resisted. All Mercenary allies gain 30% Protection Up for 2 turns. If Shin Hati has 10 or more stacks of Soldier of Fortune, gain 25% Turn Meter and increase the cooldowns of all enemies by 1.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack: We'll Take It From Here (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="shin spé 2" src="../image-perso/shin/shin-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to target enemy and Stun them for 1 turn. Shin Hati gains Critical Damage Up and Riposte for 2 turns. If Shin Hati has 15 or more stacks of Soldier of Fortune, attack again, always scoring a critical hit if able and decrease the cooldown of Clean Escape by 1.
+                <br><br>
+                If target enemy is inflicted with Purge, Shin Hati inflicts Buff Immunity on them for 2 turns and deals 10% bonus damage for each stack of Purge they have (stacking, max 60%).
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="unique-ability-title"><u>Unique Ability: You Have No Power</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="shin unique" src="../image-perso/shin/shin-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                At the start of each encounter, Shin Hati gains 25% Accuracy and 50% Offense until the end of the encounter, and she ignores Taunt effects during her turn. Whenever Shin Hati is critically hit, she gains Retribution for 2 turns and 150 Speed for 1 turn. The first time Shin Hati gains 10 or more stacks of Soldier of Fortune, she gains the granted ability <u class="speciale">Clean Escape</u> for the rest of the battle. If Shin Hati has less than 10 stacks of Soldier of Fortune, Clean Escape can't be used.
+                <br><br>
+                <u class="omicron">While in Territory Wars and all allies are Mercenary or non-Galactic Legend Unaligned Force User:</u>
+                <br><br>
+                At the start of each encounter, Shin Hati gains 75% Accuracy and 30 Speed, all allies gain 50% Max Health and Max Protection until the first time Shin Hati is defeated, and all Light side enemies are immune to cooldown reduction for 2 turns or until the first time Shin Hati is defeated.<br>
+                While enemies are inflicted with Purge they have -50% Critical Damage and -30 Speed.<br>
+                Whenever enemies attack 3 times out of turn, Shin Hati gains 1 stack of Soldier of Fortune.<br>
+                Whenever Shin Hati gains Riposte and has 15 or more stacks of Soldier of Fortune, the cooldown of Clean Escape is decreased by 3.<br>
+                Whenever a Light side enemy gains Damage Immunity, they are inflicted with Fear for 1 turn, which can't be resisted and Shin Hati gains a bonus turn.<br>
+                Clean Escape has additional effects based on the number of Soldier of Fortune stacks on Shin Hati:<br>
+                - 20+ stacks: All Mercenary allies are revived.<br>
+                - 35+ stacks: Target Light Side enemy's cooldowns are increased to their max value.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="invocation" id="unique-special-title">Clean Escape (cooldown : 8)</h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="shin unique attack" src="../image-perso/shin/shin-unique1-attaque.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-special">
+                <u class="speciale">Clean Escape:</u> Effects are based on the number of Shin Hati's stacks of Soldier of Fortune:<br>
+                - 10+ stacks: She dispels all her debuffs and gains 30% Max Health until the end of the encounter. All non-Tank allies Stealth for 2 turns<br>
+                - 20+ stacks: She dispels buffs on the target enemy. Shin Hati gains Critical Hit Immunity and Health Steal Up for 2 turns and inflicts Defense Down on all enemies for 2 turns.<br>
+                - 35+ stacks: All Mercenary allies gain Foresight and Offense Up for 2 turns. Shin Hati removes 100% Turn Meter, and Dazes all enemies for 2 turns, which can't be resisted.<br>
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="unique-ability2-title"><u>Unique Ability: Soldier of Fortune</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="shin unique" src="../image-perso/shin/shin-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                Whenever Shin Hati scores a critical hit or attacks out of turn, she gains 1 stack of Soldier of Fortune.<br>
+                Whenever Shin Hati is critically hit, she loses 1 stack of Soldier of Fortune.<br>
+                <br><br>
+                At the start of battle, Shin Hati gains 1 stack of Soldier of Fortune per Relic Amplifier level she has until the end of battle.
+                <br><br>
+                At the start of each Mercenary ally's turn, they gain 5% Critical Chance and Critical Damage (stacking) for each stack of Soldier of Fortune they have until the start of their next turn. 
+            </p>
+        </div>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+        <script>
+            const translations = {
+                en: {
+                    "big-title" : "Shin Hati",
+                    "title" : "<u>Shin Hati</u>",
+                    "description" : "An exceptional lightsaber combatant who ignores Taunt to ruin her foes.",
+                    "darkside" : "Dark Side",
+                    "attacker" : "Attacker",
+                    "mercenary" : "Mercenary",
+                    "force-unaligned" : "Unaligned Force User",
+                    "basic-attack-title" : "<u>Basic Attack: Fierce Foray</u>",
+                    "basic-attack" : "Deal Physical damage to target enemy and inflict Critical Chance Down for 1 turn. If Shin Hati has 10 or more stacks of Soldier of Fortune, she inflicts Critical Chance Down on all enemies for 1 turn instead. During Shin Hati's turn, call target other Mercenary ally to assist.\n\nIf the target enemy was Stunned, deal 10% more damage per stack of Soldier of Fortune on Shin Hati (max 100%).",
+                    "special-attack1-title" : "<u>Special Attack: I've Eyes On Them (cooldown: 4)</u>",
+                    "special-attack1" : "Deal Physical damage to all enemies and inflict them with Offense Down and Vulnerable for 2 turns. Shin Hati gains 10% Crit Avoidance (stacking, max 50%) for rest of the encounter whenever each of these debuffs are resisted. All Mercenary allies gain 30% Protection Up for 2 turns. If Shin Hati has 10 or more stacks of Soldier of Fortune, gain 25% Turn Meter and increase the cooldowns of all enemies by 1.",
+                    "special-attack2-title" : "<u>Special Attack: We'll Take It From Here (cooldown: 3)</u>",
+                    "special-attack2" : "Deal Physical damage to target enemy and Stun them for 1 turn. Shin Hati gains Critical Damage Up and Riposte for 2 turns. If Shin Hati has 15 or more stacks of Soldier of Fortune, attack again, always scoring a critical hit if able and decrease the cooldown of Clean Escape by 1.\n\nIf target enemy is inflicted with Purge, Shin Hati inflicts Buff Immunity on them for 2 turns and deals 10% bonus damage for each stack of Purge they have (stacking, max 60%).",
+                    "unique-ability-title" : "<u>Unique Ability: You Have No Power</u>",
+                    "unique-ability" : "At the start of each encounter, Shin Hati gains 25% Accuracy and 50% Offense until the end of the encounter, and she ignores Taunt effects during her turn. Whenever Shin Hati is critically hit, she gains Retribution for 2 turns and 150 Speed for 1 turn. The first time Shin Hati gains 10 or more stacks of Soldier of Fortune, she gains the granted ability <u class='speciale'>Clean Escape</u> for the rest of the battle. If Shin Hati has less than 10 stacks of Soldier of Fortune, Clean Escape can't be used.\n\n<u class='omicron'>While in Territory Wars and all allies are Mercenary or non-Galactic Legend Unaligned Force User:</u>\n\nAt the start of each encounter, Shin Hati gains 75% Accuracy and 30 Speed, all allies gain 50% Max Health and Max Protection until the first time Shin Hati is defeated, and all Light side enemies are immune to cooldown reduction for 2 turns or until the first time Shin Hati is defeated.\nWhile enemies are inflicted with Purge they have -50% Critical Damage and -30 Speed.\n\nWhenever enemies attack 3 times out of turn, Shin Hati gains 1 stack of Soldier of Fortune.\n\nWhenever Shin Hati gains Riposte and has 15 or more stacks of Soldier of Fortune, the cooldown of Clean Escape is decreased by 3.\n\nWhenever a Light side enemy gains Damage Immunity, they are inflicted with Fear for 1 turn, which can't be resisted and Shin Hati gains a bonus turn.\n\nClean Escape has additional effects based on the number of Soldier of Fortune stacks on Shin Hati:\n\n- 20+ stacks: All Mercenary allies are revived.\n\n- 35+ stacks: Target Light Side enemy's cooldowns are increased to their max value.",
+                    "unique-special-title" : "Clean Escape (cooldown : 8)",
+                    "unique-special" : "<u class='speciale'>Clean Escape:</u> Effects are based on the number of Shin Hati's stacks of Soldier of Fortune:\n- 10+ stacks: She dispels all her debuffs and gains 30% Max Health until the end of the encounter. All non-Tank allies Stealth for 2 turns\n 20+ stacks: She dispels buffs on the target enemy. Shin Hati gains Critical Hit Immunity and Health Steal Up for 2 turns and inflicts Defense Down on all enemies for 2 turns.\n- 35+ stacks: All Mercenary allies gain Foresight and Offense Up for 2 turns. Shin Hati removes 100% Turn Meter, and Dazes all enemies for 2 turns, which can't be resisted.",
+                    "unique-ability2-title" : "<u>Unique Ability: Soldier of Fortune</u>",
+                    "unique-ability2" : "Whenever Shin Hati scores a critical hit or attacks out of turn, she gains 1 stack of Soldier of Fortune.\nWhenever Shin Hati is critically hit, she loses 1 stack of Soldier of Fortune.\n\nAt the start of battle, Shin Hati gains 1 stack of Soldier of Fortune per Relic Amplifier level she has until the end of battle.A\n\nt the start of each Mercenary ally's turn, they gain 5% Critical Chance and Critical Damage (stacking) for each stack of Soldier of Fortune they have until the start of their next turn.",
+                },
+                fr: {
+                    "big-title" : "Shin Hati",
+                    "title" : "<u>Shin Hati</u>",
+                    "description" : "Une combattante au sabre laser exceptionnelle qui ignore la Raillerie pour anéantir ses adversaires.",
+                    "darkside" : "Coté Obscur",
+                    "attacker" : "Attaquant",
+                    "mercenary" : "Mercenaire",
+                    "force-unaligned" : "Utilisateur de la Force non aligné",
+                    "basic-attack-title" : "<u>Attaque Basique : Incursion féroce</u>",
+                    "basic-attack" : "Inflige des dégâts physiques à une cible ennemie et un malus de d chances de coup critique pendant 1 tour. Si Shin Hati dispose de 10 cumuls de Soldat de fortune, elle inflige un malus de chances de coup critique à tous les ennemis pendant 1 tour. Pendant le tour de Shin Hati, invoque la cible alliée Mercenaire.\n\nSi la cible ennemie subit Étourdissement, inflige 10% de dégâts supplémentaires par cumul de Soldat de fortune dont dispose Shin Hati (maximum 100%).",
+                    "special-attack1-title" : "<u>Attaque Spéciale : je les ai en visuel (délai : 4)</u>",
+                    "special-attack1" : "Inflige des dégâts physiques, ainsi qu'un malus d'attaque et Vulnérabilité pendant 2 tours à tous les ennemis. Shin Hati obtient 10% d'esquive des critiques (cumulatif, maximum 50%) pour le reste de l'affrontement chaque fois qu'un ennemi resiste à ces affaiblissement. Tous les alliés Mercenraire obtinnent un bonus de protection de 30% pendant 2 tours. Si Shin Hati dispose de 10 cumuls de Soldat de fortune ou plus, elle obtient 25% de jauge de tour et augmente les délais de tous les ennemis de 1.",
+                    "special-attack2-title" : "<u>Attaque Spéciale : On prend le relais (délai : 3)</u>",
+                    "special-attack2" : "Inflige des dégâts physiques à une cible ennemie et lui inflige Étourdissement pendant 1 tour. Shin Hati obtient un bonus de dégâts critiques et Riposte pendant 2 tours. Si Shin Hati dispose de 15 cumuls de Soldat de fortune, attaque a nouveau, en infligeant un coup critique si possible, et diminue de délai de Fuite habile de 1.\n\nSi la cible ennemie subit Purge, Shin Hati lui inflige l'immunité aux améliorations pendant 2 tours et 10% de dégâts bonus pour chaque cumul de Purge que subit la cible (cumulatif, maximum 60%).",
+                    "unique-ability-title" : "<u>Capacité Spéciale : Tu n'as pas le moindre pouvoir</u>",
+                    "unique-ability" : "Au début de chaque affrontement, Shin Hati gagne 25% de précision et 50% d'attaque jusqu'à la fin de l'affrontement et ignore les effets de Raillerie pendant son tour. Chaque fois que Shin Hati subit un coup critique, elle obtient rétribution pendant 2 tours et 150 de vitesse pendant 1 tour. La première fois que Shin Hati obtient 10 cumuls de Soldat de fortune ou plus elle obtient la capcité conférée <u class='speciale'>Fuite habile</u> pour le reste de la bataille. Si Shin Hati dispose de moins de 10 cumuls de Soldat de fortune, Fuite habile ne peut pas être utilisée\n\n<u class='omicron'>Dans les Guerres de territoire, si tous les alliés sont des Mercenaires ou des utilisateurs de la Force non alignés et pas des Légendes Galactiques :</u>\n\nAu début de chaque affrontement, Shin Hati gagne 75% de précision et 30 de vitesse. Tous les alliés reçoivent 50% de la santé maximale et de protection maximale, jusqu'à ce que Shin Hati soit vaincue pour la première fois et tous les ennemis du Coté Lumineux subissent Immunités aux réductions de délais pendant 2 tours.\n\n Tant que les ennemis subissent Purgen, ils perdent 50% de dégâts critique et 30 de vitesse.\n\nLorsque les ennemis attaquent 3 fois hors de meur tour, Shin Hati gagne 1 cumul de Soldat de fortune.\n\Chaque fois que Shin Hati gagne Riposte et dispose de 15 cumuls ou plus de Soldat de fortune, le délai de Fuite habile est réduit de 3.\n\nLorsqu'un ennemi du COté Lumineux obtient immunité aux dégâts, il subit Peur pendant 1 tour (ne peut pas être résisté) et Shin hati gagne un tour bonus.\n\nFuite Habile dispose d'effets supplémentaires en fonction du nombre du cimuls de Soldat de fortune que possède Shin Hati:\n\n- 20 cumuls ou plus : tous les alliés Mercenaire sont Ranimés.\n\n- 35 cumuls ou plus : les délais de la cible ennemis du Coté Lumineux sont augmentés à leur valeur maximale",
+                    "unique-special-title" : "Fuite Habile (délai : 8)",
+                    "unique-special" : "<u class='speciale'>Fuite habile :</u> Les effets sont basés sur le nombre de cumuls de Soldat de fortune dont dispose Shin Hati.\n\n- 10 cumuls ou plus : elle dissipe tous ses affaiblissements et obtient 30% de santé maximale jusqu'à la fin de l'affrontement. Tous les alliés qui ne sont pas des tanks reçoivent camouflages pendant 2 tours.\n\n- 20 cumuls ou plus : elle dissipe les améliorations de la cible ennemie. Shin Hati obtient immunité aux coups critiques et un bonus de vol de santé pendant 2 tours, puis inflige un malus de défense à tous les ennemis pendant 2 tours.\n\n- 35 cumuls ou plus : tous les alliés Mercenaire obtiennent Prévoyance et un bonus d'attaque pendant 2 tours. Shin Hati supprime 100% de jauge de tour et inflige COnfusion à tous les ennemis pendant 2 tours (ne peut pas être résisté).",
+                    "unique-ability2-title" : "<u>Capacité Unique : Soldat de fortune</u>",
+                    "unique-ability2" : "Lorsque Shin Hati inflige un coup critique ou attaque en dehors de son tour, elle obtient 1 cumul de Soldat de fortune. Chaque fois que Shin Hati subit un coup critique, elle perd 1 cumul de Soldat de fortune.\n\nAu début de la bataille, Shin Hati obtient 1 cumul de Soldat de fortune par niveau d'amplificateur de relique dont elle dispose jusqu'à la fin de la bataille.\n\nAu début du tour de chaque allié Mercenaire, il obtient 5% de chances de coup critique et dégâts critiques (cumulatif) pour chaque cumul de Soldat de fortune dont il dispose jusqu'au début de son prochain tour.",
+                }
+            };
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\n/g, '<br><br>');
+            }
+
+            function switchLanguage(lang) {
+                for (const [key, text] of Object.entries(translations[lang])) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        // Convert \n\n to <br><br> before injecting
+                        element.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                }
+            }
+
+            window.onload = () => switchLanguage('en');
+        </script>
+
+    </footer>
+</body>
+
+</ht
