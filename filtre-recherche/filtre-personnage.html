@@ -13,53 +13,15 @@
     <link rel="icon" type="image/png" href="../image/logo_star_wars.png">
 
     <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
         body.simple {
             background-color: #000;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .table-container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            overflow: auto;
-        }
-
-        .table-responsive {
-            flex: 1;
-            overflow: auto;
-        }
-
-        .table {
-            width: 100%;
-            height: 100%;
-            table-layout: fixed;
-        }
-
-        th, td {
-            vertical-align: middle;
-            word-wrap: break-word;
-        }
-
-        .language-switcher {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            padding: 10px;
+            /* noir de fond */
         }
 
         .language-switcher img {
             width: 40px;
             height: 30px;
+            margin: 0 5px;
             cursor: pointer;
         }
 
@@ -73,8 +35,10 @@
             height: 100%;
             padding: 8px 0;
             color: black;
+            /* Changement ici */
             text-decoration: none;
         }
+
 
         table td {
             padding: 0;
@@ -82,137 +46,136 @@
     </style>
 </head>
 
-<body class="simple">
+<body class="simple container py-4">
     <!-- Language Switcher -->
-    <div class="language-switcher">
+    <div class="language-switcher text-center mb-4">
         <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
             onclick="switchLanguage('fr')">
         <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
             onclick="switchLanguage('en')">
     </div>
 
-    <div class="table-container">
-        <div class="table-responsive">
-            <table class="table table-bordered text-center align-middle table-sm">
-                <thead class="table-dark">
-                    <tr>
-                        <th colspan="9" id="filter-title">filtre personnage</th>
-                    </tr>
-                </thead>
-                <tbody>
-                        <tr>
-                            <td style="background-color: white;"><a href="../classement-perso/personnage.html"
-                                    id="character">Character</a></td>
-                            <td class="bg-primary"><a href="../classement-perso/coté-lumineux.html" id="light-side">coté
-                                    lumineux</a></td>
-                            <td class="bg-danger"><a href="../classement-perso/coté-obscur.html" id="dark-side">coté obscur</a>
-                            </td>
-                            <td style="background-color: violet;"><a href="../classement-perso/coté-neutre.html"
-                                    id="neutral">neutre</a></td>
-                            <td style="background-color: goldenrod;"><a href="../classement-perso/legendes-galactiques.html"
-                                    id="galactic-legends">légendes galactiques</a></td>
-                            <td class="bg-secondary"><a href="../classement-perso/membres-équipages.html"
-                                    id="crew-members">membre équipage</a></td>
-                            <td class="bg-secondary"><a href="../classement-perso/chef.html" id="leader">chef</a></td>
-                            <td class="bg-info"><a href="../classement-perso/attaquant.html" id="attacker">attaquant</a></td>
-                            <td class="bg-info"><a href="../classement-perso/soutien.html" id="support">support</a></td>
-                        </tr>
-                        <tr>
-                            <td class="bg-info"><a href="../classement-perso/soigneur.html" id="healer">soigneur</a></td>
-                            <td class="bg-info"><a href="../classement-perso/tank.html" id="tank">tank</a></td>
-                            <td style="background-color: pink"><a href="../classement-perso/501E.html" id="501E">501E</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/ancienne-république.html"
-                                    id="old-republic">ancienne république</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/bad-batch.html" id="bad-batch">bad
-                                    batch</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/cartell-des-hutt.html"
-                                    id="hutt-cartel">cartell des hutt</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/chasseur-de-primes.html"
-                                    id="bounty-hunter">chasseur de primes</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/combattant-rebelle.html"
-                                    id="rebel-fighter">combattant rebelle</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/commandant-de-la-flotte.html"
-                                    id="fleet-commander">commandant de la flotte</a></td>
-                        </tr>
-                        <tr>
-                            <td style="background-color: pink;"><a href="../classement-perso/contrebandier.html"
-                                    id="smuggler">contrebandier</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/droïde.html" id="droid">droïde</a>
-                            </td>
-                            <td style="background-color: pink;"><a href="../classement-perso/empire.html" id="empire">empire</a>
-                            </td>
-                            <td style="background-color: pink;"><a href="../classement-perso/empire-sith.html"
-                                    id="sith-empire">empire sith</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/ewok.html" id="ewok">ewok</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/géonosien.html"
-                                    id="geonosian">géonosien</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/gungan.html" id="gungan">gungan</a>
-                            </td>
-                            <td style="background-color: pink;"><a href="../classement-perso/inquisitorious.html"
-                                    id="inquisitorious">inquisitorious</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/jawa.html" id="jawa">jawa</a></td>
-                        </tr>
-                        <tr>
-                            <td style="background-color: pink;"><a href="../classement-perso/jedi.html" id="jedi">jedi</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/vanguard.html"
-                                    id="jedi-vanguard">Jedi Vanguard</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/mandalorien.html"
-                                    id="mandalorian">mandalorien</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/mercenaire.html"
-                                    id="mercenary">mercenaire</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/phoenix.html"
-                                    id="phoenix">phoenix</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/premier-odre.html"
-                                    id="first-order">premier ordre</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/rebelle.html"
-                                    id="rebel">rebelle</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/république-galactique.html"
-                                    id="galactic-republic">république galactique</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/résistance.html"
-                                    id="resistance">résistance</a></td>
-                        </tr>
-                        <tr>
-                            <td style="background-color: pink;"><a href="../classement-perso/rogue-one.html"
-                                    id="rogue-one">rogue one</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/séparatiste.html"
-                                    id="separatist">séparatiste</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/sith.html" id="sith">sith</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/soeur-de-la-nuit.html"
-                                    id="night-sister">soeur de la nuit</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/soldat-clone.html"
-                                    id="clone-soldier">soldat clone</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/soldat-de-lempire.html"
-                                    id="empire-soldier">soldat de l'empire</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/spectre.html"
-                                    id="spectre">spectre</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/tusken.html" id="tusken">tusken</a>
-                            </td>
-                            <td style="background-color: pink;"><a
-                                    href="../classement-perso/utilisateur-de-la-force-non-aligné.html"
-                                    id="neutral-force-user">utilisateur de la force non aligné</a></td>
-                        </tr>
-                        <tr>
-                            <td style="background-color: pink;"><a href="../classement-perso/vaurien.html"
-                                    id="scoundrel">vaurien</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/vestige-de-l'empire.html"
-                                    id="empire-legacy">vestige de l'empire</a></td>
-                            <td style="background-color: pink;"><a href="../classement-perso/wookie.html"
-                                    id="wookiee">wookie</a></td>
-                            <td style="background-color: black;"></td>
-                            <td style="background-color: black;"></td>
-                            <td style="background-color: black;"></td>
-                            <td style="background-color: black;"></td>
-                            <td style="background-color: white;"><a href="../filtre-recherche/recherche-perso.html"
-                                    id="search">Recherche perso</a></td>
-                            <td style="background-color: white"><a href="../index.html" id="home">Accueil</a></td>
-                        </tr>
-                    </tbody>
-            </table>
-        </div>
+    <div class="table-responsive">
+        <table class="table table-bordered text-center align-middle table-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th colspan="9" id="filter-title">filtre personnage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="background-color: white;"><a href="../classement-perso/personnage.html"
+                            id="character">Character</a></td>
+                    <td class="bg-primary"><a href="../classement-perso/coté-lumineux.html" id="light-side">coté
+                            lumineux</a></td>
+                    <td class="bg-danger"><a href="../classement-perso/coté-obscur.html" id="dark-side">coté obscur</a>
+                    </td>
+                    <td style="background-color: violet;"><a href="../classement-perso/coté-neutre.html"
+                            id="neutral">neutre</a></td>
+                    <td style="background-color: goldenrod;"><a href="../classement-perso/legendes-galactiques.html"
+                            id="galactic-legends">légendes galactiques</a></td>
+                    <td class="bg-secondary"><a href="../classement-perso/membres-équipages.html"
+                            id="crew-members">membre équipage</a></td>
+                    <td class="bg-secondary"><a href="../classement-perso/chef.html" id="leader">chef</a></td>
+                    <td class="bg-info"><a href="../classement-perso/attaquant.html" id="attacker">attaquant</a></td>
+                    <td class="bg-info"><a href="../classement-perso/soutien.html" id="support">support</a></td>
+                </tr>
+                <tr>
+                    <td class="bg-info"><a href="../classement-perso/soigneur.html" id="healer">soigneur</a></td>
+                    <td class="bg-info"><a href="../classement-perso/tank.html" id="tank">tank</a></td>
+                    <td style="background-color: pink"><a href="../classement-perso/501E.html" id="501E">501E</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/ancienne-république.html"
+                            id="old-republic">ancienne république</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/bad-batch.html" id="bad-batch">bad
+                            batch</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/cartell-des-hutt.html"
+                            id="hutt-cartel">cartell des hutt</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/chasseur-de-primes.html"
+                            id="bounty-hunter">chasseur de primes</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/combattant-rebelle.html"
+                            id="rebel-fighter">combattant rebelle</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/commandant-de-la-flotte.html"
+                            id="fleet-commander">commandant de la flotte</a></td>
+                </tr>
+                <tr>
+                    <td style="background-color: pink;"><a href="../classement-perso/contrebandier.html"
+                            id="smuggler">contrebandier</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/droïde.html" id="droid">droïde</a>
+                    </td>
+                    <td style="background-color: pink;"><a href="../classement-perso/empire.html" id="empire">empire</a>
+                    </td>
+                    <td style="background-color: pink;"><a href="../classement-perso/empire-sith.html"
+                            id="sith-empire">empire sith</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/ewok.html" id="ewok">ewok</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/géonosien.html"
+                            id="geonosian">géonosien</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/gungan.html" id="gungan">gungan</a>
+                    </td>
+                    <td style="background-color: pink;"><a href="../classement-perso/inquisitorious.html"
+                            id="inquisitorious">inquisitorious</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/jawa.html" id="jawa">jawa</a></td>
+                </tr>
+                <tr>
+                    <td style="background-color: pink;"><a href="../classement-perso/jedi.html" id="jedi">jedi</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/vanguard.html"
+                            id="jedi-vanguard">Jedi Vanguard</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/mandalorien.html"
+                            id="mandalorian">mandalorien</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/mercenaire.html"
+                            id="mercenary">mercenaire</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/phoenix.html"
+                            id="phoenix">phoenix</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/premier-odre.html"
+                            id="first-order">premier ordre</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/rebelle.html"
+                            id="rebel">rebelle</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/république-galactique.html"
+                            id="galactic-republic">république galactique</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/résistance.html"
+                            id="resistance">résistance</a></td>
+                </tr>
+                <tr>
+                    <td style="background-color: pink;"><a href="../classement-perso/rogue-one.html"
+                            id="rogue-one">rogue one</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/séparatiste.html"
+                            id="separatist">séparatiste</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/sith.html" id="sith">sith</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/soeur-de-la-nuit.html"
+                            id="night-sister">soeur de la nuit</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/soldat-clone.html"
+                            id="clone-soldier">soldat clone</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/soldat-de-lempire.html"
+                            id="empire-soldier">soldat de l'empire</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/spectre.html"
+                            id="spectre">spectre</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/tusken.html" id="tusken">tusken</a>
+                    </td>
+                    <td style="background-color: pink;"><a
+                            href="../classement-perso/utilisateur-de-la-force-non-aligné.html"
+                            id="neutral-force-user">utilisateur de la force non aligné</a></td>
+                </tr>
+                <tr>
+                    <td style="background-color: pink;"><a href="../classement-perso/vaurien.html"
+                            id="scoundrel">vaurien</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/vestige-de-l'empire.html"
+                            id="empire-legacy">vestige de l'empire</a></td>
+                    <td style="background-color: pink;"><a href="../classement-perso/wookie.html"
+                            id="wookiee">wookie</a></td>
+                    <td style="background-color: black;"></td>
+                    <td style="background-color: black;"></td>
+                    <td style="background-color: black;"></td>
+                    <td style="background-color: black;"></td>
+                    <td style="background-color: white;"><a href="../filtre-recherche/recherche-perso.html"
+                            id="search">Recherche perso</a></td>
+                    <td style="background-color: white"><a href="../index.html" id="home">Accueil</a></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <!-- Script de traduction -->
     <script>
+        // Objet contenant les traductions
         const translations = {
             en: {
                 "filter-title": "Filter Character Categories",
@@ -322,21 +285,30 @@
             }
         };
 
+        // Fonction de changement de langue
         function switchLanguage(lang) {
-            localStorage.setItem('selectedLanguage', lang);
-            const elements = document.querySelectorAll('[id]');
+            localStorage.setItem('selectedLanguage', lang); // Sauvegarde la langue sélectionnée
+
+            const elements = document.querySelectorAll('[id]'); // Sélectionne tous les éléments ayant un id
+
             elements.forEach(element => {
                 const translationKey = element.id;
                 if (translations[lang] && translations[lang][translationKey]) {
-                    element.innerText = translations[lang][translationKey];
+                    element.innerText = translations[lang][translationKey]; // Met à jour le texte
                 }
             });
         }
 
+        // Appliquer la langue sélectionnée au chargement de la page
         window.onload = function () {
-            const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+            if (!localStorage.getItem('selectedLanguage')) {
+                localStorage.setItem('selectedLanguage', 'en'); // Définir l'anglais si aucune langue enregistrée
+            }
+            const savedLanguage = localStorage.getItem('selectedLanguage');
+            console.log("Langue détectée :", savedLanguage);
             switchLanguage(savedLanguage);
         };
+        window.onload = () => switchLanguage('en');
     </script>
 </body>
 
