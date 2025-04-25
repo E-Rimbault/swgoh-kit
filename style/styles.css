@@ -388,38 +388,15 @@ th, td {
     color: black
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+/* Forcer le tableau à prendre toute la largeur de la page */
+.container, .container-fluid, .table-responsive {
+    width: 100% !important;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 auto;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-}
-
-.container-fluid.full-page {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-}
-
-.table-responsive {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-}
-
-.table {
-    width: 100%;
-    height: 100%;
-    table-layout: fixed;
-}
-
-th, td {
-    height: 100%;
-    vertical-align: middle;
+table {
+    width: 100% !important;
+    table-layout: fixed; /* Pour éviter que le contenu déborde */
 }
