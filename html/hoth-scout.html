@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Hoth Rebel Scout</title>
+
+    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+
+    <!-- Lien vers l'icône du site -->
+    <link rel="icon" type="image/png" href="../image-perso/hoth-scout/scout-image.png">
+
+    <!-- Lien vers la feuille de style -->
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/capacite.css">
+</head>
+
+<body class="simple">
+
+    <!-- Entête de la page -->
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/hoth-scout/scout-image.png" alt="hoth scout"
+                style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    onclick="switchLanguage('fr')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    onclick="switchLanguage('en')">
+            </div>
+            <h1 id="title"><u>Hoth Rebel Scout</u></h1>
+            <p id="description">
+                Single target attacker with crit synergies and speed building abilities.
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html"
+                    id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="capacite" href="../classement-perso/combattant-rebelle.html" id="rebel-fighter">Rebel
+                    Fighter</a>
+            </nav>
+        </div>
+    </header><br>
+
+    <!-- Image principale du personnage -->
+    <img class="first" src="../image-perso/hoth-scout/scout.png" alt="Hoth Scout"><br>
+
+    <!-- Section pour les différentes attaques spéciales -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Bold Maneuvers</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="hoth basic" src="../image-perso/hoth-scout/scout-basique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 40% chance to gain 25% Turn Meter for all allies.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack: Rebel Assault (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="hoth spé 1" src="../image-perso/hoth-scout/scout-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy with a 55% chance to Stun for 1 turn. In addition, gain 100% Turn Meter on a Critical Hit.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="unique-ability-title"><u>Unique Ability: Hope of the Alliance</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="hoth unique" src="../image-perso/hoth-scout/scout-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Hoth Rebel Scout gains 45% Turn Meter whenever an Empire enemy is defeated and half that amount whenever a non-Empire enemy is defeated.
+            </p>
+        </div>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+        <script>
+            const translations = {
+                en: {
+                    "big-title" : "Hoth Rebel Scout",
+                    "title" : "<u>Hoth Rebel Scout</u>",
+                    "description" : "Single target attacker with crit synergies and speed building abilities.",
+                    "lightside" : "Light Side",
+                    "attacker" : "Attacker",
+                    "rebel" : "Rebel",
+                    "rebel-fighter" : "Rebel Fighter",
+                    "basic-attack-title" : "<u>Basic Attack: Bold Maneuvers</u>",
+                    "basic-attack" : "Deal Physical damage to target enemy with a 40% chance to gain 25% Turn Meter for all allies.",
+                    "special-attack1-title" : "<u>Special Attack: Rebel Assault (cooldown: 3)</u>",
+                    "special-attack1" : "Deal Physical damage to target enemy with a 55% chance to Stun for 1 turn. In addition, gain 100% Turn Meter on a Critical Hit.",
+                    "unique-ability-title" : "<u>Hope of the Alliance</u>",
+                    "unique-ability" : "Hoth Rebel Scout gains 45% Turn Meter whenever an Empire enemy is defeated and half that amount whenever a non-Empire enemy is defeated."
+
+                },
+                fr: {
+                    "big-title" : "Éclaireur rebelle de Hoth",
+                    "title" : "<u>Éclaireur rebelle de Hoth</u>",
+                    "description" : "Attaquant à cible unique alimenté par les coups critiques doté de capacités de gain de vitesse.",
+                    "lightside" : "Coté Lumineux",
+                    "attacker" : "Attaquant",
+                    "rebel" : "Rebelle",
+                    "rebel-fighter" : "Combattant Rebelle",
+                    "basic-attack-title" : "<u>Attaque Basique : Manoeuvres audacieuses</u>",
+                    "basic-attack" : "Inflige des dégâts physiques à une cible ennemie, avec 40% de chances de remplir la jauge de tour de tous les alliés de 25%.",
+                    "special-attack1-title" : "<u>Attaque Spéciale : Assaut des rebelles (délai : 3)</u>",
+                    "special-attack1" : "Inflige des dégâts physiques à une cible ennemie avec 55% de chances de l'étourdir pendant 1 tour. De plus, si l'attaque résulte en un coup critique, la jauge de tour se remplit de 100%.",
+                    "unique-ability-title" : "<u>Espoir de l'Alliance</u>",
+                    "unique-ability" : "La jauge de tour de l'éclaireur rebelle de Hoth se remplit de 45% chaque fois qu'une unité de l'Empire est vaincue et de la moitié de ce montant chaque fois qu'un ennemi n'appartenant pas à l'Empire est vaincu."
+                }
+            };
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\n/g, '<br><br>');
+            }
+
+            function switchLanguage(lang) {
+                for (const [key, text] of Object.entries(translations[lang])) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        // Convert \n\n to <br><br> before injecting
+                        element.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                }
+            }
+
+            window.onload = () => switchLanguage('en');
+        </script>
+
+    </footer>
+    </bo
