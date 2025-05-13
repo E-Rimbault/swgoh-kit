@@ -1,175 +1,187 @@
 <!DOCTYPE HTML>
 <html lang="fr">
+
 <head>
-<title>faction vaisseau</title>
+    <title>faction vaisseau</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="utf-8">
-<meta name="author" content="Rimbault Enzo" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
 
-<link rel="stylesheet" href="../style/styles.css"> 
-<link rel="icon" type="image/png" href="../image/logo_star_wars.png">
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../image/logo_star_wars.png">
 
-<style>
-    body, html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
+    <style>
+        body.simple {
+            background-color: #000;
+        }
 
-    .table-container {
-        flex: 1; /* Occupy all available space */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+        .language-switcher img {
+            width: 40px;
+            height: 30px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
 
-    table {
-        width: 100%;
-        height: 100%;
-        border-collapse: collapse;
-        text-align: center;
-    }
-</style>
+        th {
+            color: white;
+        }
 
+        table a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: 8px 0;
+            color: black;
+            text-decoration: none;
+        }
+
+        table td {
+            padding: 0;
+        }
+
+        table {
+            width: 100% !important;
+        }
+    </style>
 </head>
 
-<body class="simple">
+<body class="simple container-fluid py-4">
+
     <!-- Language Switcher -->
-    <div class="language-switcher">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" onclick="switchLanguage('fr')">
-        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" onclick="switchLanguage('en')">
+    <div class="language-switcher text-center mb-4">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+            onclick="switchLanguage('fr')">
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+            onclick="switchLanguage('en')">
     </div>
-    
-    <br>
 
-    <div><table>
-        <thead>
-            <tr><th colspan="6" style="color:white">filtre vaisseau</th></tr>
-        </thead>
-        <tr>
-            <td style="background-color: blue;"><a href="../vaisseaux/vaisseau-coté-lumineux.html" id="light-side">coté lumineux</a></td>
-            <td style="background-color: red;"><a href="../vaisseaux/vaisseau-coté-obscur.html" id="dark-side">coté obscur</a></td>
-            <td style="background-color: skyblue;"><a href="../vaisseaux/vaisseau-attaquant.html" id="attacker">attaquant</a></td>
-            <td style="background-color: skyblue;"><a href="../vaisseaux/vaisseau-soutien.html" id="support">soutien</a></td>
-            <td style="background-color: skyblue;"><a href="../vaisseaux/vaisseau-tank.html" id="tank">tank</a></td>
-            <td style="background-color: skyblue;"><a href="../vaisseaux/vaisseau-amiral.html" id="capital-ship">vaisseau amiral</a></td>
-        </tr>
-        <tr>
-            <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-ancienne-république.html" id="old-republic">ancienne république</a></td>
-            <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-chasseur-de-primes.html" id="bounty-hunter">chasseur de primes</a></td>
-            <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-droïde.html" id="droid">droïde</a></td>
-            <td style="background-color: pink;"><a href="../vaisseaux/vaisseau-empire.html" id="empire">empire</a></td>
-            <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-empire-sith.html" id="sith-empire">empire sith</a></td>
-            <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-géonosien.html" id="geonosian">géonosien</a></td>
-        </tr>
-        <tr>
-            <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-inquisitorious.html" id="inquisitorious">inquisitorious</a></td>
-            <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-jedi.html" id="jedi">jedi</a></td>
-            <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-phoenix.html" id="phoenix">phoenix</a></td>
-            <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-premier-ordre.html" id="first-order">premier ordre</a></td>
-            <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-rebelle.html" id="rebel">rebelle</a></td>
-            <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-république-galactique.html" id="galactic-republic">république galactique</a></td>
-        </tr>
-        <tr>
-            <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-résistance.html" id="resistance">résistance</a></td>
-            <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-rogue-one.html" id="rogue-one">rogue one</a></td>
-            <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-séparatiste.html"id="separatist">séparatiste</a></td>
-            <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-siths.html" id="sith">sith</a></td>
-            <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-soldat-clone.html" id="clone-soldier">soldat clone</a></td>
-            <td style="background-color: pink;"><a href="../vaisseaux/vaisseux-de-marchandise.html" id="cargo-ship">vaisseau de marchandise</a></td>
-        </tr>
-        <tr>
-            <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-vaurien.html" id="scoundrel">vaurien</a></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td style="background-color: white;"><a href="../filtre-recherche/recherche-vaisseaux.html" id="search-ship">Recherche Vaisseaux</a></td>
-            <td style="background-color: white;"><a href="../index.html" id="home">Accueil</a></td>
-        </tr>
-    </table></div>
+    <div class="table-responsive">
+        <table class="table table-bordered text-center align-middle table-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th colspan="6" id="ship-title">filtre vaisseau</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="bg-primary"><a href="../vaisseaux/vaisseau-coté-lumineux.html" id="light-side">coté lumineux</a></td>
+                    <td class="bg-danger"><a href="../vaisseaux/vaisseau-coté-obscur.html" id="dark-side">coté obscur</a></td>
+                    <td class="bg-info"><a href="../vaisseaux/vaisseau-attaquant.html" id="attacker">attaquant</a></td>
+                    <td class="bg-info"><a href="../vaisseaux/vaisseau-soutien.html" id="support">soutien</a></td>
+                    <td class="bg-info"><a href="../vaisseaux/vaisseau-tank.html" id="tank">tank</a></td>
+                    <td class="bg-info"><a href="../vaisseaux/vaisseau-amiral.html" id="capital-ship">vaisseau amiral</a></td>
+                </tr>
+                <tr>
+                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-ancienne-république.html" id="old-republic">ancienne république</a></td>
+                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-chasseur-de-primes.html" id="bounty-hunter">chasseur de primes</a></td>
+                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-droïde.html" id="droid">droïde</a></td>
+                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseau-empire.html" id="empire">empire</a></td>
+                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-empire-sith.html" id="sith-empire">empire sith</a></td>
+                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-géonosien.html" id="geonosian">géonosien</a></td>
+                </tr>
+                <tr>
+                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-inquisitorious.html" id="inquisitorious">inquisitorious</a></td>
+                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-jedi.html" id="jedi">jedi</a></td>
+                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-phoenix.html" id="phoenix">phoenix</a></td>
+                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-premier-ordre.html" id="first-order">premier ordre</a></td>
+                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-rebelle.html" id="rebel">rebelle</a></td>
+                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-république-galactique.html" id="galactic-republic">république galactique</a></td>
+                </tr>
+                <tr>
+                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-résistance.html" id="resistance">résistance</a></td>
+                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-rogue-one.html" id="rogue-one">rogue one</a></td>
+                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-séparatiste.html" id="separatist">séparatiste</a></td>
+                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-siths.html" id="sith">sith</a></td>
+                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-soldat-clone.html" id="clone-soldier">soldat clone</a></td>
+                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseux-de-marchandise.html" id="cargo-ship">vaisseau de marchandise</a></td>
+                </tr>
+                <tr>
+                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-vaurien.html" id="scoundrel">vaurien</a></td>
+                    <td style="background-color: black;"></td>
+                    <td style="background-color: black;"></td>
+                    <td style="background-color: black;"></td>
+                    <td style="background-color: white;"><a href="../filtre-recherche/recherche-vaisseaux.html" id="search-ship">Recherche Vaisseaux</a></td>
+                    <td style="background-color: white;"><a href="../index.html" id="home">Accueil</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
+    <!-- Traduction -->
     <script>
-        // Object to store translations
         const translations = {
             en: {
-                "ship-title" : "filter ship categories",
-                "light-side" : "light side",
-                "dark-side" : "dar side",
-                "attacker" : "attacker",
-                "support" : "support",
-                "tank" : "tank",
-                "capital-ship" : "capital ship",
-                "old-republic" : "old republic",
-                "bounty-hunter" : "bounty hunter",
-                "droid" : "droid",
-                "empire" : "empire",
-                "sith-empire" : "sith empire",
-                "geonosian" : "geonosian",
-                "inquisitorious" : "inquisitorious",
-                "jedi" : "jedi",
-                "phoenix" : "phoenix",
-                "first-order" : "first order",
-                "rebel" : "rebel",
-                "galactic-republic" : "republic galactic",
-                "resistance" : "resistance",
-                "rogue-one" : "rogue one",
-                "separatist" : "separatist",
-                "sith" : "sith",
-                "clone-soldier" : "clone trooper",
-                "cargo-ship" : "cargo ship",
-                "scoundrel" : "scoundrel",
-                "search-ship" : "ship search",
-                "home" : "home"
+                "ship-title": "Ship category filter",
+                "light-side": "light side",
+                "dark-side": "dark side",
+                "attacker": "attacker",
+                "support": "support",
+                "tank": "tank",
+                "capital-ship": "capital ship",
+                "old-republic": "old republic",
+                "bounty-hunter": "bounty hunter",
+                "droid": "droid",
+                "empire": "empire",
+                "sith-empire": "sith empire",
+                "geonosian": "geonosian",
+                "inquisitorious": "inquisitorious",
+                "jedi": "jedi",
+                "phoenix": "phoenix",
+                "first-order": "first order",
+                "rebel": "rebel",
+                "galactic-republic": "galactic republic",
+                "resistance": "resistance",
+                "rogue-one": "rogue one",
+                "separatist": "separatist",
+                "sith": "sith",
+                "clone-soldier": "clone trooper",
+                "cargo-ship": "cargo ship",
+                "scoundrel": "scoundrel",
+                "search-ship": "ship search",
+                "home": "home"
             },
-            fr :{
-                "ship-title" : "filtre des catégories de vaisseau",
-                "light-side" : "coté lumineux",
-                "dark-side" : "coté obscur",
-                "attacker" : "attackant",
-                "support" : "soutien",
-                "tank" : "tank",
-                "capital-ship" : "vaisseau amiral",
-                "old-republic" : "ancienne république",
-                "bounty-hunter" : "chasseaur de primes",
-                "droid" : "droides",
-                "empire" : "empire",
-                "sith-empire" : "empire sith",
-                "geonosian" : "geonosien",
-                "inquisitorious" : "inquisitorious",
-                "jedi" : "jedi",
-                "phoenix" : "phoenix",
-                "first-order" : "premier ordre",
-                "rebel" : "rebelle",
-                "galactic-republic" : "galactique republique",
-                "resistance" : "resistance",
-                "rogue-one" : "rogue one",
-                "separatist" : "separatiste",
-                "sith" : "sith",
-                "clone-soldier" : "soldat clone",
-                "cargo-ship" : "vaisseau de marchandise",
-                "scoundrel" : "vaurien",
-                "search-ship" : "recherche de vaisseau",
-                "home" : "accueil"
+            fr: {
+                "ship-title": "filtre des catégories de vaisseau",
+                "light-side": "coté lumineux",
+                "dark-side": "coté obscur",
+                "attacker": "attaquant",
+                "support": "soutien",
+                "tank": "tank",
+                "capital-ship": "vaisseau amiral",
+                "old-republic": "ancienne république",
+                "bounty-hunter": "chasseur de primes",
+                "droid": "droïde",
+                "empire": "empire",
+                "sith-empire": "empire sith",
+                "geonosian": "géonosien",
+                "inquisitorious": "inquisitorious",
+                "jedi": "jedi",
+                "phoenix": "phoenix",
+                "first-order": "premier ordre",
+                "rebel": "rebelle",
+                "galactic-republic": "république galactique",
+                "resistance": "résistance",
+                "rogue-one": "rogue one",
+                "separatist": "séparatiste",
+                "sith": "sith",
+                "clone-soldier": "soldat clone",
+                "cargo-ship": "vaisseau de marchandise",
+                "scoundrel": "vaurien",
+                "search-ship": "recherche vaisseaux",
+                "home": "accueil"
             }
         };
 
-        // Set the default language to English on page load
-        window.onload = function () {
-            switchLanguage('en');
-        };
+        window.onload = () => switchLanguage('en');
 
-        // Function to switch language
         function switchLanguage(lang) {
-            const elements = document.querySelectorAll('[id]'); // Select all elements with an id
-
-            elements.forEach(function(element) {
-                const translationKey = element.id;
-                if (translations[lang] && translations[lang][translationKey]) {
-                    element.textContent = translations[lang][translationKey]; // Update text content based on the selected language
+            const elements = document.querySelectorAll('[id]');
+            elements.forEach(el => {
+                const key = el.id;
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
                 }
             });
         }

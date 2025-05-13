@@ -1,63 +1,306 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
-    <title>vaisseaux coté obscur</title>
-
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
+    <title>Vaisseaux - Côté Obscur</title>
     <meta name="author" content="Rimbault Enzo">
+    <style>
+        #scrollBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 99;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 50%;
+    }
 
-    <link rel="stylesheet" href="../style/styles.css">
+    #scrollBtn:hover {
+        background-color: #0056b3;
+    }
 
+    IMG.position { 
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    } 
+    </style>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body class="obscur">
-    <h1><u>vaisseau avec le tag : coté obscur</u></h1>
-    <ol>
-        <li>B-28 Exctinction-class Bomber </li>
-        <li>Chimera</li>
-        <li>Emperor's Shuttle</li>
-        <li>Executor</li>
-        <li>Executrix</li>
-        <li>Finalizer</li>
-        <li>First Order SF TIE fighter</li>
-        <li>First Order TIE Fighter</li>
-        <li>Fury-class Interceptor</li>
-        <li>Gauntlet Starfigter</li>
-        <li>Geonosian Soldier's Starfighter</li>
-        <li>Geonosian Spy's Starfighter</li>
-        <li>Hound's Tooth</li>
-        <li>Hyena Bomber</li>
-        <li>Ig-2000</li>
-        <li>Imperial TIE Bomber</li>
-        <li>Imperial Tie Fighter</li>
-        <li>Kylo Ren's commande Shuttle</li>
-        <li>Leviathan</li>
-        <li>Malovolence</li>
-        <li>Mark VI Interceptor</li>
-        <li>Scimitar</li>
-        <li>Scythe</li>
-        <li>Sith Fighter</li>
-        <li>Slave I</li>
-        <li>Sun Fac's Geonosian Staarfighter</li>
-        <li>TIE Advanced x1</li>
-        <li>TIE Dagger</li>
-        <li>TIE Defender</li>
-        <li>TIE Echelon</li>
-        <li>TIE Reaper</li>
-        <li>TIE Silencer</li>
-        <li>TIE/IN Interceptor Prototype</li>
-        <li>Vulture Droid</li>
-        <li>Xanadu Blood</li>
-    </ol>
+<body class="bg-dark text-white">
 
-    <footer>
-        <a href="../filtre-recherche/filtre-vaisseaux.html"><img style="width: 10%;height: 10%;" class="position" src="../image/home.PNG" alt="filtre personnage"></a>
+    <div class="container py-4">
+        <h1 class="text-center mb-5"><u>Vaisseaux du Côté Obscur</u></h1>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Liste des vaisseaux sous forme de cartes -->
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">B-28 Extinction-class Bomber</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Chimera</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Emperor's Shuttle</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Executor</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Executrix</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Finalizer</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">First Order SF TIE fighter</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">First Order TIE Fighter</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Fury-class Interceptor</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Gauntlet Starfighter</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Geonosian Soldier's Starfighter</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Geonosian Spy's Starfighter</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Hound's Tooth</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Hyena Bomber</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">IG-2000</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Imperial TIE Bomber</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Imperial TIE Fighter</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Kylo Ren's Command Shuttle</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Leviathan</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Malevolence</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Mark VI Interceptor</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Scimitar</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Scythe</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Sith Fighter</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Slave I</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Sun Fac's Geonosian Starfighter</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">TIE Advanced x1</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">TIE Dagger</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">TIE Defender</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">TIE Echelon</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">TIE Reaper</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">TIE Silencer</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">TIE/IN Interceptor Prototype</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Vulture Droid</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Xanadu Blood</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <footer>
+        <a href="../filtre-recherche/filtre-vaisseaux.html"><img style="width: 10%;height: 10%;" class="position"
+                src="../image/logo_star_wars.png" alt="filtre vaisseaux"></a>
+
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
 
         <script src="../javascript/bouton.js"></script>
     </footer>
-
 </body>
+
 </html>
