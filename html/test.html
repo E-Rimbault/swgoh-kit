@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SWGOH Galaxy</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		body {
+			background-color: #f8f9fa;
+		}
+
+		.unit-card {
+			border: 1px solid #dee2e6;
+			border-radius: 12px;
+			padding: 1rem;
+			background-color: #fff;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+			transition: transform 0.2s ease;
+		}
+
+		.unit-card:hover {
+			transform: scale(1.03);
+			border-color: #0d6efd;
+		}
+
+		.unit-img {
+			width: 100px;
+			height: 100px;
+			object-fit: contain;
+			margin-bottom: 1rem;
+		}
+
+		#scrollToTopBtn {
+			z-index: 10;
+		}
+	</style>
+</head>
+
+<body>
+
+	<header class="bg-dark text-white text-center py-4 mb-4">
+		<h1>Star Wars Galaxy of Heroes</h1>
+	</header>
+
+	<main class="container">
+
+		<section class="card shadow-sm p-4 mb-4">
+			<h2 class="mb-3">Connexion</h2>
+			<div class="row g-3 align-items-center">
+				<div class="col-md-4">
+					<input type="text" id="allyCode" class="form-control" placeholder="Ex: 329615792">
+                </div>
+                <div class="col-auto">
+                    <button onclick="fetchPlayerInfo()" class="btn btn-primary">Se connecter</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-4">
+            <h2 class="mb-3">Infos Joueur</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered align-middle text-center" id="playerInfoTable">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Ally Code</th>
+                            <th>Nom</th>
+                            <th>Niveau</th>
+                            <th>Puissance Galactique</th>
+                            <th>Personnages</th>
+                            <th>Vaisseaux</th>
+                            <th>Classement Arène</th>
+                            <th>Classement Flotte</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="playerInfoRow">
+                            <td colspan="8">Veuillez entrer un code allié</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="mb-4 d-flex flex-wrap gap-2">
+            <button class="btn btn-outline-primary" onclick="showSection('characters')">Voir Personnages</button>
+            <button class="btn btn-outline-primary" onclick="showSection('ships')">Voir Vaisseaux</button>
+        </section>
+
+        <input type="text" id="searchInput" class="form-control mb-4" placeholder="🔍 Rechercher un personnage ou vaisseau..." onkeyup="filterUnits()">
+
+        <div id="comparisonContainer" class="mb-5"></div>
+
+        <div id="charactersSection">
+            <h3 class="mb-3">Personnages</h3>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4" id="characterList"></div>
+        </div>
+
+        <div id="shipsSection" style="display: none;">
+            <h3 class="mb-3">Vaisseaux</h3>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4" id="shipList"></div>
+        </div>
+
+        <button id="scrollToTopBtn" class="btn btn-dark position-fixed bottom-0 end-0 m-3 d-none" onclick="scrollToTop()">↑ Haut</button>
+
+    </main>
+
+    <script>
+        function formatNumberFR(n) {
+            return new Intl.NumberFormat('fr-FR').format(n);
+        }
+
+        async function fetchPlayerInfo() {
+            const code = document.getElementById("allyCode").value.trim().replace(/-/g, "");
+            if (!code) return alert("Code allié requis !");
+
+            try {
+                const res = await fetch("api.php", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ allyCode: code })
+                });
+
+                const data = await res.json();
+                if (data.error) return alert("Erreur API : " + data.error);
+
+                const row = document.getElementById("playerInfoRow");
+                row.innerHTML = `
+                    <td>${formatNumberFR(data.player_info.ally_code)}</td>
+                    <td>${data.player_info.name}</td>
+                    <td>${data.player_info.account_level}</td>
+                    <td>${formatNumberFR(data.player_info.galactic_power)}</td>
+                    <td>${formatNumberFR(data.player_info.character_power)}</td>
+                    <td>${formatNumberFR(data.player_info.ship_power)}</td>
+                    <td>${data.player_info.arena_rank}</td>
+                    <td>${data.player_info.fleet_arena_rank}</td>
+                `;
+
+                displayUnits(data.characters, "characterList", "character");
+                displayUnits(data.ships, "shipList", "ship");
+
+            } catch (e) {
+                console.error(e);
+                alert("Erreur réseau");
+            }
+        }
+
+        function displayUnits(units, containerId, type) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = units.map(unit => {
+        const label = unit.name;
+        let unitUrl = "";
+
+        // Redirections spécifiques par nom exact
+        if (label === "0-0-0") {
+            unitUrl = "https://e-rimbault.github.io/swgoh-kit/html/0_0_0.html";
+        } else if (label === "Jedi Knight Revan") {
+            unitUrl = "https://e-rimbault.github.io/swgoh-kit/html/Jedi_Revan.html";
+        } else if (label === "Darth Revan") {
+            unitUrl = "https://e-rimbault.github.io/swgoh-kit/html/Darth_Revan.html";
+        } else if (label === "Commander Ahsoka Tano") {
+            unitUrl = "https://e-rimbault.github.io/swgoh-kit/html/Commander_Ahsoka_Tano.html";
+        } else if (label === "General Kenobi") {
+            unitUrl = "https://e-rimbault.github.io/swgoh-kit/html/General_Kenobi.html";
+        } else if (label === "C-3PO") {
+            unitUrl = "https://e-rimbault.github.io/swgoh-kit/html/C_3PO.html";
+        } else {
+            // Fallback générique
+            const slug = label.replace(/[^a-zA-Z0-9]/g, "_");
+            unitUrl = `https://e-rimbault.github.io/swgoh-kit/html/${slug}.html`;
+        }
+
+        return `
+            <div class="col">
+                <div class="unit-card text-center" data-name="${label.replace(/"/g, '&quot;')}">
+                    <input type="checkbox" class="form-check-input mb-2" onclick="toggleSelection('${label}', ${unit.power}, ${unit.speed}, ${unit.health}, ${unit.protection}, ${unit.gear_level}, '${type}')">
+                    <a href="${unitUrl}" target="_blank">
+                        <img src="${unit.image}" alt="${label}" class="unit-img">
+                    </a>
+                    <h5>${label}</h5>
+                    <p><strong>Niveau :</strong> ${unit.level}</p>
+                    <p><strong>⭐ :</strong> ${"⭐".repeat(unit.rarity)}</p>
+                    <p><strong>Puissance :</strong> ${formatNumberFR(unit.power)}</p>
+                    <p><strong>Gear :</strong> ${unit.gear_level}</p>
+                    <p><strong>Vie :</strong> ${formatNumberFR(unit.health)}</p>
+                    <p><strong>Protection :</strong> ${formatNumberFR(unit.protection)}</p>
+                    <p><strong>Vitesse :</strong> ${formatNumberFR(unit.speed)}</p>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+        }
+
+        let selectedUnits = [];
+
+        function toggleSelection(name, power, speed, health, protection, gear) {
+            const index = selectedUnits.findIndex(u => u.name === name);
+            if (index === -1) {
+                selectedUnits.push({ name, power, speed, health, protection, gear });
+            } else {
+                selectedUnits.splice(index, 1);
+            }
+        }
+
+    
+
+        function showSection(section) {
+            document.getElementById("charactersSection").style.display = section === "characters" ? "block" : "none";
+            document.getElementById("shipsSection").style.display = section === "ships" ? "block" : "none";
+        }
+
+        function filterUnits() {
+            const input = document.getElementById("searchInput").value.toLowerCase();
+            document.querySelectorAll(".unit-card").forEach(card => {
+                const name = card.getAttribute("data-name").replace(/&quot;/g, '"').toLowerCase();
+                card.parentElement.style.display = name.includes(input) ? "block" : "none";
+            });
+        }
+
+        window.onscroll = () => {
+            const btn = document.getElementById("scrollToTopBtn");
+            btn.classList.toggle("d-none", window.scrollY < 100);
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    </script>
+
+</body>
+
+</html>
