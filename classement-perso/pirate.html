@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    <title>Bad Batch</title>
+    <title>Pirates</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Rimbault Enzo">
@@ -30,62 +30,49 @@
             const th = document.querySelector('thead th');
             th.textContent += ` (${imageCount}/${filledCount})`;
         });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
 </head>
 
-<body class="faction bg-dark text-light">
+<body class="pirate bg-dark text-light">
 
     <div class="container-fluid full-page">
         <div class="table-responsive">
             <table class="table table-bordered text-center table-dark align-middle">
                 <thead class="table-light text-dark">
                     <tr>
-                        <th colspan="5">personnage avec le tag : Bad Batch</th>
+                        <th colspan="4">personnage avec le tag : pirate</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>
-                            <a href="../html/echo.html">
-                                <img src="../image-perso/echo/echo-image.png" alt="Echo" class="img-fluid">
-                            </a>
-                            <br> Echo
+                            <a href="../html/enfys.html">
+                                <img src="../image-perso/enfys/enfys-image.png" alt="Enfys Nest" class="img-fluid">
+                            </a><br>
+                            Enfys Nest
                         </td>
                         <td>
-                            <a href="../html/hunter.html">
-                                <img src="../image-perso/hunter/hunter-image.png" alt="Hunter" class="img-fluid">
-                            </a>
-                            <br> Hunter
+                            <a href="../html/hondo.html">
+                                <img src="../image-perso/hondo/hondo-image.png" alt="Hondo Ohnaka" class="img-fluid">
+                            </a><br>
+                            Hondo Ohnaka
                         </td>
                         <td>
-                            <a href="../html/omega.html">
-                                <img src="../image-perso/omega/omega-image.png" alt="Omega" class="img-fluid">
-                            </a>
-                            <br> Omega
+                            <a href="../html/sm33.html">
+                                <img src="../image-perso/sm33/sm33-image.png" alt="SM-33" class="img-fluid">
+                            </a><br>
+                            SM-33
                         </td>
                         <td>
-                            <a href="../html/tech.html">
-                                <img src="../image-perso/tech/tech-image.png" alt="Tech" class="img-fluid">
-                            </a>
-                            <br> Tech
+                            <a href="../html/sana.html">
+                                <img src="../image-perso/sana/sana-image.png" alt="Sana Starros" class="img-fluid">
+                            </a><br>
+                            Sana Starros
                         </td>
-                        <td>
-                            <a href="../html/wrecker.html">
-                                <img src="../image-perso/wrecker/wreker-image.png" alt="Wrecker" class="img-fluid">
-                            </a>
-                            <br> Wrecker
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <br> Omega (Fugitive)
-                        </td>
-                        <td>
-                            Batcher
-                        </td>
-                        <td>Crosshair (Scarred)</td>
-                        <td>Hunter (Mercenary)</td>
-                        <td>Wrecker (Mercenary)</td>
                     </tr>
                 </tbody>
             </table>
@@ -95,12 +82,10 @@
     <footer class="text-center mt-4">
         <a href="../filtre-recherche/filtre-personnage.html">
             <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px; height: auto;">
-        </a>
-        <br>
+        </a><br>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top" class="btn btn-light mt-2">Top</button>
     </footer>
 
-    <script src="../javascript/bouton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

@@ -2,14 +2,14 @@
 <html lang="fr">
 
 <head>
-    <title>Jedi Vanguard</title>
+    <title>Vanguard</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image/clone-99.png">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="../image/jedi.png">
     <link rel="stylesheet" href="../style/styles.css">
 
     <script>
@@ -30,53 +30,58 @@
             const th = document.querySelector('thead th');
             th.textContent += ` (${imageCount}/${filledCount})`;
         });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
 </head>
 
-<body class="faction bg-dark text-light">
+<body class="vanguard bg-dark text-light">
 
     <div class="container-fluid full-page">
         <div class="table-responsive">
-            <table class="table table-bordered table-dark text-center align-middle">
+            <table class="table table-bordered text-center table-dark align-middle">
                 <thead class="table-light text-dark">
                     <tr>
-                        <th colspan="8">Personnages avec le tag : Jedi Vanguard</th>
+                        <th colspan="5">personnage avec le tag : Vanguard</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>
-                            <a href="../html/kit_fisto.html"><img src="../image-perso/kit-fisto/kit-fisto-image.png" alt="Kit Fisto" class="img-fluid"></a>
-                            <br>Kit Fisto
-                        </td>
-                        <td>
-                            <a href="../html/plo_koon.html"><img src="../image-perso/plo-koon/plo-koon-image.png" alt="Plo Koon" class="img-fluid"></a>
-                            <br>Plo Koon
-                        </td>
-                        <td>
-                            <a href="../html/luminara_unduli.html"><img src="../image-perso/luminara/luminara-image.png" alt="Luminara Unduli" class="img-fluid"></a>
-                            <br>Luminara Unduli
-                        </td>
-                        <td>
-                            <a href="../html/ki_adi_mundi.html"><img src="../image-perso/ki-adi-mundi/ki-adi-mundi-image.png" alt="Ki-Adi-Mundi" class="img-fluid"></a>
-                            <br>Ki-Adi-Mundi
-                        </td>
-                        <td>
-                            <a href="../html/shaak_ti.html"><img src="../image-perso/shaak-ti/shaak-ti-image.png" alt="Shaak Ti" class="img-fluid"></a>
-                            <br>Shaak Ti
-                        </td>
-                        <td>
-                            <a href="../html/mace_windu.html"><img src="../image-perso/mace-windu/mace-windu-image.png" alt="Mace Windu" class="img-fluid"></a>
-                            <br>Mace Windu
-                        </td>
-                        <td>
-                            <a href="../html/eeth_koth.html"><img src="../image-perso/eeth-koth/eeth-koth-image.png" alt="Eeth Koth" class="img-fluid"></a>
-                            <br>Eeth Koth
-                        </td>
-                        <td>
-                            <a href="../html/ima_gun_di.html"><img src="../image-perso/ima-gun-di/ima-gun-di-image.png" alt="Ima-Gun Di" class="img-fluid"></a>
-                            <br>Ima-Gun Di
-                        </td>
+                        <td><a href="../html/aayla.html"><img src="../image-perso/aayla/aayla_image.png"
+                                    alt="Aayla Secura" class="img-fluid"></a><br> Aayla Secura</td>
+                        <td><a href="../html/barriss.html"><img src="../image-perso/barriss/barris_image.png"
+                                    alt="Barriss Offee" class="img-fluid"></a><br> Barriss Offee</td>
+                        <td>Depa Billaba</td>
+                        <td><a href="../html/eeth.html"><img src="../image-perso/eeth-koth/koth-image.png" alt="Eeth Koth"
+                                    class="img-fluid"></a><br> Eeth Koth</td>
+                        <td><a href="../html/imagundi.html"><img src="../image-perso/ima-gun-di/ima-gun-image.png"
+                                    alt="Ima-Gun-Di" class="img-fluid"></a><br> Ima-Gun-Di</td>
+                    </tr>
+                    <tr>
+                        <td><a href="../html/consular.html"><img src="../image-perso/consular/consular-image.png"
+                                    alt="Jedi Consular" class="img-fluid"></a><br> Jedi Consular</td>
+                        <td><a href="../html/guardian.html"><img src="../image-perso/guardian/guardian_image.png"
+                                    alt="Jedi Knight Guardian" class="img-fluid"></a><br> Jedi Knight Guardian</td>
+                        <td>Jedi Master Mace Windu</td>
+                        <td>Jocasta Nu</td>
+                        <td><a href="../html/kelleran.html"><img src="../image-perso/kelleran/Kelleran-Beq.png"
+                                    alt="Kelleran Beq" class="img-fluid"></a><br> Kelleran Beq</td>
+                    </tr>
+                    <tr>
+                        <td>Kit Fisto</td>
+                        <td>Luminara Unduli</td>
+                        <td>Plo Koon</td>
+                        <td>Qui-Gon Jinn</td>
+                        <td>Shaak Ti</td>
+                    </tr>
+                    <tr>
+                        <td>Temple Guard</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>
@@ -85,13 +90,12 @@
 
     <footer class="text-center mt-4">
         <a href="../filtre-recherche/filtre-personnage.html">
-            <img src="../image/logo_star_wars.png" alt="Filtre Personnage" style="width: 80px; height: auto;">
-        </a>
+            <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px; height: auto;">
+        </a><br>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top" class="btn btn-light mt-2">Top</button>
     </footer>
 
-    <script src="../javascript/bouton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 
 </html>

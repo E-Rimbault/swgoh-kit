@@ -35,12 +35,19 @@
 
 <body class="faction bg-dark text-light">
 
+    <div class="container my-3 d-flex justify-content-end gap-2">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+            style="width: 30px; height: 20px; cursor: pointer;" onclick="switchLanguage('fr')">
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+            style="width: 30px; height: 20px; cursor: pointer;" onclick="switchLanguage('en')">
+    </div>
+
     <div class="container-fluid full-page">
         <div class="table-responsive">
             <table class="table table-bordered text-center table-dark align-middle">
                 <thead class="table-light text-dark">
                     <tr>
-                        <th colspan="5">personnage avec le tag : Ancienne République</th>
+                        <th colspan="5" id="filter-title">personnage avec le tag : Ancienne République</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,31 +56,36 @@
                             <a href="../html/50r-t.html">
                                 <img src="../image-perso/50-rt/50-image.png" alt="50R-T" class="img-fluid">
                             </a>
-                            <br> 50R-T
+                            <br> 
+                            <span class="traduction" id="50-rt">50R-T</span>
                         </td>
                         <td>
                             <a href="../html/bastila_shan.html">
                                 <img src="../image-perso/bastila-shan/bastila-image.png" alt="Bastila Shan" class="img-fluid">
                             </a>
-                            <br> Bastila Shan
+                            <br> 
+                            <span class="traduction" id="bastila">Bastila Shan</span>
                         </td>
                         <td>
                             <a href="../html/canderous.html">
                                 <img src="../image-perso/canderous/canderous.png" alt="Canderous Ordo" class="img-fluid">
                             </a>
-                            <br> Canderous Ordo
+                            <br>
+                            <span class="traduction" id="canderous">Canderous Ordo</span>
                         </td>
                         <td>
                             <a href="../html/carth_onasi.html">
                                 <img src="../image-perso/carth_onasi/carth-image.png" alt="Carth Onasi" class="img-fluid">
                             </a>
-                            <br> Carth Onasi
+                            <br> 
+                            <span class="traduction" id="carth">Carth Onasi</span>
                         </td>
                         <td>
                             <a href="../html/Jedi_Revan.html">
                                 <img src="../image-perso/jkr/jkr-image.png" alt="Jedi Revan" class="img-fluid">
                             </a>
-                            <br> Jedi Knight Revan
+                            <br> 
+                            <span class="traduction" id="jkr">Jedi Knight Revan</span>
                         </td>
                     </tr>
                     <tr>
@@ -81,25 +93,28 @@
                             <a href="../html/jolee.html">
                                 <img src="../image-perso/jolee/jolee-bindo.png" alt="Jolee Bindo" class="img-fluid">
                             </a>
-                            <br> Jolee Bindo
+                            <br> 
+                            <span class="traduction" id="jolee">Jolee Bindo</span>
                         </td>
                         <td>
                             <a href="../html/juhani.html">
                                 <img src="../image-perso/juhani/juhani-image.png" alt="Juhani" class="img-fluid">
                             </a>
-                            <br> Juhani
+                            <br> 
+                            <span class="traduction" id="juhani">Juhani</span>
                         </td>
                         <td>
                             <a href="../html/mission_vao.html">
                                 <img src="../image-perso/mission/mission-image.png" alt="Mission Vao" class="img-fluid">
                             </a>
-                            <br> Mission Vao
+                            <br> 
+                            <span class="traduction" id="mission">Mission Vao</span>
                         </td>
                         <td>
-                            <br> T3-M4
+                            T3-M4
                         </td>
                         <td>
-                            <br> Zaalbar
+                            Zaalbar
                         </td>
                     </tr>
                 </tbody>
@@ -112,6 +127,48 @@
             <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px; height: auto;">
         </a>
     </footer>
+
+     <!-- Lang Switch Script -->
+    <script>
+        const translations = {
+            en: {
+                "filter-title": "Character with the tag : Old Republic",
+                "50-rt": "50R-T",
+                "bastila": "Bastila Shan",
+                "canderous": "Canderous Ordo",
+                "carth": "Carth onasi",
+                "jkr": "Jedi Knight Revan",
+                "jolee": "Jolee Bindo",
+                "juhani" : "Juhani",
+                "mission" : "Mission Vao",
+            },
+            fr: {
+                "filter-title": "Personnage avec le tag : Ancienne République",
+                "50-rt": "50R-T",
+                "bastila": "Bastila Shan",
+                "canderous": "Canderous Ordo",
+                "carth": "Carth Onasi",
+                "jkr": "Chevalier Jedi Revan",
+                "gas": "Jolee Bindo",
+                "juhani" : "Juhani",
+                "mission" : "Mission Vao",
+            }
+        };
+
+        window.onload = function () {
+            switchLanguage('en');
+        };
+
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[id]');
+            elements.forEach(element => {
+                const key = element.id;
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+    </script>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
