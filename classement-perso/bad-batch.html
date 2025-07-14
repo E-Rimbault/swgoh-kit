@@ -2,105 +2,233 @@
 <html lang="fr">
 
 <head>
-    <title>Bad Batch</title>
     <meta charset="utf-8">
+    <title>Bad Batch</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Rimbault Enzo">
     <link rel="icon" type="image/png" href="../image/clone-99.png">
-
-    <!-- Bootstrap CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../style/styles.css">
+
+    <style>
+        body {
+            background-color: #031952;
+            color: #ffffff;
+        }
+
+        .unit-card {
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1rem;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            text-align: center;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .unit-card:hover {
+            transform: scale(1.03);
+            border-color: #0d6efd;
+        }
+
+        .unit-img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+        }
+
+        .unit-name {
+            font-size: 0.9em;
+            color: #000;
+            max-width: 100px;
+            word-wrap: break-word;
+        }
+
+        .flag-switcher {
+            display: flex;
+            justify-content: end;
+            gap: 10px;
+            margin: 1rem;
+        }
+
+        .flag-switcher img {
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+        }
+    </style>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const cells = document.querySelectorAll('td');
+            const cards = document.querySelectorAll('.unit-card');
             let filledCount = 0;
             let imageCount = 0;
 
-            cells.forEach(cell => {
-                if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
+            cards.forEach(card => {
+                if (card.textContent.trim() !== '' || card.querySelector('a')) {
                     filledCount++;
-                    if (cell.querySelector('img')) {
+                    if (card.querySelector('img')) {
                         imageCount++;
                     }
                 }
             });
 
-            const th = document.querySelector('thead th');
-            th.textContent += ` (${imageCount}/${filledCount})`;
+            const title = document.getElementById('filter-title');
+            title.textContent += ` (${imageCount}/${filledCount})`;
         });
     </script>
 </head>
 
-<body class="faction bg-dark text-light">
+<body>
 
-    <div class="container-fluid full-page">
-        <div class="table-responsive">
-            <table class="table table-bordered text-center table-dark align-middle">
-                <thead class="table-light text-dark">
-                    <tr>
-                        <th colspan="5">personnage avec le tag : Bad Batch</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <a href="../html/echo.html">
-                                <img src="../image-perso/echo/echo-image.png" alt="Echo" class="img-fluid">
-                            </a>
-                            <br> Echo
-                        </td>
-                        <td>
-                            <a href="../html/hunter.html">
-                                <img src="../image-perso/hunter/hunter-image.png" alt="Hunter" class="img-fluid">
-                            </a>
-                            <br> Hunter
-                        </td>
-                        <td>
-                            <a href="../html/omega.html">
-                                <img src="../image-perso/omega/omega-image.png" alt="Omega" class="img-fluid">
-                            </a>
-                            <br> Omega
-                        </td>
-                        <td>
-                            <a href="../html/tech.html">
-                                <img src="../image-perso/tech/tech-image.png" alt="Tech" class="img-fluid">
-                            </a>
-                            <br> Tech
-                        </td>
-                        <td>
-                            <a href="../html/wrecker.html">
-                                <img src="../image-perso/wrecker/wreker-image.png" alt="Wrecker" class="img-fluid">
-                            </a>
-                            <br> Wrecker
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <br> Omega (Fugitive)
-                        </td>
-                        <td>
-                            Batcher
-                        </td>
-                        <td>Crosshair (Scarred)</td>
-                        <td>Hunter (Mercenary)</td>
-                        <td>Wrecker (Mercenary)</td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="flag-switcher">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+            onclick="switchLanguage('fr')">
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+            onclick="switchLanguage('en')">
+    </div>
+
+    <div class="container text-center">
+        <h2 id="filter-title">Personnage avec le tag : Bad Batch</h2>
+        <div class="row justify-content-center g-4 mt-3">
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/echo.html">
+                        <img src="../image-perso/echo/echo-image.png" alt="Echo" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="echo">Echo</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/hunter.html">
+                        <img src="../image-perso/hunter/hunter-image.png" alt="Hunter" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="hunter">Hunter</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/omega.html">
+                        <img src="../image-perso/omega/omega-image.png" alt="Omega" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="omega">Omega</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/tech.html">
+                        <img src="../image-perso/tech/tech-image.png" alt="Tech" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="tech">Tech</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/wrecker.html">
+                        <img src="../image-perso/wrecker/wreker-image.png" alt="Wrecker" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="wrecker">Wrecker</div>
+                </div>
+            </div>
+
+            <!-- Personnages secondaires -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <div class="unit-name traduction" id="omega-fugitive">Omega (Fugitive)</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <div class="unit-name traduction" id="batcher">Batcher</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <div class="unit-name traduction" id="crosshair">Crosshair (Scarred)</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <div class="unit-name traduction" id="hunter-merc">Hunter (Mercenary)</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <div class="unit-name traduction" id="wrecker-merc">Wrecker (Mercenary)</div>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <footer class="text-center mt-4">
+    <footer class="text-center mt-5">
         <a href="../filtre-recherche/filtre-personnage.html">
-            <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px; height: auto;">
+            <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px;">
         </a>
-        <br>
-        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top" class="btn btn-light mt-2">Top</button>
+        <br><br>
+        <button onclick="scrollToTop()" id="scrollBtn" class="btn btn-secondary mt-2">Top</button>
     </footer>
 
-    <script src="../javascript/bouton.js"></script>
+    <script>
+        const translations = {
+            en: {
+                "filter-title": "Character with the tag : Bad Batch",
+                "echo": "Echo",
+                "hunter": "Hunter",
+                "omega": "Omega",
+                "tech": "Tech",
+                "wrecker": "Wrecker",
+                "omega-fugitive": "Omega (Fugitive)",
+                "batcher": "Batcher",
+                "crosshair": "Crosshair (Scarred)",
+                "hunter-merc": "Hunter (Mercenary)",
+                "wrecker-merc": "Wrecker (Mercenary)"
+            },
+            fr: {
+                "filter-title": "Personnage avec le tag : Bad Batch",
+                "echo": "Echo",
+                "hunter": "Hunter",
+                "omega": "Omega",
+                "tech": "Tech",
+                "wrecker": "Wrecker",
+                "omega-fugitive": "Omega (Fugitive)",
+                "batcher": "Batcher",
+                "crosshair": "Crosshair (Cicatrice)",
+                "hunter-merc": "Hunter (Mercenaire)",
+                "wrecker-merc": "Wrecker (Mercenaire)"
+            }
+        };
+
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[id]');
+            elements.forEach(element => {
+                const key = element.id;
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
