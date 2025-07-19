@@ -2,89 +2,212 @@
 <html lang="fr">
 
 <head>
-    <title>Empire Sith</title>
     <meta charset="utf-8">
+    <title>Empire Sith</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Bootstrap CSS -->
+    <link rel="icon" type="image/png" href="../image/logo_star_wars.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../style/styles.css">
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const cells = document.querySelectorAll('td');
-            let filledCount = 0;
-            let imageCount = 0;
+    <style>
+        body {
+            background-color: #031952;
+            color: #ffffff;
+        }
 
-            cells.forEach(cell => {
-                if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
-                    filledCount++;
-                    if (cell.querySelector('img')) {
-                        imageCount++;
-                    }
-                }
-            });
+        .unit-card {
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1rem;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            text-align: center;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-            const th = document.querySelector('thead th');
-            th.textContent += ` (${imageCount}/${filledCount})`;
-        });
-    </script>
+       .unit-card:hover {
+            transform: scale(1.03);
+            border-color: #0d6efd;
+        }
+
+        .unit-img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+        }
+
+        .unit-name {
+            font-size: 0.9em;
+            color: #000;
+            max-width: 100px;
+            word-wrap: break-word;
+        }
+
+        .flag-switcher {
+            display: flex;
+            justify-content: end;
+            gap: 10px;
+            margin: 1rem;
+        }
+
+        .flag-switcher img {
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
-<body class="faction bg-dark text-light">
+<body>
+    <div class="flag-switcher">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+            onclick="switchLanguage('fr')">
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+            onclick="switchLanguage('en')">
+    </div>
 
-    <div class="container-fluid full-page">
-        <div class="table-responsive">
-            <table class="table table-bordered table-dark text-center align-middle">
-                <thead class="table-light text-dark">
-                    <tr>
-                        <th colspan="4">personnage avec le tag : Empire Sith</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <a href="../html/bastila_fallen.html"><img src="../image-perso/bsf/bastila-image.png" alt="Bastila" class="img-fluid"></a><br>Bastila Shan (fallen)
-                        </td>
-                        <td>
-                            <a href="../html/dark_malak.html"><img src="../image-perso/malak/malak-image.png" alt="Malak" class="img-fluid"></a><br>Darth Malak
-                        </td>
-                        <td>
-                            <a href="../html/dark_malgus.html"><img src="../image-perso/malgus/malgus-image.png" alt="Dark Malgus" class="img-fluid"></a><br>Darth Malgus
-                        </td>
-                        <td>
-                            <a href="../html/dark_revan.html"><img src="../image-perso/dark-revan/dr-image.png" alt="Dark Revan" class="img-fluid"></a><br>Darth Revan
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="../html/hk-47.html"><img src="../image-perso/hk-47/hk-image.png" alt="HK-47" class="img-fluid"></a><br>HK-47
-                        </td>
-                        <td>
-                            <a href="../html/sith_assasin.html"><img src="../image-perso/sith-assassin/sith-assassin-iamge.png" alt="Sith Assassin" class="img-fluid"></a><br>Sith Assassin
-                        </td>
-                        <td>
-                            <a href="../html/sith_empire_trooper.html"><img src="../image-perso/sith-empire-trooper/sithtrooper-image.png" alt="Sith Empire Trooper" class="img-fluid"></a><br>Sith Empire Trooper
-                        </td>
-                        <td>
-                            <a href="../html/sith_marauder.html"><img src="../image-perso/maraudeur-sith/marauder.png" alt="Sith Marauder" class="img-fluid"></a><br>Sith Marauder
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="container text-center">
+        <h2 id="filter-title">Personnage avec le tag : Empire Sith</h2>
+        <div class="row justify-content-center g-4 mt-3">
+
+            <!-- Bastila -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/bastila_fallen.html">
+                        <img src="../image-perso/bsf/bastila-image.png" alt="Bastila" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="bastila">Bastila Shan (Fallen)</div>
+                </div>
+            </div>
+
+            <!-- Malak -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/dark_malak.html">
+                        <img src="../image-perso/malak/malak-image.png" alt="Malak" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="malak">Darth Malak</div>
+                </div>
+            </div>
+
+            <!-- Malgus -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/dark_malgus.html">
+                        <img src="../image-perso/malgus/malgus-image.png" alt="Malgus" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="malgus">Darth Malgus</div>
+                </div>
+            </div>
+
+            <!-- Revan -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/dark_revan.html">
+                        <img src="../image-perso/dark-revan/dr-image.png" alt="Revan" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="revan">Darth Revan</div>
+                </div>
+            </div>
+
+            <!-- HK-47 -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/hk-47.html">
+                        <img src="../image-perso/hk-47/hk-image.png" alt="HK-47" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="hk">HK-47</div>
+                </div>
+            </div>
+
+            <!-- Assassin -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/sith_assasin.html">
+                        <img src="../image-perso/sith-assassin/sith-assassin-iamge.png" alt="Sith Assassin" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="assassin">Sith Assassin</div>
+                </div>
+            </div>
+
+            <!-- Trooper -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/sith_empire_trooper.html">
+                        <img src="../image-perso/sith-empire-trooper/sithtrooper-image.png" alt="Sith Empire Trooper" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="trooper">Sith Empire Trooper</div>
+                </div>
+            </div>
+
+            <!-- Marauder -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/sith_marauder.html">
+                        <img src="../image-perso/maraudeur-sith/marauder.png" alt="Sith Marauder" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="marauder">Sith Marauder</div>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <footer class="text-center mt-4">
+    <footer class="text-center mt-5">
         <a href="../filtre-recherche/filtre-personnage.html">
-            <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px; height: auto;">
+            <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px;">
         </a>
-        <br>
-        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top" class="btn btn-light mt-2">Top</button>
+        <br><br>
+        <button onclick="scrollToTop()" class="btn btn-secondary mt-2">Top</button>
     </footer>
 
-    <script src="../javascript/bouton.js"></script>
+    <script>
+        const translations = {
+            en: {
+                "filter-title": "Characters with the tag: Sith Empire",
+                "bastila": "Bastila Shan (Fallen)",
+                "malak": "Darth Malak",
+                "malgus": "Darth Malgus",
+                "revan": "Darth Revan",
+                "hk": "HK-47",
+                "assassin": "Sith Assassin",
+                "trooper": "Sith Empire Trooper",
+                "marauder": "Sith Marauder"
+            },
+            fr: {
+                "filter-title": "Personnage avec le tag : Empire Sith",
+                "bastila": "Bastila Shan (déchue)",
+                "malak": "Dark Malak",
+                "malgus": "Dark Malgus",
+                "revan": "Dark Revan",
+                "hk": "HK-47",
+                "assassin": "Assassin Sith",
+                "trooper": "Soldat de l'Empire Sith",
+                "marauder": "Maraudeur Sith"
+            }
+        };
+
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[id]');
+            elements.forEach(element => {
+                const key = element.id;
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

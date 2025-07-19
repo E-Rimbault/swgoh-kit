@@ -2,90 +2,185 @@
 <html lang="fr">
 
 <head>
-    <title>Inquisitorious</title>
     <meta charset="utf-8">
+    <title>Inquisitorious</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="../image/inquisitor.png">
-    <link rel="stylesheet" href="../style/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const cells = document.querySelectorAll('td');
-            let filledCount = 0;
-            let imageCount = 0;
+    <style>
+        body {
+            background-color: #031952;
+            color: #ffffff;
+        }
 
-            cells.forEach(cell => {
-                if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
-                    filledCount++;
-                    if (cell.querySelector('img')) {
-                        imageCount++;
-                    }
-                }
-            });
+        .unit-card {
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1rem;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            text-align: center;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-            const th = document.querySelector('thead th');
-            th.textContent += ` (${imageCount}/${filledCount})`;
-        });
-    </script>
+        .unit-card:hover {
+            transform: scale(1.03);
+            border-color: #0d6efd;
+        }
+
+        .unit-img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+        }
+
+        .unit-name {
+            font-size: 0.9em;
+            color: #000;
+            max-width: 100px;
+            word-wrap: break-word;
+        }
+
+        .flag-switcher {
+            display: flex;
+            justify-content: end;
+            gap: 10px;
+            margin: 1rem;
+        }
+
+        .flag-switcher img {
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
-<body class="faction bg-dark text-light">
+<body>
+    <div class="flag-switcher">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" onclick="switchLanguage('fr')">
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" onclick="switchLanguage('en')">
+    </div>
 
-    <div class="container-fluid full-page">
-        <div class="table-responsive">
-            <table class="table table-bordered table-dark text-center align-middle">
-                <thead class="table-light text-dark">
-                    <tr>
-                        <th colspan="8">Personnages avec le tag : Inquisitorious</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <a href="../html/huitième_frère.html"><img src="../image-perso/8th-brother/huit-image.png" alt="Huit Frère" class="img-fluid"></a>
-                            <br>Eighth Brother
-                        </td>
-                        <td>
-                            <a href="../html/cinquime_frère.html"><img src="../image-perso/5th-brother/5th-brother-image.png" alt="Five Brother" class="img-fluid"></a>
-                            <br>Fifth Brother
-                        </td>
-                        <td>
-                            <a href="../html/grand_inquisiteur.html"><img src="../image-perso/gi/grand-inquisitor-image.png" alt="Grand Inquisiteur" class="img-fluid"></a>
-                            <br>Grand Inquisiteur
-                        </td>
-                        <td>Marrok</td>
-                        <td>
-                            <a href="../html/ninthsister.html"><img src="../image-perso/9th-sister/ninthsister.png" alt="Ninth Sister" class="img-fluid"></a>
-                            <br>Ninth Sister
-                        </td>
-                        <td>
-                            <a href="../html/2nd_sister.html"><img src="../image-perso/2nc-sister/2nd-sister-image.png" alt="Second Sister" class="img-fluid"></a>
-                            <br>Second Sister
-                        </td>
-                        <td>
-                            <a href="../html/septième_soeur.html"><img src="../image-perso/7th-sister/septi-me-soeur-image.png" alt="Septième Soeur" class="img-fluid"></a>
-                            <br>Seventh Sister
-                        </td>
-                        <td>Third Sister</td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="container text-center">
+        <h2 id="filter-title">Personnages avec le tag : Inquisitorious</h2>
+        <div class="row justify-content-center g-4 mt-3">
+
+            <!-- Eighth Brother -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/huitième_frère.html">
+                        <img src="../image-perso/8th-brother/huit-image.png" alt="Eighth Brother" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="eighth">Eighth Brother</div>
+                </div>
+            </div>
+
+            <!-- Fifth Brother -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/cinquime_frère.html">
+                        <img src="../image-perso/5th-brother/5th-brother-image.png" alt="Fifth Brother" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="fifth">Fifth Brother</div>
+                </div>
+            </div>
+
+            <!-- Grand Inquisitor -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/grand_inquisiteur.html">
+                        <img src="../image-perso/gi/grand-inquisitor-image.png" alt="Grand Inquisitor" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="grand">Grand Inquisitor</div>
+                </div>
+            </div>
+
+            <!-- Marrok -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <img src="../image-perso/inquisitorious/marrok.png" alt="Marrok" class="unit-img">
+                    <div class="unit-name traduction" id="marrok">Marrok</div>
+                </div>
+            </div>
+
+            <!-- Ninth Sister -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/ninthsister.html">
+                        <img src="../image-perso/9th-sister/ninthsister.png" alt="Ninth Sister" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="ninth">Ninth Sister</div>
+                </div>
+            </div>
+
+            <!-- Second Sister -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/2nd_sister.html">
+                        <img src="../image-perso/2nc-sister/2nd-sister-image.png" alt="Second Sister" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="second">Second Sister</div>
+                </div>
+            </div>
+
+            <!-- Seventh Sister -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/septième_soeur.html">
+                        <img src="../image-perso/7th-sister/septi-me-soeur-image.png" alt="Seventh Sister" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="seventh">Seventh Sister</div>
+                </div>
+            </div>
+
+            <!-- Third Sister -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <img src="../image-perso/inquisitorious/third.png" alt="Third Sister" class="unit-img">
+                    <div class="unit-name traduction" id="third">Third Sister</div>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <footer class="text-center mt-4">
+    <footer class="text-center mt-5">
         <a href="../filtre-recherche/filtre-personnage.html">
-            <img src="../image/logo_star_wars.png" alt="Filtre Personnage" style="width: 80px; height: auto;">
+            <img src="../image/logo_star_wars.png" alt="Filtre Personnage" style="width: 80px;">
         </a>
     </footer>
 
-    <script src="../javascript/bouton.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const translations = {
+            fr: {
+                "filter-title": "Personnages avec le tag : Inquisitorious"
+            },
+            en: {
+                "filter-title": "Characters with the tag: Inquisitorious"
+            }
+        };
 
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[id]');
+            elements.forEach(el => {
+                const key = el.id;
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -2,72 +2,169 @@
 <html lang="fr">
 
 <head>
-    <title>Géonosien</title>
     <meta charset="utf-8">
+    <title>Géonosien</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../style/styles.css">
     <link rel="icon" type="image/png" href="../image/separatist.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const cells = document.querySelectorAll('td');
-            let filledCount = 0;
-            let imageCount = 0;
+    <style>
+        body {
+            background-color: #031952;
+            color: #ffffff;
+        }
 
-            cells.forEach(cell => {
-                if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
-                    filledCount++;
-                    if (cell.querySelector('img')) {
-                        imageCount++;
-                    }
-                }
-            });
+        .unit-card {
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1rem;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            text-align: center;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-            const th = document.querySelector('thead th');
-            th.textContent += ` (${imageCount}/${filledCount})`;
-        });
-    </script>
+        .unit-card:hover {
+            transform: scale(1.03);
+            border-color: #0d6efd;
+        }
+
+        .unit-img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+        }
+
+        .unit-name {
+            font-size: 0.9em;
+            color: #000;
+            max-width: 100px;
+            word-wrap: break-word;
+        }
+
+        .flag-switcher {
+            display: flex;
+            justify-content: end;
+            gap: 10px;
+            margin: 1rem;
+        }
+
+        .flag-switcher img {
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
-<body class="faction bg-dark text-light">
+<body>
+    <div class="flag-switcher">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" onclick="switchLanguage('fr')">
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" onclick="switchLanguage('en')">
+    </div>
 
-    <div class="container-fluid full-page">
-        <div class="table-responsive">
-            <table class="table table-bordered table-dark text-center align-middle">
-                <thead class="table-light text-dark">
-                    <tr>
-                        <th colspan="5">Personnages avec le tag : Géonosien</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <a href="../html/alpha_geo.html"><img src="../image-perso/alpha-geo/alpha-image.png" alt="Alpha Geonosian" class="img-fluid"></a>
-                            <br>Geonosian Brood Alpha
-                        </td>
-                        <td>Geonosian Soldier</td>
-                        <td>Geonosian Spy</td>
-                        <td>Poggle the Lesser</td>
-                        <td>Sun Fac</td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="container text-center">
+        <h2 id="filter-title">Personnages avec le tag : Géonosien</h2>
+        <div class="row justify-content-center g-4 mt-3">
+
+            <!-- Brood Alpha -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/alpha_geo.html">
+                        <img src="../image-perso/alpha-geo/alpha-image.png" alt="Alpha Geonosian" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="alpha">Geonosian Brood Alpha</div>
+                </div>
+            </div>
+
+            <!-- Soldier -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <div class="unit-img">
+                        <img src="../image-perso/geo-soldier.png" alt="Geonosian Soldier" class="unit-img">
+                    </div>
+                    <div class="unit-name traduction" id="soldier">Geonosian Soldier</div>
+                </div>
+            </div>
+
+            <!-- Spy -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <div class="unit-img">
+                        <img src="../image-perso/geo-spy.png" alt="Geonosian Spy" class="unit-img">
+                    </div>
+                    <div class="unit-name traduction" id="spy">Geonosian Spy</div>
+                </div>
+            </div>
+
+            <!-- Poggle -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <div class="unit-img">
+                        <img src="../image-perso/poggle.png" alt="Poggle" class="unit-img">
+                    </div>
+                    <div class="unit-name traduction" id="poggle">Poggle the Lesser</div>
+                </div>
+            </div>
+
+            <!-- Sun Fac -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <div class="unit-img">
+                        <img src="../image-perso/sunfac.png" alt="Sun Fac" class="unit-img">
+                    </div>
+                    <div class="unit-name traduction" id="sunfac">Sun Fac</div>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <footer class="text-center mt-4">
+    <footer class="text-center mt-5">
         <a href="../filtre-recherche/filtre-personnage.html">
-            <img src="../image/logo_star_wars.png" alt="Filtre Personnage" style="width: 80px; height: auto;">
+            <img src="../image/logo_star_wars.png" alt="Filtre Personnage" style="width: 80px;">
         </a>
     </footer>
 
-    <script src="../javascript/bouton.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const translations = {
+            fr: {
+                "filter-title": "Personnages avec le tag : Géonosien",
+                "alpha": "Alpha Géonosien",
+                "soldier": "Soldat Géonosien",
+                "spy": "Espion Géonosien",
+                "poggle": "Poggle le Bref",
+                "sunfac": "Sun Fac"
+            },
+            en: {
+                "filter-title": "Characters with the tag: Geonosian",
+                "alpha": "Geonosian Brood Alpha",
+                "soldier": "Geonosian Soldier",
+                "spy": "Geonosian Spy",
+                "poggle": "Poggle the Lesser",
+                "sunfac": "Sun Fac"
+            }
+        };
 
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[id]');
+            elements.forEach(el => {
+                const key = el.id;
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

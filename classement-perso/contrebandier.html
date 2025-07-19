@@ -2,101 +2,161 @@
 <html lang="fr">
 
 <head>
-    <title>Contrebandier</title>
     <meta charset="utf-8">
+    <title>Contrebandier</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Rimbault Enzo">
-    <link rel="stylesheet" href="../style/styles.css">
-
-    <!-- Bootstrap CSS -->
+    <link rel="icon" type="image/png" href="../image/501.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const cells = document.querySelectorAll('td');
-            let filledCount = 0;
-            let imageCount = 0;
+    <style>
+        body {
+            background-color: #031952;
+            color: #ffffff;
+        }
 
-            cells.forEach(cell => {
-                if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
-                    filledCount++;
-                    if (cell.querySelector('img')) {
-                        imageCount++;
-                    }
-                }
-            });
+        .unit-card {
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1rem;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            text-align: center;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-            const th = document.querySelector('thead th');
-            th.textContent += ` (${imageCount}/${filledCount})`;
-        });
-    </script>
+        .unit-card:hover {
+            transform: scale(1.03);
+            border-color: #0d6efd;
+        }
+
+        .unit-img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+        }
+
+        .unit-name {
+            font-size: 0.9em;
+            color: #000;
+            max-width: 100px;
+            word-wrap: break-word;
+        }
+
+        .flag-switcher {
+            display: flex;
+            justify-content: end;
+            gap: 10px;
+            margin: 1rem;
+        }
+
+        .flag-switcher img {
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
-<body class="faction bg-dark text-light">
-    <div class="container-fluid full-page">
-        <div class="table-responsive">
-            <table class="table table-bordered table-dark text-center align-middle">
-                <thead class="table-light text-dark">
-                    <tr>
-                        <th colspan="8">personnage avec le tag : Contrebandier</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <a href="../html/chewbacca.html">
-                                <img src="../image-perso/chewbacca/chewie-image.png" alt="Chewbacca" class="img-fluid">
-                            </a>
-                            <br>Chewbacca
-                        </td>
-                        <td>
-                            <a href="../html/dash.html">
-                                <img src="../image-perso/dash/dash-image.png" alt="Dash Rendar" class="img-fluid">
-                            </a>
-                            <br>Dash Rendar
-                        </td>
-                        <td>Enfys Nest</td>
-                        <td>Han Solo</td>
-                        <td>
-                            <a href="../html/Hondo.html">
-                                <img src="../image-perso/hondo/Hondo-image.png" alt="Hondo Ohnaka" class="img-fluid">
-                            </a>
-                            <br>Hondo Ohnaka
-                        </td>
-                        <td>
-                            <a href="../html/jabba.html">
-                                <img src="../image-perso/jabba/jabba-image.png" alt="Jabba the Hutt" class="img-fluid">
-                            </a>
-                            <br>Jabba the Hutt
-                        </td>
-                        <td>L3-37</td>
-                        <td>Qi'ra</td>
-                    </tr>
-                    <tr>
-                        <td>Sana Starros</td>
-                        <td>Skiff Guard (Lando Calrissian)</td>
-                        <td>Vandor Chewbacca</td>
-                        <td>Veteran Smuggler Chewbacca</td>
-                        <td>Veteran Smuggler Han Solo</td>
-                        <td>Young Han Solo</td>
-                        <td>Young Lando Calrissian</td>
-                        <td>Zorii Bliss</td>
-                    </tr>
+<body>
 
-                </tbody>
-            </table>
+    <div class="flag-switcher">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+            onclick="switchLanguage('fr')">
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+            onclick="switchLanguage('en')">
+    </div>
+
+    <div class="container text-center">
+        <h2 id="filter-title">Personnage avec le tag : Contrebandier</h2>
+        <div class="row justify-content-center g-4 mt-3">
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/chewbacca.html">
+                        <img src="../image-perso/chewbacca/chewie-image.png" alt="Chewbacca" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="chewbacca">Chewbacca</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/dash.html">
+                        <img src="../image-perso/dash/dash-image.png" alt="Dash Rendar" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="dash">Dash Rendar</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/Hondo.html">
+                        <img src="../image-perso/hondo/Hondo-image.png" alt="Hondo Ohnaka" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="hondo">Hondo Ohnaka</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/jabba.html">
+                        <img src="../image-perso/jabba/jabba-image.png" alt="Jabba the Hutt" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="jabba">Jabba le Hutt</div>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <footer class="text-center mt-4">
+    <footer class="text-center mt-5">
         <a href="../filtre-recherche/filtre-personnage.html">
-            <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px; height: auto;">
+            <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px;">
         </a>
-        <br>
-        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top" class="btn btn-light mt-2">Top</button>
+        <br><br>
+        <button onclick="scrollToTop()" id="scrollBtn" class="btn btn-secondary mt-2">Top</button>
     </footer>
 
-    <script src="../javascript/bouton.js"></script>
+    <script>
+        const translations = {
+            en: {
+                "filter-title": "Character with the tag : Smuggler",
+                "chewbacca": "Chewbacca",
+                "dash": "Dash Rendar",
+                "hondo": "Hondo Ohnaka",
+                "jabba": "Jabba the Hutt"
+            },
+            fr: {
+                "filter-title": "Personnage avec le tag : Contrebandier",
+                "chewbacca": "Chewbacca",
+                "dash": "Dash Rendar",
+                "hondo": "Hondo Ohnaka",
+                "jabba": "Jabba le Hutt"
+            }
+        };
+
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[id]');
+            elements.forEach(element => {
+                const key = element.id;
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

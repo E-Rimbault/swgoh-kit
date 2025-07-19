@@ -62,26 +62,6 @@
             cursor: pointer;
         }
     </style>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const cards = document.querySelectorAll('.unit-card');
-            let filledCount = 0;
-            let imageCount = 0;
-
-            cards.forEach(card => {
-                if (card.textContent.trim() !== '' || card.querySelector('a')) {
-                    filledCount++;
-                    if (card.querySelector('img')) {
-                        imageCount++;
-                    }
-                }
-            });
-
-            const title = document.getElementById('filter-title');
-            title.textContent += ` (${imageCount}/${filledCount})`;
-        });
-    </script>
 </head>
 
 <body>
@@ -97,7 +77,6 @@
         <h2 id="filter-title">Personnage avec le tag : Cartel des Hutt</h2>
         <div class="row justify-content-center g-4 mt-3">
 
-            <!-- 1 -->
             <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                 <div class="unit-card">
                     <a href="../html/boba.html">
@@ -107,69 +86,13 @@
                 </div>
             </div>
 
-            <!-- 2 -->
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <div class="unit-name traduction" id="boussh">Boussh (Leia Organa)</div>
-                </div>
-            </div>
 
-            <!-- 3 -->
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <div class="unit-name traduction" id="cad">Cad Bane</div>
-                </div>
-            </div>
-
-            <!-- 4 -->
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <div class="unit-name traduction" id="embo">Embo</div>
-                </div>
-            </div>
-
-            <!-- 5 -->
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <div class="unit-name traduction" id="gamorrean">Gamorrean Guard</div>
-                </div>
-            </div>
-
-            <!-- 6 -->
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <div class="unit-name traduction" id="greedo">Greedo</div>
-                </div>
-            </div>
-
-            <!-- 7 -->
             <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                 <div class="unit-card">
                     <a href="../html/jabba.html">
                         <img src="../image-perso/jabba/jabba-image.png" alt="Jabba" class="unit-img">
                     </a>
                     <div class="unit-name traduction" id="jabba">Jabba the Hutt</div>
-                </div>
-            </div>
-
-            <!-- 8 -->
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <div class="unit-name traduction" id="krrsantan">Krrsantan</div>
-                </div>
-            </div>
-
-            <!-- 9 -->
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <div class="unit-name traduction" id="mob">Mob Enfoncer</div>
-                </div>
-            </div>
-
-            <!-- 10 -->
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <div class="unit-name traduction" id="skiff">Skiff Guard (Lando Calrissian)</div>
                 </div>
             </div>
 
@@ -189,28 +112,12 @@
             en: {
                 "filter-title": "Character with the tag : Hutt Cartel",
                 "boba": "Boba Fett",
-                "boussh": "Boussh (Leia Organa)",
-                "cad": "Cad Bane",
-                "embo": "Embo",
-                "gamorrean": "Gamorrean Guard",
-                "greedo": "Greedo",
                 "jabba": "Jabba the Hutt",
-                "krrsantan": "Krrsantan",
-                "mob": "Mob Enforcer",
-                "skiff": "Skiff Guard (Lando Calrissian)"
             },
             fr: {
                 "filter-title": "Personnage avec le tag : Cartel des Hutt",
                 "boba": "Boba Fett",
-                "boussh": "Boussh (Leia Organa)",
-                "cad": "Cad Bane",
-                "embo": "Embo",
-                "gamorrean": "Garde Gamorréen",
-                "greedo": "Greedo",
                 "jabba": "Jabba le Hutt",
-                "krrsantan": "Krrsantan",
-                "mob": "Exécuteur de la pègre",
-                "skiff": "Garde du Skiff (Lando Calrissian)"
             }
         };
 

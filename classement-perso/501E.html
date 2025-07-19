@@ -64,25 +64,6 @@
         }
     </style>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const cells = document.querySelectorAll('.unit-card');
-            let filledCount = 0;
-            let imageCount = 0;
-
-            cells.forEach(cell => {
-                if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
-                    filledCount++;
-                    if (cell.querySelector('img')) {
-                        imageCount++;
-                    }
-                }
-            });
-
-            const title = document.getElementById('filter-title');
-            title.textContent += ` (${imageCount}/${filledCount})`;
-        });
-    </script>
 </head>
 
 <body>

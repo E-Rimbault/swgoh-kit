@@ -62,26 +62,6 @@
             cursor: pointer;
         }
     </style>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const cards = document.querySelectorAll('.unit-card');
-            let filledCount = 0;
-            let imageCount = 0;
-
-            cards.forEach(card => {
-                if (card.textContent.trim() !== '' || card.querySelector('a')) {
-                    filledCount++;
-                    if (card.querySelector('img')) {
-                        imageCount++;
-                    }
-                }
-            });
-
-            const title = document.getElementById('filter-title');
-            title.textContent += ` (${imageCount}/${filledCount})`;
-        });
-    </script>
 </head>
 
 <body>
@@ -142,36 +122,6 @@
                 </div>
             </div>
 
-            <!-- Personnages secondaires -->
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <div class="unit-name traduction" id="omega-fugitive">Omega (Fugitive)</div>
-                </div>
-            </div>
-
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <div class="unit-name traduction" id="batcher">Batcher</div>
-                </div>
-            </div>
-
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <div class="unit-name traduction" id="crosshair">Crosshair (Scarred)</div>
-                </div>
-            </div>
-
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <div class="unit-name traduction" id="hunter-merc">Hunter (Mercenary)</div>
-                </div>
-            </div>
-
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <div class="unit-name traduction" id="wrecker-merc">Wrecker (Mercenary)</div>
-                </div>
-            </div>
 
         </div>
     </div>
@@ -193,11 +143,6 @@
                 "omega": "Omega",
                 "tech": "Tech",
                 "wrecker": "Wrecker",
-                "omega-fugitive": "Omega (Fugitive)",
-                "batcher": "Batcher",
-                "crosshair": "Crosshair (Scarred)",
-                "hunter-merc": "Hunter (Mercenary)",
-                "wrecker-merc": "Wrecker (Mercenary)"
             },
             fr: {
                 "filter-title": "Personnage avec le tag : Bad Batch",
@@ -206,11 +151,6 @@
                 "omega": "Omega",
                 "tech": "Tech",
                 "wrecker": "Wrecker",
-                "omega-fugitive": "Omega (Fugitive)",
-                "batcher": "Batcher",
-                "crosshair": "Crosshair (Cicatrice)",
-                "hunter-merc": "Hunter (Mercenaire)",
-                "wrecker-merc": "Wrecker (Mercenaire)"
             }
         };
 

@@ -63,25 +63,6 @@
         }
     </style>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const cards = document.querySelectorAll('.unit-card');
-            let filledCount = 0;
-            let imageCount = 0;
-
-            cards.forEach(card => {
-                if (card.textContent.trim() !== '' || card.querySelector('a')) {
-                    filledCount++;
-                    if (card.querySelector('img')) {
-                        imageCount++;
-                    }
-                }
-            });
-
-            const title = document.getElementById('filter-title');
-            title.textContent += ` (${imageCount}/${filledCount})`;
-        });
-    </script>
 </head>
 
 <body>
@@ -97,7 +78,6 @@
         <h2 id="filter-title">Personnage avec le tag : Ancienne République</h2>
         <div class="row justify-content-center g-4 mt-3">
 
-            <!-- Ligne 1 -->
             <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                 <div class="unit-card">
                     <a href="../html/50r-t.html">
@@ -171,18 +151,6 @@
                 </div>
             </div>
 
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <div class="unit-name traduction" id="t3">T3-M4</div>
-                </div>
-            </div>
-
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <div class="unit-name traduction" id="zaalbar">Zaalbar</div>
-                </div>
-            </div>
-
         </div>
     </div>
 
@@ -206,8 +174,6 @@
                 "jolee": "Jolee Bindo",
                 "juhani": "Juhani",
                 "mission": "Mission Vao",
-                "t3": "T3-M4",
-                "zaalbar": "Zaalbar"
             },
             fr: {
                 "filter-title": "Personnage avec le tag : Ancienne République",
@@ -219,8 +185,6 @@
                 "jolee": "Jolee Bindo",
                 "juhani": "Juhani",
                 "mission": "Mission Vao",
-                "t3": "T3-M4",
-                "zaalbar": "Zaalbar"
             }
         };
 

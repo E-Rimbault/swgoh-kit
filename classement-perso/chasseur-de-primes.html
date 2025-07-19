@@ -64,24 +64,6 @@
     </style>
 
     <script>
-        function updateTitleCount() {
-            const cards = document.querySelectorAll('.unit-card');
-            let filledCount = 0;
-            let imageCount = 0;
-
-            cards.forEach(card => {
-                if (card.textContent.trim() !== '' || card.querySelector('a')) {
-                    filledCount++;
-                    if (card.querySelector('img')) {
-                        imageCount++;
-                    }
-                }
-            });
-
-            const title = document.getElementById('filter-title');
-            const baseText = title.textContent.split('(')[0].trim();
-            title.textContent = `${baseText} (${imageCount}/${filledCount})`;
-        }
 
         document.addEventListener('DOMContentLoaded', updateTitleCount);
 
