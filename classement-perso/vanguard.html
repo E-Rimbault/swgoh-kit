@@ -2,98 +2,272 @@
 <html lang="fr">
 
 <head>
-    <title>Vanguard</title>
     <meta charset="utf-8">
+    <title>Vanguard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Rimbault Enzo">
     <link rel="icon" type="image/png" href="../image/clone-99.png">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../style/styles.css">
+
+    <style>
+        body {
+            background-color: #031952;
+            color: #fff;
+        }
+
+        .unit-card {
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1rem;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            text-align: center;
+            height: 240px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .unit-card:hover {
+            transform: scale(1.03);
+            border-color: #0d6efd;
+        }
+
+        .unit-img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+        }
+
+        .unit-name {
+            font-size: 0.9em;
+            color: #000;
+            max-width: 100px;
+            word-wrap: break-word;
+        }
+
+        .flag-switcher {
+            display: flex;
+            justify-content: end;
+            gap: 10px;
+            margin: 1rem;
+        }
+
+        .flag-switcher img {
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="flag-switcher">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+            onclick="switchLanguage('fr')">
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+            onclick="switchLanguage('en')">
+    </div>
+
+    <div class="container text-center">
+        <h2 id="filter-title">Personnages avec le tag : Vanguard</h2>
+        <div class="row justify-content-center g-4 mt-3">
+
+            <!-- Personnages avec image -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/aayla.html">
+                        <img src="../image-perso/aayla/aayla_image.png" alt="Aayla Secura" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="aayla">Aayla Secura</div>
+                </div>
+            </div>
+            
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/barriss.html">
+                        <img src="../image-perso/barriss/barris_image.png" alt="Barriss Offee" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="barriss">Barriss Offee</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <div class="unit-name traduction" id="depa">Depa Billaba</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/eeth.html">
+                        <img src="../image-perso/eeth-koth/koth-image.png" alt="Eeth Koth" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="eeth">Eeth Koth</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/imagundi.html">
+                        <img src="../image-perso/ima-gun-di/ima-gun-image.png" alt="Ima-Gun-Di" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="imagundi">Ima-Gun-Di</div>
+                </div>
+            </div>
+
+            <!-- Deuxième ligne -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/consular.html">
+                        <img src="../image-perso/consular/consular-image.png" alt="Jedi Consular" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="consular">Jedi Consular</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/guardian.html">
+                        <img src="../image-perso/guardian/guardian_image.png" alt="Jedi Knight Guardian"
+                            class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="guardian">Jedi Knight Guardian</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <div class="unit-name traduction" id="mace">Jedi Master Mace Windu</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <div class="unit-name traduction" id="jocasta">Jocasta Nu</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/kelleran.html">
+                        <img src="../image-perso/kelleran/Kelleran-Beq.png" alt="Kelleran Beq" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="kelleran">Kelleran Beq</div>
+                </div>
+            </div>
+
+            <!-- Troisième ligne (sans images) -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <div class="unit-name traduction" id="kitfisto">Kit Fisto</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <div class="unit-name traduction" id="luminara">Luminara Unduli</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <div class="unit-name traduction" id="plokoon">Plo Koon</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <div class="unit-name traduction" id="quigon">Qui-Gon Jinn</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <div class="unit-name traduction" id="shaakti">Shaak Ti</div>
+                </div>
+            </div>
+
+            <!-- Quatrième ligne (Temple Guard uniquement) -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <div class="unit-name traduction" id="templeguard">Temple Guard</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="text-center mt-5">
+        <a href="../filtre-recherche/filtre-personnage.html">
+            <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px;">
+        </a>
+        <br><br>
+        <button onclick="scrollToTop()" id="scrollBtn" class="btn btn-secondary mt-2">Top</button>
+    </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const cells = document.querySelectorAll('td');
-            let filledCount = 0;
-            let imageCount = 0;
+        const translations = {
+            en: {
+                "filter-title": "Characters with the tag: Vanguard",
+                "aayla": "Aayla Secura",
+                "barriss": "Barriss Offee",
+                "depa": "Depa Billaba",
+                "eeth": "Eeth Koth",
+                "imagundi": "Ima-Gun-Di",
+                "consular": "Jedi Consular",
+                "guardian": "Jedi Knight Guardian",
+                "mace": "Jedi Master Mace Windu",
+                "jocasta": "Jocasta Nu",
+                "kelleran": "Kelleran Beq",
+                "kitfisto": "Kit Fisto",
+                "luminara": "Luminara Unduli",
+                "plokoon": "Plo Koon",
+                "quigon": "Qui-Gon Jinn",
+                "shaakti": "Shaak Ti",
+                "templeguard": "Temple Guard"
+            },
+            fr: {
+                "filter-title": "Personnages avec le tag : Vanguard",
+                "aayla": "Aayla Secura",
+                "barriss": "Barriss Offee",
+                "depa": "Depa Billaba",
+                "eeth": "Eeth Koth",
+                "imagundi": "Ima-Gun-Di",
+                "consular": "Jedi Consular",
+                "guardian": "Jedi Knight Guardian",
+                "mace": "Jedi Master Mace Windu",
+                "jocasta": "Jocasta Nu",
+                "kelleran": "Kelleran Beq",
+                "kitfisto": "Kit Fisto",
+                "luminara": "Luminara Unduli",
+                "plokoon": "Plo Koon",
+                "quigon": "Qui-Gon Jinn",
+                "shaakti": "Shaak Ti",
+                "templeguard": "Temple Guard"
+            }
+        };
 
-            cells.forEach(cell => {
-                if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
-                    filledCount++;
-                    if (cell.querySelector('img')) {
-                        imageCount++;
-                    }
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[id]');
+            elements.forEach(element => {
+                const key = element.id;
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
                 }
             });
-
-            const th = document.querySelector('thead th');
-            th.textContent += ` (${imageCount}/${filledCount})`;
-        });
+        }
 
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
-</head>
-
-<body class="vanguard bg-dark text-light">
-
-    <div class="container-fluid full-page">
-        <div class="table-responsive">
-            <table class="table table-bordered text-center table-dark align-middle">
-                <thead class="table-light text-dark">
-                    <tr>
-                        <th colspan="5">personnage avec le tag : Vanguard</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><a href="../html/aayla.html"><img src="../image-perso/aayla/aayla_image.png"
-                                    alt="Aayla Secura" class="img-fluid"></a><br> Aayla Secura</td>
-                        <td><a href="../html/barriss.html"><img src="../image-perso/barriss/barris_image.png"
-                                    alt="Barriss Offee" class="img-fluid"></a><br> Barriss Offee</td>
-                        <td>Depa Billaba</td>
-                        <td><a href="../html/eeth.html"><img src="../image-perso/eeth-koth/koth-image.png" alt="Eeth Koth"
-                                    class="img-fluid"></a><br> Eeth Koth</td>
-                        <td><a href="../html/imagundi.html"><img src="../image-perso/ima-gun-di/ima-gun-image.png"
-                                    alt="Ima-Gun-Di" class="img-fluid"></a><br> Ima-Gun-Di</td>
-                    </tr>
-                    <tr>
-                        <td><a href="../html/consular.html"><img src="../image-perso/consular/consular-image.png"
-                                    alt="Jedi Consular" class="img-fluid"></a><br> Jedi Consular</td>
-                        <td><a href="../html/guardian.html"><img src="../image-perso/guardian/guardian_image.png"
-                                    alt="Jedi Knight Guardian" class="img-fluid"></a><br> Jedi Knight Guardian</td>
-                        <td>Jedi Master Mace Windu</td>
-                        <td>Jocasta Nu</td>
-                        <td><a href="../html/kelleran.html"><img src="../image-perso/kelleran/Kelleran-Beq.png"
-                                    alt="Kelleran Beq" class="img-fluid"></a><br> Kelleran Beq</td>
-                    </tr>
-                    <tr>
-                        <td>Kit Fisto</td>
-                        <td>Luminara Unduli</td>
-                        <td>Plo Koon</td>
-                        <td>Qui-Gon Jinn</td>
-                        <td>Shaak Ti</td>
-                    </tr>
-                    <tr>
-                        <td>Temple Guard</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <footer class="text-center mt-4">
-        <a href="../filtre-recherche/filtre-personnage.html">
-            <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px; height: auto;">
-        </a><br>
-        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top" class="btn btn-light mt-2">Top</button>
-    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

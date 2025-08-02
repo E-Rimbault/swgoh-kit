@@ -2,127 +2,268 @@
 <html lang="fr">
 
 <head>
+    <meta charset="utf-8">
     <title>Mercenaire</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
     <link rel="icon" type="image/png" href="../image/contrebandier.png">
-
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../style/styles.css">
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const cells = document.querySelectorAll('td');
-            let filledCount = 0;
-            let imageCount = 0;
+    <style>
+        body {
+            background-color: #031952;
+            color: #ffffff;
+        }
 
-            cells.forEach(cell => {
-                if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
-                    filledCount++;
-                    if (cell.querySelector('img')) {
-                        imageCount++;
-                    }
-                }
-            });
+        .unit-card {
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1rem;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            text-align: center;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-            const th = document.querySelector('thead th');
-            th.textContent += ` (${imageCount}/${filledCount})`;
-        });
-    </script>
+        .unit-card:hover {
+            transform: scale(1.03);
+            border-color: #0d6efd;
+        }
+
+        .unit-img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+        }
+
+        .unit-name {
+            font-size: 0.9em;
+            color: #000;
+            max-width: 120px;
+            word-wrap: break-word;
+        }
+
+        .flag-switcher {
+            display: flex;
+            justify-content: end;
+            gap: 10px;
+            margin: 1rem;
+        }
+
+        .flag-switcher img {
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
-<body class="faction bg-dark text-light">
-    <div class="container-fluid full-page">
-        <div class="table-responsive">
-            <table class="table table-bordered text-center table-dark align-middle">
-                <thead class="table-light text-dark">
-                    <tr>
-                        <th colspan="6">personnage avec le tag : Mercenaire</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Aurra Sing</td>
-                        <td>Baylan Skoll</td>
-                        <td>
-                            <a href="../html/Boba_son_of_jango.html">
-                                <img src="../image-perso/boba-scion-jango/boba-image.png" alt="Boba Fett, scion of Jango" class="img-fluid">
-                            </a><br>
-                            Boba Fett, Scion of Jango
-                        </td>
-                        <td>Cad Bane</td>
-                        <td>
-                            <a href="../html/canderous.html">
-                                <img src="../image-perso/canderous/canderous.png" alt="Canderous Ordo" class="img-fluid">
-                            </a><br>
-                            Canderous Ordo
-                        </td>
-                        <td>Cara Dune</td>
-                    </tr>
-                    <tr>
-                        <td>Dash Rendar</td>
-                        <td>Dengar</td>
-                        <td>Doctor Aphra</td>
-                        <td>Embo</td>
-                        <td>
-                            <a href="../html/fennec.html">
-                                <img src="../image-perso/fennec/fennec.png" alt="Fennec" class="img-fluid">
-                            </a><br>
-                            Fennec Shand
-                        </td>
-                        <td>Han Solo</td>
-                    </tr>
-                    <tr>
-                        <td>Hondo Ohnaka</td>
-                        <td>
-                            <a href="../html/jango_fett.html">
-                                <img src="../image-perso/jango-fett/jango.png" alt="Jango Fett" class="img-fluid">
-                            </a><br>
-                            Jango Fett
-                        </td>
-                        <td>Jedi Knight Cal Kestis</td>
-                        <td>Krssatan</td>
-                        <td>Kyle Katarn</td>
-                        <td>L3-37</td>
-                    </tr>
-                    <tr>
-                        <td>Marrok</td>
-                        <td>
-                            <a href="../html/mission_vao.html"><img src="../image-perso/mission/mission-image.png" alt="Mission Vao" class="img-fluid"></a>
-                            <br>
-                            Mission Vao
-                        </td>
-                        <td>Qi'ra</td>
-                        <td>Sana Starros</td>
-                        <td>
-                            <a href="../html/shin.html"><img src="../image-perso/shin/shin-image.png" alt="Shin" class="img-fluid"></a>
-                            <br>
-                            Shin Hati
-                        </td>
-                        <td>The Mandalorian (Beskar armor)</td>
-                    </tr>
-                    <tr>
-                        <td>Vandor Chewbacca</td>
-                        <td>Veteran Smuggler Han Solo</td>
-                        <td>Young Han Solo</td>
-                        <td>Young Lando Calrissian</td>
-                        <td>Zaalbar</td>
-                        <td>Zam Wesell</td>
-                    </tr>
-                </tbody>
-            </table>
+<body>
+
+    <div class="flag-switcher">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" onclick="switchLanguage('fr')">
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" onclick="switchLanguage('en')">
+    </div>
+
+    <div class="container text-center">
+        <h2 id="filter-title">Personnages avec le tag : Mercenaire</h2>
+        <div class="row justify-content-center g-4 mt-3">
+
+            <!-- Exemple d’unité sans image -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <div class="unit-name traduction" id="aurra">Aurra Sing</div>
+                </div>
+            </div>
+
+            <!-- Unité avec image et lien -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/Boba_son_of_jango.html">
+                        <img src="../image-perso/boba-scion-jango/boba-image.png" alt="Boba Fett, scion of Jango" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="boba">Boba Fett, Scion of Jango</div>
+                </div>
+            </div>
+
+            <!-- Tous les persos, même principe -->
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="baylan">Baylan Skoll</div></div></div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="cadbane">Cad Bane</div></div></div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/canderous.html">
+                        <img src="../image-perso/canderous/canderous.png" alt="Canderous Ordo" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="canderous">Canderous Ordo</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="caradune">Cara Dune</div></div></div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="dash">Dash Rendar</div></div></div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="dengar">Dengar</div></div></div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="aphra">Doctor Aphra</div></div></div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="embo">Embo</div></div></div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/fennec.html">
+                        <img src="../image-perso/fennec/fennec.png" alt="Fennec" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="fennec">Fennec Shand</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="han">Han Solo</div></div></div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="hondo">Hondo Ohnaka</div></div></div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/jango_fett.html">
+                        <img src="../image-perso/jango-fett/jango.png" alt="Jango Fett" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="jango">Jango Fett</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="cal">Jedi Knight Cal Kestis</div></div></div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="krssatan">Krssatan</div></div></div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="kyle">Kyle Katarn</div></div></div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="l3">L3-37</div></div></div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="marrok">Marrok</div></div></div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/mission_vao.html">
+                        <img src="../image-perso/mission/mission-image.png" alt="Mission Vao" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="mission">Mission Vao</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="qira">Qi'ra</div></div></div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="sana">Sana Starros</div></div></div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/shin.html">
+                        <img src="../image-perso/shin/shin-image.png" alt="Shin" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="shin">Shin Hati</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="mandalorian">The Mandalorian (Beskar armor)</div></div></div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="vandor">Vandor Chewbacca</div></div></div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="veteran">Veteran Smuggler Han Solo</div></div></div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="younghan">Young Han Solo</div></div></div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="younglando">Young Lando Calrissian</div></div></div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="zaalbar">Zaalbar</div></div></div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="zam">Zam Wesell</div></div></div>
+
         </div>
     </div>
 
-    <footer class="text-center mt-4">
+    <footer class="text-center mt-5">
         <a href="../filtre-recherche/filtre-personnage.html">
-            <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px; height: auto;">
+            <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px;">
         </a>
+        <br><br>
+        <button onclick="scrollToTop()" id="scrollBtn" class="btn btn-secondary mt-2">Top</button>
     </footer>
 
-    <!-- Bootstrap JS -->
+    <script>
+        const translations = {
+            en: {
+                "filter-title": "Characters with the tag: Mercenary",
+                "aurra": "Aurra Sing",
+                "baylan": "Baylan Skoll",
+                "boba": "Boba Fett, Scion of Jango",
+                "cadbane": "Cad Bane",
+                "canderous": "Canderous Ordo",
+                "caradune": "Cara Dune",
+                "dash": "Dash Rendar",
+                "dengar": "Dengar",
+                "aphra": "Doctor Aphra",
+                "embo": "Embo",
+                "fennec": "Fennec Shand",
+                "han": "Han Solo",
+                "hondo": "Hondo Ohnaka",
+                "jango": "Jango Fett",
+                "cal": "Jedi Knight Cal Kestis",
+                "krssatan": "Krssatan",
+                "kyle": "Kyle Katarn",
+                "l3": "L3-37",
+                "marrok": "Marrok",
+                "mission": "Mission Vao",
+                "qira": "Qi'ra",
+                "sana": "Sana Starros",
+                "shin": "Shin Hati",
+                "mandalorian": "The Mandalorian (Beskar armor)",
+                "vandor": "Vandor Chewbacca",
+                "veteran": "Veteran Smuggler Han Solo",
+                "younghan": "Young Han Solo",
+                "younglando": "Young Lando Calrissian",
+                "zaalbar": "Zaalbar",
+                "zam": "Zam Wesell"
+            },
+            fr: {
+                "filter-title": "Personnages avec le tag : Mercenaire",
+                "aurra": "Aurra Sing",
+                "baylan": "Baylan Skoll",
+                "boba": "Boba Fett, Scion of Jango",
+                "cadbane": "Cad Bane",
+                "canderous": "Canderous Ordo",
+                "caradune": "Cara Dune",
+                "dash": "Dash Rendar",
+                "dengar": "Dengar",
+                "aphra": "Doctor Aphra",
+                "embo": "Embo",
+                "fennec": "Fennec Shand",
+                "han": "Han Solo",
+                "hondo": "Hondo Ohnaka",
+                "jango": "Jango Fett",
+                "cal": "Jedi Knight Cal Kestis",
+                "krssatan": "Krssatan",
+                "kyle": "Kyle Katarn",
+                "l3": "L3-37",
+                "marrok": "Marrok",
+                "mission": "Mission Vao",
+                "qira": "Qi'ra",
+                "sana": "Sana Starros",
+                "shin": "Shin Hati",
+                "mandalorian": "The Mandalorian (Beskar armor)",
+                "vandor": "Vandor Chewbacca",
+                "veteran": "Veteran Smuggler Han Solo",
+                "younghan": "Young Han Solo",
+                "younglando": "Young Lando Calrissian",
+                "zaalbar": "Zaalbar",
+                "zam": "Zam Wesell"
+            }
+        };
+
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[id]');
+            elements.forEach(element => {
+                const key = element.id;
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
