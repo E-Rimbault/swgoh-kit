@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">General Grievous</title>
+
+    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+
+    <!-- Lien vers l'icône du site -->
+    <link rel="icon" type="image/png" href="../image-perso/grievous/grievous-image.png">
+
+    <!-- Lien vers la feuille de style -->
+    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/capacite.css">
+</head>
+
+<body class="simple">
+
+    <!-- Entête de la page -->
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/grievous/grievous-image.png" alt="grievous"
+                style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    onclick="switchLanguage('fr')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    onclick="switchLanguage('en')">
+            </div>
+            <h1 id="title"><u>General Grievous</u></h1>
+            <p id="description">
+                Aggressive Attacker that grows increasingly stronger as the Droids around him fall. Although he hates
+                being called a droid, he counts as one in combat.
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:red" href="../classement-perso/coté-obscur.html"
+                    id="darkside">Darkside</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="Attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/droïde.html" id="droid">Droïde</a>
+                <a class="capacite" href="../classement-perso/séparatiste.html" id="separatist">Séparatist</a>
+                <a class="capacite" href="../classement-perso/commandant-de-la-flotte.html" id="fleet">Fleet
+                    Commander</a>
+            </nav>
+        </div>
+    </header><br>
+
+    <!-- Image principale du personnage -->
+    <img class="first" src="../image-perso/grievous/grievous.png" alt="Grievous"><br>
+
+    <!-- Section pour les différentes attaques spéciales -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Furious Assault</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="grievous basic" src="../image-perso/grievous/grievous-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Healing Immunity for 2 turns. This attack can't be evaded or countered. If the target was already debuffed deal 30% more damage. Grievous' attacks deal damage based on his Max Health instead of his Physical damage.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack: Grievous Wounds (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="grievous spe 1" src="../image-perso/grievous/grievous-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies (based on Grievous' Max Health), inflict Target Lock for 2 turns, and remove 30% Turn Meter from them. This attack can't be evaded.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack: Skittering Horror (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="grievous spé 2" src="../image-perso/grievous/grievous-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Gain Health Steal Up for 2 turns, then deal Physical damage (based on Grievous' Max Health) to target enemy and Stun them for 1 turn. If the target was already debuffed they lose 10% of their Max Health (excludes raid bosses and Galactic Legends), which can't be resisted, and Grievous gains 10% Max Health for the rest of the encounter. This attack can't be evaded.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="lead-ability-title"><u>Leader Ability: Daunting Presence</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="grievous lead" src="../image-perso/grievous/grievous-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                All enemies have -40% Critical Avoidance and -50% Defense. Whenever a Dark Side Droid ally is resisted, that Droid gains 10% Potency (stacking) for the rest of the encounter. Target Locked enemies can't counter attack.<br><br>When a Target Locked enemy is damaged, each Droid and each Separatist ally gains 2% Turn Meter, doubled for Grievous. When damaged by an attack, Dark Side enemies lose 5% Turn Meter, and Light Side enemies lose 2% Potency (stacking).
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="unique-ability-title"><u>Unique Ability: Metalloid Monstrosity</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="grievous Unique" src="../image-perso/grievous/grievous-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                At the start of Grievous' turn, all other Droid allies take damage equal to 8% of his Max Health, doubled for Light Side Droids and he gains 5% Max Health and Potency for each other Droid ally for the rest of the encounter. This damage cannot defeat characters.<br><br>At the start of every character's turn, if Grievous is below 100% Health, he dispels all debuffs on himself and inflicts Marked on the other healthiest Droid ally until the end of the turn. Whenever a Droid or Separatist ally is defeated, Grievous dispels all debuffs on himself, resets all ability cooldowns, and gains 1 bonus turn.
+            </p>
+        </div>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+        <script>
+            const translations = {
+                en: {
+                    "big-title": "General Grievous",
+                    "title": "General Grievous",
+                    "description": "Aggressive Attacker that grows increasingly stronger as the Droids around him fall. Although he hates being called a droid, he counts as one in combat.",
+                    "darkside": "Darkside",
+                    "Attacker": "Attacker",
+                    "leader": "Leader",
+                    "droid": "Droid",
+                    "separatist": "Separatist",
+                    "fleet": "Fleet Commander",
+                    "basic-attack-title": "<u>Basic Attack: Furious Assault</u>",
+                    "basic-attack": "Deal Physical damage to target enemy and inflict Healing Immunity for 2 turns. This attack can't be evaded or countered. If the target was already debuffed deal 30% more damage. Grievous' attacks deal damage based on his Max Health instead of his Physical damage.",
+                    "special-attack1-title": "<u>Special Attack: Grievous Wounds (coolsdown: 4)</u>",
+                    "special-attack1": "Deal Physical damage to all enemies (based on Grievous' Max Health), inflict Target Lock for 2 turns, and remove 30% Turn Meter from them. This attack can't be evaded.",
+                    "special-attack2-title": "<u>Special Attack: Skittering Horror (cooldown: 3)</u>",
+                    "special-attack2": "Gain Health Steal Up for 2 turns, then deal Physical damage (based on Grievous' Max Health) to target enemy and Stun them for 1 turn. If the target was already debuffed they lose 10% of their Max Health (excludes raid bosses and Galactic Legends), which can't be resisted, and Grievous gains 10% Max Health for the rest of the encounter. This attack can't be evaded.",
+                    "lead-ability-title": "<u>Leader Ability: Daunting Presence</u>",
+                    "lead-ability": "All enemies have -40% Critical Avoidance and -50% Defense. Whenever a Dark Side Droid ally is resisted, that Droid gains 10% Potency (stacking) for the rest of the encounter. Target Locked enemies can't counter attack.\n\nWhen a Target Locked enemy is damaged, each Droid and each Separatist ally gains 2% Turn Meter, doubled for Grievous. When damaged by an attack, Dark Side enemies lose 5% Turn Meter, and Light Side enemies lose 2% Potency (stacking).",
+                    "unique-ability-title": "<u>Unique Ability: Metalloid Monstrosity</u>",
+                    "unique-ability": "At the start of Grievous' turn, all other Droid allies take damage equal to 8% of his Max Health, doubled for Light Side Droids and he gains 5% Max Health and Potency for each other Droid ally for the rest of the encounter. This damage cannot defeat characters.\n\nAt the start of every character's turn, if Grievous is below 100% Health, he dispels all debuffs on himself and inflicts Marked on the other healthiest Droid ally until the end of the turn. Whenever a Droid or Separatist ally is defeated, Grievous dispels all debuffs on himself, resets all ability cooldowns, and gains 1 bonus turn."
+
+                },
+                fr: {
+                    "big-title": "Général Grievous",
+                    "title": "Général Grievous",
+                    "description": "Attaquant agressif qui gagne en puissance à mesure que les droïdes autour de lui sont vaincus. Même s'il déteste qu'on l'appelle droïde, il est considéré comme tel en combat.",
+                    "darkside": "Côté Obscur",
+                    "Attacker": "Attaquant",
+                    "leader": "Chef",
+                    "droid": "Droïde",
+                    "separatist": "Séparatiste",
+                    "fleet": "Commandant de la flotte",
+                    "basic-attack-title": "<u>Attaque Basique : Assaut Furieux</u>",   
+                    "basic-attack": "Inflige des dégâts physiques à une cible ennemie, ainsi que l'immunité aux soins pendant 2 tours. Cette attaque ne peut pas être esquivée ou contrée. Si la cible subit déjà affaiblie, inflige 30% de dégâts supplémentaires. Les attaques de Grievous infligent des dégâts en fonction de sa Santé maximale plutôt que de ses dégâts physiques.",
+                    "special-attack1-title": "<u>Attaque Spéciale : Blessures de Grievous (temps de recharge : 4)</u>",
+                    "special-attack1": "Inflige des dégâts physiques à tous les ennemis (en fonction de la Santé maximale de Grievous), inflige le Verrouillage pendant 2 tours et diminue leur jauge de tour de 30%. Cette attaque ne peut pas être esquivée.",
+                    "special-attack2-title": "<u>Attaque Spéciale : Horreur Rampante (temps de recharge : 3)</u>",
+                    "special-attack2": "Gagne un bonus de vol de santé pendant 2 tours, puis inflige des dégâts physiques (en fonction de la Santé maximale de Grievous) à une cible ennemie et l'Étourdit pendant 1 tour. Si la cible subit déjà affaiblissement, sa Santé maximale diminue de 10% (ne peut pas être resisté), sauf s'il s'agit d'un boss de raid ou d'une Légende Galactique. Grievous gagne 10% de sa Santé maximale jusqu'à la fin de l'affrontement. Cette attaque ne peut pas être esquivée.",
+                    "lead-ability-title": "<u>Capacité de Chef : Présence Intimidante</u>",
+                    "lead-ability": "Tous les ennemis ont -40% d'esquive des Critiques et -50% de Défense. Lorsqu'un ennemi résiste à l'attaque d'un allié Droïde du Coté Obscur, ce droïde obtient 10% de pouvoir (cumulable) jusqu'à la fin de l'affrontement. Les ennemis Verrouillés ne peuvent pas contre-attaquer.\n\nLorsqu'un ennemi Verrouillé subit des dégâts, la jauge de tour de chaque allié Droïde et Séparatiste se remplit de 2% (doublé pour Grievous). Lorsqu'ils subissent des dégâts, la jauge de tour des ennemis du Coté Obscur diminuent de 5%, et les ennemis du Côté Lumineux perdent 2% de Pouvoir (cumulable).",
+                    "unique-ability-title": "<u>Capacité Unique : Monstruosité Métallique</u>",
+                    "unique-ability": "Au début du tour de Grievous, tous les autres alliés Droïdes subissent des dégâts à hauteur de 8% de sa Santé maximale (doublé pour les Droïdes du Côté Lumineux), et il obtient 5% de Santé maximale et de Pouvoir pour chaque allié Droïde présent jusqu'à la fin de l'affrontement. Ces dégâts ne peuvent pas éliminer les personnages.\n\nAu début du tour de chaque personnage, si Grievous possède moins de 100% de sa Santé, il dissipe tous les affaiblissements et Marque l'allié Droïde à la santé la plus élévée jusqu'à la fin du tour. Lorsqu'un allié Droïde ou Séparatiste est vaincu, Grievous dissipe tous ses affaiblissements, réinitialise le délai de toutes les capacités et bénéficie d'un tour bonus."
+               }
+            };
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\n/g, '<br><br>');
+            }
+
+            function switchLanguage(lang) {
+                for (const [key, text] of Object.entries(translations[lang])) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        // Convert \n\n to <br><br> before injecting
+                        element.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                }
+            }
+
+            window.onload = () => switchLanguage('en');
+        </script>
+
+    </footer>
+</body>
+
+</html>
