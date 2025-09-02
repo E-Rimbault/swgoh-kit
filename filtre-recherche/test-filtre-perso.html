@@ -57,7 +57,7 @@
         document.getElementById("results").innerHTML = "<p>Error loading characters</p>";
       });
 
-    // Generate faction checkboxes
+    // Generate faction checkboxes dynamically
     function generateFactionFilters() {
       const container = document.getElementById("faction-filters");
       const factionsSet = new Set();
@@ -74,7 +74,7 @@
 
     // Apply filters
     function applyFilters() {
-      const selectedFactions = Array.from(document.querySelectorAll(".filter:checked")).map(cb => cb.value);
+      const selectedFactions = Array.from(document.querySelectorAll(".filter:checked")).map(cb => cb.value.toLowerCase());
       const selectedRole = document.getElementById("role-filter").value.toLowerCase();
 
       const filtered = characters.filter(c => {
@@ -92,12 +92,12 @@
       container.innerHTML = list.length
         ? list.map(c => `
           <div class="card text-center bg-dark text-white p-2">
-            <img src="${c.image}" class="card-img-top" alt="${c.name}">
+            <img src="${c.image}" class="card-img-top" alt="${c.name}" style="height:180px; object-fit:cover;">
             <div class="card-body">
               <h5 class="card-title">${c.name}</h5>
               <p>Role: ${c.role}</p>
               <p>Factions: ${c.factions.join(", ")}</p>
-              <a href="${c.page}" class="btn btn-primary">Details</a>
+              <a href="${c.page}" target="_blank" class="btn btn-primary">Details</a>
             </div>
           </div>
         `).join("")
