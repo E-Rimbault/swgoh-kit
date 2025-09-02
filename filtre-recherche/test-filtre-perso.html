@@ -33,6 +33,14 @@
       <option value="healer">healer</option>
       <option value="tank">tank</option>
     </select>
+
+    <h5 class="mt-3">Alignment</h5>
+    <select id="alignment-filter" class="form-select">
+      <option value="">-- alignment --</option>
+      <option value="light">light</option>
+      <option value="dark">dark</option>
+      <option value="neutral">neutral</option>
+    </select>
   </div>
 
   <!-- Results -->
@@ -44,7 +52,6 @@
   <script>
     let characters = [];
 
-    // Load JSON
     fetch("units.json")
       .then(res => res.json())
       .then(data => {
@@ -57,7 +64,6 @@
         document.getElementById("results").innerHTML = "<p>Error loading characters</p>";
       });
 
-    // Generate faction checkboxes dynamically
     function generateFactionFilters() {
       const container = document.getElementById("faction-filters");
       const factionsSet = new Set();
@@ -72,21 +78,21 @@
       document.querySelectorAll(".filter").forEach(cb => cb.addEventListener("change", applyFilters));
     }
 
-    // Apply filters
     function applyFilters() {
       const selectedFactions = Array.from(document.querySelectorAll(".filter:checked")).map(cb => cb.value.toLowerCase());
       const selectedRole = document.getElementById("role-filter").value.toLowerCase();
+      const selectedAlignment = document.getElementById("alignment-filter").value.toLowerCase();
 
       const filtered = characters.filter(c => {
         const matchFactions = selectedFactions.length === 0 || selectedFactions.every(f => c.factions.map(x => x.toLowerCase()).includes(f));
         const matchRole = !selectedRole || c.role.toLowerCase() === selectedRole;
-        return matchFactions && matchRole;
+        const matchAlignment = !selectedAlignment || c.alignment.toLowerCase() === selectedAlignment;
+        return matchFactions && matchRole && matchAlignment;
       });
 
       renderCharacters(filtered);
     }
 
-    // Render characters
     function renderCharacters(list) {
       const container = document.getElementById("results");
       container.innerHTML = list.length
@@ -97,6 +103,7 @@
               <h5 class="card-title">${c.name}</h5>
               <p>Role: ${c.role}</p>
               <p>Factions: ${c.factions.join(", ")}</p>
+              <p>Alignment: ${c.alignment}</p>
               <a href="${c.page}" target="_blank" class="btn btn-primary">Details</a>
             </div>
           </div>
@@ -105,6 +112,7 @@
     }
 
     document.getElementById("role-filter").addEventListener("change", applyFilters);
+    document.getElementById("alignment-filter").addEventListener("change", applyFilters);
   </script>
 
 </body>
