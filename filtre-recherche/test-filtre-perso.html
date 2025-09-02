@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>SWGOH Character Filter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body { background-color: #000; color: white; }
+    .filter-box { background: #222; padding: 10px; border-radius: 10px; margin-bottom: 20px; }
+    #results { display: flex; flex-wrap: wrap; gap: 10px; }
+    .card { width: 200px; }
+    #filter-title { font-size: 1.5rem; text-align: center; margin-bottom: 20px; }
+  </style>
+</head>
+
+<body class="container py-4">
+
+  <div id="filter-title">Character Filter</div>
+
+  <!-- Filters -->
+  <div class="filter-box">
+    <h5>Factions</h5>
+    <div class="category-grid" id="faction-filters"></div>
+
+    <h5 class="mt-3">Role</h5>
+    <select id="role-filter" class="form-select">
+      <option value="">-- role --</option>
+      <option value="attacker">attacker</option>
+      <option value="support">support</option>
+      <option value="healer">healer</option>
+      <option value="tank">tank</option>
+    </select>
+  </div>
+
+  <!-- Results -->
+  <div class="mt-4">
+    <h4>Results:</h4>
+    <div id="results"></div>
+  </div>
+
+  <script>
+    let characters = [];
+
+    // Load JSON
+    fetch("units.json")
+      .then(res => res.json())
+      .then(data => {
+        characters = data;
+        generateFactionFilters();
+        applyFilters();
+      })
+      .catch(err => {
+        console.error("Error loading JSON:", err);
+        document.getElementById("results").innerHTML = "<p>Error loading characters</p>";
+      });
+
+    // Generate faction checkboxes
+    function generateFactionFilters() {
+      const container = document.getElementById("faction-filters");
+      const factionsSet = new Set();
+      characters.forEach(c => c.factions.forEach(f => factionsSet.add(f.toLowerCase())));
+
+      factionsSet.forEach(f => {
+        const label = document.createElement("label");
+        label.innerHTML = `<input type="checkbox" class="filter" value="${f}"> ${f}`;
+        container.appendChild(label);
+      });
+
+      document.querySelectorAll(".filter").forEach(cb => cb.addEventListener("change", applyFilters));
+    }
+
+    // Apply filters
+    function applyFilters() {
+      const selectedFactions = Array.from(document.querySelectorAll(".filter:checked")).map(cb => cb.value);
+      const selectedRole = document.getElementById("role-filter").value.toLowerCase();
+
+      const filtered = characters.filter(c => {
+        const matchFactions = selectedFactions.length === 0 || selectedFactions.every(f => c.factions.map(x => x.toLowerCase()).includes(f));
+        const matchRole = !selectedRole || c.role.toLowerCase() === selectedRole;
+        return matchFactions && matchRole;
+      });
+
+      renderCharacters(filtered);
+    }
+
+    // Render characters
+    function renderCharacters(list) {
+      const container = document.getElementById("results");
+      container.innerHTML = list.length
+        ? list.map(c => `
+          <div class="card text-center bg-dark text-white p-2">
+            <img src="${c.image}" class="card-img-top" alt="${c.name}">
+            <div class="card-body">
+              <h5 class="card-title">${c.name}</h5>
+              <p>Role: ${c.role}</p>
+              <p>Factions: ${c.factions.join(", ")}</p>
+              <a href="${c.page}" class="btn btn-primary">Details</a>
+            </div>
+          </div>
+        `).join("")
+        : "<p>No characters found</p>";
+    }
+
+    document.getElementById("role-filter").addEventListener("change", applyFilters);
+  </script>
+
+</body>
+</html>
