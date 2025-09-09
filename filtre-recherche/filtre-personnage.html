@@ -1,268 +1,385 @@
+
 <!DOCTYPE HTML>
-<html lang="fr">
+<html lang="en">
 
 <head>
-    <title>faction personnages</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="author" content="Rimbault Enzo">
+  <meta charset="utf-8">
+  <title>SWGOH Character Filter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="../image/logo_star_wars.png">
+  <style>
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+      display: none;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      transition: background 0.3s;
+    }
 
-    <style>
-        body.simple {
-            background-color: #000;
-        }
+    #scrollTopBtn:hover {
+      background-color: #0056b3;
+    }
 
-        .language-switcher img {
-            width: 40px;
-            height: 30px;
-            margin: 0 5px;
-            cursor: pointer;
-        }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: white;
+      margin: 0;
+    }
 
-        .category-link {
-            display: block;
-            padding: 10px;
-            margin: 5px;
-            border-radius: 5px;
-            text-align: center;
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
-        }
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 400px;
+      background: #1b1b1b;
+      padding: 20px;
+      overflow-y: auto;
+      border-right: 2px solid #333;
+    }
 
-        .bg-custom {
-            background-color: pink;
-        }
+    #content {
+      margin-left: 500px;
+      padding: 20px;
+    }
 
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 10px;
-        }
+    #filter-title {
+      font-size: 1.6rem;
+      text-align: center;
+      margin-bottom: 25px;
+      font-weight: bold;
+    }
 
-        #filter-title {
-            color: white;
-            font-size: 1.5rem;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-    </style>
+    .filter-box {
+      background: #222;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+    }
+
+    .filter-box h5 {
+      margin-bottom: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #ddd;
+      border-bottom: 1px solid #444;
+      padding-bottom: 5px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .category-grid label {
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+      background: #1a1a1a;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .category-grid input {
+      margin-right: 6px;
+    }
+
+    #results {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: flex-start;
+    }
+
+    .card {
+      width: 220px;
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      overflow: hidden;
+      text-align: center;
+      color: #f1f1f1;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 60%;
+      height: auto;
+      margin: 10px auto;
+      display: block;
+      border-bottom: 1px solid #333;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 12px;
+    }
+
+    .card-body h5 {
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    .btn-primary {
+      margin-top: 8px;
+      width: 100%;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
-<body class="simple container py-4">
+<body>
+  <!-- Sidebar (Filtres) -->
+  <div id="sidebar">
+    <div id="filter-title">Character Filter</div>
 
-    <!-- Language Switcher -->
-    <div class="language-switcher text-center mb-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-            onclick="switchLanguage('fr')">
-        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-            onclick="switchLanguage('en')">
+    <div class="filter-box">
+      <h5>Factions</h5>
+      <div class="category-grid" id="faction-filters"></div>
     </div>
 
-    <div id="filter-title">filtre personnage</div>
-
-    <!-- Grid Container -->
-    <div class="category-grid">
-
-        <!-- Filtres principaux -->
-        <a href="../classement-perso/coté-lumineux.html" class="category-link bg-primary" id="light-side">coté lumineux</a>
-        <a href="../classement-perso/coté-obscur.html" class="category-link bg-danger" id="dark-side">coté obscur</a>
-        <a href="../classement-perso/coté-neutre.html" class="category-link" style="background-color: violet;" id="neutral">neutre</a>
-        <a href="../classement-perso/legendes-galactiques.html" class="category-link" style="background-color: goldenrod;" id="galactic-legends">légendes galactiques</a>
-
-        <!-- Rôles -->
-        <a href="../classement-perso/membres-équipages.html" class="category-link bg-secondary" id="crew-members">membre équipage</a>
-        <a href="../classement-perso/chef.html" class="category-link bg-secondary" id="leader">chef</a>
-        <a href="../classement-perso/attaquant.html" class="category-link bg-info" id="attacker">attaquant</a>
-        <a href="../classement-perso/soutien.html" class="category-link bg-info" id="support">support</a>
-        <a href="../classement-perso/soigneur.html" class="category-link bg-info" id="healer">soigneur</a>
-        <a href="../classement-perso/tank.html" class="category-link bg-info" id="tank">tank</a>
-
-        <!-- Factions -->
-        <a href="../classement-perso/501E.html" class="category-link bg-custom" id="501E">501E</a>
-        <a href="../classement-perso/ancienne-république.html" class="category-link bg-custom" id="old-republic">ancienne république</a>
-        <a href="../classement-perso/bad-batch.html" class="category-link bg-custom" id="bad-batch">bad batch</a>
-        <a href="../classement-perso/cartell-des-hutt.html" class="category-link bg-custom" id="hutt-cartel">cartell des hutt</a>
-        <a href="../classement-perso/chasseur-de-primes.html" class="category-link bg-custom" id="bounty-hunter">chasseur de primes</a>
-        <a href="../classement-perso/combattant-rebelle.html" class="category-link bg-custom" id="rebel-fighter">combattant rebelle</a>
-        <a href="../classement-perso/commandant-de-la-flotte.html" class="category-link bg-custom" id="fleet-commander">commandant de la flotte</a>
-        <a href="../classement-perso/contrebandier.html" class="category-link bg-custom" id="smuggler">contrebandier</a>
-        <a href="../classement-perso/droïde.html" class="category-link bg-custom" id="droid">droïde</a>
-        <a href="../classement-perso/empire.html" class="category-link bg-custom" id="empire">empire</a>
-        <a href="../classement-perso/empire-sith.html" class="category-link bg-custom" id="sith-empire">empire sith</a>
-        <a href="../classement-perso/ewok.html" class="category-link bg-custom" id="ewok">ewok</a>
-        <a href="../classement-perso/géonosien.html" class="category-link bg-custom" id="geonosian">géonosien</a>
-        <a href="../classement-perso/gungan.html" class="category-link bg-custom" id="gungan">gungan</a>
-        <a href="../classement-perso/inquisitorious.html" class="category-link bg-custom" id="inquisitorious">inquisitorious</a>
-        <a href="../classement-perso/jawa.html" class="category-link bg-custom" id="jawa">jawa</a>
-        <a href="../classement-perso/jedi.html" class="category-link bg-custom" id="jedi">jedi</a>
-        <a href="../classement-perso/vanguard.html" class="category-link bg-custom" id="jedi-vanguard">Jedi Vanguard</a>
-        <a href="../classement-perso/mandalorien.html" class="category-link bg-custom" id="mandalorian">mandalorien</a>
-        <a href="../classement-perso/mercenaire.html" class="category-link bg-custom" id="mercenary">mercenaire</a>
-        <a href="../classement-perso/pirate.html" class="category-link bg-custom" id="pirate">pirate</a>
-        <a href="../classement-perso/phoenix.html" class="category-link bg-custom" id="phoenix">phoenix</a>
-        <a href="../classement-perso/premier-odre.html" class="category-link bg-custom" id="first-order">premier ordre</a>
-        <a href="../classement-perso/rebelle.html" class="category-link bg-custom" id="rebel">rebelle</a>
-        <a href="../classement-perso/république-galactique.html" class="category-link bg-custom" id="galactic-republic">république galactique</a>
-        <a href="../classement-perso/résistance.html" class="category-link bg-custom" id="resistance">résistance</a>
-        <a href="../classement-perso/rogue-one.html" class="category-link bg-custom" id="rogue-one">rogue one</a>
-        <a href="../classement-perso/séparatiste.html" class="category-link bg-custom" id="separatist">séparatiste</a>
-        <a href="../classement-perso/sith.html" class="category-link bg-custom" id="sith">sith</a>
-        <a href="../classement-perso/soeur-de-la-nuit.html" class="category-link bg-custom" id="night-sister">soeur de la nuit</a>
-        <a href="../classement-perso/soldat-clone.html" class="category-link bg-custom" id="clone-soldier">soldat clone</a>
-        <a href="../classement-perso/soldat-de-lempire.html" class="category-link bg-custom" id="empire-soldier">soldat de l'empire</a>
-        <a href="../classement-perso/spectre.html" class="category-link bg-custom" id="spectre">spectre</a>
-        <a href="../classement-perso/tusken.html" class="category-link bg-custom" id="tusken">tusken</a>
-        <a href="../classement-perso/utilisateur-de-la-force-non-aligné.html" class="category-link bg-custom" id="neutral-force-user">utilisateur de la force non aligné</a>
-        <a href="../classement-perso/vaurien.html" class="category-link bg-custom" id="scoundrel">vaurien</a>
-        <a href="../classement-perso/vestige-de-l'empire.html" class="category-link bg-custom" id="empire-legacy">vestige de l'empire</a>
-        <a href="../classement-perso/wookie.html" class="category-link bg-custom" id="wookiee">wookie</a>
-        <!-- Accueil -->
-        <a href="../index.html" class="category-link bg-white" id="home">Accueil</a>
+    <div class="filter-box">
+      <h5>Role & Alignment</h5>
+      <div class="mb-2">
+        <select id="role-filter" class="form-select">
+          <option value="">-- role --</option>
+          <option value="attacker">attacker</option>
+          <option value="support">support</option>
+          <option value="healer">healer</option>
+          <option value="tank">tank</option>
+        </select>
+      </div>
+      <div>
+        <select id="alignment-filter" class="form-select">
+          <option value="">-- alignment --</option>
+          <option value="light">lightside</option>
+          <option value="dark">darkside</option>
+          <option value="neutral">neutral</option>
+        </select>
+      </div>
     </div>
-        <!-- Script de traduction -->
-        <script>
-                // Objet contenant les traductions
-                const translations = {
-                        en: {
-                                "filter-title": "Filter Character Categories",
-                                "light-side": "Light Side",
-                                "dark-side": "Dark Side",
-                                "neutral": "Neutral",
-                                "galactic-legends": "Galactic Legends",
-                                "crew-members": "Crew Members",
-                                "leader": "Leader",
-                                "attacker": "Attacker",
-                                "support": "Support",
-                                "healer": "Healer",
-                                "tank": "Tank",
-                                "501E": "501st Legion",
-                                "old-republic": "Old Republic",
-                                "bad-batch": "Bad Batch",
-                                "hutt-cartel": "Hutt Cartel",
-                                "bounty-hunter": "Bounty Hunter",
-                                "rebel-fighter": "Rebel Fighter",
-                                "fleet-commander": "Fleet Commander",
-                                "smuggler": "Smuggler",
-                                "droid": "Droid",
-                                "empire": "Empire",
-                                "sith-empire": "Sith Empire",
-                                "ewok": "Ewok",
-                                "geonosian": "Geonosian",
-                                "gungan": "Gungan",
-                                "inquisitorious": "Inquisitorious",
-                                "jawa": "Jawa",
-                                "jedi": "Jedi",
-                                "jedi-vanguard": "Jedi Vanguard",
-                                "mandalorian": "Mandalorian",
-                                "mercenary": "Mercenary",
-                                "phoenix": "Phoenix",
-                                "first-order": "First Order",
-                                "rebel": "Rebel",
-                                "galactic-republic": "Galactic Republic",
-                                "resistance": "Resistance",
-                                "rogue-one": "Rogue One",
-                                "separatist": "Separatist",
-                                "sith": "Sith",
-                                "night-sister": "Night Sister",
-                                "clone-soldier": "Clone Trooper",
-                                "empire-soldier": "Imperial Trooper",
-                                "spectre": "Spectre",
-                                "tusken": "Tusken",
-                                "neutral-force-user": "Unaligned Force User",
-                                "scoundrel": "Scoundrel",
-                                "empire-legacy": "Imperial Remnant",
-                                "wookiee": "Wookiee",
-                                "search": "Character Search",
-                                "home": "Home",
-                                "character": "Character",
-                                "pirate": "Pirate",
-                        },
-                        fr: {
-                                "filter-title": "Filtre des catégories de personnages",
-                                "light-side": "Côté Lumineux",
-                                "dark-side": "Côté Obscur",
-                                "neutral": "Neutre",
-                                "galactic-legends": "Légendes Galactiques",
-                                "crew-members": "Membres de l'équipage",
-                                "leader": "Chef",
-                                "attacker": "Attaquant",
-                                "support": "Soutien",
-                                "healer": "Soigneur",
-                                "tank": "Tank",
-                                "501E": "501E",
-                                "old-republic": "Ancienne République",
-                                "bad-batch": "Bad Batch",
-                                "hutt-cartel": "Cartel des Hutt",
-                                "bounty-hunter": "Chasseur de primes",
-                                "rebel-fighter": "Combattant Rebelle",
-                                "fleet-commander": "Commandant de la flotte",
-                                "smuggler": "Contrebandier",
-                                "droid": "Droïde",
-                                "empire": "Empire",
-                                "sith-empire": "Empire Sith",
-                                "ewok": "Ewok",
-                                "geonosian": "Géonosien",
-                                "gungan": "Gungan",
-                                "inquisitorious": "Inquisiteurs",
-                                "jawa": "Jawa",
-                                "jedi": "Jedi",
-                                "jedi-vanguard": "Avant-garde Jedi",
-                                "mandalorian": "Mandalorien",
-                                "mercenary": "Mercenaire",
-                                "phoenix": "Phoenix",
-                                "first-order": "Premier Ordre",
-                                "rebel": "Rebelle",
-                                "galactic-republic": "République Galactique",
-                                "resistance": "Résistance",
-                                "rogue-one": "Rogue One",
-                                "separatist": "Séparatiste",
-                                "sith": "Sith",
-                                "night-sister": "Sœur de la nuit",
-                                "clone-soldier": "Soldat Clone",
-                                "empire-soldier": "Soldat de l'Empire",
-                                "spectre": "Spectre",
-                                "tusken": "Tusken",
-                                "neutral-force-user": "Utilisateur de la Force Non Aligné",
-                                "scoundrel": "Vaurien",
-                                "empire-legacy": "Vestige de l'Empire",
-                                "wookiee": "Wookiee",
-                                "search": "Recherche de personnage",
-                                "home": "Accueil",
-                                "character": "Personnage",
-                                "pirate": "Pirate",
-                        }
-                };
 
-                // Fonction de changement de langue
-                function switchLanguage(lang) {
-                        localStorage.setItem('selectedLanguage', lang); // Sauvegarde la langue sélectionnée
+    <div class="filter-box">
+      <h5>Search</h5>
+      <input type="text" id="search-bar" class="form-control mb-2" placeholder="Search character...">
 
-                        const elements = document.querySelectorAll('[id]'); // Sélectionne tous les éléments ayant un id
+      <div class="input-group mb-2">
+        <input type="text" id="tag-input" class="form-control" placeholder="Add a tag..." list="tag-suggestions">
+        <button id="add-tag-btn" class="btn btn-secondary">Add</button>
+      </div>
+      <datalist id="tag-suggestions"></datalist>
 
-                        elements.forEach(element => {
-                                const translationKey = element.id;
-                                if (translations[lang] && translations[lang][translationKey]) {
-                                        element.innerText = translations[lang][translationKey]; // Met à jour le texte
-                                }
-                        });
-                }
+      <button id="reset-filters" class="btn btn-danger w-100">Reset Filters</button>
+    </div>
 
-                // Appliquer la langue sélectionnée au chargement de la page
-                window.onload = function () {
-                        if (!localStorage.getItem('selectedLanguage')) {
-                                localStorage.setItem('selectedLanguage', 'en'); // Définir l'anglais si aucune langue enregistrée
-                        }
-                        const savedLanguage = localStorage.getItem('selectedLanguage');
-                        console.log("Langue détectée :", savedLanguage);
-                        switchLanguage(savedLanguage);
-                };
-                window.onload = () => switchLanguage('en');
-        </script>
+    <button id="scrollTopBtn" title="Back to top">↑</button>
+  </div> <!-- ✅ Fermeture sidebar ici -->
+
+  <!-- Main content (Résultats) -->
+  <div id="content">
+    <h4>Results:</h4>
+    <div id="active-filters" class="mb-3"></div>
+    <div id="results"></div>
+  </div>
+
+  <script>
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.addEventListener("scroll", () => {
+      if (document.documentElement.scrollTop > 200) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    });
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    let characters = [];
+    let customTags = [];
+
+    fetch("units.json")
+      .then(res => res.json())
+      .then(data => {
+        characters = data;
+        generateFactionFilters();
+        updateTagSuggestions();
+        applyFilters();
+      })
+      .catch(err => {
+        console.error("Error loading JSON:", err);
+        document.getElementById("results").innerHTML = "<p>Error loading characters</p>";
+      });
+
+    function generateFactionFilters() {
+      const container = document.getElementById("faction-filters");
+      const factionsSet = new Set();
+      characters.forEach(c => (c.factions || []).forEach(f => factionsSet.add(f.toLowerCase())));
+      const factionsArray = Array.from(factionsSet).sort((a, b) => a.localeCompare(b));
+
+      factionsArray.forEach(f => {
+        const label = document.createElement("label");
+        label.innerHTML = `<input type="checkbox" class="filter" value="${f}"> ${f}`;
+        container.appendChild(label);
+      });
+
+      document.querySelectorAll(".filter").forEach(cb => cb.addEventListener("change", applyFilters));
+    }
+
+    function updateTagSuggestions() {
+      const datalist = document.getElementById("tag-suggestions");
+      datalist.innerHTML = "";
+      const factions = new Set();
+      characters.forEach(c => (c.factions || []).forEach(f => factions.add(f)));
+      const roles = ["attacker", "support", "healer", "tank"];
+      const alignments = ["light", "dark", "neutral"];
+      const allTags = [...factions].map(f => f.toLowerCase()).concat(roles, alignments);
+      allTags.sort().forEach(tag => {
+        const option = document.createElement("option");
+        option.value = tag;
+        datalist.appendChild(option);
+      });
+    }
+
+    function normalizeAlignment(a) {
+      if (!a) return "";
+      const t = String(a).trim().toLowerCase().replace(/[\s_-]/g, "");
+      if (t.startsWith("light")) return "light";
+      if (t.startsWith("dark")) return "dark";
+      if (t.startsWith("neutral") || t.startsWith("unaligned")) return "neutral";
+      return t;
+    }
+
+    function applyFilters() {
+      const selectedFactions = Array.from(document.querySelectorAll(".filter:checked")).map(cb => cb.value.toLowerCase());
+      const selectedRole = document.getElementById("role-filter").value.toLowerCase();
+      const selectedAlignment = normalizeAlignment(document.getElementById("alignment-filter").value);
+      const searchQuery = document.getElementById("search-bar").value.trim().toLowerCase();
+
+      const filtered = characters.filter(c => {
+        const matchFactions = selectedFactions.length === 0 || selectedFactions.every(f => (c.factions || []).map(x => x.toLowerCase()).includes(f));
+        const matchRole = !selectedRole || (c.role && c.role.toLowerCase() === selectedRole);
+        const matchAlignment = !selectedAlignment || normalizeAlignment(c.alignment) === selectedAlignment;
+        const matchSearch = !searchQuery || c.name.toLowerCase().includes(searchQuery);
+        const matchCustomTags = customTags.length === 0 || customTags.every(tag =>
+          c.name.toLowerCase().includes(tag) ||
+          c.role?.toLowerCase().includes(tag) ||
+          normalizeAlignment(c.alignment) === tag ||
+          (c.factions || []).some(f => f.toLowerCase().includes(tag))
+        );
+        return matchFactions && matchRole && matchAlignment && matchSearch && matchCustomTags;
+      });
+
+      renderActiveFilters(selectedFactions, selectedRole, selectedAlignment, searchQuery, customTags);
+      renderCharacters(filtered);
+    }
+
+    function renderCharacters(list) {
+      const container = document.getElementById("results");
+      container.innerHTML = list.length
+        ? list.map(c => `
+        <div class="card">
+          <img src="${c.image}" alt="${c.name}">
+          <div class="card-body">
+            <h5>${c.name}</h5>
+            <p><strong>Role:</strong> ${c.role || ""}</p>
+            <p><strong>Factions:</strong> ${(c.factions || []).join(", ")}</p>
+            <p><strong>Alignment:</strong> ${c.alignment || ""}</p>
+            <a href="${c.page}" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+      `).join("")
+        : "<p>No characters found</p>";
+    }
+
+    function renderActiveFilters(selectedFactions, selectedRole, selectedAlignment, searchQuery, customTags) {
+      const container = document.getElementById("active-filters");
+      container.innerHTML = "";
+      let filters = [];
+      selectedFactions.forEach(f => filters.push({ type: "faction", value: f }));
+      if (selectedRole) filters.push({ type: "role", value: selectedRole });
+      if (selectedAlignment) filters.push({ type: "alignment", value: selectedAlignment });
+      if (searchQuery) filters.push({ type: "search", value: searchQuery });
+      customTags.forEach(tag => filters.push({ type: "custom", value: tag }));
+      if (filters.length === 0) return;
+      const phrase = document.createElement("p");
+      phrase.innerHTML = `Characters with the tag(s): `;
+      container.appendChild(phrase);
+      filters.forEach(f => {
+        const badge = document.createElement("span");
+        badge.className = "badge bg-primary me-2";
+        badge.style.cursor = "pointer";
+        badge.textContent = f.value;
+        badge.addEventListener("click", () => {
+          if (f.type === "faction") {
+            document.querySelector(`.filter[value="${f.value}"]`).checked = false;
+          } else if (f.type === "role") {
+            document.getElementById("role-filter").value = "";
+          } else if (f.type === "alignment") {
+            document.getElementById("alignment-filter").value = "";
+          } else if (f.type === "search") {
+            document.getElementById("search-bar").value = "";
+          } else if (f.type === "custom") {
+            customTags = customTags.filter(tag => tag !== f.value);
+          }
+          applyFilters();
+        });
+        container.appendChild(badge);
+      });
+    }
+
+    document.getElementById("add-tag-btn").addEventListener("click", () => {
+      const input = document.getElementById("tag-input");
+      const tag = input.value.trim().toLowerCase();
+      if (tag && !customTags.includes(tag)) {
+        customTags.push(tag);
+        input.value = "";
+        applyFilters();
+      }
+    });
+
+    document.getElementById("tag-input").addEventListener("keypress", e => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        document.getElementById("add-tag-btn").click();
+      }
+    });
+
+    document.getElementById("role-filter").addEventListener("change", applyFilters);
+    document.getElementById("alignment-filter").addEventListener("change", applyFilters);
+    document.getElementById("search-bar").addEventListener("input", applyFilters);
+
+    document.getElementById("reset-filters").addEventListener("click", () => {
+      document.querySelectorAll(".filter").forEach(cb => cb.checked = false);
+      document.getElementById("role-filter").value = "";
+      document.getElementById("alignment-filter").value = "";
+      document.getElementById("search-bar").value = "";
+      customTags = [];
+      applyFilters();
+    });
+  </script>
 </body>
 
 </html>
