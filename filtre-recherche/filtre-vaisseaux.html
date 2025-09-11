@@ -1,190 +1,385 @@
+
 <!DOCTYPE HTML>
-<html lang="fr">
+<html lang="en">
 
 <head>
-    <title>faction vaisseau</title>
+  <meta charset="utf-8">
+  <title>SWGOH ship Filter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="author" content="Rimbault Enzo">
+  <style>
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+      display: none;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      transition: background 0.3s;
+    }
 
-    <!-- Bootstrap CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="../image/logo_star_wars.png">
+    #scrollTopBtn:hover {
+      background-color: #0056b3;
+    }
 
-    <style>
-        body.simple {
-            background-color: #000;
-        }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: white;
+      margin: 0;
+    }
 
-        .language-switcher img {
-            width: 40px;
-            height: 30px;
-            margin: 0 5px;
-            cursor: pointer;
-        }
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 400px;
+      background: #1b1b1b;
+      padding: 20px;
+      overflow-y: auto;
+      border-right: 2px solid #333;
+    }
 
-        th {
-            color: white;
-        }
+    #content {
+      margin-left: 500px;
+      padding: 20px;
+    }
 
-        table a {
-            display: block;
-            width: 100%;
-            height: 100%;
-            padding: 8px 0;
-            color: black;
-            text-decoration: none;
-        }
+    #filter-title {
+      font-size: 1.6rem;
+      text-align: center;
+      margin-bottom: 25px;
+      font-weight: bold;
+    }
 
-        table td {
-            padding: 0;
-        }
+    .filter-box {
+      background: #222;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+    }
 
-        table {
-            width: 100% !important;
-        }
-    </style>
+    .filter-box h5 {
+      margin-bottom: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #ddd;
+      border-bottom: 1px solid #444;
+      padding-bottom: 5px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .category-grid label {
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+      background: #1a1a1a;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .category-grid input {
+      margin-right: 6px;
+    }
+
+    #results {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: flex-start;
+    }
+
+    .card {
+      width: 220px;
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      overflow: hidden;
+      text-align: center;
+      color: #f1f1f1;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 60%;
+      height: auto;
+      margin: 10px auto;
+      display: block;
+      border-bottom: 1px solid #333;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 12px;
+    }
+
+    .card-body h5 {
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    .btn-primary {
+      margin-top: 8px;
+      width: 100%;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
-<body class="simple container-fluid py-4">
+<body>
+  <!-- Sidebar (Filtres) -->
+  <div id="sidebar">
+    <div id="filter-title">ship Filter</div>
 
-    <!-- Language Switcher -->
-    <div class="language-switcher text-center mb-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-            onclick="switchLanguage('fr')">
-        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-            onclick="switchLanguage('en')">
+    <div class="filter-box">
+      <h5>Factions</h5>
+      <div class="category-grid" id="faction-filters"></div>
     </div>
 
-    <div class="table-responsive">
-        <table class="table table-bordered text-center align-middle table-sm">
-            <thead class="table-dark">
-                <tr>
-                    <th colspan="6" id="ship-title">filtre vaisseau</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="bg-primary"><a href="../vaisseaux/vaisseau-coté-lumineux.html" id="light-side">coté lumineux</a></td>
-                    <td class="bg-danger"><a href="../vaisseaux/vaisseau-coté-obscur.html" id="dark-side">coté obscur</a></td>
-                    <td class="bg-info"><a href="../vaisseaux/vaisseau-attaquant.html" id="attacker">attaquant</a></td>
-                    <td class="bg-info"><a href="../vaisseaux/vaisseau-soutien.html" id="support">soutien</a></td>
-                    <td class="bg-info"><a href="../vaisseaux/vaisseau-tank.html" id="tank">tank</a></td>
-                    <td class="bg-info"><a href="../vaisseaux/vaisseau-amiral.html" id="capital-ship">vaisseau amiral</a></td>
-                </tr>
-                <tr>
-                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-ancienne-république.html" id="old-republic">ancienne république</a></td>
-                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-chasseur-de-primes.html" id="bounty-hunter">chasseur de primes</a></td>
-                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-droïde.html" id="droid">droïde</a></td>
-                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseau-empire.html" id="empire">empire</a></td>
-                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-empire-sith.html" id="sith-empire">empire sith</a></td>
-                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-géonosien.html" id="geonosian">géonosien</a></td>
-                </tr>
-                <tr>
-                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-inquisitorious.html" id="inquisitorious">inquisitorious</a></td>
-                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-jedi.html" id="jedi">jedi</a></td>
-                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-phoenix.html" id="phoenix">phoenix</a></td>
-                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-premier-ordre.html" id="first-order">premier ordre</a></td>
-                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-rebelle.html" id="rebel">rebelle</a></td>
-                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-république-galactique.html" id="galactic-republic">république galactique</a></td>
-                </tr>
-                <tr>
-                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-résistance.html" id="resistance">résistance</a></td>
-                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-rogue-one.html" id="rogue-one">rogue one</a></td>
-                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-séparatiste.html" id="separatist">séparatiste</a></td>
-                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-siths.html" id="sith">sith</a></td>
-                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-soldat-clone.html" id="clone-soldier">soldat clone</a></td>
-                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseux-de-marchandise.html" id="cargo-ship">vaisseau de marchandise</a></td>
-                </tr>
-                <tr>
-                    <td style="background-color: pink;"><a href="../vaisseaux/vaisseaux-vaurien.html" id="scoundrel">vaurien</a></td>
-                    <td style="background-color: black;"></td>
-                    <td style="background-color: black;"></td>
-                    <td style="background-color: black;"></td>
-                    <td style="background-color: black;"></td><td style="background-color: white;"><a href="../index.html" id="home">Accueil</a></td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="filter-box">
+      <h5>Role & Alignment</h5>
+      <div class="mb-2">
+        <select id="role-filter" class="form-select">
+          <option value="">-- role --</option>
+          <option value="attacker">attacker</option>
+          <option value="support">support</option>
+          <option value="healer">healer</option>
+          <option value="tank">tank</option>
+        </select>
+      </div>
+      <div>
+        <select id="alignment-filter" class="form-select">
+          <option value="">-- alignment --</option>
+          <option value="light">lightside</option>
+          <option value="dark">darkside</option>
+          <option value="neutral">neutral</option>
+        </select>
+      </div>
     </div>
 
-    <!-- Traduction -->
-    <script>
-        const translations = {
-            en: {
-                "ship-title": "Ship category filter",
-                "light-side": "light side",
-                "dark-side": "dark side",
-                "attacker": "attacker",
-                "support": "support",
-                "tank": "tank",
-                "capital-ship": "capital ship",
-                "old-republic": "old republic",
-                "bounty-hunter": "bounty hunter",
-                "droid": "droid",
-                "empire": "empire",
-                "sith-empire": "sith empire",
-                "geonosian": "geonosian",
-                "inquisitorious": "inquisitorious",
-                "jedi": "jedi",
-                "phoenix": "phoenix",
-                "first-order": "first order",
-                "rebel": "rebel",
-                "galactic-republic": "galactic republic",
-                "resistance": "resistance",
-                "rogue-one": "rogue one",
-                "separatist": "separatist",
-                "sith": "sith",
-                "clone-soldier": "clone trooper",
-                "cargo-ship": "cargo ship",
-                "scoundrel": "scoundrel",
-                "search-ship": "ship search",
-                "home": "home"
-            },
-            fr: {
-                "ship-title": "filtre des catégories de vaisseau",
-                "light-side": "coté lumineux",
-                "dark-side": "coté obscur",
-                "attacker": "attaquant",
-                "support": "soutien",
-                "tank": "tank",
-                "capital-ship": "vaisseau amiral",
-                "old-republic": "ancienne république",
-                "bounty-hunter": "chasseur de primes",
-                "droid": "droïde",
-                "empire": "empire",
-                "sith-empire": "empire sith",
-                "geonosian": "géonosien",
-                "inquisitorious": "inquisitorious",
-                "jedi": "jedi",
-                "phoenix": "phoenix",
-                "first-order": "premier ordre",
-                "rebel": "rebelle",
-                "galactic-republic": "république galactique",
-                "resistance": "résistance",
-                "rogue-one": "rogue one",
-                "separatist": "séparatiste",
-                "sith": "sith",
-                "clone-soldier": "soldat clone",
-                "cargo-ship": "vaisseau de marchandise",
-                "scoundrel": "vaurien",
-                "search-ship": "recherche vaisseaux",
-                "home": "accueil"
-            }
-        };
+    <div class="filter-box">
+      <h5>Search</h5>
+      <input type="text" id="search-bar" class="form-control mb-2" placeholder="Search ship...">
 
-        window.onload = () => switchLanguage('en');
+      <div class="input-group mb-2">
+        <input type="text" id="tag-input" class="form-control" placeholder="Add a tag..." list="tag-suggestions">
+        <button id="add-tag-btn" class="btn btn-secondary">Add</button>
+      </div>
+      <datalist id="tag-suggestions"></datalist>
 
-        function switchLanguage(lang) {
-            const elements = document.querySelectorAll('[id]');
-            elements.forEach(el => {
-                const key = el.id;
-                if (translations[lang] && translations[lang][key]) {
-                    el.textContent = translations[lang][key];
-                }
-            });
-        }
-    </script>
+      <button id="reset-filters" class="btn btn-danger w-100">Reset Filters</button>
+    </div>
 
+    <button id="scrollTopBtn" title="Back to top">↑</button>
+  </div> <!-- ✅ Fermeture sidebar ici -->
+
+  <!-- Main content (Résultats) -->
+  <div id="content">
+    <h4>Results:</h4>
+    <div id="active-filters" class="mb-3"></div>
+    <div id="results"></div>
+  </div>
+
+  <script>
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.addEventListener("scroll", () => {
+      if (document.documentElement.scrollTop > 200) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    });
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    let ships = [];
+    let customTags = [];
+
+    fetch("ship.json")
+      .then(res => res.json())
+      .then(data => {
+        ships = data;
+        generateFactionFilters();
+        updateTagSuggestions();
+        applyFilters();
+      })
+      .catch(err => {
+        console.error("Error loading JSON:", err);
+        document.getElementById("results").innerHTML = "<p>Error loading ships</p>";
+      });
+
+    function generateFactionFilters() {
+      const container = document.getElementById("faction-filters");
+      const factionsSet = new Set();
+      ships.forEach(c => (c.factions || []).forEach(f => factionsSet.add(f.toLowerCase())));
+      const factionsArray = Array.from(factionsSet).sort((a, b) => a.localeCompare(b));
+
+      factionsArray.forEach(f => {
+        const label = document.createElement("label");
+        label.innerHTML = `<input type="checkbox" class="filter" value="${f}"> ${f}`;
+        container.appendChild(label);
+      });
+
+      document.querySelectorAll(".filter").forEach(cb => cb.addEventListener("change", applyFilters));
+    }
+
+    function updateTagSuggestions() {
+      const datalist = document.getElementById("tag-suggestions");
+      datalist.innerHTML = "";
+      const factions = new Set();
+      ships.forEach(c => (c.factions || []).forEach(f => factions.add(f)));
+      const roles = ["attacker", "support", "healer", "tank"];
+      const alignments = ["light", "dark", "neutral"];
+      const allTags = [...factions].map(f => f.toLowerCase()).concat(roles, alignments);
+      allTags.sort().forEach(tag => {
+        const option = document.createElement("option");
+        option.value = tag;
+        datalist.appendChild(option);
+      });
+    }
+
+    function normalizeAlignment(a) {
+      if (!a) return "";
+      const t = String(a).trim().toLowerCase().replace(/[\s_-]/g, "");
+      if (t.startsWith("light")) return "light";
+      if (t.startsWith("dark")) return "dark";
+      if (t.startsWith("neutral") || t.startsWith("unaligned")) return "neutral";
+      return t;
+    }
+
+    function applyFilters() {
+      const selectedFactions = Array.from(document.querySelectorAll(".filter:checked")).map(cb => cb.value.toLowerCase());
+      const selectedRole = document.getElementById("role-filter").value.toLowerCase();
+      const selectedAlignment = normalizeAlignment(document.getElementById("alignment-filter").value);
+      const searchQuery = document.getElementById("search-bar").value.trim().toLowerCase();
+
+      const filtered = ships.filter(c => {
+        const matchFactions = selectedFactions.length === 0 || selectedFactions.every(f => (c.factions || []).map(x => x.toLowerCase()).includes(f));
+        const matchRole = !selectedRole || (c.role && c.role.toLowerCase() === selectedRole);
+        const matchAlignment = !selectedAlignment || normalizeAlignment(c.alignment) === selectedAlignment;
+        const matchSearch = !searchQuery || c.name.toLowerCase().includes(searchQuery);
+        const matchCustomTags = customTags.length === 0 || customTags.every(tag =>
+          c.name.toLowerCase().includes(tag) ||
+          c.role?.toLowerCase().includes(tag) ||
+          normalizeAlignment(c.alignment) === tag ||
+          (c.factions || []).some(f => f.toLowerCase().includes(tag))
+        );
+        return matchFactions && matchRole && matchAlignment && matchSearch && matchCustomTags;
+      });
+
+      renderActiveFilters(selectedFactions, selectedRole, selectedAlignment, searchQuery, customTags);
+      renderships(filtered);
+    }
+
+    function renderships(list) {
+      const container = document.getElementById("results");
+      container.innerHTML = list.length
+        ? list.map(c => `
+        <div class="card">
+          <img src="${c.image}" alt="${c.name}">
+          <div class="card-body">
+            <h5>${c.name}</h5>
+            <p><strong>Role:</strong> ${c.role || ""}</p>
+            <p><strong>Factions:</strong> ${(c.factions || []).join(", ")}</p>
+            <p><strong>Alignment:</strong> ${c.alignment || ""}</p>
+            <a href="${c.page}" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+      `).join("")
+        : "<p>No ships found</p>";
+    }
+
+    function renderActiveFilters(selectedFactions, selectedRole, selectedAlignment, searchQuery, customTags) {
+      const container = document.getElementById("active-filters");
+      container.innerHTML = "";
+      let filters = [];
+      selectedFactions.forEach(f => filters.push({ type: "faction", value: f }));
+      if (selectedRole) filters.push({ type: "role", value: selectedRole });
+      if (selectedAlignment) filters.push({ type: "alignment", value: selectedAlignment });
+      if (searchQuery) filters.push({ type: "search", value: searchQuery });
+      customTags.forEach(tag => filters.push({ type: "custom", value: tag }));
+      if (filters.length === 0) return;
+      const phrase = document.createElement("p");
+      phrase.innerHTML = `ships with the tag(s): `;
+      container.appendChild(phrase);
+      filters.forEach(f => {
+        const badge = document.createElement("span");
+        badge.className = "badge bg-primary me-2";
+        badge.style.cursor = "pointer";
+        badge.textContent = f.value;
+        badge.addEventListener("click", () => {
+          if (f.type === "faction") {
+            document.querySelector(`.filter[value="${f.value}"]`).checked = false;
+          } else if (f.type === "role") {
+            document.getElementById("role-filter").value = "";
+          } else if (f.type === "alignment") {
+            document.getElementById("alignment-filter").value = "";
+          } else if (f.type === "search") {
+            document.getElementById("search-bar").value = "";
+          } else if (f.type === "custom") {
+            customTags = customTags.filter(tag => tag !== f.value);
+          }
+          applyFilters();
+        });
+        container.appendChild(badge);
+      });
+    }
+
+    document.getElementById("add-tag-btn").addEventListener("click", () => {
+      const input = document.getElementById("tag-input");
+      const tag = input.value.trim().toLowerCase();
+      if (tag && !customTags.includes(tag)) {
+        customTags.push(tag);
+        input.value = "";
+        applyFilters();
+      }
+    });
+
+    document.getElementById("tag-input").addEventListener("keypress", e => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        document.getElementById("add-tag-btn").click();
+      }
+    });
+
+    document.getElementById("role-filter").addEventListener("change", applyFilters);
+    document.getElementById("alignment-filter").addEventListener("change", applyFilters);
+    document.getElementById("search-bar").addEventListener("input", applyFilters);
+
+    document.getElementById("reset-filters").addEventListener("click", () => {
+      document.querySelectorAll(".filter").forEach(cb => cb.checked = false);
+      document.getElementById("role-filter").value = "";
+      document.getElementById("alignment-filter").value = "";
+      document.getElementById("search-bar").value = "";
+      customTags = [];
+      applyFilters();
+    });
+  </script>
 </body>
+
 </html>
