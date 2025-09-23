@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>501E</title>
+    <title>Ancienne République</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Rimbault Enzo">
-    <link rel="icon" type="image/png" href="../image/501.png">
+    <link rel="icon" type="image/png" href="../image/old-republic.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -14,6 +14,7 @@
             background-color: #031952;
             color: #ffffff;
         }
+
         .unit-card {
             border: 1px solid #dee2e6;
             border-radius: 12px;
@@ -28,12 +29,40 @@
             align-items: center;
             justify-content: space-between;
         }
-        .unit-card:hover { transform: scale(1.03); border-color: #0d6efd; }
-        .unit-img { width: 100px; height: 100px; object-fit: contain; margin-bottom: 0.5rem; }
-        .unit-name { font-size: 0.9em; color: #000; max-width: 100px; word-wrap: break-word; }
-        .flag-switcher { display: flex; justify-content: end; gap: 10px; margin: 1rem; }
-        .flag-switcher img { width: 30px; height: 20px; cursor: pointer; }
+
+        .unit-card:hover {
+            transform: scale(1.03);
+            border-color: #0d6efd;
+        }
+
+        .unit-img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+        }
+
+        .unit-name {
+            font-size: 0.9em;
+            color: #000;
+            max-width: 100px;
+            word-wrap: break-word;
+        }
+
+        .flag-switcher {
+            display: flex;
+            justify-content: end;
+            gap: 10px;
+            margin: 1rem;
+        }
+
+        .flag-switcher img {
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+        }
     </style>
+
 </head>
 
 <body>
@@ -46,8 +75,83 @@
     </div>
 
     <div class="container text-center">
-        <h2 id="filter-title">Personnages avec la faction : 501E</h2>
-        <div class="row justify-content-center g-4 mt-3" id="characters"></div>
+        <h2 id="filter-title">Personnage avec le tag : Ancienne République</h2>
+        <div class="row justify-content-center g-4 mt-3">
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/50r-t.html">
+                        <img src="../image-perso/50-rt/50-image.png" alt="50R-T" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="50-rt">50R-T</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/bastila_shan.html">
+                        <img src="../image-perso/bastila-shan/bastila-image.png" alt="Bastila Shan" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="bastila">Bastila Shan</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/canderous.html">
+                        <img src="../image-perso/canderous/canderous.png" alt="Canderous Ordo" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="canderous">Canderous Ordo</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/carth_onasi.html">
+                        <img src="../image-perso/carth_onasi/carth-image.png" alt="Carth Onasi" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="carth">Carth Onasi</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/Jedi_Revan.html">
+                        <img src="../image-perso/jkr/jkr-image.png" alt="Jedi Revan" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="jkr">Jedi Knight Revan</div>
+                </div>
+            </div>
+
+            <!-- Ligne 2 -->
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/jolee.html">
+                        <img src="../image-perso/jolee/jolee-bindo.png" alt="Jolee Bindo" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="jolee">Jolee Bindo</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/juhani.html">
+                        <img src="../image-perso/juhani/juhani-image.png" alt="Juhani" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="juhani">Juhani</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div class="unit-card">
+                    <a href="../html/mission_vao.html">
+                        <img src="../image-perso/mission/mission-image.png" alt="Mission Vao" class="unit-img">
+                    </a>
+                    <div class="unit-name traduction" id="mission">Mission Vao</div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <footer class="text-center mt-5">
@@ -57,59 +161,43 @@
     </footer>
 
     <script>
-        let translations = {};
-        let currentLang = "en"; // langue par défaut
+        const translations = {
+            en: {
+                "filter-title": "Character with the tag : Old Republic",
+                "50-rt": "50R-T",
+                "bastila": "Bastila Shan",
+                "canderous": "Canderous Ordo",
+                "carth": "Carth Onasi",
+                "jkr": "Jedi Knight Revan",
+                "jolee": "Jolee Bindo",
+                "juhani": "Juhani",
+                "mission": "Mission Vao",
+            },
+            fr: {
+                "filter-title": "Personnage avec le tag : Ancienne République",
+                "50-rt": "50R-T",
+                "bastila": "Bastila Shan",
+                "canderous": "Canderous Ordo",
+                "carth": "Carth Onasi",
+                "jkr": "Chevalier Jedi Revan",
+                "jolee": "Jolee Bindo",
+                "juhani": "Juhani",
+                "mission": "Mission Vao",
+            }
+        };
 
-        // Charger le fichier de traductions pour la faction old republic
-        fetch("../filtre-recherche/translations/old-republic.json")
-            .then(res => res.json())
-            .then(data => {
-                translations = data;
-                loadUnits(); // Ensuite on charge les unités
-            })
-            .catch(err => {
-                console.warn("Pas de fichier de traduction trouvé pour old republic");
-                loadUnits();
-            });
+                // Default language: English
+        window.onload = function () {
+            switchLanguage('en');
+        };
 
-        function loadUnits() {
-            fetch("../filtre-recherche/units.json")
-                .then(response => response.json())
-                .then(data => {
-                    const container = document.getElementById("characters");
-
-                    // Filtrer seulement les unités de la faction old republic
-                    const units501 = data.filter(unit => unit.factions && unit.factions.includes("old republic"));
-
-                    units501.forEach(unit => {
-                        const col = document.createElement("div");
-                        col.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2");
-
-                        col.innerHTML = `
-                            <div class="unit-card">
-                                <a href="${unit.page || '#'}">
-                                    <img src="${unit.image || '../image/default.png'}" alt="${unit.name}" class="unit-img">
-                                </a>
-                                <div class="unit-name traduction" id="${unit.id.toLowerCase()}">${unit.name}</div>
-                            </div>
-                        `;
-
-                        container.appendChild(col);
-                    });
-
-                    // appliquer traduction par défaut
-                    switchLanguage(currentLang);
-                })
-                .catch(error => console.error("Erreur lors du chargement des unités :", error));
-        }
-
+        // Function to switch language
         function switchLanguage(lang) {
-            currentLang = lang;
-            const elements = document.querySelectorAll(".traduction, #filter-title");
-            elements.forEach(element => {
-                const key = element.id.toLowerCase();
-                if (translations[lang] && translations[lang][key]) {
-                    element.textContent = translations[lang][key];
+            const elements = document.querySelectorAll('[id]');
+            elements.forEach(function(element) {
+                const translationKey = element.id;
+                if (translations[lang] && translations[lang][translationKey]) {
+                    element.textContent = translations[lang][translationKey];
                 }
             });
         }
@@ -117,4 +205,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
