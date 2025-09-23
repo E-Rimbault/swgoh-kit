@@ -2,112 +2,182 @@
 <html lang="fr">
 
 <head>
-    <title>Spectre</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="author" content="Rimbault Enzo">
-    <link rel="icon" type="image/png" href="../image/phenix.png">
+  <meta charset="utf-8">
+  <title>Spectre</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Rimbault Enzo">
+  <link rel="icon" type="image/png" href="../image/phenix.png">
 
-    <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="../style/styles.css">
+  <style>
+    body {
+      background-color: #031952;
+      color: #ffffff;
+    }
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const cells = document.querySelectorAll('td');
-            let filledCount = 0;
-            let imageCount = 0;
+    .unit-card {
+      border: 1px solid #dee2e6;
+      border-radius: 12px;
+      padding: 1rem;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+      text-align: center;
+      height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-            cells.forEach(cell => {
-                if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
-                    filledCount++;
-                    if (cell.querySelector('img') && cell.querySelector('img').getAttribute('src').trim() !== '') {
-                        imageCount++;
-                    }
-                }
-            });
+    .unit-card:hover {
+      transform: scale(1.03);
+      border-color: #0d6efd;
+    }
 
-            const th = document.querySelector('thead th');
-            th.textContent += ` (${imageCount}/${filledCount})`;
-        });
-    </script>
+    .unit-img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+    }
+
+    .unit-name {
+      font-size: 0.9em;
+      color: #000;
+      max-width: 120px;
+      word-wrap: break-word;
+    }
+
+    .flag-switcher {
+      display: flex;
+      justify-content: end;
+      gap: 10px;
+      margin: 1rem;
+    }
+
+    .flag-switcher img {
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
-<body class="faction bg-dark text-light">
+<body>
+  <!-- Sélecteur de langue -->
+  <div class="flag-switcher">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" onclick="switchLanguage('fr')">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" onclick="switchLanguage('en')">
+  </div>
 
-    <div class="container-fluid full-page">
-        <div class="table-responsive">
-            <table class="table table-bordered text-center table-dark align-middle">
-                <thead class="table-light text-dark">
-                    <tr>
-                        <th colspan="3">personnage avec le tag : Spectre</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <a href="">
-                                <img src="" alt="" class="img-fluid">
-                            </a>
-                            <br> Ahsoka Tano
-                        </td>
-                        <td>
-                            <a href="../html/fulcrum.html">
-                                <img src="../image-perso/fulcrum/fulcrum-image.png" alt="" class="img-fluid">
-                            </a>
-                            <br> Ahsoka Tano (Fulcrum)
-                        </td>
-                        <td>
-                            <a href="../html/chopper.html">
-                                <img src="../image-perso/chopper/chopper.png" alt="Chopper" class="img-fluid">
-                            </a>
-                            <br> Chopper
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="">
-                                <img src="" alt="" class="img-fluid">
-                            </a>
-                            <br> Ezra Bridger (Exilé)
-                        </td>
-                        <td>
-                            <a href="">
-                                <img src="" alt="" class="img-fluid">
-                            </a>
-                            <br> General Syndulla
-                        </td>
-                        <td>
-                            <a href="">
-                                <img src="" alt="" class="img-fluid">
-                            </a>
-                            <br> Huyang
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="../html/padawan-sabine.html">
-                                <img src="../image-perso/padawin/sabine-image.png" alt="Padawan Sabine Wren" class="img-fluid">
-                            </a>
-                            <br> Padawan Sabine Wren
-                        </td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+  <div class="container text-center">
+    <h2 id="filter-title">Personnage avec le tag : Spectre</h2>
+
+    <div class="row justify-content-center g-4 mt-3">
+      <!-- Ligne 1 -->
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="unit-card">
+          <div class="unit-name traduction" id="ahsoka">Ahsoka Tano</div>
         </div>
+      </div>
+
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="unit-card">
+          <a href="../html/fulcrum.html">
+            <img src="../image-perso/fulcrum/fulcrum-image.png" alt="Ahsoka Tano (Fulcrum)" class="unit-img">
+          </a>
+          <div class="unit-name traduction" id="fulcrum">Ahsoka Tano (Fulcrum)</div>
+        </div>
+      </div>
+
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="unit-card">
+          <a href="../html/chopper.html">
+            <img src="../image-perso/chopper/chopper.png" alt="Chopper" class="unit-img">
+          </a>
+          <div class="unit-name traduction" id="chopper">Chopper</div>
+        </div>
+      </div>
+
+      <!-- Ligne 2 -->
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="unit-card">
+          <div class="unit-name traduction" id="ezra">Ezra Bridger (Exilé)</div>
+        </div>
+      </div>
+
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="unit-card">
+          <div class="unit-name traduction" id="syndulla">General Syndulla</div>
+        </div>
+      </div>
+
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="unit-card">
+          <div class="unit-name traduction" id="huyang">Huyang</div>
+        </div>
+      </div>
+
+      <!-- Ligne 3 -->
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="unit-card">
+          <a href="../html/padawan-sabine.html">
+            <img src="../image-perso/padawin/sabine-image.png" alt="Padawan Sabine Wren" class="unit-img">
+          </a>
+          <div class="unit-name traduction" id="sabine">Padawan Sabine Wren</div>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <footer class="text-center mt-4">
-        <a href="../filtre-recherche/filtre-personnage.html">
-            <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px; height: auto;">
-        </a>
-    </footer>
+  <footer class="text-center mt-5">
+    <a href="../filtre-recherche/filtre-personnage.html">
+      <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px;">
+    </a>
+  </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const translations = {
+      en: {
+        "filter-title": "Character with the tag: Spectre",
+        "ahsoka": "Ahsoka Tano",
+        "fulcrum": "Ahsoka Tano (Fulcrum)",
+        "chopper": "Chopper",
+        "ezra": "Ezra Bridger (Exile)",
+        "syndulla": "General Syndulla",
+        "huyang": "Huyang",
+        "sabine": "Padawan Sabine Wren"
+      },
+      fr: {
+        "filter-title": "Personnage avec le tag : Spectre",
+        "ahsoka": "Ahsoka Tano",
+        "fulcrum": "Ahsoka Tano (Fulcrum)",
+        "chopper": "Chopper",
+        "ezra": "Ezra Bridger (Exilé)",
+        "syndulla": "General Syndulla",
+        "huyang": "Huyang",
+        "sabine": "Padawan Sabine Wren"
+      }
+    };
+
+    function switchLanguage(lang) {
+      document.getElementById("filter-title").textContent = translations[lang]["filter-title"];
+      Object.keys(translations[lang]).forEach(key => {
+        const el = document.getElementById(key);
+        if (el) el.textContent = translations[lang][key];
+      });
+    }
+
+    window.onload = function () {
+      switchLanguage('en');
+    };
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -1,214 +1,141 @@
 <!DOCTYPE HTML>
 <html lang="fr">
-
 <head>
-    <title>Vaurien</title>
+  <meta charset="utf-8">
+  <title>Vaurien</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Rimbault Enzo">
+  <link rel="icon" type="image/png" href="../image/contrebandier.png">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="author" content="Rimbault Enzo">
-    <link rel="icon" type="image/png" href="../image/contrebandier.png">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="../style/styles.css"> <!-- Garde si tu as encore des styles spécifiques -->
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const cells = document.querySelectorAll('td');
-            let filledCount = 0;
-            let imageCount = 0;
-
-            cells.forEach(cell => {
-                if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
-                    filledCount++;
-                    if (cell.querySelector('img')) {
-                        imageCount++;
-                    }
-                }
-            });
-
-            const th = document.querySelector('thead th');
-            th.textContent += ` (${imageCount}/${filledCount})`;
-        });
-    </script>
+  <style>
+    body {
+      background-color: #031952;
+      color: #ffffff;
+    }
+    .unit-card {
+      border: 1px solid #dee2e6;
+      border-radius: 12px;
+      padding: 1rem;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+      text-align: center;
+      height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .unit-card:hover {
+      transform: scale(1.03);
+      border-color: #0d6efd;
+    }
+    .unit-img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+    }
+    .unit-name {
+      font-size: 0.9em;
+      color: #000;
+      max-width: 100px;
+      word-wrap: break-word;
+    }
+    .flag-switcher {
+      display: flex;
+      justify-content: end;
+      gap: 10px;
+      margin: 1rem;
+    }
+    .flag-switcher img {
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+    }
+  </style>
 </head>
+<body>
 
-<body class="faction bg-dark text-light">
+  <!-- Sélecteur de langue -->
+  <div class="flag-switcher">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" onclick="switchLanguage('fr')">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" onclick="switchLanguage('en')">
+  </div>
 
-    <div class="container-fluid full-page">
-        <div class="table-responsive">
-            <table class="table table-bordered text-center table-dark align-middle">
-                <thead class="table-light text-dark">
-                    <tr>
-                        <th colspan="6">Personnage avec le tag : Vaurien</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <a href="../html/0_0_0.html">
-                                <img src="../image-perso/0-0-0/0-0-0-image.png" alt="0-0-0" class="img-fluid">
-                            </a>
-                            <br>0-0-0
-                        </td>
-                        <td>Aurra Sing</td>
-                        <td>
-                            <a href="../html/bt_1.html">
-                                <img src="../image-perso/bt-1/bt1-image.png" alt="BT-1" class="img-fluid">
-                            </a>
-                            <br>BT-1
-                        </td>
-                        <td>
-                            <a href="../html/bo_katan.html">
-                                <img src="../image-perso/bo-katan/bo-katan-image.png" alt="Bo-katan" class="img-fluid">
-                            </a>
-                            <br>Bo-Katan Kryze
-                        </td>
-                        <td>
-                            <a href="../html/boba.html">
-                                <img src="../image-perso/boba-fett/boba-image.png" alt="Boba Fett" class="img-fluid">
-                            </a>
-                            <br>Boba Fett
-                        </td>
-                        <td>
-                            <a href="../html/Boba_son_of_jango.html">
-                                <img src="../image-perso/boba-scion-jango/boba-image.png" alt="Boba Fett, Scion of Jango" class="img-fluid">
-                            </a>
-                            <br>Boba Fett, Scion of Jango
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Bossk</td>
-                        <td>Boushh (Leia Organa)</td>
-                        <td>Cad Bane</td>
-                        <td>
-                            <a href="../html/canderous.html">
-                                <img src="../image-perso/canderous/canderous.png" alt="Canderous" class="img-fluid">
-                            </a>
-                            <br>Canderous Ordo
-                        </td>
-                        <td>Captain Han Solo</td>
-                        <td>Cara Dune</td>
-                    </tr>
-                    <tr>
-                        <td>Cere Junda</td>
-                        <td>
-                            <a href="../html/chewbacca.html">
-                                <img src="../image-perso/chewbacca/chewie-image.png" alt="Chewbacca" class="img-fluid">
-                            </a>
-                            <br>Chewbacca
-                        </td>
-                        <td>
-                            <a href="../html/clone-chewbacca.html"><img src="../image-perso/clone-chewbacca/chewi-image.png" alt="clone-chewbacca" class="img-fluid"></a><br>
-                            Clone Wars Chewbacca
-                        </td>
-                        <td>
-                            <a href="../html/cat.html">
-                                <img src="../image-perso/cat/cat-image.png" alt="Cat" class="img-fluid">
-                            </a>
-                            <br>Commander Ahsoka Tano
-                        </td>
-                        <td>
-                            <a href="../html/dash.html">
-                                <img src="../image-perso/dash/dash-image.png" alt="Dash" class="img-fluid">
-                            </a>
-                            <br>Dash Rendar
-                        </td>
-                        <td>Dengar</td>
-                    </tr>
-                    <tr>
-                        <td>Doctor Aphra</td>
-                        <td>Embo</td>
-                        <td>Enfys Nest</td>
-                        <td>
-                            <a href="../html/fennec.html">
-                                <img src="../image-perso/fennec/fennec.png" alt="Fennec" class="img-fluid">
-                            </a>
-                            <br>Fennec Shand
-                        </td>
-                        <td>Gamorrean Guard</td>
-                        <td>Greedo</td>
-                    </tr>
-                    <tr>
-                        <td>Greef Karga</td>
-                        <td>Han Solo</td>
-                        <td>
-                            <a href="../html/Hondo.html">
-                                <img src="../image-perso/hondo/Hondo-image.png" alt="Hondo Ohnaka" class="img-fluid">
-                            </a>
-                            <br>Hondo Ohnaka
-                        </td>
-                        <td>IG-11</td>
-                        <td>IG-88</td>
-                        <td>
-                            <a href="../html/jango_fett.html">
-                                <img src="../image-perso/jango-fett/jango.png" alt="Jango" class="img-fluid">
-                            </a>
-                            <br>Jango Fett
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Krrsantan</td>
-                        <td>Kuiil</td>
-                        <td>L3-37</td>
-                        <td>Lando Calrissian</td>
-                        <td>
-                            <a href="../html/mission_vao.html">
-                                <img src="../image-perso/mission/mission-image.png" alt="Mission Vao" class="img-fluid">
-                            </a>
-                            <br>Mission Vao
-                        </td>
-                        <td>Mob Enfoncer</td>
-                    </tr>
-                    <tr>
-                        <td>Nute Gunray</td>
-                        <td>Qi'ra</td>
-                        <td>Sana Starros</td>
-                        <td>Skiff Guard (Lando Calrissian)</td>
-                        <td>Stormtrooper Han</td>
-                        <td>
-                            <a href="../html/the_mandalorian.html">
-                                <img src="../image-perso/mando/mando-image.png" alt="Mando" class="img-fluid">
-                            </a>
-                            <br>The Mandalorian
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="../html/The_mandalorian_beskar.html">
-                                <img src="../image-perso/bam/The-Mandalorian-image.png" alt="The Mandalorian (beskar armor)" class="img-fluid">
-                            </a>
-                            <br>The Mandalorian (beskar armor)
-                        </td>
-                        <td>Vandor Chewbacca</td>
-                        <td>Veteran Smuggler Chewbacca</td>
-                        <td>Veteran Smuggler Han Solo</td>
-                        <td>Young Han Solo</td>
-                        <td>Young Lando Calrissian</td>
-                    </tr>
-                    <tr>
-                        <td>Zaalbar</td>
-                        <td>Zam Wessel</td>
-                        <td>Zorri Bliss</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+  <div class="container text-center">
+    <h2 id="filter-title">Personnage avec le tag : Vaurien</h2>
+
+    <div class="row justify-content-center g-4 mt-3">
+      <!-- Exemple d'une carte -->
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="unit-card">
+          <a href="../html/0_0_0.html">
+            <img src="../image-perso/0-0-0/0-0-0-image.png" alt="0-0-0" class="unit-img">
+          </a>
+          <div class="unit-name traduction" id="0-0-0">0-0-0</div>
         </div>
+      </div>
+
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="unit-card">
+          <img src="../image-perso/bt-1/bt1-image.png" alt="BT-1" class="unit-img">
+          <div class="unit-name traduction" id="bt1">BT-1</div>
+        </div>
+      </div>
+
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="unit-card">
+          <img src="../image-perso/boba-fett/boba-image.png" alt="Boba Fett" class="unit-img">
+          <div class="unit-name traduction" id="boba">Boba Fett</div>
+        </div>
+      </div>
+
+      <!-- Tu continues ainsi pour tous les personnages... -->
     </div>
+  </div>
 
-    <footer class="text-center mt-4">
-        <a href="../filtre-recherche/filtre-personnage.html">
-            <img src="../image/logo_star_wars.png" alt="Filtre personnage" style="width: 80px; height: auto;">
-        </a>
-    </footer>
+  <footer class="text-center mt-5">
+    <a href="../filtre-recherche/filtre-personnage.html">
+      <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px;">
+    </a>
+  </footer>
 
-    <!-- Bootstrap JS (Optionnel si pas d'interaction JS requise) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const translations = {
+      en: {
+        "filter-title": "Character with the tag : Scoundrel",
+        "0-0-0": "0-0-0",
+        "bt1": "BT-1",
+        "boba": "Boba Fett",
+      },
+      fr: {
+        "filter-title": "Personnage avec le tag : Vaurien",
+        "0-0-0": "0-0-0",
+        "bt1": "BT-1",
+        "boba": "Boba Fett",
+      }
+    };
+
+    // Par défaut : anglais
+    window.onload = function () {
+      switchLanguage('en');
+    };
+
+    function switchLanguage(lang) {
+      const elements = document.querySelectorAll('[id]');
+      elements.forEach(function(element) {
+        const translationKey = element.id;
+        if (translations[lang] && translations[lang][translationKey]) {
+          element.textContent = translations[lang][translationKey];
+        }
+      });
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

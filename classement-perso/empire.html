@@ -136,8 +136,6 @@
         <a href="../filtre-recherche/filtre-personnage.html">
             <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px;">
         </a>
-        <br><br>
-        <button onclick="scrollToTop()" id="scrollBtn" class="btn btn-secondary mt-2">Top</button>
     </footer>
 
     <script>
@@ -162,18 +160,20 @@
             }
         };
 
+        // Default language: English
+        window.onload = function () {
+            switchLanguage('en');
+        };
+
+        // Function to switch language
         function switchLanguage(lang) {
             const elements = document.querySelectorAll('[id]');
-            elements.forEach(element => {
-                const key = element.id;
-                if (translations[lang] && translations[lang][key]) {
-                    element.textContent = translations[lang][key];
+            elements.forEach(function (element) {
+                const translationKey = element.id;
+                if (translations[lang] && translations[lang][translationKey]) {
+                    element.textContent = translations[lang][translationKey];
                 }
             });
-        }
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 

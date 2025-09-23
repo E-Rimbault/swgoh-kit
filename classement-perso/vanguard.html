@@ -215,58 +215,25 @@
     <script>
         const translations = {
             en: {
-                "filter-title": "Characters with the tag: Vanguard",
-                "aayla": "Aayla Secura",
-                "barriss": "Barriss Offee",
-                "depa": "Depa Billaba",
-                "eeth": "Eeth Koth",
-                "imagundi": "Ima-Gun-Di",
-                "consular": "Jedi Consular",
-                "guardian": "Jedi Knight Guardian",
-                "mace": "Jedi Master Mace Windu",
-                "jocasta": "Jocasta Nu",
-                "kelleran": "Kelleran Beq",
-                "kitfisto": "Kit Fisto",
-                "luminara": "Luminara Unduli",
-                "plokoon": "Plo Koon",
-                "quigon": "Qui-Gon Jinn",
-                "shaakti": "Shaak Ti",
-                "templeguard": "Temple Guard"
+                "filter-title": "Characters with the tag: Vanguard"
             },
             fr: {
-                "filter-title": "Personnages avec le tag : Vanguard",
-                "aayla": "Aayla Secura",
-                "barriss": "Barriss Offee",
-                "depa": "Depa Billaba",
-                "eeth": "Eeth Koth",
-                "imagundi": "Ima-Gun-Di",
-                "consular": "Jedi Consular",
-                "guardian": "Jedi Knight Guardian",
-                "mace": "Jedi Master Mace Windu",
-                "jocasta": "Jocasta Nu",
-                "kelleran": "Kelleran Beq",
-                "kitfisto": "Kit Fisto",
-                "luminara": "Luminara Unduli",
-                "plokoon": "Plo Koon",
-                "quigon": "Qui-Gon Jinn",
-                "shaakti": "Shaak Ti",
-                "templeguard": "Temple Guard"
+                "filter-title": "Personnages avec le tag : Vanguard"
+                
             }
         };
 
         function switchLanguage(lang) {
-            const elements = document.querySelectorAll('[id]');
-            elements.forEach(element => {
-                const key = element.id;
-                if (translations[lang] && translations[lang][key]) {
-                    element.textContent = translations[lang][key];
-                }
-            });
-        }
+      document.getElementById("filter-title").textContent = translations[lang]["filter-title"];
+      Object.keys(translations[lang]).forEach(key => {
+        const el = document.getElementById(key);
+        if (el) el.textContent = translations[lang][key];
+      });
+    }
 
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+    window.onload = function () {
+      switchLanguage('en');
+    };
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

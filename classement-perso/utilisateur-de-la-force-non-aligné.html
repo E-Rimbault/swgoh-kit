@@ -2,212 +2,145 @@
 <html lang="fr">
 
 <head>
-    <title>Utilisateur de la Force Non Aligné</title>
+  <meta charset="utf-8">
+  <title>Utilisateur de la Force Non Aligné</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Rimbault Enzo">
+  <link rel="icon" type="image/png" href="../image/neutre.png">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="author" content="Rimbault Enzo">
-    <link rel="icon" type="image/png" href="../image/neutre.png">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #031952;
+      color: #ffffff;
+    }
 
-    <link rel="stylesheet" href="../style/styles.css"> <!-- Garde si tu as encore des styles spécifiques -->
+    .unit-card {
+      border: 1px solid #dee2e6;
+      border-radius: 12px;
+      padding: 1rem;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+      text-align: center;
+      height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const cells = document.querySelectorAll('td');
-            let filledCount = 0;
-            let imageCount = 0;
+    .unit-card:hover {
+      transform: scale(1.03);
+      border-color: #0d6efd;
+    }
 
-            cells.forEach(cell => {
-                if (cell.textContent.trim() !== '' || cell.querySelector('a')) {
-                    filledCount++;
-                    if (cell.querySelector('img')) {
-                        imageCount++;
-                    }
-                }
-            });
+    .unit-img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+    }
 
-            const th = document.querySelector('thead th');
-            th.textContent += ` (${imageCount}/${filledCount})`;
-        });
-    </script>
+    .unit-name {
+      font-size: 0.9em;
+      color: #000;
+      max-width: 120px;
+      word-wrap: break-word;
+    }
+
+    .flag-switcher {
+      display: flex;
+      justify-content: end;
+      gap: 10px;
+      margin: 1rem;
+    }
+
+    .flag-switcher img {
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
-<body class="faction bg-dark text-light">
+<body>
+  <div class="flag-switcher">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" onclick="switchLanguage('fr')">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" onclick="switchLanguage('en')">
+  </div>
 
-    <div class="container-fluid full-page">
-        <div class="table-responsive">
-            <table class="table table-bordered text-center table-dark align-middle">
-                <thead class="table-light text-dark">
-                    <tr>
-                        <th colspan="6">Personnage avec le tag : Utilisateur de la Force Non Aligné</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <a href="../html/fulcrum.html">
-                                <img src="../image-perso/fulcrum/fulcrum-image.png" alt="Ahsoka Tano (Fulcrum)" class="img-fluid">
-                            </a>
-                            <br>Ahsoka Tano (Fulcrum)
-                        </td>
-                        <td>Asajj Ventress</td>
-                        <td>
-                            <a href="../html/ben_solo.html">
-                                <img src="../image-perso/ben-solo/ben-solo-image.png" alt="Ben Solo" class="img-fluid">
-                            </a>
-                            <br>Ben Solo
-                        </td>
-                        <td>Baylan Skoll</td>
-                        <td>
-                            <a href="../html/cal_kestis.html">
-                                <img src="../image-perso/cal-kestis/cal-image.png" alt="Cal Kestis" class="img-fluid">
-                            </a>
-                            <br>Cal Kestis
-                        </td>
-                        <td>Cere Junda</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="../html/cat.html">
-                                <img src="../image-perso/cat/cat-image.png" alt="Cat" class="img-fluid">
-                            </a>
-                            <br>Commander Ahsoka Tano
-                        </td>
-                        <td>
-                            <a href="../html/cls.html">
-                                <img src="../image-perso/cls/cls-image.png" alt="Commander Luke Skywalker" class="img-fluid">
-                            </a>
-                            <br>Commander Luke Skywalker
-                        </td>
-                        <td>
-                            <a href="../html/huitième_frère.html">
-                                <img src="../image-perso/8th-brother/huit-image.png" alt="Huit Frère" class="img-fluid">
-                            </a>
-                            <br>Eighth Brother
-                        </td>
-                        <td>
-                            <a href="../html/cinquime_frère.html">
-                                <img src="../image-perso/5th-brother/5th-brother-image.png" alt="Fifth Brother" class="img-fluid">
-                            </a>
-                            <br>Fifth Brother
-                        </td>
-                        <td>
-                            <a href="../html/grand_inquisiteur.html">
-                                <img src="../image-perso/gi/grand-inquisitor-image.png" alt="Grand Inquisiteur" class="img-fluid">
-                            </a>
-                            <br>Grand Inquisiteur
-                        </td>
-                        <td>Kylo Ren</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="../html/kru.html">
-                                <img src="../image-perso/kru/kru-image.png" alt="Kylo Ren (Unmasked)" class="img-fluid">
-                            </a>
-                            <br>Kylo Ren (Unmasked)
-                        </td>
-                        <td>
-                            <a href="../html/mara.html">
-                                <img src="../image-perso/mara-jade/mara-image.png" alt="Mara Jade" class="img-fluid">
-                            </a>
-                            <br>Mara Jade, The Emperor's Hand
-                        </td>
-                        <td>Marrok</td>
-                        <td>
-                            <a href="../html/maul.html">
-                                <img src="../image-perso/maul/maul-image.png" alt="Maul" class="img-fluid">
-                            </a>
-                            <br>Maul
-                        </td>
-                        <td>
-                            <a href="../html/ninthsister.html">
-                                <img src="../image-perso/9th-sister/ninthsister.png" alt="Ninth Sister" class="img-fluid">
-                            </a>
-                            <br>Ninth Sister
-                        </td>
-                        <td>
-                            <a href="../html/padawan-sabine.html">
-                                <img src="../image-perso/padawin/sabine-image.png" alt="Padawan Sabine Wren" class="img-fluid">
-                            </a>
-                            <br>Padawan Sabine Wren
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="../html/rey.html">
-                                <img src="../image-perso/rey_gl/rey-image.png" alt="Rey" class="img-fluid">
-                            </a>
-                            <br>Rey
-                        </td>
-                        <td>
-                            <a href="../html/rjt.html">
-                                <img src="../image-perso/rjt/rjt-image.png" alt="Rey (Jedi Training)" class="img-fluid">
-                            </a>
-                            <br>Rey (Jedi Training)
-                        </td>
-                        <td>
-                            <a href="../html/rey_pilleuse.html">
-                                <img src="../image-perso/rey_pilleuse/rey-image.png" alt="Rey (Scavenger)" class="img-fluid">
-                            </a>
-                            <br>Rey (Scavenger)
-                        </td>
-                        <td>
-                            <a href="../html/2nd_sister.html">
-                                <img src="../image-perso/2nc-sister/2nd-sister-image.png" alt="Second Sister" class="img-fluid">
-                            </a>
-                            <br>Second Sister
-                        </td>
-                        <td>
-                            <a href="../html/septième_soeur.html">
-                                <img src="../image-perso/7th-sister/septi-me-soeur-image.png" alt="Seventh Sister" class="img-fluid">
-                            </a>
-                            <br>Seventh Sister
-                        </td>
-                        <td>
-                            <a href="../html/starkiller.html">
-                                <img src="../image-perso/starkiller/starkiller-image.png" alt="Starkiller" class="img-fluid">
-                            </a>
-                            <br>Starkiller
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="../html/shin.html"><img src="../image-perso/shin/shin-image.png" alt="Shin" class="img-fluid"></a>
-                            <br>
-                            Shin Hati
-                        </td>
-                        <td>
-                            <a href="../html/slkr.html">
-                                <img src="../image-perso/slkr/slkr-image.png" alt="SLKR" class="img-fluid">
-                            </a>
-                            <br>Supreme Leader Kylo Ren
-                        </td>
-                        <td>
-                            <a href="../html/malicos.html">
-                                <img src="../image-perso/taron-malicos/malicos-image.png" alt="Taron Malicos" class="img-fluid">
-                            </a>
-                            <br>Taron Malicos
-                        </td>
-                        <td>Third Sister</td>
-                        <td>Visas Marr</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+  <div class="container text-center">
+    <h2 id="filter-title">Personnage avec le tag : Utilisateur de la Force Non Aligné</h2>
+
+    <div class="row justify-content-center g-4 mt-3">
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="unit-card">
+          <a href="../html/fulcrum.html">
+            <img src="../image-perso/fulcrum/fulcrum-image.png" alt="Ahsoka Tano (Fulcrum)" class="unit-img">
+          </a>
+          <div class="unit-name traduction" id="ahsoka">Ahsoka Tano (Fulcrum)</div>
         </div>
+      </div>
+
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="unit-card">
+          <a href="../html/ben_solo.html">
+            <img src="../image-perso/ben-solo/ben-solo-image.png" alt="Ben Solo" class="unit-img">
+          </a>
+          <div class="unit-name traduction" id="ben">Ben Solo</div>
+        </div>
+      </div>
+
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="unit-card">
+          <a href="../html/cal_kestis.html">
+            <img src="../image-perso/cal-kestis/cal-image.png" alt="Cal Kestis" class="unit-img">
+          </a>
+          <div class="unit-name traduction" id="cal">Cal Kestis</div>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <footer class="text-center mt-4">
-        <a href="../filtre-recherche/filtre-personnage.html">
-            <img src="../image/logo_star_wars.png" alt="Filtre personnage" style="width: 80px; height: auto;">
-        </a>
-    </footer>
+  <footer class="text-center mt-5">
+    <a href="../filtre-recherche/filtre-personnage.html">
+      <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px;">
+    </a>
+  </footer>
 
-    <!-- Bootstrap JS (Optionnel si pas d'interaction JS requise) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const translations = {
+      fr: {
+        "filter-title": "Personnage avec le tag : Utilisateur de la Force Non Aligné",
+        "ahsoka": "Ahsoka Tano (Fulcrum)",
+        "ben": "Ben Solo",
+        "cal": "Cal Kestis"
+      },
+      en: {
+        "filter-title": "Character with the tag : Unaligned Force User",
+        "ahsoka": "Ahsoka Tano (Fulcrum)",
+        "ben": "Ben Solo",
+        "cal": "Cal Kestis"
+      }
+    };
+
+    function switchLanguage(lang) {
+      document.getElementById("filter-title").textContent = translations[lang]["filter-title"];
+      Object.keys(translations[lang]).forEach(key => {
+        const el = document.getElementById(key);
+        if (el) el.textContent = translations[lang][key];
+      });
+    }
+
+    window.onload = function () {
+      switchLanguage('en');
+    };
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -169,12 +169,18 @@
             }
         };
 
+                // Default language: English
+        window.onload = function () {
+            switchLanguage('en');
+        };
+
+        // Function to switch language
         function switchLanguage(lang) {
             const elements = document.querySelectorAll('[id]');
-            elements.forEach(el => {
-                const key = el.id;
-                if (translations[lang] && translations[lang][key]) {
-                    el.textContent = translations[lang][key];
+            elements.forEach(function(element) {
+                const translationKey = element.id;
+                if (translations[lang] && translations[lang][translationKey]) {
+                    element.textContent = translations[lang][translationKey];
                 }
             });
         }
