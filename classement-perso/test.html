@@ -79,39 +79,11 @@
         <div class="row justify-content-center g-4 mt-3" id="characters"></div>
     </div>
 
-<footer>
-    <a href="../filtre-recherche/filtre-personnage.html">
-        <img style="width: 10%;height: 10%;" class="position" src="../image/logo_star_wars.png" alt="filtre personnage">
-    </a>
-    <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-    <script src="../javascript/bouton.js"></script>
-    <script>
-        // Charger le JSON et filtrer les soigneurs
-        fetch("../filtre-recherche/units.json")
-            .then(response => response.json())
-            .then(data => {
-                const container = document.getElementById("characters");
-                const healers = data.filter(unit => unit.role.toLowerCase() === "501st");
-
-                healers.forEach(unit => {
-                    const div = document.createElement("div");
-                    div.classList.add("character");
-
-                    div.innerHTML = `
-                        <figure>
-                            <a href="${unit.page || '#'}">
-                                <img src="${unit.image || '../image/default.png'}" alt="${unit.name}">
-                            </a>
-                            <figcaption>${unit.name}</figcaption>
-                        </figure>
-                    `;
-
-                    container.appendChild(div);
-                });
-            })
-            .catch(error => console.error("Erreur lors du chargement des unités :", error));
-    </script>
+    <footer class="text-center mt-5">
+        <a href="../filtre-recherche/filtre-personnage.html">
+            <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px;">
+        </a>
+    </footer>
 
     <script>
         const translations = {
@@ -135,11 +107,14 @@
             }
         };
 
-        // Génération dynamique des cartes
-        fetch("../units.json")
+        let currentLang = "fr"; // langue par défaut
+
+        fetch("../filtre-recherche/units.json")
             .then(response => response.json())
             .then(data => {
                 const container = document.getElementById("characters");
+
+                // filtre uniquement les unités 501st
                 const units501 = data.filter(unit => unit.factions && unit.factions.includes("501st"));
 
                 units501.forEach(unit => {
@@ -151,19 +126,21 @@
                             <a href="${unit.page || '#'}">
                                 <img src="${unit.image || '../image/default.png'}" alt="${unit.name}" class="unit-img">
                             </a>
-                            <div class="unit-name traduction" id="${unit.id}">${unit.name}</div>
+                            <div class="unit-name traduction" id="${unit.id.toLowerCase()}">${unit.name}</div>
                         </div>
                     `;
 
                     container.appendChild(col);
                 });
 
-                // langue par défaut
-                switchLanguage('fr');
-            });
+                // appliquer traduction par défaut
+                switchLanguage(currentLang);
+            })
+            .catch(error => console.error("Erreur lors du chargement des unités :", error));
 
-        // Fonction de traduction
+        // Fonction pour changer de langue
         function switchLanguage(lang) {
+            currentLang = lang;
             const elements = document.querySelectorAll(".traduction, #filter-title");
             elements.forEach(element => {
                 const key = element.id.toLowerCase();
