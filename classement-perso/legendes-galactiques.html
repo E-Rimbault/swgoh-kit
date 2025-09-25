@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="fr">
+
 <head>
   <meta charset="utf-8">
   <title>Légendes Galactiques</title>
@@ -7,7 +8,6 @@
   <meta name="author" content="Rimbault Enzo">
   <link rel="icon" type="image/png" href="../image/clone-99.png">
 
-  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
@@ -29,35 +29,14 @@
       align-items: center;
       justify-content: space-between;
     }
-    .unit-card:hover {
-      transform: scale(1.03);
-      border-color: #0d6efd;
-    }
-    .unit-img {
-      width: 100px;
-      height: 100px;
-      object-fit: contain;
-      margin-bottom: 0.5rem;
-    }
-    .unit-name {
-      font-size: 0.9em;
-      color: #000;
-      max-width: 100px;
-      word-wrap: break-word;
-    }
-    .flag-switcher {
-      display: flex;
-      justify-content: end;
-      gap: 10px;
-      margin: 1rem;
-    }
-    .flag-switcher img {
-      width: 30px;
-      height: 20px;
-      cursor: pointer;
-    }
+    .unit-card:hover { transform: scale(1.03); border-color: #0d6efd; }
+    .unit-img { width: 100px; height: 100px; object-fit: contain; margin-bottom: 0.5rem; }
+    .unit-name { font-size: 0.9em; color: #000; max-width: 100px; word-wrap: break-word; }
+    .flag-switcher { display: flex; justify-content: end; gap: 10px; margin: 1rem; }
+    .flag-switcher img { width: 30px; height: 20px; cursor: pointer; }
   </style>
 </head>
+
 <body>
 
   <!-- Sélecteur de langue -->
@@ -67,95 +46,8 @@
   </div>
 
   <div class="container text-center">
-    <h2 id="title">Personnage avec le tag : Légendes Galactiques</h2>
-
-    <div class="row justify-content-center g-4 mt-3">
-
-      <!-- Ahsoka Tano -->
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <img src="../image-perso/ahsoka/ahsoka.png" alt="Ahsoka Tano" class="unit-img">
-          <div class="unit-name">Ahsoka Tano</div>
-        </div>
-      </div>
-
-      <!-- Jabba -->
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <a href="../html/jabba.html">
-            <img src="../image-perso/jabba/jabba-image.png" alt="Jabba the Hutt" class="unit-img">
-          </a>
-          <div class="unit-name traduction" id="jabba">Jabba le Hutt</div>
-        </div>
-      </div>
-
-      <!-- JMK -->
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <a href="../html/JMK.html">
-            <img src="../image-perso/jmk/jmk-image.png" alt="Jedi Master Kenobi" class="unit-img">
-          </a>
-          <div class="unit-name traduction" id="jmk">Maître Jedi Kenobi</div>
-        </div>
-      </div>
-
-      <!-- JML -->
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <a href="../html/jml.html">
-            <img src="../image-perso/jml/jml-image.png" alt="Jedi Master Luke Skywalker" class="unit-img">
-          </a>
-          <div class="unit-name traduction" id="jml">Maître Jedi Luke Skywalker</div>
-        </div>
-      </div>
-
-      <!-- Leia Organa -->
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <img src="../image-perso/leia/leia.png" alt="Leia Organa" class="unit-img">
-          <div class="unit-name">Leia Organa</div>
-        </div>
-      </div>
-
-      <!-- Lord Vador -->
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <img src="../image-perso/vador/vador.png" alt="Lord Vador" class="unit-img">
-          <div class="unit-name">Lord Vador</div>
-        </div>
-      </div>
-
-      <!-- Rey -->
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <a href="../html/rey.html">
-            <img src="../image-perso/rey_gl/rey-image.png" alt="Rey" class="unit-img">
-          </a>
-          <div class="unit-name traduction" id="rey">Rey</div>
-        </div>
-      </div>
-
-      <!-- SEE -->
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <a href="../html/eternel_empereur.html">
-            <img src="../image-perso/see/see-image.png" alt="Sith Eternal Emperor" class="unit-img">
-          </a>
-          <div class="unit-name traduction" id="see">Empereur Éternel Sith</div>
-        </div>
-      </div>
-
-      <!-- SLKR -->
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <a href="../html/slkr.html">
-            <img src="../image-perso/slkr/slkr-image.png" alt="Supreme Leader Kylo Ren" class="unit-img">
-          </a>
-          <div class="unit-name traduction" id="slkr">Suprême Leader Kylo Ren</div>
-        </div>
-      </div>
-
-    </div>
+    <h2 id="filter-title">Personnages avec la faction : Légendes Galactiques</h2>
+    <div class="row justify-content-center g-4 mt-3" id="characters"></div>
   </div>
 
   <footer class="text-center mt-5">
@@ -165,41 +57,63 @@
   </footer>
 
   <script>
-    const translations = {
-      en: {
-        "title": "Character with the tag : Galactic Legends",
-        "jabba": "Jabba the Hutt",
-        "jmk": "Jedi Master Kenobi",
-        "jml": "Jedi Master Luke Skywalker",
-        "rey": "Rey",
-        "see": "Sith Eternal Emperor",
-        "slkr": "Supreme Leader Kylo Ren"
-      },
-      fr: {
-        "title": "Personnage avec le tag : Légendes Galactiques",
-        "jabba": "Jabba le Hutt",
-        "jmk": "Maître Jedi Kenobi",
-        "jml": "Maître Jedi Luke Skywalker",
-        "rey": "Rey",
-        "see": "Empereur Éternel Sith",
-        "slkr": "Suprême Leader Kylo Ren"
-      }
-    };
+    let translations = {};
+    let currentLang = "en"; // langue par défaut
 
-    window.onload = function () {
-      switchLanguage('en');
-    };
+    // Charger le fichier de traductions externe
+    fetch("../filtre-recherche/translations/galactic_legends.json")
+      .then(res => res.json())
+      .then(data => {
+        translations = data;
+        loadUnits();
+      })
+      .catch(err => {
+        console.warn("Pas de fichier de traduction trouvé pour Galactic Legends");
+        loadUnits();
+      });
 
-    function switchLanguage(lang) {
-      for (const key in translations[lang]) {
-        const el = document.getElementById(key);
-        if (el) el.textContent = translations[lang][key];
-      }
-      document.getElementById("title").textContent = translations[lang]["title"];
+    function loadUnits() {
+      fetch("../filtre-recherche/units.json")
+        .then(response => response.json())
+        .then(data => {
+          const container = document.getElementById("characters");
+
+          // Filtrer uniquement les unités Galactic Legend (insensible à la casse)
+          const unitsGL = data.filter(unit =>
+            unit.factions &&
+            unit.factions.some(f => f.toLowerCase() === "galactic legend")
+          );
+
+          unitsGL.forEach(unit => {
+            const col = document.createElement("div");
+            col.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2");
+
+            col.innerHTML = `
+              <div class="unit-card">
+                <a href="${unit.page || '#'}">
+                  <img src="${unit.image || '../image/default.png'}" alt="${unit.name}" class="unit-img">
+                </a>
+                <div class="unit-name traduction" id="${unit.id.toLowerCase()}">${unit.name}</div>
+              </div>
+            `;
+
+            container.appendChild(col);
+          });
+
+          switchLanguage(currentLang);
+        })
+        .catch(error => console.error("Erreur lors du chargement des unités :", error));
     }
 
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    function switchLanguage(lang) {
+      currentLang = lang;
+      const elements = document.querySelectorAll(".traduction, #filter-title");
+      elements.forEach(element => {
+        const key = element.id.toLowerCase();
+        if (translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
     }
   </script>
 
