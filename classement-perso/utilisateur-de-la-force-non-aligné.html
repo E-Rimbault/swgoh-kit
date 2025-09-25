@@ -3,12 +3,10 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Utilisateur de la Force Non Aligné</title>
+  <title>Utilisateur de la force non aligné</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Rimbault Enzo">
-  <link rel="icon" type="image/png" href="../image/neutre.png">
-
-  <!-- Bootstrap CSS -->
+  <link rel="icon" type="image/png" href="../image/phenix.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
@@ -47,7 +45,7 @@
     .unit-name {
       font-size: 0.9em;
       color: #000;
-      max-width: 120px;
+      max-width: 100px;
       word-wrap: break-word;
     }
 
@@ -68,41 +66,15 @@
 
 <body>
   <div class="flag-switcher">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" onclick="switchLanguage('fr')">
-    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" onclick="switchLanguage('en')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+      onclick="switchLanguage('fr')">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+      onclick="switchLanguage('en')">
   </div>
 
   <div class="container text-center">
-    <h2 id="filter-title">Personnage avec le tag : Utilisateur de la Force Non Aligné</h2>
-
-    <div class="row justify-content-center g-4 mt-3">
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <a href="../html/fulcrum.html">
-            <img src="../image-perso/fulcrum/fulcrum-image.png" alt="Ahsoka Tano (Fulcrum)" class="unit-img">
-          </a>
-          <div class="unit-name traduction" id="ahsoka">Ahsoka Tano (Fulcrum)</div>
-        </div>
-      </div>
-
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <a href="../html/ben_solo.html">
-            <img src="../image-perso/ben-solo/ben-solo-image.png" alt="Ben Solo" class="unit-img">
-          </a>
-          <div class="unit-name traduction" id="ben">Ben Solo</div>
-        </div>
-      </div>
-
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <a href="../html/cal_kestis.html">
-            <img src="../image-perso/cal-kestis/cal-image.png" alt="Cal Kestis" class="unit-img">
-          </a>
-          <div class="unit-name traduction" id="cal">Cal Kestis</div>
-        </div>
-      </div>
-    </div>
+    <h2 id="filter-title">Personnage avec le tag : Utilisateur de la force non aligné</h2>
+    <div class="row justify-content-center g-4 mt-3" id="characters"></div>
   </div>
 
   <footer class="text-center mt-5">
@@ -112,32 +84,63 @@
   </footer>
 
   <script>
-    const translations = {
-      fr: {
-        "filter-title": "Personnage avec le tag : Utilisateur de la Force Non Aligné",
-        "ahsoka": "Ahsoka Tano (Fulcrum)",
-        "ben": "Ben Solo",
-        "cal": "Cal Kestis"
-      },
-      en: {
-        "filter-title": "Character with the tag : Unaligned Force User",
-        "ahsoka": "Ahsoka Tano (Fulcrum)",
-        "ben": "Ben Solo",
-        "cal": "Cal Kestis"
-      }
-    };
+    let translations = {}
+    let currentLang = "en"; // langue par défaut
 
-    function switchLanguage(lang) {
-      document.getElementById("filter-title").textContent = translations[lang]["filter-title"];
-      Object.keys(translations[lang]).forEach(key => {
-        const el = document.getElementById(key);
-        if (el) el.textContent = translations[lang][key];
+    fetch("../filtre-recherche/translations/utilisateur-de-la-force-non-aligné.json")
+      .then(res => res.json())
+      .then(data => {
+        translations = data;
+        loadUnits();
+      })
+      .catch(err => {
+        console.warn("Pas de fichier de traduction trouvé pour Utilisateur de la force non aligné");
+        loadUnits();
       });
+
+    function loadUnits() {
+      fetch("../filtre-recherche/units.json")
+        .then(response => response.json())
+        .then(data => {
+          const container = document.getElementById("characters");
+
+          // TODO: Ajuster le filtre ici pour correspondre à la faction
+          const factionUnits = data.filter(unit =>
+            unit.factions &&
+            unit.factions.some(f => f.toLowerCase() === "unaligned force user")
+          );
+
+          factionUnits.forEach(unit => {
+            const col = document.createElement("div");
+            col.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2");
+
+            col.innerHTML = `
+              <div class="unit-card">
+                <a href="${unit.page || '#'}">
+                  <img src="${unit.image || '../image/default.png'}" alt="${unit.name}" class="unit-img">
+                </a>
+                <div class="unit-name traduction" id="${unit.id.toLowerCase()}">${unit.name}</div>
+              </div>
+            `;
+
+            container.appendChild(col);
+          });
+
+          switchLanguage(currentLang);
+        })
+        .catch(error => console.error("Erreur lors du chargement des unités :", error));
     }
 
-    window.onload = function () {
-      switchLanguage('en');
-    };
+    function switchLanguage(lang) {
+      currentLang = lang;
+      const elements = document.querySelectorAll(".traduction, #filter-title");
+      elements.forEach(element => {
+        const key = element.id.toLowerCase();
+        if (translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+    }
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

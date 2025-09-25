@@ -2,213 +2,148 @@
 <html lang="fr">
 
 <head>
-    <meta charset="utf-8">
-    <title>Empire Sith</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Rimbault Enzo">
-    <link rel="icon" type="image/png" href="../image/logo_star_wars.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <title>Empire sith</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Rimbault Enzo">
+  <link rel="icon" type="image/png" href="../image/phenix.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-        body {
-            background-color: #031952;
-            color: #ffffff;
-        }
+  <style>
+    body {
+      background-color: #031952;
+      color: #ffffff;
+    }
 
-        .unit-card {
-            border: 1px solid #dee2e6;
-            border-radius: 12px;
-            padding: 1rem;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease;
-            text-align: center;
-            height: 220px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-        }
+    .unit-card {
+      border: 1px solid #dee2e6;
+      border-radius: 12px;
+      padding: 1rem;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+      text-align: center;
+      height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-       .unit-card:hover {
-            transform: scale(1.03);
-            border-color: #0d6efd;
-        }
+    .unit-card:hover {
+      transform: scale(1.03);
+      border-color: #0d6efd;
+    }
 
-        .unit-img {
-            width: 100px;
-            height: 100px;
-            object-fit: contain;
-            margin-bottom: 0.5rem;
-        }
+    .unit-img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+    }
 
-        .unit-name {
-            font-size: 0.9em;
-            color: #000;
-            max-width: 100px;
-            word-wrap: break-word;
-        }
+    .unit-name {
+      font-size: 0.9em;
+      color: #000;
+      max-width: 100px;
+      word-wrap: break-word;
+    }
 
-        .flag-switcher {
-            display: flex;
-            justify-content: end;
-            gap: 10px;
-            margin: 1rem;
-        }
+    .flag-switcher {
+      display: flex;
+      justify-content: end;
+      gap: 10px;
+      margin: 1rem;
+    }
 
-        .flag-switcher img {
-            width: 30px;
-            height: 20px;
-            cursor: pointer;
-        }
-    </style>
+    .flag-switcher img {
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="flag-switcher">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-            onclick="switchLanguage('fr')">
-        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-            onclick="switchLanguage('en')">
-    </div>
+  <div class="flag-switcher">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+      onclick="switchLanguage('fr')">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+      onclick="switchLanguage('en')">
+  </div>
 
-    <div class="container text-center">
-        <h2 id="filter-title">Personnage avec le tag : Empire Sith</h2>
-        <div class="row justify-content-center g-4 mt-3">
+  <div class="container text-center">
+    <h2 id="filter-title">Personnage avec le tag : Empire sith</h2>
+    <div class="row justify-content-center g-4 mt-3" id="characters"></div>
+  </div>
 
-            <!-- Bastila -->
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <a href="../html/bastila_fallen.html">
-                        <img src="../image-perso/bsf/bastila-image.png" alt="Bastila" class="unit-img">
-                    </a>
-                    <div class="unit-name traduction" id="bastila">Bastila Shan (Fallen)</div>
-                </div>
-            </div>
+  <footer class="text-center mt-5">
+    <a href="../filtre-recherche/filtre-personnage.html">
+      <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px;">
+    </a>
+  </footer>
 
-            <!-- Malak -->
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <a href="../html/dark_malak.html">
-                        <img src="../image-perso/malak/malak-image.png" alt="Malak" class="unit-img">
-                    </a>
-                    <div class="unit-name traduction" id="malak">Darth Malak</div>
-                </div>
-            </div>
+  <script>
+    let translations = {}
+    let currentLang = "en"; // langue par défaut
 
-            <!-- Malgus -->
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <a href="../html/dark_malgus.html">
-                        <img src="../image-perso/malgus/malgus-image.png" alt="Malgus" class="unit-img">
-                    </a>
-                    <div class="unit-name traduction" id="malgus">Darth Malgus</div>
-                </div>
-            </div>
+    fetch("../filtre-recherche/translations/empire-sith.json")
+      .then(res => res.json())
+      .then(data => {
+        translations = data;
+        loadUnits();
+      })
+      .catch(err => {
+        console.warn("Pas de fichier de traduction trouvé pour Empire sith");
+        loadUnits();
+      });
 
-            <!-- Revan -->
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <a href="../html/dark_revan.html">
-                        <img src="../image-perso/dark-revan/dr-image.png" alt="Revan" class="unit-img">
-                    </a>
-                    <div class="unit-name traduction" id="revan">Darth Revan</div>
-                </div>
-            </div>
+    function loadUnits() {
+      fetch("../filtre-recherche/units.json")
+        .then(response => response.json())
+        .then(data => {
+          const container = document.getElementById("characters");
 
-            <!-- HK-47 -->
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <a href="../html/hk-47.html">
-                        <img src="../image-perso/hk-47/hk-image.png" alt="HK-47" class="unit-img">
-                    </a>
-                    <div class="unit-name traduction" id="hk">HK-47</div>
-                </div>
-            </div>
+          // TODO: Ajuster le filtre ici pour correspondre à la faction
+          const factionUnits = data.filter(unit =>
+            unit.factions &&
+            unit.factions.some(f => f.toLowerCase() === "sith empire")
+          );
 
-            <!-- Assassin -->
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <a href="../html/sith_assasin.html">
-                        <img src="../image-perso/sith-assassin/sith-assassin-iamge.png" alt="Sith Assassin" class="unit-img">
-                    </a>
-                    <div class="unit-name traduction" id="assassin">Sith Assassin</div>
-                </div>
-            </div>
+          factionUnits.forEach(unit => {
+            const col = document.createElement("div");
+            col.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2");
 
-            <!-- Trooper -->
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <a href="../html/sith_empire_trooper.html">
-                        <img src="../image-perso/sith-empire-trooper/sithtrooper-image.png" alt="Sith Empire Trooper" class="unit-img">
-                    </a>
-                    <div class="unit-name traduction" id="trooper">Sith Empire Trooper</div>
-                </div>
-            </div>
+            col.innerHTML = `
+              <div class="unit-card">
+                <a href="${unit.page || '#'}">
+                  <img src="${unit.image || '../image/default.png'}" alt="${unit.name}" class="unit-img">
+                </a>
+                <div class="unit-name traduction" id="${unit.id.toLowerCase()}">${unit.name}</div>
+              </div>
+            `;
 
-            <!-- Marauder -->
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <a href="../html/sith_marauder.html">
-                        <img src="../image-perso/maraudeur-sith/marauder.png" alt="Sith Marauder" class="unit-img">
-                    </a>
-                    <div class="unit-name traduction" id="marauder">Sith Marauder</div>
-                </div>
-            </div>
+            container.appendChild(col);
+          });
 
-        </div>
-    </div>
+          switchLanguage(currentLang);
+        })
+        .catch(error => console.error("Erreur lors du chargement des unités :", error));
+    }
 
-    <footer class="text-center mt-5">
-        <a href="../filtre-recherche/filtre-personnage.html">
-            <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px;">
-        </a>
-    </footer>
-
-    <script>
-        const translations = {
-            en: {
-                "filter-title": "Characters with the tag: Sith Empire",
-                "bastila": "Bastila Shan (Fallen)",
-                "malak": "Darth Malak",
-                "malgus": "Darth Malgus",
-                "revan": "Darth Revan",
-                "hk": "HK-47",
-                "assassin": "Sith Assassin",
-                "trooper": "Sith Empire Trooper",
-                "marauder": "Sith Marauder"
-            },
-            fr: {
-                "filter-title": "Personnage avec le tag : Empire Sith",
-                "bastila": "Bastila Shan (déchue)",
-                "malak": "Dark Malak",
-                "malgus": "Dark Malgus",
-                "revan": "Dark Revan",
-                "hk": "HK-47",
-                "assassin": "Assassin Sith",
-                "trooper": "Soldat de l'Empire Sith",
-                "marauder": "Maraudeur Sith"
-            }
-        };
-
-        // Default language: English
-        window.onload = function () {
-            switchLanguage('en');
-        };
-
-        // Function to switch language
-        function switchLanguage(lang) {
-            const elements = document.querySelectorAll('[id]');
-            elements.forEach(function (element) {
-                const translationKey = element.id;
-                if (translations[lang] && translations[lang][translationKey]) {
-                    element.textContent = translations[lang][translationKey];
-                }
-            });
+    function switchLanguage(lang) {
+      currentLang = lang;
+      const elements = document.querySelectorAll(".traduction, #filter-title");
+      elements.forEach(element => {
+        const key = element.id.toLowerCase();
+        if (translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
         }
-    </script>
+      });
+    }
+  </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

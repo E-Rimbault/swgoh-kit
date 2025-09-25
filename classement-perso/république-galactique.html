@@ -3,12 +3,10 @@
 
 <head>
   <meta charset="utf-8">
-  <title>République Galactique</title>
+  <title>République galactique</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Rimbault Enzo">
-  <link rel="icon" type="image/png" href="../image/républiqe.png">
-
-  <!-- Bootstrap CSS -->
+  <link rel="icon" type="image/png" href="../image/phenix.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
@@ -67,7 +65,6 @@
 </head>
 
 <body>
-  <!-- Sélecteur de langue -->
   <div class="flag-switcher">
     <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
       onclick="switchLanguage('fr')">
@@ -76,46 +73,8 @@
   </div>
 
   <div class="container text-center">
-    <h2 id="filter-title">Personnage avec le tag : République Galactique</h2>
-
-    <div class="row justify-content-center g-4 mt-3">
-      <!-- Exemple de cartes (à compléter avec toute la liste comme dans le tableau) -->
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <a href="../html/aayla.html">
-            <img src="../image-perso/aayla/aayla_image.png" alt="Aayla Secura" class="unit-img">
-          </a>
-          <div class="unit-name traduction" id="aayla">Aayla Secura</div>
-        </div>
-      </div>
-
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <a href="../html/ahsoka_tano.html">
-            <img src="../image-perso/ahsoka-tano/Ahsoka-image.png" alt="Ahsoka Tano" class="unit-img">
-          </a>
-          <div class="unit-name traduction" id="ahsoka">Ahsoka Tano (Chipie)</div>
-        </div>
-      </div>
-
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <a href="../html/rex.html">
-            <img src="../image-perso/rex/rex-image.png" alt="Rex" class="unit-img">
-          </a>
-          <div class="unit-name traduction" id="rex">CT-7567 "Rex"</div>
-        </div>
-      </div>
-
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <a href="../html/r2-2d.html">
-            <img src="../image-perso/r2-d2/r2-image.png" alt="R2-D2" class="unit-img">
-          </a>
-          <div class="unit-name traduction" id="r2">R2-D2</div>
-        </div>
-      </div>
-    </div>
+    <h2 id="filter-title">Personnage avec le tag : République galactique</h2>
+    <div class="row justify-content-center g-4 mt-3" id="characters"></div>
   </div>
 
   <footer class="text-center mt-5">
@@ -125,40 +84,65 @@
   </footer>
 
   <script>
-    const translations = {
-      en: {
-        "filter-title": "Character with the tag : Galactic Republic",
-        "aayla": "Aayla Secura",
-        "ahsoka": "Ahsoka Tano (Snips)",
-        "rex": "CT-7567 'Rex'",
-        "r2": "R2-D2",
-      },
-      fr: {
-        "filter-title": "Personnage avec le tag : République Galactique",
-        "aayla": "Aayla Secura",
-        "ahsoka": "Ahsoka Tano (Chipie)",
-        "rex": "CT-7567 'Rex'",
-        "r2": "R2-D2",
-      }
-    };
+    let translations = {}
+    let currentLang = "en"; // langue par défaut
 
-    // Langue par défaut
-    window.onload = function () {
-      switchLanguage('en');
-    };
+    fetch("../filtre-recherche/translations/république-galactique.json")
+      .then(res => res.json())
+      .then(data => {
+        translations = data;
+        loadUnits();
+      })
+      .catch(err => {
+        console.warn("Pas de fichier de traduction trouvé pour République galactique");
+        loadUnits();
+      });
+
+    function loadUnits() {
+      fetch("../filtre-recherche/units.json")
+        .then(response => response.json())
+        .then(data => {
+          const container = document.getElementById("characters");
+
+          // TODO: Ajuster le filtre ici pour correspondre à la faction
+          const factionUnits = data.filter(unit =>
+            unit.factions &&
+            unit.factions.some(f => f.toLowerCase() === "galactic republic")
+          );
+
+          factionUnits.forEach(unit => {
+            const col = document.createElement("div");
+            col.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2");
+
+            col.innerHTML = `
+              <div class="unit-card">
+                <a href="${unit.page || '#'}">
+                  <img src="${unit.image || '../image/default.png'}" alt="${unit.name}" class="unit-img">
+                </a>
+                <div class="unit-name traduction" id="${unit.id.toLowerCase()}">${unit.name}</div>
+              </div>
+            `;
+
+            container.appendChild(col);
+          });
+
+          switchLanguage(currentLang);
+        })
+        .catch(error => console.error("Erreur lors du chargement des unités :", error));
+    }
 
     function switchLanguage(lang) {
-      const elements = document.querySelectorAll('[id]');
-      elements.forEach(function (element) {
-        const translationKey = element.id;
-        if (translations[lang] && translations[lang][translationKey]) {
-          element.textContent = translations[lang][translationKey];
+      currentLang = lang;
+      const elements = document.querySelectorAll(".traduction, #filter-title");
+      elements.forEach(element => {
+        const key = element.id.toLowerCase();
+        if (translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
         }
       });
     }
   </script>
 
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

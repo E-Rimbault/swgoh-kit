@@ -1,13 +1,12 @@
 <!DOCTYPE HTML>
 <html lang="fr">
+
 <head>
   <meta charset="utf-8">
   <title>Wookie</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Rimbault Enzo">
-  <link rel="icon" type="image/png" href="../image/wookie.png">
-
-  <!-- Bootstrap -->
+  <link rel="icon" type="image/png" href="../image/phenix.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
@@ -15,6 +14,7 @@
       background-color: #031952;
       color: #ffffff;
     }
+
     .unit-card {
       border: 1px solid #dee2e6;
       border-radius: 12px;
@@ -29,28 +29,33 @@
       align-items: center;
       justify-content: space-between;
     }
+
     .unit-card:hover {
       transform: scale(1.03);
       border-color: #0d6efd;
     }
+
     .unit-img {
       width: 100px;
       height: 100px;
       object-fit: contain;
       margin-bottom: 0.5rem;
     }
+
     .unit-name {
       font-size: 0.9em;
       color: #000;
       max-width: 100px;
       word-wrap: break-word;
     }
+
     .flag-switcher {
       display: flex;
       justify-content: end;
       gap: 10px;
       margin: 1rem;
     }
+
     .flag-switcher img {
       width: 30px;
       height: 20px;
@@ -58,88 +63,18 @@
     }
   </style>
 </head>
-<body>
 
-  <!-- Sélecteur de langue -->
+<body>
   <div class="flag-switcher">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" onclick="switchLanguage('fr')">
-    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" onclick="switchLanguage('en')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+      onclick="switchLanguage('fr')">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+      onclick="switchLanguage('en')">
   </div>
 
   <div class="container text-center">
     <h2 id="filter-title">Personnage avec le tag : Wookie</h2>
-
-    <div class="row justify-content-center g-4 mt-3">
-
-      <!-- Chewbacca -->
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <a href="../html/chewbacca.html">
-            <img src="../image-perso/chewbacca/chewie-image.png" alt="Chewbacca" class="unit-img">
-          </a>
-          <div class="unit-name traduction" id="chewbacca">Chewbacca</div>
-        </div>
-      </div>
-
-      <!-- Clone Wars Chewbacca -->
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <a href="../html/clone-chewbacca.html">
-            <img src="../image-perso/clone-chewbacca/chewi-image.png" alt="Clone Wars Chewbacca" class="unit-img">
-          </a>
-          <div class="unit-name traduction" id="clonechewbacca">Clone Wars Chewbacca</div>
-        </div>
-      </div>
-
-      <!-- Krrsantan -->
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <img src="../image-perso/krrsantan/krrsantan.png" alt="Krrsantan" class="unit-img">
-          <div class="unit-name traduction" id="krrsantan">Krrsantan</div>
-        </div>
-      </div>
-
-      <!-- Tarfful -->
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <img src="../image-perso/tarfful/tarfful.png" alt="Tarfful" class="unit-img">
-          <div class="unit-name traduction" id="tarfful">Tarfful</div>
-        </div>
-      </div>
-
-      <!-- Threepio & Chewie -->
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <img src="../image-perso/threepio-chewie/threepio-chewie.png" alt="Threepio & Chewie" class="unit-img">
-          <div class="unit-name traduction" id="threepio">Threepio & Chewie</div>
-        </div>
-      </div>
-
-      <!-- Vandor Chewbacca -->
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <img src="../image-perso/vandor-chewbacca/vandor.png" alt="Vandor Chewbacca" class="unit-img">
-          <div class="unit-name traduction" id="vandor">Vandor Chewbacca</div>
-        </div>
-      </div>
-
-      <!-- Veteran Smuggler Chewbacca -->
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <img src="../image-perso/veteran-chewbacca/veteran.png" alt="Veteran Smuggler Chewbacca" class="unit-img">
-          <div class="unit-name traduction" id="veteranchewie">Veteran Smuggler Chewbacca</div>
-        </div>
-      </div>
-
-      <!-- Zaalbar -->
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <img src="../image-perso/zaalbar/zaalbar.png" alt="Zaalbar" class="unit-img">
-          <div class="unit-name traduction" id="zaalbar">Zaalbar</div>
-        </div>
-      </div>
-
-    </div>
+    <div class="row justify-content-center g-4 mt-3" id="characters"></div>
   </div>
 
   <footer class="text-center mt-5">
@@ -149,42 +84,60 @@
   </footer>
 
   <script>
-    const translations = {
-      en: {
-        "filter-title": "Character with the tag : Wookie",
-        "chewbacca": "Chewbacca",
-        "clonechewbacca": "Clone Wars Chewbacca",
-        "krrsantan": "Krrsantan",
-        "tarfful": "Tarfful",
-        "threepio": "Threepio & Chewie",
-        "vandor": "Vandor Chewbacca",
-        "veteranchewie": "Veteran Smuggler Chewbacca",
-        "zaalbar": "Zaalbar",
-      },
-      fr: {
-        "filter-title": "Personnage avec le tag : Wookie",
-        "chewbacca": "Chewbacca",
-        "clonechewbacca": "Chewbacca (Guerres des Clones)",
-        "krrsantan": "Krrsantan",
-        "tarfful": "Tarfful",
-        "threepio": "Threepio & Chewie",
-        "vandor": "Chewbacca de Vandor",
-        "veteranchewie": "Chewbacca Contrebandier Vétéran",
-        "zaalbar": "Zaalbar",
-      }
-    };
+    let translations = {}
+    let currentLang = "en"; // langue par défaut
 
-    // Par défaut : anglais
-    window.onload = function () {
-      switchLanguage('en');
-    };
+    fetch("../filtre-recherche/translations/wookie.json")
+      .then(res => res.json())
+      .then(data => {
+        translations = data;
+        loadUnits();
+      })
+      .catch(err => {
+        console.warn("Pas de fichier de traduction trouvé pour Wookie");
+        loadUnits();
+      });
+
+    function loadUnits() {
+      fetch("../filtre-recherche/units.json")
+        .then(response => response.json())
+        .then(data => {
+          const container = document.getElementById("characters");
+
+          // TODO: Ajuster le filtre ici pour correspondre à la faction
+          const factionUnits = data.filter(unit =>
+            unit.factions &&
+            unit.factions.some(f => f.toLowerCase() === "wookie")
+          );
+
+          factionUnits.forEach(unit => {
+            const col = document.createElement("div");
+            col.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2");
+
+            col.innerHTML = `
+              <div class="unit-card">
+                <a href="${unit.page || '#'}">
+                  <img src="${unit.image || '../image/default.png'}" alt="${unit.name}" class="unit-img">
+                </a>
+                <div class="unit-name traduction" id="${unit.id.toLowerCase()}">${unit.name}</div>
+              </div>
+            `;
+
+            container.appendChild(col);
+          });
+
+          switchLanguage(currentLang);
+        })
+        .catch(error => console.error("Erreur lors du chargement des unités :", error));
+    }
 
     function switchLanguage(lang) {
-      const elements = document.querySelectorAll('[id]');
-      elements.forEach(function(element) {
-        const translationKey = element.id;
-        if (translations[lang] && translations[lang][translationKey]) {
-          element.textContent = translations[lang][translationKey];
+      currentLang = lang;
+      const elements = document.querySelectorAll(".traduction, #filter-title");
+      elements.forEach(element => {
+        const key = element.id.toLowerCase();
+        if (translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
         }
       });
     }
@@ -192,4 +145,5 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

@@ -6,9 +6,7 @@
   <title>Tusken</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Rimbault Enzo">
-  <link rel="icon" type="image/png" href="../image/tusken.png">
-
-  <!-- Bootstrap CSS -->
+  <link rel="icon" type="image/png" href="../image/phenix.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
@@ -47,7 +45,7 @@
     .unit-name {
       font-size: 0.9em;
       color: #000;
-      max-width: 120px;
+      max-width: 100px;
       word-wrap: break-word;
     }
 
@@ -67,49 +65,16 @@
 </head>
 
 <body>
-  <!-- Sélecteur de langue -->
   <div class="flag-switcher">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" onclick="switchLanguage('fr')">
-    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" onclick="switchLanguage('en')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+      onclick="switchLanguage('fr')">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+      onclick="switchLanguage('en')">
   </div>
 
   <div class="container text-center">
     <h2 id="filter-title">Personnage avec le tag : Tusken</h2>
-
-    <div class="row justify-content-center g-4 mt-3">
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <a href="../html/chef_tusken.html">
-            <img src="../image-perso/chef_tusken/chef-tusken-image.png" alt="Tusken Chieftain" class="unit-img">
-          </a>
-          <div class="unit-name traduction" id="chieftain">Tusken Chieftain</div>
-        </div>
-      </div>
-
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <div class="unit-name traduction" id="raider">Tusken Raider</div>
-        </div>
-      </div>
-
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <div class="unit-name traduction" id="shaman">Tusken Shaman</div>
-        </div>
-      </div>
-
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <div class="unit-name traduction" id="warrior">Tusken Warrior</div>
-        </div>
-      </div>
-
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="unit-card">
-          <div class="unit-name traduction" id="urorrur">URoRRuR'R'R</div>
-        </div>
-      </div>
-    </div>
+    <div class="row justify-content-center g-4 mt-3" id="characters"></div>
   </div>
 
   <footer class="text-center mt-5">
@@ -119,39 +84,65 @@
   </footer>
 
   <script>
-    const translations = {
-      en: {
-        "filter-title": "Character with the tag: Tusken",
-        "chieftain": "Tusken Chieftain",
-        "raider": "Tusken Raider",
-        "shaman": "Tusken Shaman",
-        "warrior": "Tusken Warrior",
-        "urorrur": "URoRRuR'R'R"
-      },
-      fr: {
-        "filter-title": "Personnage avec le tag : Tusken",
-        "chieftain": "Tusken Chieftain",
-        "raider": "Tusken Raider",
-        "shaman": "Tusken Shaman",
-        "warrior": "Tusken Warrior",
-        "urorrur": "URoRRuR'R'R"
-      }
-    };
+    let translations = {}
+    let currentLang = "en"; // langue par défaut
 
-    function switchLanguage(lang) {
-      document.getElementById("filter-title").textContent = translations[lang]["filter-title"];
-      Object.keys(translations[lang]).forEach(key => {
-        const el = document.getElementById(key);
-        if (el) el.textContent = translations[lang][key];
+    fetch("../filtre-recherche/translations/tusken.json")
+      .then(res => res.json())
+      .then(data => {
+        translations = data;
+        loadUnits();
+      })
+      .catch(err => {
+        console.warn("Pas de fichier de traduction trouvé pour Tusken");
+        loadUnits();
       });
+
+    function loadUnits() {
+      fetch("../filtre-recherche/units.json")
+        .then(response => response.json())
+        .then(data => {
+          const container = document.getElementById("characters");
+
+          // TODO: Ajuster le filtre ici pour correspondre à la faction
+          const factionUnits = data.filter(unit =>
+            unit.factions &&
+            unit.factions.some(f => f.toLowerCase() === "tusken")
+          );
+
+          factionUnits.forEach(unit => {
+            const col = document.createElement("div");
+            col.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2");
+
+            col.innerHTML = `
+              <div class="unit-card">
+                <a href="${unit.page || '#'}">
+                  <img src="${unit.image || '../image/default.png'}" alt="${unit.name}" class="unit-img">
+                </a>
+                <div class="unit-name traduction" id="${unit.id.toLowerCase()}">${unit.name}</div>
+              </div>
+            `;
+
+            container.appendChild(col);
+          });
+
+          switchLanguage(currentLang);
+        })
+        .catch(error => console.error("Erreur lors du chargement des unités :", error));
     }
 
-    window.onload = function () {
-      switchLanguage('en');
-    };
+    function switchLanguage(lang) {
+      currentLang = lang;
+      const elements = document.querySelectorAll(".traduction, #filter-title");
+      elements.forEach(element => {
+        const key = element.id.toLowerCase();
+        if (translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+    }
   </script>
 
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

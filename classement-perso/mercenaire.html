@@ -2,268 +2,148 @@
 <html lang="fr">
 
 <head>
-    <meta charset="utf-8">
-    <title>Mercenaire</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Rimbault Enzo">
-    <link rel="icon" type="image/png" href="../image/contrebandier.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <title>Mercenaire</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Rimbault Enzo">
+  <link rel="icon" type="image/png" href="../image/phenix.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-        body {
-            background-color: #031952;
-            color: #ffffff;
-        }
+  <style>
+    body {
+      background-color: #031952;
+      color: #ffffff;
+    }
 
-        .unit-card {
-            border: 1px solid #dee2e6;
-            border-radius: 12px;
-            padding: 1rem;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease;
-            text-align: center;
-            height: 220px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-        }
+    .unit-card {
+      border: 1px solid #dee2e6;
+      border-radius: 12px;
+      padding: 1rem;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+      text-align: center;
+      height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-        .unit-card:hover {
-            transform: scale(1.03);
-            border-color: #0d6efd;
-        }
+    .unit-card:hover {
+      transform: scale(1.03);
+      border-color: #0d6efd;
+    }
 
-        .unit-img {
-            width: 100px;
-            height: 100px;
-            object-fit: contain;
-            margin-bottom: 0.5rem;
-        }
+    .unit-img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+    }
 
-        .unit-name {
-            font-size: 0.9em;
-            color: #000;
-            max-width: 120px;
-            word-wrap: break-word;
-        }
+    .unit-name {
+      font-size: 0.9em;
+      color: #000;
+      max-width: 100px;
+      word-wrap: break-word;
+    }
 
-        .flag-switcher {
-            display: flex;
-            justify-content: end;
-            gap: 10px;
-            margin: 1rem;
-        }
+    .flag-switcher {
+      display: flex;
+      justify-content: end;
+      gap: 10px;
+      margin: 1rem;
+    }
 
-        .flag-switcher img {
-            width: 30px;
-            height: 20px;
-            cursor: pointer;
-        }
-    </style>
+    .flag-switcher img {
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="flag-switcher">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+      onclick="switchLanguage('fr')">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+      onclick="switchLanguage('en')">
+  </div>
 
-    <div class="flag-switcher">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" onclick="switchLanguage('fr')">
-        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" onclick="switchLanguage('en')">
-    </div>
+  <div class="container text-center">
+    <h2 id="filter-title">Personnage avec le tag : Mercenaire</h2>
+    <div class="row justify-content-center g-4 mt-3" id="characters"></div>
+  </div>
 
-    <div class="container text-center">
-        <h2 id="filter-title">Personnages avec le tag : Mercenaire</h2>
-        <div class="row justify-content-center g-4 mt-3">
+  <footer class="text-center mt-5">
+    <a href="../filtre-recherche/filtre-personnage.html">
+      <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px;">
+    </a>
+  </footer>
 
-            <!-- Exemple d’unité sans image -->
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <div class="unit-name traduction" id="aurra">Aurra Sing</div>
-                </div>
-            </div>
+  <script>
+    let translations = {}
+    let currentLang = "en"; // langue par défaut
 
-            <!-- Unité avec image et lien -->
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <a href="../html/Boba_son_of_jango.html">
-                        <img src="../image-perso/boba-scion-jango/boba-image.png" alt="Boba Fett, scion of Jango" class="unit-img">
-                    </a>
-                    <div class="unit-name traduction" id="boba">Boba Fett, Scion of Jango</div>
-                </div>
-            </div>
+    fetch("../filtre-recherche/translations/mercenaire.json")
+      .then(res => res.json())
+      .then(data => {
+        translations = data;
+        loadUnits();
+      })
+      .catch(err => {
+        console.warn("Pas de fichier de traduction trouvé pour Mercenaire");
+        loadUnits();
+      });
 
-            <!-- Tous les persos, même principe -->
+    function loadUnits() {
+      fetch("../filtre-recherche/units.json")
+        .then(response => response.json())
+        .then(data => {
+          const container = document.getElementById("characters");
 
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="baylan">Baylan Skoll</div></div></div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="cadbane">Cad Bane</div></div></div>
+          // TODO: Ajuster le filtre ici pour correspondre à la faction
+          const factionUnits = data.filter(unit =>
+            unit.factions &&
+            unit.factions.some(f => f.toLowerCase() === "mercenary")
+          );
 
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <a href="../html/canderous.html">
-                        <img src="../image-perso/canderous/canderous.png" alt="Canderous Ordo" class="unit-img">
-                    </a>
-                    <div class="unit-name traduction" id="canderous">Canderous Ordo</div>
-                </div>
-            </div>
+          factionUnits.forEach(unit => {
+            const col = document.createElement("div");
+            col.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2");
 
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="caradune">Cara Dune</div></div></div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="dash">Dash Rendar</div></div></div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="dengar">Dengar</div></div></div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="aphra">Doctor Aphra</div></div></div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="embo">Embo</div></div></div>
+            col.innerHTML = `
+              <div class="unit-card">
+                <a href="${unit.page || '#'}">
+                  <img src="${unit.image || '../image/default.png'}" alt="${unit.name}" class="unit-img">
+                </a>
+                <div class="unit-name traduction" id="${unit.id.toLowerCase()}">${unit.name}</div>
+              </div>
+            `;
 
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <a href="../html/fennec.html">
-                        <img src="../image-perso/fennec/fennec.png" alt="Fennec" class="unit-img">
-                    </a>
-                    <div class="unit-name traduction" id="fennec">Fennec Shand</div>
-                </div>
-            </div>
+            container.appendChild(col);
+          });
 
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="han">Han Solo</div></div></div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="hondo">Hondo Ohnaka</div></div></div>
+          switchLanguage(currentLang);
+        })
+        .catch(error => console.error("Erreur lors du chargement des unités :", error));
+    }
 
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <a href="../html/jango_fett.html">
-                        <img src="../image-perso/jango-fett/jango.png" alt="Jango Fett" class="unit-img">
-                    </a>
-                    <div class="unit-name traduction" id="jango">Jango Fett</div>
-                </div>
-            </div>
-
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="cal">Jedi Knight Cal Kestis</div></div></div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="krssatan">Krssatan</div></div></div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="kyle">Kyle Katarn</div></div></div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="l3">L3-37</div></div></div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="marrok">Marrok</div></div></div>
-
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <a href="../html/mission_vao.html">
-                        <img src="../image-perso/mission/mission-image.png" alt="Mission Vao" class="unit-img">
-                    </a>
-                    <div class="unit-name traduction" id="mission">Mission Vao</div>
-                </div>
-            </div>
-
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="qira">Qi'ra</div></div></div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="sana">Sana Starros</div></div></div>
-
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="unit-card">
-                    <a href="../html/shin.html">
-                        <img src="../image-perso/shin/shin-image.png" alt="Shin" class="unit-img">
-                    </a>
-                    <div class="unit-name traduction" id="shin">Shin Hati</div>
-                </div>
-            </div>
-
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="mandalorian">The Mandalorian (Beskar armor)</div></div></div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="vandor">Vandor Chewbacca</div></div></div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="veteran">Veteran Smuggler Han Solo</div></div></div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="younghan">Young Han Solo</div></div></div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="younglando">Young Lando Calrissian</div></div></div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="zaalbar">Zaalbar</div></div></div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2"><div class="unit-card"><div class="unit-name traduction" id="zam">Zam Wesell</div></div></div>
-
-        </div>
-    </div>
-
-    <footer class="text-center mt-5">
-        <a href="../filtre-recherche/filtre-personnage.html">
-            <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px;">
-        </a>
-    </footer>
-
-    <script>
-        const translations = {
-            en: {
-                "filter-title": "Characters with the tag: Mercenary",
-                "aurra": "Aurra Sing",
-                "baylan": "Baylan Skoll",
-                "boba": "Boba Fett, Scion of Jango",
-                "cadbane": "Cad Bane",
-                "canderous": "Canderous Ordo",
-                "caradune": "Cara Dune",
-                "dash": "Dash Rendar",
-                "dengar": "Dengar",
-                "aphra": "Doctor Aphra",
-                "embo": "Embo",
-                "fennec": "Fennec Shand",
-                "han": "Han Solo",
-                "hondo": "Hondo Ohnaka",
-                "jango": "Jango Fett",
-                "cal": "Jedi Knight Cal Kestis",
-                "krssatan": "Krssatan",
-                "kyle": "Kyle Katarn",
-                "l3": "L3-37",
-                "marrok": "Marrok",
-                "mission": "Mission Vao",
-                "qira": "Qi'ra",
-                "sana": "Sana Starros",
-                "shin": "Shin Hati",
-                "mandalorian": "The Mandalorian (Beskar armor)",
-                "vandor": "Vandor Chewbacca",
-                "veteran": "Veteran Smuggler Han Solo",
-                "younghan": "Young Han Solo",
-                "younglando": "Young Lando Calrissian",
-                "zaalbar": "Zaalbar",
-                "zam": "Zam Wesell"
-            },
-            fr: {
-                "filter-title": "Personnages avec le tag : Mercenaire",
-                "aurra": "Aurra Sing",
-                "baylan": "Baylan Skoll",
-                "boba": "Boba Fett, Scion of Jango",
-                "cadbane": "Cad Bane",
-                "canderous": "Canderous Ordo",
-                "caradune": "Cara Dune",
-                "dash": "Dash Rendar",
-                "dengar": "Dengar",
-                "aphra": "Doctor Aphra",
-                "embo": "Embo",
-                "fennec": "Fennec Shand",
-                "han": "Han Solo",
-                "hondo": "Hondo Ohnaka",
-                "jango": "Jango Fett",
-                "cal": "Jedi Knight Cal Kestis",
-                "krssatan": "Krssatan",
-                "kyle": "Kyle Katarn",
-                "l3": "L3-37",
-                "marrok": "Marrok",
-                "mission": "Mission Vao",
-                "qira": "Qi'ra",
-                "sana": "Sana Starros",
-                "shin": "Shin Hati",
-                "mandalorian": "The Mandalorian (Beskar armor)",
-                "vandor": "Vandor Chewbacca",
-                "veteran": "Veteran Smuggler Han Solo",
-                "younghan": "Young Han Solo",
-                "younglando": "Young Lando Calrissian",
-                "zaalbar": "Zaalbar",
-                "zam": "Zam Wesell"
-            }
-        };
-
-        window.onload = function () {
-            switchLanguage('en');
-        };
-
-        // Function to switch language
-        function switchLanguage(lang) {
-            const elements = document.querySelectorAll('[id]');
-            elements.forEach(function (element) {
-                const translationKey = element.id;
-                if (translations[lang] && translations[lang][translationKey]) {
-                    element.textContent = translations[lang][translationKey];
-                }
-            });
+    function switchLanguage(lang) {
+      currentLang = lang;
+      const elements = document.querySelectorAll(".traduction, #filter-title");
+      elements.forEach(element => {
+        const key = element.id.toLowerCase();
+        if (translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
         }
-    </script>
+      });
+    }
+  </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
