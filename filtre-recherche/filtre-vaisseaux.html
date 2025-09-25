@@ -304,9 +304,10 @@
           <img src="${c.image}" alt="${c.name}">
           <div class="card-body">
             <h5>${c.name}</h5>
+            <p><strong>ID:</strong> ${c.id}</p>
+            <p><strong>Alignment:</strong> ${c.alignment || ""}</p>
             <p><strong>Role:</strong> ${c.role || ""}</p>
             <p><strong>Factions:</strong> ${(c.factions || []).join(", ")}</p>
-            <p><strong>Alignment:</strong> ${c.alignment || ""}</p>
             <a href="${c.page}" class="btn btn-primary">Details</a>
           </div>
         </div>
