@@ -6,49 +6,31 @@
   <meta charset="utf-8">
   <meta name="author" content="Rimbault Enzo">
 
-  <style>
-    #scrollBtn {
-      display: none;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 99;
-      font-size: 18px;
-      border: none;
-      outline: none;
-      background-color: #007bff;
-      color: white;
-      cursor: pointer;
-      padding: 15px;
-      border-radius: 50%;
-    }
-    #scrollBtn:hover {
-      background-color: #0056b3;
-    }
-    IMG.position { 
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    } 
-    body.classe {
-      background-color: black;
-      color: #ffffff;
-    }
-    .characters-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .character figure {
-      text-align: center;
-    }
-    .character img {
-      width: 150px;
-      height: auto;
-      border-radius: 10px;
-    }
-  </style>
+    <style>
+        body {
+            background-color: #031952;
+            color: #ffffff;
+        }
+        .unit-card {
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1rem;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            text-align: center;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .unit-card:hover { transform: scale(1.03); border-color: #0d6efd; }
+        .unit-img { width: 100px; height: 100px; object-fit: contain; margin-bottom: 0.5rem; }
+        .unit-name { font-size: 0.9em; color: #000; max-width: 100px; word-wrap: break-word; }
+        .flag-switcher { display: flex; justify-content: end; gap: 10px; margin: 1rem; }
+        .flag-switcher img { width: 30px; height: 20px; cursor: pointer; }
+    </style>
 </head>
 
 <body class="classe">
