@@ -1,149 +1,127 @@
 <!DOCTYPE HTML>
 <html lang="fr">
-
 <head>
   <meta charset="utf-8">
   <title>Ewok</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Rimbault Enzo">
-  <link rel="icon" type="image/png" href="../image/phenix.png">
+  <meta name="author" content="Auto-generated">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
   <style>
-    body {
-      background-color: #031952;
-      color: #ffffff;
-    }
-
-    .unit-card {
-      border: 1px solid #dee2e6;
-      border-radius: 12px;
-      padding: 1rem;
-      background-color: #ffffff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s ease;
-      text-align: center;
-      height: 220px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .unit-card:hover {
-      transform: scale(1.03);
-      border-color: #0d6efd;
-    }
-
-    .unit-img {
-      width: 100px;
-      height: 100px;
-      object-fit: contain;
-      margin-bottom: 0.5rem;
-    }
-
-    .unit-name {
-      font-size: 0.9em;
-      color: #000;
-      max-width: 100px;
-      word-wrap: break-word;
-    }
-
-    .flag-switcher {
-      display: flex;
-      justify-content: end;
-      gap: 10px;
-      margin: 1rem;
-    }
-
-    .flag-switcher img {
-      width: 30px;
-      height: 20px;
-      cursor: pointer;
-    }
+    body {{ background-color: #031952; color: #ffffff; }}
+    .unit-card {{ border: 1px solid #dee2e6; border-radius: 12px; padding: 1rem; background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05); transition: transform 0.2s; text-align: center; height: 220px;
+      display:flex; flex-direction:column; align-items:center; justify-content:space-between; }}
+    .unit-card:hover {{ transform: scale(1.03); border-color: #0d6efd; }}
+    .unit-img {{ width:100px; height:100px; object-fit:contain; margin-bottom:0.5rem; }}
+    .unit-name {{ font-size:0.9em; color:#000; max-width:100px; word-wrap:break-word; }}
+    .flag-switcher {{ display:flex; justify-content:end; gap:10px; margin:1rem; }}
+    .flag-switcher img {{ width:30px; height:20px; cursor:pointer; border:2px solid transparent; border-radius:3px; }}
+    .flag-switcher img.active {{ border-color: #fff; }}
+    .badge-filter {{ margin-right:6px; background:#0d6efd; color:#fff; padding:6px 10px; border-radius:6px; }}
+    .container {{ padding-top:10px; }}
   </style>
 </head>
-
 <body>
   <div class="flag-switcher">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-      onclick="switchLanguage('fr')">
-    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-      onclick="switchLanguage('en')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" id="lang-fr" onclick="switchLanguage('fr')">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en" onclick="switchLanguage('en')">
   </div>
 
   <div class="container text-center">
-    <h2 id="filter-title">Personnage avec le tag : Ewok</h2>
+    <h2 id="filter-title">Ewok</h2>
     <div class="row justify-content-center g-4 mt-3" id="characters"></div>
   </div>
 
   <footer class="text-center mt-5">
-    <a href="../filtre-recherche/filtre-personnage.html">
-      <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px;">
-    </a>
+    <!-- original footer preserved if any -->
   </footer>
 
   <script>
-    let translations = {}
-    let currentLang = "en"; // langue par défaut
+    let currentLang = "en";
+    let allUnits = [];
+    const filterKeyRaw = "ewok"; // from filename, lowercased
+    const humanTitle = "Ewok";
 
-    fetch("../filtre-recherche/translations/ewok.json")
-      .then(res => res.json())
+    // load units.json (relative path - keep same structure as original project)
+    fetch("../filtre-recherche/units.json")
+      .then(response => response.json())
       .then(data => {
-        translations = data;
-        loadUnits();
+        allUnits = data;
+        renderUnits();
       })
-      .catch(err => {
-        console.warn("Pas de fichier de traduction trouvé pour Ewok");
-        loadUnits();
+      .catch(error => {
+        console.error("Erreur lors du chargement des unités :", error);
+        document.getElementById("characters").innerHTML = "<p style='color:#fff'>Erreur lors du chargement des unités</p>";
       });
 
-    function loadUnits() {
-      fetch("../filtre-recherche/units.json")
-        .then(response => response.json())
-        .then(data => {
-          const container = document.getElementById("characters");
+    function matchesFilter(unit) {
+      const fk = filterKeyRaw.toLowerCase();
+      // check factions (each faction may be object with en/fr or string)
+      const factions = unit.factions || [];
+      for (let f of factions) {
+        if (!f) continue;
+        let fen = (typeof f === 'string') ? f : (f.en || '');
+        let ffr = (typeof f === 'string') ? f : (f.fr || '');
+        fen = (fen||'').toString().toLowerCase();
+        ffr = (ffr||'').toString().toLowerCase();
+        if (fen === fk || ffr === fk || fen.includes(fk) || ffr.includes(fk)) return true;
+      }
+      // check roles
+      const role = unit.role || {};
+      let ren = (typeof role === 'string') ? role.toLowerCase() : ((role.en||'')+'' ).toLowerCase();
+      let rfr = (typeof role === 'string') ? role.toLowerCase() : ((role.fr||'')+'' ).toLowerCase();
+      if (ren === fk || rfr === fk || ren.includes(fk) || rfr.includes(fk)) return true;
+      // check name
+      const nameEn = (unit.name && (unit.name.en||'')) || (unit.name || '');
+      const nameFr = (unit.name && (unit.name.fr||'')) || '';
+      if ((nameEn+'').toLowerCase().includes(fk) || (nameFr+'').toLowerCase().includes(fk)) return true;
+      return false;
+    }
 
-          // TODO: Ajuster le filtre ici pour correspondre à la faction
-          const factionUnits = data.filter(unit =>
-            unit.factions &&
-            unit.factions.some(f => f.toLowerCase() === "ewok")
-          );
+    function renderUnits() {
+      const container = document.getElementById("characters");
+      container.innerHTML = "";
+      const matches = allUnits.filter(u => matchesFilter(u));
+      if (matches.length === 0) {
+        container.innerHTML = "<p style='color:#fff'>Aucune unité trouvée</p>";
+        document.getElementById("filter-title").textContent = humanTitle;
+        return;
+      }
+      for (let unit of matches) {
+        const name = (unit.name && (unit.name[currentLang] || unit.name.en)) || unit.name || "";
+        const img = unit.image || "../image/default.png";
+        const page = unit.page || "#";
+        const col = document.createElement("div");
+        col.className = "col-6 col-sm-4 col-md-3 col-lg-2";
+        col.innerHTML = `
+          <div class="unit-card">
+            <a href="${page}">
+              <img src="${img}" alt="${name}" class="unit-img">
+            </a>
+            <div class="unit-name">${'[[HTML_ESCAPE]]'}</div>
+          </div>
+        `;
+        // replace the placeholder with escaped name safely
+        col.innerHTML = col.innerHTML.replace('[[HTML_ESCAPE]]', htmlEscape(name));
+        container.appendChild(col);
+      }
+      document.getElementById("filter-title").textContent = currentLang === "fr" ? humanTitle : humanTitle;
+    }
 
-          factionUnits.forEach(unit => {
-            const col = document.createElement("div");
-            col.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2");
-
-            col.innerHTML = `
-              <div class="unit-card">
-                <a href="${unit.page || '#'}">
-                  <img src="${unit.image || '../image/default.png'}" alt="${unit.name}" class="unit-img">
-                </a>
-                <div class="unit-name traduction" id="${unit.id.toLowerCase()}">${unit.name}</div>
-              </div>
-            `;
-
-            container.appendChild(col);
-          });
-
-          switchLanguage(currentLang);
-        })
-        .catch(error => console.error("Erreur lors du chargement des unités :", error));
+    function htmlEscape(s) {
+      if (!s) return '';
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 
     function switchLanguage(lang) {
       currentLang = lang;
-      const elements = document.querySelectorAll(".traduction, #filter-title");
-      elements.forEach(element => {
-        const key = element.id.toLowerCase();
-        if (translations[lang] && translations[lang][key]) {
-          element.textContent = translations[lang][key];
-        }
-      });
+      document.getElementById("lang-en").classList.remove("active");
+      document.getElementById("lang-fr").classList.remove("active");
+      document.getElementById(lang === "fr" ? "lang-fr" : "lang-en").classList.add("active");
+      renderUnits();
     }
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
