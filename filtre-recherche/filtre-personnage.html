@@ -100,206 +100,225 @@
   </div>
 
   <script>
-  const scrollBtn = document.getElementById("scrollTopBtn");
-  window.addEventListener("scroll", () => {
-    scrollBtn.style.display = document.documentElement.scrollTop > 200 ? "block" : "none";
-  });
-  scrollBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.addEventListener("scroll", () => {
+      scrollBtn.style.display = document.documentElement.scrollTop > 200 ? "block" : "none";
+    });
+    scrollBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
-  let characters = [];
-  let customTags = [];
-  let currentLang = "en"; // langue par défaut
+    let characters = [];
+    let customTags = [];
+    let currentLang = "en"; // langue par défaut
 
-  fetch("units.json")
-    .then(res => res.json())
-    .then(data => {
-      characters = data;
+    // Définition des priorités (EN + FR)
+    const factionPriority = {
+      "galactic legend": 1,
+      "légende galactique": 1,
+      "leader": 2,
+      "chef": 2,
+      "fleet commander": 3,
+      "commandant de la flotte": 3
+    };
+
+    fetch("units.json")
+      .then(res => res.json())
+      .then(data => {
+        characters = data;
+        generateFactionFilters();
+        updateTagSuggestions();
+        applyFilters();
+      })
+      .catch(err => {
+        console.error("Error loading JSON:", err);
+        document.getElementById("results").innerHTML = "<p>Error loading characters</p>";
+      });
+
+    // Langue toggle
+    document.getElementById("lang-en").addEventListener("click", () => {
+      currentLang = "en";
+      document.getElementById("lang-en").classList.add("active");
+      document.getElementById("lang-fr").classList.remove("active");
       generateFactionFilters();
       updateTagSuggestions();
       applyFilters();
-    })
-    .catch(err => {
-      console.error("Error loading JSON:", err);
-      document.getElementById("results").innerHTML = "<p>Error loading characters</p>";
     });
-
-  // Langue toggle
-  document.getElementById("lang-en").addEventListener("click", () => {
-    currentLang = "en";
-    document.getElementById("lang-en").classList.add("active");
-    document.getElementById("lang-fr").classList.remove("active");
-    generateFactionFilters();
-    updateTagSuggestions();
-    applyFilters();
-  });
-  document.getElementById("lang-fr").addEventListener("click", () => {
-    currentLang = "fr";
-    document.getElementById("lang-fr").classList.add("active");
-    document.getElementById("lang-en").classList.remove("active");
-    generateFactionFilters();
-    updateTagSuggestions();
-    applyFilters();
-  });
-
-  function generateFactionFilters() {
-    const container = document.getElementById("faction-filters");
-    const factionsSet = new Set();
-    characters.forEach(c => (c.factions || []).forEach(f => factionsSet.add(f[currentLang] || f.en)));
-    const factionsArray = Array.from(factionsSet).sort((a, b) => a.localeCompare(b));
-    container.innerHTML = "";
-    factionsArray.forEach(f => {
-      const label = document.createElement("label");
-      label.innerHTML = `<input type="checkbox" class="filter" value="${f.toLowerCase()}"> ${f}`;
-      container.appendChild(label);
-    });
-    document.querySelectorAll(".filter").forEach(cb => cb.addEventListener("change", applyFilters));
-  }
-
-  function updateTagSuggestions() {
-    const datalist = document.getElementById("tag-suggestions");
-    datalist.innerHTML = "";
-    const factions = new Set();
-    characters.forEach(c => (c.factions || []).forEach(f => factions.add(f[currentLang] || f.en)));
-    const roles = ["attacker","support","healer","tank"];
-    const alignments = ["lightside","darkside","neutral"];
-    const allTags = [...factions].map(f => f.toLowerCase()).concat(roles, alignments);
-    allTags.sort().forEach(tag => {
-      const option = document.createElement("option");
-      option.value = tag;
-      datalist.appendChild(option);
-    });
-  }
-
-  function normalizeAlignment(a) {
-    if (!a) return "";
-    const t = String(a).trim().toLowerCase().replace(/[\s_-]/g, "");
-    if (t.startsWith("light")) return "lightside";
-    if (t.startsWith("dark")) return "darkside";
-    if (t.startsWith("neutral") || t.startsWith("unaligned")) return "neutral";
-    return t;
-  }
-
-  function applyFilters() {
-    const selectedFactions = Array.from(document.querySelectorAll(".filter:checked")).map(cb => cb.value.toLowerCase());
-    const selectedRole = document.getElementById("role-filter").value.toLowerCase();
-    const selectedAlignment = normalizeAlignment(document.getElementById("alignment-filter").value);
-    const searchQuery = document.getElementById("search-bar").value.trim().toLowerCase();
-
-    const filtered = characters.filter(c => {
-      const factionsNames = (c.factions || []).map(f => (f[currentLang] || f.en).toLowerCase());
-      const matchFactions = selectedFactions.length === 0 || selectedFactions.every(f => factionsNames.includes(f));
-
-      const roleName = (c.role?.en || "").toLowerCase(); // filtrage basé sur EN
-      const alignmentName = normalizeAlignment(c.alignment?.en || ""); // filtrage basé sur EN
-      const matchRole = !selectedRole || roleName === selectedRole;
-      const matchAlignment = !selectedAlignment || alignmentName === selectedAlignment;
-
-      const name = (c.name?.[currentLang] || c.name?.en || "").toLowerCase();
-      const matchSearch = !searchQuery || name.includes(searchQuery);
-
-      const matchCustomTags = customTags.length === 0 || customTags.every(tag =>
-        name.includes(tag) ||
-        roleName.includes(tag) ||
-        alignmentName === tag ||
-        factionsNames.some(f => f.includes(tag))
-      );
-      return matchFactions && matchRole && matchAlignment && matchSearch && matchCustomTags;
-    });
-
-    renderActiveFilters(selectedFactions, selectedRole, selectedAlignment, searchQuery, customTags);
-    renderCharacters(filtered);
-  }
-
-  function renderCharacters(list) {
-    const container = document.getElementById("results");
-    container.innerHTML = list.length
-      ? list.map(c => {
-        const name = c.name?.[currentLang] || c.name?.en || "";
-        const role = c.role?.[currentLang] || c.role?.en || "";
-        const alignment = c.alignment?.[currentLang] || c.alignment?.en || "";
-        const factions = (c.factions || []).map(f => f[currentLang] || f.en).join(", ");
-        return `
-        <div class="card">
-          <img src="${c.image}" alt="${name}">
-          <div class="card-body">
-            <h5>${name}</h5>
-            <p><strong>ID:</strong> ${c.id}</p>
-            <p><strong>Role:</strong> ${role}</p>
-            <p><strong>Factions:</strong> ${factions}</p>
-            <p><strong>Alignment:</strong> ${alignment}</p>
-            <a href="${c.page}" class="btn btn-primary">Details</a>
-          </div>
-        </div>`;
-      }).join("")
-      : "<p>No characters found</p>";
-  }
-
-  function renderActiveFilters(selectedFactions, selectedRole, selectedAlignment, searchQuery, customTags) {
-    const container = document.getElementById("active-filters");
-    container.innerHTML = "";
-    let filters = [];
-    selectedFactions.forEach(f => filters.push({ type: "faction", value: f }));
-    if (selectedRole) filters.push({ type: "role", value: selectedRole });
-    if (selectedAlignment) filters.push({ type: "alignment", value: selectedAlignment });
-    if (searchQuery) filters.push({ type: "search", value: searchQuery });
-    customTags.forEach(tag => filters.push({ type: "custom", value: tag }));
-    if (filters.length === 0) return;
-    const phrase = document.createElement("p");
-    phrase.innerHTML = `Characters with the tag(s): `;
-    container.appendChild(phrase);
-    filters.forEach(f => {
-      const badge = document.createElement("span");
-      badge.className = "badge bg-primary me-2";
-      badge.style.cursor = "pointer";
-      badge.textContent = f.value;
-      badge.addEventListener("click", () => {
-        if (f.type === "faction") {
-          document.querySelector(`.filter[value="${f.value}"]`).checked = false;
-        } else if (f.type === "role") {
-          document.getElementById("role-filter").value = "";
-        } else if (f.type === "alignment") {
-          document.getElementById("alignment-filter").value = "";
-        } else if (f.type === "search") {
-          document.getElementById("search-bar").value = "";
-        } else if (f.type === "custom") {
-          customTags = customTags.filter(tag => tag !== f.value);
-        }
-        applyFilters();
-      });
-      container.appendChild(badge);
-    });
-  }
-
-  document.getElementById("add-tag-btn").addEventListener("click", () => {
-    const input = document.getElementById("tag-input");
-    const tag = input.value.trim().toLowerCase();
-    if (tag && !customTags.includes(tag)) {
-      customTags.push(tag);
-      input.value = "";
+    document.getElementById("lang-fr").addEventListener("click", () => {
+      currentLang = "fr";
+      document.getElementById("lang-fr").classList.add("active");
+      document.getElementById("lang-en").classList.remove("active");
+      generateFactionFilters();
+      updateTagSuggestions();
       applyFilters();
+    });
+
+    function generateFactionFilters() {
+      const container = document.getElementById("faction-filters");
+      const factionsSet = new Set();
+      characters.forEach(c => (c.factions || []).forEach(f => factionsSet.add(f[currentLang] || f.en)));
+      const factionsArray = Array.from(factionsSet).sort((a, b) => {
+        const pa = factionPriority[a.toLowerCase()] ?? 999;
+        const pb = factionPriority[b.toLowerCase()] ?? 999;
+        if (pa === pb) return a.localeCompare(b, currentLang);
+        return pa - pb;
+      });
+      container.innerHTML = "";
+      factionsArray.forEach(f => {
+        const label = document.createElement("label");
+        label.innerHTML = `<input type="checkbox" class="filter" value="${f.toLowerCase()}"> ${f}`;
+        container.appendChild(label);
+      });
+      document.querySelectorAll(".filter").forEach(cb => cb.addEventListener("change", applyFilters));
     }
-  });
 
-  document.getElementById("tag-input").addEventListener("keypress", e => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      document.getElementById("add-tag-btn").click();
+    function updateTagSuggestions() {
+      const datalist = document.getElementById("tag-suggestions");
+      datalist.innerHTML = "";
+      const factions = new Set();
+      characters.forEach(c => (c.factions || []).forEach(f => factions.add(f[currentLang] || f.en)));
+      const roles = ["attacker","support","healer","tank"];
+      const alignments = ["lightside","darkside","neutral"];
+      const allTags = [...factions].map(f => f.toLowerCase()).concat(roles, alignments);
+      allTags.sort().forEach(tag => {
+        const option = document.createElement("option");
+        option.value = tag;
+        datalist.appendChild(option);
+      });
     }
-  });
 
-  document.getElementById("role-filter").addEventListener("change", applyFilters);
-  document.getElementById("alignment-filter").addEventListener("change", applyFilters);
-  document.getElementById("search-bar").addEventListener("input", applyFilters);
+    function normalizeAlignment(a) {
+      if (!a) return "";
+      const t = String(a).trim().toLowerCase().replace(/[\s_-]/g, "");
+      if (t.startsWith("light")) return "lightside";
+      if (t.startsWith("dark")) return "darkside";
+      if (t.startsWith("neutral") || t.startsWith("unaligned")) return "neutral";
+      return t;
+    }
 
-  document.getElementById("reset-filters").addEventListener("click", () => {
-    document.querySelectorAll(".filter").forEach(cb => cb.checked = false);
-    document.getElementById("role-filter").value = "";
-    document.getElementById("alignment-filter").value = "";
-    document.getElementById("search-bar").value = "";
-    customTags = [];
-    applyFilters();
-  });
-</script>
+    function applyFilters() {
+      const selectedFactions = Array.from(document.querySelectorAll(".filter:checked")).map(cb => cb.value.toLowerCase());
+      const selectedRole = document.getElementById("role-filter").value.toLowerCase();
+      const selectedAlignment = normalizeAlignment(document.getElementById("alignment-filter").value);
+      const searchQuery = document.getElementById("search-bar").value.trim().toLowerCase();
 
+      const filtered = characters.filter(c => {
+        const factionsNames = (c.factions || []).map(f => (f[currentLang] || f.en).toLowerCase());
+        const matchFactions = selectedFactions.length === 0 || selectedFactions.every(f => factionsNames.includes(f));
+        const roleName = (c.role?.[currentLang] || c.role?.en || "").toLowerCase();
+        const alignmentName = normalizeAlignment(c.alignment?.[currentLang] || c.alignment?.en || "");
+        const matchRole = !selectedRole || roleName === selectedRole;
+        const matchAlignment = !selectedAlignment || alignmentName === selectedAlignment;
+        const name = (c.name?.[currentLang] || c.name?.en || "").toLowerCase();
+        const matchSearch = !searchQuery || name.includes(searchQuery);
+        const matchCustomTags = customTags.length === 0 || customTags.every(tag =>
+          name.includes(tag) ||
+          roleName.includes(tag) ||
+          alignmentName === tag ||
+          factionsNames.some(f => f.includes(tag))
+        );
+        return matchFactions && matchRole && matchAlignment && matchSearch && matchCustomTags;
+      });
+
+      renderActiveFilters(selectedFactions, selectedRole, selectedAlignment, searchQuery, customTags);
+      renderCharacters(filtered);
+    }
+
+    function renderCharacters(list) {
+      const container = document.getElementById("results");
+      container.innerHTML = list.length
+        ? list.map(c => {
+          const name = c.name?.[currentLang] || c.name?.en || "";
+          const role = c.role?.[currentLang] || c.role?.en || "";
+          const alignment = c.alignment?.[currentLang] || c.alignment?.en || "";
+          const factions = (c.factions || [])
+            .map(f => f[currentLang] || f.en)
+            .sort((a, b) => {
+              const pa = factionPriority[a.toLowerCase()] ?? 999;
+              const pb = factionPriority[b.toLowerCase()] ?? 999;
+              if (pa === pb) return a.localeCompare(b, currentLang);
+              return pa - pb;
+            })
+            .join(", ");
+          return `
+          <div class="card">
+            <img src="${c.image}" alt="${name}">
+            <div class="card-body">
+              <h5>${name}</h5>
+              <p><strong>ID:</strong> ${c.id}</p>
+              <p><strong>Role:</strong> ${role}</p>
+              <p><strong>Factions:</strong> ${factions}</p>
+              <p><strong>Alignment:</strong> ${alignment}</p>
+              <a href="${c.page}" class="btn btn-primary">Details</a>
+            </div>
+          </div>`;
+        }).join("")
+        : "<p>No characters found</p>";
+    }
+
+    function renderActiveFilters(selectedFactions, selectedRole, selectedAlignment, searchQuery, customTags) {
+      const container = document.getElementById("active-filters");
+      container.innerHTML = "";
+      let filters = [];
+      selectedFactions.forEach(f => filters.push({ type: "faction", value: f }));
+      if (selectedRole) filters.push({ type: "role", value: selectedRole });
+      if (selectedAlignment) filters.push({ type: "alignment", value: selectedAlignment });
+      if (searchQuery) filters.push({ type: "search", value: searchQuery });
+      customTags.forEach(tag => filters.push({ type: "custom", value: tag }));
+      if (filters.length === 0) return;
+      const phrase = document.createElement("p");
+      phrase.innerHTML = `Characters with the tag(s): `;
+      container.appendChild(phrase);
+      filters.forEach(f => {
+        const badge = document.createElement("span");
+        badge.className = "badge bg-primary me-2";
+        badge.style.cursor = "pointer";
+        badge.textContent = f.value;
+        badge.addEventListener("click", () => {
+          if (f.type === "faction") {
+            document.querySelector(`.filter[value="${f.value}"]`).checked = false;
+          } else if (f.type === "role") {
+            document.getElementById("role-filter").value = "";
+          } else if (f.type === "alignment") {
+            document.getElementById("alignment-filter").value = "";
+          } else if (f.type === "search") {
+            document.getElementById("search-bar").value = "";
+          } else if (f.type === "custom") {
+            customTags = customTags.filter(tag => tag !== f.value);
+          }
+          applyFilters();
+        });
+        container.appendChild(badge);
+      });
+    }
+
+    document.getElementById("add-tag-btn").addEventListener("click", () => {
+      const input = document.getElementById("tag-input");
+      const tag = input.value.trim().toLowerCase();
+      if (tag && !customTags.includes(tag)) {
+        customTags.push(tag);
+        input.value = "";
+        applyFilters();
+      }
+    });
+
+    document.getElementById("tag-input").addEventListener("keypress", e => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        document.getElementById("add-tag-btn").click();
+      }
+    });
+
+    document.getElementById("role-filter").addEventListener("change", applyFilters);
+    document.getElementById("alignment-filter").addEventListener("change", applyFilters);
+    document.getElementById("search-bar").addEventListener("input", applyFilters);
+
+    document.getElementById("reset-filters").addEventListener("click", () => {
+      document.querySelectorAll(".filter").forEach(cb => cb.checked = false);
+      document.getElementById("role-filter").value = "";
+      document.getElementById("alignment-filter").value = "";
+      document.getElementById("search-bar").value = "";
+      customTags = [];
+      applyFilters();
+    });
+  </script>
 </body>
 </html>
