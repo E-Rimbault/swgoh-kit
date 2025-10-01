@@ -218,6 +218,7 @@
       renderCharacters(filtered);
     }
 
+    
     function renderCharacters(list) {
       const container = document.getElementById("results");
       container.innerHTML = list.length
@@ -236,19 +237,20 @@
             .join(", ");
           return `
           <div class="card">
-            <img src="${c.image}" alt="${name_vaisseau}">
+            <img src="${c.image || "https://via.placeholder.com/150"}" alt="${name}">
             <div class="card-body">
-              <h5>${name_vaisseau}</h5>
-              <p><strong>ID_vaisseau:</strong> ${c.id}</p>
-              <p><strong>Role_vaisseau:</strong> ${role}</p>
-              <p><strong>Factions_vaisseau:</strong> ${factions}</p>
-              <p><strong>Alignment_vaisseau:</strong> ${alignment}</p>
-              <a href="${c.page}" class="btn btn-primary">Details</a>
+              <h5>${name}</h5>
+              <p><strong>ID:</strong> ${c.id}</p>
+              <p><strong>Role:</strong> ${role}</p>
+              <p><strong>Factions:</strong> ${factions}</p>
+              <p><strong>Alignment:</strong> ${alignment}</p>
+              <a href="${c.page || "#"}" class="btn btn-primary">Details</a>
             </div>
           </div>`;
         }).join("")
-        : "<p>No characters found</p>";
+        : "<p>No ships found</p>";
     }
+
 
     function renderActiveFilters(selectedFactions, selectedRole, selectedAlignment, searchQuery, customTags) {
       const container = document.getElementById("active-filters");
