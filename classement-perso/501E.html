@@ -113,6 +113,7 @@
   <script>
     let currentLang = "en";
     let allUnits = [];
+    let factionsMap = [];
 
     // Charger le JSON des unités
     fetch("../filtre-recherche/units.json")
@@ -122,6 +123,12 @@
         renderUnits();
       })
       .catch(error => console.error("Erreur lors du chargement des unités :", error));
+
+    // Charger le mapping des factions
+    fetch("../filtre-recherche/factions.json")
+      .then(response => response.json())
+      .then(data => factionsMap = data)
+      .catch(error => console.error("Erreur chargement factions :", error));
 
     // Fonction pour déterminer la classe couleur de l’alignement
     function getAlignmentClass(alignment) {
@@ -151,10 +158,17 @@
         const alignmentText = unit.alignment?.[currentLang] || unit.alignment?.en || "";
         const alignmentClass = getAlignmentClass(alignmentText);
 
-        // Récupérer toutes les factions traduites
+        // Récupérer toutes les factions traduites et cliquables
         const factions = (unit.factions || [])
-          .map(f => f[currentLang] || f.en)
-          .map(f => `<span class="badge bg-secondary">${f}</span>`)
+          .map(f => {
+            const factionName = f[currentLang] || f.en;
+            const mapping = factionsMap.find(m =>
+              m.en.toLowerCase() === factionName.toLowerCase() ||
+              m.fr.toLowerCase() === factionName.toLowerCase()
+            );
+            const url = mapping ? mapping.url : "#";
+            return `<a href="${url}" class="badge bg-secondary text-decoration-none">${factionName}</a>`;
+          })
           .join("");
 
         const col = document.createElement("div");
