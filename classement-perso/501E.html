@@ -138,6 +138,11 @@
       return "neutral";
     }
 
+    // Normalisation des chaînes (minuscules + enlever accents)
+    function normalizeString(str) {
+      return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
+
     // Affichage des unités selon langue sélectionnée
     function renderUnits() {
       const container = document.getElementById("characters");
@@ -146,7 +151,7 @@
       const factionKey = currentLang === "fr" ? "501E" : "501st";
       const factionUnits = allUnits.filter(unit =>
         unit.factions &&
-        unit.factions.some(f => (f[currentLang] || f.en).toLowerCase() === factionKey.toLowerCase())
+        unit.factions.some(f => normalizeString(f[currentLang] || f.en) === normalizeString(factionKey))
       );
 
       factionUnits.forEach(unit => {
@@ -158,13 +163,13 @@
         const alignmentText = unit.alignment?.[currentLang] || unit.alignment?.en || "";
         const alignmentClass = getAlignmentClass(alignmentText);
 
-        // Récupérer toutes les factions traduites et cliquables
+        // Récupérer toutes les factions traduites et cliquables avec URL normalisée
         const factions = (unit.factions || [])
           .map(f => {
             const factionName = f[currentLang] || f.en;
             const mapping = factionsMap.find(m =>
-              m.en.toLowerCase() === factionName.toLowerCase() ||
-              m.fr.toLowerCase() === factionName.toLowerCase()
+              normalizeString(m.en) === normalizeString(factionName) ||
+              normalizeString(m.fr) === normalizeString(factionName)
             );
             const url = mapping ? mapping.url : "#";
             return `<a href="${url}" class="badge bg-secondary text-decoration-none">${factionName}</a>`;
