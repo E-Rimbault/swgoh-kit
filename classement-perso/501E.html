@@ -56,7 +56,6 @@
       margin-bottom: 0.3rem;
     }
 
-    /* Alignement coloré dynamiquement */
     .alignment {
       font-size: 0.8em;
       font-weight: bold;
@@ -96,6 +95,36 @@
       gap: 4px;
       max-width: 100%;
     }
+
+    /* ✨ Style du titre amélioré */
+    #filter-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(13, 110, 253, 0.6);
+    }
+
+    /* 🔵 501E / 501ST sans gras mais avec couleur bleue pour lisibilité */
+    #filter-title b {
+      color: #0d6efd;
+      font-weight: normal;
+    }
+
+    /* 🩶 Style neutre des badges de faction */
+    .factions .badge {
+      background-color: #6c757d !important;
+      color: #ffffff !important;
+      border: none;
+      text-decoration: none;
+      font-size: 0.75em;
+      padding: 0.35em 0.6em;
+      border-radius: 8px;
+    }
+
+    .factions .badge:hover {
+      background-color: #5a6268 !important;
+    }
   </style>
 </head>
 
@@ -108,7 +137,7 @@
   </div>
 
   <div class="container text-center">
-    <h2 id="filter-title">Personnages 501E</h2>
+    <h2 id="filter-title">Personnage avec le tag : <b>501E</b></h2>
     <div class="row justify-content-center g-4 mt-3" id="characters"></div>
   </div>
 
@@ -123,7 +152,6 @@
     let allUnits = [];
     let factionsMap = [];
 
-    // 🔄 Chargement simultané des deux fichiers JSON
     Promise.all([
       fetch("../filtre-recherche/units.json").then(res => res.json()),
       fetch("../data/faction.json").then(res => res.json())
@@ -135,7 +163,6 @@
       })
       .catch(error => console.error("Erreur lors du chargement des données :", error));
 
-    // 🌟 Fonction de style d'alignement
     function getAlignmentClass(alignment) {
       const value = alignment.toLowerCase();
       if (value.includes("light") || value.includes("lumineux")) return "lightside";
@@ -143,12 +170,10 @@
       return "neutral";
     }
 
-    // 🔡 Normalisation pour comparaison
     function normalizeString(str) {
       return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     }
 
-    // 🧩 Affichage principal des unités
     function renderUnits() {
       const container = document.getElementById("characters");
       container.innerHTML = "";
@@ -168,7 +193,6 @@
         const alignmentText = unit.alignment?.[currentLang] || unit.alignment?.en || "";
         const alignmentClass = getAlignmentClass(alignmentText);
 
-        // 🔗 Gestion des factions avec fallback propre
         const factions = (unit.factions || [])
           .map(f => {
             const factionName = f[currentLang] || f.en;
@@ -177,14 +201,13 @@
               normalizeString(m.fr) === normalizeString(factionName)
             );
             if (mapping && mapping.url) {
-              return `<a href="${mapping.url}" class="badge bg-secondary text-decoration-none">${factionName}</a>`;
+              return `<a href="${mapping.url}" class="badge">${factionName}</a>`;
             } else {
-              return `<span class="badge bg-secondary opacity-50" title="Faction non définie">${factionName}</span>`;
+              return `<span class="badge opacity-50" title="Faction non définie">${factionName}</span>`;
             }
           })
           .join("");
 
-        // 🧱 Construction de la carte
         const col = document.createElement("div");
         col.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2");
 
@@ -202,12 +225,13 @@
         container.appendChild(col);
       });
 
-      // 🏷️ Titre dynamique selon la langue
-      document.getElementById("filter-title").textContent =
-        currentLang === "fr" ? "Personnages 501E" : "501ST Characters";
+      // 🏷️ Nouveau texte stylisé du titre
+      document.getElementById("filter-title").innerHTML =
+        currentLang === "fr"
+          ? 'Personnage avec le tag : <b>501E</b>'
+          : 'Character with the tag : <b>501ST</b>';
     }
 
-    // 🌍 Changement de langue
     function switchLanguage(lang) {
       currentLang = lang;
       renderUnits();
