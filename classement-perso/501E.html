@@ -24,8 +24,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start; /* contenu aligné en haut */
-      min-height: 240px;           /* hauteur minimale mais extensible */
+      justify-content: flex-start;
+      min-height: 260px;
     }
 
     .unit-card:hover {
@@ -48,11 +48,26 @@
       margin-bottom: 0.3rem;
     }
 
+    .role {
+      font-size: 0.8em;
+      color: #198754; /* vert bootstrap */
+      margin-bottom: 0.3rem;
+    }
+
+    /* Alignement coloré dynamiquement */
     .alignment {
       font-size: 0.8em;
       font-weight: bold;
-      color: #0d6efd; /* couleur bleue par défaut */
       margin-bottom: 0.5rem;
+    }
+    .alignment.lightside {
+      color: #0d6efd; /* Bleu */
+    }
+    .alignment.darkside {
+      color: #dc3545; /* Rouge Bootstrap */
+    }
+    .alignment.neutral {
+      color: #6c757d; /* Gris Bootstrap */
     }
 
     .flag-switcher {
@@ -70,11 +85,11 @@
 
     .factions {
       display: flex;
-      flex-wrap: wrap;      /* retour à la ligne si besoin */
+      flex-wrap: wrap;
       justify-content: center;
       margin-top: 0.3rem;
-      gap: 4px;             /* espace entre badges */
-      max-width: 100%;      /* pas de dépassement horizontal */
+      gap: 4px;
+      max-width: 100%;
     }
   </style>
 </head>
@@ -108,6 +123,14 @@
       })
       .catch(error => console.error("Erreur lors du chargement des unités :", error));
 
+    // Fonction pour déterminer la classe couleur de l’alignement
+    function getAlignmentClass(alignment) {
+      const value = alignment.toLowerCase();
+      if (value.includes("light") || value.includes("lumineux")) return "lightside";
+      if (value.includes("dark") || value.includes("obscur")) return "darkside";
+      return "neutral";
+    }
+
     // Affichage des unités selon langue sélectionnée
     function renderUnits() {
       const container = document.getElementById("characters");
@@ -123,9 +146,12 @@
         const name = unit.name?.[currentLang] || unit.name?.en || "";
         const img = unit.image || "../image/default.png";
         const page = unit.page || "#";
-        const alignment = unit.alignment?.[currentLang] || unit.alignment?.en || "";
 
-        // 🔹 Récupérer toutes les factions traduites
+        const role = unit.role?.[currentLang] || unit.role?.en || "";
+        const alignmentText = unit.alignment?.[currentLang] || unit.alignment?.en || "";
+        const alignmentClass = getAlignmentClass(alignmentText);
+
+        // Récupérer toutes les factions traduites
         const factions = (unit.factions || [])
           .map(f => f[currentLang] || f.en)
           .map(f => `<span class="badge bg-secondary">${f}</span>`)
@@ -140,14 +166,15 @@
               <img src="${img}" alt="${name}" class="unit-img">
             </a>
             <div class="unit-name">${name}</div>
-            <div class="alignment">${alignment}</div>
+            <div class="role">${role}</div>
+            <div class="alignment ${alignmentClass}">${alignmentText}</div>
             <div class="factions">${factions}</div>
           </div>
         `;
         container.appendChild(col);
       });
 
-      // 🔹 Titre dynamique
+      // Titre dynamique
       document.getElementById("filter-title").textContent =
         currentLang === "fr" ? "Personnages 501E" : "501ST Characters";
     }
