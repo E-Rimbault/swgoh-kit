@@ -54,12 +54,25 @@
       font-size: 0.8em;
       color: #198754;
       margin-bottom: 0.3rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .role:hover {
+      text-decoration: underline;
+      color: #145c32;
     }
 
     .alignment {
       font-size: 0.8em;
       font-weight: bold;
       margin-bottom: 0.5rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .alignment:hover {
+      text-decoration: underline;
     }
 
     .alignment.lightside {
@@ -96,7 +109,6 @@
       max-width: 100%;
     }
 
-    /* ✨ Style du titre amélioré */
     #filter-title {
       font-size: 1.6rem;
       font-weight: 600;
@@ -105,13 +117,11 @@
       text-shadow: 0 0 10px rgba(13, 110, 253, 0.6);
     }
 
-    /* 🔵 501E / 501ST sans gras mais avec couleur bleue pour lisibilité */
     #filter-title b {
       color: #0d6efd;
       font-weight: normal;
     }
 
-    /* 🩶 Style neutre des badges de faction */
     .factions .badge {
       background-color: #6c757d !important;
       color: #ffffff !important;
@@ -151,14 +161,20 @@
     let currentLang = "en";
     let allUnits = [];
     let factionsMap = [];
+    let rolesMap = [];
+    let alignmentsMap = [];
 
     Promise.all([
       fetch("../filtre-recherche/units.json").then(res => res.json()),
-      fetch("../data/faction.json").then(res => res.json())
+      fetch("../data/faction.json").then(res => res.json()),
+      fetch("../data/roles.json").then(res => res.json()),        // 🔹 fichier role
+      fetch("../data/alignments.json").then(res => res.json())    // 🔹 fichier alignement
     ])
-      .then(([unitsData, factionData]) => {
+      .then(([unitsData, factionData, rolesData, alignmentsData]) => {
         allUnits = unitsData;
         factionsMap = factionData;
+        rolesMap = rolesData;
+        alignmentsMap = alignmentsData;
         renderUnits();
       })
       .catch(error => console.error("Erreur lors du chargement des données :", error));
@@ -172,6 +188,13 @@
 
     function normalizeString(str) {
       return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
+
+    function findMapping(mapArray, name) {
+      return mapArray.find(m =>
+        normalizeString(m.en) === normalizeString(name) ||
+        normalizeString(m.fr) === normalizeString(name)
+      );
     }
 
     function renderUnits() {
@@ -189,17 +212,27 @@
         const img = unit.image || "../image/default.png";
         const page = unit.page || "#";
 
-        const role = unit.role?.[currentLang] || unit.role?.en || "";
+        const roleText = unit.role?.[currentLang] || unit.role?.en || "";
         const alignmentText = unit.alignment?.[currentLang] || unit.alignment?.en || "";
         const alignmentClass = getAlignmentClass(alignmentText);
 
+        // 🔹 Ajout du lien du rôle
+        const roleMapping = findMapping(rolesMap, roleText);
+        const roleHTML = roleMapping && roleMapping.url
+          ? `<a href="${roleMapping.url}" class="role">${roleText}</a>`
+          : `<span class="role opacity-75" title="Rôle non défini">${roleText}</span>`;
+
+        // 🔹 Ajout du lien de l’alignement
+        const alignmentMapping = findMapping(alignmentsMap, alignmentText);
+        const alignmentHTML = alignmentMapping && alignmentMapping.url
+          ? `<a href="${alignmentMapping.url}" class="alignment ${alignmentClass}">${alignmentText}</a>`
+          : `<span class="alignment ${alignmentClass} opacity-75" title="Alignement non défini">${alignmentText}</span>`;
+
+        // 🔹 Factions
         const factions = (unit.factions || [])
           .map(f => {
             const factionName = f[currentLang] || f.en;
-            const mapping = factionsMap.find(m =>
-              normalizeString(m.en) === normalizeString(factionName) ||
-              normalizeString(m.fr) === normalizeString(factionName)
-            );
+            const mapping = findMapping(factionsMap, factionName);
             if (mapping && mapping.url) {
               return `<a href="${mapping.url}" class="badge">${factionName}</a>`;
             } else {
@@ -217,15 +250,14 @@
               <img src="${img}" alt="${name}" class="unit-img">
             </a>
             <div class="unit-name">${name}</div>
-            <div class="role">${role}</div>
-            <div class="alignment ${alignmentClass}">${alignmentText}</div>
+            ${roleHTML}
+            ${alignmentHTML}
             <div class="factions">${factions}</div>
           </div>
         `;
         container.appendChild(col);
       });
 
-      // 🏷️ Nouveau texte stylisé du titre
       document.getElementById("filter-title").innerHTML =
         currentLang === "fr"
           ? 'Personnage 501E'
