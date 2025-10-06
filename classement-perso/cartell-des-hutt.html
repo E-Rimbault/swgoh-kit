@@ -1,14 +1,14 @@
 <!DOCTYPE HTML>
-
 <html lang="fr">
 <head>
-<meta charset="utf-8"/>
-<title>Hutt Cartel</title>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Rimbault Enzo" name="author"/>
-<link href="../image/logo_star_wars.png" rel="icon" type="image/png"/>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<style>
+  <meta charset="utf-8">
+  <title>Hutt Cartel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Rimbault Enzo">
+  <link rel="icon" type="image/png" href="../image/logo_star_wars.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
     body {
       background-color: #031952;
       color: #ffffff;
@@ -136,34 +136,34 @@
     }
   </style>
 </head>
+
 <body>
-<div class="flag-switcher">
-<img alt="Français" onclick="switchLanguage('fr')" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg"/>
-<img alt="English" onclick="switchLanguage('en')" src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"/>
-</div>
-<div class="container text-center">
-<h2 data-faction-en="s cartel des hutt" data-faction-fr="s cartel des hutt" data-title-en="S cartel des hutt Character" data-title-fr="Personnages cartel des Hutt" id="filter-title">Personnages cartel des Hutt</h2>
-<div class="row justify-content-center g-4 mt-3" id="characters"></div>
-</div>
-<footer class="text-center mt-5">
-<a href="../filtre-recherche/filtre-personnage.html">
-<img alt="filtre personnage" src="../image/logo_star_wars.png" style="width: 80px;"/>
-</a>
-</footer>
+  <div class="flag-switcher">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+      onclick="switchLanguage('fr')">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+      onclick="switchLanguage('en')">
+  </div>
 
+  <div class="container text-center">
+    <h2 id="filter-title">Personnages cartel des Hutt</h2>
+    <div class="row justify-content-center g-4 mt-3" id="characters"></div>
+  </div>
 
-<script>
+  <footer class="text-center mt-5">
+    <a href="../filtre-recherche/filtre-personnage.html">
+      <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px;">
+    </a>
+  </footer>
+
+  <script>
     let currentLang = "en";
     let allUnits = [];
     let factionsMap = [];
     let rolesMap = [];
     let alignmentsMap = [];
 
-    function showError(message) {
-      const container = document.getElementById("characters");
-      container.innerHTML = `<div class='col-12 text-danger fw-bold'>⚠️ ${message}</div>`;
-    }
-
+    // 🔹 Charger toutes les données
     Promise.all([
       fetch("../filtre-recherche/units.json").then(res => res.json()),
       fetch("../data/faction.json").then(res => res.json()),
@@ -179,9 +179,20 @@
       })
       .catch(error => {
         console.error("Erreur lors du chargement des données :", error);
-        showError("Erreur de chargement des données");
+        showError("⚠️ Erreur lors du chargement des données. Veuillez réessayer plus tard.");
       });
 
+    // 🔹 Message d’erreur visuel
+    function showError(message) {
+      const container = document.getElementById("characters");
+      container.innerHTML = `
+        <div class="alert alert-danger mt-4 w-75 mx-auto" role="alert">
+          ${message}
+        </div>
+      `;
+    }
+
+    // 🔹 Fonctions utilitaires
     function getAlignmentClass(alignment) {
       const value = alignment.toLowerCase();
       if (value.includes("light") || value.includes("lumineux")) return "lightside";
@@ -190,7 +201,11 @@
     }
 
     function normalizeString(str) {
-      return str.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+      return str
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/\s+/g, '');
     }
 
     function findMapping(mapArray, name) {
@@ -200,23 +215,16 @@
       );
     }
 
+    // 🔹 Rendu des unités
     function renderUnits() {
       const container = document.getElementById("characters");
       container.innerHTML = "";
 
-      const factionKey = currentLang === "fr"
-        ? document.getElementById("filter-title").getAttribute("data-faction-fr")
-        : document.getElementById("filter-title").getAttribute("data-faction-en");
-
+      const factionKey = currentLang === "fr" ? "cartel des hutt" : "hutt cartel";
       const factionUnits = allUnits.filter(unit =>
         unit.factions &&
         unit.factions.some(f => normalizeString(f[currentLang] || f.en) === normalizeString(factionKey))
       );
-
-      if (factionUnits.length === 0) {
-        container.innerHTML = "<div class='col-12 text-warning'>⚠️ Aucune unité trouvée</div>";
-        return;
-      }
 
       factionUnits.forEach(unit => {
         const name = unit.name?.[currentLang] || unit.name?.en || "";
@@ -227,16 +235,19 @@
         const alignmentText = unit.alignment?.[currentLang] || unit.alignment?.en || "";
         const alignmentClass = getAlignmentClass(alignmentText);
 
+        // 🔹 Lien du rôle
         const roleMapping = findMapping(rolesMap, roleText);
         const roleHTML = roleMapping && roleMapping.url
           ? `<a href="${roleMapping.url}" class="role">${roleText}</a>`
           : `<span class="role opacity-75" title="Rôle non défini">${roleText}</span>`;
 
+        // 🔹 Lien de l’alignement
         const alignmentMapping = findMapping(alignmentsMap, alignmentText);
         const alignmentHTML = alignmentMapping && alignmentMapping.url
           ? `<a href="${alignmentMapping.url}" class="alignment ${alignmentClass}">${alignmentText}</a>`
           : `<span class="alignment ${alignmentClass} opacity-75" title="Alignement non défini">${alignmentText}</span>`;
 
+        // 🔹 Factions
         const factions = (unit.factions || [])
           .map(f => {
             const factionName = f[currentLang] || f.en;
@@ -266,17 +277,18 @@
         container.appendChild(col);
       });
 
-      document.getElementById("filter-title").innerHTML =
-        currentLang === "fr"
-          ? document.getElementById("filter-title").getAttribute("data-title-fr")
-          : document.getElementById("filter-title").getAttribute("data-title-en");
+      // 🔹 Titre dynamique
+      document.getElementById("filter-title").textContent =
+        currentLang === "fr" ? "Personnages cartel des Hutt" : "Hutt Cartel Characters";
     }
 
+    // 🔹 Changement de langue
     function switchLanguage(lang) {
       currentLang = lang;
       renderUnits();
     }
   </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

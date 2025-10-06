@@ -1,14 +1,15 @@
 <!DOCTYPE HTML>
-
 <html lang="fr">
+
 <head>
-<meta charset="utf-8"/>
-<title>501E</title>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Rimbault Enzo" name="author"/>
-<link href="../image/logo_star_wars.png" rel="icon" type="image/png"/>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<style>
+  <meta charset="utf-8">
+  <title>501E</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Rimbault Enzo">
+  <link rel="icon" type="image/png" href="../image/mandalore.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
     body {
       background-color: #031952;
       color: #ffffff;
@@ -125,51 +126,41 @@
     }
   </style>
 </head>
+
 <body>
-<div class="flag-switcher">
-<img alt="Français" onclick="switchLanguage('fr')" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg"/>
-<img alt="English" onclick="switchLanguage('en')" src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"/>
-</div>
-<div class="container text-center">
-<h2 data-faction-en="avec le tag :mandaloriens" data-faction-fr="avec le tag :mandaloriens" data-title-en="Avec le tag :mandaloriens Character" data-title-fr="Personnage avec le tag :Mandaloriens" id="filter-title">Personnage avec le tag : <b>Mandaloriens</b></h2>
-<div class="row justify-content-center g-4 mt-3" id="characters"></div>
-</div>
-<footer class="text-center mt-5">
-<a href="../filtre-recherche/filtre-personnage.html">
-<img alt="filtre personnage" src="../image/logo_star_wars.png" style="width: 80px;"/>
-</a>
-</footer>
+  <div class="flag-switcher">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+      onclick="switchLanguage('fr')">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+      onclick="switchLanguage('en')">
+  </div>
 
+  <div class="container text-center">
+    <h2 id="filter-title">Personnage avec le tag : <b>Mandaloriens</b></h2>
+    <div class="row justify-content-center g-4 mt-3" id="characters"></div>
+  </div>
 
-<script>
+  <footer class="text-center mt-5">
+    <a href="../filtre-recherche/filtre-personnage.html">
+      <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px;">
+    </a>
+  </footer>
+
+  <script>
     let currentLang = "en";
     let allUnits = [];
     let factionsMap = [];
-    let rolesMap = [];
-    let alignmentsMap = [];
-
-    function showError(message) {
-      const container = document.getElementById("characters");
-      container.innerHTML = `<div class='col-12 text-danger fw-bold'>⚠️ ${message}</div>`;
-    }
 
     Promise.all([
       fetch("../filtre-recherche/units.json").then(res => res.json()),
-      fetch("../data/faction.json").then(res => res.json()),
-      fetch("../data/roles.json").then(res => res.json()),
-      fetch("../data/alignements.json").then(res => res.json())
+      fetch("../data/faction.json").then(res => res.json())
     ])
-      .then(([unitsData, factionData, rolesData, alignmentsData]) => {
+      .then(([unitsData, factionData]) => {
         allUnits = unitsData;
         factionsMap = factionData;
-        rolesMap = rolesData;
-        alignmentsMap = alignmentsData;
         renderUnits();
       })
-      .catch(error => {
-        console.error("Erreur lors du chargement des données :", error);
-        showError("Erreur de chargement des données");
-      });
+      .catch(error => console.error("Erreur lors du chargement des données :", error));
 
     function getAlignmentClass(alignment) {
       const value = alignment.toLowerCase();
@@ -179,57 +170,35 @@
     }
 
     function normalizeString(str) {
-      return str.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
-    }
-
-    function findMapping(mapArray, name) {
-      return mapArray.find(m =>
-        normalizeString(m.en) === normalizeString(name) ||
-        normalizeString(m.fr) === normalizeString(name)
-      );
+      return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     }
 
     function renderUnits() {
       const container = document.getElementById("characters");
       container.innerHTML = "";
 
-      const factionKey = currentLang === "fr"
-        ? document.getElementById("filter-title").getAttribute("data-faction-fr")
-        : document.getElementById("filter-title").getAttribute("data-faction-en");
-
+      const factionKey = currentLang === "fr" ? "Mandalorien" : "Mandalorian";
       const factionUnits = allUnits.filter(unit =>
         unit.factions &&
         unit.factions.some(f => normalizeString(f[currentLang] || f.en) === normalizeString(factionKey))
       );
-
-      if (factionUnits.length === 0) {
-        container.innerHTML = "<div class='col-12 text-warning'>⚠️ Aucune unité trouvée</div>";
-        return;
-      }
 
       factionUnits.forEach(unit => {
         const name = unit.name?.[currentLang] || unit.name?.en || "";
         const img = unit.image || "../image/default.png";
         const page = unit.page || "#";
 
-        const roleText = unit.role?.[currentLang] || unit.role?.en || "";
+        const role = unit.role?.[currentLang] || unit.role?.en || "";
         const alignmentText = unit.alignment?.[currentLang] || unit.alignment?.en || "";
         const alignmentClass = getAlignmentClass(alignmentText);
-
-        const roleMapping = findMapping(rolesMap, roleText);
-        const roleHTML = roleMapping && roleMapping.url
-          ? `<a href="${roleMapping.url}" class="role">${roleText}</a>`
-          : `<span class="role opacity-75" title="Rôle non défini">${roleText}</span>`;
-
-        const alignmentMapping = findMapping(alignmentsMap, alignmentText);
-        const alignmentHTML = alignmentMapping && alignmentMapping.url
-          ? `<a href="${alignmentMapping.url}" class="alignment ${alignmentClass}">${alignmentText}</a>`
-          : `<span class="alignment ${alignmentClass} opacity-75" title="Alignement non défini">${alignmentText}</span>`;
 
         const factions = (unit.factions || [])
           .map(f => {
             const factionName = f[currentLang] || f.en;
-            const mapping = findMapping(factionsMap, factionName);
+            const mapping = factionsMap.find(m =>
+              normalizeString(m.en) === normalizeString(factionName) ||
+              normalizeString(m.fr) === normalizeString(factionName)
+            );
             if (mapping && mapping.url) {
               return `<a href="${mapping.url}" class="badge">${factionName}</a>`;
             } else {
@@ -247,18 +216,19 @@
               <img src="${img}" alt="${name}" class="unit-img">
             </a>
             <div class="unit-name">${name}</div>
-            ${roleHTML}
-            ${alignmentHTML}
+            <div class="role">${role}</div>
+            <div class="alignment ${alignmentClass}">${alignmentText}</div>
             <div class="factions">${factions}</div>
           </div>
         `;
         container.appendChild(col);
       });
 
+      // 🏷️ Nouveau texte stylisé du titre
       document.getElementById("filter-title").innerHTML =
         currentLang === "fr"
-          ? document.getElementById("filter-title").getAttribute("data-title-fr")
-          : document.getElementById("filter-title").getAttribute("data-title-en");
+          ? 'Personnage avec le tag : <b>Mandaloriens</b>'
+          : 'Character with the tag : <b>Mandalorian</b>';
     }
 
     function switchLanguage(lang) {
@@ -266,6 +236,8 @@
       renderUnits();
     }
   </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
