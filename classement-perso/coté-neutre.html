@@ -1,12 +1,11 @@
 <!DOCTYPE HTML>
 <html lang="fr">
-
 <head>
   <meta charset="utf-8">
   <title>Côté Neutre</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Rimbault Enzo">
-  <link rel="icon" type="image/png" href="../image/mandalore.png">
+  <link rel="icon" type="image/png" href="../image/neutral.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
@@ -96,7 +95,7 @@
       max-width: 100%;
     }
 
-    /* ✨ Style du titre amélioré */
+    /* ✨ Style du titre */
     #filter-title {
       font-size: 1.6rem;
       font-weight: 600;
@@ -105,13 +104,13 @@
       text-shadow: 0 0 10px rgba(108, 117, 125, 0.6);
     }
 
-    /* ⚪ Titre stylisé pour le neutre */
+    /* ⚪ Accent neutre dans le titre */
     #filter-title b {
       color: #6c757d;
       font-weight: normal;
     }
 
-    /* 🩶 Style neutre des badges de faction */
+    /* 🩶 Badges de faction */
     .factions .badge {
       background-color: #6c757d !important;
       color: #ffffff !important;
@@ -129,18 +128,19 @@
 </head>
 
 <body>
+  <!-- Sélecteur de langue -->
   <div class="flag-switcher">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-      onclick="switchLanguage('fr')">
-    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-      onclick="switchLanguage('en')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" onclick="switchLanguage('fr')">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" onclick="switchLanguage('en')">
   </div>
 
+  <!-- Contenu principal -->
   <div class="container text-center">
     <h2 id="filter-title">Personnages <b>Neutres</b></h2>
     <div class="row justify-content-center g-4 mt-3" id="characters"></div>
   </div>
 
+  <!-- Footer -->
   <footer class="text-center mt-5">
     <a href="../filtre-recherche/filtre-personnage.html">
       <img src="../image/logo_star_wars.png" alt="filtre personnage" style="width: 80px;">
@@ -152,6 +152,7 @@
     let allUnits = [];
     let factionsMap = [];
 
+    // 📦 Chargement des données
     Promise.all([
       fetch("../filtre-recherche/units.json").then(res => res.json()),
       fetch("../data/faction.json").then(res => res.json())
@@ -163,6 +164,7 @@
       })
       .catch(error => console.error("Erreur lors du chargement des données :", error));
 
+    // 🎨 Déterminer la couleur du côté
     function getAlignmentClass(alignment) {
       const value = alignment.toLowerCase();
       if (value.includes("light") || value.includes("lumineux")) return "lightside";
@@ -170,15 +172,16 @@
       return "neutral";
     }
 
+    // 🔤 Normalisation des chaînes
     function normalizeString(str) {
       return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     }
 
+    // 🧩 Rendu des unités neutres
     function renderUnits() {
       const container = document.getElementById("characters");
       container.innerHTML = "";
 
-      // ⚪ Sélectionne toutes les unités neutres
       const neutralUnits = allUnits.filter(unit => {
         if (!unit.alignment) return false;
         const align = unit.alignment[currentLang] || unit.alignment.en || "";
@@ -226,13 +229,14 @@
         container.appendChild(col);
       });
 
-      // ⚪ Mise à jour du titre bilingue
+      // ⚪ Titre bilingue dynamique
       document.getElementById("filter-title").innerHTML =
         currentLang === "fr"
           ? 'Personnages <b>Neutres</b>'
           : 'Neutral <b>Characters</b>';
     }
 
+    // 🌍 Changement de langue
     function switchLanguage(lang) {
       currentLang = lang;
       renderUnits();
@@ -241,5 +245,4 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
