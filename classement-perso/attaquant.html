@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title id="page-title">Attaquant</title>
+  <title>Attaquants</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Rimbault Enzo">
   <link rel="icon" type="image/png" href="../image/logo_star_wars.png">
@@ -32,7 +32,7 @@
 
     .unit-card:hover {
       transform: scale(1.03);
-      border-color: #0d6efd;
+      border-color: #fd7e14;
     }
 
     .unit-img {
@@ -52,7 +52,7 @@
 
     .role {
       font-size: 0.8em;
-      color: #198754;
+      color: #fd7e14;
       margin-bottom: 0.3rem;
       cursor: pointer;
       text-decoration: none;
@@ -60,7 +60,7 @@
 
     .role:hover {
       text-decoration: underline;
-      color: #145c32;
+      color: #bb5d0c;
     }
 
     .alignment {
@@ -114,11 +114,11 @@
       font-weight: 600;
       margin-top: 1rem;
       color: #ffffff;
-      text-shadow: 0 0 10px rgba(13, 110, 253, 0.6);
+      text-shadow: 0 0 10px rgba(253, 126, 20, 0.6);
     }
 
     #filter-title b {
-      color: #0d6efd;
+      color: #fd7e14;
       font-weight: normal;
     }
 
@@ -139,7 +139,6 @@
 </head>
 
 <body>
-  <!-- Sélecteur de langue -->
   <div class="flag-switcher">
     <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
       onclick="switchLanguage('fr')">
@@ -148,7 +147,7 @@
   </div>
 
   <div class="container text-center">
-    <h2 id="filter-title">Attacker Characters</h2>
+    <h2 id="filter-title">Personnages <b>Attaquants</b></h2>
     <div class="row justify-content-center g-4 mt-3" id="characters"></div>
   </div>
 
@@ -158,145 +157,122 @@
     </a>
   </footer>
 
-<script>
-  // 🌐 Dictionnaire de traduction locale
-  const translations = {
-    en: {
-      "page-title": "Attacker",
-      "filter-title": "Attacker Characters"
-    },
-    fr: {
-      "page-title": "Attaquant",
-      "filter-title": "Personnages Attaquant"
+  <script>
+    let currentLang = "en";
+    let allUnits = [];
+    let factionsMap = [];
+    let rolesMap = [];
+    let alignmentsMap = [];
+
+    // 🔹 Chargement de toutes les données
+    Promise.all([
+      fetch("../filtre-recherche/units.json").then(res => res.json()),
+      fetch("../data/faction.json").then(res => res.json()),
+      fetch("../data/roles.json").then(res => res.json()),
+      fetch("../data/alignements.json").then(res => res.json())
+    ])
+      .then(([unitsData, factionData, rolesData, alignmentsData]) => {
+        allUnits = unitsData;
+        factionsMap = factionData;
+        rolesMap = rolesData;
+        alignmentsMap = alignmentsData;
+        renderUnits();
+      })
+      .catch(error => console.error("Erreur lors du chargement des données :", error));
+
+    function getAlignmentClass(alignment) {
+      const value = alignment.toLowerCase();
+      if (value.includes("light") || value.includes("lumineux")) return "lightside";
+      if (value.includes("dark") || value.includes("obscur")) return "darkside";
+      return "neutral";
     }
-  };
 
-  function switchLanguage(lang) {
-    localStorage.setItem("selectedLanguage", lang);
-    currentLang = lang;
-    for (const [id, text] of Object.entries(translations[lang])) {
-      const element = document.getElementById(id);
-      if (element) element.innerHTML = text;
+    function normalizeString(str) {
+      return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     }
-    updateFlagActive(lang);
-    renderUnits();
-  }
 
-  function updateFlagActive(lang) {
-    const flags = document.querySelectorAll(".flag-switcher img");
-    flags.forEach(flag => flag.style.border = "2px solid transparent");
-    const selected = lang === "fr"
-      ? flags[0]
-      : flags[1];
-    selected.style.border = "2px solid #0d6efd";
-  }
+    function findMapping(mapArray, name) {
+      return mapArray.find(m =>
+        normalizeString(m.en) === normalizeString(name) ||
+        normalizeString(m.fr) === normalizeString(name)
+      );
+    }
 
-  // 🔹 Données dynamiques
-  let currentLang = "en";
-  let allUnits = [];
-  let factionsMap = [];
-  let rolesMap = [];
-  let alignmentsMap = [];
+    function renderUnits() {
+      const container = document.getElementById("characters");
+      container.innerHTML = "";
 
-  Promise.all([
-    fetch("../filtre-recherche/units.json").then(res => res.json()),
-    fetch("../data/faction.json").then(res => res.json()),
-    fetch("../data/roles.json").then(res => res.json()),
-    fetch("../data/alignements.json").then(res => res.json())
-  ])
-    .then(([unitsData, factionData, rolesData, alignmentsData]) => {
-      allUnits = unitsData;
-      factionsMap = factionData;
-      rolesMap = rolesData;
-      alignmentsMap = alignmentsData;
+      // 🟠 Filtrage : uniquement les attaquants
+      const attackerUnits = allUnits.filter(unit => {
+        const role = unit.role?.[currentLang] || unit.role?.en || "";
+        return normalizeString(role).includes("attaquant") || normalizeString(role).includes("attacker");
+      });
+
+      attackerUnits.forEach(unit => {
+        const name = unit.name?.[currentLang] || unit.name?.en || "";
+        const img = unit.image || "../image/default.png";
+        const page = unit.page || "#";
+
+        const roleText = unit.role?.[currentLang] || unit.role?.en || "";
+        const alignmentText = unit.alignment?.[currentLang] || unit.alignment?.en || "";
+        const alignmentClass = getAlignmentClass(alignmentText);
+
+        // 🔹 Lien du rôle
+        const roleMapping = findMapping(rolesMap, roleText);
+        const roleHTML = roleMapping && roleMapping.url
+          ? `<a href="${roleMapping.url}" class="role">${roleText}</a>`
+          : `<span class="role opacity-75" title="Rôle non défini">${roleText}</span>`;
+
+        // 🔹 Lien de l’alignement
+        const alignmentMapping = findMapping(alignmentsMap, alignmentText);
+        const alignmentHTML = alignmentMapping && alignmentMapping.url
+          ? `<a href="${alignmentMapping.url}" class="alignment ${alignmentClass}">${alignmentText}</a>`
+          : `<span class="alignment ${alignmentClass} opacity-75" title="Alignement non défini">${alignmentText}</span>`;
+
+        // 🔹 Factions
+        const factions = (unit.factions || [])
+          .map(f => {
+            const factionName = f[currentLang] || f.en;
+            const mapping = findMapping(factionsMap, factionName);
+            if (mapping && mapping.url) {
+              return `<a href="${mapping.url}" class="badge">${factionName}</a>`;
+            } else {
+              return `<span class="badge opacity-50" title="Faction non définie">${factionName}</span>`;
+            }
+          })
+          .join("");
+
+        // 🔹 Carte personnage
+        const col = document.createElement("div");
+        col.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2");
+
+        col.innerHTML = `
+          <div class="unit-card">
+            <a href="${page}">
+              <img src="${img}" alt="${name}" class="unit-img">
+            </a>
+            <div class="unit-name">${name}</div>
+            ${roleHTML}
+            ${alignmentHTML}
+            <div class="factions">${factions}</div>
+          </div>
+        `;
+
+        container.appendChild(col);
+      });
+
+      // 🔹 Titre dynamique bilingue
+      document.getElementById("filter-title").innerHTML =
+        currentLang === "fr"
+          ? 'Personnages <b>Attaquants</b>'
+          : 'Attacker <b>Characters</b>';
+    }
+
+    function switchLanguage(lang) {
+      currentLang = lang;
       renderUnits();
-    })
-    .catch(error => console.error("Erreur lors du chargement des données :", error));
-
-  function getAlignmentClass(alignment) {
-    const value = alignment.toLowerCase();
-    if (value.includes("light") || value.includes("lumineux")) return "lightside";
-    if (value.includes("dark") || value.includes("obscur")) return "darkside";
-    return "neutral";
-  }
-
-  function normalizeString(str) {
-    return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-  }
-
-  function findMapping(mapArray, name) {
-    return mapArray.find(m =>
-      normalizeString(m.en) === normalizeString(name) ||
-      normalizeString(m.fr) === normalizeString(name)
-    );
-  }
-
-  function renderUnits() {
-    const container = document.getElementById("characters");
-    container.innerHTML = "";
-
-    const factionKey = currentLang === "fr" ? "attaquant" : "attacker";
-    const factionUnits = allUnits.filter(unit =>
-      unit.factions &&
-      unit.factions.some(f => normalizeString(f[currentLang] || f.en) === normalizeString(factionKey))
-    );
-
-    factionUnits.forEach(unit => {
-      const name = unit.name?.[currentLang] || unit.name?.en || "";
-      const img = unit.image || "../image/default.png";
-      const page = unit.page || "#";
-
-      const roleText = unit.role?.[currentLang] || unit.role?.en || "";
-      const alignmentText = unit.alignment?.[currentLang] || unit.alignment?.en || "";
-      const alignmentClass = getAlignmentClass(alignmentText);
-
-      const roleMapping = findMapping(rolesMap, roleText);
-      const roleHTML = roleMapping && roleMapping.url
-        ? `<a href="${roleMapping.url}" class="role">${roleText}</a>`
-        : `<span class="role opacity-75" title="Rôle non défini">${roleText}</span>`;
-
-      const alignmentMapping = findMapping(alignmentsMap, alignmentText);
-      const alignmentHTML = alignmentMapping && alignmentMapping.url
-        ? `<a href="${alignmentMapping.url}" class="alignment ${alignmentClass}">${alignmentText}</a>`
-        : `<span class="alignment ${alignmentClass} opacity-75" title="Alignement non défini">${alignmentText}</span>`;
-
-      const factions = (unit.factions || [])
-        .map(f => {
-          const factionName = f[currentLang] || f.en;
-          const mapping = findMapping(factionsMap, factionName);
-          if (mapping && mapping.url) {
-            return `<a href="${mapping.url}" class="badge">${factionName}</a>`;
-          } else {
-            return `<span class="badge opacity-50" title="Faction non définie">${factionName}</span>`;
-          }
-        })
-        .join("");
-
-      const col = document.createElement("div");
-      col.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2");
-
-      col.innerHTML = `
-        <div class="unit-card">
-          <a href="${page}">
-            <img src="${img}" alt="${name}" class="unit-img">
-          </a>
-          <div class="unit-name">${name}</div>
-          ${roleHTML}
-          ${alignmentHTML}
-          <div class="factions">${factions}</div>
-        </div>
-      `;
-      container.appendChild(col);
-    });
-  }
-
-  // 🟢 Langue par défaut au chargement (depuis localStorage)
-  window.addEventListener("load", () => {
-    const savedLang = localStorage.getItem("selectedLanguage") || "en";
-    switchLanguage(savedLang);
-  });
-</script>
-
+    }
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
