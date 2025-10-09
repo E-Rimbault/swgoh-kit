@@ -235,7 +235,7 @@
     const container = document.getElementById("characters");
     container.innerHTML = "";
 
-    const factionKey = currentLang === "fr" ? "bad batch" : "bad batch";
+    const factionKey = currentLang === "fr" ? "chasseur de primes" : "bounty hunter";
     const factionUnits = allUnits.filter(unit =>
       unit.factions &&
       unit.factions.some(f => normalizeString(f[currentLang] || f.en) === normalizeString(factionKey))
