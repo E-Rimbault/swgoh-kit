@@ -115,6 +115,7 @@
 
         <!-- SCRIPT DE TRADUCTION -->
         <script>
+            // Dictionnaire français
             const translationsFr = {
                 "big-title": "Ahsoka Tano (Chipie)",
                 "title": "<u>Ahsoka Tano (Chipie)</u>",
@@ -133,8 +134,20 @@
                 "lead-ability-title": "<u>Capacité de Chef : Grandes Foulées</u>",
                 "lead-ability": "Les alliés Jedi et Sœurs de la Nuit gagnent +14% d'Esquive et remplissent leur jauge de tour de 20% à chaque esquive.",
                 "unique-ability-title": "<u>Capacité Unique : Padawan Téméraire</u>",
-                "unique-ability": "Ahsoka a +40% de santé maximale, +10% d'esquive, +10% de chance de coup critique et +25% de vitesse. Ces valeurs sont doublées lorsqu'elle dispose de l'immunité aux coups critiques.\n\nSi le Chevalier Jedi Anakin est un allié, Ahsoka obtient l'immunité aux coups critiques pendant 2 tours au début de chaque affrontement et lorsqu'elle utilise une capacité spéciale.\n\nSi le chef allié appartient à la République Galactique, Ahsoka est appelée à assister chaque fois qu'un autre allié de la République Galactique utilise une capacité spéciale."
+                "unique-ability": "Ahsoka a +40% de santé maximale, +10% d'esquive, +10% de chance de coup critique et +25% de vitesse. Ces valeurs sont doublées lorsqu'elle dispose de l'immunité aux coups critiques.<br><br>Si le Chevalier Jedi Anakin est un allié, Ahsoka obtient l'immunité aux coups critiques pendant 2 tours au début de chaque affrontement et lorsqu'elle utilise une capacité spéciale.<br><br>Si le chef allié appartient à la République Galactique, Ahsoka est appelée à assister chaque fois qu'un autre allié de la République Galactique utilise une capacité spéciale."
             };
+
+            // 🔹 Nouveau : sauvegarde des textes originaux (anglais)
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        originalTexts[id] = el.innerHTML;
+                    }
+                }
+            }
 
             function replaceNewLinesWithBr(text) {
                 return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
@@ -142,12 +155,19 @@
 
             function switchLanguageTo(lang) {
                 localStorage.setItem("selectedLanguage", lang);
+
                 if (lang === "fr") {
                     for (const [id, text] of Object.entries(translationsFr)) {
                         const el = document.getElementById(id);
                         if (el) el.innerHTML = replaceNewLinesWithBr(text);
                     }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
                 }
+
                 updateFlagActive();
             }
 
@@ -157,7 +177,9 @@
                 document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
             }
 
+            // 🔹 Au chargement, on sauvegarde les textes anglais avant tout changement
             window.addEventListener("load", () => {
+                saveOriginalTexts();
                 const lang = localStorage.getItem("selectedLanguage") || "en";
                 switchLanguageTo(lang);
             });
@@ -165,6 +187,7 @@
             document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
             document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
         </script>
+
     </footer>
 </body>
 
