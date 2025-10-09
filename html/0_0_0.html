@@ -25,10 +25,10 @@
         </div>
         <div style="flex: 1; padding-left: 20px;">
             <div class="language-switcher">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                    onclick="switchLanguage('fr')">
-                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                    onclick="switchLanguage('en')">
+                <img id="lang-fr" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg"
+                    alt="Français" style="cursor:pointer; border:2px solid transparent; border-radius:50%;">
+                <img id="lang-en" src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+                    alt="English" style="cursor:pointer; border:2px solid transparent; border-radius:50%;">
             </div>
             <h1 id="title"><u>0-0-0</u></h1>
             <p id="description">
@@ -130,68 +130,62 @@
             const translations = {
                 fr: {
                     "big-title": "0-0-0",
-                    "title": "0-0-0",
-                    "description": "Un droïde de protocole spécialisé dans la bienséance, les coutumes, la traduction et la torture",
+                    "title": "<u>0-0-0</u>",
+                    "description": "Un droïde de protocole spécialisé dans la bienséance, les coutumes, la traduction et la torture.",
                     "darkside": "Côté Obscur",
                     "support": "Soutien",
                     "droid": "Droïde",
                     "scoundrel": "Vaurien",
                     "basic-attack-title": "<u>Attaque Basique : Choc Mortel</u>",
-                    "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie ainsi que choc pendant 1 tour. Si la cible ennemie n'est pas un droïde et qu'il à déjà subit Choc, il est étourdit pendant 1 tour. Si cette capacité élimine un ennemi, obtient 1 cumul de Traduction (max 3) pendant 3 tours.",
+                    "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie ainsi que Choc pendant 1 tour. Si la cible ennemie n'est pas un droïde et subit déjà Choc, elle est étourdie pendant 1 tour. Si cette capacité élimine un ennemi, obtient 1 cumul de Traduction (max 3) pendant 3 tours.",
                     "special-attack1-title": "<u>1re Spéciale : Spécialiste de la torture (délai : 5)</u>",
-                    "special-attack1": "Inflige des dégâts spéciaux à la cible ennemie et inflige Torture à la cible ennemie pendant 1 tour (ne peut pas être copié, dissipé, esquivé ou résisté). Si la cible ennemie subit déjà Torture, inflige des dégats spéciaux à tous les ennemis et confère à tous les alliés du Coté Obscur un cumul de Traduction (max) pendant 3 tours.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes en 3c3 :</u>\nTorture dure pendant 2 tours. Si BT-1 est un allié actif, BT-1 et 0-0-0 récupèrent 20% de santé et de protection. Si cette capacité élimine un ennemi, tous les alliés du Coté Obscur obtiennent 10% d'attaque (cumulatif) pendant le reste de l'affrontement (doublé pour les droïdes du Coté Obscur)",
-                    "unique-ability1-title": "<u>1re Unique : Protocole d'interrogatoire</u>",
-                    "unique-ability1": "Les alliés du Côté Obscur obtiennent 20% de dégâts critiques aux alliés du coté obscur. Chaque fois qu'un allié du Côté Obscur utilise une capacité sur un ennemi qui subit déjà Torture, cet allié obtient 1 cumul de Traduction (max 3) pendant 3 tours. Les alliés du Côté Obscur gagnent 5% de Pouvoir pour chaque cumul de Traduction qui leur est infligé (doublé pour les Droïdes).\n\n<u class='speciale'>Traduction :</u> - Les effets bénéfiques sont basés sur le nombre cumulatif de cumuls :\n\n<u class='speciale'>1 cumul :</u> Confère 30% de Santé maximale\n<u class='speciale'>2 cumuls :</u> Confère 15% de Chance de coup critique\n<u class='speciale'>3 cumuls :</u> Si un seul allié qui confère Traduction est présent, diminue les délais de ce personnage de 1 lorsque cet allié utilise sa capacité de base (limité à une fois par tour)",
+                    "special-attack1": "Inflige des dégâts spéciaux à la cible ennemie et inflige Torture pendant 1 tour (ne peut pas être copié, dissipé, esquivé ou résisté). Si la cible ennemie subit déjà Torture, inflige des dégâts spéciaux à tous les ennemis et confère à tous les alliés du Côté Obscur un cumul de Traduction (max 3) pendant 3 tours.<br><br><u class='omicron'>Amélioration Omicron : En Grandes Arènes 3c3 :</u><br>Torture dure 2 tours. Si BT-1 est un allié actif, BT-1 et 0-0-0 récupèrent 20% de santé et de protection. Si cette capacité élimine un ennemi, tous les alliés du Côté Obscur gagnent 10% d’Attaque (cumulatif), doublé pour les Droïdes du Côté Obscur.",
+                    "unique-ability1-title": "<u>1re Unique : Protocole d’interrogatoire</u>",
+                    "unique-ability1": "Les alliés du Côté Obscur gagnent 20% de Dégâts critiques. Lorsqu’un allié du Côté Obscur utilise une capacité sur un ennemi affecté par Torture, cet allié obtient 1 cumul de Traduction (max 3) pendant 3 tours. Les alliés du Côté Obscur gagnent 5% de Puissance pour chaque cumul de Traduction, doublé pour les Droïdes.<br><br><u class='speciale'>Traduction :</u><br><u class='speciale'>1 cumul :</u> +30% Santé max<br><u class='speciale'>2 cumuls :</u> +15% Chance de coup critique<br><u class='speciale'>3 cumuls :</u> Si un seul allié conférant Traduction est présent, réduit les délais de ce personnage de 1 quand cet allié utilise sa capacité de base (1 fois par tour).",
                     "unique-ability2-title": "<u>2e Unique : Drain Biologique</u>",
-                    "unique-ability2": "Lorsque 0-0-0 ou BT-1 obtiennent 1 cumul de Traduction, ils confèrent un cumul de Traduction à l'autre (limité à une fois par tour). Au début du tour de 0-0-0, inflige vérouillage pendant 1 tour à un ennemi non droïde aléatoire qui ne le subit pas déjà. Lorsqu'un ennemi non-droïde est vaincu, l'allié attaquant récupère 30% de santé et de protection. Si l'allié attaquant est un droïde du Coté Obscur, il gagne également un bonus d'attaque pendant 2 tours et 15% de jauge de tour. Si l'allié attaquant est BT-1, il obtient un bonus d'attaque pendant 2 tours et 30% de jauge de tour."
+                    "unique-ability2": "Lorsque 0-0-0 ou BT-1 obtiennent un cumul de Traduction, ils en confèrent un à l’autre (1 fois par tour). Au début du tour de 0-0-0, inflige Verrouillage de cible pendant 1 tour à un ennemi non-droïde aléatoire qui n’en a pas déjà. Lorsqu’un ennemi non-droïde est vaincu, l’allié attaquant récupère 30% de Santé et de Protection. Si l’allié attaquant est un Droïde du Côté Obscur, il gagne aussi Attaque + pendant 2 tours et 15% de Jauge de tour. Si c’est BT-1, il gagne 30% de Jauge de tour."
                 }
             };
 
-                        const originalTexts = {};
+            const originalTexts = {};
 
             function saveOriginalTexts() {
-                for (const id in translationsFr) {
+                for (const [id, _] of Object.entries(translations.fr)) {
                     const el = document.getElementById(id);
                     if (el) originalTexts[id] = el.innerHTML;
                 }
             }
 
-            function replaceNewLinesWithBr(text) {
-                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
-            }
-
-            function switchLanguageTo(lang) {
+            function switchLanguage(lang) {
                 localStorage.setItem("selectedLanguage", lang);
 
                 if (lang === "fr") {
-                    for (const [id, text] of Object.entries(translationsFr)) {
+                    for (const [id, text] of Object.entries(translations.fr)) {
                         const el = document.getElementById(id);
-                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                        if (el) el.innerHTML = text;
                     }
-                } else if (lang === "en") {
+                } else {
                     for (const [id, text] of Object.entries(originalTexts)) {
                         const el = document.getElementById(id);
                         if (el) el.innerHTML = text;
                     }
                 }
 
-                updateFlagActive();
+                updateFlagActive(lang);
             }
 
-            function updateFlagActive() {
-                const lang = localStorage.getItem("selectedLanguage") || "en";
-                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
-                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            function updateFlagActive(lang) {
+                document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+                document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
             }
 
-            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
             window.addEventListener("load", () => {
                 saveOriginalTexts();
-                const lang = localStorage.getItem("selectedLanguage") || "en";
-                switchLanguageTo(lang);
+                const savedLang = localStorage.getItem("selectedLanguage") || "en";
+                switchLanguage(savedLang);
 
-                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
-                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguage("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguage("en"));
             });
         </script>
     </footer>

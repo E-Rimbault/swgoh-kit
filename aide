@@ -25,14 +25,13 @@
         </div>
         <div style="flex: 1; padding-left: 20px;">
             <div class="language-switcher">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                    onclick="switchLanguage('fr')">
-                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                    onclick="switchLanguage('en')">
+                <img id="lang-fr" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg"
+                    alt="Français" style="cursor:pointer; border:2px solid transparent; border-radius:50%;">
+                <img id="lang-en" src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+                    alt="English" style="cursor:pointer; border:2px solid transparent; border-radius:50%;">
             </div>
             <h1 id="title"><u></u></h1>
-            <p id="description">
-            </p>
+            <p id="description"></p>
             <br>
 
             <nav class="perso" style="font-size: 20px;">
@@ -50,46 +49,72 @@
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
-<script>
-  const translations = {
-    fr: {
-      "big-title": "Nom du personnage (Français)",
-      "title": "<u>Nom du personnage (Français)</u>",
-      "description": "Petite description en français ici.",
-      // ... autres traductions ici ...
-    }
-  };
+        <script>
+            const translations = {
+                fr: {
+                    "big-title": "Nom du personnage (Français)",
+                    "title": "<u>Nom du personnage (Français)</u>",
+                    "description": "Petite description en français ici.",
+                    "basic-attack-title": "<u>Attaque Basique :</u>",
+                    "special-attack1-title": "<u>Attaque Spéciale : (délai : )</u>",
+                    "special-attack2-title": "<u>Attaque Spéciale : (délai : )</u>",
+                    "ultime-title": "<u>Capacité Ultime :</u>",
+                    "lead-ability-title": "<u>Capacité de Chef :</u>",
+                    "unique-ability-title": "<u>Capacité Unique :</u>",
+                    "unique-special-title": "Invocation spéciale",
+                    "prime": "Caractéristiques spéciales"
+                }
+            };
 
-  function replaceNewLinesWithBr(text) {
-    return text
-      .replace(/\n\s*\n/g, '<br><br>')
-      .replace(/([^\n])\n([^\n])/g, '$1<br>$2');
-  }
+            const originalTexts = {};
 
-  function switchLanguage(lang) {
-    localStorage.setItem("selectedLanguage", lang);
-    for (const [key, text] of Object.entries(translations[lang])) {
-      const el = document.getElementById(key);
-      if (el) el.innerHTML = replaceNewLinesWithBr(text);
-    }
-    updateFlagActive(lang);
-  }
+            function saveOriginalTexts() {
+                for (const langKey in translations.fr) {
+                    const el = document.getElementById(langKey);
+                    if (el) originalTexts[langKey] = el.innerHTML;
+                }
+            }
 
-  function updateFlagActive(lang) {
-    const fr = document.getElementById("lang-fr");
-    const en = document.getElementById("lang-en");
-    fr.style.borderColor = lang === "fr" ? "#007bff" : "transparent";
-    en.style.borderColor = lang === "en" ? "#007bff" : "transparent";
-  }
+            function replaceNewLinesWithBr(text) {
+                return text
+                    .replace(/\n\s*\n/g, '<br><br>')
+                    .replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
 
-  window.addEventListener("load", () => {
-    const savedLang = localStorage.getItem("selectedLanguage") || "en";
-    switchLanguage(savedLang);
-  });
+            function switchLanguage(lang) {
+                localStorage.setItem("selectedLanguage", lang);
 
-  document.getElementById("lang-fr").addEventListener("click", () => switchLanguage("fr"));
-  document.getElementById("lang-en").addEventListener("click", () => switchLanguage("en"));
-</script>
+                if (lang === "fr") {
+                    for (const [key, text] of Object.entries(translations.fr)) {
+                        const el = document.getElementById(key);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [key, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(key);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive(lang);
+            }
+
+            function updateFlagActive(lang) {
+                const fr = document.getElementById("lang-fr");
+                const en = document.getElementById("lang-en");
+                fr.style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+                en.style.borderColor = lang === "en" ? "#007bff" : "transparent";
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const savedLang = localStorage.getItem("selectedLanguage") || "en";
+                switchLanguage(savedLang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguage("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguage("en"));
+            });
+        </script>
 
     </footer>
 </body>
@@ -103,9 +128,7 @@
         <img class="attaque" alt="" src="">
     </div>
     <div class="right-column">
-        <p class="attaque" id="basic-attack">
-
-        </p>
+        <p class="attaque" id="basic-attack"></p>
     </div>
 </div>
 
@@ -115,9 +138,7 @@
         <img class="attaque" alt="" src="">
     </div>
     <div class="right-column">
-        <p class="attaque" id="special-attack1">
-
-        </p>
+        <p class="attaque" id="special-attack1"></p>
     </div>
 </div>
 
@@ -127,9 +148,7 @@
         <img class="attaque" alt="" src="">
     </div>
     <div class="right-column">
-        <p class="attaque" id="special-attack2">
-
-        </p>
+        <p class="attaque" id="special-attack2"></p>
     </div>
 </div>
 
@@ -139,9 +158,7 @@
         <img class="attaque" alt="" src="">
     </div>
     <div class="right-column">
-        <p class="attaque" id="ulti">
-
-        </p>
+        <p class="attaque" id="ulti"></p>
     </div>
 </div>
 
@@ -151,9 +168,7 @@
         <img class="attaque" alt="" src="">
     </div>
     <div class="right-column">
-        <p class="attaque" id="lead-ability">
-
-        </p>
+        <p class="attaque" id="lead-ability"></p>
     </div>
 </div>
 
@@ -163,9 +178,7 @@
         <img class="attaque" alt="" src="">
     </div>
     <div class="right-column">
-        <p class="attaque" id="unique-ability">
-
-        </p>
+        <p class="attaque" id="unique-ability"></p>
     </div>
 </div>
 
@@ -178,9 +191,7 @@
         <img class="attaque" alt="" src="">
     </div>
     <div class="right-column">
-        <p class="attaque" id="unique-special">
-
-        </p>
+        <p class="attaque" id="unique-special"></p>
     </div>
 </div>
 
