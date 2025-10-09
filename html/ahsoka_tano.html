@@ -137,15 +137,12 @@
                 "unique-ability": "Ahsoka a +40% de santé maximale, +10% d'esquive, +10% de chance de coup critique et +25% de vitesse. Ces valeurs sont doublées lorsqu'elle dispose de l'immunité aux coups critiques.<br><br>Si le Chevalier Jedi Anakin est un allié, Ahsoka obtient l'immunité aux coups critiques pendant 2 tours au début de chaque affrontement et lorsqu'elle utilise une capacité spéciale.<br><br>Si le chef allié appartient à la République Galactique, Ahsoka est appelée à assister chaque fois qu'un autre allié de la République Galactique utilise une capacité spéciale."
             };
 
-            // 🔹 Nouveau : sauvegarde des textes originaux (anglais)
             const originalTexts = {};
 
             function saveOriginalTexts() {
                 for (const id in translationsFr) {
                     const el = document.getElementById(id);
-                    if (el) {
-                        originalTexts[id] = el.innerHTML;
-                    }
+                    if (el) originalTexts[id] = el.innerHTML;
                 }
             }
 
@@ -177,16 +174,17 @@
                 document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
             }
 
-            // 🔹 Au chargement, on sauvegarde les textes anglais avant tout changement
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
             window.addEventListener("load", () => {
                 saveOriginalTexts();
                 const lang = localStorage.getItem("selectedLanguage") || "en";
                 switchLanguageTo(lang);
-            });
 
-            document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
-            document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
         </script>
+
 
     </footer>
 </body>
