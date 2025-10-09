@@ -3,11 +3,9 @@
 
 <head>
     <title id="big-title">Ahsoka Tano (Snips)</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/ahsoka-tano/Ahsoka-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
@@ -114,8 +112,9 @@
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
         <script>
-            // Traductions françaises uniquement
             const translationsFr = {
                 "big-title": "Ahsoka Tano (Chipie)",
                 "title": "<u>Ahsoka Tano (Chipie)</u>",
@@ -141,18 +140,14 @@
                 return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
             }
 
-            function switchToFrench() {
-                localStorage.setItem("selectedLanguage", "fr");
-                for (const [key, text] of Object.entries(translationsFr)) {
-                    const el = document.getElementById(key);
-                    if (el) el.innerHTML = replaceNewLinesWithBr(text);
+            function switchLanguageTo(lang) {
+                localStorage.setItem("selectedLanguage", lang);
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
                 }
-                updateFlagActive();
-            }
-
-            function switchToDefault() {
-                localStorage.setItem("selectedLanguage", "en");
-                // Pas besoin de toucher le HTML, l'anglais est déjà présent
                 updateFlagActive();
             }
 
@@ -164,14 +159,12 @@
 
             window.addEventListener("load", () => {
                 const lang = localStorage.getItem("selectedLanguage") || "en";
-                if (lang === "fr") switchToFrench();
-                else switchToDefault();
+                switchLanguageTo(lang);
             });
 
-            document.getElementById("lang-fr").addEventListener("click", switchToFrench);
-            document.getElementById("lang-en").addEventListener("click", switchToDefault);
+            document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+            document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
         </script>
-
     </footer>
 </body>
 
