@@ -142,28 +142,8 @@
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
         <script>
+            // --- Dictionnaire des traductions ---
             const translations = {
-                en: {
-                    "title": "<u>Bastila Shan</u>",
-                    "description": "Strong Jedi Support that grants allies an overwhelming first turn with her Leader ability.",
-                    "lightside": "Light Side",
-                    "support": "Support",
-                    "leader": "Leader",
-                    "jedi": "Jedi",
-                    "old": "Old Republic",
-                    "basic-attack-title": "<u>Basic Attack: Jedi Assault</u>",
-                    "basic-attack": "Deal Special damage to target enemy and inflict Ability Block for 1 turn. This attack deals 20% more damage and has +20% Potency for each active Jedi ally.",
-                    "special-attack1-title": "<u>Special Attack: Rally (cooldown: 4)</u>",
-                    "special-attack1": "Bastila dispels all debuffs from herself and another target ally. They both gain Offense, Defense, Speed, Accuracy, and Critical Chance Up for 3 turns, then Bastila calls that ally to assist.",
-                    "special-attack2-title": "<u>Special Attack: Subvert Defenses (cooldown: 2)</u>",
-                    "special-attack2": "Deal Special damage to target enemy and dispel all buffs on them. Stun them for 1 turn and inflict Buff Immunity for 2 turns.",
-                    "lead-ability-title": "<u>Leader Ability: Initiative</u>",
-                    "lead-ability": "At the start of the battle, Jedi allies gain 15% Turn Meter and Protection Up (200%, can't be dispelled), and Jedi Tank allies Taunt for 1 turn. While Jedi allies have Protection Up, they have +150% Tenacity and deal 35% more damage.",
-                    "unique-ability1-title": "<u>Unique Ability: Legendary Battle Meditation</u>",
-                    "unique-ability1": "At the start of Bastila's turn, she recovers 2% Protection for each buff she has and all other allies gain 3% Turn Meter (doubled for Jedi) and <u class='speciale'>Legendary Battle Meditation:</u> for 1 turn.\n\n<u class='speciale'>Legendary Battle Meditation:</u> +50% Potency and +35% counter chance (doubled for Jedi). Legendary Battle Meditation can't be dispelled.",
-                    "unique-ability2-title": "<u>Unique Ability: Force Bond</u>",
-                    "unique-ability2": "If Jedi Knight Revan is in the leader slot: Bastila and Jedi Knight Revan have +70% Accuracy, Potency, and Tenacity. Jedi Knight Revan also recovers Protection from Legendary Battle Meditation.\n\nIf Darth Revan is on the enemy squad: Bastila gains Advantage and Retribution for 1 turn at the start of Darth Revan's turns."
-                },
                 fr: {
                     "title": "<u>Bastila Shan</u>",
                     "description": "Puissante Jedi de soutien qui confère d'extraordinaires améliorations dès le premier tour grâce à sa capacité de chef.",
@@ -173,38 +153,56 @@
                     "jedi": "Jedi",
                     "old": "Ancienne République",
                     "basic-attack-title": "<u>Attaque Basique : Assaut Jedi</u>",
-                    "basic-attack": "Inflige des dégâts spéciaux à la cible ennemie et entrave ses capacités pendant 1 tour. Cette attaque confère un bonus de dégâts de 20% et un bonus de puissance de 20% pour chaque allié Jedi actif.",
+                    "basic-attack": "Inflige des dégâts spéciaux à la cible ennemie et entrave ses capacités pendant 1 tour. Cette attaque confère un bonus de dégâts de 20% et un bonus de pouvoir de 20% pour chaque allié Jedi actif.",
                     "special-attack1-title": "<u>Attaque Spéciale : Ralliement (délai : 4)</u>",
-                    "special-attack1": "Bastila dissipe tous les affaiblissements l'affectant elle et une cible alliée. Tous deux bénéficient d'un bonus d'attaque, de défense, de vitesse, de précision et de chances de coup critique pendant 3 tours, puis Bastila appelle cet allié à l'assister.",
+                    "special-attack1": "Bastila dissipe tous les affaiblissements l'affectant elle et une cible alliée. Tous deux bénéficient d'un bonus d'attaque, de défense, de vitesse, de précision et de chances de coup critique pendant 3 tours, puis Bastila invoque cet allié.",
                     "special-attack2-title": "<u>Attaque Spéciale : Sabotage des défenses (délai : 2)</u>",
-                    "special-attack2": "Inflige des dégâts spéciaux à la cible ennemie et dissipe toutes ses améliorations. L'étourdit pendant 1 tour et lui inflige l'immunité aux améliorations pendant 2 tours.",
+                    "special-attack2": "Inflige des dégâts spéciaux à la cible ennemie et dissipe toutes ses améliorations. Inflige l'étourdissement pendant 1 tour et lui inflige l'immunité aux améliorations pendant 2 tours.",
                     "lead-ability-title": "<u>Capacité de Chef : Initiative</u>",
-                    "lead-ability": "Au début de la bataille, les alliés Jedi gagnent 15% de jauge de tour et une hausse de protection (200%, ne peut pas être dissipée), et les tanks Jedi alliés provoquent pendant 1 tour. Tant que les alliés Jedi ont une hausse de protection, ils ont +150% de ténacité et infligent 35% de dégâts supplémentaires.",
+                    "lead-ability": "Au début de la bataille, les alliés Jedi bénéficient d'une hausse de protection (200%, ne peut pas être dissipé), leur jauge de tour se remplit de 15%, et les tanks jedi alliés utilisent la raillerie pendant 1 tour. Si les alliés Jedi bénéficient d'une hausse de protection, ils ont un bonus de ténacité de +150% et ils infligent 35% de dégâts supplémentaires.",
                     "unique-ability1-title": "<u>Capacité Unique : Méditation de combat légendaire</u>",
-                    "unique-ability1": "Au début du tour de Bastila, elle récupère 2% de protection pour chaque amélioration dont elle bénéficie, et tous les autres alliés gagnent 3% de jauge de tour (doublé pour les Jedi) et la <u class='speciale'>Méditation de combat légendaire :</u> pendant 1 tour.\n\n<u class='speciale'>Méditation de combat légendaire :</u> +50% de puissance et +35% de chances de contre-attaque (doublé pour les Jedi). La Méditation de combat légendaire ne peut pas être dissipée.",
+                    "unique-ability1": "Au début de son tour, Bastila récupère 2% de protection pour chaque amélioration dont elle bénéficie. La jauge de tour de tous les alliés augmente de 3% (doublé pour les Jedi) et ils obtiennent la <u class='speciale'>Méditation de combat légendaire :</u> pendant 1 tour.<br><br><u class='speciale'>Méditation de combat légendaire :</u> +50% de pouvoir et +35% de chances de contre-attaque (doublé pour les Jedi). La Méditation de combat légendaire ne peut pas être dissipée.",
                     "unique-ability2-title": "<u>Capacité Unique : Lien de Force</u>",
-                    "unique-ability2": "Si le Chevalier Jedi Revan est dans l'emplacement de chef : Bastila et le Chevalier Jedi Revan ont +70% de précision, de puissance et de ténacité. Le Chevalier Jedi Revan récupère également de la protection grâce à la Méditation de combat légendaire.\n\nSi Dark Revan est dans l'escouade ennemie : Bastila gagne Avantage et Rétribution pendant 1 tour au début des tours de Dark Revan."
+                    "unique-ability2": "Si le Chevalier Jedi Revan est dans l'emplacement de chef : Bastila et le Chevalier Jedi Revan ont +70% de précision, de pouvoir et de ténacité. Le Chevalier Jedi Revan récupère également de la protection avec la Méditation de combat légendaire.<br><br>Si Dark Revan est dans l'escouade ennemie : Bastila gagne l'avantage et la rétribution pendant 1 tour au début du tour de Dark Revan."
                 }
             };
 
-            function replaceNewLinesWithBr(text) {
-                return text.replace(/\n\n/g, '<br><br>');
-            }
+            const originalTexts = {};
+
+            window.onload = () => {
+                // Sauvegarde des textes originaux (anglais)
+                document.querySelectorAll("[id]").forEach(el => {
+                    originalTexts[el.id] = el.innerHTML;
+                });
+
+                // 🔁 Récupère la langue sauvegardée
+                const savedLang = localStorage.getItem("selectedLanguage") || "en";
+
+                // 🔥 Applique automatiquement la langue sauvegardée
+                switchLanguage(savedLang);
+            };
 
             function switchLanguage(lang) {
-                for (const [key, text] of Object.entries(translations[lang])) {
-                    const element = document.getElementById(key);
-                    if (element) {
-                        // Convert \n\n to <br><br> before injecting
-                        element.innerHTML = replaceNewLinesWithBr(text);
+                localStorage.setItem("selectedLanguage", lang); // 🔒 Sauvegarde la langue choisie
+
+                if (lang === "fr") {
+                    for (const [key, text] of Object.entries(translations.fr)) {
+                        const element = document.getElementById(key);
+                        if (element) {
+                            element.innerHTML = text;
+                        }
+                    }
+                } else if (lang === "en") {
+                    for (const [key, text] of Object.entries(originalTexts)) {
+                        const element = document.getElementById(key);
+                        if (element) {
+                            element.innerHTML = text;
+                        }
                     }
                 }
             }
-
-            window.onload = () => switchLanguage('en');
         </script>
-
     </footer>
 </body>
 
-</
+</html>

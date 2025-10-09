@@ -1,8 +1,8 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>BB-8</title>
+    <title id="big-title">bb-8</title>
 
     <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,108 +19,150 @@
 <body class="simple">
 
     <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>BB-8</u></h1>
-        <p>
-            Droïde tenace de la Résistance capable de renforcer ses alliés en diffusant Données secrètes
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: blue;" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/soutien.html">Soutien</a>
-            <a class="capacite" href="../classement-perso/droïde.html">Droïde</a>
-            <a class="capacite" href="../classement-perso/résistance.html">Résistance</a>
-        </nav>
-    </header>
-    <br>
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/bb-8/bb-8-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    onclick="switchLanguage('fr')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    onclick="switchLanguage('en')">
+            </div>
+            <h1 id="title"><u>bb-8</u></h1>
+            <p id="description">
+                Persistent Resistance Droid who empowers allies by circulating Secret Intel
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html"
+                    id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/droïde.html" id="droïd">Droïd</a>
+                <a class="capacite" href="../classement-perso/résistance.html" id="resistance">Resistance</a>
+            </nav>
+        </div>
+    </header><br>
 
     <!-- Image principale du personnage -->
     <img class="first" src="../image-perso/bb-8/bb8.png" alt="BB-8"><br>
 
-    <!-- Section pour les différentes attaques spéciales -->
-    <h2 class="titre"><u>attaque basique : Arc à souder</u></h2>
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Arc Welder</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="bb8 basic" src="../image-perso/bb-8/bb8-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts pysiques à une cible ennemie et inflige un malus de ténacité pendant 2 tours.<br>
-                Si la cible souffre déjà d'un malus de ténacité, inflige la Confusion pendant 2 tours.
-            </p>        
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Tenacity Down for 2 turns. If the target already had Tenacity Down, inflict Daze for 2 turns.
+            </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>1ere spéciale: Transfert de données confidentielles</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack: Covert Data Transfer</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="bb8 spé 1" src="../image-perso/bb-8/bb8-sp-1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                BB-8 et un allié aléatoire qui n'en dispose pas obtiennent l'amélioration unique <u class="speciale">Données secrètes</u> pendant 3 tours.<br>
-                Ensuite, la jauge de tour de BB-8 se remplit de 8% pour chaque allié qui dispose de <u class="speciale">Données secrètes</u>.<br>
-                Si tous les alliés actifs sont des droïdes, BB-8 utilise la raillerie pendant 1 tour.<br>
-                <br>
-                <u class="speciale">Données secrètes:</u> +25% de pouvoir, et lorsqu'un autre allié utilise une capacité spéciale,<br>
-                ils obtiennent Données secrètes pendant 3 tours, puis le délai d'Avenir Lucide est diminué de 1 pour chaque alliés avec Données secrètes.
+            <p class="attaque" id="special-attack1">
+                BB-8 and a random ally who doesn't have it gain the <u class="speciale">Secret Intel</u> unique buff for 3 turns. Then, BB-8 gains 8% Turn Meter for each ally with <u class="speciale">Secret Intel</u>. If all active allies are Droids, BB-8 gains Taunt for 1 turn.
+                <br><br>
+                <u class="speciale">Secret Intel :</u> +25% Potency and when another ally uses a Special ability they gain Secret Intel for 3 turns, then the cooldown of Illuminated Destiny is reduced by 1 for each ally with Secret Intel.
             </p>
-        
         </div>
     </div>
 
-    <h2 class="titre"><u>2eme spéciale: Avenir lucide (délai: 70)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack: Illuminated Destiny (cooldown: 70)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="bb-8 spé 2" src="../image-perso/bb-8/bb8-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe tous les affaiblissements en cours sur les alliés et expose tous les ennemis pendant 2 tours.<br>
-                La jauge de tour de tous les alliés se remplit de 80% et ils obtiennent l'avantage, un bonus de chances de<br>
-                coup critique, bonus de dégâts critiques, un bonus d'attaque et un bonus de vitesse pendant 4 tours. Les Droïdes<br>
-                et les alliés de la Résistance récupèrent 20% de protection. Cette capacité commence avec un délai et ne<br>
-                peut pas être esquivée. Lorsqu'un Droïde allié inflige un coup critique, le délai de cette capacité est réduite de 1.
+            <p class="attaque" id="special-attack2">
+                Dispel all debuffs on all allies and Expose all enemies for 2 turns. All allies gain 80% Turn Meter and gain Advantage, Critical Chance Up, Critical Damage Up, Offense Up, and Speed Up for 4 turns. Droid and Resistance allies recover 20% Protection. This ability starts on cooldown and can't be Evaded. Whenever a Droid ally scores a Critical Hit, reduce the cooldown of this ability by 1.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Suivre le rythme</u></h2>
+    <h2 class="titre" id="unique-ability1-title"><u>Unique Ability: Roll with the Punches</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="bb-8 unique" src="../image-perso/bb-8/bb8-unique1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                BB-8 a 80% de chances de contre-attaque. Lorsque BB-8 attaque quand ce n'est pas son tour, il invoque un allié de la résistance aléatoire.
+            <p class="attaque" id="unique-ability1">
+                BB-8 has 80% Counter Chance. When BB-8 attacks out of turn, he calls a random Resistance ally to Assist.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Protocole d'auto-préservation</u></h2>
+    <h2 class="titre" id="unique-ability2-title"><u>Unique Ability: Self-Preservation Protocol</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="bb8_unique 2" src="../image-perso/bb-8/bb8-unique2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Lorsque BB-8 subit des dégâts, il a 50% de chances de prévoyance pendant 2 tours. Au début de chaque affrontement, si BB-8 est actif, la jauge<br>
-                de tour des droïdes alliés se remplit de 8% pour chaque droïde allié. Lorsque BB-8 esquive une attaque, les droïdes<br>
-                alliés récupèrent 8% de santé et 8% de protection.
+            <p class="attaque" id="unique-ability2">
+                When BB-8 takes damage he has a 50% chance to gain Foresight for 2 turns. At the start of each encounter, if BB-8 is active, Droid allies gain 8% Turn Meter for each active Droid ally. When BB-8 Evades, Droid allies recover 8% Health and 8% Protection.
             </p>
         </div>
     </div>
 
-
-        <footer>
-        <!-- Bouton pour remonter en haut de la page -->
+    <!-- Pied de page -->
+    <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+        <script>
+    const translations = {
+        fr: {
+            "big-title": "bb-8",
+            "title": "bb-8",
+            "description": "Droïde tenace de la Résistance capable de renforcer ses alliés en diffusant des Données secrètes",
+            "lightside": "Côté Lumineux",
+            "support": "Soutien",
+            "droïd": "Droïde",
+            "resistance": "Résistance",
+            "basic-attack-title": "<u>Attaque Basique : Arc à souder</u>",
+            "basic-attack": "Inflige des dégâts physiques à une cible ennemie et inflige un malus de ténacité pendant 2 tours. Si la cible souffre déjà d'un malus de ténacité, inflige la Confusion pendant 2 tours.",
+            "special-attack1-title": "<u>Attaque Spéciale : Transfert de données confidentielles</u>",
+            "special-attack1": "BB-8 et un allié aléatoire qui n'en dispose pas obtiennent l'amélioration unique <u class='speciale'>Données secrètes</u> pendant 3 tours. Ensuite, la jauge de tour de BB-8 se remplit de 8% pour chaque allié qui dispose de <u class='speciale'>Données secrètes</u>. Si tous les alliés actifs sont des droïdes, BB-8 utilise la raillerie pendant 1 tour.\n\n<u class='speciale'>Données secrètes :</u> +25% de pouvoir, et lorsqu'un autre allié utilise une capacité spéciale, il obtient Données Secrètes pendant 3 tours, puis le délai d'Avenir Lucide est diminué de 1 pour chaque allié avec Données Secrètes.",
+            "special-attack2-title": "<u>Attaque Spéciale : Avenir lucide (délai : 70)</u>",
+            "special-attack2": "Dissipe tous les affaiblissements sur les alliés et expose tous les ennemis pendant 2 tours. La jauge de tour de tous les alliés se remplit de 80% et ils obtiennent l'avantage, un bonus de chances de coup critique, de dégâts critiques, d'attaque et de vitesse pendant 4 tours. Les Droïdes et les alliés de la Résistance récupèrent 20% de protection. Cette capacité commence avec un délai et ne peut pas être esquivée. Lorsqu'un Droïde allié inflige un coup critique, le délai de cette capacité est réduit de 1.",
+            "unique-ability1-title": "<u>Capacité Unique : Suivre le rythme</u>",
+            "unique-ability1": "BB-8 a 80% de chances de contre-attaque. Lorsqu'il attaque hors de son tour, il invoque un allié de la Résistance aléatoire pour assister.",
+            "unique-ability2-title": "<u>Capacité Unique : Protocole d'auto-préservation</u>",
+            "unique-ability2": "Lorsque BB-8 subit des dégâts, il a 50% de chances d'obtenir la prévoyance pendant 2 tours. Au début de chaque affrontement, si BB-8 est actif, les alliés droïdes gagnent 8% de jauge de tour pour chaque droïde actif. Lorsqu'il esquive, les droïdes alliés récupèrent 8% de santé et 8% de protection."
+        }
+    };
+
+    function replaceNewLinesWithBr(text) {
+        return text
+            .replace(/\n\s*\n/g, '<br><br>')
+            .replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+    }
+
+    function switchLanguage(lang) {
+        localStorage.setItem("selectedLanguage", lang); // ✅ Sauvegarde la langue choisie
+        for (const [key, text] of Object.entries(translations[lang])) {
+            const element = document.getElementById(key);
+            if (element) {
+                element.innerHTML = replaceNewLinesWithBr(text);
+            }
+        }
+    }
+
+    window.onload = () => {
+        // ✅ Récupère la langue enregistrée ou défaut à 'en'
+        const savedLang = localStorage.getItem("selectedLanguage") || "en";
+        switchLanguage(savedLang);
+    };
+</script>
+
+
     </footer>
 </body>
-</html>    
+
+</html>
