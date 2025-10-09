@@ -51,31 +51,50 @@
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
         <script>
+            // ✅ Dictionnaire simplifié : uniquement les traductions FR
             const translations = {
-                en: {
-
-                },
                 fr: {
+                    
                 }
             };
 
+            // ✅ Corrige à la fois les doubles et simples retours à la ligne
             function replaceNewLinesWithBr(text) {
-                return text.replace(/\n\n/g, '<br><br>');
+                return text
+                    .replace(/\n\s*\n/g, '<br><br>') // double saut de ligne → double <br>
+                    .replace(/([^\n])\n([^\n])/g, '$1<br>$2'); // simple saut de ligne → un seul <br>
             }
 
+            // ✅ Sauvegarde du texte original anglais au chargement
+            const originalTexts = {};
+
+            window.onload = () => {
+                // Stocke les textes anglais d'origine (HTML)
+                document.querySelectorAll("[id]").forEach(el => {
+                    originalTexts[el.id] = el.innerHTML;
+                });
+            };
+
+            // ✅ Fonction pour changer de langue
             function switchLanguage(lang) {
-                for (const [key, text] of Object.entries(translations[lang])) {
-                    const element = document.getElementById(key);
-                    if (element) {
-                        // Convert \n\n to <br><br> before injecting
-                        element.innerHTML = replaceNewLinesWithBr(text);
+                if (lang === "fr") {
+                    for (const [key, text] of Object.entries(translations.fr)) {
+                        const element = document.getElementById(key);
+                        if (element) {
+                            element.innerHTML = replaceNewLinesWithBr(text);
+                        }
+                    }
+                } else if (lang === "en") {
+                    // Restaure les textes anglais d'origine
+                    for (const [key, text] of Object.entries(originalTexts)) {
+                        const element = document.getElementById(key);
+                        if (element) {
+                            element.innerHTML = text;
+                        }
                     }
                 }
             }
-
-            window.onload = () => switchLanguage('en');
         </script>
-
     </footer>
 </body>
 
@@ -165,7 +184,7 @@
     <div class="right-column">
         <p class="attaque" id="unique-special">
 
-        </p>        
+        </p>
     </div>
 </div>
 

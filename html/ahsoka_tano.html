@@ -149,18 +149,28 @@
                         "lead-ability-title" : "<u>Capacité de chef: Grandes Foulées</u>",
                         "lead-ability" : "Les alliés Jedi et Soeurs de la Nuit gagnent un bonus d'esquive de +14% et remplissent leut jauge de tour de 20% à chaque esquive.",
                         "unique-ability-title" : "<u>capacité unique: Padawan téméraire</u>",
-                        "unique-ability" : "Ahsoka a +40% de santé maxiamle, +10% d'esquive, +10% de chances de coup critique et +25% de vitesse. Ces valeurs sont doublées lorsqu'elle dispose de l'immunité aux coup critique\n\nSi le chavalier Jedi Anakin est un allié, Ahsoka obtient l'immunité aux coup critiques pendant 2 tours au début de chaque affrontement et lorsqu'elle utilise une capacité spéciale.\n\nSi le chef allié appartient à la République Galactique, Ahsoka est invoqué à chaque fois qu'un autre allié de la République  Galactique utilise une capacité spéciale.",
+                        "unique-ability" : "Ahsoka a +40% de santé maxiamle, +10% d'esquive, +10% de chances de coup critique et +25% de vitesse. Ces valeurs sont doublées lorsqu'elle dispose de l'immunité aux coup critique.\n\nSi le chavalier Jedi Anakin est un allié, Ahsoka obtient l'immunité aux coup critiques pendant 2 tours au début de chaque affrontement et lorsqu'elle utilise une capacité spéciale.\n\nSi le chef allié appartient à la République Galactique, Ahsoka est invoqué à chaque fois qu'un autre allié de la République  Galactique utilise une capacité spéciale.",
                     }
                 };
     
-                function switchLanguage(lang) {
-                    for (const [key, text] of Object.entries(translations[lang])) {
-                        const element = document.getElementById(key);
-                        if (element) element.innerHTML = text;
+                // ✅ Corrige à la fois les doubles et simples retours à la ligne
+            function replaceNewLinesWithBr(text) {
+                return text
+                    .replace(/\n\s*\n/g, '<br><br>') // double saut de ligne → double <br>
+                    .replace(/([^\n])\n([^\n])/g, '$1<br>$2'); // simple saut de ligne → un seul <br>
+            }
+
+            function switchLanguage(lang) {
+                for (const [key, text] of Object.entries(translations[lang])) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        // ✅ Utilise innerHTML pour interpréter les balises HTML (<u>, <br>, etc.)
+                        element.innerHTML = replaceNewLinesWithBr(text);
                     }
                 }
-    
-                window.onload = () => switchLanguage('en');
+            }
+
+            window.onload = () => switchLanguage('en');
             </script>
             
         </footer>

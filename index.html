@@ -8,7 +8,6 @@
     <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
     <link rel="icon" type="image/png" href="image/logo_star_wars.png">
     <link rel="stylesheet" href="style/index-style.css">
-
 </head>
 
 <body>
@@ -24,7 +23,7 @@
     </video>
 
     <!-- Titre -->
-    <header><span id="title">Star Wars galaxy of heros website</span></header>
+    <header><span id="title">Star Wars galaxy of heroes website</span></header>
 
     <!-- Sections principales -->
     <div class="main-sections">
@@ -39,36 +38,37 @@
     </div>
 
     <script>
-        // Object to store translations
         const translations = {
             en: {
                 "title": "Star Wars galaxy of heroes website",
                 "Character": "Character",
                 "ship": "Ship",
-                "voir-perso" : "Character",
-                "voir-vaisseau" : "Ship"
+                "voir-perso": "Character",
+                "voir-vaisseau": "Ship"
             },
             fr: {
                 "title": "Site Web Star Wars : Les Héros de la Galaxie",
                 "Character": "Personnages",
                 "ship": "Vaisseaux",
-                "voir-perso" : "Personnage",
-                "voir-vaisseau" : "Vaisseau"
+                "voir-perso": "Personnage",
+                "voir-vaisseau": "Vaisseau"
             }
         };
 
-        // Default language: English
+        // 🔹 Au chargement de la page
         window.onload = function () {
-            switchLanguage('en');
+            const savedLang = localStorage.getItem("selectedLanguage") || "en";
+            switchLanguage(savedLang);
         };
 
-        // Function to switch language
+        // 🔹 Fonction de changement de langue
         function switchLanguage(lang) {
+            localStorage.setItem("selectedLanguage", lang); // Sauvegarde
             const elements = document.querySelectorAll('[id]');
-            elements.forEach(function(element) {
-                const translationKey = element.id;
-                if (translations[lang] && translations[lang][translationKey]) {
-                    element.textContent = translations[lang][translationKey];
+            elements.forEach(function (element) {
+                const key = element.id;
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
                 }
             });
         }

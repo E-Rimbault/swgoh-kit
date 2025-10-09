@@ -108,7 +108,9 @@
 
     let characters = [];
     let customTags = [];
-    let currentLang = "en"; // langue par défaut
+// 🔹 Langue par défaut (chargée depuis localStorage)
+let currentLang = localStorage.getItem("selectedLanguage") || "en";
+
 
     // Définition des priorités (EN + FR)
     const factionPriority = {
@@ -133,23 +135,39 @@
         document.getElementById("results").innerHTML = "<p>Error loading characters</p>";
       });
 
-    // Langue toggle
-    document.getElementById("lang-en").addEventListener("click", () => {
-      currentLang = "en";
-      document.getElementById("lang-en").classList.add("active");
-      document.getElementById("lang-fr").classList.remove("active");
-      generateFactionFilters();
-      updateTagSuggestions();
-      applyFilters();
-    });
-    document.getElementById("lang-fr").addEventListener("click", () => {
-      currentLang = "fr";
-      document.getElementById("lang-fr").classList.add("active");
-      document.getElementById("lang-en").classList.remove("active");
-      generateFactionFilters();
-      updateTagSuggestions();
-      applyFilters();
-    });
+      // 🔹 Met à jour le bon drapeau au chargement
+window.addEventListener("DOMContentLoaded", () => {
+  if (currentLang === "fr") {
+    document.getElementById("lang-fr").classList.add("active");
+    document.getElementById("lang-en").classList.remove("active");
+  } else {
+    document.getElementById("lang-en").classList.add("active");
+    document.getElementById("lang-fr").classList.remove("active");
+  }
+});
+
+
+// Langue toggle
+document.getElementById("lang-en").addEventListener("click", () => {
+  currentLang = "en";
+  localStorage.setItem("selectedLanguage", "en"); // 🔒 Sauvegarde
+  document.getElementById("lang-en").classList.add("active");
+  document.getElementById("lang-fr").classList.remove("active");
+  generateFactionFilters();
+  updateTagSuggestions();
+  applyFilters();
+});
+
+document.getElementById("lang-fr").addEventListener("click", () => {
+  currentLang = "fr";
+  localStorage.setItem("selectedLanguage", "fr"); // 🔒 Sauvegarde
+  document.getElementById("lang-fr").classList.add("active");
+  document.getElementById("lang-en").classList.remove("active");
+  generateFactionFilters();
+  updateTagSuggestions();
+  applyFilters();
+});
+
 
     function generateFactionFilters() {
       const container = document.getElementById("faction-filters");
