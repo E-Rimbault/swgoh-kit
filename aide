@@ -50,51 +50,47 @@
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
-        <script>
-            // ✅ Dictionnaire simplifié : uniquement les traductions FR
-            const translations = {
-                fr: {
-                    
-                }
-            };
+<script>
+  const translations = {
+    fr: {
+      "big-title": "Nom du personnage (Français)",
+      "title": "<u>Nom du personnage (Français)</u>",
+      "description": "Petite description en français ici.",
+      // ... autres traductions ici ...
+    }
+  };
 
-            // ✅ Corrige à la fois les doubles et simples retours à la ligne
-            function replaceNewLinesWithBr(text) {
-                return text
-                    .replace(/\n\s*\n/g, '<br><br>') // double saut de ligne → double <br>
-                    .replace(/([^\n])\n([^\n])/g, '$1<br>$2'); // simple saut de ligne → un seul <br>
-            }
+  function replaceNewLinesWithBr(text) {
+    return text
+      .replace(/\n\s*\n/g, '<br><br>')
+      .replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+  }
 
-            // ✅ Sauvegarde du texte original anglais au chargement
-            const originalTexts = {};
+  function switchLanguage(lang) {
+    localStorage.setItem("selectedLanguage", lang);
+    for (const [key, text] of Object.entries(translations[lang])) {
+      const el = document.getElementById(key);
+      if (el) el.innerHTML = replaceNewLinesWithBr(text);
+    }
+    updateFlagActive(lang);
+  }
 
-            window.onload = () => {
-                // Stocke les textes anglais d'origine (HTML)
-                document.querySelectorAll("[id]").forEach(el => {
-                    originalTexts[el.id] = el.innerHTML;
-                });
-            };
+  function updateFlagActive(lang) {
+    const fr = document.getElementById("lang-fr");
+    const en = document.getElementById("lang-en");
+    fr.style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+    en.style.borderColor = lang === "en" ? "#007bff" : "transparent";
+  }
 
-            // ✅ Fonction pour changer de langue
-            function switchLanguage(lang) {
-                if (lang === "fr") {
-                    for (const [key, text] of Object.entries(translations.fr)) {
-                        const element = document.getElementById(key);
-                        if (element) {
-                            element.innerHTML = replaceNewLinesWithBr(text);
-                        }
-                    }
-                } else if (lang === "en") {
-                    // Restaure les textes anglais d'origine
-                    for (const [key, text] of Object.entries(originalTexts)) {
-                        const element = document.getElementById(key);
-                        if (element) {
-                            element.innerHTML = text;
-                        }
-                    }
-                }
-            }
-        </script>
+  window.addEventListener("load", () => {
+    const savedLang = localStorage.getItem("selectedLanguage") || "en";
+    switchLanguage(savedLang);
+  });
+
+  document.getElementById("lang-fr").addEventListener("click", () => switchLanguage("fr"));
+  document.getElementById("lang-en").addEventListener("click", () => switchLanguage("en"));
+</script>
+
     </footer>
 </body>
 
