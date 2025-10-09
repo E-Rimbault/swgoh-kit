@@ -108,11 +108,8 @@
 
     let characters = [];
     let customTags = [];
-// 🔹 Langue par défaut (chargée depuis localStorage)
-let currentLang = localStorage.getItem("selectedLanguage") || "en";
+    let currentLang = localStorage.getItem("selectedLanguage") || "en";
 
-
-    // Définition des priorités (EN + FR)
     const factionPriority = {
       "galactic legend": 1,
       "légende galactique": 1,
@@ -122,52 +119,74 @@ let currentLang = localStorage.getItem("selectedLanguage") || "en";
       "commandant de la flotte": 3
     };
 
+    // 📦 Chargement JSON
     fetch("units.json")
       .then(res => res.json())
       .then(data => {
         characters = data;
-        generateFactionFilters();
-        updateTagSuggestions();
-        applyFilters();
+        applyLanguageOnLoad(); // ✅ Langue appliquée automatiquement
       })
       .catch(err => {
         console.error("Error loading JSON:", err);
         document.getElementById("results").innerHTML = "<p>Error loading characters</p>";
       });
 
-      // 🔹 Met à jour le bon drapeau au chargement
-window.addEventListener("DOMContentLoaded", () => {
-  if (currentLang === "fr") {
-    document.getElementById("lang-fr").classList.add("active");
-    document.getElementById("lang-en").classList.remove("active");
-  } else {
-    document.getElementById("lang-en").classList.add("active");
-    document.getElementById("lang-fr").classList.remove("active");
-  }
-});
+    // ✅ Appliquer la langue stockée au chargement
+    function applyLanguageOnLoad() {
+      if (currentLang === "fr") {
+        document.getElementById("lang-fr").classList.add("active");
+        document.getElementById("lang-en").classList.remove("active");
+      } else {
+        document.getElementById("lang-en").classList.add("active");
+        document.getElementById("lang-fr").classList.remove("active");
+      }
+      updateStaticText();
+      generateFactionFilters();
+      updateTagSuggestions();
+      applyFilters();
+    }
 
+    // ✅ Mise à jour des textes statiques
+    function updateStaticText() {
+      if (currentLang === "fr") {
+        document.getElementById("filter-title").textContent = "Filtre de personnages";
+        document.querySelector("h4").textContent = "Résultats :";
+        document.getElementById("reset-filters").textContent = "Réinitialiser les filtres";
+        document.getElementById("add-tag-btn").textContent = "Ajouter";
+        document.getElementById("search-bar").placeholder = "Rechercher un personnage...";
+        document.getElementById("tag-input").placeholder = "Ajouter un tag...";
+      } else {
+        document.getElementById("filter-title").textContent = "Character Filter";
+        document.querySelector("h4").textContent = "Results:";
+        document.getElementById("reset-filters").textContent = "Reset Filters";
+        document.getElementById("add-tag-btn").textContent = "Add";
+        document.getElementById("search-bar").placeholder = "Search character...";
+        document.getElementById("tag-input").placeholder = "Add a tag...";
+      }
+    }
 
-// Langue toggle
-document.getElementById("lang-en").addEventListener("click", () => {
-  currentLang = "en";
-  localStorage.setItem("selectedLanguage", "en"); // 🔒 Sauvegarde
-  document.getElementById("lang-en").classList.add("active");
-  document.getElementById("lang-fr").classList.remove("active");
-  generateFactionFilters();
-  updateTagSuggestions();
-  applyFilters();
-});
+    // 🌐 Langue toggle
+    document.getElementById("lang-en").addEventListener("click", () => {
+      currentLang = "en";
+      localStorage.setItem("selectedLanguage", "en");
+      updateStaticText();
+      document.getElementById("lang-en").classList.add("active");
+      document.getElementById("lang-fr").classList.remove("active");
+      generateFactionFilters();
+      updateTagSuggestions();
+      applyFilters();
+    });
 
-document.getElementById("lang-fr").addEventListener("click", () => {
-  currentLang = "fr";
-  localStorage.setItem("selectedLanguage", "fr"); // 🔒 Sauvegarde
-  document.getElementById("lang-fr").classList.add("active");
-  document.getElementById("lang-en").classList.remove("active");
-  generateFactionFilters();
-  updateTagSuggestions();
-  applyFilters();
-});
-
+    document.getElementById("lang-fr").addEventListener("click", () => {
+      currentLang = "fr";
+      localStorage.setItem("selectedLanguage", "fr");
+      updateStaticText();
+      document.getElementById("lang-fr").classList.add("active");
+      document.getElementById("lang-en").classList.remove("active");
+      generateFactionFilters();
+      updateTagSuggestions();
+      applyFilters();
+    });
 
     function generateFactionFilters() {
       const container = document.getElementById("faction-filters");
@@ -269,7 +288,7 @@ document.getElementById("lang-fr").addEventListener("click", () => {
             </div>
           </div>`;
         }).join("")
-        : "<p>No characters found</p>";
+        : (currentLang === "fr" ? "<p>Aucun personnage trouvé</p>" : "<p>No characters found</p>");
     }
 
     function renderActiveFilters(selectedFactions, selectedRole, selectedAlignment, searchQuery, customTags) {
@@ -283,7 +302,7 @@ document.getElementById("lang-fr").addEventListener("click", () => {
       customTags.forEach(tag => filters.push({ type: "custom", value: tag }));
       if (filters.length === 0) return;
       const phrase = document.createElement("p");
-      phrase.innerHTML = `Characters with the tag(s): `;
+      phrase.innerHTML = currentLang === "fr" ? "Personnages avec les tags :" : "Characters with the tag(s):";
       container.appendChild(phrase);
       filters.forEach(f => {
         const badge = document.createElement("span");
@@ -292,7 +311,7 @@ document.getElementById("lang-fr").addEventListener("click", () => {
         badge.textContent = f.value;
         badge.addEventListener("click", () => {
           if (f.type === "faction") {
-            document.querySelector(`.filter[value="${f.value}"]`).checked = false;
+            document.querySelector(`.filter[value='${f.value}']`).checked = false;
           } else if (f.type === "role") {
             document.getElementById("role-filter").value = "";
           } else if (f.type === "alignment") {
