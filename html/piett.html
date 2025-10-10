@@ -19,7 +19,8 @@
     <!-- En-tête -->
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/piett/piett-image.png" alt="Admiral Piett" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/piett/piett-image.png" alt="Admiral Piett"
+                style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
 
@@ -38,12 +39,15 @@
             <br>
 
             <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html"
+                    id="darkside">Dark Side</a>
                 <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
                 <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
                 <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
-                <a class="capacite" href="../classement-perso/soldat-de-lempire.html" id="trooper-empire">Imperial Trooper</a>
-                <a class="capacite" href="../classement-perso/commandant-de-la-flotte.html" id="fleet">Fleet Commander</a>
+                <a class="capacite" href="../classement-perso/soldat-de-lempire.html" id="trooper-empire">Imperial
+                    Trooper</a>
+                <a class="capacite" href="../classement-perso/commandant-de-la-flotte.html" id="fleet">Fleet
+                    Commander</a>
             </nav>
         </div>
     </header>
@@ -99,7 +103,8 @@
         <div class="right-column">
             <p class="attaque" id="special-attack2">
                 Dispel all buffs on Light Side enemies. Deal Physical damage to all enemies and inflict Daze for 2
-                turns. Allies with Inevitable Failure gain 2 stacks. If this attack defeats an enemy, inflict Fear on all
+                turns. Allies with Inevitable Failure gain 2 stacks. If this attack defeats an enemy, inflict Fear on
+                all
                 enemies for 1 turn and allies with Inevitable Failure gain 5 stacks. This Fear can't be copied,
                 dispelled, or resisted.
             </p>
@@ -169,7 +174,6 @@
                 "unique-ability-title": "<u>Capacité Unique : Le Piège de l'Empereur</u>",
                 "unique-ability": "L'Amiral Piett a +60% de chances de contre-attaque et gagne 5% de jauge de tour lorsqu'un autre allié de l'Empire subit des dégâts.<br><br>À chaque début de tour ou attaque hors tour d'un allié de l'Empire, tous les alliés gagnent un cumul du <u class='speciale'>Piège de l'Empereur</u> jusqu'au début du prochain tour ennemi ou à la fin de la bataille. Cet effet ne peut pas être copié ni dissipé.<br><br>Si Dark Vador est un allié : Dark Vador et l'Amiral Piett gagnent +20% de Précision, de Puissance et de Ténacité.<br><br><u class='speciale'>Piège de l'Empereur :</u> +6% d'Attaque et de Puissance par cumul."
             };
-
             const originalTexts = {};
 
             function saveOriginalTexts() {
@@ -184,7 +188,7 @@
             }
 
             function switchLanguageTo(lang) {
-                localStorage.setItem("selectedLanguagePiett", lang);
+                localStorage.setItem("selectedLanguage", lang);
 
                 if (lang === "fr") {
                     for (const [id, text] of Object.entries(translationsFr)) {
@@ -202,14 +206,15 @@
             }
 
             function updateFlagActive() {
-                const lang = localStorage.getItem("selectedLanguagePiett") || "en";
+                const lang = localStorage.getItem("selectedLanguage") || "en";
                 document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
                 document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
             }
 
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
             window.addEventListener("load", () => {
                 saveOriginalTexts();
-                const lang = localStorage.getItem("selectedLanguagePiett") || "en";
+                const lang = localStorage.getItem("selectedLanguage") || "en";
                 switchLanguageTo(lang);
 
                 document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
@@ -218,4 +223,5 @@
         </script>
     </footer>
 </body>
+
 </html>
