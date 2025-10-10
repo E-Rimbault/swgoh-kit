@@ -3,36 +3,33 @@
 <head>
     <title id="big-title">Ahsoka Tano (Fulcrum)</title>
 
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
 
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/fulcrum/fulcrum-image.png">
-
-    <!-- Lien vers la feuille de style -->
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
 
-    <!-- Entête de la page -->
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/fulcrum/fulcrum-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/fulcrum/fulcrum-image.png" alt="Ahsoka Fulcrum" style="max-width: 100%; max-height: 100%;">
         </div>
+
         <div style="flex: 1; padding-left: 20px;">
             <div class="language-switcher">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                    onclick="switchLanguage('fr')">
-                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                    onclick="switchLanguage('en')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg"
+                     alt="Français" id="lang-fr"
+                     style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+                     alt="English" id="lang-en"
+                     style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
+
             <h1 id="title"><u>Ahsoka Tano (Fulcrum)</u></h1>
-            <p id="description">
-                Enduring Rebel Attacker who shrugs off debuffs and consumes buffs to deal extra damage
-            </p>
+            <p id="description">Enduring Rebel Attacker who shrugs off debuffs and consumes buffs to deal extra damage.</p>
             <br>
 
             <nav class="perso" style="font-size: 20px;">
@@ -45,128 +42,134 @@
         </div>
     </header><br>
 
-    <!-- Image principale du personnage -->
     <img class="first" src="../image-perso/fulcrum/fulcrum.png" alt="Fulcrum"><br>
 
     <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Balanced Strike</u></h2>
-<div class="capacity-container">
-    <div class="left-column">
-        <img class="attaque" alt="fulcrum basique" src="../image-perso/fulcrum/fulcrum-basique.png">
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="fulcrum basique" src="../image-perso/fulcrum/fulcrum-basique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy, gain Protection Up (40%) for 2 turns, and grant Protection Up (40%) to a random ally that doesn't have it for 2 turns.
+            </p>
+        </div>
     </div>
-    <div class="right-column">
-        <p class="attaque" id="basic-attack">
-            Deal Physical damage to target enemy, gain Protection Up (40%) for 2 turns, and grant Protection Up (40%) to a random ally that doesn't have it for 2 turns.
-        </p>
-    </div>
-</div>
 
-<h2 class="titre" id="special-attack1-title"><u>Special Attack: Meditate (cooldown: 3)</u></h2>
-<div class="capacity-container">
-    <div class="left-column">
-        <img class="attaque" alt="fulcrum spé 1" src="../image-perso/fulcrum/fulcrum-spe1.png">
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack: Meditate (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="fulcrum spé 1" src="../image-perso/fulcrum/fulcrum-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Ahsoka gains Foresight, Retribution, and each non-unique buff (excluding Taunt) present on other allies for 2 turns, then gains 15% Turn Meter for each buff on her.
+            </p>
+        </div>
     </div>
-    <div class="right-column">
-        <p class="attaque" id="special-attack1">
-            Ahsoka gains Foresight, Retribution, and each non-unique buff (excluding Taunt) present on other allies for 2 turns, then gains 15% Turn Meter for each buff on her.
-        </p>
-    </div>
-</div>
 
-<h2 class="titre" id="special-attack2-title"><u>Special Attack: Whirlwinde (cooldown: 3)</u></h2>
-<div class="capacity-container">
-    <div class="left-column">
-        <img class="attaque" alt="fulcrum spé 2" src="../image-perso/fulcrum/fulcrum-spe2.png">
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack: Whirlwinde (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="fulcrum spé 2" src="../image-perso/fulcrum/fulcrum-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Consume all non-unique buffs on Ahsoka and deal Physical damage to target enemy. This attack scores an additional hit for each type of buff consumed. The target can't Evade and has -50% Armor against this attack.
+            </p>
+        </div>
     </div>
-    <div class="right-column">
-        <p class="attaque" id="special-attack2">
-            Consume all non-unique buffs on Ahsoka and deal Physical damage to target enemy. This attack scores an additional hit for each type of buff consumed. The target can't Evade and has -50% Armor against this attack.
-        </p>
-    </div>
-</div>
 
-<h2 class="titre" id="unique-ability-title"><u>Unique Ability: Perseverance</u></h2>
-<div class="capacity-container">
-    <div class="left-column">
-        <img class="attaque" alt="fulcrum unique" src="../image-perso/fulcrum/fulcrum-unique.png">
+    <h2 class="titre" id="unique-ability-title"><u>Unique Ability: Perseverance</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="fulcrum unique" src="../image-perso/fulcrum/fulcrum-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Ahsoka is immune to Damage Over Time effects and gains 30% Critical Avoidance. At the end of each turn, Ahsoka dispels all debuffs on herself and loses 10% Health for each debuff dispelled, then recovers 5% Health for each buff on her. This Health Loss can't defeat Ahsoka.
+                <br><br>
+                <u class="omicron">Omicron boost : While in Territory Wars :</u><br>
+                Ahsoka Tano (Fulcrum) gains 25% Defense, Max Health, Offense, Max Protection, and 35 Speed. If there are no other active allies at the start of battle:
+                <br><br>
+                - Ahsoka Tano (Fulcrum) gains an additional 100% Armor Penetration and Critical Avoidance, 75% Defense, Max Health, Offense, Max Protection, and -60% Tenacity.<br>
+                - When Ahsoka Tano (Fulcrum) dispels a debuff with Perseverance, grant her the opposite buffs, if any, for 2 turns and 20% Turn Meter and Protection Up (+20%, Stacking) for 2 turns per debuff dispelled this way.<br>
+                - Ahsoka Tano (Fulcrum) ignores Taunt effects and enemies defeated by Ahsoka Tano (Fulcrum) can't be revived.
+            </p>
+        </div>
     </div>
-    <div class="right-column">
-        <p class="attaque" id="unique-ability">
-            Ahsoka is immune to Damage Over Time effects and gains 30% Critical Avoidance. At the end of each turn, Ahsoka dispels all debuffs on herself and loses 10% Health for each debuff dispelled, then recovers 5% Health for each buff on her. This Health Loss can't defeat Ahsoka.
-            <br><br>
-            <u class="omicron">Omicron boost : While in Territory Wars :</u><br> Ahsoka Tano (Fulcrum) gains 25% Defense, Max Health, Offense, Max Protection, and 35 Speed. If there are no other active allies at the start of battle:
-            <br><br>
-            - Ahsoka Tano (Fulcrum) gains an additional 100% Armor Penetration and Critical Avoidance, 75% Defense, Max Health, Offense, Max Protection, and -60% Tenacity.<br>
-            - When Ahsoka Tano (Fulcrum) dispels a debuff with Perseverance, grant her the opposite buffs, if any, for 2 turns and 20% Turn Meter and Protection Up (+20%, Stacking) for 2 turns per debuff dispelled this way.<br>
-            - Ahsoka Tano (Fulcrum) ignores Taunt effects and enemies defeated by Ahsoka Tano (Fulcrum) can't be revived.
-        </p>
-    </div>
-</div>
 
-    <!-- Pied de page -->
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
+
+        <!-- Script de traduction synchronisé -->
         <script>
-            const translations = {
-                en: {
-                    "big-title": "Ahsoka Tano (Fulcrum)",
-                    "title": "Ahsoka Tano (Fulcrum)",
-                    "description": "Enduring Rebel Attacker who shrugs off debuffs and consumes buffs to deal extra damage",
-                    "lightside" : "Light Side",
-                    "attacker" : "Attacker",
-                    "rebel" : "Rebel",
-                    "spectre" : "Spectre",
-                    "unaligned-user" : "Unaligned Force User",
-                    "basic-attack-title" : "<u>Balanced Strike</u>",
-                    "basic-attack" : "Deal Physical damage to target enemy, gain Protection Up (40%) for 2 turns, and grant Protection Up (40%) to a random ally that doesn't have it for 2 turns.",
-                    "special-attack1-title" : "<u>Special Attack: Meditate (cooldown: 3)</u>",
-                    "special-attack1" : "Ahsoka gains Foresight, Retribution, and each non-unique buff (excluding Taunt) present on other allies for 2 turns, then gains 15% Turn Meter for each buff on her.",
-                    "special-attack2-title" : "<u>Special Attack: Whirlwinde (cooldown: 3)</u>",
-                    "special-attack2" : "Consume all non-unique buffs on Ahsoka and deal Physical damage to target enemy. This attack scores an additional hit for each type of buff consumed. The target can't Evade and has -50% Armor against this attack.",
-                    "unique-ability-title" : "<u>Unique Ability: Perseverance</u>",
-                    "unique-ability" : "Ahsoka is immune to Damage Over Time effects and gains 30% Critical Avoidance. At the end of each turn, Ahsoka dispels all debuffs on herself and loses 10% Health for each debuff dispelled, then recovers 5% Health for each buff on her. This Health Loss can't defeat Ahsoka.\n\n<u class='omicron'>Omicron boost : While in Territory Wars :</u>\n Ahsoka Tano (Fulcrum) gains 25% Defense, Max Health, Offense, Max Protection, and 35 Speed. If there are no other active allies at the start of battle: \n\n- Ahsoka Tano (Fulcrum) gains an additional 100% Armor Penetration and Critical Avoidance, 75% Defense, Max Health, Offense, Max Protection, and -60% Tenacity.\n- When Ahsoka Tano (Fulcrum) dispels a debuff with Perseverance, grant her the opposite buffs, if any, for 2 turns and 20% Turn Meter and Protection Up (+20%, Stacking) for 2 turns per debuff dispelled this way.\n- Ahsoka Tano (Fulcrum) ignores Taunt effects and enemies defeated by Ahsoka Tano (Fulcrum) can't be revived.",
-                },
-                fr: {
-                    "big-title": "Ahsoka Tano (Fulcrum)",
-                    "title": "Ahsoka Tano (Fulcrum)",
-                    "description": "Attaquante rebelle tenace qui se débarasse des affaiblissements et consomme ses améliorations pour infliger des dégâts supplémentaires.",
-                    "lightside" : "Coté Lumineux",
-                    "attacker" : "Attaquant",
-                    "rebel" : "Rebelle",
-                    "spectre" : "Spectre",
-                    "unaligned-user" : "Utilisateur de la Force non aligné",
-                    "basic-attack-title" : "<u>Attaque Basique : Frappe équilibrée</u>",
-                    "basic-attack" : "Inflige des dégâts physiques à une cible ennemie, obtient une hausse de protection (40%) pendant 2 tours, et confère une hausse de protection (40%) à un allié aléatoire qui n'en dispose pas pendant 2 tours.",
-                    "special-attack1-title" : "<u>1ere Spéciale Méditation (délai : 3):</u>",
-                    "special-attack1" : "Ahsoka gagne la prévoyance, la rétribution et chaque amélioration qui n'est pas unique (sauf la raillerie) dont disposent les autres alliés pendant 2 tours. Ensuite, sa jauge de tour se remplit de 15% pour chaque amélioration dont elle dispose.",
-                    "special-attack2-title" : "<u>2eme Spéciale Tourbillon (délai : 3):</u>",
-                    "special-attack2" : "Consomme toutes les améliorations non uniques en cours sur Ahsoka et inflige des dégâts physiques à une cible ennemie. Cette attaque inflige un coup supplémentaire pour chaque type d'amélioration consommée. La cible ne peut pas esquiver cette attaque, et son armure diminue de 50%.",
-                    "unique-ability-title" : "<u>Capacité Unique persévérance:</u>",
-                    "unique-ability" : "Ahsoka est immunisée contre les effets de dégâts sur la durée et gagne 30% d'esquive des critiques. A la fin de chaque tour, Ahsoka dissipe tous les affaiblissements l'affectant et perd 10% de santé pour chaque affaiblissement dissipé. Elle récupère ensuite 5% de santé pour chaque amélioration dont elle dispose. Cette perte de santé ne peut pas éliminer Ahsoka.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u>\n Ahsoka Tano (Fulcrum) gagne 25% de défense, de santé maximale, d'attaque, de protection maximale et 35 de vitesse. S'il n'y a pas d'autres alliés actifs au début de la bataille :\n\n -Ahsoka Tano (Fulcrum) obtient 100% de pénétration d'armure et d'esquive des critiques supplémentaires, +75% de défense, de santé maximale, d'attaque, de protection maximale et -60% de ténacité :\n\n -Quand Ahsoka Tano (Fulcrum) dissipe un affaiblissement avec Persévérance, elle obtient les améliorations opposées, le cas échéant pendant 2 tours, 20% de jauge de tour et hausse de protection (+20%, cumulatif) pendant 2 tours par affaiblissement ainsi dissipé : \n\n -Ahsoka Tano (Fulcrum) ignore les effets de raillerie, et les ennemis vaincus par Ahsoka Tano (Fulcrum) ne peuvent pas être ranimés.",
-                }
+            const translationsFr = {
+                "big-title": "Ahsoka Tano (Fulcrum)",
+                "title": "<u>Ahsoka Tano (Fulcrum)</u>",
+                "description": "Attaquante rebelle tenace qui se débarrasse des affaiblissements et consomme ses améliorations pour infliger des dégâts supplémentaires.",
+                "lightside": "Côté Lumineux",
+                "attacker": "Attaquante",
+                "rebel": "Rebelle",
+                "spectre": "Spectre",
+                "unaligned-user": "Utilisateur de la Force non aligné",
+                "basic-attack-title": "<u>Attaque Basique : Frappe équilibrée</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie, obtient une hausse de protection (40%) pendant 2 tours, et confère cette hausse à un allié aléatoire pendant 2 tours.",
+                "special-attack1-title": "<u>Attaque Spéciale : Méditation (délai : 3)</u>",
+                "special-attack1": "Ahsoka gagne la prévoyance, la rétribution et chaque amélioration non unique (sauf la raillerie) présente sur les autres alliés pendant 2 tours, puis gagne 15% de jauge de tour par amélioration sur elle.",
+                "special-attack2-title": "<u>Attaque Spéciale : Tourbillon (délai : 3)</u>",
+                "special-attack2": "Consomme toutes les améliorations non uniques d’Ahsoka et inflige des dégâts physiques à une cible ennemie. Cette attaque touche une fois de plus par type d’amélioration consommée. La cible ne peut pas esquiver et subit -50% d’armure.",
+                "unique-ability-title": "<u>Capacité Unique : Persévérance</u>",
+                "unique-ability": "Ahsoka est immunisée contre les dégâts sur la durée et gagne 30% d’évitement critique. À la fin de chaque tour, elle dissipe tous ses affaiblissements, perd 10% de santé par affaiblissement dissipé, puis récupère 5% de santé par amélioration. Cette perte de santé ne peut pas la vaincre.<br><br><u class='omicron'>Amélioration Omicron : En Guerre de Territoire :</u><br>Ahsoka gagne 25% de défense, santé, attaque, protection et +35 de vitesse. Si aucun autre allié n’est actif au début du combat :<br><br>- Ahsoka gagne +100% pénétration d’armure et d’évitement critique, +75% défense, santé, attaque, protection, et -60% ténacité.<br>- Lorsqu’elle dissipe un affaiblissement avec Persévérance, elle gagne les améliorations opposées pendant 2 tours, 20% de jauge de tour et une hausse de protection (+20%, cumulable) par affaiblissement dissipé.<br>- Ahsoka ignore les railleries et les ennemis vaincus par elle ne peuvent pas être ranimés."
             };
 
-            // ✅ Corrige à la fois les doubles et simples retours à la ligne
-            function replaceNewLinesWithBr(text) {
-                return text
-                    .replace(/\n\s*\n/g, '<br><br>') // double saut de ligne → double <br>
-                    .replace(/([^\n])\n([^\n])/g, '$1<br>$2'); // simple saut de ligne → un seul <br>
-            }
+            const originalTexts = {};
 
-            function switchLanguage(lang) {
-                for (const [key, text] of Object.entries(translations[lang])) {
-                    const element = document.getElementById(key);
-                    if (element) {
-                        // ✅ Utilise innerHTML pour interpréter les balises HTML (<u>, <br>, etc.)
-                        element.innerHTML = replaceNewLinesWithBr(text);
-                    }
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
                 }
             }
 
-            window.onload = () => switchLanguage('en');
-        </script>
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
 
+            function switchLanguageTo(lang) {
+                localStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = localStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = localStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
     </footer>
 </body>
-
 </html>
