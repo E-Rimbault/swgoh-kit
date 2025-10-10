@@ -4,36 +4,37 @@
 <head>
     <title id="big-title">Admiral Piett</title>
 
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <!-- Métadonnées -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
 
-    <!-- Lien vers l'icône du site -->
+    <!-- Icône et style -->
     <link rel="icon" type="image/png" href="../image-perso/piett/piett-image.png">
-
-    <!-- Lien vers la feuille de style -->
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
 
-    <!-- Entête de la page -->
+    <!-- En-tête -->
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/piett/piett-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/piett/piett-image.png" alt="Admiral Piett" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
+
+            <!-- Sélecteur de langue -->
             <div class="language-switcher">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                    onclick="switchLanguage('fr')">
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
                 <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                    onclick="switchLanguage('en')">
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
+
             <h1 id="title"><u>Admiral Piett</u></h1>
-            <p id="description">
-                An ambitious Imperial Officer who supports his allies while plotting their demise
-            </p>
+            <p id="description">An ambitious Imperial Officer who supports his allies while plotting their demise.</p>
             <br>
 
             <nav class="perso" style="font-size: 20px;">
@@ -45,156 +46,176 @@
                 <a class="capacite" href="../classement-perso/commandant-de-la-flotte.html" id="fleet">Fleet Commander</a>
             </nav>
         </div>
-    </header><br>
+    </header>
+    <br>
 
-    <!-- Image principale du personnage -->
+    <!-- Image principale -->
     <img class="first" src="../image-perso/piett/Piett.png" alt="Piett"><br>
 
-    <!-- Section pour les différentes attaques spéciales -->
-<h2 class="titre" id="basic-attack-title"><u>Basic Attack: Intensified Firepower</u></h2>
-<div class="capacity-container">
-    <div class="left-column">
-        <img class="attaque" alt="Piett basic" src="../image-perso/piett/piett-basic.png">
+    <!-- Attaques -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Intensified Firepower</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Piett basic" src="../image-perso/piett/piett-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and call another random Empire ally to assist. Allies with
+                Inevitable Failure are called to assist.
+            </p>
+        </div>
     </div>
-    <div class="right-column">
-        <p class="attaque" id="basic-attack">
-            Deal Physical damage to target enemy and call another random Empire ally to assist. Allies with Inevitable Failure are called to assist.
-        </p>
-    </div>
-</div>
 
-<h2 class="titre" id="special-attack1-title"><u>Special Attack: Imperial Ambition (cooldown: 4)</u></h2>
-<div class="capacity-container">
-    <div class="left-column">
-        <img class="attaque" alt="Piett spé 1" src="../image-perso/piett/piett-spe-1.png">
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack: Imperial Ambition (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Piett spé 1" src="../image-perso/piett/piett-spe-1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                All allies gain Offense Up for 2 turns and Admiral Piett gains Stealth for 2 turns. Inflict Marked for
+                2 turns and 3 stacks of Inevitable Failure on target other Empire ally until end of battle or that ally
+                is defeated, and remove Inevitable Failure from all other allies. These debuffs can't be copied,
+                dispelled, or resisted.
+                <br><br>
+                <u class="speciale">Inevitable Failure:</u> Gain 1 stack when using an ability or receiving damage from
+                an enemy; when defeated, grant Admiral Piett the following bonuses based on the defeated unit's stats
+                until the end of battle.
+                <br><br>
+                <u class="speciale">- 1 Stack:</u> 5% Max Health (stacking)<br>
+                <u class="speciale">- 10 Stacks:</u> 20% Max Health and Max Protection (stacking)<br>
+                <u class="speciale">- 15 Stacks:</u> 50% Max Health, Max Protection and Offense (stacking)<br>
+                <u class="speciale">- 20 Stacks (Max):</u> 100% Max Health and Max Protection, 300% Offense and 25%
+                Speed (stacking)
+            </p>
+        </div>
     </div>
-    <div class="right-column">
-        <p class="attaque" id="special-attack1">
-            All allies gain Offense Up for 2 turns and Admiral Piett gains Stealth for 2 turns. Inflict Marked for 2 turns and 3 stacks of Inevitable Failure on target other Empire ally until end of battle or that ally is defeated, and remove Inevitable Failure from all other allies. These debuffs can't be copied, dispelled, or resisted.
-            <br><br>
-            <u class="speciale">Inevitable Failure:</u> Gain 1 stack when using an ability or receiving damage from an enemy; when defeated, grant Admiral Piett the following bonuses based on the defeated unit's stats until the end of battle.
-            <br><br>
-            <u class="speciale">- 1 Stack:</u> 5% Max Health (stacking)<br>
-            <u class="speciale">- 10 Stacks:</u> 20% Max Health and Max Protection (stacking)<br>
-            <u class="speciale">- 15 Stacks:</u> 50% Max Health, Max Protection and Offense (stacking)<br>
-            <u class="speciale">- 20 Stacks (Max):</u> 100% Max Health and Max Protection, 300% Offense and 25% Speed (stacking)
-        </p>
-    </div>
-</div>
 
-<h2 class="titre" id="special-attack2-title"><u>Special Attack: Suborbital Strike (cooldown: 4)</u></h2>
-<div class="capacity-container">
-    <div class="left-column">
-        <img class="attaque" alt="Piett spé 2" src="../image-perso/piett/piett-spe2.png">
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack: Suborbital Strike (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Piett spé 2" src="../image-perso/piett/piett-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Dispel all buffs on Light Side enemies. Deal Physical damage to all enemies and inflict Daze for 2
+                turns. Allies with Inevitable Failure gain 2 stacks. If this attack defeats an enemy, inflict Fear on all
+                enemies for 1 turn and allies with Inevitable Failure gain 5 stacks. This Fear can't be copied,
+                dispelled, or resisted.
+            </p>
+        </div>
     </div>
-    <div class="right-column">
-        <p class="attaque" id="special-attack2">
-            Dispel all buffs on Light Side enemies. Deal Physical damage to all enemies and inflict Daze for 2 turns. Allies with Inevitable Failure gain 2 stacks. If this attack defeats an enemy, inflict Fear on all enemies for 1 turn and allies with Inevitable Failure gain 5 stacks. This Fear can't be copied, dispelled, or resisted.
-        </p>
-    </div>
-</div>
 
-<h2 class="titre" id="lead-ability-title"><u>Leader Ability: Zealous Commander</u></h2>
-<div class="capacity-container">
-    <div class="left-column">
-        <img class="attaque" alt="Piett lead" src="../image-perso/piett/piett-lead.png">
+    <h2 class="titre" id="lead-ability-title"><u>Leader Ability: Zealous Commander</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Piett lead" src="../image-perso/piett/piett-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Empire allies have +30% Offense and Potency. Light Side enemies have -30% Tenacity and -15 Speed. When
+                an ally with Inevitable Failure critically hits an enemy, they gain 1 stack of Inevitable Failure and
+                Defense Up for 2 turns.
+            </p>
+        </div>
     </div>
-    <div class="right-column">
-        <p class="attaque" id="lead-ability">
-            Empire allies have +30% Offense and Potency. Light Side enemies have -30% Tenacity and -15 Speed. When an ally with Inevitable Failure critically hits an enemy, they gain 1 stack of Inevitable Failure and Defense Up for 2 turns.
-        </p>
-    </div>
-</div>
 
-<h2 class="titre" id="unique-ability-title"><u>Unique Ability: The Emperor's Trap</u></h2>
-<div class="capacity-container">
-    <div class="left-column">
-        <img class="attaque" alt="Piett unique" src="../image-perso/piett/piett-unique.png">
+    <h2 class="titre" id="unique-ability-title"><u>Unique Ability: The Emperor's Trap</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Piett unique" src="../image-perso/piett/piett-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Admiral Piett has +60% counter chance. Piett gains 5% Turn Meter whenever another Empire ally takes
+                damage.
+                <br><br>
+                Whenever an Empire ally begins a turn or attacks out of turn, all Empire allies gain a stack of
+                <u class="speciale">The Emperor's Trap</u> until the start of the next enemy turn, non-Empire ally's
+                turn, or the end of battle. The Emperor's Trap can't be copied, dispelled, or prevented.
+                <br><br>
+                If Darth Vader is an ally: Darth Vader and Admiral Piett have +20% Accuracy, Potency, and Tenacity.
+                <br><br>
+                <u class="speciale">The Emperor's Trap:</u> +6% Offense and Potency per stack
+            </p>
+        </div>
     </div>
-    <div class="right-column">
-        <p class="attaque" id="unique-ability">
-            Admiral Piett has +60% counter chance. Piett gains 5% Turn Meter whenever another Empire ally takes damage.
-            <br><br>
-            Whenever an Empire ally begins a turn or attacks out of turn, all Empire allies gain a stack of <u class="speciale">The Emperor's Trap</u> until the start of the next enemy turn, non-Empire ally's turn, or the end of battle. The Emperor's Trap can't be copied, dispelled, or prevented.
-            <br><br>
-            If Darth Vader is an ally: Darth Vader and Admiral Piett have +20% Accuracy, Potency, and Tenacity.
-            <br><br>
-            <u class="speciale">The Emperor's Trap:</u> +6% Offense and Potency per stack
-        </p>
-    </div>
-</div>
 
     <!-- Pied de page -->
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
         <script>
-            const translations = {
-                en: {
-                    "big-title": "Admiral Piett",
-                    "title": "Admiral Piett",
-                    "description": "An ambitious Imperial Officer who supports his allies while plotting their demise",
-                    "darkside" : "Dark Side",
-                    "support": "Support",
-                    "leader": "Leader",
-                    "empire": "Empire",
-                    "trooper-empire": "Imperial Trooper",
-                    "fleet": "Fleet Commander",
-                    "basic-attack-title": "<u>Basic Attack: Intensified Firepower</u>",
-                    "basic-attack": "Deal Physical damage to target enemy and call another random Empire ally to assist. Allies with Inevitable Failure are called to assist.",
-                    "special-attack1-title": "<u>Special Attack: Imperial Ambition (cooldown: 4)</u>",
-                    "special-attack1": "All allies gain Offense Up for 2 turns and Admiral Piett gains Stealth for 2 turns. Inflict Marked for 2 turns and 3 stacks of Inevitable Failure on target other Empire ally until end of battle or that ally is defeated, and remove Inevitable Failure from all other allies. These debuffs can't be copied, dispelled, or resisted.\n\n<u class='speciale'>Inevitable Failure:</u> Gain 1 stack when using an ability or receiving damage from an enemy; when defeated, grant Admiral Piett the following bonuses based on the defeated unit's stats until the end of battle.\n\n<u class='speciale'>- 1 Stack:</u> 5% Max Health (stacking)\n<u class='speciale'>- 10 Stacks:</u> 20% Max Health and Max Protection (stacking)\n<u class='speciale'>- 15 Stacks:</u> 50% Max Health, Max Protection and Offense (stacking)\n<u class='speciale'>- 20 Stacks (Max):</u> 100% Max Health and Max Protection, 300% Offense and 25% Speed (stacking)",
-                    "special-attack2-title": "<u>Special Attack: Suborbital Strike (cooldown: 4</u>",
-                    "special-attack2" : "Dispel all buffs on Light Side enemies. Deal Physical damage to all enemies and inflict Daze for 2 turns. Allies with Inevitable Failure gain 2 stacks. If this attack defeats an enemy, inflict Fear on all enemies for 1 turn and allies with Inevitable Failure gain 5 stacks. This Fear can't be copied, dispelled, or resisted.",
-                    "lead-ability-title" : "<u>Leader Ability: Zealous Commander</u>",
-                    "lead-ability" : "Empire allies have +30% Offense and Potency. Light Side enemies have -30% Tenacity and -15 Speed. When an ally with Inevitable Failure critically hits an enemy, they gain 1 stack of Inevitable Failure and Defense Up for 2 turns.",
-                    "unique-ability-title" : "<u>Unique Ability: The Emperor's Trap</u>",
-                    "unique-ability": "Admiral Piett has +60% counter chance. Piett gains 5% Turn Meter whenever another Empire ally takes damage.\n\nWhenever an Empire ally begins a turn or attacks out of turn, all Empire allies gain a stack of <u class='speciale'>The Emperor's Trap</u> until the start of the next enemy turn, non-Empire ally's turn, or the end of battle. The Emperor's Trap can't be copied, dispelled, or prevented. \n\nIf Darth Vader is an ally: Darth Vader and Admiral Piett have +20% Accuracy, Potency, and Tenacity.\n\n<u class='speciale'>The Emperor's Trap:</u> +6% Offense and Potency per stack"
-                },
-                fr: {
-                    "big-title": "Amiral Piett",
-                    "title": "Amiral Piett",
-                    "description": "Un ambitieux officier impérial qui soutient ses alliés en préparant leur trépas.",
-                    "darkside" : "Coté Obscur",
-                    "support": "Soutien",
-                    "leader": "Chef",
-                    "empire": "Empire",
-                    "trooper-empire": "Soldat de l'Empire",
-                    "fleet": "Commandant de la flotte",
-                    "basic-attack-title": "<u>Attaque Basique : Puissance de feu renforcée</u>",
-                    "basic-attack": "Inflige des dégâts physiques à une cible ennemie et invoque un allié de l'Empire aléatoire. Les alliés qui disposent d'Échec inévitable sont invoqués.",
-                    "special-attack1-title": "<u>1ere Spéciale : Ambition Impériale (délai : 4)</u>",
-                    "special-attack1": "Tous les alliés obtiennent un bonus d'attaque pendant 2 tours, et l'Amiral Piett obtient le camouflage pendant 2 tours. Marque la cible alliée de l'Empire pendant 2 tours et lui confère 3 cumuls d'Échec inévitable jusqu'à la fin de la bataille ou jusqu'à ce que cet allié soit vaincu, et supprime Échec inévitable de tous les autres alliés. Ces affaiblissements ne peuvent pas être copiés, dissipés ou résistés.\n\n<u class=speciale>Échec inévitable :</u> Confère 1 cumul en utilisant une capacité ou en subissant des dégâts d'un ennemi. une fois vaincu, confère les bonus suivants à l'Amiral Piett en fonction des stats de l'unités vaincue jusqu'à la fin de la bataille.\n\n<u class=speciale>- 1 cumul :</u> 5% de santé maximale (cumulatif)\n<u class=speciale>- 10 cumuls :</u> 20% de santé maximale et de protection maximale (cumulatif)\n<u class=speciale>- 15 cumuls :</u> 50% de santé maximale, de protection maximale et d'attaque (cumulatif)\n<u class=speciale>- 20 cumuls (max) :</u> 100% de santé maximale et de protection maximale, 300% d'attaque et 25% de vitesse (cumulatif)",
-                    "special-attack2-title": "<u>2eme spéciale : frappe sous-orbitrale (délai : 4)</u>",
-                    "special-attack2" : "Dissipe toutes les améliorations des ennemis du Coté Lumineux. Inflige des dégâts physiques à tous les ennemis, ainsi que la Confusion pendant 2 tours. Les alliés qui disposent d'Échec inévitable obtiennent 2 cumuls. Si cette attaque élimine un ennemi, inflige la peur à tous les ennemis pendant 1 tour et les alliés qui dispose d'Échec inévitable obtiennent 5 cumuls. Cet effet de peur ne peut pas être copié, dissipé ou résisté.",
-                    "lead-ability-title" : "<u>Capacité de Chef : Commandant zélé</u>",
-                    "lead-ability" : "Les alliés de l'Empire ont +30% d'attaque et de pouvoir. Les ennemis du Coté Lumineux ont -30% de ténacité et -15 de vitesse. Lorsqu'un allié qui dispose d'Échec inévitable, inflige un coup critique à un ennemi, il obtient 1 cumul d'Échec inévitable et un bonus de défense pendant 2 tours.",
-                    "unique-ability-title" : "<u>Capacité unique : Le piège de l'Empereur</u>",
-                    "unique-ability": "L'Amiral Piett a +60% de chances de contre-attaque. La jauge de tour de Piett se remplit de 5% lorsqu'un autre allié de l'Empire subit des dégâts.\n\nChaque fois qu'un alli de l'Empre commence un tour ou attaque en dehors de son tour, tous les alliés obtiennent un cumul de <u class='speciale'>Piège de l'Empereur</u> jusqu'au début du prochain tour ennemi, du prochain tour d'un allié n'appartenant pas à l'empire ou de la fin de la bataille. Le Piège de l'Empereur ne peut pas être copié, dissipé ou empeché.\n\nSi Dark Vador fait partie des alliés : Dark Vador et l'Amiral Piett ont +20% de précision, de pouvoir et de ténacité.\n\n<u class='speciale'>Le piège de l'Empereur :</u> +6% d'attaque et de pouvoir par cumul."
-                }
+            const translationsFr = {
+                "big-title": "Amiral Piett",
+                "title": "<u>Amiral Piett</u>",
+                "description": "Un ambitieux officier impérial qui soutient ses alliés en préparant leur trépas.",
+                "darkside": "Côté Obscur",
+                "support": "Soutien",
+                "leader": "Chef",
+                "empire": "Empire",
+                "trooper-empire": "Soldat de l'Empire",
+                "fleet": "Commandant de la Flotte",
+                "basic-attack-title": "<u>Attaque Basique : Puissance de feu renforcée</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et appelle un allié de l'Empire aléatoire à assister. Les alliés avec Échec inévitable sont également appelés.",
+                "special-attack1-title": "<u>Attaque Spéciale : Ambition Impériale (délai : 4)</u>",
+                "special-attack1": "Tous les alliés obtiennent un bonus d'attaque pendant 2 tours, et l'Amiral Piett obtient le camouflage pendant 2 tours. Inflige Marqué pendant 2 tours et 3 cumuls d'Échec inévitable à un autre allié de l'Empire jusqu'à la fin de la bataille ou jusqu'à sa défaite, et supprime Échec inévitable des autres alliés. Ces affaiblissements ne peuvent pas être copiés, dissipés ou résistés.<br><br><u class='speciale'>Échec inévitable :</u> Gagne 1 cumul en utilisant une capacité ou en subissant des dégâts ennemis ; lorsqu'il est vaincu, confère à l'Amiral Piett des bonus selon les statistiques de l'unité vaincue jusqu'à la fin du combat.",
+                "special-attack2-title": "<u>Attaque Spéciale : Frappe Sous-orbitale (délai : 4)</u>",
+                "special-attack2": "Dissipe toutes les améliorations des ennemis du Côté Lumineux. Inflige des dégâts physiques à tous les ennemis et leur inflige Étourdissement pendant 2 tours. Les alliés ayant Échec inévitable gagnent 2 cumuls. Si cette attaque élimine un ennemi, inflige Peur pendant 1 tour et donne 5 cumuls supplémentaires d'Échec inévitable aux alliés concernés.",
+                "lead-ability-title": "<u>Capacité de Chef : Commandant Zélé</u>",
+                "lead-ability": "Les alliés de l'Empire ont +30% d'Attaque et de Puissance. Les ennemis du Côté Lumineux ont -30% de Ténacité et -15 de Vitesse. Lorsqu'un allié ayant Échec inévitable inflige un coup critique, il gagne 1 cumul d'Échec inévitable et un bonus de Défense pendant 2 tours.",
+                "unique-ability-title": "<u>Capacité Unique : Le Piège de l'Empereur</u>",
+                "unique-ability": "L'Amiral Piett a +60% de chances de contre-attaque et gagne 5% de jauge de tour lorsqu'un autre allié de l'Empire subit des dégâts.<br><br>À chaque début de tour ou attaque hors tour d'un allié de l'Empire, tous les alliés gagnent un cumul du <u class='speciale'>Piège de l'Empereur</u> jusqu'au début du prochain tour ennemi ou à la fin de la bataille. Cet effet ne peut pas être copié ni dissipé.<br><br>Si Dark Vador est un allié : Dark Vador et l'Amiral Piett gagnent +20% de Précision, de Puissance et de Ténacité.<br><br><u class='speciale'>Piège de l'Empereur :</u> +6% d'Attaque et de Puissance par cumul."
             };
 
-            // ✅ Corrige à la fois les doubles et simples retours à la ligne
-            function replaceNewLinesWithBr(text) {
-                return text
-                    .replace(/\n\s*\n/g, '<br><br>') // double saut de ligne → double <br>
-                    .replace(/([^\n])\n([^\n])/g, '$1<br>$2'); // simple saut de ligne → un seul <br>
-            }
+            const originalTexts = {};
 
-            function switchLanguage(lang) {
-                for (const [key, text] of Object.entries(translations[lang])) {
-                    const element = document.getElementById(key);
-                    if (element) {
-                        // ✅ Utilise innerHTML pour interpréter les balises HTML (<u>, <br>, etc.)
-                        element.innerHTML = replaceNewLinesWithBr(text);
-                    }
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
                 }
             }
 
-            window.onload = () => switchLanguage('en');
-        </script>
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
 
+            function switchLanguageTo(lang) {
+                localStorage.setItem("selectedLanguagePiett", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = localStorage.getItem("selectedLanguagePiett") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = localStorage.getItem("selectedLanguagePiett") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
     </footer>
 </body>
-
 </html>
