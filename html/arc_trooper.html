@@ -113,25 +113,6 @@
         <script src="../javascript/bouton.js"></script>
         <script>
             const translations = {
-                en: {
-                    "big-title": "Arc Trooper",
-                    "title": "Arc Trooper",
-                    "description": "Powerful Clone Attacker that can command a Blaster Turret on the battlefield",
-                    "lightSide": "Light Side",
-                    "attacker": "Attacker",
-                    "501e": "501ST",
-                    "clone": "Clone Trooper",
-                    "galactic-republic": "Galactic Republic",
-                    "basic-attack-title": "<u>Basic Attack: Crossfire</u>",
-                    "basic-attack": "Deal Physical damage to target enemy. If they had no buffs before this attack, deal 30% more damage.",
-                    "special-attack1-title": "<u>Special Attack: Assign Command (cooldown: 3)</u>",
-                    "special-attack1": "Deal Physical damage to target enemy. If the Blaster Turret is present, give <u class='speciale'>Command</u> to target other Clone ally until they are defeated or until <u class='speciale'>Command</u> is granted to a different ally.\n\n<u class='speciale'>Command :</u> The Blaster Turret assists whenever this character uses an ability during their turn.",
-                    "unique-ability-title" : "<u>Unique Ability: ARC Arsenal</u>",
-                    "unique-ability" : "ARC Trooper has +35% counter chance. ARC Trooper always has <u class='speciale'>Command</u> while the Blaster Turret is present and summons a Blaster Turret to the ally slot at the start of the encounter and when he revives. The Blaster Turret will assist when ARC Trooper attacks out of turn.",
-                    "invocation-title" : "Blaster Turret",
-                    "invocation" : "<u class='speciale'>[Basic]: Shattering Blast:</u> Dispel all buffs on target enemy and deal True damage to them, which can't be evaded.\n\n<u class='speciale'>[Unique] Summoned Object:</u> This object's stats scale with the summoner's stats. This object can only be summoned to the ally slot if it's available. This object can't be summoned in certain raids. This object can't be revived. If an effect counts defeated units, this object doesn't count. When there are no other allied combatants, this object escapes from battle. A unit can't be revived if this summoned object exists in their slot.\n\n<u class='speciale'>[Unique] Object Properties:</u> This object can't be targeted, is immune to damage and status effects, and does not take a turn. When there are no allies with Command, the Blaster Turret is destroyed.",
-
-                },
                 fr: {
                     "big-title": "Soldat CRA",
                     "title": "Soldat CRA",
@@ -153,24 +134,55 @@
                 }
             };
         
-            function replaceNewLinesWithBr(text) {
-                return text.replace(/\n\n/g, '<br><br>');
-            }
-        
-            function switchLanguage(lang) {
-                for (const [key, text] of Object.entries(translations[lang])) {
-                    const element = document.getElementById(key);
-                    if (element) {
-                        // Convert \n\n to <br><br> before injecting
-                        element.innerHTML = replaceNewLinesWithBr(text);
-                    }
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
                 }
             }
-        
-            window.onload = () => switchLanguage('en');
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                localStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = localStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = localStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
         </script>
         
     </footer>
 </body>
 
-</html>-+
+</html>
