@@ -3,51 +3,51 @@
 
 <head>
     <title id="big-title">Arc Trooper</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/arc-trooper/arc-image.png">
-
-    <!-- Lien vers la feuille de style -->
-         <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
-
-    <!-- Entête de la page -->
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/arc-trooper/arc-image.png" alt="Arc Trooper" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/arc-trooper/arc-image.png" alt="Arc Trooper"
+                style="max-width: 100%; max-height: 100%;">
         </div>
+
         <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
             <div class="language-switcher">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                    onclick="switchLanguage('fr')">
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
                 <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                    onclick="switchLanguage('en')">
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
+
             <h1 id="title"><u>Arc Trooper</u></h1>
-            <p id="description">
-                Powerful Clone Attacker that can command a Blaster Turret on the battlefield
-            </p>
+            <p id="description">Powerful Clone Attacker that can command a Blaster Turret on the battlefield</p>
             <br>
+
             <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightSide">Light
-                    Side</a>
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html"
+                    id="lightSide">Light Side</a>
                 <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
                 <a class="capacite" href="../classement-perso/501E.html" id="501e">501ST</a>
                 <a class="capacite" href="../classement-perso/soldat-clone.html" id="clone">Clone Trooper</a>
-                <a class="capacite" href="../classement-perso/république-galactique.html" id="galactic-republic">Galactic Republic</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html"
+                    id="galactic-republic">Galactic Republic</a>
             </nav>
-        </header>
+        </div>
+    </header>
+
     <br>
     <img class="first" src="../image-perso/arc-trooper/arc-trooper.png" alt="Arc Trooper"><br>
 
-    <!-- Section pour les différentes attaques spéciales -->
+    <!-- Capacités -->
     <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Crossfire</u></h2>
     <div class="capacity-container">
         <div class="left-column">
@@ -72,7 +72,7 @@
                     class='speciale'>Command</u> is granted to a different ally.
                 <br><br>
                 <u class='speciale'>Command :</u> The Blaster Turret assists whenever this character uses an ability
-                during their turn
+                during their turn.
             </p>
         </div>
     </div>
@@ -84,7 +84,9 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="unique-ability">
-                ARC Trooper has +35% counter chance. ARC Trooper always has <u class='speciale'>Command</u> while the Blaster Turret is present and summons a Blaster Turret to the ally slot at the start of the encounter and when he revives. The Blaster Turret will assist when ARC Trooper attacks out of turn.
+                ARC Trooper has +35% counter chance. ARC Trooper always has <u class='speciale'>Command</u> while the
+                Blaster Turret is present and summons a Blaster Turret to the ally slot at the start of the encounter
+                and when he revives. The Blaster Turret will assist when ARC Trooper attacks out of turn.
             </p>
         </div>
     </div>
@@ -96,44 +98,45 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="invocation">
-                <u class='speciale'>[Basic]: Shattering Blast:</u> Dispel all buffs on target enemy and deal True damage to them, which can't be evaded.
+                <u class='speciale'>[Basic]: Shattering Blast:</u> Dispel all buffs on target enemy and deal True damage
+                to them, which can't be evaded.
                 <br><br>
-                <u class='speciale'>[Unique] Summoned Object:</u> This object's stats scale with the summoner's stats. This object can only be summoned to the ally slot if it's available. This object can't be summoned in certain raids. This object can't be revived. If an effect counts defeated units, this object doesn't count. When there are no other allied combatants, this object escapes from battle. A unit can't be revived if this summoned object exists in their slot.
-                <br><br>   
-                <u class='speciale'>[Unique] Object Properties:</u> This object can't be targeted, is immune to damage and status effects, and does not take a turn. When there are no allies with Command, the Blaster Turret is destroyed.
+                <u class='speciale'>[Unique] Summoned Object:</u> This object's stats scale with the summoner's stats.
+                This object can only be summoned to the ally slot if it's available. This object can't be revived. When
+                there are no other allied combatants, this object escapes from battle.
+                <br><br>
+                <u class='speciale'>[Unique] Object Properties:</u> This object can't be targeted, is immune to damage
+                and status effects, and does not take a turn. When there are no allies with Command, the Blaster Turret
+                is destroyed.
             </p>
         </div>
     </div>
 
-
-
-
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
-        <script>
-            const translations = {
-                fr: {
-                    "big-title": "Soldat CRA",
-                    "title": "Soldat CRA",
-                    "description": "Puissant attaquant clone qui peut contrôler une tourelle blaster sur le champ de bataille.",
-                    "lightSide": "Côté Lumineux",
-                    "attacker": "Attaquant",
-                    "501e": "501E",
-                    "clone": "Soldat Clone",
-                    "galactic-republic": "République Galactique",
-                    "basic-attack-title": "<u>Attaque basique : Tirs croisés</u>",
-                    "basic-attack": "Inflige des dégâts physiques à une cible ennemie. Les dégâts augmentent de 30% s'il ne disposait pas d'amélioration avant cette attaque.",
-                    "special-attack1-title": "<u>Attaque Spéciale : Donner le commandement</u>",
-                    "special-attack1": "Inflige des dégâts physique à une cible ennemie. Si la tourelle blaster est présente, confère <u class='speciale'>commandement</u> à un autre allié clone ciblé jusqu'à ce qu'il soit vaincu ou jusqu'à ce que le <u class='speciale'>commandement</u> soit conféré à un autre allié.\n\n<u class='speciale'>Commandement :</u> La tourelle blaster assiste ce personnage lorsqu'il utilise une capacité pendant son tour.",
-                    "unique-ability-title" : "<u>capacité unique: Arsenal du CRA</u>",
-                    "unique-ability" : "Le soldat CRA a +35% de chances de contre-attaque. Le soldat CRA dispose toujours du <u class='speciale'>commandement</u> lorsque la tourelle blaster est présente. Il invoque également une tourelle blaster dans l'emplacement d'allié au début de l'affrontement et lorsqu'il est ranimé. La tourelle blaster assiste le soldat CRA lorsque celui ci attaque en dehors de son tours.",
-                    "invocation-title" : "Tourelle blaster",
-                    "invocation" : "<u class='speciale'>[basique] souffle fracassant :</u> Dissipe toutes les améliorations dont bénéficie la cible ennemie et lui inflige des dégâts réels, qui ne peuvent pas être esquivés.\n\n<u class='speciale'>[unique] Objet invoqué:</u> Les statistiques de cet objet s'ajustent aux stats de l'invocateur. Cet objet peut uniquement être invoqué dans l'emplacement d'allié s'il est disponible. Cet objet ne peut pas être invoqué dans les raids. Cet objet ne peut être ranimé. Si un effet inclut des unités vaincues, cet objet ne compte pas. Lorsqu'il n'y as pas d'autre combattants alliés, cet objet fuit la bataille. Une unité ne peut pas être ranimé si cet objet invoqué à pris son emplacement.\n\n<u class='speciale'>[unique] propriété de l'objet:</u> Cet objet ne peut pas être ciblé, est immunisé aux dégâts et aux effets et n'utilise pas de tour. Lorsqu'aucun allié ne dispose de <u class='speciale'>commandement</u>, la tourelle est détruite."
 
-                }
+        <!-- SCRIPT DE TRADUCTION UNIFIÉ -->
+        <script>
+            const translationsFr = {
+                "big-title": "Soldat CRA",
+                "title": "<u>Soldat CRA</u>",
+                "description": "Puissant attaquant clone capable de diriger une tourelle blaster sur le champ de bataille.",
+                "lightSide": "Côté Lumineux",
+                "attacker": "Attaquant",
+                "501e": "501E",
+                "clone": "Soldat Clone",
+                "galactic-republic": "République Galactique",
+                "basic-attack-title": "<u>Attaque Basique : Tirs Croisés</u>",
+                "basic-attack": "Inflige des dégâts physiques à l’ennemi ciblé. S’il ne possédait pas d’amélioration avant cette attaque, inflige 30 % de dégâts supplémentaires.",
+                "special-attack1-title": "<u>Attaque Spéciale : Donner le Commandement (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie. Si la tourelle blaster est présente, confère <u class='speciale'>Commandement</u> à un autre allié clone ciblé jusqu’à ce qu’il soit vaincu ou jusqu’à ce que le <u class='speciale'>Commandement</u> soit attribué à un autre allié.<br><br><u class='speciale'>Commandement :</u> La tourelle blaster assiste ce personnage lorsqu’il utilise une capacité pendant son tour.",
+                "unique-ability-title": "<u>Capacité Unique : Arsenal du CRA</u>",
+                "unique-ability": "Le Soldat CRA a +35 % de chances de contre-attaque. Il dispose toujours du <u class='speciale'>Commandement</u> lorsque la tourelle blaster est présente et invoque une tourelle blaster au début du combat ou lorsqu’il est réanimé. La tourelle assiste le Soldat CRA lorsqu’il attaque hors de son tour.",
+                "invocation-title": "Tourelle Blaster",
+                "invocation": "<u class='speciale'>[Basique] Souffle Fracassant :</u> Dissipe toutes les améliorations de la cible ennemie et lui inflige des dégâts réels, qui ne peuvent pas être esquivés.<br><br><u class='speciale'>[Unique] Objet Invoqué :</u> Ses statistiques s’adaptent à celles de l’invocateur. Il ne peut être invoqué que si l’emplacement d’allié est libre. Ne peut pas être réanimé. Lorsque plus aucun allié n’est en vie, cet objet quitte le combat.<br><br><u class='speciale'>[Unique] Propriétés de l’objet :</u> Ne peut pas être ciblé, est immunisé aux dégâts et aux effets, et ne joue pas de tour. Lorsque aucun allié ne dispose de <u class='speciale'>Commandement</u>, la tourelle est détruite."
             };
-        
+
             const originalTexts = {};
 
             function saveOriginalTexts() {
@@ -155,7 +158,7 @@
                         const el = document.getElementById(id);
                         if (el) el.innerHTML = replaceNewLinesWithBr(text);
                     }
-                } else if (lang === "en") {
+                } else {
                     for (const [id, text] of Object.entries(originalTexts)) {
                         const el = document.getElementById(id);
                         if (el) el.innerHTML = text;
@@ -171,7 +174,6 @@
                 document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
             }
 
-            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
             window.addEventListener("load", () => {
                 saveOriginalTexts();
                 const lang = localStorage.getItem("selectedLanguage") || "en";
@@ -181,7 +183,6 @@
                 document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
             });
         </script>
-        
     </footer>
 </body>
 
