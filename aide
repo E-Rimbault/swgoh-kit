@@ -3,186 +3,166 @@
 
 <head>
     <title id="big-title"></title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
-    <link rel="icon" type="image/png" href="">
-
-    <!-- Lien vers la feuille de style -->
+    <link rel="icon" type="image/png" href="../image-perso/">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
-
-    <!-- Entête de la page -->
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
             <img src="../image-perso/" alt="" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
             <div class="language-switcher">
-                <img id="lang-fr" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg"
-                    alt="Français" style="cursor:pointer; border:2px solid transparent; border-radius:50%;">
-                <img id="lang-en" src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
-                    alt="English" style="cursor:pointer; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
+
             <h1 id="title"><u></u></h1>
             <p id="description"></p>
             <br>
 
             <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color:blue or red" href="../classement-perso/"></a>
-                <a class="class" href="../classement-perso/"></a>
-                <a class="capacite" href="../classement-perso/"></a>
+                <a class="capacite" style="color:blue or red !important" href="../classement-perso/*" id=""></a>
+                <a class="class" href="../classement-perso/" id=""></a>
+                <a class="capacite" href="../classement-perso/" id=""></a>
             </nav>
         </div>
-    </header><br>
+    </header>
+    <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="" alt=""><br>
+    <img class="first" src="../image-perso/" alt=""><br>
 
-    <!-- Pied de page -->
+    <!-- Capacités -->
+
+    <h2 class="titre"><u id="ultime-title">Ultimate: </u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="" src="">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="ulti"></p>
+        </div>
+    </div>
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: </u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="" src="">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : (cooldown: )</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="" src="">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: </u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="" src="">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : </u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Ahsoka Tano unique" src="">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+            </p>
+        </div>
+    </div>
+
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
         <script>
-            const translations = {
-                fr: {
-                    "big-title": "Nom du personnage (Français)",
-                    "title": "<u>Nom du personnage (Français)</u>",
-                    "description": "Petite description en français ici.",
-                    "basic-attack-title": "<u>Attaque Basique :</u>",
-                    "special-attack1-title": "<u>Attaque Spéciale : (délai : )</u>",
-                    "special-attack2-title": "<u>Attaque Spéciale : (délai : )</u>",
-                    "ultime-title": "<u>Capacité Ultime :</u>",
-                    "lead-ability-title": "<u>Capacité de Chef :</u>",
-                    "unique-ability-title": "<u>Capacité Unique :</u>",
-                    "unique-special-title": "Invocation spéciale",
-                    "prime": "Caractéristiques spéciales"
-                }
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "",
+                "title": "<u></u>",
+                "description": "",
             };
 
             const originalTexts = {};
 
             function saveOriginalTexts() {
-                for (const langKey in translations.fr) {
-                    const el = document.getElementById(langKey);
-                    if (el) originalTexts[langKey] = el.innerHTML;
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
                 }
             }
 
             function replaceNewLinesWithBr(text) {
-                return text
-                    .replace(/\n\s*\n/g, '<br><br>')
-                    .replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
             }
 
-            function switchLanguage(lang) {
+            function switchLanguageTo(lang) {
                 localStorage.setItem("selectedLanguage", lang);
 
                 if (lang === "fr") {
-                    for (const [key, text] of Object.entries(translations.fr)) {
-                        const el = document.getElementById(key);
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
                         if (el) el.innerHTML = replaceNewLinesWithBr(text);
                     }
-                } else {
-                    for (const [key, text] of Object.entries(originalTexts)) {
-                        const el = document.getElementById(key);
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
                         if (el) el.innerHTML = text;
                     }
                 }
 
-                updateFlagActive(lang);
+                updateFlagActive();
             }
 
-            function updateFlagActive(lang) {
-                const fr = document.getElementById("lang-fr");
-                const en = document.getElementById("lang-en");
-                fr.style.borderColor = lang === "fr" ? "#007bff" : "transparent";
-                en.style.borderColor = lang === "en" ? "#007bff" : "transparent";
+            function updateFlagActive() {
+                const lang = localStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
             }
 
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
             window.addEventListener("load", () => {
                 saveOriginalTexts();
-                const savedLang = localStorage.getItem("selectedLanguage") || "en";
-                switchLanguage(savedLang);
+                const lang = localStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
 
-                document.getElementById("lang-fr").addEventListener("click", () => switchLanguage("fr"));
-                document.getElementById("lang-en").addEventListener("click", () => switchLanguage("en"));
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
             });
         </script>
+
 
     </footer>
 </body>
 
 </html>
 
-<!-- Section pour les différentes attaques spéciales -->
-<h2 class="titre" id="basic-attack-title"><u>Basic Attack: </u></h2>
-<div class="capacity-container">
-    <div class="left-column">
-        <img class="attaque" alt="" src="">
-    </div>
-    <div class="right-column">
-        <p class="attaque" id="basic-attack"></p>
-    </div>
-</div>
-
-<h2 class="titre" id="special-attack1-title"><u>Special Attack: (cooldown: )</u></h2>
-<div class="capacity-container">
-    <div class="left-column">
-        <img class="attaque" alt="" src="">
-    </div>
-    <div class="right-column">
-        <p class="attaque" id="special-attack1"></p>
-    </div>
-</div>
-
-<h2 class="titre" id="special-attack2-title"><u>Special Attack: (cooldown: )</u></h2>
-<div class="capacity-container">
-    <div class="left-column">
-        <img class="attaque" alt="" src="">
-    </div>
-    <div class="right-column">
-        <p class="attaque" id="special-attack2"></p>
-    </div>
-</div>
-
-<h2 class="titre"><u id="ultime-title">Ultimate: </u></h2>
-<div class="capacity-container">
-    <div class="left-column">
-        <img class="attaque" alt="" src="">
-    </div>
-    <div class="right-column">
-        <p class="attaque" id="ulti"></p>
-    </div>
-</div>
-
-<h2 class="titre" id="lead-ability-title"><u>Leader Ability: </u></h2>
-<div class="capacity-container">
-    <div class="left-column">
-        <img class="attaque" alt="" src="">
-    </div>
-    <div class="right-column">
-        <p class="attaque" id="lead-ability"></p>
-    </div>
-</div>
-
-<h2 class="titre" id="unique-ability-title"><u>Unique Ability: </u></h2>
-<div class="capacity-container">
-    <div class="left-column">
-        <img class="attaque" alt="" src="">
-    </div>
-    <div class="right-column">
-        <p class="attaque" id="unique-ability"></p>
-    </div>
-</div>
-
-<u class="speciale"></u>
 
 <!-- Section pour les invocations -->
 <h2 class="invocation" id="unique-special-title"></h2>
