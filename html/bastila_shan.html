@@ -2,35 +2,31 @@
 <html lang="en">
 
 <head>
-    <title id="big-title">bastila Shan</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Bastila Shan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/bastila-shan/bastila-image.png">
-
-    <!-- Lien vers la feuille de style -->
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
-
-    <!-- Entête de la page -->
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
             <img src="../image-perso/bastila-shan/bastila-image.png" alt="" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
             <div class="language-switcher">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                    onclick="switchLanguage('fr')">
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
                 <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                    onclick="switchLanguage('en')">
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
-            <h1 id="title"><u>bastila Shan</u></h1>
+
+            <h1 id="title"><u>Bastila Shan</u></h1>
             <p id="description">
                 Strong Jedi Support that grants allies an overwhelming first turn with her Leader ability
             </p>
@@ -45,24 +41,12 @@
                 <a class="capacite" href="../classement-perso/ancienne-république.html" id="old">Old Republic</a>
             </nav>
         </div>
-    </header><br>
+    </header>
+    <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/bastila-shan/Bastila-shan.png" alt="Bastila"><br>
+    <img class="first" src="../image-perso/bastila-shan/Bastila-shan.png" alt="Bastila Shan"><br>
 
-    <!-- Section pour les différentes attaques spéciales -->
-    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Jedi Assault</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="bastila basic" src="../image-perso/bastila-shan/bastila-basic.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque" id="basic-attack">
-                Deal Special damage to target enemy and inflict Ability Block for 1 turn. This attack deals 20% more
-                damage and has +20% Potency for each active Jedi ally.
-            </p>
-        </div>
-    </div>
+    <!-- Capacités -->
 
     <h2 class="titre" id="special-attack1-title"><u>Special Attack: Rally (cooldown: 4)</u></h2>
     <div class="capacity-container">
@@ -137,71 +121,81 @@
         </div>
     </div>
 
-    <!-- Pied de page -->
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
         <script>
-            // Dictionnaire simplifié — uniquement pour le français
-            const translations = {
-                fr: {
-                    "title": "<u>Bastila Shan</u>",
-                    "description": "Puissante Jedi de soutien qui confère d'extraordinaires améliorations dès le premier tour grâce à sa capacité de chef.",
-                    "lightside": "Côté Lumineux",
-                    "support": "Soutien",
-                    "leader": "Chef",
-                    "jedi": "Jedi",
-                    "old": "Ancienne République",
-                    "basic-attack-title": "<u>Attaque Basique : Assaut Jedi</u>",
-                    "basic-attack": "Inflige des dégâts spéciaux à la cible ennemie et entrave ses capacités pendant 1 tour. Cette attaque confère un bonus de dégâts de 20% et un bonus de pouvoir de 20% pour chaque allié Jedi actif.",
-                    "special-attack1-title": "<u>Attaque Spéciale : Ralliement (délai : 4)</u>",
-                    "special-attack1": "Bastila dissipe tous les affaiblissements l'affectant elle et une cible alliée. Tous deux bénéficient d'un bonus d'attaque, de défense, de vitesse, de précision et de chances de coup critique pendant 3 tours, puis Bastila invoque cet allié.",
-                    "special-attack2-title": "<u>Attaque Spéciale : Sabotage des défenses (délai : 2)</u>",
-                    "special-attack2": "Inflige des dégâts spéciaux à la cible ennemie et dissipe toutes ses améliorations. Inflige l'étourdissement pendant 1 tour et lui inflige l'immunité aux améliorations pendant 2 tours.",
-                    "lead-ability-title": "<u>Capacité de Chef : Initiative</u>",
-                    "lead-ability": "Au début de la bataille, les alliés Jedi bénéficient d'une hausse de protection (200%, ne peut pas être dissipé), leur jauge de tour se remplit de 15%, et les tanks jedi alliés utilisent la raillerie pendant 1 tour. Si les alliés Jedi bénéficient d'une hausse de protection, ils ont un bonus de ténacité de +150% et ils infligent 35% de dégâts supplémentaires.",
-                    "unique-ability1-title": "<u>Capacité Unique : Méditation de combat légendaire</u>",
-                    "unique-ability1": "Au début de son tour, Bastila récupère 2% de protection pour chaque amélioration dont elle bénéficie. La jauge de tour de tous les alliés augmente de 3% (doublé pour les Jedi) et ils obtiennent la <u class='speciale'>Méditation de combat légendaire :</u> pendant 1 tour.<br><br><u class='speciale'>Méditation de combat légendaire :</u> +50% de pouvoir et +35% de chances de contre-attaque (doublé pour les Jedi). La Méditation de combat légendaire ne peut pas être dissipée.",
-                    "unique-ability2-title": "<u>Capacité Unique : Lien de Force</u>",
-                    "unique-ability2": "Si le Chevalier Jedi Revan est dans l'emplacement de chef : Bastila et le Chevalier Jedi Revan ont +70% de précision, de pouvoir et de ténacité. Le Chevalier Jedi Revan récupère également de la protection avec la Méditation de combat légendaire.<br><br>Si Dark Revan est dans l'escouade ennemie : Bastila gagne l'avantage et la rétribution pendant 1 tour au début du tour de Dark Revan."
-                }
+            // Dictionnaire français
+            const translationsFr = {
+                "title": "<u>Bastila Shan</u>",
+                "description": "Puissante Jedi de soutien qui confère d'extraordinaires améliorations dès le premier tour grâce à sa capacité de chef.",
+                "lightside": "Côté Lumineux",
+                "support": "Soutien",
+                "leader": "Chef",
+                "jedi": "Jedi",
+                "old": "Ancienne République",
+                "basic-attack-title": "<u>Attaque Basique : Assaut Jedi</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à la cible ennemie et entrave ses capacités pendant 1 tour. Cette attaque confère un bonus de dégâts de 20% et un bonus de pouvoir de 20% pour chaque allié Jedi actif.",
+                "special-attack1-title": "<u>Attaque Spéciale : Ralliement (délai : 4)</u>",
+                "special-attack1": "Bastila dissipe tous les affaiblissements l'affectant elle et une cible alliée. Tous deux bénéficient d'un bonus d'attaque, de défense, de vitesse, de précision et de chances de coup critique pendant 3 tours, puis Bastila invoque cet allié.",
+                "special-attack2-title": "<u>Attaque Spéciale : Sabotage des défenses (délai : 2)</u>",
+                "special-attack2": "Inflige des dégâts spéciaux à la cible ennemie et dissipe toutes ses améliorations. Inflige l'étourdissement pendant 1 tour et lui inflige l'immunité aux améliorations pendant 2 tours.",
+                "lead-ability-title": "<u>Capacité de Chef : Initiative</u>",
+                "lead-ability": "Au début de la bataille, les alliés Jedi bénéficient d'une hausse de protection (200%, ne peut pas être dissipé), leur jauge de tour se remplit de 15%, et les tanks jedi alliés utilisent la raillerie pendant 1 tour. Si les alliés Jedi bénéficient d'une hausse de protection, ils ont un bonus de ténacité de +150% et ils infligent 35% de dégâts supplémentaires.",
+                "unique-ability1-title": "<u>Capacité Unique : Méditation de combat légendaire</u>",
+                "unique-ability1": "Au début de son tour, Bastila récupère 2% de protection pour chaque amélioration dont elle bénéficie. La jauge de tour de tous les alliés augmente de 3% (doublé pour les Jedi) et ils obtiennent la <u class='speciale'>Méditation de combat légendaire :</u> pendant 1 tour.<br><br><u class='speciale'>Méditation de combat légendaire :</u> +50% de pouvoir et +35% de chances de contre-attaque (doublé pour les Jedi). La Méditation de combat légendaire ne peut pas être dissipée.",
+                "unique-ability2-title": "<u>Capacité Unique : Lien de Force</u>",
+                "unique-ability2": "Si le Chevalier Jedi Revan est dans l'emplacement de chef : Bastila et le Chevalier Jedi Revan ont +70% de précision, de pouvoir et de ténacité. Le Chevalier Jedi Revan récupère également de la protection avec la Méditation de combat légendaire.<br><br>Si Dark Revan est dans l'escouade ennemie : Bastila gagne l'avantage et la rétribution pendant 1 tour au début du tour de Dark Revan."
             };
 
-            // Sauvegarde du texte original anglais au chargement
             const originalTexts = {};
 
-            window.onload = () => {
-                // Stocke les textes anglais d'origine (HTML)
-                document.querySelectorAll("[id]").forEach(el => {
-                    originalTexts[el.id] = el.innerHTML;
-                });
-            };
-
-            // Fonction pour changer la langue
-            function switchLanguage(lang) {
-                if (lang === "fr") {
-                    for (const [key, text] of Object.entries(translations.fr)) {
-                        const element = document.getElementById(key);
-                        if (element) {
-                            element.innerHTML = text;
-                        }
-                    }
-                } else if (lang === "en") {
-                    // Restaure les textes originaux du HTML
-                    for (const [key, text] of Object.entries(originalTexts)) {
-                        const element = document.getElementById(key);
-                        if (element) {
-                            element.innerHTML = text;
-                        }
-                    }
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
                 }
             }
 
             function replaceNewLinesWithBr(text) {
-                return text
-                    .replace(/\n\s*\n/g, '<br><br>') // double saut de ligne → double <br>
-                    .replace(/([^\n])\n([^\n])/g, '$1<br>$2'); // simple saut de ligne → un seul <br>
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
             }
+
+            function switchLanguageTo(lang) {
+                localStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = localStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = localStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
         </script>
 
 
