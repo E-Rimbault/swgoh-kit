@@ -99,7 +99,7 @@
         </div>
     </div>
 
-    <h2 class="titre" id="unique-ability2-title"><u>Unique Ability: Self-Preservation Protocol</u></h2>
+    <h2 class="titre" id="unique-ability-title2"><u>Unique Ability: Self-Preservation Protocol</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="bb8_unique 2" src="../image-perso/bb-8/bb8-unique2.png">
@@ -110,6 +110,87 @@
             </p>
         </div>
     </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "bb-8",
+                "title": "bb-8",
+                "description": "Droïde tenace de la résistance capable de renforcer ses alliés en diffusant Donnéees secrètes",
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "droïd": "Droïde",
+                "resistance": "Résistance",
+                "basic-attack-title": "<u>Attaque Basique : Arc à souder</u>",
+                "basic-attack": "inflige des dégâts physiques à une cible ennemie et inflige un malus de ténacité pendant 2 tours. Si la cible souffre déjà d'un malus de ténacité, inflige la Confusion pendan 2 tours",
+                "special-attack1-title": "<u>1ere Spéciale : transfert de données confidentielles</u>",
+                "special-attack1": "BB-8 et un allié aléatoire qui n'en dispose pas obtient l'amélioration unique <u class='speciale'>Données secrètes</u> pendant 3 tours. Ensuite, la jauge de tour de BB-8 se remplit de 8% pour chaque allié qui dispose de <u class='speciale'>Données secrètes</u>. Si tous les alliés actifs sont des droïdes, BB-8 utilise la raillerie pendant 1 tour.\n\n<u class='speciale'>Données secrètes :</u> +25% de pouvoir, et lorsqu'un autre allié utilise une capacité spéciale ils obtiennent Données Secrètes pendant 3 tours, puis le délai d'Avenir Lucide est diminué de 1 pour chaque allié avec Données Secrètes",
+                "special-attack2-title": "<u>2eme Spéciale : Avenir lucide (délai : 70)</u>",
+                "special-attack2": "Dissipe tous les affaiblissements en cours sur les alliés et expose tous les ennemis pendant 2 tours. La jauge de tour de tous les alliés se remplit de 80%et ils obtiennent l'avantage, un bonus de chances de coup critique, bonus de dégâts critiques, un bonus d'attaque et un bonus de vitesse pendant 4 tours. Les Droïdes et les alliés de la Résistance récupèrent 20% de protection. Cette capacité commence avec un délai et ne peut pas être esquivée. Lorsqu'un Droïde allié inflige un coup critique, le délai de cette capacité est réduit de 1.",
+                "unique-ability1-title": "<u>Capacité Unique : Suivre le rythme</u>",
+                "unique-ability1": "BB-8 a 80% de chances de contre-attaque. lorsque BB-8 attaque quand ce n'est pas son tour, il invoque un allié de la résistance aléatoire.",
+                "unique-ability-title2": "<u>Capacité Unique : Protocole d'auto-préservation</u>",
+                "unique-ability2": "Lorsque BB-8 subit des dégâts, il a 50% de chances d'obtenir de prévoyance pendant 2 tours. Au début de chaque affrontement, si BB-8 est actif, la jauge de tour des alliés droïdes se remplit de 8% pour chaque allié droïde. Lorsque BB-8 esquive une attaque, les droïdes alliés récupèrent 8% de santé et 8% de protection."
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                localStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = localStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = localStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+
+    </footer>
+</body>
+
+</html>
 
     <!-- Pied de page -->
     <footer>
