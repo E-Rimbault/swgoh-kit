@@ -151,34 +151,14 @@
         </div>
     </div>
 
-    <!-- Pied de page -->
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
         <script>
-            const translations = {
-                en: {
-                    "big-title": "Bastila Shan (Fallen)",
-                    "title": "<u>Bastila Shan (Fallen)</u>",
-                    "description": "Strong Sith Support who inflicts a large number of debuffs including Shock, Fear, and Corrupted Battle Meditation",
-                    "darkside": "Dark Side",
-                    "support": "Support",
-                    "sith": "Sith",
-                    "sith-empire": "Sith Empire",
-                    "basic-attack-title": "<u>Basic Attack: Sith Assault</u>",
-                    "basic-attack": "Deal Special damage to target enemy and inflict Ability Block for 1 turn. This attack deals 10% more damage and has +10% Critical Chance for each active Sith ally.",
-                    "special-attack1-title": "<u>Special Attack: Wild Lightning (cooldown: 2)</u>",
-                    "special-attack1": "Deal Special damage to target enemy and Shock them for 3 turns. If the target already had Shock, deal bonus Special damage to all enemies. This bonus damage can't be countered. This ability can't be evaded.",
-                    "special-attack2-title": "<u>Special Attack: Fear (cooldown: 3)</u>",
-                    "special-attack2": "Inflict <u class=\"speciale\">Fear</u> on target enemy and another random enemy for 1 turn, which can't be copied or dispelled. When each of these Fears expire, inflict Offense Down, Critical Damage Down, Evasion Down, Speed Down, Expose and Stagger for 2 turns. These effects can't be resisted.<br><br>All other enemies are inflicted with Offense Down, Critical Damage Down, Evasion Down, Speed Down, Expose, and Stagger for 2 turns.<br><br><u class=\"speciale\">Fear</u>: Miss the next turn, can't use abilities, and can't evade. Increase cooldowns by 1 and Fear expires on taking damage from an attack.",
-                    "unique-ability-title": "<u>Unique Ability: Corrupted Battle Meditation</u>",
-                    "unique-ability": "At the start of Bastila's turn, all enemies lose 3% Turn Meter (doubled against non-Jedi and non-Sith) and are inflicted with <u class=\"speciale\">Corrupted Battle Meditation</u> for 1 turn. Then Bastila recovers 1% Protection for each debuff on enemies.<br><br><u class=\"speciale\">Corrupted Battle Meditation:</u> -30% Critical Chance and -30% counter chance (doubled against non-Jedi and non-Sith).<br><br>Corrupted Battle Meditation can't be dispelled.",
-                    "unique-ability-title2": "<u>Unique Ability: Sith Apprentice</u>",
-                    "unique-ability2": "Bastila and the character in the leader slot have +50% Defense, Potency, and Tenacity and gain Foresight for 1 turn at the start of battle.<br><br>If Bastila's leader is another Sith, whenever an enemy is inflicted with Deathmark, Fear, Marked, or Shock, they both gain 5% Offense (stacking up to 100%) for the rest of battle. This ability does not apply to characters in the ally slot.",
-                    "unique-ability-title3": "<u>Unique Ability: Force Bond</u>",
-                    "unique-ability3": "If Darth Revan is in the leader slot: Bastila and Darth Revan have +70% Max Health and +70% Health Steal, and Darth Revan also recovers Protection from Corrupted Battle Meditation. Allies are immune to all debuffs during any ability used by an enemy with Corrupted Battle Meditation (excludes debuffs from raid bosses and Galactic Legends).<br><br>If Jedi Knight Revan is on the enemy squad: Bastila gains Advantage and Foresight for one turn at the start of Jedi Knight Revan's turns."
-                },
-                fr: {
+            // Dictionnaire français
+            const translationsFr = {
                     "big-title": "Bastila Shan (déchue)",
                     "title": "<u>Bastila Shan (déchue)</u>",
                     "description": "Puissant personnage de Soutien Sith qui inflige un grand nombre d'affaiblissements, dont le Choc, la Peur et la Méditation de combat corrompue.",
@@ -198,27 +178,56 @@
                     "unique-ability2": "Bastila et le personnage dans l'emplacement de chef ont +50% de Défense, de pouvoir et de ténacité et obtiennent Prévoyance pendant 1 tour au début de l'affrontement.\n\nSi le chef de Bastila est Sith, à chaque fois qu'un ennemi subi la marque de mort, la peur, es marqué ou souffre de choc, ils obtiennent tous deux un bonus d'attaque de 5% (cumulable jusqu'à 100%) pour le reste de l'affrontement. Cette capacité ne s'applique pas aux personnages dans l'emplacement d'allié.",
                     "unique-ability-title3": "<u>Capacité unique : Lien de la Force</u>",
                     "unique-ability3": "Si Dark Revan est dans l'emplacement de chef : Bastila et Dark Revan bénéficient tous les deux de +70% de Santé maximale et +70% de Vol de santé. Dark Revan récupère également de la Protection avec Méditation de combat corrompue. Les alliés sont immunisés contre tous les affaiblissements lorsqu'un ennemi qui souffre de méditation de combat corrompue utilise une capacité (exclut les affaiblissements des boss de raid et des légendes galactiques).\n\nSi le Chevalier Jedi Revan est dans l'escouade ennemie : Bastila obtient l'avantage et la prévoyance pendant 1 tour au début du tour du Chevalier Jedi Revan."
-                },
+                };
 
+            const originalTexts = {};
 
-            };
-
-            function replaceNewLinesWithBr(text) {
-                return text.replace(/\n\n/g, '<br><br>');
-            }
-
-            function switchLanguage(lang) {
-                for (const [key, text] of Object.entries(translations[lang])) {
-                    const element = document.getElementById(key);
-                    if (element) {
-                        // Convert \n\n to <br><br> before injecting
-                        element.innerHTML = replaceNewLinesWithBr(text);
-                    }
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
                 }
             }
 
-            window.onload = () => switchLanguage('en');
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                localStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = localStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = localStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
         </script>
+
 
     </footer>
 </body>
