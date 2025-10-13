@@ -240,8 +240,8 @@
       const filtered = characters.filter(c => {
         const factionsNames = (c.factions || []).map(f => (f[currentLang] || f.en).toLowerCase());
         const matchFactions = selectedFactions.length === 0 || selectedFactions.every(f => factionsNames.includes(f));
-        const roleName = (c.role?.[currentLang] || c.role?.en || "").toLowerCase();
-        const alignmentName = normalizeAlignment(c.alignment?.[currentLang] || c.alignment?.en || "");
+        const roleName = (c.role?.en || "").toLowerCase();
+        const alignmentName = normalizeAlignment(c.alignment?.en || "");
         const matchRole = !selectedRole || roleName === selectedRole;
         const matchAlignment = !selectedAlignment || alignmentName === selectedAlignment;
         const name = (c.name?.[currentLang] || c.name?.en || "").toLowerCase();
