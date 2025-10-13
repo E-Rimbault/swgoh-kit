@@ -1,140 +1,197 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Ben Solo</title>
-
+    <title id="big-title">Ben Solo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/ben-solo/ben-solo-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/ben-solo/ben-solo-image.png" alt="ben solo" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Ben Solo</u></h1>
-        <p>
-            Un puissant utilisateur de la force dont les luttes personnelles ont<br>
-            longtemps placé à la limite entre la lumière et l'obscurité.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html">utilisateur-de-la-force-non-aligné</a>
-        </nav>
+            <h1 id="title"><u>Ben Solo</u></h1>
+            <p id="description">
+                A powerful Force user whose internal struggles have long placed him on the edge of light and dark
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Force User</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/ben-solo/Ben-solo.png" alt="Ben solo"><br>
+    <img class="first" src="../image-perso/ben-solo/Ben-solo.png" alt="Ben Solo"><br>
 
-    <h2 class="titre"><u>attaque basique : Une ombre intérieure</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: A Shadow Within</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="ben solo basique" src="../image-perso/ben-solo/ben-basique.png">
+            <img class="attaque" alt="ben basic" src="../image-perso/ben-solo/ben-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à une cible ennemie et lui inflige un malus de défense pendant 1 tour.<br>
-                Si la cible ennemie est un tank, cette attaque inflige 100% de dégâts supplémentaires. Si la cible<br>
-                ennemie est un attaquant ou un soutien, inflige un malus d'attaque et et un malus de pouvoir pendant<br>
-                1 tour. Si la cible ennemie est un soigneur, inflige un malus de vitesse pendant 1 tour.
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy and inflict Defense Down for 1 turn. If the target enemy is a Tank, this attack deals 100% more damage. If the target enemy is an Attacker or Support, inflict Offense Down and Potency Down for 1 turn. If the target enemy is a Healer, inflict Speed Down for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Obscured (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="ben spé 1" src="../image-perso/ben-solo/ben-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to target enemy, remove 100% Turn Meter and, if there is any version of Rey in the allied Leader slot, Blind the target enemy for 2 turns. Gain Offense Up for 2 turns.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas if all allies were Light Side at the start of battle:</u><br>
+                When this ability is used, Ben Solo’s cooldowns are reduced by 1. If Galactic Legend Rey is in the allied Leader slot, this attack instead deals true damage and inflicts Healing Immunity for 4 turns, which can’t be copied, dispelled, evaded, or resisted.
+            </p>
+        </div>
+    </div>
+
+        <h2 class="titre" id="special-attack2-title"><u>Special Attack : Family Legacy (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="ben spé 2" src="../image-perso/ben-solo/ben-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                    Deal Special damage to target enemy and inflict Armor Shred until the end of the encounter. If all allies were Light Side at the start of battle, dispel all buffs from all enemies and deal true damage again to all enemies. All allies gain 5% Turn Meter (max 25%) for each enemy damaged by this ability.
+                    <br><br>
+                    If this ability defeats an enemy, Ben Solo gains 10% Offense (stacking, max 50%) and all other Light Side allies gain 5% Offense (stacking, max 25%) until the end of battle.
+                    <br><br>
+                    This attack can't be evaded.
             </p>
         </div>
     </div>
 
 
-    <h2 class="titre"><u>1ere spéciale: Obscurci (délai: 4)</u></h2>
+    <h2 class="titre"><u id="unique-ability-title1">Unique Ability: Redeemed</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="ben solo spé 1" src="../image-perso/ben-solo/ben-spe1.png">
+            <img class="attaque" alt="ben unique" src="../image-perso/ben-solo/ben-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque"()>
-                Inflige des dégâts spéciaux à la cible ennemie, supprime 100% de la jauge de tour de la cible ennemie,<br>
-                et, s'il y a une version de REY dans l'emplacement de chef allié, inflige la cécité à la cible ennemie<br>
-                pendant 2 tours. Obtient un bonus d'attaque pendant 2 tours.<br>
-                <br>
-                <u class="omicron">Dans les Grandes arènes, si tous les alliés sont du Coté<br>
-                Lumineux au début de la bataille:</u><br>
-                <br>
-                quand cette capacité est utilisée, les délais de Ben Solo sont réduis de 1. Si la légende Galactique REY<br>
-                est dans l'emplacement de chef allié, cette attaque inflige des dégâts réels à la place et inflige une<br>
-                immunité aux soins pendant 4 tours (ne peut pas être copié, dissipé, esquivé ou résisté).
+            <p class="attaque" id="unique-ability1">
+                At the start of battle, if all of Ben Solo’s allies were Light Side and there is any version of Rey in the allied Leader slot, Ben Solo gains 15% Max Health and 10 Speed for each Light Side ally (excluding summons). Ben Solo ignores taunt effects during his turn.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u><br>
+                Ben Solo's attacks ignore Protection. 
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Héritage familial (délai: 4)</u></h2>
+    <h2 class="titre"><u id="unique-ability-title2">Unique Ability : Force Dyad</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="ben solo spé 2" src="../image-perso/ben-solo/ben-spe2.png">
+            <img class="attaque" alt="ben unique 2" src="../image-perso/ben-solo/ben-unique2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à une cible ennemie et inflige destruction d'armure jusqu'à la fin de l'affrontement.<br>
-                Si tous les alliés sont du Coté Lumineux au début de la bataille, supprime toutes les améliorations sur les ennemis<br>
-                et inflige de nouveau dégâts réels à tous les ennemis. Tous les alliés obtiennent 5% de jauge de tour(max 25%) pour<br>
-                chaque ennemi touché par cette capacité.<br>
-                <br>
-                Si cette capacité permet de vaincre un ennemi, Ben Solo obtient 10% d'attaque(cumulatif, max 50%) et tous les alliés<br>
-                du Coté Lumineux obtiennent 5% d'attaque (cumulatif, max 25%) jusqu'à la fin de la bataille.<br>
-                <br>
-                Cette attaque ne peut pas être esquivée.
-            </p>
-        </div>
-    </div>
-
-
-    <h2 class="titre"><u>capacité unique 1: Rédemption</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="ben solo unique" src="../image-perso/ben-solo/ben-unique.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Au début de la bataille, si tous les alliés de Ben Solo sont du Coté Lumineux et qu'une version de REY est dans l'emplacement<br>
-                de chef allié, Ben Solo obtient 15% de santé maximale et 10 de vitesse pour chaque allié du Coté Lumineux (à l'exception des<br>
-                invocations). Ben Solo ignore les effets de raillerie pendant son tour.<br>
-                <br>
-                <u class="omicron">Dans les grandes arènes:</u><br>
-                <br>
-                Les attaques de Ben Solo ignorent la protection.
-            </p>
-        </div>
-    </div>
-
-
-    <h2 class="titre"><u>capacité unique 2: Dryade de Force</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="ben solo unique 2" src="../image-perso/ben-solo/ben-unique2.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Si tous les alliés sont du Coté Lumineux au début de la bataille et qu'une version de REY est dans l'emplacement de chef :<br>
-                tous les obtiennent l'immunité à la défaite instantanée pendant 1 tour au début de chaque affrontement( ne peut pas être<br>
-                copié, dissipé  ou évité). Tant que Ben Solo est actif, REY ne peut pas être vaincue. Ben Solo ne peut pas être vaincu, tant<br>
-                que REY possède plus de 50% de sa santé.<br>
-                <br>
-                <u class="omicron">Dans les grandes arènes, si la Légende Galactique REY est dans l'emplacement de chef allié:</u><br>
-                <br>
-                Si l'ennemi dans l'emplacement de chef commence son tour avec Ben Solo vaincu et que Ben Dispose toujours d'un<br>
-                allié actif, il est ranimé avec 51% de santé, et tous les alliés obtiennent l'immunité à la défaite instantanée<br>
-                pendant le reste de l'affrontement (ne peut pas être copié, dissipé ou évité).
+            <p class="attaque" id="unique-ability2">
+                If all allies were Light Side at the start of battle and there is any version of Rey in the allied Leader slot: All allies gain Instant Defeat Immunity for 1 turn at the start of each encounter, which can’t be copied, dispelled, or prevented. While Ben Solo is active, Rey can’t be defeated. Ben Solo can’t be defeated while Rey is above 50% Health.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas, if Galactic Legend Rey is in the allied Leader slot:</u><br>
+                If the enemy in the Leader slot begins their turn with Ben Solo defeated and Ben still has an active ally, he revives with 51% Health and all allies gain Instant Defeat Immunity for the rest of the encounter, which can’t be copied, dispelled, or prevented.
             </p>
         </div>
     </div>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
-    </footer>
 
-</body>
-</html>
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Ben Solo",
+                "title": "<u>Ben Solo</u>",
+                "description": "Un puissant utilisateur de la Force dont les luttes personnelles l'ont longtemps placé à la limite entre la lumière et l'obscurité",
+                "lightside" : "Coté Lumineux",
+                "attacker" : "Attaquant",
+                "force-user" : "Utilisateur de la Force non aligné",
+                "basic-attack-title": "<u>Attaque Basique : Une Ombre intérieure</u>",
+                "basic-attack": "inflige des dégâts spéciaux à une cible ennemie et lui inflige un malus de défense pendant 1 tour. Si la cible ennemie est un tank, cette attaque inflige 100% de dégâts supplémentaires. Si la cible ennemie est un attaquant ou un soutien inflige un malus d'attaque et un malus de pouvoir pendant 1 tour. Si la cible ennemie est un soigneur, inflige un malus de vitesse pendant 1 tour.",
+                "special-attack1-title" : "<u>Attaque Spéciale : Obscurci (délai : 4)</u>",
+                "special-attack1" : "Inflige des dégâts spéciaux à la cible ennemie, supprime 100% de la jauge de tour, et s'il y a une version de REY dans l'emplacement de chef allié; inflige la cécité à la cible ennemie pendant 2 tours. Obtient un bonus d'attaque pendant 2 tours.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes Arènes, si tous les alliés sont du Coté Lumineux au début de la bataille :</u>\nQuand cette capacité est utilisée, les délais de Ben Solo sont réduits de 1. Si la Légende Galactique Rey est dans l'emplacement de chef allié, cette attaque inflige des dégâts réels à la place et inflige une immunité aux soins pendant 4 tours (ne peut pas être copié, dissipé, esquivé ou résisté).",
+                "special-attack2-title" : "<u>Attaque Spéciale : Héritage Familial (délai : 4)</u>",
+                "special-attack2" : "Inflige des dégâts spéciaux à la cible ennemie et inflige la destruction d'armure jusqu'à la fin de l'affrontement. Si tous les alliés sont du Coté Lumineux au début de la bataille, supprime toutes les améliorations sur les ennemis et inflige de nouveaux des dégâts réels à tous les ennemis. Tous les alliés obtiennent 5% de jauge de tour (max 25%) pour chaque ennemi touché par cette capacité.\n\nSi cette capacité permet de vaincre un ennemi, Ben Solo obtient 10% d'attaque (cumulatif, max 50%) et tous les alliés du Coté Lumineux obtiennent 5% d'attaque (cumulatif, 25% max.) jusqu'à la fin de la bataille.\n\ncette attaque ne peut pas être esquivée.",
+                "unique-ability-title1": "<u>Capacité Unique : Rédemption</u>",
+                "unique-ability1" : "Au début de la bataille, si tous les alliés de Ben Solo sont du Coté Lumineux et qu'une versionde Rey est dans l'emplacement de chef allié, Ben Solo obtient 15% de santé maximale et 10 de vitesse pour chaque allié du Coté Lumineux (à l'exception des invocations). Ben Solo ignore les effets de raillerie pendant son tour.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes Arènes :</u>\nLes attaques de Ben Solo ignorent la protection.",
+                "unique-ability-title2" : "<u>Capacité Unique : Dyade de Force</u>",
+                "unique-ability2" : "Si tous les alliés sont du Coté Lumineux au début de la bataille et qu'une version de Rey est dans l'emplacement de chef allié : tous les alliés obtiennent l'immunité à la défaite instantanée pendant 1 tour au début de chaque affrontement (ne peut pas être copié, dissipé ou évité). Tant que Ben Solo est actif, Rey ne peut pas être vaincue. Ben Solo ne peut pas être vaincu tant que Rey possède plus de 50% de sa santé.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes Arènes, si la Légende Galactique Rey est dans l'emplacement de chef allié :</u>\nSi l'ennemi dans l'emplacement de chef commence son tour avec Ben Solo vaincu et que Ben dispose toujours d'un allié actif, il est ranimé avec 51% de santé, et tous les alliés obtiennent l'immunité à la défaite instantanée pendant le reste de l'affrontement (ne peut pas être copîé, dissipé ou évité)."
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                localStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = localStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = localStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+
+    </footer>
