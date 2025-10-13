@@ -1,137 +1,198 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Bo-katan (Mand'alor)</title>
-
+    <title id="big-title">Bo-katan (Mand'alor)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/bo-mandalore/bo-katan-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/bo-mandalore/bo-katan-image.png" alt="ben solo" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Bo-katan (Mand'alor)</u></h1>
-        <p>
-            La courageuse cheffe des Mandaloriens qui manie le<br>
-            sabre noir et mène ses alliés au combat.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-               <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-               <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-               <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-               <a class="capacite" href="../classement-perso/mandalorien.html">Mandalorien</a>
-        </nav> 
+            <h1 id="title"><u>Bo-katan (Mand'alor)</u></h1>
+            <p id="description">
+                A brave leader of the Mandalorians who wields the Darksaber and leads her allies into battle
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/mandalorien.html" id="mandalorian">Mandalorian</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/bo-mandalore/Bo-katan.png" alt="Bo-katan"><br>
+    <img class="first" src="../image-perso/bo-mandalore/Bo-katan.png" alt="Bo-katan (mand'alor)"><br>
 
-    <h2 class="titre"><u>attaque basique : Assaut frontal</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Frontal Assault</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="bo basique" src="../image-perso/bo-mandalore/bo-basique.png">
+            <img class="attaque" alt="bo-katan basic" src="../image-perso/bo-mandalore/bo-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiqes à une cible ennemie(ne peut pas être esquivé) et dissipe toutes<br>
-                ses améliorations. Pendant le tour de Bo-Katan (Mand'alor), tous les alliés Mandaloriens du<br>
-                Coté Lumineux obtiennent un bonus de vitesse pendant 2 tours.
+            <p class="attaque" id="basic-attack">
+                Deal Physical and True damage to target enemy, which can't be evaded, and dispel all buffs on them. During Bo-Katan (Mand'alor)'s turn, all Light Side Mandalorian allies gain Speed Up for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Darksaber Flourish (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="bo-katan spé 1" src="../image-perso/bo-mandalore/bo-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and inflict Armor Shred until the end of battle. Deal an additional instance of True damage to target enemy, which can't be evaded, and Stun them for 1 turn. If Bo-Katan (Mand'alor) is debuffed, deal True damage an additional time to the target enemy, which can't be evaded. Otherwise, reduce the cooldown of this ability by 1.
+            </p>
+        </div>
+    </div>
+
+        <h2 class="titre" id="special-attack2-title"><u>Special Attack : Reinforcements Have Arrived (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="bo-katan spe 2" src="../image-perso/bo-mandalore/bo-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to target enemy. Dispel all debuffs from all Light Side Mandalorian allies, call them all to assist twice, dealing 50% less damage, and they all gain 3 stacks of <u class="speciale">Ancestral Resolve:</u> (max 100) until the end of the encounter, which can't be copied, dispelled or prevented.
+                <br><br>
+                <u class="speciale">Ancestral Resolve:</u> +2% Defense and +1% Max Health; whenever this character deals True damage, deal additional True damage based on the number of stacks, which can't be evaded
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u><br> Light Side Mandalorian allies gain an additional 2 stacks of Ancestral Resolve. If another Light Side Mandalorian ally wasn't able to assist, they instead gain a bonus turn.
             </p>
         </div>
     </div>
 
 
-    <h2 class="titre"><u>1ere spéciale: Révolte du sabre noir (délai: 3)</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Way of the Mandalore</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="bo spé 1" src="../image-perso/bo-mandalore/bo-spe1.png">
+            <img class="attaque" alt="bo-katan lead" src="../image-perso/bo-mandalore/bo-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts à la cible ennemie et Destruction d'armure, jusqu'à la fin de la bataille,<br>
-                inflige une instance supplémentaire de dégâts réels à la cible ennemie (ne peut pas être esquivé)<br>
-                et lui inflige Etourdissement pendant 1 tour. Si Bo-Katan (Mand'alor) souffre d'affaiblissement,<br>
-                inflige des dégâts réels une fois de plus à la cible ennemie (ne peut pas être esquivé). Sinon,<br>
-                diminue le délai de cette capacité de 1.
+            <p class="attaque" id="lead-ability">
+                Light Side Mandalorian allies gain 40% Defense, Max Health and Offense. Light Side Mandalorian allies gain 5% Defense (stacking, max 30%) for each debuff on them. Whenever a Light Side Mandalorian ally deals True damage, dispels a debuff, or resists a debuff, all Light Side Mandalorian allies gain 1 stack of Ancestral Resolve (max 100) until the end of the encounter, which can't be copied, dispelled, or prevented. Whenever an ally attacks an enemy inflicted with Armor Shred, all Light Side Mandalorian Tank allies Taunt for 1 turn (max 2 times per turn).
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u><br> Light Side Mandalorian allies gain 50% Mastery, Max Health and 30 Speed. At the start of each encounter, Light Side Mandalorian Tank allies Taunt for 2 turns. If there are other active enemies (excluding summons), the first Light Side Mandalorian ally that is defeated each battle is revived and recovers 50% Health and Protection. All Light Side Mandalorian allies gain 1 additional stack of Ancestral Resolve whenever a Light Side Mandalorian ally deals True damage, dispels a debuff, or resists a debuff.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Les renforts sont arrivés( délai: 4)</u></h2>
+    <h2 class="titre"><u id="unique-ability-title1">Unique Ability : For Mandalore!</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="bo spé 2" src="../image-perso/bo-mandalore/bo-spe2.png">
+            <img class="attaque" alt="bo-katan unique" src="../image-perso/bo-mandalore/bo-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie. Dissipe tous les affaiblissement en cours sur<br>
-                les alliés Mandaloriens du Coté Lumineux, les invoques tous deux fois, infligeant 50% de dégâts en moins<br>
-                et ils obtiennent tous 3 cumuls de <u class="speciale">Détermination ancestrale</u> (100 maximum) jusqu'à<br>
-                la fin de l'affrontement (ne peut pas être copié, dissipé ou eùmpêché).<br>
-                <br>
-                <u class="speciale">Détermination ancestrale:</u>
-                +2% de défense et +1% de santé maximale. A chaque fois que ce personnage inflige des dégats réels,<br>
-                inflige des dégats réels supplémentaires en fonction du nombre de cumuls (ne peut pas être esquivé).
-            </p>
-        
-        </div>
-    </div>
-
-    <h2 class="titre"><u>Capacité de chef: La voie de Mandalore</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="bo lead" src="../image-perso/bo-mandalore/bo-lead.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Les alliés Mandaloriens du Coté Lumineux obtiennent 40% de défense, de santé maximale et d'attaque.<br>
-                Les alliés Mandaloriens du Coté Lumineux reçoivent 5% de défense (cumulatif, 30% maximum) pour chaque<br>
-                affaiblissement les affecant. Lorsqu'un allié Mandaloriens du Coté Lumineux inflige des dégâts réels,<br>
-                dissipe un affaiblissement ou résiste à un affaiblissementn tous les alliés Mandaloriens du Coté Lumineux<br>
-                obtiennent un cumul de Détermination ancestale(100 maximum) jusqu'à la fin de l'affrontement (ne peut pas<br>
-                être copié, dissipé ou empêché). Lorsqu'un allié attaque un ennemi qui souffre de Destruction d'armure,<br>
-                tous les tanks Mandaloriens alliés du Coté Lumineux utilisent raillerie pendant 1 tour (2 fois maximum par tour).
-            </p>
-        </div>
-    </div>
-
-
-    <h2 class="titre"><u>capacité unique: Pour Mandalore!</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="bo unique" src="../image-perso/bo-mandalore/bo-unique.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Les dégâts réels infligés par Bo-Katan (Mand'alor) grâce à Détermination ancestale sont triplés.<br>
-                Ces dégâts sont ensuite doublés contre les ennemis disposant d'un bonus de protection.<br>
-                <br>
-                Si tous les alliés étaient des Mandaloriens du Coté Lumineux: Bo-Katan (Mand'alor) subit des<br>
-                dégâts réduits des effets de dégâts de pourcentages de santé, et récupère 50% de santé lorsqu'un<br>
-                allié est vaincu la première fois (à l'exception des alliés invoqués). Elle gagne 50% de défense<br>
-                (cumulatif, 200% maximum) pour chaque affaiblissement qu'elle subit et 200% de défense supplémentaire<br>
-                (cumulatif) pour chaque autre allié mandalorien du Coté Lumineux qui n'a pas encore été vaincu.<br>
-                <br>
-                <u class="omicron">Dans les Grandes Arènes:</u><br><br>
-                Bo-katan (Mand'alor) est immunisée contre Confusion. Si tous les alliés étaient des Mandaloriens du Coté<br>
-                Lumineux au début de la bataille: Bo-Katant (Mand'alor) ignore les effets de raillerie et lorsqu'un allié<br>
-                est vaincu pour la première fois, elle obtient 20% de sa santé maximale et de son attaque (cumulatif)<br>
-                jusqu'à la fin de la bataille.
+            <p class="attaque" id="unique-ability1">
+                Bo-Katan (Mand'alor) gains Tenacity Up for 1 turn at the start of each encounter, which can't be dispelled or prevented.
+                <br><br>
+                Bo-Katan (Mand'alor) has +10 Speed (stacking) for each Stunned Light Side Mandalorian ally, and True damage she deals from Ancestral Resolve is tripled. This damage is then doubled against enemies with bonus Protection.
+                <br><br>
+                If all allies were Light Side Mandalorian at the start of battle: Bo-Katan (Mand'alor) takes reduced damage from percent Health damage effects and recovers 50% Health whenever an ally is defeated for the first time (excluding summoned allies). She gains 50% Defense (stacking, max 200%) for each debuff on her, and an additional 200% Defense (stacking) for each other Light Side Mandalorian ally who has not yet been defeated.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u><br> Bo-Katan (Mand'alor) is immune to Daze. If all allies were Light Side Mandalorian at the start of battle: Bo-Katan (Mand'alor) ignores Taunt effects, and whenever an ally is defeated for the first time, she gains 20% of their Max Health and Offense (stacking) until the end of the battle.
             </p>
         </div>
     </div>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Bo-katan (Mand'alor)",
+                "title": "<u>Bo-katan (Mand'alor)</u>",
+                "description": "La courageuse cheffe des Mandaloriens qui manie le sabre noir et mène ses alliés au combat",
+                "lightside" : "Coté Lumineux",
+                "attacker" : "Attaquant",
+                "leader": "Chef",
+                "mandalorian" : "Mandalorien",
+                "basic-attack-title": "<u>Attaque Basique : Assaut Frontal</u>",
+                "basic-attack": "Inflige des dégâts physiques et réels à une cible ennemie (ne peut pas être esquivé) et dissipe toutes ses améliorations. Pendant le tour de Bo-Katan (Mand'alor), tous les alliés Mandaloriens du Coté Lumineux obtiennent un bonus de vitesse pendant 2 tours.",
+                "special-attack1-title" : "<u>Attaque Spéciale : Révolte du sabre noir (délai : 3)</u>",
+                "special-attack1" : "Inflige des dégâts physiques à la cible ennemie et Destruction d'armure jusqu'à la fin de la bataille. Inflige une instance supplémentaire de dégâts réels à la cible ennemie (ne peut pas être esquivé) et lui inflige Étourdissement pendant 1 tour. Si Bo-Katan (Mand'alor) subit un affaiblissement, inflige des dégâts réels une fois de plus à la cible ennemie (ne peut pas être esquivé). Sinon, diminue le délai de cette capacité de 1.",
+                "special-attack2-title" : "<u>Attaque Spéciale : Les renforts sont arrivés (délai : 4)</u>",
+                "special-attack2" : "Inflige des dégâts physiques à une cible ennemie. Dissipe tous les affaiblissement en cours sur les alliés Mandaloriens du Coté Lumineux, les invoques tous deux fois, infligeant 50% de dégâts en moins et ils obtiennent tous 3 cumuls de <u class='speciale'>Détermination ancestrale</u> (100 maximum) jusqu'à la fin de l'affrontement (ne peut pas être copié, dissipé ou empêché). \n\n<u class='speciale'>Détermination ancestrale:</u>+2% de défense et +1% de santé maximale. A chaque fois que ce personnage inflige des dégats réels, inflige des dégats réels supplémentaires en fonction du nombre de cumuls (ne peut pas être esquivé).\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes Arènes :</u>\nLes alliés Mandaloriens du Coté Lumineux obtiennent 2 cumuls supplémentaires de Détermination ancestrale. Si un autre allié Mandalorien du Coté Lumineux n'a pas pu être invoqué, il obtient un tour bonus à la place",
+                "unique-ability-title1": "<u>Capacité de Chef : La voie de Mandalore</u>",
+                "unique-ability1" : "Les alliés Mandaloriens du Coté Lumineux obtiennent 40% de défense, de santé maximale et d'attaque. Les alliés Mandaloriens du Coté Lumineux reçoivent 5% de défense (cumulatif, 30% maximum) pour chaque affaiblissement les affectant. Lorsqu'un allié Mandaloriens du Coté Lumineux inflige des dégâts réels, dissipe un affaiblissement ou résiste à un affaiblissementn tous les alliés Mandaloriens du Coté Lumineux obtiennent un cumul de Détermination ancestale (100 maximum) jusqu'à la fin de l'affrontement (ne peut pas être copié, dissipé ou empêché). Lorsqu'un allié attaque un ennemi qui souffre de Destruction d'armure, tous les tanks Mandaloriens alliés du Coté Lumineux utilisent raillerie pendant 1 tour (2 fois maximum par tour).\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes Arènes :</u>\nLes alliés Mandaloriens du Coté Lumineux obtiennent 50% de maitrise, de santé maximale et 30 de vitesse. Au début de chaque affrontement, les tanks Mandaloriens du Coté Lumineux utilisent Raillerie pendant 2 tours. S'il y a d'autres ennemis actifs (à l'exception des invocations), le premier Mandalorien allié du Coté Lumineux qui est vaincu à chaque bataille est ranimé et récupère 50% de santé et de protection. Tous les alliés Mandaloriens du Coté Lumineux obtiennent 1 cumul supplémentaire de Détermination Ancestrale lorsqu'un allié Mandalorien du Coté Lumineux inflige des dégâts réels, dissipe un affaiblissement ou résiste à un affaiblissement.",
+                "unique-ability-title1" : "<u>Capacité Unique : Pour Mandalore !</u>",
+                "unique-ability1" : "Bo-Katan (Mand'alor) obtient un bonus de ténacité pendant 1 tour au début de chaque affrontement (ne peut pas être dissipé ou empêché).\n\nBo-Katan (Mand'alor) reçoit +10 de vitesse (cumulatif) pour chaque allié Mandalorien du Coté Lumineux subissant Étourdissement et les dégâts réels infligés par Bo-Katan (Mand'alor) grâce à Détermination Ancestrale sont triplés. Ces dégâts sont ensuite doublés contre les ennemis disposant d'un bonus de protection.\n\nSi tous les alliés étaient des Mandaloriens du Coté Lumineux mandaloriens : Bo-Katan (Mand'alor) subit des dégâts réduits des effets de dégâts de pourcentage de santé et récupère 50% de santé lorsqu'un allié est vaincu la première fois (à l'exception des alliés invoqués). Elle gagne 50% de défense (cumulatif, 200% maximum) pour chaque affaiblissement qu'elle subit et 200% de défense supplémentaire (cumulatif) pour chaque autre allié Mandalorien du Coté Lumineux qui n'a pas encore été vaincu.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes Arènes :</u>\nBo-Katan (Mand'alor) est immunisée contre Confusion. Si tous les alliés étaient des Mandaloriens du Coté Lumineux au début de la bataille : Bo-Katan (Mand'alor) ignore les effets de Raillerie et lorsqu'un allié est vaincu pour la première fois, elle obtient 20% de sa santé maximale et de son attaque (cumulatif) jusqu'à la fin de la bataille."
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                localStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = localStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = localStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+
     </footer>
-</body>
-</html>    
