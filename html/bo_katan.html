@@ -1,118 +1,195 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Bo-Katan Kryze</title>
-
+    <title id="big-title">Bo-Katan Kryze</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/bo-katan/bo-katan-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/bo-katan/bo-katan-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Bo-Katan Kryze</u></h1>
-        <p>
-            Une cheffe Mandalorienne qui unit ses alliés mandaloriens pour les invoquer.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: blue;" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/Mandalorien.html">Mandalorien</a>
-            <a class="capacite" href="../classement-perso/vaurien.html">Vaurien</a>
-        </nav>
+            <h1 id="title"><u>Bo-Katan Kryze</u></h1>
+            <p id="description">
+                A Mandalorian leader that unites fellow Mandalorians and rallies them to assist.
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/mandalorien.html" id="mandalorian">Mandalorian</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/bo-katan/bo-katan-kryze.png" alt="Bo-katan Kryze"><br>
+    <img class="first" src="../image-perso/bo-katan/bo-katan-kryze.png" alt="Bo-Katan"><br>
 
-    <h2 class="titre"><u>attaque basique : Experte en visée</u></h2>
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Practiced Aim</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="bo-katan basique" src="../image-perso/bo-katan/bo-basique.png">
+            <img class="attaque" alt="bo basique" src="../image-perso/bo-katan/bo-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie. Si c'est le tour de Bo-Katan, Inflige Vulnérabilité<br>
-                pendant 1 tour. Sinon inflige 50% de dégâts supplémentaires
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. If it's Bo-Katan's turn, inflict Vulnerable for 1 turn. Otherwise, deal 50% more damage.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Frappe paralysante (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Crippling Strike (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="bo-katan spé" src="../image-perso/bo-katan/bo-sp.png">
+            <img class="attaque" alt="Bo-Katan spé" src="../image-perso/bo-katan/bo-spe.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe toutes les améliorations en cours sur tous les ennemis, puis les<br>
-                rends confus pendant 2 tours et leur  inflige des dégâts physiques.
+            <p class="attaque" id="special-attack1">
+                Dispel all buffs on all enemies. Then, Daze them for 2 turns and deal Physical damage to them.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Capacité de chef: Unir les clans </u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Unite the Clans</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="bo-katan lead" src="../image-perso/bo-katan/bo-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Chaque fois qu'un allié mandaloriens utilise une capacité de base pendant son tour, il  invoque<br>
-                un  autre allié mandalorien aléatoire, qui inflige 20% de dégâts en moins (limité à une fois par tour).<br>
-                <br>
-                Lorsqu'un Mandalorien attaque en dehors de son tour, il obtient 25% de dégâts critiques (5 cumuls maximum)<br>
-                jusqu'à la fin de son  prochain tour. Au début de l'affrontement, les alliés mandaloriens obtiennet la capacité <u class="speciale">Armure Ancestrale</u>.<br>
-                <br>
+            <p class="attaque" id="lead-ability">
+                Whenever a Mandalorian ally uses a Basic ability during their turn, they call another random Mandalorian ally to assist, dealing 20% less damage (limit once per turn).
+                <br><br>
+                Whenever a Mandalorian ally attacks out of turn, they gain 25% Critical Damage (max 5 stacks) until the end of their next turn. At the start of encounter, all Mandalorian allies gain the granted ability Ancestral Armor.
+                <br><br>
+                <u class="speciale">Ancestral Armor:</u> Dispel all debuffs on this character. Then, gain Defense Up, Taunt, and Tenacity Up for 2 turns.
             </p>
         </div>
     </div>
 
-    <h2 class="invocation">Armure Ancestrale</h2>
+    <h2 class="invocation" id="invocation-title"><u>According Ability : Ancestral Armor (cooldown : 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="bo-katan accorde" src="../image-perso/bo-katan/bo-katan-accorde.png">
+            <img class="attaque" alt="" src="../image-perso/bo-katan/bo-katan-accorde.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe tous les affaiblissements sur ce personnage. Ensuite, confère un<br>
-                bonus de défense, un bonus de ténacité et la Raillerie pendant 2 tours (délai : 4).
-            </p>
-        </div>
-    </div>  
-
-
-    <h2 class="titre"><u>capacité unique: L'union fais la force</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="bo-unique" src="../image-perso/bo-katan/bo-unique.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Au début de la bataille, les alliés mandaloriens obtiennent 20% de protection maximale pour chaque<br>
-                allié Mandalorien jusqu'à ce que Bo-katan soit vaincue pour la première fois.<br>
-                <br>
-                Lorsqu'un allié Mandalorien attaque en dehors de son tour, les alliés Mandaloriens récupèrent 8% de santé et de protection.
+            <p class="attaque" id="invocation">
+                Dispel all debuffs, gain Defense Up, Taunt, and Tenacity Up for 2 turn.
             </p>
         </div>
     </div>
 
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Stronger Together</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Bo-katan unique" src="../image-perso/bo-katan/bo-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                At the start of battle, Mandalorian allies gain 20% Max Protection for each Mandalorian ally until the first time Bo-Katan is defeated.
+                <br><br>
+                Whenever a Mandalorian ally attacks out of turn, Mandalorian allies recover 8% Health and Protection.   
+            </p>
+        </div>
+    </div>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-    
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Bo-Katan Kryze",
+                "title": "<u>Bo-Katan Kryze</u>",
+                "description": "Une Cheffe Mandalorienne qui unit ses alliés Mandaloriens pour les invoquer",
+                "lightside" : "Coté Lumineux",
+                "attacker" : "Attaquant",
+                "leader" : "Chef",
+                "mandalorian" : "Mandalorien",
+                "scoundrel" : "Vaurien",
+                "basic-attack-title" : "<u>Experte en visée</u>",
+                "basic-attack" : "Inflige des dégâts physiques à une cible ennemie. Si c'est le tour de Bo-Katan, inflige Vulnérabilité pendant 1 tour. Sinon, inflige 50% de dégâts supplementaires",
+                "special-attack1-title" : "<u>Attaque Spéciale : Frappe paralysante (délai : 4)</u>",
+                "special-attack1" : "Dissipe toutes les améliorations en cours sur tous les ennemis, puis les rends confus pendant 2 tours et leur inflige des dégâts physiques.",
+                "lead-ability-title" : "<u>Capacité de chef: Unir les Clans</u>",
+                "lead-ability" : "Chaque fois qu'un allié Mandalorien utilise une capacité de base pendant son tour, il invoque un autre allié Mandalorien aléatoire, qui inflige 20% de dégâts en moins (limité à une fois par tour).\n\nLorsqu'un allié Mandalorien attaque en dehors de son tour, il obtient 25% de dégâts critiques (5 cumuls maximum) jusqu'à la fin de son prochain tour. Au début de l'affrontement, tous les alliés Mandaloriens obtiennent la capacité <u class='speciale'>Armure Ancestrale</u>",
+                "invocation-title" : "<u>Capacité accordée : Armure Ancestrale  (délai :4)</u>", 
+                "invocation" : "Dissipe tous les affaiblissements sur ce personnage. Ensuite, confère un bonus de défense, un bonus de ténacité et la Raillerie pendant 2 tours.",
+                "unique-ability-title" : "<u>Capacité unique : L'union fait la force</u>",
+                "unique-ability" : "Au début de la bataille, les alliés Mandaloriens obtiennent 20% de protection maximale pour chaque allié Mandalorien jusqu'à la ce que Bo-Katan soit vaincue pour la première fois.\n\nLorsqu'un allié Mandalorien attaque en dehors de son tour, les alliés Mandaloriens récupèrent 8% de santé et de protection."
+            };  
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                localStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = localStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = localStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+
     </footer>
-    
-    
 </body>
-</html> 
+
+</html>
