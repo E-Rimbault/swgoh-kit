@@ -57,13 +57,13 @@
 
         // 🔹 Au chargement de la page
         window.onload = function () {
-            const savedLang = localStorage.getItem("selectedLanguage") || "en";
+            const savedLang = sessionStorage.getItem("selectedLanguage") || "en";
             switchLanguage(savedLang);
         };
 
         // 🔹 Fonction de changement de langue
         function switchLanguage(lang) {
-            localStorage.setItem("selectedLanguage", lang); // Sauvegarde
+            sessionStorage.setItem("selectedLanguage", lang); // ✅ Utilisation de sessionStorage
             const elements = document.querySelectorAll('[id]');
             elements.forEach(function (element) {
                 const key = element.id;
