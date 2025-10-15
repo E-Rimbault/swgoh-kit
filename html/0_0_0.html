@@ -157,7 +157,7 @@
             }
 
             function switchLanguage(lang) {
-                localStorage.setItem("selectedLanguage", lang);
+                sessionStorage.setItem("selectedLanguage", lang);
 
                 if (lang === "fr") {
                     for (const [id, text] of Object.entries(translations.fr)) {
@@ -181,7 +181,7 @@
 
             window.addEventListener("load", () => {
                 saveOriginalTexts();
-                const savedLang = localStorage.getItem("selectedLanguage") || "en";
+                const savedLang = sessionStorage.getItem("selectedLanguage") || "en";
                 switchLanguage(savedLang);
 
                 document.getElementById("lang-fr").addEventListener("click", () => switchLanguage("fr"));

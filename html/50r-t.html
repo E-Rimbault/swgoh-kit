@@ -146,7 +146,7 @@
             }
 
             function switchLanguageTo(lang) {
-                localStorage.setItem("selectedLanguage", lang);
+                sessionStorage.setItem("selectedLanguage", lang);
 
                 if (lang === "fr") {
                     for (const [id, text] of Object.entries(translationsFr)) {
@@ -163,14 +163,14 @@
             }
 
             function updateFlagActive() {
-                const lang = localStorage.getItem("selectedLanguage") || "en";
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
                 document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
                 document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
             }
 
             window.addEventListener("load", () => {
                 saveOriginalTexts();
-                const lang = localStorage.getItem("selectedLanguage") || "en";
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
                 switchLanguageTo(lang);
 
                 document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));

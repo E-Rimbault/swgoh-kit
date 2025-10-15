@@ -180,7 +180,7 @@
     };
 
     function switchLanguage(lang) {
-      localStorage.setItem("selectedLanguage", lang);
+      sessionStorage.setItem("selectedLanguage", lang);
       currentLang = lang;
       for (const [id, text] of Object.entries(translations[lang])) {
         const el = document.getElementById(id);
@@ -299,7 +299,7 @@
 
     // 🩵 Langue par défaut au chargement
     window.addEventListener("load", () => {
-      const savedLang = localStorage.getItem("selectedLanguage") || "en";
+      const savedLang = sessionStorage.getItem("selectedLanguage") || "en";
       switchLanguage(savedLang);
     });
   </script>
