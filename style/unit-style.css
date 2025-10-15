@@ -183,9 +183,23 @@ u.speciale {
 
 u.omicron {
     font-weight: bold;
-    color: #22b422;
+    color: grey;
     text-decoration: none;
 }
+
+u.omicron a.omicron-link {
+    color: #22b422;             /* vert omicron */
+    text-decoration: underline; /* soulignement permanent */
+    font-weight: inherit;       /* garde le gras du parent */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+u.omicron a.omicron-link:hover {
+    color: #28d828;             /* vert un peu plus clair au survol */
+    transform: scale(1.05);     /* léger zoom pour retour visuel */
+}
+
+
 
 u.prime {
     font-weight: bold;

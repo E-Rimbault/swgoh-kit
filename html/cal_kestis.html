@@ -1,134 +1,184 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Cal Kestis</title>
-
+    <title id="big-title"></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/cal-kestis/cal-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/cal-kestis/cal-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Cal Kestis</u></h1>
-        <p>
-            Un utilisateur de la Force déterminé qui use des capacités uniques<br>
-            pour soutenir ses alliés et controler le déroulement du combat.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: blue;" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/soutien.html">Soutien</a>
-            <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html">Utilisateur de la Force non aligné</a>
-        </nav>
+            <h1 id="title"><u>Cal Kestis</u></h1>
+            <p id="description">
+                A determined Force user who uses his unique abilities to support his allies and manipulate the flow of battle
+            </p>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Force User</a>
+            </nav>
+        </div>
     </header>
-    <br>
 
-    <img class="first" src="../image-perso/cal-kestis/Cal-kestis.png" alt="Cal Kestis"><br>
+    <img class="first" src="../image-perso/cal-kestis/Cal-kestis.png" alt="cal kestis"><br>
 
-    <h2 class="titre"><u>attaque basique : Frappe haute</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Overhead Slash</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="cal basique" src="../image-perso/cal-kestis/cal-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie et un malus de défense et un malus de vitesse pendant 1 tour.<br>
-                Lorsque la santé de Cal atteint certains seuils, cette capacité obtient différents avantages:<br>
-                <br>
-                <u class="speciale">-Lorsque sa santé est à 75% ou moins:</u> <br>
-                il obtient un bonus de vol de santé pendant 1 tour.<br>
-                <br>
-                <u class="speciale">-Lorsque sa santé est à 60% ou moins:</u><br>
-                il attaque a nouveau et inflige un malus de chances de coup critique pendant 1 tour.<br>
-                <br>
-                <u class="speciale">-Lorsque sa santé est à 40% ou moins:</u> <br>
-                il attaque une troisème fois et inflige Confusion pendant 1 tour.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Defense Down and Speed Down for 1 turn. While Cal is at certain Health thresholds, this ability gains different benefits:
+                <br><br>
+                <u class="speciale">- While at or below 75% Health:</u> Gain Health Steal Up for 1 turn<br>
+                <u class="speciale">- While at or below 60% Health:</u> Attack again and inflict Critical Chance Down for 1 turn<br>
+                <u class="speciale">- While at or below 40% Health:</u> Attack a third time and inflict Daze for 1 turn
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Aide-moi, BD-1 (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Help Me, BD-1 (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="cal spé 1" src="../image-perso/cal-kestis/cal-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe tous les affaiblissements sur la cible alliée, qui récupèrent 45% de santé. Si la cible alliée dispose<br>
-                de toute sa santé, elle recupère 30% de protection à la place. Si la cible allié dispose de toute sa santé<br>
-                et de toute sa protection, elle obtient l'immunité aux coups critiques pendant 2 tours à la place. Si la cible<br>
-                est du Coté Lumineux, elle obtient un bonus de précision pendant 2 tours.
+            <p class="attaque" id="special-attack1">
+                Dispel all debuffs on target ally and they recover 45% Health. If the target ally is full Health, they recover 30% Protection instead. If the target ally is full Health and full Protection, grant them Critical Hit Immunity for 2 turns instead. If the target ally is Light Side, they gain Accuracy Up for 2 turns.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Pas si vite (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Not So Fast (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="cal spé 2" src="../image-perso/cal-kestis/cal-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige un malus d'esquive, un malus de vitesse et un malus de ténacité pendant 2 tours et tous les alliés<br>
-                obtiennent un bonus de dégâts critiques et un bonus de vitesse pendant 2 tours. Tous les alliés Utilisateurs<br>
-                de la Force non alignés voient leur jauge de tour augmenter de 3% pour chaque affaiblissements résistés par les<br>
-                ennemis. Si un ennemi subissait déjà un malus de vitesse, il est étourdi pendant 1 tour.
+            <p class="attaque" id="special-attack2">
+                Inflict Evasion Down, Speed Down, and Tenacity Down on all enemies for 2 turns and all allies gain Critical Damage Up and Speed Up for 2 turns. All Unaligned Force User allies gain 3% Turn Meter for each debuff resisted by enemies. If an enemy already had Speed Down, they are Stunned for 1 turn.
             </p>
-        
         </div>
     </div>
 
-    <h2 class="titre"><u>capacité unique: Je suis persistant</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : I'm Persistent</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="cal unique" src="../image-perso/cal-kestis/cal-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Au debut de la bataille , tous les alliés Utilisateur de la Force non alignés obtiennent 30% de santé maximale<br>
-                et 30% de ténacité. Lorsqu'un allié subit un coup critique, Val et lui recupèrent 5% de santé et de protection.<br>
-                Si l'allié est aussi un Utilisateur de la Force non aligné du Coté Lumineux ou Obscur, Cal et lui obtiennent<br>
-                un bonus de protection (10%, cumulatif, 50% maxium) pendant 2 tours.<br>
-                <br>
-                Pour chaque capacité spéciale utilisée par un autre personnage, Cal obtient un cumul de <u class="speciale">Persistance</u><br>
-                (ne peut pas être copié, dissipé ou évité). Si un adversaire joue en prmier lors d'un affrontement,<br>
-                Cal obtient 15 cumuls de Persistance.<br>
-                <br>
-                <u class="speciale">Persistance:</u> Au début de son tour, Cal effectue les actioons suivantes en fonction<br>
-                du nombre de cumuls de Persistance dont il dispose:<br>
-                <br>
-                <u class="speciale">-10+ cumuls:</u> Lui et tous les Utilisateurs de la Force non alignés obtiennent Prévoyance pendant 2 tours.
-                <br>
-                <br>
-                <u class="speciale">-20+ cumuls:</u> Lui et tous les Utilisateurs de la Force non alignés obtiennent un bonus<br>
-                de défense et un bonus de protection (30%) pendant 2 tours.<br>
-                <br>
-                <u class="speciale">-30 cumuls:</u> Il inflige entrave des capacités et immunité aux améliorations à tous<br>
-                les ennemis pendant 2 tours (ne peut pas être esquivé ou résisté), et tous les alliés obtiennent 50% de jauge<br>
-                de tour. Cet effet est doublé pour les Utilisateurs de la Force du Coté Lumineux. Les cumuls de Persistance sont réinitialisés.<br>
-                <br>
-                <u class="omicron">Dans les geurres de territoire, si une alliée Ahsoka Tano (fulcrum) dispose d'un Omicron améliore:</u><br>
-                <br>
-                Les effets omicrons solo d'Ahsoka ne sont plus désactivés lorsqu'elle a des alliés. Cet effet persite en cas de défaite. 
+            <p class="attaque" id="unique-ability">
+                At the start of battle, all Unaligned Force User allies gain 30% Max Health and 30% Tenacity. Whenever an ally is critically hit they and Cal recover 5% Health and Protection. If the ally is also a Light or Dark Side Unaligned Force User they and Cal gain Protection Up (10%, stacking, max 50%) for 2 turns.
+                <br><br>
+                For each Special ability used by each other character, Cal gains a stack of Persistence, which can't be copied, dispelled, or prevented. If an opponent takes the first turn in an encounter, Cal gains 15 stacks of Persistence.
+                <br><br>
+                <u class="speciale">Persistence:</u> At the start of his turn, Cal does the following based on the number of stacks of Persistence that he has:
+                <br><br>
+                <u class="speciale">- 10+ stacks:</u> He and all Unaligned Force User allies gain Foresight for 2 turns<br>
+                <u class="speciale">- 20+ stacks:</u> He and all Unaligned Force User allies gain Defense Up and Protection Up (30%) for 2 turns<br>
+                <u class="speciale">- 30 stacks:</u> He inflicts Ability Block and Buff Immunity on all enemies for 2 turns, which can't be evaded or resisted, and all allies gain 50% Turn Meter, this effect is doubled for Light Side Unaligned Force Users; stacks of Persistence are reset
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars and if there is an ally <a href="https://e-rimbault.github.io/swgoh-kit/html/fulcrum.html" class="omicron-link">Ahsoka Tano (Fulcrum)</a> with an upgraded Omicron:</u> Ahsoka's solo Omicron effects are no longer disabled when she has allies; this effect persists through defeat.
             </p>
         </div>
     </div>
 
-
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-    
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Cal Kestis",
+                "title": "<u>Cal Kestis</u>",
+                "description": "Un utilisateur de la Force déterminé qui use de capacités uniques pour soutenir ses alliés et contrôler le déroulement du combat.",
+                "lightside" : "Coté Lumineux",
+                "support" : "Soutien",
+                "force-user" : "Utilisateur de la Force non aligné",
+                "basic-attack-title": "<u>Attaque Basique: Frappe haute</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et un malus de défense et un malus de vitesse pendant 1 tour. Lorsque la  santé de Cal atteint certains seuils, cette capacité obtient différents avantages : \n\n<u class='speciale'>-Lorsque la santé est à 75% ou moins :</u> il obtient un bonus de vol de santé pendant 1 tour.\n<u class='speciale'>-Lorsque sa santé est à 60% ou moins :</u> il attaque à nouveau et inflige un malus de chances de coup critique pendant 1 tour.\n<u class='speciale'>-Lorsque sa santé est à 40% ou moins :</u> il attaque une troisième fois et inflige Confusion pendant 1 tour",
+                "special-attack1-title": "<u>Attaque Spéciale : Aide-moi, BD-1 (Délai : 3)</u>",
+                "special-attack1": "Dissipe tous les affaiblissements sur la cible allié, qui récupèrent 45% de santé. Si la cible allié dispose de toute sa santé, elle récupère 30% de protection à la place. Si la cible alliée dispose de toute sa santé et de toute sa protection, elle obtient l'immunité aux coups critiques pendant 2 tours à la place. Si la cible alliée est du Coté Lumineux, elle obtient un bonus de précision pendant 2 tours.",
+                "special-attack2-title": "<u>Attaque Spéciale : Pas si vite (Délai : 3)</u>",
+                "special-attack2": "Inflige un malus d'esquive, un malus de vitesse et un malus de ténacité à tous les ennemis pendant 2 tours et tous les alliés obtiennent un bonus de vitesse pendant 2 tours. Tous les alliés utilisateur de la Force non alignés voient leur jauge de tour augmenter de 3% pour chaque affaiblissement résisté par les ennemis. Si un ennemi subissait déjà un malus de vitesse, il est étourdi pendant 1 tour.",
+                "unique-ability-title": "<u>Capacité Unique : Je suis Persistant</u>",
+                "unique-ability": "Au début de la bataille, tous les alliés utilisateurs de la Force non alignés obtiennent 30% de santé maximale et 30% de ténacité. Lorsqu'un allié subit un coup critique, Cal et lui récupèrent 5% de santé et de protection. Si l'allié est aussi un utilisateur de la Force non aligné du Coté Lumineux ou Obscur, Cal et lui obtiennent un bonus de protection (10%, cumulatif, 50% maximum) pendant 2 tours.\n\nPour chaque capacité spéciale utilisée par un autre personnage, Cal obtient un cumul de <u class='speciale'>Persistance</u> (ne peut pas être copié, dissipé ou évité). Si un adversaire joue en premier lors d'un affrontement, Cal obtient 15 cumuls de Persistance.\n\n<u class='speciale'>Persistance :</u> Au début de son tour, Cal effectue les actions suivantes en fonction du nombre de cumul de Persistance dont il dispose :\n\n<u class='speciale'>-10+ cumuls :</u> Lui et tous les utilisateurs de la Force non alignés obtiennent Prévoyance pendant 2 tours.\n<u class='speciale'>- 20+ cumuls :</u> Lui et tous les utilisateurs de la Force non alignés obtiennent un bonus de défense et un bonus de protection (30%) pendant 2 tours.\n<u class='speciale'>- 30 cumuls :</u> Il inflige Entrave des capacité et Immunités aux améliorations à tous les ennemis pendant 2 tours (ne peut pas être esquivé ou résisté),et tous les alliés obtiennent 50% de jauge de tour. Cet effet est doublé pour les utilisateurs de la Force non alignés du Coté Lumineux. Les cumuls de Persistance sont réinitialisés.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de Territoire, si une allié <a href='https://e-rimbault.github.io/swgoh-kit/html/fulcrum.html' class='omicron-link'>Ahsoka Tano (Fulcrum)</a> dispose d'un Omicron amélioré :</u> Les effets omicron solos d'Ahsoka ne sont plus désactivés lorsqu'elle a des alliés. Cet effet persiste en cas de défaite.",                
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+
     </footer>
-    
-    
 </body>
-</html>    
+
+</html>
