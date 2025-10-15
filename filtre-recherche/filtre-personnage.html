@@ -108,7 +108,7 @@
 
     let characters = [];
     let customTags = [];
-    let currentLang = localStorage.getItem("selectedLanguage") || "en";
+    let currentLang = sessionStorage.getItem("selectedLanguage") || "en";
 
     const factionPriority = {
       "galactic legend": 1,
@@ -168,7 +168,7 @@
     // 🌐 Langue toggle
     document.getElementById("lang-en").addEventListener("click", () => {
       currentLang = "en";
-      localStorage.setItem("selectedLanguage", "en");
+      sessionStorage.setItem("selectedLanguage", "en");
       updateStaticText();
       document.getElementById("lang-en").classList.add("active");
       document.getElementById("lang-fr").classList.remove("active");
@@ -179,7 +179,7 @@
 
     document.getElementById("lang-fr").addEventListener("click", () => {
       currentLang = "fr";
-      localStorage.setItem("selectedLanguage", "fr");
+      sessionStorage.setItem("selectedLanguage", "fr");
       updateStaticText();
       document.getElementById("lang-fr").classList.add("active");
       document.getElementById("lang-en").classList.remove("active");
