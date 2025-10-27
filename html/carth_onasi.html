@@ -1,114 +1,175 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
-    <title>Carth Onasi</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Carth Onasi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/carth_onasi/carth-image.png">
-
-    <!-- Lien vers la feuille de style -->
-     <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/carth_onasi/carth-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>Carth Onasi</u></h1>
-        <p> 
-            Soldat de l'Ancienne République qui est très doué pour éliminer des vagues d'ennemis.
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a style="color: blue;" class="capacite" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/ancienne-république.html">Ancienne République</a>
-            <a class="pilote" href="../classement-perso/membres-équipages.html">Membres Équipages</a>
-        </nav>
+            <h1 id="title"><u>Carth Onasi</u></h1>
+            <p id="description">
+                Old Republic soldier that excels at clearing waves of enemies
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/ancienne-république.html" id="old-republic">Old Republic</a>
+            </nav>
+        </div>
     </header>
     <br>
-        <!-- Image principale du personnage -->
-        <img class="first" src="../image-perso/carth_onasi/Carth.png" alt="carth oansi"><br>
 
-        <!-- Section pour les différentes attaques spéciales -->
-        <h2 class="titre"><u>attaque basique : Tir fulgurant</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="carth basique" src="../image-perso/carth_onasi/carth-basique.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Inflige des dégâts physiques à une cile ennemie, ainsi qu'un effet de dégâts sur la durée pendant 2 tours.<br>
-                    Cette attaque inflige 10% de dégâts supplémentaires pour chaque effet de dégâts sur la durée en cours sur cet ennemi.
-                </p>
-            </div>
-        </div>
-    
-        <h2 class="titre"><u>1ere spéciale: Tirs continus (délai: 4)</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="carth spé" src="../image-perso/carth_onasi/carth-spe.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Inflige des dégâts physiques à tous les ennemis et confère un bonus d'attaque pendant 2 tours.<br>
-                    Pour chaque coup critique infligé par cette attaque, la jauge de tour de Carth se remplit de 15%.
-                </p>
-            </div>
-        </div>
+    <img class="first" src="../image-perso/carth_onasi/Carth.png" alt="Carth image"><br>
 
-            <!-- Capacités spéciales du personnage -->
-    <h2 class="titre"><u>Capacité de chef: Soldat de l'Ancienne République</u></h2>
+    <!-- Capacités -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Rapid Shot</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="carth basique" src="../image-perso/carth_onasi/carth-basique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict a Damage Over Time effect for 2 turns. This attack deals 10% more damage for each Damage Over Time effect on that enemy.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Just Keep Shooting (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="carth spe 1" src="../image-perso/carth_onasi/carth-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies and gain Offense Up for 2 turns. For each Critical Hit this attack scores, Carth gains 15% Turn Meter.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Soldier of the Old Republic</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="carth lead" src="../image-perso/carth_onasi/carth-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Les alliés de l'Ancienne République obtiennent 30% de pouvoir, de ténacité et d'esquive des critiques. Lorsqu'un ennemi souffre<br>
-                d'un effet de dégâts sur la durée, tous les alliés de l'Ancienne République récupèrent 3% de santé et de protection.<br>
-                <br>
-                Lorsqu'un allié de l'Ancienne République utilise sa capacité de base pendant son tour, il a 80% de chances d'invoquer un autre allié<br>
-                de l'Ancienne République, qui inflige 50% de dégâts en moins (limité à une fois par tour).<br>
-                <br>
-                <u class="omicron">Dans les batailles de territoires :</u><br>
-                <br>
-                Les alliés de l'Ancienne République ont +20% de chances de contre-attaque, de défense et de santé maximale pour chaque allié de l'Ancienne<br>
-                République présent. Lorsqu'un allié de l'Ancienne République utilise une capacité spéciale, il inflige 4 effets de dégâts sur la durée<br>
-                à la cible ennemie (ne peut pas être esquivé), puis Carth est invoqué. Lorsqu'un allié de l'Ancienne République attaque en dehors de son<br>
-                tour, il récupère 5% de santé et de protection et obtient 25% d'attaque (cumulatif) jusqu'à la fin de l'affrontement.
+            <p class="attaque" id="lead-ability">
+                Old Republic allies gain 30% Potency, Tenacity and Critical Avoidance. Whenever an enemy is inflicted with a Damage Over Time effect, all Old Republic allies recover 3% Health and Protection.
+                <br><br>
+                When an Old Republic ally uses their Basic ability during their turn, they have an 80% chance to call another Old Republic ally to assist, dealing 50% less damage (limit once per turn).
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Battles:</u> Old Republic allies have +20% counter chance, Defense, and Max Health for each Old Republic ally. Whenever an Old Republic ally uses a Special ability, they inflict 4 Damage Over Time effects on the target enemy, which can't be evaded, and then Carth is called to assist. Whenever an Old Republic ally attacks out of turn, they recover 5% Health and Protection and gain 25% Offense (stacking) until the end of the encounter.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>capacité unique: Entrainement de soldat</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Soldier's Training</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="carth unique" src="../image-perso/carth_onasi/carth-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Lorque Carth attaque, il obtient un bonus d'attaque de 10% pour chaque ennemi actif et chaque allié de l'Ancienne République.<br>
-                A chaque fois que Carth élimine un ennemi, il gagne 10% de chances de coup critique et de dégâts critiques (cumulable) et le<br>
-                délai de Tirs continus est réinitialisé.
+            <p class="attaque" id="unique-ability">
+                While attacking, Carth gains 10% Offense for each active enemy and Old Republic ally. Whenever Carth defeats an enemy, he gains 10% Critical Chance and Critical Damage (stacking), and the cooldown of Just Keep Shooting is reset.
             </p>
         </div>
     </div>
-    
-    <footer>
-        <!-- Bouton pour remonter en haut de la page -->
-        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
 
-        <!-- Script JavaScript pour le bouton -->
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Carth Onasi",
+                "title": "<u>Carth Onasi</u>",
+                "description": "Soldat de l'Ancienne République qui est très doué pour éliminer des vagues d'ennemis",
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "old-republic": "Ancienne République",
+                "basic-attack-title": "<u>Attaque Basique: Tir fulgurant</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie, ainsi qu'un effet de dégâts sur la durée pendant 2 tours. Cette attaque inflige 10% de dégâts supplémentaires pour chaque effet de dégâts sur la duréeen cours sur cet ennemi.",
+                "special-attack1-title": "<u>Attaque Spéciale : Tirs en continus (délai: 4)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis et confère un bonus d'attaque pendant 2 tours. Pour chaque coup critique infligé par cette attaque, la jauge de tour de Carth se remplit de 15%.",
+                "lead-ability-title": "<u>Capacité de Chef: Soldat de l'Ancienne République</u>",
+                "lead-ability": "Les alliés de l'Ancienne République obtiennent 30% de pouvoir, de ténacité et d'esquive des critiques. Lorsqu'un ennemi souffre d'un effet de dégât sur la durée, tous les alliés de l'Ancienne République récupèrent 3% de santé et de protection.\n\nLorsqu'un allié de l'Ancienne République utilise sa capacité de base pendant son tour, il a 80% de chances d'invoquer un autre allié de l'Ancienne République qui inflige 50% de dégâts en moins (limité à une fois par tour).\n\n<u class='omicron'>Amélioration Omicron : Dans les Batailles de territoire :</u>Les alliés de l'Ancienne République ont +20% de chances de contre-attaque, de défense et de santé maximale pour chaque allié de l'Ancienne République présent. Lorsqu'un allié de l'Ancienne République utilise une capacité spéciale, il inflige 4 effets de dégâts sur la durée à la cible ennemie (ne peut pas être esquivé), puis Carth est invoqué. Lorsqu'un allié de l'Ancienne République attaque en dehors de son tour, il récupère 5% de santé et obtient 25% d'attaque (cumulatif) jusqu'à la fin de l'affrontement.",
+                "unique-ability-title": "<u>Capacité Unique : Entraînement de soldat</u>",
+                "unique-ability": "Lorsque Carth attaque, il obtient un bonus d'attaque de 10% pour chaque ennemi actif et chaque allié de l'Ancienne République. A chaque fois que Carth élimine un ennemi, il gagne 10% de chances de coup critique et de dégâts critiques (cumulable), et le délai de Tirs continus est réinitialisé."
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+
     </footer>
 </body>
-</html>   
