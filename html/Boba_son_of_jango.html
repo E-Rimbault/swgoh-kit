@@ -1,229 +1,252 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Boba Fett; héritier de Jango</title>
-
+    <title id="big-title">Boba Fett, Scion of Jango</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/boba-scion-jango/boba-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/boba-scion-jango/boba-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Boba Fet, héritier de Jango</u></h1>
-        <p>
-            célèbre chasseur de prime offensif qui dispose de nombreux affaiblissements et d'une<br>
-            synergie avec les chasseurs de primes et les vauriens.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: red;" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/chasseur-de-primes.html">Chasseur de primes</a>
-            <a class="capacite" href="../classement-perso/mercenaire.html">Mercenaire</a>
-            <a class="capacite" href="../classement-perso/vaurien.html">vaurien</a>
-        </nav>
+            <h1 id="title"><u>Boba Fett, Scion of Jango</u></h1>
+            <p id="description">
+                Infamous Bounty Hunter Attacker with a variety of debuffs and synergy with both Bounty Hunters and Scoundrels
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leder">Leader</a>
+                <a class="capacite" href="../classement-perso/chasseur-de-primes.html" id="hunter">Bounty Hunter</a>
+                <a class="capacite" href="../classement-perso/mercenaire.html" id="mercenary">Mercenary</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/boba-scion-jango/boba-h-ritier.png" alt="Boba Fett"><br>
+    <img class="first" src="../image-perso/boba-scion-jango/boba-héritier.png" alt="Boba héritier"><br>
 
-    <h2 class="titre"><u>attaque basique : Action double</u></h2>
+    <!-- Capacités -->
+
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Double Action</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Boba fett basic" src="../image-perso/boba-scion-jango/basic.png">
+            <img class="attaque" alt="boba basic" src="../image-perso/boba-scion-jango/basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie deux fois. Si la cible ennemie ne dispose pas de
-                protection, cette<br>
-                capacité inflige des dégâts supplémentaires deux fois.<br>
-                <br>
-                Confère 1 cumul d'<u class="speciale">Élan</u> pendant 3 tours (ne peux pas être dissipé ou évité).<br>
-                <br>
-                <u class="speciale">Élan:</u> les capacités obtiennent des effets supplémentaires en fonction du nombres
-                de cumuls.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy twice. If target enemy has no Protection, this ability deals damage two more times.
+                <br><br>
+                Gain 1 stack of <u class="speciale">Momentum</u> for 3 turns which can't be dispelled or prevented.
+                <br><br>
+                <u class="speciale">Momentum:</u> Abilities gain additional effects based on the number of stacks
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>1ere spéciale: Double barrage</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Dual Barrage</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="boba fett spé 1" src="../image-perso/boba-scion-jango/sp-1.png">
+            <img class="attaque" alt="boba spé 1" src="../image-perso/boba-scion-jango/sp-1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à la cible ennemie et à l'ennemi le plus faible. Cette capacité dispose
-                d'effets<br>
-                supplémentaires en fonction du nombres de cumuls d'Élan dont dispose Boba Fett, héritier de Jango.<br>
-                <br>
-                -<u class="speciale">5 cumuls :</u> tous les chasseurs de primes ou vauriens alliés obtiennent un bonus
-                de ténacité pendant 2 tours.<br>
-                <br>
-                -<u class="speciale">9 cumuls: </u> tous les chasseurs de primes ou vauriens alliés obtiennent un bonus
-                de ténacité pendant 3 tours.<br>
-                <br>
-                Confère 1 cumul d'Élan pendant 3 tours, et si la cible souffre de destruction d'armure, confère un cumul
-                d'Élan supplémentaires.<br>
-                Ces gains d'Élan ne peuvent pas être copiés, dissipés ou évités.<br>
-                <br>
-                <u class="omicron">Pendant une guerre de territoire:</u> <br>
-                Cette capacité gagne un nouvel avantage en fonction du nombre de cumuls<br>
-                d'Élan dont dispose Boba Fett, héritier de Jango.<br>
-                <br>
-                -<u class="speciale">16 cumuls: </u> tous les chasseurs de primes ou vauriens alliés obtiennent un bonus
-                de ténacité pendant 3 tours et<br>
-                infligent <u class="speciale">Protection perturbée</u> pendant 2 tours. Ces effets ne peuvent pas être
-                dissipés, esquivés ou résistés.<br>
-                <br>
-                <u class="speciale">Protection perturbée:</u> la protection est désactivée. Immunité contre la hausse de
-                protection et les bonus de protection.
-            </p>
-        </div>
-    </div>
-
-    <h2 class="titre"><u>2eme spéciale: Briseur de primes</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="Boba fett spé 2" src="../image-perso/boba-scion-jango/sp-2.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à tous les ennemis, ainsi que 2 effets de dégâts sur la durée pendant 2
-                tours. Cette capacité dispose d'effets<br>
-                supplémentaires en fonction du nombre de cumuls d'Élan dont dispose Boba Fett, héritier de Jango.<br>
-                <br>
-                -<u class="speciale">3 cumuls: </u> cette capacité inflige 25% de dégâts supplémentaires.<br>
-                <br>
-                -<u class="speciale">6 cumuls: </u> cette capacité inflige 25% de dégâts supplémentaires<br>
-                ainsi qu'un malus de ténacité pendant 2 tours.<br>
-                <br>
-                -<u class="speciale">12 cumuls: </u> cette capacité inflige 30% de dégâts supplémentaires<br>
-                ainsi qu'un malus de ténacité pendant 2 tours et un malus de pouvoir pendant 2 tours.<br>
-                <br>
-                -<u class="speciale">16 cumuls: </u> cette capacité inflige 30% de dégâts supplémentaires<br>
-                ainsi qu'un malus de ténacité pendant 2 tours, un malus de pouvoir et Faille pendant 2 tours.<br>
-                <br>
-                Confère un cumul d'Élan pendant 3 tours (ne peut pas être dissipé ou évité).
-            </p>
-        </div>
-    </div>
-
-    <h2 class="titre"><u>Capacité de chef: Réputation dangereuse </u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="Boba lead" src="../image-perso/boba-scion-jango/tex-abilityui-passive-mandaloria.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Les chasseurs de primes ou vauriens alliés ont +50% d'esquives des critiques tant qu'ils disposent d'un
-                bonus de ténacité.<br>
-                Lorsqu'ils sont affaiblis, les chasseurs de primes ou vauriens alliés obtiennent 40% de dégâts
-                critiques<br>
-                <br>
-                Lorsque Boba Fett, héritier de Jango est dans l'emplacement de chef (et non dans l'emplacement d'allié)
-                le contrat suivant est actif:<br>
-                <br>
-                <u class="speciale">Contrat: </u> lorsque vous disposez d'améliorations, infligez des dégâts à un ennemi
-                souffrant d'affaiblissements<br>
-                20 fois. Les ennemis doivent être affaiblis avant le début de l'attaque pour compter dans la progression
-                (seuls les chasseurs de primes<br>
-                ou les vauriens alliés peuvent participer au contrat.)<br>
-                <br>
-                <u class="speciale">Récompense: </u> La prime de tous les chasseurs de primes alliés est activée, et
-                tous les chasseurs de primes ou vaurien<br>
-                alliés obtiennent 25% d'attaque et de vol de santé et ils ignorent la raillerie.<br>
-                <br>
-                <u class="omicron">Pendant une guerre de territoire: </u><br>
-                <br>
-                Les chasseurs de primes ou les vauriens alliés ont +30 de vitesse, +50% de maitrise, +30% de pouvoir, de
-                santé maximale et de protection<br>
-                maximale, et ils subissent 18% de dégâts en mois.<br>
-                <br>
-                Boba Fett, héritier de Jango obtient 60 de vitesse en plus, ainsi que 100% de santé maximale et de
-                protection maximale.<br>
-                Les conditionss et récompenses du contrat sont ajustées comme suit:<br>
-                <br>
-                <u class="speciale">Contrat: </u> Lorsque vous disposez d'amélioration, infligez des dégâts à un ennemi
-                souffrand d'affaiblissements 10<br>
-                fois. Les ennemis doivent être affaiblis avant le début de l'attaque pour compter dans la progression.
-                (seuls les chasseurs<br>
-                de primes ou les vauriens oeuvent participer aucontrat).<br>
-                <br>
-                <u class="speciale">Récompense: </u> La prime de tous les chasseurs de primes alliés est activée, et
-                tous les chasseurs de primes ou vauriens alliés<br>
-                obtiennent 25% d'attaque et de vol de santé, ils ignorent la raillerie et chaque fois qu'ils infligent
-                des dégâts avec une capacité,<br>
-                ils infligent des dégâts réels supplémentaires.
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and the weakest enemy. This ability has additional effects based on the number of stacks of Momentum Boba Fett, Scion of Jango has.
+                <br><br>
+                <u class="speciale">- 5 Stacks:</u> All Bounty Hunter or Scoundrel allies gain Tenacity Up for 2 turns<br>
+                <u class="speciale">- 9 Stacks:</u> All Bounty Hunter or Scoundrel allies gain Tenacity Up for 3 turns
+                <br><br>
+                Gain 1 stack of Momentum for 3 turns, and if the target enemy is inflicted with Armor Shred, gain an additional stack of Momentum. These Momentum gains can't be copied, dispelled, or prevented.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> This ability gains a new benefit based on the number of stacks of Momentum Boba Fett, Scion of Jango has.
+                <br><br>
+                <u class="speciale">- 16 Stacks:</u> All Bounty Hunter or Scoundrel allies gain Tenacity Up for 3 turns and inflict <u class="speciale">Protection Disruption</u> for 2 turns, and these effects can't be dispelled, evaded or resisted
+                <br><br>
+                <u class="speciale">Protection Disruption:</u> Protection is disabled, immune to Protection Up and bonus Protection
             </p>
         </div>
     </div>
 
 
-    <h2 class="titre"><u>capacité unique: Héritage de Fett </u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Bounty Breaker</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="boba spé 2" src="../image-perso/boba-scion-jango/sp-2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to all enemies and inflict 2 Damage Over Time effects for 2 turns. This ability has additional effects based on the number of stacks of Momentum Boba Fett, Scion of Jango has.
+                <br><br>
+                <u class="speciale">- 3 Stacks:</u> This ability deals 25% more damage<br>
+                <u class="speciale">- 6 Stacks:</u> This ability deals 25% more damage and inflicts Tenacity Down for 2 turns<br>
+                <u class="speciale">- 12 Stacks:</u> This ability deals 30% more damage, inflicts Tenacity Down and Potency Down for 2 turns<br>
+                <u class="speciale">- 16 Stacks:</u> This ability deals 30% more damage, inflicts Tenacity Down, Potency Down, and Breach for 2 turns
+                <br><br>
+                Gain 1 stack of Momentum for 3 turns which can't be copied, dispelled, or prevented.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Dangerous Reputation</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="boba lead" src="../image-perso/boba-scion-jango/boba-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Bounty Hunter or Scoundrel allies have +50% Critical Avoidance while they have Tenacity Up. While debuffed, Bounty Hunter or Scoundrel allies gain 40% Critical Damage.
+                <br><br>
+                When Boba Fett, Scion of Jango is in the Leader slot, and not the Ally slot, the following Contract is active:
+                <br><br>
+                <u class="speciale">Contract:</u> While buffed, damage a debuffed enemy 20 times. Enemies must be debuffed before the start of an attack to count progress. (Only Bounty Hunter or Scoundrel allies can contribute to the Contract.)
+                <br><br>
+                <u class="speciale">Reward:</u> All Bounty Hunter allies have their payouts activated, and all Bounty Hunter or Scoundrel allies gain 25% Offense and Health Steal, and ignore Taunt.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> Bounty Hunter or Scoundrel allies have +30 Speed, +50% Mastery, +30% Potency, Max Health, and Max Protection and take 18% less damage.
+                <br><br>
+                Boba Fett, Scion of Jango gains an additional 60 Speed, and 100% Max Health, and Max Protection. Contract requirements and rewards are adjusted as follows:
+                <br><br>
+                <u class="speciale">Contract:</u> While buffed, damage a debuffed enemy 10 times. Enemies must be debuffed before the start of an attack to count progress. (Only Bounty Hunter or Scoundrel allies can contribute to the Contract.)
+                <br><br>
+                <u class="speciale">Reward:</u> All Bounty Hunter allies have their payouts activated, and all Bounty Hunter or Scoundrel allies gain 25% Offense and Health Steal, ignore Taunt and each time they deal damage with an ability, they deal damage an additional time as true damage.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Fett Legacy</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="boba unique" src="../image-perso/boba-scion-jango/unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                boba Fett, héritier de Jango a +50% d'attaque. Au début de l'affrontement; Boba Fett, héritier de Jango
-                obtient<br>
-                Détermination du chasseur de primes jusqu'à ce qu'il soit vaincu.<br>
-                <br>
-                À chque fois que Boba Fett, héritier de Jango obtient un cumul d'Élan, il gagne 5% de jauge de tour.
-                Lorsqu'ils infligent un coup critique,<br>
-                il obtient un cumul d'Élan pendant 3 tours (ne peut pas être copié, dissipé ou évité).<br>
-                <br>
-                Si Boba Fett, héritier de Jango utilise la même capacité spéciale trois tours d'affilée, cette capacité
-                est entravé pendant 1 tour.<br>
-                <br>
-                <u class="omicron">Pendant une guerre de territoire:</u><br>
-                <br>
-                Boba Fet, héritier de Jango est immunisé contre l'entrave des capacités ennemis et l'étourdissement.
-                Lorsqu'il élimine un ennemi, il<br>
-                récupère 100% de protection et obtient Détérmination du chasseur de primes jusqu' ce qu'il soit
-                vaincu.<br>
-                Les capacités Actions double, Double barrage et Briseur de primes génèrent un cumul supplémentaires
-                d'Élan lorsqu'elles sont utilisées.<br>
-                Les affaiblissements de Briseur de primes ne peuvent pas être résistés ou dissipés.
+            <p class="attaque" id="unique-ability">
+                Boba Fett, Scion of Jango has +50% Offense. At the start of the encounter, Boba Fett, Scion of Jango gains Bounty Hunter's Resolve until he is defeated.
+                <br><br>
+                Whenever Boba Fett, Scion of Jango gains a stack of Momentum, he gains 5% Turn Meter. Whenever he scores a critical hit, he gains a stack of Momentum for 3 turns which can't be copied, dispelled, or prevented.
+                <br><br>
+                If Boba Fett, Scion of Jango uses the same Special ability three turns in a row, that ability becomes Blocked for 1 turn.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> Boba Fett is immune to enemy Ability Block and Stun, and whenever he defeats an enemy, he recovers 100% Protection and gains Bounty Hunter's Resolve until he's defeated. Double Action, Dual Barrage, and Bounty Breaker generate an additional stack of Momentum when used. Bounty Breaker's debuffs can't be be resisted or dispelled.
             </p>
         </div>
     </div>
 
-    <h2 class="prime">Prime de Boba Fett, héritier de Jango</h2>
+    <h2 class="prime"><u class="prime" id="prime-title">Boba Fett, Scion of Jango's Payout</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Boba prime" src="../image-perso/boba-scion-jango/boba-prime.png">
+            <img class="attaque" alt="boba prime" src="../image-perso/boba-scion-jango/boba-prime.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Lorsque Boba Fett, héritier de Jango, reçoit les récompenses d'un contrat, ou lorsque le chef est un
-                autre vaurien allié qui ne fais pas parties<br>
-                des chasseurs de primes, il obtient également la prime suivante (les contrats sont conférés par
-                certaines capacités de chef des chasseurs de primes:)<br>
-                <br>
-                <u class="speciale">Prime: </u> Boba Fet, héritier de Jango obtient +30% d'esquive des critiques et de
-                pénétration de défense, et tous ses gains<br>
-                d'Élan venant de ses capacités sont doublés pendant le reste de la bataille.
+            <p class="attaque" id="prime">
+                Whenever Boba Fett, Scion of Jango receives Rewards from a Contract, or when the leader is another non-Bounty Hunter Scoundrel ally, he also gains the following Payout. (Contracts are granted by certain Bounty Hunter Leader Abilities.)
+                <br><br>
+                <u class="speciale">Payout:</u> Boba Fett, Scion of Jango gains +30% Critical Avoidance and Defense Penetration, and all Momentum gains from his abilities are doubled for the rest of the battle.
             </p>
         </div>
     </div>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Boba Fett, héritier de Jango",
+                "title": "<u>Boba Fett, héritier de Jango</u>",
+                "description": "Célèbre chasseur de primes offensif qui dispose de nombreux affaiblissements et d'une synergie avec les chasseurs de primes et les vauriens",
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "hunter": "Chasseur de primes",
+                "mercenary": "Mercenaire",
+                "scoundrel": "Vaurien",
+                "basic-attack-title": "<u>Attaque Basique: Action Double</u>",
+                "basic-attack": "inflige des dégâts physiques à une cible ennemie deux fois. Si la cible ne dispose pas de protection, cette capacité inflige des dégâts supplémentaires deux fois.\n\nConfère 1 cumul d'<u class='speciale'>Élan</u> pendant 3 tours (ne peut pas être dissipé ou empêché)\n\n<u class='speciale'>Élan :</u> Les capacités obtiennent des effets supplémentaires en fonction du nombre de cumuls",
+                "special-attack1-title": "<u>Attaque Spéciale : Double barrage</u>",
+                "special-attack1": "Inflige des dégâts physiques à la cible ennemie et à l'ennemi le plus faible. Cette capacité dispose d'effets supplémentaires en fonction du nombre de cumuls d'Éan dont dipose Boba Fett, héritier de Jango.\n\n<u class=speciale>-5 cumuls :</u> tous les chasseurs de primes ou vauriens alliés obtiennent un bonus de ténacité pendant 2 tours.\n<u class=speciale>-9 cumuls : </u> tous les chasseurs de primes ou vauriens alliés obtiennent un bonus de ténacité pendant 3 tours.\n\nConfère 1 cumul d'Élan pendant 3 tiurs, et si la cible ennemie souffre de destruction d'armure, confère un cumul d'Élan supplémentaires. Ces gains d'Élan ne peuvent pas être copiés, dissipés ou évités.\n\n<u class=omicron>Amélioration Omicron : Pendant une guerre de territoire :</u>cette capacité gagne un nouvel avantage en fonction du nombre de cumuls d'Élan dont dispose Boba Fett, héritier de Jango.\n\n<u class=speciale>-16 cumuls :</u> Tous les chasseurs de primes ou vauriens alliés obtiennent un bonus de ténacité pendant 3 tours et infligent <u class=speciale>Protection Perturbée</u> pendant 2 tours. Ces effets ne peuvent pas être dissipés, esquivés ou réssités.\n\n<u class=speciale>Protection Perturbée :</u>La protection est désactivée. Immunité contre la hausse de protection et les bonus de protection",
+                "special-attack2-title": "<u>Attaque Spéciale : Briseur de primes</u>",
+                "special-attack2": "Inflige des dégâts physiques à tous les ennemis, ainsi que 2 effets de dégâts sur la durée pendant 2 tours. Cette capacité dispose d'effet supplémentaires en fonction du nombre de cumuls d'Élan dont dipose Boba Fett, héritier de Jango.\n\n<u class=speciale>-3 cumuls :</u> cette capacité inflige 25% de dégâts supplémentaires.\n<u class=speciale>-6 cumuls :</u> cette capacité inflige 25% de dégâts supplémentaires, qinsi qu'un malus de ténacité pendant 2 tours.\n<u class=speciale>-12 cumuls :</u> cette capacité inflige 30% de dégâts supplémentaires, ainsi qu'un malus de ténacité et un malus de pouvoir pendant 2 tours.\n<u class=speciale>-16 cumuls :</u> cette capacité inflige 30% de dégâts supplémentaires, ainsi qu'un malus de ténacité, un malus de pouvoir et Faille pendant 2 tours.\n\n Confère 1 cumul d'Élan pendant 3 tours (ne peut pas être dissipé ou évité).",
+                "lead-ability-title": "<u>Capacité de Chef: Réputation dangereuse</u>",
+                "lead-ability": "Les chasseurs de primes ou vauriens alliés ont +50% d'esquive des critiques tant qu'ils disposent d'un bonus de ténacité. Lorsqu'ils subissent un affaiblissement, les chasseurs de primes ou vauriens alliés obitennent 40% ddde dégâts critiques.\n\nLorsque Boba Fett, héritier de Jango est dans l'emplacement de chef (et non dans l'emplacement d'allié), le contrat suivant est actif :\n\n<u class=speciale>Contrat :</u> en disposant d'améliorations, infliger des dégâts à un ennemi subissant un affaiblissement 20 fois. Les ennemis doivent être affaiblis avant le début de l'attaque pour compter dans la progression (seuls les chasseurs de primes ou les vauriens alliés peuvent participer au contrat).\n\n<u class=speciale>Récompense :</u>La prime de tous les chasseurs de primes alliés est activée et tous lec chasseurs de primes ou vauriens alliés obtiennent +25% d'attaque et de vol de santé, et ils ignorent la raillerie.\n\n<u class=omicron>Amélioration Omicron : Pendant une guerre de territoire :</u> les chasseurs de primes ou les vauriens alliés ont +30 de vitess, +50% de maitrise, +30% de pouvoir, de santé maximale et de protection maximale, et ils subissent 18% de dégâts en moins.\n\nBoba Fett, héritier de Jango obtient 60 de vitesse en plus, ainsi que 100% de santé maximale et de protection maximale. Les conditions et Récompenses du contrat sont ajustées comme suit :\n\n<u class=speciale>Contrat :</u> en disposant d'améliorations, infliger des dégâts à un ennemi subissant un affaiblissement 10 fois. Les ennemis doivent être affaiblis avant le début de l'attaque pour compter dans la progression (seuls les chasseurs de primes ou vauriens alliés peuvent participer au contrat).\n\n<u class=speciale>Récompenses :</u> la prime de tous les chasseurs de primes est activée, et tous les chasseurs de primes ou vaurien alliés obtiennent 2% d'attaque et de vol de santé, ils ignorent la raillerie et à chaque fois qu'ils infligent des dégâts avec une capacité, ils infligents des dégâts réels suplémentaires.",
+                "unique-ability-title": "<u>Capacité Unique : Héritage de Fett</u>",
+                "unique-ability": "Boba Fett, héritier de Jango a +50% d'attaque. Au début de l'affrontement, Boba fett, héritier de Jango obtient Détermination du chasseur de primes jusqu'à ce qu'il soit vaincu.\n\nA chaque fois que Boba Fett, héritier de Jango obtient un cumul d'Élan, il gagne 5% de jauge de tour. Lorsqu'il inflige un coup critique, il obtient un cuumul d'Élan pendant 3 tours (ne peut pas petre copié, dissipé ou évité).\n\n Si Boba Fett, héritier de Jango, utilise la même capacité spéciale trois tours d'affilée, cette capacité est entravée pendant 1 tour.\n\n<u class=omicron>Amélioration Omicron : Pendant une guerre de territoire :</u> Boba Fett, héritier de Jango est immunisé cotre l'entrave des capacitée ennemies et l'Étourdissement. Lorsqu'il élimine un ennemi, il récupère 100% de protection, et obtient Determination du chasseur de primes, jusqu'à ce qu'il soit vaincu. Les capacités Action double, Double barrage et Briseur e primes, génèrent un cumul supplémentaire d'Élan lorqu'elles sont utilisées. Les affaiblissement de Briseur de primes ne peuvent pas être résistés ou dissipés.",
+                "prime-title": "Prime de Boba Fett, héritier de Jango",
+                "prime": "Lorsque Boba Fett, héritier de Jango reçoit les récompenses d'un contrat, ou lorsque le chef est un autre vaurien alliés qui ne fait pas partie des chasseur de primes, il obtient la prime suivante (les contrats sont conféres par certaines capacités de chef des chasseurs de primes).\n\n<u class=speciale>Prime :</u> Boba Fett, héritier de Jango obtient +30 d'esquive des critiques et de pénétration de défense, et tous ses gains d'Ñlan venant de ses capacités sont doublés pendant le reste de la bataille."
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+
     </footer>
-
-
 </body>
 
 </html>
