@@ -1,109 +1,174 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>CC-2224 "Cody"</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">CC-2224 "Cody"</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/cody/cody-image.png">
-
-    <!-- Lien vers la feuille de style -->
-     <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/cody/cody-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>CC-2224 "Cody"</u></h1>
-        <p>
-            Attaquant clone qui étourdit et invoque de nombreux alliés.
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: blue;" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/soldat-clone.html">Soldat Clone</a>
-            <a class="capacite" href="../classement-perso/république-galactique.html">République Galactique</a>
-        </nav>
+            <h1 id="title"><u>CC-2224 "Cody"</u></h1>
+            <p id="description">
+                Clone Attacker that Stuns and calls tons of Assists
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/soldat-clone.html" id="clone">Clone Trooper</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html" id="galactic-republic">Galactic Republic</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/cody/cody.png" alt="CODY"><br>
+    <img class="first" src="../image-perso/cody/cody.png" alt="Cody"><br>
 
-    <h2 class="titre"><u>attaque basique : Frappe alpha</u></h2>
+    <!-- Capacités -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Alpha Strike</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="cody basique" src="../image-perso/cody/cody-basique.png">
+            <img class="attaque" alt="cody basic" src="../image-perso/cody/cody-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie et remplit la jauge de tour de 20.<br>
-                Remplit la jauge de tour de 20% supplémentaire si l'ennemi dispose de plus de 50% de sa santé,<br>
-                et de 20% supplémentaire si l'ennemi dispose de moins de 50% de sa jauge de tour.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and gain 20% Turn Meter. Gain an additional 20% Turn Meter if that enemy has more than 50% Health, and an additional 20% Turn Meter if that enemy has less than 50% Turn Meter.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Canon éléctromagnétique du RT-TT (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : AT-TE Mass-Driver Cannon (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="cody spé 1" src="../image-perso/cody/cody-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à une cible ennemie et 35% de dégâts en moins à tous les autres ennemis.<br>
-                Si cette attaque inflige au moins 2 coups critiques, étourdit la cible principale pendant 2 tours.
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to target enemy and 35% less damage to all other enemies. If this attack scores at least 2 Critical Hits, Stun the primary target for 1 turn.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: 212e Bataillon d'Attaque (délai: 6)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : The 212th Attack (cooldown: 6)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="cody spé 2" src="../image-perso/cody/cody-spe2.png">
+            <img class="attaque" alt="cody spe 2" src="../image-perso/cody/cody-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Demande de l'aide à tous les clones alliés et à un allié aléatoire. Ces assistances infligent 40% de dégâts<br>
-                en moins. A chaque fois qu'un allié venant en aide inflige un coup critique, diminue le délai de cette capacité de 1.
+            <p class="attaque" id="special-attack2">
+                Call all Clone allies and one random ally to assist. These Assists deal 40% less damage. Each time an Assist scores a Critical Hit, reduce the Cooldown of this ability by 1.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Capacité de chef: Commandant de la compagnie Fantôme</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Ghost Company Commander</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="cody lead" src="../image-perso/cody/cody-lead.png">
+            <img class="attaque" alt="cody  lead" src="../image-perso/cody/cody-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Les clones alliés gagnent un bonus de chances de coup critique de 30%, et les autres alliés<br>
-                gagnent la moitié de cette valeur. Cody obtient un bonus de défense de 60% pour chaque allié<br>
-                clone en vie, et les autres clones alliés gagnent la moitié de cette valeur. Les clones alliés<br>
-                récupèrent 5% de protection maximum lorsqu'ils utilisent une capacité de base.
+            <p class="attaque" id="lead-ability">
+                Clone allies gain 30% Critical Chance, and other allies gain half that amount. Cody gains 60% Defense for each living Clone ally and other Clone allies gain half that amount. Clone allies recover 5% of their Max Protection whenever they use a Basic ability.
             </p>
         </div>
     </div>
-
 
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "CC-2224 \"Cody\"",
+                "title": "<u>CC-2224 \"Cody\"</u>",
+                "description": "Attaquant clone quio étourdit et invoque de nombreux alliés",
+                "basic-attack-title": "<u>Attaque Basique: Frappe Alpha</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et remplit la jauge de tour de 20%. Remplit la jauge de tour de 20% supplémentaire si l'ennemi dispose de plus de 50% de sa santé, et de 20% supplémentaires si l'ennemi dispose de moins de 50% de sa jauge de tour",
+                "special-attack1-title": "<u>Attaque Spéciale : Canon éléctromagnétique du RT-tt (délai: 4)</u>",
+                "special-attack1": "Inflig des dégâts spéciaux à une cible ennemie et 35% de dégâts en moins à tous les autres ennemis. Si cette attaque inflige au moins 2 coups critiques, étourdit la cible principale pendant 1 tour",
+                "special-attack2-title": "<u>Attaque Spéciale : 212e Bataillon d'Attaque (délai: 6)</u>",
+                "special-attack2": "Demande de l'aide à tous les clons alliés et à un allié aléatoire. Ces assistances infligent 40% de dégâts en moins. A chaque fois qu'un allié venant en aide inflige un coup critique, diminue le délai de cette capacité de 1.",
+                "lead-ability-title": "<u>Capacité de Chef: Commandant de la Compagnie Fantôme</u>",
+                "lead-ability": "Les clones alliés gagnent un bonus de chances de coup critique de 30%, et les autres alliés gagnent la moitié de cette valeur. Cody obtient un bonus de défense de 60% pour chaque allié clone en vie, et les autres clones alliés gagnent la moitié de cette valeur. Les clones alliés récupèrent 5% de leur protection maximum lorsqu'ils utilisent une capacité de base",
+                "lightside" : "Coté Lumineux",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "clone" : "Soldat clone",
+                "galactic-republique": "Republique Galactique"
+               
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+
     </footer>
 </body>
-</html> 
