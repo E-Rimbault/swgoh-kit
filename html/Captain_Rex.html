@@ -1,130 +1,183 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<title>Captain Rex</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="utf-8">
-<meta name="author" content="Rimbault Enzo" >
-
-<link rel="icon" type="image/png" href="../image-perso/c-rex/Captain-Rex-image.png">
-<link rel="stylesheet" href="../style/unit-style.css">
-
+    <title id="big-title">Captain Rex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/c-rex/Captain-Rex-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
+
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/c-rex/Captain-Rex-image.png" alt="Captain Rex" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-<header class="perso">
-    
-    <h1><u>Capitaine Rex</u></h1>
-    <p>Ancien Capitaine du bataillon de clone de la 501e et soutien vétéran d'innombrables conflits</p>
+            <h1 id="title"><u>Captain Rex</u></h1>
+            <p id="description"></p>
+            A former Captain of the 501st Clone Battalion and veteran Support of countless conflicts
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/soldat-clone.html" id="clone">Clone Trooper</a>
+                <a class="capacite" href="../classement-perso/phoenix.html" id="phoenix">Phoenix</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="capacite" href="../classement-perso/combattant-rebelle.html" id="fighter">Rebel Fighter</a>
+            </nav>
+        </div>
+    </header>
     <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/soutien.html">Soutien</a>
-            <a class="capacite" href="../classement-perso/soldat-clone.html">Soldat Clone</a>
-            <a class="capacite" href="../classement-perso/phoenix.html">Phoenix</a>
-            <a class="capacite" href="../classement-perso/rebelle.html">Rebelle</a>
-            <a class="capacite" href="../classement-perso/combattant-rebelle.html">Combattant Rebelle</a>
-        </nav>
-</header>
-<br>
 
+    <img class="first" src="../image-perso/c-rex/Captain-rex.png" alt="Captain Rex"><br>
 
-<img class="first" src="../image-perso/c-rex/Captain-rex.png" alt="Captain rex"><br>
-
-<h2 class="titre"><u>attaque basique : Visez, puis tirez</u></h2>
-<div class="capacity-container">
-    <div class="left-column">
-        <img class="attaque" alt="C-rex basic" src="../image-perso/c-rex/c-rex-basic.png">
+    <!-- Capacités -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Aim, Then Shoot</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Rex basique" src="../image-perso/c-rex/c-rex-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy twice. Whenever this attack scores a critical hit, dispel all debuffs on Captain Rex and another random Clone Trooper or Phoenix ally.
+            </p>
+        </div>
     </div>
-    <div class="right-column">
-        <p class="attaque">
-            Inflige des dégats physiques à une cible ennemie deux fois. Lorsque cette attaque inflige un coup critique, dissipe<br>
-            tous les affaiblissements en cours sur le capitaine rex et un Soldat Clone ou Phoenix allié aléatoire.
-        </p>
-    </div>
-</div>
 
-<h2 class="titre"><u>attaque spéciale1 : Maître tireur d'élite (délai: 3)</u></h2>
-<div class="capacity-container">
-    <div class="left-column">
-        <img class="attaque" alt="C-rex spé 1" src="../image-perso/c-rex/c-rex-spe1.png">
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Master Marksman (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Rex spé 1" src="../image-perso/c-rex/c-rex-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and Stun them for 1 turn. If this attack scores a critical hit, all allies recover 15% Health and Protection. If this attack defeats the target enemy, reset the cooldowns of all Clone Trooper and Phoenix allies.
+            </p>
+        </div>
     </div>
-    <div class="right-column">
-        <p class="attaque">
-            Inflige des dégats physiques à une cible ennemie et leur inflige Etourdissement pendant un tour.<br>
-            Si cette attaque inflige un coup critique, tous les alliés récupérent 15% de santé et de protection.<br>
-            Si cette attaque élimine la cible ennemie, les délais de tous les soldats clones et Phoenix sont réinitialisées.<br>
-        </p>
-    </div>
-</div>
 
-<h2 class="titre"><u>attaque spéciale2 : Tir de suppression (délai: 3)</u></h2>
-<div class="capacity-container">
-    <div class="left-column">
-        <img class="attaque" alt="C-rex spé 2" src="../image-perso/c-rex/c-rex-spe2.png">
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Suppressing Fire (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="rex spé 2" src="../image-perso/c-rex/c-rex-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Inflict Tenacity Down, which can't be evaded, and Daze on all enemies for 2 turns. Deal Physical damage to all enemies and inflict Offense Down for 2 turns. Clone Trooper and Phoenix allies gain 5% Turn Meter for each debuff inflicted by this ability, and all allies gain Critical Chance Up and Offense Up for 2 turns.
+            </p>
+        </div>
     </div>
-    <div class="right-column">
-        <p class="attaque">
-            Inflige un malus de ténacité (ne peut pas être esquivé) et Confusion à tous les ennemis pendant 2 tours.<br>
-            Inflige des dégats physiques à tous les ennemis et un malus d'attaque pendant 2 tours.<br>
-            <br>
-            les soldats Clones et Phoenix alliés recoivent 5% de jauge de tour<br>
-            pour chaque affaiblissement infligés par cette capacité<br>
-            et tous les alliés obtiennent un bonus de chances de Coup critique et d'attaque pendant 2 tours.<br>
-        </p>
+
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : The Lost Commander</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="rex unique" src="../image-perso/c-rex/c-rex-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Captain Rex gains 25% Critical Chance, 40% Max Health, 25 Speed, and 40% Tenacity.
+                <br><br>
+                Whenever any other Phoenix ally uses a Special ability, Rex assists dealing 40% less damage. Whenever a Clone Trooper ally falls below 50% Health, they recover 35% Health and Protection (limit once per turn) and gain 50% Defense and Tenacity Up for 2 turns. Whenever a Clone Trooper or Phoenix ally is inflicted with a debuff, Rex gains 5% Turn Meter per debuff and all allies recover 5% Health and Protection.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> Rex gains 30% Critical Damage and an additional 60% Max Health and 25 Speed.
+                <br><br>
+                <u class="omicron">Boost : While in 5v5 Grand Arenas and all allies are Phoenix at the start of battle:</u> Whenever an ally is inflicted with Ability Block or Daze, they dispel it and inflict 2 stacks of Damage Over Time on all enemies for 3 turns, which can't be evaded or resisted. Whenever Captain Rex uses his Basic ability he recovers 10% Health and Protection.
+                <br><br>
+                <u class="omicron">Boost : While in 3v3 Grand Arenas and all allies are Clone Troopers at the start of battle:</u> Whenever an ally assists they have a 50% chance to dispel all buffs on the target enemy and they inflict Armor Shred until the end of the encounter, which can't be evaded or resisted.
+            </p>
+        </div>
     </div>
-</div>
 
-<h2 class="titre"><u>Capacité Unique : Commandant perdu</u></h2>
-<div class="capacity-container">
-    <div class="left-column">
-        <img class="attaque" alt="C-rex unique" src="../image-perso/c-rex/c-rex-unique.png">
-    </div>
-    <div class="right-column">
-        <p class="attaque">
-            Le capitaine rex obtient 25% de chances de coup critique,<br>
-            40% de santé maximale, 25 de vitesse et 40% de ténacité.<br>
-            <br>
-            <br>
-            -Lorsqu'un allié Phoenix utilise une capacité spéciale,<br>
-            Rex est invoqué, infligeant 40% de dégats en moins.
-            <br>
-            <br>
-            -Lorsqu'un Soldat Clone allié a moins de 50% de santé, il<br>
-            récupère 35% de santé et de protection (limité à une fois
-            par tour)<br>
-            et gagne 50% de défense et de bonus de ténacité pendant 2 tours.
-            <br>
-            <br>
-            -Lorsqu'un Soldat Clone allié ou un allié Phoenix subit<br>
-            un affaiblissement, Rex obtient un bonus de jauge de tour de
-            5% par affaiblissement<br>
-            et tous les alliés récupèrent 5% de santé et de protection.<br>
-            <br>
-            <u class="omicron">Dans les Grandes arènes:</u><br>
-            Rex gagne 30% de dégats critiques, 60% de santé maximale et 25 de Vitesse.
-            <br>
-            <br>
-            <u class="omicron">Dans les Grandes arènes en 5c5, si tous les alliés sont Phoenix au début de l'affrontement :</u><br><br>
-            lorsqu'un allié subit Entrave des capacités ou Confusion, il le dissipe et inflige<br>
-            2 cumuls de dégats sur la durée à tous les ennemis pendant 3 tours (ne peut être esquivé ou résisté).<br>
-            <br>
-            Lorsque le Capitaine Rex utilise sa capacité de base, il récupère 10% de santé et de protection.<br>
-            <br>
-        
-            <u class="omicron">Dans les Grandes arènes en 3c3, si tous les alliés sont des Soldas Clones au début de l'affrontement :</u><br><br>
-            Lorsqu'un allié apporte son aide, il a 50% de chance de dissiper toutes les améliorations sur la cible ennemie<br>
-            et inflige destruction d'armure jusqu'à la fin de l'affrontement (ne peut pas etre esquivé ou résisté).
-        </p>
-    </div>
-</div>
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
 
-<footer>
-    <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Capitaine Rex",
+                "title": "<u>Capitaine Rex</u>",
+                "description": "Ancien capitaine du Bataillon de clones de la 501 et soutien vétran d'innombrables conflits.",
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "clone": "Soldat Clone",
+                "phoenix": "Phoenix",
+                "rebel": "Rebelle",
+                "fighter": "Combattant Rebelle",
+                "basic-attack-title": "<u>Attaque Basique: Visez, puis tirez</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie deux fois. Lorsque cette attaque inflige un coup critique, dissipe tous les affaiblissements en cours sur le Capitaine Rex et un soldat clone ou phoenix allié aléatoire",
+                "special-attack1-title": "<u>Attaque Spéciale : Maître tireur d'élite (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie et leur inflige Étourdissement pendant 1 tour. Si cette attaque inflige un coup critique, tous les alliés récupèrent 15% de santé et de protection. Si cette attaque élimine la cible ennemie, les délais de tous les soldats clones et Phoenix aliés sont réinitialisés.",
+                "special-attack2-title": "<u>Attaque Spéciale :Tir de suppression (délai : 3)</u>",
+                "special-attack2": "Inflige un malus de ténacité (ne peut pas être esquivé) et Confusion à tous les ennemis pendant 2 tours. Infligent des dégâts physiques à tous les ennemis et un malus d'attaque pendant 2 tours. Les soldats clones et Phoenix alliés reçoivent 5% de jauge de tour pour chaque affaiblissement infligé par cette capacité et tous les alliés obtiennent un bonus de chances de coup critique et d'attaque pendant 2 tours.",
+                "unique-ability-title": "<u>Capacité Unique : Commandant perdu</u>",
+                "unique-ability": "Le Capitaine Rex obtient 25% de chances de coup critique, 40% de santé maximale, 25 de vitesse et 40% de ténacité.\n\nLorsqu'un autre allié Phoenix utilise une capacité spéciale, Rex est invoqué, infligeant 40% de dégâts en moins. Lorsqu'un soldat clone a moins de 50% de santé, il récupère 35% de santé et de protection (limité à une fois par tour) et gagne 50% de défense et un bonus de téancité pendant 2 tours. Lorsqu'un soldat clone allié ou un allié Phoenix subit un affaiblissement, Rex obtient un bonus de jauge de tour de 5% par affaiblissement et tous les alliés récupèrent 5% de santé et de protection.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> Rex gagne 30% de dégâts critiques, 60% de santé maximale de 25 de vitesse\n\n<u class='omicron'>Boost 5v5 : Dans les Grandes arènes en 5c5, si tous les alliés sont Phoenix au début de la bataille :</u> lorsqu'un allié subit Entrave des capacités ou Confusion, il le dissipe et inflige 2 cumuls de dégâts sur la durée à tous les ennemis pendant 3 tours (ne peut pas être esquivé ou résisté). Lorsque le Capitaine Rex utilise sa capacité de base, il récupère 10% de santé et de protection.\n\n<u class='omicron'>Boost 3v3 : Dans les Grandes arènes en 3c3 si tous les alliés sont des soldats clones au début de l'affrontement :</u> Lorsqu'un allié apporte son aide, il a 50% de chances de dissiper toutes les améliorations sur la cible ennemie et il inflige Destruction d'armure jusqu'à la fin de l'affrontement (ne peut pas être esquivé ou résisté).",                
+            };
 
-    <script src="../javascript/bouton.js"></script>
-</footer>
+            const originalTexts = {};
 
-</body>     
-</html>        
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+
+    </footer>
+</body>
