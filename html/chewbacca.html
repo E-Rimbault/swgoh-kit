@@ -1,133 +1,193 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Chewbacca</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Chewbacca</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/chewbacca/chewie-image.png">
-
-    <!-- Lien vers la feuille de style -->
-     <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/chewbacca/chewie-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>Chewbacca</u></h1>
-        <p>
-            Cet imposant attaquant rebelle protège son allié le plus faible.
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: blue" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/rebelle.html">Rebelle</a>
-            <a class="capacite" href="../classement-perso/vaurien.html">Vaurien</a>
-            <a class="capacite" href="../classement-perso/contrebandier.html">Contrebandier</a>
-            <a class="capacite" href="../classement-perso/wookie.html">Wookie</a>
-            <a class="pilote" href="../classement-perso/membres-équipages.html">Membres Équipages</a>
-        </nav>
+            <h1 id="title"><u>Chewbacca</u></h1>
+            <p id="description">
+                Mighty Rebel Attacker who Guards the weakest ally
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="capacite" href="../classement-perso/contrebandier.html" id="smuggler">Smuggler</a>
+                <a class="capacite" href="../classement-perso/wookie.html" id="wookie">Wookie</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew">Crew Member</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/chewbacca/Chewbacca.png" alt="Chewbacca"><br>
+    <img class="first" src="../image-perso/chewbacca/Chewbacca.png" alt="Chewabba"><br>
 
-        <!-- Section pour les différentes attaques spéciales -->
-        <h2 class="titre"><u>attaque basique : Tir surchargé</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="Chewie basique" src="../image-perso/chewbacca/chewie-basic.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Inflige des dégâts physiques à une cible ennemie et lui inflige un malus de ténacité pendant 2 tours.
-                </p>
-            </div>
+    <!-- Capacités -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Overcharged Shot</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="chewie basic" src="../image-perso/chewbacca/chewie-basic.png">
         </div>
-
-
-        <h2 class="titre"><u>1ere spéciale: Pulvérisation (délai: 4)</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="Chewbacca spé1" src="../image-perso/chewbacca/chewie-spe1.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Dissipe toutes les améliorations dont bénéficient les ennemis, puis inflige des<br>
-                    dégâts physiques à tous les ennemis. Chewbacca gagne un bonus d'attaque et un<br>
-                    bonus de chances de coup critique pour 2 tours. Cette attaque ignore la défense.
-                </p>
-            </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Tenacity Down for 2 turns.
+            </p>
         </div>
+    </div>
 
-
-        <h2 class="titre"><u>2eme spéciale: carnage à l'arbalète (délai: 3)</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="Chewbacca spé 2" src="../image-perso/chewbacca/chewie-spe2.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    inflige des dégâts physiques à la cible ennemie et l'étourdit pendant 1 tour. <br>
-                    Si la cible ne bénéficie d'aucune protection , le délai de Pulvérisation est<br>
-                    réinitialisé. Cette attaque ne peut pas être esquivée.
-                </p>
-            </div>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Pulverize (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="chewie spe 1" src="../image-perso/chewbacca/chewie-spe1.png">
         </div>
-
-
-        <h2 class="titre"><u>capacité unique: Ami fidèle</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="Chewie unique" src="../image-perso/chewbacca/chewie-unique.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Au début du combat, l'allié le plus faible et Han Solo bénéficient de <u class="speciale">Garde</u> jusqu'à ce<br>
-                    que Chewbacca soit vaincu. Lorsqu'un allié bénéficiant de Garde utilise une capacité pendant son tour,<br>
-                    Chewbacca est invoqué et inflige 20% de dégâts en moins (une seule fois par tour). Lorsque Chewbacca<br>
-                    inflige des dégâts à un ennemi, Chewbacca et tous les alliés bénéficiant de Garde récupèrent 3% de santé et 3% de protection.<br>
-                    <br>
-                    <u class="speciale">Garde</u> : empêche de subir des coups critiques, immunise contre la confusion<br>
-                    et l'étourdissement, augmente les chances de coup critique de 25%.
-                </p>
-            </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Dispel all buffs on all enemies, then deal Physical damage to all enemies. Chewbacca gains Offense Up and Critical Chance Up for 2 turns. This attack ignores Defense.
+            </p>
         </div>
+    </div>
 
-
-        <h2 class="titre"><u>capacité unique: Wookie courroucé</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="Chewie unique 2" src="../image-perso/chewbacca/chewie-unique2.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Chewbacca est immunisé contre l'entrave de capacité et l'augmentation des délais de rechargement.<br>
-                    Lorsque Chewbacca inflige des dégâts à un ennemiavec une attaque , il inflige des dégâts supplémentaires<br>
-                    équivalent à 20% de la santé maximale de sa cible. Lorsque Chewbacca subit des dégâts lors d'une attaque,son<br>
-                    attaque augmente de 25%  et ses chances de coup crique de 25% jusqu'à la fin de son prochain tour. Lorsque<br>
-                    Chewbacca ou un allié bénéficiant de Garde subit des dégâts lors d'une attaque, le délai de carnage à l'arbalète est réduit de 1. 
-                </p>
-            </div>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Furious Bowcaster (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="chewie spe 2" src="../image-perso/chewbacca/chewie-spe2.png">
         </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to target enemy and Stun them for 1 turn. Then, if the target has no Protection, reset Pulverize's ability cooldown. This attack can't be Evaded.
+            </p>
+        </div>
+    </div>
 
-    
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Loyal Friend</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="chewie unique" src="../image-perso/chewbacca/chewie-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                At the start of the battle, grant <u class="speciale">Guard</u> to the weakest ally and Han Solo until Chewbacca is defeated. Chewbacca Assists when a Guarded ally uses any ability during their turn, doing 20% less damage, limited once per turn. When Chewbacca deals damage to an enemy, Chewbacca and all Guarded allies recover 3% Health and 3% Protection.
 
-        <footer>
-            <!-- Bouton pour remonter en haut de la page -->
-            <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-    
-            <!-- Script JavaScript pour le bouton -->
-            <script src="../javascript/bouton.js"></script>
-        </footer>
+                <u class="speciale">Guard:</u> Can't be Critically Hit, immune to Daze and Stun, +25% Critical Chance
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Raging Wookiee</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="chewie unique 2" src="../image-perso/chewbacca/chewie-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                Chewbacca is immune to Ability Block and Cooldown Increase. When Chewbacca deals damage to an enemy with an attack, he deals bonus damage equal to 20% of their Max Health. When Chewbacca takes damage from an attack, he gains +25% Offense and +25% Critical Chance until the end of his next turn. When Chewbacca or a Guarded ally takes damage from an attack, reduce Furious Bowcaster's cooldown by 1.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Chewbacca",
+                "title": "<u>Chewbacca</u>",
+                "description": "Cet imposant attaquant rebelle protège son allié le plus faible",
+                "basic-attack-title": "<u>Attaque Basique: Tir surchargé</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et lui inflige un malus de ténacité pendant 2 tours.",
+                "special-attack1-title": "<u>Attaque Spéciale : Pulvérisation (Délai : 4)</u>",
+                "special-attack1": "Dissipe toutes les améliorations dont bénéficient les ennemis, puis inflige des dégâts physiques à tous les ennemis. Chewbacca gagne un bonus d'attaque et et un bonus de chances de coup critique pendant 2 tours. Cette attaque ignore la défense",
+                "special-attack2-title": "<u>Attaque Spéciale : Carnage à l'arbalète (Délai : 3)</u>",
+                "special-attack2": "Inflige des dégâts physiques à la cible ennemie et l'étourdit pendant 1 tour. Si la cible ne bénéficie d'aucune protection, le délai de Pulvérisation est réinitialisé. Cette attaque ne peut pas être esquivée.",
+                "unique-ability-title": "<u>Capacité Unique : Ami fidèle</u>",
+                "unique-ability": "Au début du combat, l'allié le plus faible et Han Solo bénéficient de <u class='speciale'>Garde</u> jusqu'à ce que Chewbacca soit vaincu. Lorsqu'un allié bénéficiant de Garde utilise une capacité pendant son tour, Chewbacca est invoqué et inflige 20% de dégâts en mois (une seule fois par tour). Lorsque Chewbacca inflige des dégâts à un ennemi, Chewbacca et tous les alliés bénéficiant de Garde récupèrent 3% de santé et 3% de protection._n\n<u class='speciale'>Garde :</u> empêche de subir des coups critiques, immunise contre la confusion et l'étourdissement, augmente les chances de coup critique de 25%.",
+                "unique-ability2-title": "<u>Capacité Unique : Wookie courroucé</u>",
+                "unique-ability2": "Chewbacca est immunisé contre l'entrave des capacités et l'augmentation des délais de rechargement. Lorsque Chewbacca inflige des dégâts à un ennemi avec une attaque, il inflige des dégâts supplémentaires équivalent à 20% de la santé maximale de sa cible. Lorsque Chewbacca subit des dégâts lors d'une attaque, son attaqye augmente de 25% et ses chances de coup critique de 25% jusqu'à la fin de son prochain tour. Lorsque Chewbacca ou un allié bénéficiant de Garde subit des dégâts lors d'une attaque, le délai de Carnage à l'arbalète est réduit de 1.",             
+                "lightside" : "Coté Lumineux",
+                "attacker" : "Attaquant",
+                "Rebel" : "Rebelle",
+                "scoundrel" : "Vaurien",
+                "smuggler" : "Contrebandier",
+                "wookie" : "Wookie",
+                "crew" : "Membres de l'équipages"
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+
+    </footer>
 </body>
-</html>   
