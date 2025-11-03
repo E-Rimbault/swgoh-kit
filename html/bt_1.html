@@ -1,117 +1,216 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<title>bt-1</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="utf-8">
-<meta name="author" content="Rimbault Enzo" >
-
-<link rel="icon" type="image/png" href="../image-perso/bt-1/bt1-image.png">
-<link rel="stylesheet" href="../style/unit-style.css">
+    <title id="big-title">BT-1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/bt-1/bt1-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/bt-1/bt1-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>BT-1</u></h1>
-        <p>
-            Un Prototype de droïde blasomech, connu pour avoir détruit<br>
-            la base de l'initiative Tarkin dans laquelle il a été crée.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color:red" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/droïde.html">Droïde</a>
-            <a class="capacite" href="../classement-perso/vaurien.html">Vaurien</a>
-        </nav>
+            <h1 id="title"><u>BT-1</u></h1>
+            <p id="description">
+                A blastomech prototype droid who is known for destroying the Tarkin Initiative base in which he was
+                created.
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html"
+                    id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/droïde.html" id="droïde">DroÏde</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/bt-1/bt-1.png" alt="bt-1"><br>
+    <img class="first" src="../image-perso/bt-1/bt-1.png" alt="BT-1"><br>
 
-        <h2 class="titre"><u>attaque basique : Lasers surchargés</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="bt-1 basic" src="../image-perso/bt-1/bt-1-basic.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Inflige des dégâts physiques à une cible ennemie trois fois<br>
-                    ainsi qu'un cumul de dégâts sur la durée pendant 2 tours.
-                </p>
-            </div>
+    <!-- Capacités -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Overcharged Lasers</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="BT-1 Basic" src="../image-perso/bt-1/bt-1-basic.png">
         </div>
-
-
-        <h2 class="titre"><u>1ere spéciale: agent de destruction (délai: 3)</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="Bt-1 spé" src="../image-perso/bt-1/bt-1-spe.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Inflige des dégâts physiques à tous les ennemis, ainsi qu'un cumul de<br>
-                    dégât sur la durée pendant 2 tours, et les expose pendant 1 tour.<br>
-                    Si la cible ennemie subit Verouillage, inflige Brulure et un autre<br>
-                    cumul de dégât sur la durée pendant 2 tours.
-                </p>
-            </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy three times and inflict a stack of Damage Over Time for 2 turns.
+            </p>
         </div>
+    </div>
 
-
-        <h2 class="titre"><u>Unique 1: Homologue homicide</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="BT-1 unique 1" src="../image-perso/bt-1/bt-1-unique.png"><br>
-                <img class="attaque" alt="Bt-1 unique capa 1" src="../image-perso/bt-1/bt-1-unique-capa-1.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Au début de la bataille, BT-1 gagne 10% de dégats critique<br>
-                    pour chaque allié droïde allié, 10% de pouvoir pour chaque<br>
-                    allié du Coté Obscur et 5 de vitesse pour chaque allié vaurien.<br>
-                    Si 0-0-0 est un allié, il reçoit la capacité <u class="speciale">TUEZ-LES TOUS.</u><br>
-                    Lorsque 0-0-0 utilise une capacité spéciale, BT-1 est invoqué<br>
-                    et inflige 40% de dégâts en moins.<br>
-                    <br>
-                    <u class="speciale">Tuez-les tous</u>
-                    Inflige des dégâts physiques à tous les ennemis et invoque 0-0-0.<br>
-                    <br>
-                    <u class="omicron">dans les Grandes arènes en 3c3 :</u>
-                    <br>
-                    <br>
-                    Lorsque BT-1 ou 0-0-0 éliminent un ennemi, leurs délais<br>
-                    sont rafraîchis et ils obtiennent 30% de jauge de tour.
-                </p>
-            </div>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Agent of Destruction (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="bt-1 spécial" src="../image-perso/bt-1/bt-1-spe.png">
         </div>
-
-
-        <h2 class="titre"><u>Unique 2: Prototype blastomech</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="Bt-1 unique 2" src="../image-perso/bt-1/bt-1-unique2.png"><br>
-                <img class="attaque" alt="bt-1 unique 2 capa" src="../image-perso/bt-1/bt-1-unique2-capacite.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Au début de la bataille, BT-1 gagne 100% d'attaque. Lorsque BT-1 élimine un ennemi<br>
-                    il obtient la capacité <u class="speciale">Détraqué</u> et prend un tour bonus. Pendant ce dernier, BT-1<br>
-                    est immunisé contre l'entrave des capacité et ne peut utiliser que la capacité Détraqué.
-                    <br><br>
-                    <u class="speciale">Détraqué :</u><br>
-                    Inflige des dégâts physiques à tous les autres personnages, réduit de 75% pour les alliés,<br>
-                    qui ne peuvent pas être esquivés. Ces dégâts ne peuvent pas éliminer les alliés ou les ennemis.
-                </p>
-            </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies and inflict a stack of Damage Over Time for 2 turns and Expose for 1
+                turn. If the target enemy is inflicted with Target Lock, inflict Burning and another stack of Damage
+                Over Time for 2 turns.
+            </p>
         </div>
+    </div>
 
-        <footer>
-            <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-    
-            <script src="../javascript/bouton.js"></script>
-        </footer>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Homicidal Counterpart</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="bt-1 unique 1" src="../image-perso/bt-1/bt-1-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of battle, BT-1 gains 10% Critical Damage for each Droid ally, 10% Potency for each Dark
+                Side ally, and 5 Speed for each Scoundrel ally. If 0-0-0 is an active ally, gain the granted ability <u
+                    class="speciale">Kill Them All</u>. Whenever 0-0-0 uses a Special ability, BT-1 assists dealing 40%
+                less damage.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in 3v3 Grand Arenas:</u> Whenever BT-1 or 0-0-0 defeat an
+                enemy, their cooldowns are refreshed and they gain 30% Turn Meter.
+
+            </p>
+        </div>
+    </div>
+
+    <h2 class="invocation" id="invocation-title1">Granted Ability : Kill Them All (cooldown : 5)</h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="granted 1" src="../image-perso/bt-1/bt-1-unique-capa-1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="invocation1">
+                Deal Physical damage to all enemies and call 0-0-0 to assist.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Blastomech Prototype</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="unique 2" src="../image-perso/bt-1/bt-1-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                At the start of battle, BT-1 gains 100% Offense. Whenever BT-1 defeats an enemy, he gains the granted
+                ability <u class="speciale">Haywire</u> and takes a bonus turn. During this bonus turn, BT-1 removes
+                Ability Block from himself and may only use Haywire.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="invocation" id="invocation-title2">Granted : Haywire</h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="granted 2" src="../image-perso/bt-1/bt-1-unique2-capacite.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="invocation2">
+                Deal Physical damage to all other characters, reduced by 75% for allies, which can't be evaded. This
+                damage can't defeat allies or enemies.
+            </p>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "BT-1",
+                "title": "BT-1",
+                "description": "Un prototype de droïde blastomech, connu pour avoir détruit la base de l'initiative Tarkin dans laquelle il a été crée.",
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "droïde": "Droîde",
+                "scoundrel": "Vaurien",
+                "basic-attack-title": "<u>Attaque Basique : Lasers surchargés</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie trois fois ainsi qu'un cumul de dégâts sur la durée pendant 2 tours.",
+                "special-attack1-title": "<u>Attaque Spéciale : Agent de destruction (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis, ainsi qu'un cumul de déggâts sur la durée pendant 2 tours, et les expose pendant 1 tour. Si la cible ennemie subit Verouillage, inflige Brûlure et un autre cumul de dégâts sur la durée pendant 2 tours.",
+                "unique-ability1-title": "<u>Capacité Unique : Homologue homicide</u>",
+                "unique-ability1": "Au début de la bataille, BT-1 gagne 10% de dégâts critiques pour chaque DroÏde allié, 10% de pouvoir pour chaque allié du Coté Obscur et 5 de vitesse pour chaque allié Vaurien. Si 0-0-0 est un allié, il reçoit la capacité <u class='speciale'>Tuez-les tous</u>. Lorsque 0-0-0 utilise une capacité spéciale, BT-1 est invoqué et inflige 40% de dégâts en moins;\n\n<u class=omicron>Amélioration Omicron : Dans les Grandes arènes en 3c3 :</u> Lorsque BT-2 ou 0-0-0 éliminent un ennemi, leurs délais sont rafraîchis et ils obtiennent 30% de jauge de tour",
+                "invocation-title1": "Capacité Accordé : Tuez-les tous (délai : 5) :",
+                "invocation1": "Inflige des dégâts physiques à tous les ennemis et invoque 0-0-0",
+                "unique-ability2-title": "<u>Capacité Unique : Prototype blastomech</u>",
+                "unique-ability2": "Au début de la bataille, BT-1 gagne 100% d'attaque. Lorsque BT-1 élimine un ennemi, il obtient la capacité <u class='speciale'>Détraqué</u> et prend un tour bonus. Pendant ce dernier, BT-1 est immunisé contre l'entrave des capacités et ne peut utiliser que la capacité Détraqué.",
+                "invocation-title2": "Capacité Accordé : Détraqué :",
+                "invocation2": "inflige des dégâts physiques à tous les autres personnages, réduit de 75% pour les alliés, qui ne peuvent pas être esquivés. Ces dégâts ne peuvent pas éliminer les alliés ou les ennemis."
+            };
+
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+
+    </footer>
 </body>
-</html>        
