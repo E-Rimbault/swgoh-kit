@@ -8,6 +8,34 @@
     <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
     <link rel="icon" type="image/png" href="image/logo_star_wars.png">
     <link rel="stylesheet" href="style/index-style.css">
+    <style>
+        /* Une zone pour afficher le contenu chargé dynamiquement */
+        #dynamic-content {
+            display: none;
+            background: rgba(0,0,0,0.7);
+            padding: 20px;
+            border-radius: 12px;
+            color: white;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 1000px;
+        }
+
+        #back-home {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background: #ffc107;
+            color: black;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #back-home:hover {
+            background: #ffda55;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,16 +54,19 @@
     <header><span id="title">Star Wars galaxy of heroes website</span></header>
 
     <!-- Sections principales -->
-    <div class="main-sections">
+    <div class="main-sections" id="main-sections">
         <div class="section">
             <h3 id="Character">Character</h3>
-            <a href="filtre-recherche/filtre-personnage.html" id="voir-perso">Character</a>
+            <a href="#" id="voir-perso">Character</a>
         </div>
         <div class="section">
             <h3 id="ship">Ship</h3>
-            <a href="filtre-recherche/filtre-vaisseaux.html" id="voir-vaisseau">Ship</a>
+            <a href="#" id="voir-vaisseau">Ship</a>
         </div>
     </div>
+
+    <!-- Contenu dynamique -->
+    <div id="dynamic-content"></div>
 
     <script>
         const translations = {
@@ -55,15 +86,24 @@
             }
         };
 
-        // 🔹 Au chargement de la page
+        // Au chargement de la page
         window.onload = function () {
             const savedLang = sessionStorage.getItem("selectedLanguage") || "en";
             switchLanguage(savedLang);
+
+            // Ajout des événements pour les boutons
+            document.getElementById("voir-perso").addEventListener("click", function (e) {
+                e.preventDefault();
+                chargerPage("filtre-recherche/filtre-personnage.html");
+            });
+            document.getElementById("voir-vaisseau").addEventListener("click", function (e) {
+                e.preventDefault();
+                chargerPage("filtre-recherche/filtre-vaisseaux.html");
+            });
         };
 
-        // 🔹 Fonction de changement de langue
         function switchLanguage(lang) {
-            sessionStorage.setItem("selectedLanguage", lang); // ✅ Utilisation de sessionStorage
+            sessionStorage.setItem("selectedLanguage", lang);
             const elements = document.querySelectorAll('[id]');
             elements.forEach(function (element) {
                 const key = element.id;
@@ -71,6 +111,27 @@
                     element.textContent = translations[lang][key];
                 }
             });
+        }
+
+        // Charger une page sans changer l'URL
+        async function chargerPage(url) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error("Erreur de chargement");
+                const html = await response.text();
+                document.getElementById("main-sections").style.display = "none";
+                const content = document.getElementById("dynamic-content");
+                content.innerHTML = html + '<div id="back-home">⬅ Retour</div>';
+                content.style.display = "block";
+
+                // Bouton retour
+                document.getElementById("back-home").addEventListener("click", () => {
+                    content.style.display = "none";
+                    document.getElementById("main-sections").style.display = "flex";
+                });
+            } catch (err) {
+                alert("Impossible de charger la page : " + err.message);
+            }
         }
     </script>
 </body>
