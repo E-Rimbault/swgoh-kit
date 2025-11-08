@@ -3,57 +3,49 @@
 
 <head>
     <title id="big-title">CT-5555 "Fives"</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/fives/fives-image.png">
-
-    <!-- Lien vers la feuille de style -->
-              <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
-
-    <!-- Entête de la page -->
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/fives/fives-image.png" alt="Fives image"
-                style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/fives/fives-image.png" alt="CT-5555 Fives" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
             <div class="language-switcher">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                    onclick="switchLanguage('fr')">
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
                 <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                    onclick="switchLanguage('en')">
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
+
             <h1 id="title"><u>CT-5555 "Fives"</u></h1>
-            <p id="description">
-                Tank with high Defense, enemy Speed reduction, and team-wide stat bonuses
-            </p>
+            <p id="description">Tank with high Defense, enemy Speed reduction, and team-wide stat bonuses</p>
             <br>
 
             <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="ightside">Light
-                    Side</a>
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
                 <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
                 <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
-                <a class="capacite" href="../classement-perso/501E.html" id="501e">501ST</a>
+                <a class="capacite" href="../classement-perso/501e.html" id="501e">501st</a>
                 <a class="capacite" href="../classement-perso/soldat-clone.html" id="clone">Clone Trooper</a>
-                <a class="capacite" href="../classement-perso/république-galactique.html"
-                    id="galactic-republic">Galactic Republic</a>
-                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html" id="galactic-republic">Galactic Republic</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Member</a>
             </nav>
         </div>
-    </header><br>
+    </header>
+    <br>
 
-    <!-- Image principale du personnage -->
     <img class="first" src="../image-perso/fives/fives.png" alt="Fives"><br>
 
+    <!-- Capacités -->
 
     <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Dual DC-17 Blasters</u></h2>
     <div class="capacity-container">
@@ -68,7 +60,7 @@
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Cover Fire (cooldown: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack: Cover Fire (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="fives spe" src="../image-perso/fives/fives-spe.png">
@@ -82,7 +74,7 @@
         </div>
     </div>
 
-    <h2 class="titre" id="lead-ability-title"><u>Leader Ability : Veteran Clone Trooper</u></h2>
+    <h2 class="titre" id="lead-ability-title"><u>Leader Ability: Veteran Clone Trooper</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="fives lead" src="../image-perso/fives/fives-lead.png">
@@ -95,7 +87,7 @@
         </div>
     </div>
 
-    <h2 class="titre" id="unique-ability1-title"><u>Unique Ability : Domino Squad</u></h2>
+    <h2 class="titre" id="unique-ability1-title"><u>Unique Ability: Domino Squad</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="fives unique 1" src="../image-perso/fives/fives-domino-unique.png">
@@ -111,10 +103,10 @@
         </div>
     </div>
 
-    <h2 class="titre" id="unique-ability2-title"><u>Unique Ability : Tactical Awareness</u></h2>
+    <h2 class="titre" id="unique-ability2-title"><u>Unique Ability: Tactical Awareness</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="fives unique" src="../image-perso/fives/fives-unique2.png">
+            <img class="attaque" alt="fives unique 2" src="../image-perso/fives/fives-unique2.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="unique-ability2">
@@ -127,77 +119,81 @@
         </div>
     </div>
 
-    <!-- Pied de page -->
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
         <script>
-            const translations = {
-                en: {
-                    "big-title": 'CT-5555 "Fives"',
-                    "title": '<u>CT-5555 "Fives"</u>',
-                    "description" : "Tank with high Defense, enemy Speed reduction, and team-wide stat bonuses",
-                    "lightside": "Light Side",
-                    "tank": "Tank",
-                    "leader": "Leader",
-                    "501e": "501ST",
-                    "clone": "Clone Trooper",
-                    "galactic-republic": "Galactic Republic",
-                    "crew-members": "Crew Members",
-                    "basic-attack-title": "<u>Basic Attack: Dual DC-17 Blasters</u>",
-                    "basic-attack": "Deal Physical damage to target enemy and inflict Speed Down for 2 turns. If the enemy was already inflicted with Speed Down, attack again.",
-                    "special-attack1-title": "<u>Special Attack: Cover Fire (cooldown: 3)</u>",
-                    "special-attack1": "Deal Physical damage to target enemy and call target ally to assist. If the assisting ally is a Clone Trooper or 501st, both attackers deal 35% more damage. At the end of his turn if no allies are Taunting, Fives Taunts for 2 turns.",
-                    "lead-ability-title": "<u>Leader Ability: Veteran Clone Trooper</u>",
-                    "lead-ability": "Clone Trooper allies have +50% Defense, and other allies gain half that amount. 501st allies gain Protection Over Time (5%) for 2 turns whenever they are critically hit.",
-                    "unique-ability1-title": "<u>Unique Ability: Domino Squad</u>",
-                    "unique-ability1": "Fives has +85% counter chance. Fives gains 15% Turn Meter whenever another Clone Trooper or 501st ally takes damage and half that amount for other allies.\n\nIf CT-21-0408 \"Echo\" is present, Fives has +100% Defense when Taunting, or deals 100% more damage when not Taunting.",
-                    "unique-ability2-title": "<u>Unique Ability: Tactical Awareness</u>",
-                    "unique-ability2": "Fives can't be revived. When another 501st Clone Trooper ally would be defeated while Fives is active, they recover 100% Health and Fives is defeated at the end of that turn.\n\nIf Fives is defeated this way, 501st Clone Trooper allies gain his Max Health, Max Protection, Speed, and Offense stats in addition to their own until the end of battle."
-                },
-                fr: {
-                    "big-title": 'CT-5555 "Cinqs"',
-                    "title": '<u>CT-5555 "Cinqs"</u>',
-                    "description" : "Tank doté d'une grande défense, de capacité de réduction de la vitesse des ennemis, et de bonus de stats pour toute l'escoaude.",
-                    "lightside": "Côté Lumineux",
-                    "tank": "Tank",
-                    "leader": "Chef",
-                    "501e": "501e",
-                    "clone": "Soldat Clone",
-                    "galactic-republic": "République Galactique",
-                    "crew-members": "Membres d'Équipage",
-                    "basic-attack-title": "<u>Attaque Basique : Doubles blasters DC-17</u>",
-                    "basic-attack": "Inflige des dégâts physiques à une cible ennemie, ainsi qu'un malus de vitesse pendant 2 tours. Attaque à nouveau si l'ennemi souffrait déjà d'un malus de vitesse.",
-                    "special-attack1-title": "<u>Attaque Spéciale : Tir de couverture (délai : 3)</u>",
-                    "special-attack1": "Inflige des dégâts physiques à une cible ennemie et appelle un allié ciblé à assister. Si l'allié appelé est un Soldat Clone ou fait partie de la 501e, les deux attaquants infligent 35% de dégâts supplémentaires. À la fin de son tour, si aucun autre allié n'utilise la raillerie, Cinqs utilise la raillerie pendant 2 tours.",
-                    "lead-ability-title": "<u>Capacité de Chef : Soldat clone vétéran</u>",
-                    "lead-ability": "Les Soldats Clones alliés gagnent +50% de défense, et les autres alliés gagnent la moitié de cette valeur. Les alliés de la 501e obtiennent la protection sur la durée (5%) pendant 2 tours à chaque fois qu'ils subissent un coup critique.",
-                    "unique-ability1-title": "<u>Capacité Unique : Escouade Domino</u>",
-                    "unique-ability1": "Cinqs a +85% de chances de contre-attaque. Lorsqu'un Soldat Clone ou un allié de la 501e subit des dégâts, la jauge de tour de Cinqs se remplit de 15%, et celle des autres alliés se remplit de la moitié de cette valeur.\n\nSi CT-21-0408 \"Echo\" est présent, Cinqs a +100% de défense lorsqu'il utilise la raillerie, ou inflige 100% de dégâts supplémentaires lorsqu'il n'utilise pas la raillerie.",
-                    "unique-ability2-title": "<u>Capacité Unique : Conscience tactique</u>",
-                    "unique-ability2": "Cinqs ne peut être ranimé. Lorsqu'un autre Soldat Clone de la 501e devrait être vaincu alors que Cinqs est actif, cet allié récupère 100% de santé et Cinqs est vaincu à la fin de ce tour.\n\nSi Cinqs est vaincu de cette façon, les Soldats Clones alliés gagnent sa santé maximale, protection maximale, vitesse et attaque en plus des leurs jusqu'à la fin de la bataille."
-                }
+            const translationsFr = {
+                "big-title": 'CT-5555 "Cinqs"',
+                "title": '<u>CT-5555 "Cinqs"</u>',
+                "description": "Tank doté d'une grande défense, de capacité de réduction de la vitesse des ennemis, et de bonus de statistiques pour toute l'escouade.",
+                "lightside": "Côté Lumineux",
+                "tank": "Tank",
+                "leader": "Chef",
+                "501e": "501e",
+                "clone": "Soldat Clone",
+                "galactic-republic": "République Galactique",
+                "crew-members": "Membres d'Équipage",
+                "basic-attack-title": "<u>Attaque Basique : Doubles blasters DC-17</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et inflige un malus de vitesse pendant 2 tours. Attaque à nouveau si l'ennemi souffrait déjà d'un malus de vitesse.",
+                "special-attack1-title": "<u>Attaque Spéciale : Tir de couverture (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie et appelle un allié à assister. Si l'allié est un Soldat Clone ou fait partie de la 501e, les deux infligent 35% de dégâts supplémentaires. À la fin de son tour, si aucun allié ne provoque, Cinqs provoque pendant 2 tours.",
+                "lead-ability-title": "<u>Capacité de Chef : Soldat clone vétéran</u>",
+                "lead-ability": "Les Soldats Clones alliés gagnent +50% de défense, et les autres alliés gagnent la moitié de cette valeur. Les alliés de la 501e obtiennent Protection sur la durée (5%) pendant 2 tours lorsqu’ils subissent un coup critique.",
+                "unique-ability1-title": "<u>Capacité Unique : Escouade Domino</u>",
+                "unique-ability1": "Cinqs a +85% de chances de contre-attaque. Il gagne 15% de jauge de tour lorsqu’un Soldat Clone ou un allié de la 501e subit des dégâts, et la moitié de cette valeur pour les autres alliés.<br><br>Si CT-21-0408 « Echo » est présent, Cinqs a +100% de défense lorsqu’il provoque, ou inflige 100% de dégâts supplémentaires lorsqu’il ne provoque pas.",
+                "unique-ability2-title": "<u>Capacité Unique : Conscience tactique</u>",
+                "unique-ability2": "Cinqs ne peut pas être réanimé. Lorsqu’un autre Soldat Clone de la 501e devrait être vaincu alors que Cinqs est actif, cet allié récupère 100% de santé et Cinqs est vaincu à la fin de ce tour.<br><br>Si Cinqs est vaincu de cette manière, les alliés de la 501e gagnent sa santé, protection, vitesse et attaque maximales jusqu’à la fin du combat."
             };
 
+            const originalTexts = {};
 
-
-            function replaceNewLinesWithBr(text) {
-                return text.replace(/\n\n/g, '<br><br>');
-            }
-
-            function switchLanguage(lang) {
-                for (const [key, text] of Object.entries(translations[lang])) {
-                    const element = document.getElementById(key);
-                    if (element) {
-                        // Convert \n\n to <br><br> before injecting
-                        element.innerHTML = replaceNewLinesWithBr(text);
-                    }
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
                 }
             }
 
-            window.onload = () => switchLanguage('en');
-        </script>
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
 
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
     </footer>
 </body>
 

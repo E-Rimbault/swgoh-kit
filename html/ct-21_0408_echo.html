@@ -3,38 +3,31 @@
 
 <head>
     <title id="big-title">CT-21-0408 "Echo"</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/echo-501/echo-image.png">
-
-    <!-- Lien vers la feuille de style -->
-              <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
-
-    <!-- Entête de la page -->
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/echo-501/echo-image.png" alt="CT-21-0408 'Echo'"
-                style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/echo-501/echo-image.png" alt="CT-21-0408 'Echo'" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
             <div class="language-switcher">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                    onclick="switchLanguage('fr')">
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
                 <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                    onclick="switchLanguage('en')">
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
+
             <h1 id="title"><u>CT-21-0408 "Echo"</u></h1>
-            <p id="description">
-                Clone Trooper Support that automatically assists allies and can dispel all enemy buffs
-            </p>
+            <p id="description">Clone Trooper Support that automatically assists allies and can dispel all enemy buffs</p>
             <br>
 
             <nav class="perso" style="font-size: 20px;">
@@ -42,15 +35,15 @@
                 <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
                 <a class="capacite" href="../classement-perso/501E.html" id="501e">501ST</a>
                 <a class="capacite" href="../classement-perso/soldat-clone.html" id="clone">Clone Trooper</a>
-                <a class="capacite" href="../classement-perso/république-galactique.html"
-                    id="galactic-republic">Galactic Republic</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html" id="galactic-republic">Galactic Republic</a>
             </nav>
         </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/echo-501/21-0408-echo.png" alt="echo-501"><br>
+    <img class="first" src="../image-perso/echo-501/21-0408-echo.png" alt="CT-21-0408 Echo"><br>
+
+    <!-- Capacités -->
 
     <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Supporting Fire</u></h2>
     <div class="capacity-container">
@@ -64,10 +57,10 @@
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack1-title"><u>Special Attack : EMP Grenade (cooldown: 4)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack: EMP Grenade (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Echo spé 1" src="../image-perso/echo-501/echo-spe.png">
+            <img class="attaque" alt="Echo Special" src="../image-perso/echo-501/echo-spe.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1">
@@ -102,72 +95,77 @@
         </div>
     </div>
 
-
-    <!-- Pied de page -->
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
         <script>
-            const translations = {
-                en: {
-                    "big-title" : 'CT-21-0408 "Echo"',
-                    "title" : '<u>CT-21-0408 "Echo"</u>',
-                    "description" : "Clone Trooper Support that automatically assists allies and can dispel all enemy buffs",
-                    "lightside" : "Light Side",
-                    "support" : "Support",
-                    "501e" : "501ST",
-                    "clone" : "Clone Trooper",
-                    "galactic-republic" : "Galactic Republic",
-                    "basic-attack-title" : "<u>Basic Attack: Supporting Fire</u>",
-                    "basic-attack" : "Deal Physical damage to target enemy and grant 15% Turn Meter to another random ally with less than 50% Turn Meter. This attack deals 15% more damage if Echo has Critical Damage Up.",
-                    "special-attack1-title" : "<u>Special Attack : EMP Grenade (cooldown: 4)</u>",
-                    "special-attack" : "Deal Special damage to all enemies and dispel all buffs on them. Stun all Droid enemies for 1 turn.",
-                    "unique-ability1-title" : "<u>Unique Ability: Copy That</u>",
-                    "unique-ability1" : "Whenever another Clone Trooper or 501st ally uses their Basic ability during their turn, Echo assists. Whenever another Clone Trooper or 501st ally critically hits an enemy, Echo's next attack will be a critical hit.",
-                    "unique-ability2-title" : "<u>Unique Ability: Domino Squad</u>",
-                    "unique-ability2" : "Clone Trooper and 501st allies have +20% Critical Chance. When an enemy evades an attack from a Clone Trooper or 501st ally, Echo deals damage to them equal to 20% of their Max Health, which can't be evaded.\n\n If Fives is present, Echo deals +100% more damage when Fives is Taunting, or has +100% Defense when Fives is not Taunting."
-
-
-                },
-                fr: {
-                    "big-title" : 'CT-21-0408 "Echo"',
-                    "title" : '<u>CT-21-0408 "Echo"</u>',
-                    "description" : "            Soldat Clone qui assiste automatiquement les alliés et peut dissiper toutes les améliorations des ennemis.",
-                    "lightside" : "Coté Lumineux",
-                    "support" : "Soutien",
-                    "501e" : "501E",
-                    "clone" : "Soldat Clone",
-                    "galactic-republic" : "République Galactique",
-                    "basic-attack-title" : "<u>Attaque basique: Tir de soutien</u>",
-                    "basic-attack" : "Inflige des dégâts physiques à une cible ennemie et remplit de 15% la jauge de tour d'un allié aléatoire dont la jauge de tour est inférieure à 50%. Cette attaque inflige 15% de dégâts supplémentaires si Echo dispose d'un bonus de dégâts critiques.",
-                    "special-attack1-title" : "<u>Attaque spéciale : Grenade IEM (délai: 4)</u>",
-                    "special-attack1" : "Inflige des dégâts spéciaux à tous les ennemis et dissipe toutes leurs améliorations. Etourdit tous les droïdes pendant 1 tour.",
-                    "unique-ability1-title" : "<u>capacité unique: Bien reçu</u>",
-                    "unique-ability1" : "Lorsqu'un soldat clone allié ou un allié de la 501e utilise une capacité de base pendant son tour, Echo l'assiste. Lorsqu'un soldat clone allié ou un allié de la 501e inflige un coup critique à un ennemi, la prochaine attaque d'Echo infligera aussi un coup critique.",
-                    "unique-ability2-title" : "<u>capacité unique: Escouade domino</u>",
-                    "unique-ability2" : "Les soldats clones alliés et les alliés de la 501e ont +20% de chances de coup critique. Lorsqu'un ennemi esquive l'attaque d'un soldat clone ou d'un allié de la 501e, Echo lui inflige des dégâts à hauteur de 20% de sa santé maximale (ne peut pas être esquivée).\n\nSi Cinqs est présent, Echo inflige +100% de dégâts supplémentaires lorsque Cinqs utilise la raillerie,ou il dispose de +100% de défense lorsque Cinqs n'utilise pas la raillerie."
-                    
-                
-                }
+            const translationsFr = {
+                "big-title": 'CT-21-0408 "Echo"',
+                "title": '<u>CT-21-0408 "Echo"</u>',
+                "description": "Soldat clone qui assiste automatiquement les alliés et peut dissiper toutes les améliorations des ennemis.",
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "501e": "501E",
+                "clone": "Soldat Clone",
+                "galactic-republic": "République Galactique",
+                "basic-attack-title": "<u>Attaque Basique : Tir de soutien</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et remplit de 15% la jauge de tour d'un allié aléatoire dont la jauge de tour est inférieure à 50%. Cette attaque inflige 15% de dégâts supplémentaires si Echo dispose d'un bonus de dégâts critiques.",
+                "special-attack1-title": "<u>Attaque Spéciale : Grenade IEM (délai : 4)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à tous les ennemis et dissipe toutes leurs améliorations. Étourdit tous les droïdes pendant 1 tour.",
+                "unique-ability1-title": "<u>Capacité unique : Bien reçu</u>",
+                "unique-ability1": "Lorsqu'un soldat clone allié ou un allié de la 501e utilise une capacité de base pendant son tour, Echo l'assiste. Lorsqu'un soldat clone allié ou un allié de la 501e inflige un coup critique, la prochaine attaque d'Echo infligera aussi un coup critique.",
+                "unique-ability2-title": "<u>Capacité unique : Escouade Domino</u>",
+                "unique-ability2": "Les soldats clones alliés et les alliés de la 501e ont +20% de chances de coup critique. Lorsqu'un ennemi esquive une attaque d'un soldat clone ou d'un allié de la 501e, Echo lui inflige des dégâts égaux à 20% de sa santé maximale (ne peut pas être esquivée).<br><br>Si Cinqs est présent, Echo inflige +100% de dégâts supplémentaires lorsque Cinqs provoque, ou gagne +100% de défense lorsque Cinqs ne provoque pas."
             };
 
-            function replaceNewLinesWithBr(text) {
-                return text.replace(/\n\n/g, '<br><br>');
-            }
+            const originalTexts = {};
 
-            function switchLanguage(lang) {
-                for (const [key, text] of Object.entries(translations[lang])) {
-                    const element = document.getElementById(key);
-                    if (element) {
-                        // Convert \n\n to <br><br> before injecting
-                        element.innerHTML = replaceNewLinesWithBr(text);
-                    }
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
                 }
             }
 
-            window.onload = () => switchLanguage('en');
-        </script>
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
 
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
     </footer>
 </body>
 
