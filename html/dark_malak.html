@@ -3,40 +3,37 @@
 
 <head>
     <title id="big-title">Darth Malak</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/malak/malak-image.png">
-
-    <!-- Lien vers la feuille de style -->
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
-
-    <!-- Entête de la page -->
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
             <img src="../image-perso/malak/malak-image.png" alt="malak image" style="max-width: 100%; max-height: 100%;">
         </div>
+
         <div style="flex: 1; padding-left: 20px;">
-            <div class="language-switcher" style="display: flex; gap: 10px; margin-bottom: 10px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                    onclick="switchLanguage('fr')" style="cursor: pointer;">
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
                 <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                    onclick="switchLanguage('en')" style="cursor: pointer;">
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
-            <h1 id="title" style="margin: 0;"><u>Darth Malak</u></h1>
-            <p id="description" style="margin: 5px 0;">
-                Brutal Sith Tank who terrorizes and drains enemies to stay alive
-            </p>
-            <nav class="perso" style="font-size: 20px; margin-top: 10px;">
-                <a style="color:red !important" class="capacite" href="../classement-perso/coté-obscur.html" id="dark-side">Dark Side</a>
-                <a class="class" href="../classement-perso/tank.html" id="tank">tank</a>
+
+            <h1 id="title"><u>Darth Malak</u></h1>
+            <p id="description">Brutal Sith Tank who terrorizes and drains enemies to stay alive</p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="dark-side">Dark Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
                 <a class="capacite" href="../classement-perso/sith.html" id="sith">Sith</a>
                 <a class="capacite" href="../classement-perso/empire-sith.html" id="sith-empire">Sith Empire</a>
             </nav>
@@ -44,14 +41,15 @@
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
+    <!-- IMAGE PRINCIPALE -->
     <img class="first" src="../image-perso/malak/Dark-malak.png" alt="image malak"><br>
 
-    <!-- Section pour les différentes attaques spéciales -->
+    <!-- CAPACITÉS -->
+
     <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Rend</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="image basique malak" src="../image-perso/malak/malak-basique.png">
+            <img class="attaque" src="../image-perso/malak/malak-basique.png" alt="malak basic">
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
@@ -63,11 +61,12 @@
     <h2 class="titre" id="special-attack1-title"><u>1st Special: Torture (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="malak spé 1" src="../image-perso/malak/malak-spe1.png">
+            <img class="attaque" src="../image-perso/malak/malak-spe1.png" alt="malak spe1">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1">
-                Deal Physical damage to target enemy, dispel all buffs on them, and Shock them for 2 turns. If the target already had Shock or Fear, Stun them for 2 turns.
+                Deal Physical damage to target enemy, dispel all buffs on them, and Shock them for 2 turns.
+                If the target already had Shock or Fear, Stun them for 2 turns.
             </p>
         </div>
     </div>
@@ -75,41 +74,51 @@
     <h2 class="titre" id="special-attack2-title"><u>2nd Special: Drain Life (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="malak spe 2" src="../image-perso/malak/malak-spe2.png">
+            <img class="attaque" src="../image-perso/malak/malak-spe2.png" alt="malak spe2">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack2">
-                Deal damage to target enemy equal to 100% of their Max Health, and gain a stack of <u class="speciale">Dark Infusion</u> until the end of battle, which can't be copied, dispelled, or prevented. Then, recover Health equal to the damage dealt. This ability can't be countered or evaded and starts on cooldown.
+                Deal damage to target enemy equal to 100% of their Max Health, and gain a stack of
+                <u class="speciale">Dark Infusion</u> until the end of battle, which can't be copied,
+                dispelled, or prevented. Then, recover Health equal to the damage dealt.
+                This ability can't be countered or evaded and starts on cooldown.
                 <br><br>
-                <u class="speciale">Dark Infusion:</u> +35% Offense per stack (max 3 stacks). At max stacks, these bonuses are doubled and Basic attacks also inflict Healing Immunity for 2 turns.
+                <u class="speciale">Dark Infusion:</u> +35% Offense per stack (max 3 stacks). At max stacks, these
+                bonuses are doubled and Basic attacks also inflict Healing Immunity for 2 turns.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u id="unique-ability-title">Unique Ability: Gnawing Terror</u></h2>
+    <h2 class="titre" id="unique-ability-title"><u>Unique Ability: Gnawing Terror</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="malak unique 1" src="../image-perso/malak/malak-unique.png">
+            <img class="attaque" src="../image-perso/malak/malak-unique.png" alt="malak unique">
         </div>
         <div class="right-column">
             <p class="attaque" id="unique-ability">
-                Darth Malak Taunts for 1 turn whenever an enemy is inflicted with Shock or Fear. Sith enemies can't gain bonus Turn Meter (excludes raid bosses and Galactic Legends). At the end of each turn, enemies who inflicted Damage Over Time on Darth Malak or critically hit him this turn are inflicted with Fear for 1 turn, which can't be resisted or evaded.
+                Darth Malak Taunts for 1 turn whenever an enemy is inflicted with Shock or Fear.
+                Sith enemies can't gain bonus Turn Meter (excludes raid bosses and Galactic Legends).
+                At the end of each turn, enemies who inflicted Damage Over Time on Darth Malak or critically hit him this
+                turn are inflicted with Fear for 1 turn, which can't be resisted or evaded.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u id="unique-ability2-title">Unique Ability: Jaws of Life</u></h2>
+    <h2 class="titre" id="unique-ability2-title"><u>Unique Ability: Jaws of Life</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="malak unique 2 " src="../image-perso/malak/malak-unique2.png">
+            <img class="attaque" src="../image-perso/malak/malak-unique2.png" alt="malak unique2">
         </div>
         <div class="right-column">
             <p class="attaque" id="unique-ability2">
-                Darth Malak takes reduced damage from percent Health damage effects, and at the start of battle he loses all Protection and gains that much Max Health.
+                Darth Malak takes reduced damage from percent Health damage effects, and at the start of battle he loses
+                all Protection and gains that much Max Health.
                 <br><br>
-                Darth Malak gains 35% Critical Avoidance, Health Steal, Tenacity, and Defense while he has less than 75% Health, doubled while he has less than 50% Health, and tripled while he has less than 25% Health.
+                Darth Malak gains 35% Critical Avoidance, Health Steal, Tenacity, and Defense while he has less than 75%
+                Health, doubled while he has less than 50% Health, and tripled while he has less than 25% Health.
                 <br><br>
-                The first time Darth Malak reaches each of these thresholds, he gains a bonus turn and the cooldown of Drain Life is reset.
+                The first time Darth Malak reaches each of these thresholds, he gains a bonus turn and the cooldown of
+                Drain Life is reset.
             </p>
         </div>
     </div>
@@ -117,30 +126,10 @@
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
         <script>
-            const translations = {
-                en: {
-                    "big-title": "Darth Malak",
-                    "title": "Darth Malak",
-                    "description": "Brutal Sith Tank who terrorizes and drains enemies to stay alive",
-                    "dark-side" : "Darth Side",
-                    "tank" : "tank",
-                    "sith" : "sith",
-                    "sith-empire" : "Sith Empire",
-                    "basic-attack-title" : "<u>Basic Attack: Rend</u>",
-                    "basic-attack" : "Deal Physical damage to target enemy and inflict Tenacity Down for 2 turns.",
-                    "special-attack1-title" : "<u>1st Special: Torture (cooldown: 3)</u>",
-                    "special-attack1" : "Deal Physical damage to target enemy, dispel all buffs on them, and Shock them for 2 turns. If the target already had Shock or Fear, Stun them for 2 turns.",
-                    "special-attack2-title": "<u>2nd Special: Drain Life (cooldown: 4)</u>",
-                    "special-attack2" : "Deal damage to target enemy equal to 100% of their Max Health, and gain a stack of <u class='speciale'>Dark Infusion</u> until the end of battle, which can't be copied, dispelled, or prevented. Then, recover Health equal to the damage dealt. This ability can't be countered or evaded and starts on cooldown.\n\n<u class='speciale'>Dark Infusion:</u> +35% Offense per stack (max 3 stacks). At max stacks, these bonuses are doubled and Basic attacks also inflict Healing Immunity for 2 turns.",
-                    "unique-ability-title" : "<u>Unique Ability: Gnawing Terror</u>",
-                    "unique-ability" : "Darth Malak Taunts for 1 turn whenever an enemy is inflicted with Shock or Fear. Sith enemies can't gain bonus Turn Meter (excludes raid bosses and Galactic Legends). At the end of each turn, enemies who inflicted Damage Over Time on Darth Malak or critically hit him this turn are inflicted with Fear for 1 turn, which can't be resisted or evaded.",
-                    "unique-ability2-title" : 'Unique Ability: Jaws of Life</u>',
-                    "unique-ability2" : "Darth Malak takes reduced damage from percent Health damage effects, and at the start of battle he loses all Protection and gains that much Max Health.\n\nDarth Malak gains 35% Critical Avoidance, Health Steal, Tenacity, and Defense while he has less than 75% Health, doubled while he has less than 50% Health, and tripled while he has less than 25% Health.\n\nThe first time Darth Malak reaches each of these thresholds, he gains a bonus turn and the cooldown of Drain Life is reset."
-
-
-                },
-                fr: {
+            const translationsFr = {
                     "big-title": "Dark Malak",
                     "title": "Dark Malak",
                     "description": "Tank sith brutal qui terrorise ses ennemis et absorbe leur pouvoir pour rester en vie",
@@ -158,26 +147,54 @@
                     "unique-ability" : "Dark Malak utilise la Raillerie pendant 1 tour lorsqu'un ennemi souffre de Choc ou de Peur. Les ennemis Sith ne peuvent pas bénéficier d'un bonus de remplissage de leur jauge de tour (exclut les boss de raid et les Légendes Galactique). A la fin de chaque tour, les ennemis qui infligent un coup critique ou des dégâts sur la durée à Dark Malak souffrent de Peur pendant 1 tour ( ne peut pas être esquivé ou résisté).",
                     "unique-ability2-title" : "<u>capacité unique: Les dents de la vie</u>",
                     "unique-ability2" : "Dark Malak subit des dégâts réduits des effets de dégâts de pourcentage de santé, et au début de la bataille, il perd toute sa protection et obtient l'équivalent en santé maximale.\n\nDark Malak obtient 35% d'esquive des critiques, de vol de santé, de ténacité et de défense lorsque sa santé est à moins de 75% (doublé lorsque sa santé est à moins de 50% et triplé lorsqu'elle est à moins de 25%).\n\nLa première fois que Dark Malak atteint chacun de ces seuils, il obtient un tour bonus et le délai de Drain de vie est réinitialisé.",
+                };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
                 }
-            };
+            }
 
             function replaceNewLinesWithBr(text) {
-                return text.replace(/\n\n/g, '<br><br>');
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
             }
 
-            function switchLanguage(lang) {
-                for (const [key, text] of Object.entries(translations[lang])) {
-                    const element = document.getElementById(key);
-                    if (element) {
-                        // Convert \n\n to <br><br> before injecting
-                        element.innerHTML = replaceNewLinesWithBr(text);
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
                     }
                 }
+
+                updateFlagActive();
             }
 
-            window.onload = () => switchLanguage('en');
-        </script>
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
 
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
     </footer>
 </body>
 
