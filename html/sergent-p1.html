@@ -3,51 +3,47 @@
 
 <head>
     <title id="big-title">Clone Sergeant - Phase I</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/sergent/sergeant-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
-
-    <!-- Entête de la page -->
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/sergent/sergeant-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/sergent/sergeant-image.png" alt="Clone Sergeant" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
             <div class="language-switcher">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                    onclick="switchLanguage('fr')">
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
                 <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                    onclick="switchLanguage('en')">
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
+
             <h1 id="title"><u>Clone Sergeant - Phase I</u></h1>
-            <p id="description">
-                Clone Attacker with AoE damage and Turn Meter Reduction
-            </p>
+            <p id="description">Clone Attacker with AoE damage and Turn Meter Reduction</p>
             <br>
 
             <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html"
-                    id="lightside">Light Side</a>
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
                 <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
                 <a class="capacite" href="../classement-perso/soldat-clone.html" id="clone">Clone Trooper</a>
-                <a class="capacite" href="../classement-perso/république-galactique.html"
-                    id="republic-galactic">Galactic Republic</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html" id="republic-galactic">Galactic Republic</a>
                 <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew">Crew member</a>
             </nav>
         </div>
-    </header><br>
+    </header>
+    <br>
 
-    <!-- Image principale du personnage -->
     <img class="first" src="../image-perso/sergent/sergeant.png" alt="Sergent Phase 1"><br>
+
+    <!-- Capacités -->
 
     <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Z-6 Rotary Blaster</u></h2>
     <div class="capacity-container">
@@ -86,13 +82,12 @@
         </div>
     </div>
 
-    <!-- Pied de page -->
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
 
+        <!-- SCRIPT DE TRADUCTION -->
         <script>
-            // Dictionnaire français
             const translationsFr = {
                 "big-title": "Sergent clone - Phase 1",
                 "title": "<u>Sergent clone - Phase 1</u>",
@@ -103,11 +98,11 @@
                 "republic-galactic": "République Galactique",
                 "crew": "Membres d'équipages",
                 "basic-attack-title": "<u>Attaque Basique : Blaster rotatif Z-6</u>",
-                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et fait croître la jauge de tour de 50% en cas de coup critique",
-                "special-attack1-title": "<u>Attaque Spéciale : Tir de uppression (délai : 3)</u>",
-                "special-attack1": "inflige des dégâts à tous les ennemis et réduit leur jauge de tour de 50%.",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et fait croître la jauge de tour de 50% en cas de coup critique.",
+                "special-attack1-title": "<u>Attaque Spéciale : Tir de suppression (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis et réduit leur jauge de tour de 50%.",
                 "unique-ability-title": "<u>Capacité unique : Feu concentré</u>",
-                "unique-ability": "Le Sergent clone (Phase I) Gagne 4,5% de chances de coup critique pour chaque allié clone. De plus, il obtient un bonus de dégâts critiques de 10% et un bonus d'attaque de 10% pendant 2 tours à chaque coup critique."
+                "unique-ability": "Le Sergent clone (Phase I) gagne 4,5% de chances de coup critique pour chaque allié clone. De plus, il obtient +10% de dégâts critiques et un bonus d'attaque pendant 2 tours à chaque coup critique."
             };
 
             const originalTexts = {};
@@ -147,7 +142,6 @@
                 document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
             }
 
-            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
             window.addEventListener("load", () => {
                 saveOriginalTexts();
                 const lang = sessionStorage.getItem("selectedLanguage") || "en";
@@ -157,8 +151,7 @@
                 document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
             });
         </script>
-
     </footer>
 </body>
 
-</html
+</html>
