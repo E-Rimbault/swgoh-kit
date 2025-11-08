@@ -3,64 +3,58 @@
 
 <head>
     <title id="big-title">Eeth Koth</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/eeth-koth/koth-image.png">
-
-    <!-- Lien vers la feuille de style -->
-     <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
 
-    <!-- Entête de la page -->
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/eeth-koth/koth-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/eeth-koth/koth-image.png" alt="Eeth Koth" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
             <div class="language-switcher">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                    onclick="switchLanguage('fr')">
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
                 <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                    onclick="switchLanguage('en')">
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
+
             <h1 id="title"><u>Eeth Koth</u></h1>
-            <p id="description">
-                Stunning Jedi Support extremely effective against Droids
-            </p>
+            <p id="description">Stunning Jedi Support extremely effective against Droids</p>
             <br>
 
             <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html"
-                    id="Light Side">Light Side</a>
+                <a class="capacite" href="../classement-perso/coté-lumineux.html" style="color: blue !important;" id="lightside">Light Side</a>
                 <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
-                <a class="capacite" href="../classement-perso/chef.html" id="leader">Chef</a>
-                <a class="capacite" href="../classement-perso/république-galactique.html" id="galactic">Galactic
-                    républic</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html" id="galactic">Galactic Republic</a>
                 <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
-                <a class="capacite" href="../classement-perso/vanguard.html" id="vanguard">Jedi vanguard</a>
+                <a class="capacite" href="../classement-perso/vanguard.html" id="vanguard">Jedi Vanguard</a>
             </nav>
         </div>
-    </header><br>
+    </header>
+    <br>
 
-    <!-- Image principale du personnage -->
     <img class="first" src="../image-perso/eeth-koth/eeth-koth.png" alt="Eeth Koth"><br>
 
+    <!-- Capacités -->
     <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Breaching Strike</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="eeth koth basic" src="../image-perso/eeth-koth/eeth_basique.png">
+            <img class="attaque" src="../image-perso/eeth-koth/eeth_basique.png" alt="Basic Attack">
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
-                Deal Physical damage to target enemy with a 50% chance to inflict Defense Down for 3 turns. If the
-                target is a Droid, this attack has a 100% chance.
+                Deal Physical damage to target enemy with a 50% chance to inflict Defense Down for 3 turns.
+                If the target is a Droid, this attack has a 100% chance.
             </p>
         </div>
     </div>
@@ -68,7 +62,7 @@
     <h2 class="titre" id="special-attack1-title"><u>Special Attack: Force Push (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="eeth koth spé" src="../image-perso/eeth-koth/eeth_spe.png">
+            <img class="attaque" src="../image-perso/eeth-koth/eeth_spe.png" alt="Special Attack">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1">
@@ -81,19 +75,17 @@
     <h2 class="titre" id="lead-ability-title"><u>Leader Ability: Stalwart Jedi Defender</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Eeth koth lead" src="../image-perso/eeth-koth/eeth_lead.png">
+            <img class="attaque" src="../image-perso/eeth-koth/eeth_lead.png" alt="Leader Ability">
         </div>
         <div class="right-column">
-            <p class="attaque" id="lead-ability">
-                Jedi allies gain 60 Defense.
-            </p>
+            <p class="attaque" id="lead-ability">Jedi allies gain 60 Defense.</p>
         </div>
     </div>
 
     <h2 class="titre" id="unique-ability-title"><u>Unique Ability: Anti-Droid Specialist</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="eeth unique" src="../image-perso/eeth-koth/eeth_unique.png">
+            <img class="attaque" src="../image-perso/eeth-koth/eeth_unique.png" alt="Unique Ability">
         </div>
         <div class="right-column">
             <p class="attaque" id="unique-ability">
@@ -102,32 +94,13 @@
         </div>
     </div>
 
-    <!-- Pied de page -->
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
         <script>
-            const translations = {
-                en: {
-                    "big-title" : "Eeth Koth",
-                    "title" : "<u>Eeth Koth</u>",
-                    "description" : "Stunning Jedi Support extremely effective against Droids",
-                    "lightside" : "Light Side",
-                    "support" : "Support",
-                    "leader" : "Leader",
-                    "galactic" : "Galactic Républic",
-                    "jedi" : "Jedi",
-                    "vanguard" : "Jedi Vanguard",
-                    "basic-attack-tile" : "<u>Breaching Strike</u>",
-                    "basic-attack" : "Deal Physical damage to target enemy with a 50% chance to inflict Defense Down for 3 turns. If the target is a Droid, this attack has a 100% chance.",
-                    "special-attack1-title" : "<u>Special Attack: Force Push (cooldown: 3)</u>",
-                    "special-attack" : "Deal Special damage to target enemy with a 75% chance to Stun for 1 turn and a 100% chance to inflict Ability Block for 3 turns if the target is a Droid.",
-                    "lead-ability-title" : "<u>Stalwart Jedi Defender</u>",
-                    "lead-ability" : "Jedi allies gain 60 Defense.",
-                    "unique-ability-title" : "<u>Anti-Droid Specialist</u>",
-                    "unique-ability" : "Eeth Koth has +35% Critical Chance and +20% Critical Damage when attacking Droids.",
-                },
-                fr: {
+            const translationsFr = {
                     "big-title" : "Eeth Koth",
                     "title" : "<u>Eeth Koth</u>",
                     "description" : "Jedi de soutien aux capacités étourdissantes, très efficace contre les droïdes",
@@ -145,24 +118,48 @@
                     "lead-ability" : "Les alliés Jedi gagnent un bonus de défense de 60.",
                     "unique-ability-title" : "<u>capacité Unique : Spécialiste anti-droïdes</u>",
                     "unique-ability" : "Eeth Koth a +35% de chances de coup critique contre les droïdes et il leur inflige 20% de dégâts critiques supplémentaires.",
-                }
-            };
+                };
 
-            function replaceNewLinesWithBr(text) {
-                return text.replace(/\n\n/g, '<br><br>');
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
             }
 
-            function switchLanguage(lang) {
-                for (const [key, text] of Object.entries(translations[lang])) {
-                    const element = document.getElementById(key);
-                    if (element) {
-                        // Convert \n\n to <br><br> before injecting
-                        element.innerHTML = replaceNewLinesWithBr(text);
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
                     }
                 }
+                updateFlagActive();
             }
 
-            window.onload = () => switchLanguage('en');
-        </script>
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
 
-  
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+    </footer>
+</body>
+
+</html>
