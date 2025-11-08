@@ -1,117 +1,111 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <title id="big-title">General Kenobi</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/general-kenobi/kenobi-image.png">
-
-    <!-- Lien vers la feuille de style -->
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
-
-    <!-- Entête de la page -->
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/general-kenobi/kenobi-image.png" alt="General Kenobi image" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/general-kenobi/kenobi-image.png" alt="General Kenobi" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
-        <div class="language-switcher">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                onclick="switchLanguage('fr')">
-            <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                onclick="switchLanguage('en')">
-        </div>
 
-        <h1 id="title">General Kenobi<u></u></h1>
-        <p id="description"> 
-            Vigorous Jedi Tank who gains Foresight, dispels debuffs to grant buffs, and calls buffed allies to Assist
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: blue !important;" href="../classement-perso/coté-lumineux.html" id="lightSide">Light Side</a>
-            <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
-            <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
-            <a class="capacite" href="../classement-perso/république-galactique.html" id="Galactic-Republic">Galactic Republic</a>
-            <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
-            <a class="capacite" href="../classement-perso/commandant-de-la-flotte.html" id="fleet_commander">Fleet Commander</a>
-        </nav>
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>General Kenobi</u></h1>
+            <p id="description">
+                Vigorous Jedi Tank who gains Foresight, dispels debuffs to grant buffs, and calls buffed allies to Assist.
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important;" href="../classement-perso/coté-lumineux.html" id="light-side">Light Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html" id="republic">Galactic Republic</a>
+                <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
+                <a class="capacite" href="../classement-perso/commandant-de-la-flotte.html" id="fleet">Fleet Commander</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
     <img class="first" src="../image-perso/general-kenobi/General_kenobi.jpg" alt="General Kenobi"><br>
 
-    <!-- Section pour les différentes attaques spéciales -->
-    <h2 class="titre" id="basicAttackTitle"><u>Basic Attack: Intuitive Strike</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Intuitive Strike</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="kenobi basic" src="../image-perso/general-kenobi/kenobi-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque" id="basicAttack">  
+            <p class="attaque" id="basic-attack">
                 Deal Physical damage to target enemy with a 75% chance to grant Foresight to a random ally that doesn't have it for 2 turns. If all allies are buffed, deal double damage.
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="specialAttack1Title"><u>1st Special: The Negotiator (cooldown: 4)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack: The Negotiator (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="kenobi spé 1" src="../image-perso/general-kenobi/kenobi-spe1.png">
+            <img class="attaque" alt="kenobi special 1" src="../image-perso/general-kenobi/kenobi-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque" id="specialAttack1">
+            <p class="attaque" id="special-attack1">
                 Dispel all debuffs from all allies and grant them the opposite buffs, if any, for 2 turns. All allies that were not debuffed gain Retribution for 3 turns. General Kenobi gains 60% Turn Meter.
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="specialAttack2Title"><u>2nd Special: Lead the Charge(cooldown: 4)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack: Lead the Charge (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="kenobi spe 2" src="../image-perso/general-kenobi/kenobi-spe2.png">
+            <img class="attaque" alt="kenobi special 2" src="../image-perso/general-kenobi/kenobi-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque" id="specialAttack2">
+            <p class="attaque" id="special-attack2">
                 Deal Physical damage to target enemy and grant a random other ally Offense Up for 2 turns. Call all other buffed allies to assist, dealing 30% less damage. Jedi Knight Anakin and Ahsoka Tano (Snips) are not affected by this damage penalty.
             </p>
         </div>
     </div>
 
-    <!-- Capacités spéciales du personnage -->
-    <h2 class="titre"><u id="leadAbilityTitle">Leader Ability: 212th Attack Battalion Commander</u></h2>
+    <h2 class="titre" id="lead-ability-title"><u>Leader Ability: 212th Attack Battalion Commander</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="kenobi lead" src="../image-perso/general-kenobi/kenobi-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque" id="leadAbility">
+            <p class="attaque" id="lead-ability">
                 Jedi and Clone allies have +30% Max Health and +70% Defense. After a Jedi ally uses a team healing Special ability, all other allies at full health are called to Assist, dealing 50% less damage. When a Clone ally uses a Special ability they gain a buff (Attacker: Advantage, Support: Stealth, Tank: Taunt) for 1 turn.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u id="uniqueAbilityTitle">Unique Ability: Soresu</u></h2>
+    <h2 class="titre" id="unique-ability-title"><u>Unique Ability: Soresu</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="kenobi unique-ability" src="../image-perso/general-kenobi/kenobi-unique.png">
+            <img class="attaque" alt="kenobi unique" src="../image-perso/general-kenobi/kenobi-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque" id="uniqueAbility">
-                At the end of his turn, General Kenobi has a 65% chance to gain Foresight for 2 turns.\n\n
-
-                Whenever another ally is critically hit, if General Kenobi is alive, they gain Critical Hit Immunity for 1 turn and General Kenobi Taunts for 1 turn.\n\n
-
+            <p class="attaque" id="unique-ability">
+                At the end of his turn, General Kenobi has a 65% chance to gain Foresight for 2 turns.<br><br>
+                Whenever another ally is critically hit, if General Kenobi is alive, they gain Critical Hit Immunity for 1 turn and General Kenobi Taunts for 1 turn.<br><br>
                 If all allies are Galactic Republic, General Kenobi Taunts for 1 turn whenever another Galactic Republic ally loses any Protection Up.
             </p>
         </div>
@@ -120,30 +114,10 @@
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
         <script>
-            const translations = {
-                en: {
-                    "big-title": "General Kenobi",
-                    "title": "<u>General Kenobi</u>",
-                    "description": "Vigorous Jedi Tank who gains Foresight, dispels debuffs to grant buffs, and calls buffed allies to Assist",
-                    "lightSide": "Light Side",
-                    "tank": "Tank",
-                    "leader": "Leader",
-                    "Galactic-Republic": "Galactic Republic",
-                    "jedi": "Jedi",
-                    "fleet_commander": "Fleet Commander",
-                    "basicAttackTitle": "<u>Basic Attack: Intuitive Strike</u>",
-                    "basicAttack": "Deal Physical damage to target enemy with a 75% chance to grant Foresight to a random ally that doesn't have it for 2 turns. If all allies are buffed, deal double damage.",
-                    "specialAttack1Title": "<u>1st Special: The Negotiator (cooldown: 4)</u>",
-                    "specialAttack1": "Dispel all debuffs from all allies and grant them the opposite buffs, if any, for 2 turns. All allies that were not debuffed gain Retribution for 3 turns. General Kenobi gains 60% Turn Meter.",
-                    "specialAttack2Title": "<u>2nd Special: Lead the Charge (cooldown: 4)</u>",
-                    "specialAttack2": "Deal Physical damage to target enemy and grant a random other ally Offense Up for 2 turns. Call all other buffed allies to assist, dealing 30% less damage. Jedi Knight Anakin and Ahsoka Tano (Snips) are not affected by this damage penalty.",
-                    "leadAbilityTitle": "<u>Leader Ability: 212th Attack Battalion Commander</u>",
-                    "leadAbility": "Jedi and Clone allies have +30% Max Health and +70% Defense. After a Jedi ally uses a team healing Special ability, all other allies at full health are called to Assist, dealing 50% less damage. When a Clone ally uses a Special ability they gain a buff (Attacker: Advantage, Support: Stealth, Tank: Taunt) for 1 turn.",
-                    "uniqueAbilityTitle": "<u>Unique Ability: Soresu</u>",
-                    "uniqueAbility": "At the end of his turn, General Kenobi has a 65% chance to gain Foresight for 2 turns.\n\nWhenever another ally is critically hit, if General Kenobi is alive, they gain Critical Hit Immunity for 1 turn and General Kenobi Taunts for 1 turn.\n\nIf all allies are Galactic Republic, General Kenobi Taunts for 1 turn whenever another Galactic Republic ally loses any Protection Up."
-                },
-                fr: {
+            const translationsFr = {
                     "big-title": "Général Kenobi",
                     "title": "<u>Général Kenobi</u>",
                     "description": "Tank Jedi énergique qui gagne la prévoyance, dissipe les affaiblissements pour conférer des améliorations et invoque les alliés disposant d'améliorations.",
@@ -163,20 +137,49 @@
                     "leadAbility": "Les Jedi et Clones alliés gagnent 30% de leur santé maximale et un bonus de défense de 70%.\n\nLorsqu'un Jedi allié utilise une capacité spéciale de soin de l'équipe, tous les autres alliés dont la santé est au maximum sont invoqués, infligeant 50% de dégâts. Lorsqu'un clone allié utilise une capacité spéciale, il obtient une amélioration (attaquant : avantage, soutien: camouflage, tank : raillerie) pendant 1 tour.",
                     "uniqueAbilityTitle": "<u>Capacité Unique : Soresu</u>",
                     "uniqueAbility": "A la fin de son tour, le Général Kenobi a 65% de chances d'obtenir la prévoyance pendant 2 tours.\n\nLorsqu'un autre allié subit un coup critique quand le Général Kenobi est en vie, il gagne l'immnité aux coups critiques pendant 1 tour et le Général Kenobi utilise la raillerie pendant 1 tour.\n\nSi tous les alliés appartiennent à la République Galactique, le Général Kenobi utilise la raillerie pendant 1 tour à chaque fois qu'un autre allié de la République Galactique perd sa hausse de protection."
-                }
-            };
+                };
 
-            function switchLanguage(lang) {
-                for (const [key, text] of Object.entries(translations[lang])) {
-                    const element = document.getElementById(key);
-                    if (element) element.innerHTML = text;
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
                 }
             }
 
-            window.onload = () => switchLanguage('en');
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
         </script>
-        
     </footer>
 </body>
-
 </html>
