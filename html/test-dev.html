@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
-<body class="simple">
+<body class="simple" data-unit-id="general skywalker">
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/gas/gas-image.png" alt="General Skywalker" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/gas/gas-image.png" alt="General Skywalker"
+                style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
             <!-- Sélecteur de langue -->
@@ -34,23 +35,131 @@
             <nav id="unit-nav" class="perso" style="font-size: 20px;"></nav>
         </div>
     </header>
-    <br>
 
+    <br>
     <img class="first" src="../image-perso/gas/General-skywalker.png" alt="General Skywalker"><br>
 
-    <!-- Capacités (contenu inchangé) -->
+    <!-- Capacités (inchangé) -->
+         <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Furious Slash</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Gas basic" src="../image-perso/gas/gas-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. This attack can't be evaded and has +65% Defense Penetration, tripled if all allies are 501st.<br><br>
+                If this is the first ability General Skywalker uses during his turn, he immediately uses the Special ability Telekinesis, if able.<br><br>
+                <u class="speciale">Telekinesis:</u> Deal Physical damage to target enemy. If possible, this attack will critically hit enemies with Armor Shred. If the target enemy is Dazed, reduce General Skywalker's ability cooldowns by 1.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack: Sundering Strike (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Gas special 1" src="../image-perso/gas/gas-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and inflict Armor Shred. If they are Dazed, this attack deals double damage.<br><br>
+                If this is the first ability General Skywalker uses during his turn, reset Force Grip's cooldown and use it if possible.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack: Force Grip (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Gas special 2" src="../image-perso/gas/gas-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to all enemies and Daze them for 2 turns. If possible, this attack will critically hit enemies with Armor Shred.<br><br>
+                If this is the first ability General Skywalker uses during his turn, reset Sundering Strike's cooldown and use it if possible.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="lead-ability-title"><u>Leader Ability: General of the 501st</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Gas lead" src="../image-perso/gas/gas-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                All units can't be revived.<br>
+                All 501st allies have +50% Critical Damage.<br>
+                When an enemy gains a buff, all 501st allies gain 2% Offense (stacking) until the end of the encounter.<br><br>
+                While there are other active 501st allies, General Skywalker:<br>
+                - Can't drop below 100% Health<br>
+                - Advances if he has 100% Protection and takes Cover if he has 0% Protection at the end of every turn<br>
+                - Removes all other status effects when he takes Cover<br>
+                - Leaves Cover, recovers 100% Protection, and takes a bonus turn when all other 501st allies are defeated<br><br>
+                <u class="speciale">Advance:</u><br>
+                - Taunt, which can't be dispelled or prevented<br>
+                - Other 501st allies can't lose Health<br><br>
+                <u class="speciale">Cover:</u><br>
+                - Can't be targeted<br>
+                - Immune to damage and status effects<br>
+                - Speed set to 0<br>
+                - Recover 10% Protection and Turn Meter at the end of every turn, doubled for allied 501st turns, which can't be prevented.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="unique-ability1-title"><u>Unique Ability: The Chosen One</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Gas unique 1" src="../image-perso/gas/gas-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                General Skywalker uses an additional ability during his turn.<br><br>
+                Whenever General Skywalker critically hits an enemy during his turn, increase their cooldowns by 1 (excluding raid bosses and Galactic Legends), which can't be resisted.<br><br>
+                If he is critically hit, General Skywalker dispels all debuffs on himself. Enemies attacking out of turn can't critically hit.<br><br>
+                If the target enemy has no Protection when General Skywalker uses an ability, reduce their current Max Health by 20% for rest of the battle (stacking, excluding raid bosses and Galactic Legends), which can't be resisted.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="unique-ability2-title"><u>Unique Ability: Hero with no Fear</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Gas unique 2" src="../image-perso/gas/gas-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                At the start of battle, General Skywalker gains 25% Defense, 15% Max Protection, and 25% Tenacity for each other 501st ally until all other 501st allies are defeated.<br><br>
+                If all allies are 501st at the start of battle, General Skywalker gains the following:<br><br>
+                - 100% counter chance and 50% Critical Chance.<br><br>
+                - When all other allies are defeated, General Skywalker can't be critically hit and gains 35% Turn Meter after every enemy turn.
+            </p>
+        </div>
+    </div>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
 
-        <!-- SCRIPT DE TRADUCTION -->
+        <!-- 🌐 Script de traduction -->
         <script>
             const translationsFr = {
-                "big-title": "Général Skywalker",
-                "title": "<u>Général Skywalker</u>",
-                "description": "Brave assaillant Jedi qui protège son bataillon coûte que coûte.",
-            };
+                "big-title" : "Général Skywalker",
+                "title" : "<u>Général Skywalker</u>",
+                "description" : "Brave assaillant Jedi qui protège son bataillon coûte que coûte.",
+                "basic-attack-title" : "<u>Attaque Basique : Taillade Furieuse</u>",
+                "basic-attack" : "Inflige des dégâts physiques à une cible ennemie. Cette attaque ne peut pas être esquivée et bénéficie d'un bonus de +65% de pénétration de défens, triplé si tous les alliés font partie de la 501e.\n\n Si cette capacite est la première qu'utilise le général Skywalker lors de son tour, il utilise immédiatement la capacité spéciale Télékinésie si disponible.\n\n<u class='speciale'>Télékinésie:</u> Inflige des dégâts physiques à une cible ennemie. Si possible, cette attaque inflige un coup critique aux ennemis sous l'effet d'une destruction d'armure. Si la cible ennemie souffre de confusion, réduit les délais des capacité du général Skywalker de 1.",
+                "special-attack1-title" : "<u>Attaque Spéciale : Frappe déchirante (délai: 3)</u>",
+                "special-attack1" : "Inflige des dégâts physiques et la destruction d'armure à une cible ennemie. Si la cible souffre de confusion, cette attaque inflige deux fois plus de dégâts.\n\n Si cette attaque est la première qu'utilise le Général Skywalker lors de son tour, le délai de Préhension de Force est réinitialisé et la capacité est utilisée si possible.",
+                "special-attack2-title" : "<u>Attaque Spéciale : Préhension de Force (délai: 3)</u>",
+                "special-attack2" : "Inflige des dégâts physiques à tous les ennemis et les rends confus pendant 2 tours. Si possible, cette attaque porte un coup critique aux ennemis sous l'effet d'une destruction d'armure.\n\n Si cette capacité est la première qu'utilise le Général Skywlaker lors de son tour, le délai de Frappe déchirante est réinitialisé et la capacité est utilisée si possible.",
+                "lead-ability-title" : "<u>Capacité de chef: Général de la 501e</u>",
+                "lead-ability" : "Aucune unité ne peut être ranimée. Tous les alliés de la 501e bénéficient de +50% de dégâts critiques. Lorsqu'un ennemi obtient une amélioration, tous les alliés de la 501e obtiennent 2% d'attaque (cumulatif) jusqu'à la fin de l'affrontement. \n\n En présence d'alliés de la 501e actif, le général Skywalker:\n\n -ne peut pas descendre sous 100% de santé\n\n -avance s'il bénéficie de 100% de protection et il se met à couvert s'il bénéficie de 0% de protection à la fin de son tour.\n\n-Supprime tous les autres effets quand il se met à couvert\n\n-Sort de sa position à couvert, récupère 100% de protection et utilise un tour bonus quand tous les autres alliés de la 501e sont vaincus.\n\n <u class='speciale'>Avancée:</u>\n\n-Utilise la raillerie (ne peut pas être dissipé ou évité)\n\n-les autres alliés de la 501e ne peuvent pas perdre de santé.\n\n<u class='speciale'>A couvert:</u>\n\n-Ne peut pas être pris pour cible.\n\n-immunité aux dégâts et effets.\n\n-Vitesse à 0.\n\n-Récupère 10% de protection et de jauge de tour à la fin de chaque tour, doublé pour les tours alliés de la 501e (ne peut pas être évité).",
+                "unique-ability1-title" : "<u>Capacité Unique : L'élu</u>",
+                "unique-ability1" : "Le général Skywalker utilise une capacité supplémentaire lors de son tour.\n\n Lorsque le général Skywalker inflige un coup critique à un ennemi lors de son tour, il augmente les délais de celui-ci de 1 (à l'exception des boss de raid et des Légendes Galactiques). Cet effet ne peut pas être résisté.\n\n S'il subit un coup critique, le général Skywlaker dissipe tous les affaiblissements qu'il subit. Les ennemis qui attaquent en dehors de leur tour ne peuvent pas infliger de coups critiques.\n\n Si la cible ne dispose pas de protection quand le général Skywalker utilise une capacité, la santé maximale de celle-ci diminue de 20% pour le reste de l'affrontement (cumulatif, à l'exception des boss de raid et des Légendes Galactiques). Cet effet ne peut pas être résisté.",
+                "unique-ability-title2" : "<u>Capacité Unique : Héros sans peur</u>",
+                "unique-ability2" : "Au début de l'affrontement, le Général Skywalker obtient un bonus de 25% de défense, 15% de protection max, et 25% de ténacité pour chaque autre allié de la 501e jusqu'à ce que tous les alliés de la 501e soient vaincus.\n\n Si tous les alliés au début de l'affrontement font partie de la 501e, le général Skywalker obtient les avantages suivants:\n\n -100% de chances de contre-attaque et 50% de chances de coup critique.\n\n -Quand tous les autres alliés sont vaincus, le Général Skywalker ne peut pas subir de coup critique et sa jauge de tour se remplit de 35% à la fin de chaque tour ennemi.",
+                };
 
             const originalTexts = {};
 
@@ -77,7 +186,7 @@
                 }
 
                 updateFlagActive();
-                // 🟦 Recharge la navigation dans la langue choisie
+                // Recharge la navigation dans la bonne langue
                 loadUnitNavigation();
             }
 
@@ -97,11 +206,11 @@
             });
         </script>
 
-        <!-- 🔁 SCRIPT NAVIGATION DYNAMIQUE -->
+        <!-- 🧩 Script de navigation dynamique -->
         <script>
             async function loadUnitNavigation() {
                 try {
-                    // 🧩 Charger les 4 fichiers en parallèle
+                    // Charger les 4 fichiers JSON en parallèle
                     const [units, factions, roles, alignments] = await Promise.all([
                         fetch("../filtre-recherche/units.json").then(res => res.json()),
                         fetch("../data/faction.json").then(res => res.json()),
@@ -109,14 +218,17 @@
                         fetch("../data/alignements.json").then(res => res.json())
                     ]);
 
-                    // 🔍 Identifier l’unité actuelle via le nom du fichier
-                    const currentPage = window.location.pathname.split("/").pop().replace(".html", "").replace("_", " ");
-                    const unit = units.find(u => u.id.toLowerCase() === currentPage.toLowerCase());
-                    if (!unit) return;
+                    // ✅ Identifier l’unité à partir du data-id
+                    const unitId = document.body.dataset.unitId?.toLowerCase();
+                    const unit = units.find(u => u.id.toLowerCase() === unitId);
+                    if (!unit) {
+                        console.warn("Unité non trouvée dans units.json :", unitId);
+                        return;
+                    }
 
                     const lang = sessionStorage.getItem("selectedLanguage") || "en";
                     const nav = document.getElementById("unit-nav");
-                    nav.innerHTML = ""; // nettoyage
+                    nav.innerHTML = ""; // Nettoyage
 
                     // 🟦 ALIGNEMENT
                     const align = alignments.find(a => a.en.toLowerCase() === unit.alignment.en.toLowerCase());
@@ -132,17 +244,17 @@
                         if (factionData) {
                             addNavLink(nav, factionData.url, factionData[lang], "capacite");
                         } else {
-                            // si pas trouvée dans le json, lien local de secours
+                            // Fallback si faction absente du JSON
                             addNavLink(nav, `../classement-perso/${slugify(f[lang])}.html`, f[lang], "capacite");
                         }
                     }
 
                 } catch (err) {
-                    console.error("Erreur lors du chargement du JSON :", err);
+                    console.error("Erreur lors du chargement des JSON :", err);
                 }
             }
 
-            // 🔤 Fonctions utilitaires
+            // Fonctions utilitaires
             function slugify(text) {
                 return text
                     .toLowerCase()
@@ -164,6 +276,7 @@
                 nav.appendChild(a);
             }
 
+            // Lancer au chargement
             window.addEventListener("load", loadUnitNavigation);
         </script>
     </footer>
