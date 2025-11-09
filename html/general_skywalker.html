@@ -160,7 +160,7 @@
                 "Galactic-Republic" : "République Galactique",
                 "jedi" : "Jedi",
                 "basic-attack-title" : "<u>Attaque Basique : Taillade Furieuse</u>",
-                "basic-attack" : "Inflige des dégâts physiques à une cible ennemie. Cette attaque ne peut pas être esquivée et bénéficie d'un bonus de +65% de pénétration de défens, triplé si tous les alliés font partie de la 501e.\n\n Si cette capacite est la première qu'utilise le général Skywalker lors de son tour, il utilise immédiatement la capacité spéciale Télékinésie si disponible.\n\n <u class='speciale'>Télékinésie:</u> Inflige des dégâts physiques à une cible ennemie. Si possible, cette attaque inflige un coup critique aux ennemis sous l'effet d'une destruction d'armure. Si la cible ennemie souffre de confusion, réduit les délais des capacité du général Skywalker de 1.",
+                "basic-attack" : "Inflige des dégâts physiques à une cible ennemie. Cette attaque ne peut pas être esquivée et bénéficie d'un bonus de +65% de pénétration de défens, triplé si tous les alliés font partie de la 501e.\n\n Si cette capacite est la première qu'utilise le général Skywalker lors de son tour, il utilise immédiatement la capacité spéciale Télékinésie si disponible.\n\n<u class='speciale'>Télékinésie:</u> Inflige des dégâts physiques à une cible ennemie. Si possible, cette attaque inflige un coup critique aux ennemis sous l'effet d'une destruction d'armure. Si la cible ennemie souffre de confusion, réduit les délais des capacité du général Skywalker de 1.",
                 "special-attack1-title" : "<u>Attaque Spéciale : Frappe déchirante (délai: 3)</u>",
                 "special-attack1" : "Inflige des dégâts physiques et la destruction d'armure à une cible ennemie. Si la cible souffre de confusion, cette attaque inflige deux fois plus de dégâts.\n\n Si cette attaque est la première qu'utilise le Général Skywalker lors de son tour, le délai de Préhension de Force est réinitialisé et la capacité est utilisée si possible.",
                 "special-attack2-title" : "<u>Attaque Spéciale : Préhension de Force (délai: 3)</u>",
@@ -183,21 +183,25 @@
             }
 
             function switchLanguageTo(lang) {
-                sessionStorage.setItem("selectedLanguage", lang);
+    sessionStorage.setItem("selectedLanguage", lang);
 
-                if (lang === "fr") {
-                    for (const [id, text] of Object.entries(translationsFr)) {
-                        const el = document.getElementById(id);
-                        if (el) el.innerHTML = text;
-                    }
-                } else if (lang === "en") {
-                    for (const [id, text] of Object.entries(originalTexts)) {
-                        const el = document.getElementById(id);
-                        if (el) el.innerHTML = text;
-                    }
-                }
-                updateFlagActive();
+    if (lang === "fr") {
+        for (const [id, text] of Object.entries(translationsFr)) {
+            const el = document.getElementById(id);
+            if (el) {
+                // ✨ Remplacement des \n par <br>
+                el.innerHTML = text.replace(/\n/g, "<br>");
             }
+        }
+    } else if (lang === "en") {
+        for (const [id, text] of Object.entries(originalTexts)) {
+            const el = document.getElementById(id);
+            if (el) el.innerHTML = text;
+        }
+    }
+    updateFlagActive();
+}
+
 
             function updateFlagActive() {
                 const lang = sessionStorage.getItem("selectedLanguage") || "en";
