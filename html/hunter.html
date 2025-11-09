@@ -3,37 +3,32 @@
 
 <head>
     <title id="big-title">Hunter</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/hunter/hunter-image.png">
-
-    <!-- Lien vers la feuille de style -->
-              <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
-
-    <!-- Entête de la page -->
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/hunter/hunter-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/hunter/hunter-image.png" alt="Hunter" style="max-width: 100%; max-height: 100%;">
         </div>
+
         <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
             <div class="language-switcher">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                    onclick="switchLanguage('fr')">
-                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                    onclick="switchLanguage('en')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg"
+                    alt="Français" id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+                    alt="English" id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
+
             <h1 id="title"><u>Hunter</u></h1>
-            <p id="description">
-                Tactical leader of the Bad Batch who subtly destroys his enemies.
-            </p>
+            <p id="description">Tactical leader of the Bad Batch who subtly destroys his enemies.</p>
             <br>
 
             <nav class="perso" style="font-size: 20px;">
@@ -46,16 +41,16 @@
                 <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew">Crew Members</a>
             </nav>
         </div>
-    </header><br>
+    </header>
+    <br>
 
-    <!-- Image principale du personnage -->
     <img class="first" src="../image-perso/hunter/Hunter.png" alt="Hunter"><br>
 
-    <!-- Section pour les différentes attaques spéciales -->
+    <!-- Capacités -->
     <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Combat Prowess</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Hunter Basic" src="../image-perso/hunter/hunter-basic.png">
+            <img class="attaque" src="../image-perso/hunter/hunter-basic.png" alt="Hunter Basic">
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
@@ -67,7 +62,7 @@
     <h2 class="titre" id="special-attack1-title"><u>Special Attack: Shrouded Approach (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Hunter spé 1" src="../image-perso/hunter/hunter-spe1.png">
+            <img class="attaque" src="../image-perso/hunter/hunter-spe1.png" alt="Hunter Special 1">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1">
@@ -81,7 +76,7 @@
     <h2 class="titre" id="special-attack2-title"><u>Special Attack: Finish What We Started (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Hunter spe 2" src="../image-perso/hunter/hunter-spe2.png">
+            <img class="attaque" src="../image-perso/hunter/hunter-spe2.png" alt="Hunter Special 2">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack2">
@@ -90,11 +85,10 @@
         </div>
     </div>
 
-    <!-- Capacités spéciales du personnage -->
     <h2 class="titre" id="lead-ability-title"><u>Leader Ability: A Different Path</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Hunter lead" src="../image-perso/hunter/hunter-lead.png">
+            <img class="attaque" src="../image-perso/hunter/hunter-lead.png" alt="Hunter Lead">
         </div>
         <div class="right-column">
             <p class="attaque" id="lead-ability">
@@ -109,34 +103,13 @@
         </div>
     </div>
 
-    <!-- Pied de page -->
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
-        <script>
-            const translations = {
-                en: {
-                    "big-title" : "Hunter",
-                    "title" : "<u>Hunter</u>",
-                    "description" : "Tactical leader of the Bad Batch who subtly destroys his enemies.",
-                    "lightside" : "Light Side",
-                    "attacker" : "Attacker",
-                    "leader" : "Leader",
-                    "bad-batch" : "Bad Batch",
-                    "clone" : "Clone Trooper",
-                    "galactic-republic" : "Republic Galactic",
-                    "crew" : "Crew Members",
-                    "basic-attack-title" : "<u>Basic Attack: Combat Prowess</u>",
-                    "basic-attack" : "Deal Physical damage to target enemy and inflict Expose for 2 turns. If target enemy was debuffed, attack again.",
-                    "special-attack1-title" : "<u>Special Attack: Shrouded Approach (cooldown: 3)</u>",
-                    "special-attack1" : "Clone Trooper allies gain Evasion Up and Stealth for 2 turns. Then, deal Physical damage to all enemies.\n\nIf Hunter was already Stealthed, all Bad Batch allies gain Critical Chance Up and Offense Up for 2 turns.",
-                    "special-attack2-title" : "<u>Special Attack: Finish What We Started (cooldown: 3)</u>",
-                    "special-attack2" : "Inflict Expose on target enemy for 2 turns, which can't be evaded. Hunter swaps Turn Meter with target other Clone Trooper ally. If they were Bad Batch, they ignore Taunt effects and inflict Stun for 1 turn on their target enemy during that turn. This Stun can't be evaded.",
-                    "lead-ability-title" : "<u>Leader Ability: A Different Path</u>",
-                    "lead-ability": "Bad Batch allies have +35% Max Health, +35% Max Protection, and +50% Potency.\n\nWhen Bad Batch allies use an ability while they have Defense Up, they deal true damage to all enemies.\n\nWhile Bad Batch allies have Evasion Up, they have +50% Critical Avoidance. When using an ability against a Target Locked enemy, Bad Batch allies can't be countered.\n\nWhen damaging an enemy with Expose, Bad Batch allies remove 50% Turn Meter from that enemy, doubled for Droid and Separatist enemies (excludes raid bosses and Galactic Legends), which can't be evaded or resisted.",
 
-                },
-                fr: {
+        <!-- Script de traduction -->
+        <script>
+            const translationsFr = {
                     "big-title" : "Hunter",
                     "title" : "<u>Hunter</u>",
                     "description" : "Chef tactique du Bad Batch qui détruit subtilement ses adversaires.",
@@ -144,7 +117,7 @@
                     "attacker" : "Attaquant",
                     "leader" : "Chef",
                     "bad-batch" : "Bad Batch",
-                    "clone" : "Soldat CLone",
+                    "clone" : "Soldat Clone",
                     "galactic-republic" : "République Galactique",
                     "crew" : "Membres Équipages",
                     "basic-attack-title" : "<u>attaque basique : Prouesse au combat</u>",
@@ -155,27 +128,47 @@
                     "special-attack2" : "Inflige Exposition à la cible ennemie pendant 2 tours (ne peut pas être esquivé). Hunter échange sa jauge de tour avec celle d'un autre soldat clone allié. Si la cible alliée fait partie du Bad Batch, elle ignore les effets de Raillerie et inflige étourdissement pendant 1 tour à sa cible ennemie pendant ce tour. Cet étourdissement ne peut pas être esquivé.",
                     "lead-ability-title" : "<u>Capacité de chef: Une voie différente</u>",
                     "lead-ability": "Les alliés du Bad Batch ont +35% de santé maxiamle, +35% de protection maximum et +50% de pouvoir.\n\nLorsque les alliés du Bad Batch utilisent una capacitétout en bénéficiant d'un bonus de défense, ils infligent des dégâts réels à tous les ennemis.\n\nLorsque les alliés du Bad Batch ont un bonus d'esquive, ils obtiennt +50% d'esquive des critiques. Lorsque vous utilisez une capacité contre un ennemi verouillé, les alliés du Bad Batch ne peuvent pas être contrés.\n\nLorsqu'ils infligent des dégâts à une cible exposé, les alliés du Bad Batch suppriment 50% de la jauge de tour de cet ennemi. Cet effet est doublé pour les ennemis droïdes et séparatistes (à l'exception des boss de raid et des légendes galactiques). cet effet ne peut pas être esquivé ou résisté. ",
+                };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
                 }
-            };
+            }
 
             function replaceNewLinesWithBr(text) {
-                return text.replace(/\n\n/g, '<br><br>');
+                return text.replace(/\n\s*\n/g, '<br><br>');
             }
 
-            function switchLanguage(lang) {
-                for (const [key, text] of Object.entries(translations[lang])) {
-                    const element = document.getElementById(key);
-                    if (element) {
-                        // Convert \n\n to <br><br> before injecting
-                        element.innerHTML = replaceNewLinesWithBr(text);
-                    }
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+                const isFr = lang === "fr";
+                const dict = isFr ? translationsFr : originalTexts;
+
+                for (const [id, text] of Object.entries(dict)) {
+                    const el = document.getElementById(id);
+                    if (el) el.innerHTML = replaceNewLinesWithBr(text);
                 }
+                updateFlagActive();
             }
 
-            window.onload = () => switchLanguage('en');
-        </script>
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
 
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
     </footer>
 </body>
-
 </html>
