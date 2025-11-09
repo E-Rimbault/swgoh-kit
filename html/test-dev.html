@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">General Skywalker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/gas/gas-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/gas/gas-image.png" alt="General Skywalker" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>General Skywalker</u></h1>
+            <p id="description">Fierce Jedi Attacker who protects his battalion at all costs.</p>
+            <br>
+
+            <!-- 🔄 NAVIGATION DYNAMIQUE -->
+            <nav id="unit-nav" class="perso" style="font-size: 20px;"></nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/gas/General-skywalker.png" alt="General Skywalker"><br>
+
+    <!-- Capacités (contenu inchangé) -->
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            const translationsFr = {
+                "big-title": "Général Skywalker",
+                "title": "<u>Général Skywalker</u>",
+                "description": "Brave assaillant Jedi qui protège son bataillon coûte que coûte.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+                // 🟦 Recharge la navigation dans la langue choisie
+                loadUnitNavigation();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+        <!-- 🔁 SCRIPT NAVIGATION DYNAMIQUE -->
+        <script>
+            async function loadUnitNavigation() {
+                try {
+                    // 🧩 Charger les 4 fichiers en parallèle
+                    const [units, factions, roles, alignments] = await Promise.all([
+                        fetch("../filtre-recherche/units.json").then(res => res.json()),
+                        fetch("../data/faction.json").then(res => res.json()),
+                        fetch("../data/roles.json").then(res => res.json()),
+                        fetch("../data/alignements.json").then(res => res.json())
+                    ]);
+
+                    // 🔍 Identifier l’unité actuelle via le nom du fichier
+                    const currentPage = window.location.pathname.split("/").pop().replace(".html", "").replace("_", " ");
+                    const unit = units.find(u => u.id.toLowerCase() === currentPage.toLowerCase());
+                    if (!unit) return;
+
+                    const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                    const nav = document.getElementById("unit-nav");
+                    nav.innerHTML = ""; // nettoyage
+
+                    // 🟦 ALIGNEMENT
+                    const align = alignments.find(a => a.en.toLowerCase() === unit.alignment.en.toLowerCase());
+                    if (align) addNavLink(nav, align.url, align[lang], "capacite", true);
+
+                    // 🟩 ROLE
+                    const role = roles.find(r => r.en.toLowerCase() === unit.role.en.toLowerCase());
+                    if (role) addNavLink(nav, role.url, role[lang], "class");
+
+                    // 🟨 FACTIONS
+                    for (const f of unit.factions) {
+                        const factionData = factions.find(x => x.en.toLowerCase() === f.en.toLowerCase());
+                        if (factionData) {
+                            addNavLink(nav, factionData.url, factionData[lang], "capacite");
+                        } else {
+                            // si pas trouvée dans le json, lien local de secours
+                            addNavLink(nav, `../classement-perso/${slugify(f[lang])}.html`, f[lang], "capacite");
+                        }
+                    }
+
+                } catch (err) {
+                    console.error("Erreur lors du chargement du JSON :", err);
+                }
+            }
+
+            // 🔤 Fonctions utilitaires
+            function slugify(text) {
+                return text
+                    .toLowerCase()
+                    .replace(/[éèêë]/g, "e")
+                    .replace(/[àâä]/g, "a")
+                    .replace(/[îï]/g, "i")
+                    .replace(/[ôö]/g, "o")
+                    .replace(/[ùûü]/g, "u")
+                    .replace(/[^a-z0-9]+/g, "-")
+                    .replace(/(^-|-$)/g, "");
+            }
+
+            function addNavLink(nav, href, text, className, blue = false) {
+                const a = document.createElement("a");
+                a.href = href;
+                a.className = className;
+                a.textContent = text;
+                if (blue) a.style.color = "blue";
+                nav.appendChild(a);
+            }
+
+            window.addEventListener("load", loadUnitNavigation);
+        </script>
+    </footer>
+</body>
+</html>
