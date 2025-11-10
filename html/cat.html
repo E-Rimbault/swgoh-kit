@@ -1,128 +1,192 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Commandante Ahsoka Tano</title>
-
+    <title id="big-title">Commander Ahsoka Tano</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/cat/cat-image.png">
-
     <link rel="stylesheet" href="../style/unit-style.css">
-    <style>
-        img {
-            width: 40%;
-            height: 40%;
-        }
-
-        table,
-        tr,
-        td {
-            margin: auto;
-        }
-    </style>
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/cat/cat-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Commandante Ahsoka Tano</u></h1>
-        <p>
-            Attaquante légendaire maitrisant la forme  Jar'Kai et la forme<br>
-            Schien qui inflige de lourds dégâts à une cible ennemie
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/république-galactique.html">République Galactique</a>
-            <a class="capacite" href="../classement-perso/vaurien.html">Vaurien</a>
-            <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html">Utilisateur de la Force non aligné</a>
-        </nav>
+            <h1 id="title"><u>Commander Ahsoka Tano</u></h1>
+            <p id="description">
+                Legendary Master of Jar'Kai and Shien form Attacker, who deals high damage to a single target.
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">LightSide</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html" id="galactic-republic">Galactic Republic</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Force User</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/cat/Cat.png" alt="Commandante Ahsoka Tano"><br>
+    <img class="first" src="../image-perso/cat/Cat.png" alt="Commander Ahsoka Tano"><br>
 
-    <h2 class="titre"><u>attaque basique : Maitrise jar'Kai</u></h2>
+    <!-- Capacités -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Jar'Kai Master</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt=" at basique" src="../image-perso/cat/cat-basique.png">
+            <img class="attaque" alt="Commander Ahsoka basic" src="../image-perso/cat/cat-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à une cible ennemie deux fois. Si un autre allié Vaurien ou de la<br>
-                République Galactique est présent Ahsoka obtient l'avantage pendant 3 tours.
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy twice. If another Galactic Republic or Scoundrel ally is present, Ahsoka gains Advantage for 3 turns.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Shien (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Shien (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="cat spé 1" src="../image-perso/cat/cat-spe1.png">
+            <img class="attaque" alt="commander ahsoka spé 1" src="../image-perso/cat/cat-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Ahsoka et l'allié Vaurien ou de la République Galactique ciblé obtiennent la forme Shien pendant<br>
-                4 tours et un bonus d'esquive pendant 2 tours. Ahsoka échange sa jauge de tour avec cet allié et<br>
-                l'invoque (il inflige 20% de dégâts en plus). <u class="speciale">Forme Shien</u> ne peut pas être copiée, dissipée ou empechée.<br>
-                <br>
-                <u class="speciale">Forme Shien</u>: Lorsque cette unité esquive ou attaque en dehors de son tour, le délai du saut de Force<br>
-                de la Commandante Ahsoka Tano diminue de 1 et les dégâts du saut de Force sont augmentés de 50% (cumulatif)<br>
-                jusqu'à sa prochaine utilisation.
+            <p class="attaque" id="special-attack1">
+                Ahsoka and target other Galactic Republic or Scoundrel ally gain Shien for 4 turns, Evasion Up for 2 turns, Ahsoka swaps Turn Meter with them and calls them to assist dealing +20% more damage. <u class="speciale">Shien Form</u> can't be copied, dispelled, or prevented.
+                <br><br>
+                <u class="speciale">Shien Form:</u> Whenever this unit evades, or attacks out of turn, Commander Ahsoka Tano's Force Leap cooldown is reduced by 1 and damage is increased by 50% (stacking) until the next time it is used
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Saut de Force (délai: 8)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Force Leap (cooldown : 8)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="cat spé 2" src="../image-perso/cat/cat-spe2.png">
+            <img class="attaque" alt="ahsoka spe 2" src="../image-perso/cat/cat-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                La première fois que Saut de Force est utilisé lors d'un affrontement, vainc la cible instantanément et la jauge de tour<br>
-                de chaque allié du Coté Lumineux se remplit de 35%.<br>
-                <br>
-                Inflige des dégâts spéciaux à une cible ennemie et confère un bonus de dégâts critiques pendant 3 tours.<br>
-                Le délai de cette capacité est réduit de 4.<br>
-                <br>
-                Si la Commandante Ahsoka Tano dispose de la forme Shien inflige la destruction d'armure jusqu'à la fin de l'affrontement.<br>
-                <br>
-                Saut de Force sur les boss de raid : invoque les autres alliés de la République Galactique, qui infligent 10% de dégats en plus.<br>
-                <br>
-                Cette capacité commence avec un délai et ne peut pas être esquivée.
+            <p class="attaque" id="special-attack2">
+                The first time Force Leap is used during an encounter, instantly defeat target enemy and each Light Side ally gains 35% Turn Meter.
+                <br><br>
+                Deal Special damage to target enemy and gain Critical Damage Up for 3 turns. Reduce this ability's cooldown by 4.
+                <br><br>
+                If Commander Ahsoka Tano has Shien, inflict Armor Shred until the end of the encounter.
+                <br><br>
+                Force Leap on Raid Bosses: Call all other Galactic Republic allies to assist, dealing 10% more damage.
+                <br><br>
+                This ability starts on cooldown and can't be evaded.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Sa propre voie</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Her Own Path</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="cat unique" src="../image-perso/cat/cat-unique.png">
+            <img class="attaque" alt="commander ahsoka unique" src="../image-perso/cat/cat-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Ahsoka a +50% d'attaque et de dégâts critiques, et si un allié vaurien, utilisateur de la force non aligné du Coté Lumineux<br>
-                ou de la République Galactique est présent, elle obtient également +50% de santé et de défense, et partage tous ces<br>
-                bonus avec ses alliés du Coté Lumineux.<br>
-                <br>
-                Si il y a moins d'alliés que d'ennemis présent, les bonus d'attaque, de dégâts critiques et de défense sont<br>
-                augmentés de 10% pour chaque allié vaurien ou de la République Galactique.
+            <p class="attaque" id="unique-ability">
+                Ahsoka has +50% Offense and Critical Damage and if another Light Side Unaligned Force User, Galactic Republic, or Scoundrel ally is present, she also has +50% Health and Defense and shares all of these bonuses with her Light Side allies.
+                <br><br>
+                If there are currently fewer allies than enemies, the bonuses to Offense, Critical Damage, Health and Defense are increased by 10% for each Galactic Republic or Scoundrel ally.
             </p>
         </div>
     </div>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Commandante Ahsoka Tano",
+                "title": "<u>Commandante Ahsoka Tano</u>",
+                "description": "Attaquante légendaire maîtrisant la forme Jar'Kai et la forme Shien, qui inflige de lourds dégâts à unc cible unique.",
+
+                "basic-attack-title": "<u>Attaque Basique: Maîtrise Jar'Kai</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie deux fois. Si un autre allié Vaurien ou de la République Galactique est présent, Ahsoka obtient l'avantage pendant 3 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Shien (délai : 4)</u>",
+                "special-attack1": "Ahsoka et l'allié Vaurien ou de la République Galactique ciblé obtiennent la forme Shien pendant 4 tours et un bonus d'esquive pendant 2 tours. Ahsoka échange sa jauge de tour avec cet allié et l'invoque (il inflige 20% de dégâts en plus). <u class='speciale'>Forme Shien</u> ne peut pas être copiée, dissipée ou emepêchée.\n\n<u class='speciale'>Fome Shien :</u> lorsque cette unité esquive ou attaque en dehors de son tour, le délai de Saut de force de la commandante Ahsoka Tano diminue de 1 et les dégâts du saut de Force sont augmentés de 50% (cumulatif) jusqu'à sa prochaine utilisation",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Saut de Force (délai : 8)</u>",
+                "special-attack2": "La première fois que Saut de Force est utilisé lors d'un affrontement, vainc la cible instantanément et la jauge de tour de chaque allié du Coté Lumineux se remplit de 35%.\n\nInflige des dégâts spéciaux  une cible ennemie et confère un bonus de dégâts critiques pendant 3 tours. Le délai de cette capacité est réduit de 4.\n\nSi la Commandante Ahsoka Tano dispose de la forme Shien, inflige la destruction d'armure jusqu'à la fin de l'affrontement.\n\nSaut de Force sur les boss de raid : invoque les autres alliés de la République Galactique, qui infligent 10% de dégâts en plus.\n\nCette capacité commence avec un délai et ne peut pas être esquivé.",
+
+                "unique-ability-title": "<u>Capacité Unique : Sa propre voie</u>",
+                "unique-ability": "Ahsoka a +50% d'attaque et de dégâts critiques, et si un autre allié Vaurien, utilisateur de la Force non aligné du Coté Lumineux ou de la République Galactique est présent, elle obtient +50% de santé et de défense, et partage tous ces bonus avec ses alliés du Coté Lumineux.\n\nS'il y a moins d''alliés que d'ennemis présents, les bonus d'attaque, de dégâts critiques, de santé et de défense sont augmentés de 10% pour chaque allié Vaurien ou de la République Galactique.",     
+                
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "galactic-republic": "République Galactique",
+                "scoundrel": "Vaurien",
+                "force-user": "Utilisateur de la Force non aligné"
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+
     </footer>
 </body>
-</html>    
+
+</html>

@@ -1,139 +1,212 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Commander Luke Skywalker</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Commander Luke Skywalker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/cls/cls-image.png">
-
-    <!-- Lien vers la feuille de style -->
-     <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/cls/cls-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>Commandant Luke Skywalker</u></h1>
-        <p>
-            Héro rebelle déterminé qui peut ignorer les affaiblissements ou la raillerie
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: blue;" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/rebelle.html">Rebelle</a>
-            <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html">Utilisateur de la Force non aligné</a>
-        </nav>
+            <h1 id="title"><u>Commander Luke Skywalker</u></h1>
+            <p id="description">
+                Determined Rebel hero who can ignore debuffs or ignore Taunts
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">LightSide</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Force User</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/cls/cls.png" alt="Comamnder Luke Skywalker"><br>
+    <img class="first" src="../image-perso/cls/cls.png" alt="Commander Luke Skywalker"><br>
 
-    <h2 class="titre"><u>attaque basique : Frappe Destinée</u></h2>
+    <!-- Capacités -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack : Destined Strike</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="cls basique" src="../image-perso/cls/cls-basique.png">
+            <img class="attaque" alt="commander luke basic" src="../image-perso/cls/cls-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie et inflige un malus de vitesse et un malus de défense pendant 2 tours.<br>
-                Si la cible souffre déjà d'un malus de vitesse, diminue sa jauge de tour de 30%.<br>
-                Si elle souffre déjà d'un malus de défense, étourdit la cible pendant 1 tour.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Speed Down and Defense Down for 2 turns. If the target already had Speed Down, remove 30% Turn Meter. If the target already had Defense Down, inflict Stun for 1 turn.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Utiliser la force (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Use the Force (cooldown : 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="cls spé 1" src="../image-perso/cls/cls-spe1.png">
+            <img class="attaque" alt="commander luke spé 1" src="../image-perso/cls/cls-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie, dissipe toutes ses améliorations, réduit sa jauge de tour de 100%, et inflige l'immunité <br>
-                aux améliorations et un malus de ténacité pendant 2 tours. Diminue le délai de cette capacité de 1 si la cible ne dispose pas de toute sa santé.
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy, Dispel all buffs on them, remove 100% Turn Meter, and inflict Buff Immunity and Tenacity Down for 2 turns. Reduce the cooldown of this ability by 1 if the target didn't have full Health.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Appel aux armes (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Call to Action (cooldown : 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="cls spé 2" src="../image-perso/cls/cls-spe2.png">
+            <img class="attaque" alt="commander luke spé 2" src="../image-perso/cls/cls-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe tous les affaiblissements en cours sur Luke. La jauge de tour de Luke se remplit de 100% et il récupère 40% de santé et de protection.<br>
-                Si Luke ne dispose pas d'<u class="speciale">Appel aux armes</u>, il l'obtient jusqu'à ce que cette capacité soit à nouveaux utilisée (ne peut pas<br>
-                être copié, dissipé ou empêché). Si Luke possédait déjà Appel aux armes, il le retire.<br>
-                <br>
-                <u class="speciale">Appel aux armes:</u> ce personnage ignore les effets de raillerie pendant son tour.<br>
-                et dispose de +50% de précision, de chance de coup critique et de dégâts critiques.
+            <p class="attaque" id="special-attack2">
+                Dispel all debuffs on Luke. Luke gains 100% Turn Meter and recovers 40% Health and Protection. If Luke doesn't have <u class="speciale">Call to Action</u>, he gains it until the next time this ability is used, which can't be copied, dispelled, or prevented. If Luke already had Call to Action, he removes it.
+                <br><br>
+                <u class="speciale">Call to Action:</u> This character ignores Taunt effects during their turn and has +50% Accuracy, Critical Chance, and Critical Damage
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Capacité de chef: Manoeuvres rebelles</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability : Rebel Maneuvers</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="cls lead" src="../image-perso/cls/cls-lead.png">
+            <img class="attaque" alt="commander luke chef" src="../image-perso/cls/cls-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Les alliés rebelles ont +50% de chances de contre-attaque, +50% de défense et +15% d'attaque.<br>
-                Lorsqu'un ennemi résiste à un effet négatif, la jauge de tour des alliés Rebelles se remplit de 15%.
+            <p class="attaque" id="lead-ability">
+                Rebel allies have +50% Counter Chance, +50% Defense, and +15% Offense. Whenever an enemy Resists a detrimental effect, Rebel allies gain 5% Turn Meter.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Apprendre à se maitriser</u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Learn Control</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="cls unique 1" src="../image-perso/cls/cls-unique.png">
+            <img class="attaque" alt="commander luke unique 1" src="../image-perso/cls/cls-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                tant que Luke ne dispose pas d'Appel aux armes, il a +50% de chances de contre-attaque, +50% d'esquive des critique, +50% de défense,<br>
-                +100% de ténacité et sa jauge de tour se remplit de 10% lorsqu'un autre allié Rebelle subit des dégâts.
+            <p class="attaque" id="unique-ability1">
+                While Luke doesn't have Call to Action, he has +50% Counter Chance, +50% Critical Avoidance, +50% Defense, +100% Tenacity, and gains 10% Turn Meter whenever another Rebel ally takes damage.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Tout est lié</u></h2>
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : It Binds All Things</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="cls unique 2" src="../image-perso/cls/cls-unique2.png">
+            <img class="attaque" alt="commander luke unique 2" src="../image-perso/cls/cls-unique2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Luke a +40% de pouvoir. Lorsque Luke résiste à un effet négatif, il récupère 5% de santé et 5% de protection.<br>
-                Lorsque Luke inflige un affaiblissement, sa jauge de tour se remplit de 10% et les autres alliés gagnent la moitié de cette valeur.
+            <p class="attaque" id="unique-ability2">
+                Luke has +40% Potency. Whenever Luke Resists a detrimental effect he recovers 5% Health and 5% Protection. Whenever Luke inflicts a debuff he gains 10% Turn Meter and other allies gain half that amount.
             </p>
-        
         </div>
     </div>
 
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Commandant Luke Skywalker",
+                "title": "<u>Commandant Luke Skywalker</u>",
+                "description": "Héros Rebelle déterminé qui peut ignorer les affaiblissements ou la raillerie",
+
+                "basic-attack-title": "<u>Attaque Basique: Frappe destinée</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et inflige un malus de vitesse et un malus de défense pendant 2 tours. Si la cible souffre déjà d'un malus de vitesse, diminue sa jauge de tour de 30%. Si elle souffre déjà d'un malus de défense, étourdit la cible pendant 1 tour.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Utiliser la Force (délai : 4)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie, dissipe toutes ses améliorations, réduit sa jauge de tour de 100%, et inflige l'immunité aux améliorations et un malus de ténacité pendant 2 tours. Diminue le délai de cette capacité de 1 si la cible ne dispose pas de toute sa santé.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Appel aux armes (délai : 4)</u>",
+                "special-attack2": "Dissipe tous les affaiblissements en cours sur Luke. La jauge de tour de Luke se remplit de 100% et il récupère 40% de santé et de protection. Si Luke ne dispose pas d'<u class='speciale'>Appel aux armes</u>, il l'obtient jusqu'à ce que cette capacité soit à nouveau utilisée (ne peut pas être copié, dissipé ou empêché). Si Luke possédait déjà Appel aux armes, il le retire.\n\n<u class='speciale'>Appel aux armes :</u> ce personnage ignore les effets de Raillerie pendant son tour et dispose de +50 % de précision, de chances de coup critique et de dégâts critiques.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Manoeuvres rebelles</u>",
+                "lead-ability": "Les alliés rebelles ont +50 % de chances de contre-attaque, +50 % de défense et +15 % d'attaque. Lorsqu'un ennemi résiste à un effet négatif, la jauge de tour des alliés rebelles se remplit de 5 %.",
+                
+                "unique-ability1-title": "<u>Capacité Unique : Apprendre à se maîtriser</u>",
+                "unique-ability1": "Tant que Luke ne dispose pas d'Appel aux armes, il a +50 % de chances de contre-attaque, +50% de d'esquive des critiques, +50 % de défense, +100% de ténacité, et sa jauge de tour se remplit de 10 % lorsqu'un autre allié subit des dégâts.",      
+                
+                "unique-ability2-title": "<u>Capacité Unique : Tout est lié</u>",
+                "unique-ability2": "Luke a +40% de pouvoir. Lorsque Luke résiste à un effet négatif, il récupère 5 % de santé et 5 % de protection. Lorsque Luke inflige un affaiblissement, sa jauge de tour se remplit de 10% et les autres alliés gagnent la moitié de cette valeur", 
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "rebel": "Rebelle",
+                "force-user": "Utilisateur de la Force non aligné"
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+
     </footer>
 </body>
-</html>   
+
+</html>
