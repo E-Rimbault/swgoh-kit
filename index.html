@@ -35,15 +35,6 @@
         </div>
     </div>
 
-    <!-- 🔹 Section des News SWGOH -->
-    <section id="news-section">
-        <h2 id="news-title">Dernières News SWGOH</h2>
-        <div id="news-container"></div>
-    </section>
-
-    <!-- ===================== -->
-    <!-- 🔹 Scripts principaux -->
-    <!-- ===================== -->
     <script>
         const translations = {
             en: {
@@ -51,16 +42,14 @@
                 "Character": "Character",
                 "ship": "Ship",
                 "voir-perso": "Character",
-                "voir-vaisseau": "Ship",
-                "news-title": "Latest SWGOH News"
+                "voir-vaisseau": "Ship"
             },
             fr: {
                 "title": "Site Web Star Wars : Les Héros de la Galaxie",
                 "Character": "Personnages",
                 "ship": "Vaisseaux",
                 "voir-perso": "Personnage",
-                "voir-vaisseau": "Vaisseau",
-                "news-title": "Dernières News SWGOH"
+                "voir-vaisseau": "Vaisseau"
             }
         };
 
@@ -68,7 +57,6 @@
         window.onload = function () {
             const savedLang = sessionStorage.getItem("selectedLanguage") || "en";
             switchLanguage(savedLang);
-            loadNews(); // Charger les news au démarrage
         };
 
         // 🔹 Fonction de changement de langue
@@ -82,32 +70,10 @@
                 }
             });
         }
-
-        // 🔹 Chargement des news depuis le JSON
-        async function loadNews() {
-            try {
-                const res = await fetch("news.json");
-                const news = await res.json();
-                const container = document.getElementById("news-container");
-
-                container.innerHTML = news.map(item => `
-                    <div class="news-item">
-                        <a href="${item.link}" target="_blank">${item.title}</a>
-                        <div class="date">${new Date(item.date).toLocaleDateString()}</div>
-                    </div>
-                `).join("");
-            } catch (e) {
-                document.getElementById("news-container").innerHTML =
-                    "<p style='color:gray;'>Impossible de charger les actualités.</p>";
-            }
-        }
     </script>
 
-    <!-- ===================== -->
-    <!-- 🔹 Styles additionnels -->
-    <!-- ===================== -->
     <style>
-        /* 🔹 Image de fond */
+        /* 🔹 Style pour l'image de fond */
         .background-image {
             position: fixed;
             top: 0;
@@ -119,51 +85,6 @@
             background-position: center;
             background-repeat: no-repeat;
             z-index: -1;
-        }
-
-        /* 🔹 Section News */
-        #news-section {
-            max-width: 800px;
-            margin: 60px auto;
-            text-align: center;
-            color: #fff;
-        }
-
-        #news-title {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            color: #66fcf1;
-        }
-
-        .news-item {
-            background: rgba(31, 40, 51, 0.9);
-            padding: 1rem;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            transition: transform 0.2s ease, background 0.3s ease;
-        }
-
-        .news-item:hover {
-            transform: scale(1.02);
-            background: rgba(41, 55, 69, 0.95);
-        }
-
-        .news-item a {
-            color: #66fcf1;
-            font-weight: bold;
-            text-decoration: none;
-            display: block;
-        }
-
-        .news-item a:hover {
-            text-decoration: underline;
-        }
-
-        .news-item .date {
-            color: #c5c6c7;
-            font-size: 0.9em;
-            margin-top: 5px;
         }
     </style>
 </body>
