@@ -3,130 +3,110 @@
 
 <head>
     <title id="big-title">Ima-Gun Di</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/ima-gun-di/ima-gun-image.png">
-
-    <!-- Lien vers la feuille de style -->
-    <link rel="stylesheet" href="../style/styles.css">
-    <link rel="stylesheet" href="../style/capacite.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
-
-    <!-- Entête de la page -->
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/ima-gun-di/ima-gun-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/ima-gun-di/ima-gun-image.png" alt="Ima-Gun Di portrait"
+                style="max-width: 100%; max-height: 100%;">
         </div>
+
         <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
             <div class="language-switcher">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                    onclick="switchLanguage('fr')">
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
                 <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                    onclick="switchLanguage('en')">
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
+
             <h1 id="title"><u>Ima-Gun Di</u></h1>
             <p id="description">
-                Supportive Tank that boost ally defense and grants Jedi allies Counter Chance
+                Supportive Tank that boosts ally Defense and grants Jedi allies Counter Chance.
             </p>
             <br>
 
             <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html"
-                    id="lightside">Light Side</a>
+                <a class="capacite active" href="../classement-perso/cote-lumineux.html" style="color: blue !important;" id="lightside">Light Side</a>
                 <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
                 <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
-                <a class="capacite" href="../classement-perso/république-galactique.html"
-                    id="galactic-republic">Galactic Républic</a>
+                <a class="capacite" href="../classement-perso/republique-galactique.html" id="galactic-republic">Galactic Republic</a>
                 <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
                 <a class="capacite" href="../classement-perso/vanguard.html" id="vanguard">Jedi Vanguard</a>
             </nav>
         </div>
-    </header><br>
+    </header>
+    <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/ima-gun-di/ima-gun_di.png" alt="Ima-gun DI"><br>
+    <main>
+        <!-- Image principale du personnage -->
+        <img class="first" src="../image-perso/ima-gun-di/ima-gun_di.png" alt="Ima-Gun Di"><br>
 
-    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Sunder</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="ima-gun-di basic" src="../image-perso/ima-gun-di/ima-gun-basic.png">
+        <!-- Capacités -->
+        <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Sunder</u></h2>
+        <div class="capacity-container">
+            <div class="left-column">
+                <img class="attaque" alt="ima-gun-di basic" src="../image-perso/ima-gun-di/ima-gun-basic.png">
+            </div>
+            <div class="right-column">
+                <p class="attaque" id="basic-attack">
+                    Deal Physical damage to target enemy with a 50% chance to inflict Defense Down for 2 turns. If the target is a Droid, this attack deals 100% more damage and has a 100% chance to inflict Defense Down.
+                </p>
+            </div>
         </div>
-        <div class="right-column">
-            <p class="attaque" id="basic-attack">
-                Deal Physical damage to target enemy with a 50% chance to inflict Defense Down for 2 turns. If the target is a Droid, this attack deals 100% more damage and has a 100% chance to inflict Defense Down.
-            </p>
-        </div>
-    </div>
 
-    <h2 class="titre" id="special-attack1-title"><u>Special Attack: Rebuke (cooldown: 3)</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="ima-gun-di spé" src="../image-perso/ima-gun-di/ima-gun-spe.png">
+        <h2 class="titre" id="special-attack1-title"><u>Special Attack: Rebuke (cooldown: 3)</u></h2>
+        <div class="capacity-container">
+            <div class="left-column">
+                <img class="attaque" alt="ima-gun-di special" src="../image-perso/ima-gun-di/ima-gun-spe.png">
+            </div>
+            <div class="right-column">
+                <p class="attaque" id="special-attack1">
+                    Deal Physical damage to target enemy and grant all allies Defense Up for 3 turns.
+                </p>
+            </div>
         </div>
-        <div class="right-column">
-            <p class="attaque" id="special-attack1">
-                Deal Physical damage to target enemy and grant all allies Defense Up for 3 turns.
-            </p>
-        </div>
-    </div>
 
-    <h2 class="titre" id="lead-ability-title"><u>Leader Ability: Jedi Strategist</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="ima-gun-di lead" src="../image-perso/ima-gun-di/ima-gun-lead.png">
+        <h2 class="titre" id="lead-ability-title"><u>Leader Ability: Jedi Strategist</u></h2>
+        <div class="capacity-container">
+            <div class="left-column">
+                <img class="attaque" alt="ima-gun-di leader" src="../image-perso/ima-gun-di/ima-gun-lead.png">
+            </div>
+            <div class="right-column">
+                <p class="attaque" id="lead-ability">
+                    All allies gain +30 Defense, and Jedi allies gain +35% Counter Chance and +25% Counter Damage.
+                </p>
+            </div>
         </div>
-        <div class="right-column">
-            <p class="attaque" id="lead-ability">
-                All allies gain 30 Defense and Jedi allies gain 35% Counter Chance and 25% Counter Damage.
-            </p>
-        </div>
-    </div>
 
-    <h2 class="titre" id="unique-ability-title"><u>Unique Ability: Last Stand</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="ima-gun-di unique" src="../image-perso/ima-gun-di/ima-gun-unique.png">
+        <h2 class="titre" id="unique-ability-title"><u>Unique Ability: Last Stand</u></h2>
+        <div class="capacity-container">
+            <div class="left-column">
+                <img class="attaque" alt="ima-gun-di unique" src="../image-perso/ima-gun-di/ima-gun-unique.png">
+            </div>
+            <div class="right-column">
+                <p class="attaque" id="unique-ability">
+                    Ima-Gun Di recovers 15% of his Max Health each turn for 3 turns whenever he suffers a Critical Hit.
+                </p>
+            </div>
         </div>
-        <div class="right-column">
-            <p class="attaque" id="unique-ability">
-                Ima-Gun Di recovers 15% of his Max Health each turn for 3 turns whenever he suffers a Critical Hit.
-            </p>
-        </div>
-    </div>
+    </main>
 
-    <!-- Pied de page -->
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
+
+        <!-- Script de traduction -->
         <script>
-            const translations = {
-                en: {
-                    "big-title" : "Ima-Gun Di",
-                    "title" : "<u>Ima-Gun Di</u>",
-                    "description" : "Supportive Tank that boost ally defense and grants Jedi allies Counter Chance",
-                    "lightside" : "Light Side",
-                    "support" : "Support",
-                    "leader" : "Leader",
-                    "galactic-republic" : "Galactic Républic",
-                    "jedi" : "Jedi",
-                    "vanguard" : "Jedi Vanguard",
-                    "basic-attack-title" : "<u>Basic Attack: Sunder</u>",
-                    "basic-attack" : "Deal Physical damage to target enemy with a 50% chance to inflict Defense Down for 2 turns. If the target is a Droid, this attack deals 100% more damage and has a 100% chance to inflict Defense Down.",
-                    "special-attack1-title" : "<u>Special Attack: Rebuke (cooldown: 3)</u>",
-                    "special-attack1" : "Deal Physical damage to target enemy and grant all allies Defense Up for 3 turns.",
-                    "lead-ability-title" : "<u>Leader Ability: Jedi Strategist</u>",
-                    "lead-ability" : "All allies gain 30 Defense and Jedi allies gain 35% Counter Chance and 25% Counter Damage.",
-                    "unique-ability-title" : "<u>Unique Ability: Last Stand</u>",
-                    "unique-ability" : "Ima-Gun Di recovers 15% of his Max Health each turn for 3 turns whenever he suffers a Critical Hit.",
-                },
-                fr: {
+            const translationsFr = {
                     "big-title" : "Ima-Gun Di",
                     "title" : "<u>Ima-Gun Di</u>",
                     "description" : "Tank d'appui qui améliore la défense des alliés et confère aux alliés des chances de contre-attaque.",
@@ -144,26 +124,54 @@
                     "lead-ability" : "Tous les alliés gagnent un bonus de défense de 30 et les alliés Jedi gagnent 35% de chances de contre-attaque et +25% de dégâts en contre-attaque",
                     "unique-ability-title" : "<u>Capacité Unique : Baroud d'honneur</u>",
                     "unique-ability" : "Ima-Gun Di récupèrent 15% de sa santé maximale par tour pendant 3 tours chaque fois qu'il subit un coup critique.",
+                };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
                 }
-            };
+            }
 
             function replaceNewLinesWithBr(text) {
-                return text.replace(/\n\n/g, '<br><br>');
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
             }
 
-            function switchLanguage(lang) {
-                for (const [key, text] of Object.entries(translations[lang])) {
-                    const element = document.getElementById(key);
-                    if (element) {
-                        // Convert \n\n to <br><br> before injecting
-                        element.innerHTML = replaceNewLinesWithBr(text);
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
                     }
                 }
+
+                updateFlagActive();
             }
 
-            window.onload = () => switchLanguage('en');
-        </script>
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
 
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
     </footer>
 </body>
 
