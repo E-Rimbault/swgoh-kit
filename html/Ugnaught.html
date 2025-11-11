@@ -2,18 +2,18 @@
 <html lang="en">
 
 <head>
-    <title id="big-title">Hoth Rebel Soldier</title>
+    <title id="big-title">Ugnaught</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-    <link rel="icon" type="image/png" href="../image-perso/hoth-soldier/hoth-soldier-image.png">
+    <link rel="icon" type="image/png" href="../image-perso/Ugnaught/Ugnaught-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/hoth-soldier/hoth-soldier-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/Ugnaught/Ugnaught-image.png" alt="" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
             <!-- Sélecteur de langue -->
@@ -26,57 +26,55 @@
                     style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
 
-            <h1 id="title"><u>Hoth Rebel Soldier</u></h1>
+            <h1 id="title"><u>Ugnaught</u></h1>
             <p id="description">
-                Support character that debuffs, taunts, and defensively buffs, with Rebel and anti-Empire synergies.
+                Anti-Droid Support with AoE damage and high Evasion against Droids
             </p>
             <br>
 
             <nav class="perso" style="font-size: 20px;">
                 <a class="capacite" style="color: blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
                 <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
-                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
-                <a class="capacite" href="../classement-perso/combattant-rebelle.html" id="rebel-fighter">Rebel Fighter</a>
             </nav>
         </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/hoth-soldier/hoth-soldier.png" alt="Hoth Rebel Soldier"><br>
+    <img class="first" src="../image-perso/Ugnaught/Ugnaught.png" alt="Ugnaught"><br>
 
     <!-- Capacités -->
-    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Cover Fire</u></h2>
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Break Open</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Hoth Rebel Soldier basique" src="../image-perso/hoth-soldier/hoth-soldier-basic.png">
+            <img class="attaque" alt="Ugnaught basique" src="../image-perso/Ugnaught/Ugnaught-basique.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
-                Deal Physical damage to target enemy with a 55% chance to inflict Offense Down for 2 Turns. In addition, inflict Offense Down for 2 Turns on critical hit.
+                Deal Physical damage to target enemy. This attack deals 100% more damage to Droids and inflicts Defense Down on them for 2 turns.
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Hold the Line (cooldown: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Droid Experts (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Hoth Rebel Soldier spé" src="../image-perso/hoth-soldier/hoth-soldier-spe.png">
+            <img class="attaque" alt="Ugnaught spé" src="../image-perso/Ugnaught/Ugnaught-spe.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1">
-                Taunt and grant Rebel allies Defense Up for 3 turns. In addition, Hoth Rebel Soldier has a 25% chance to also gain 35% Health Up for 3 turns.
+                Deal Special damage to all enemies with a 75% chance to Stun Droids for 1 turn.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Rebel Momentum</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : One Step Ahead</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Hoth Rebel Soldier unique" src="../image-perso/hoth-soldier/hoth-soldier-unique.png">
+            <img class="attaque" alt="Ugnaught unique" src="../image-perso/Ugnaught/Ugnaught-unique.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="unique-ability">
-                Hoth Rebel Soldier gains Defense Up for 2 turns whenever an Empire enemy is defeated. At the start of his turn, if Hoth Rebel Soldier has Defense Up, he recovers 20% Max Health. Hoth Rebel Soldier has 40% Counter Chance.
+                Ugnaught gains 9% Evasion for each Droid enemy and gains 25% Turn Meter whenever he Evades an attack.
             </p>
         </div>
     </div>
@@ -89,23 +87,21 @@
         <script>
             // Dictionnaire français
             const translationsFr = {
-                "big-title": "Soldat rebelle de Hoth",
-                "title": "<u>Soldat rebelle de Hoth</u>",
-                "description": "Personnage d'appui qui inflige des affaiblissements, railleries et améliorations défensives, alimenté par les rebelles et les personnages anti-Empire.",
+                "big-title": "Ugnaught",
+                "title": "<u>Ugnaught</u>",
+                "description": "Peronnage de soutien anti-droïde qui inflige des dégâts de zone et dispose d'une forte esquive contre les droïdes",
 
-                "basic-attack-title": "<u>Attaque Basique: Tir de couverture</u>",
-                "basic-attack": "Inflige des dégâts physiques à une cible ennemie avec 55 % de chances d'infliger un malus d'attaque pendant 2 tours. De plus, si l'attaque résulte en un coup critique, l'attaque inflige un malus d'attaque pendant 2 tours.",
+                "basic-attack-title": "<u>Attaque Basique: Brèche</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie. Cette attaque inflige 100 % de dégâts en plus et un malus de défense pendant 2 tours aux droïdes.",
 
-                "special-attack1-title": "<u>Attaque Spéciale : Tenir bon (délai : 3)</u>",
-                "special-attack1": "Raillerie et confère aux alliés rebelles un bonus de défense pendant 3 tours. De plus, le soldat rebelle de Hoth a 25 % de chances de gagner un bonus de santé de 35 % pendant 3 tours.",
+                "special-attack1-title": "<u>Attaque Spéciale : Expert en droïdes (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à tous les ennemis avec 75% de chances d'étourdir les droïdes pendant 1 tour.",
 
-                "unique-ability-title": "<u>Capacité Unique : Élan des rebelles</u>",
-                "unique-ability": "Le soldat rebemlle de Hoth gagne un bonus de défense pendant 2 tours chaque fois qu'une unité de l'Empire est vaincue. De plus, au début de chaqun de ses tours, le soldat Rebelle de Hoth récupère 20 % de sa santé maximale s'il bénéficie d'un bonus de défense, et il obtient un bonus de 40 % de chances de contre-attaque.",    
+                "unique-ability-title": "<u>Capacité Unique : Un coup d'avance</u>",
+                "unique-ability": "L'Ugnaught gagne un bonus d'esquive de 9 % par droïde ennemi et sa jauge de tour se remplit de 25 % lorsqu'il esquive une attaque.",    
                 
                 "lightside": "Coté Lumineux",
-                "support": "Soutien",
-                "rebel": "Rebelle",
-                "rebel-fighter": "Combattant Rebelle"
+                "support": "Soutien"
             };
 
             const originalTexts = {};

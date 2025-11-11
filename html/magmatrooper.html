@@ -2,18 +2,18 @@
 <html lang="en">
 
 <head>
-    <title id="big-title">Hoth Rebel Soldier</title>
+    <title id="big-title">Magmatrooper</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-    <link rel="icon" type="image/png" href="../image-perso/hoth-soldier/hoth-soldier-image.png">
+    <link rel="icon" type="image/png" href="../image-perso/magmatrooper/magmatrooper-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/hoth-soldier/hoth-soldier-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/magmatrooper/magmatrooper-image.png" alt="" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
             <!-- Sélecteur de langue -->
@@ -26,57 +26,59 @@
                     style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
 
-            <h1 id="title"><u>Hoth Rebel Soldier</u></h1>
+            <h1 id="title"><u>Magmatrooper</u></h1>
             <p id="description">
-                Support character that debuffs, taunts, and defensively buffs, with Rebel and anti-Empire synergies.
+                Resilient Attacker that recovers quickly from debuffs and deals potent AoE damage
             </p>
             <br>
 
             <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color: blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
-                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
-                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
-                <a class="capacite" href="../classement-perso/combattant-rebelle.html" id="rebel-fighter">Rebel Fighter</a>
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="capacite" href="../classement-perso/soldat-de-lempire.html" id="imperial-trooper">Imperial Trooper</a>
             </nav>
         </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/hoth-soldier/hoth-soldier.png" alt="Hoth Rebel Soldier"><br>
+    <img class="first" src="../image-perso/magmatrooper/magmatrooper.png" alt="Magmatrooper"><br>
 
     <!-- Capacités -->
-    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Cover Fire</u></h2>
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Line of Fire</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Hoth Rebel Soldier basique" src="../image-perso/hoth-soldier/hoth-soldier-basic.png">
+            <img class="attaque" alt="magmatrooper basique" src="../image-perso/magmatrooper/magmatrooper-basique.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
-                Deal Physical damage to target enemy with a 55% chance to inflict Offense Down for 2 Turns. In addition, inflict Offense Down for 2 Turns on critical hit.
+                Deal Physical Damage to target enemy and deal damage to a random enemy. The secondary attack deals 20% less damage.
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Hold the Line (cooldown: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Thermal Imploder (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Hoth Rebel Soldier spé" src="../image-perso/hoth-soldier/hoth-soldier-spe.png">
+            <img class="attaque" alt="magmatropper spé" src="../image-perso/magmatrooper/magmatrooper-speciale.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1">
-                Taunt and grant Rebel allies Defense Up for 3 turns. In addition, Hoth Rebel Soldier has a 25% chance to also gain 35% Health Up for 3 turns.
+                Deal Physical Damage to all enemies and remove 30% Turn Meter, with a 70% chance to remove another 30% Turn Meter. This attack ignores Armor.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Rebel Momentum</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Hazard Training</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Hoth Rebel Soldier unique" src="../image-perso/hoth-soldier/hoth-soldier-unique.png">
+            <img class="attaque" alt="magmatrooper unique" src="../image-perso/magmatrooper/magmatrooper-unique.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="unique-ability">
-                Hoth Rebel Soldier gains Defense Up for 2 turns whenever an Empire enemy is defeated. At the start of his turn, if Hoth Rebel Soldier has Defense Up, he recovers 20% Max Health. Hoth Rebel Soldier has 40% Counter Chance.
+                Magmatrooper has +30% Tenacity and gains 70% Turn Meter the first time he Resists a detrimental effect or suffers a debuff each turn.
+                <br><br>
+                While Magmatrooper is active, Imperial Trooper allies have +30% Tenacity.
             </p>
         </div>
     </div>
@@ -89,23 +91,23 @@
         <script>
             // Dictionnaire français
             const translationsFr = {
-                "big-title": "Soldat rebelle de Hoth",
-                "title": "<u>Soldat rebelle de Hoth</u>",
-                "description": "Personnage d'appui qui inflige des affaiblissements, railleries et améliorations défensives, alimenté par les rebelles et les personnages anti-Empire.",
+                "big-title": "Magmatrooper",
+                "title": "<u>Magmatrooper</u>",
+                "description": "Attaquant résistant qui récupère rapidement des affaiblissements et inflige de puissants dégâts de zone.",
 
-                "basic-attack-title": "<u>Attaque Basique: Tir de couverture</u>",
-                "basic-attack": "Inflige des dégâts physiques à une cible ennemie avec 55 % de chances d'infliger un malus d'attaque pendant 2 tours. De plus, si l'attaque résulte en un coup critique, l'attaque inflige un malus d'attaque pendant 2 tours.",
+                "basic-attack-title": "<u>Attaque Basique: Ligne de feu</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et inflige des dégâts à un autre ennemi aléatoire. La seconde attaque inflige 20 % de dégâts en moins.",
 
-                "special-attack1-title": "<u>Attaque Spéciale : Tenir bon (délai : 3)</u>",
-                "special-attack1": "Raillerie et confère aux alliés rebelles un bonus de défense pendant 3 tours. De plus, le soldat rebelle de Hoth a 25 % de chances de gagner un bonus de santé de 35 % pendant 3 tours.",
+                "special-attack1-title": "<u>Attaque Spéciale : Implosion thermique (délai : 4)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis et vide leur jauge de tour de 30 %, aec 70 % de chances de la vider de 30 % supplémentaires. Cette attaque ignore l'armure de la cible",
 
-                "unique-ability-title": "<u>Capacité Unique : Élan des rebelles</u>",
-                "unique-ability": "Le soldat rebemlle de Hoth gagne un bonus de défense pendant 2 tours chaque fois qu'une unité de l'Empire est vaincue. De plus, au début de chaqun de ses tours, le soldat Rebelle de Hoth récupère 20 % de sa santé maximale s'il bénéficie d'un bonus de défense, et il obtient un bonus de 40 % de chances de contre-attaque.",    
+                "unique-ability-title": "<u>Capacité Unique : Formation au danger</u>",
+                "unique-ability": "Le Magmatrooper gagne 30 % de ténacité et sa jauge de tour se remplit de 70 % quand il résiste à un effet négatif ou subit un affaiblissement pour la première fois à chaque tour.\n\nTant que le Magmatrooper est actif, les soldats de l'Empire alliés gagnent +30% de ténacité.",    
                 
-                "lightside": "Coté Lumineux",
-                "support": "Soutien",
-                "rebel": "Rebelle",
-                "rebel-fighter": "Combattant Rebelle"
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "empire": "Empire",
+                "imperial-trooper": "Soldat de l'Empire"
             };
 
             const originalTexts = {};

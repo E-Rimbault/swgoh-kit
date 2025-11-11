@@ -2,18 +2,18 @@
 <html lang="en">
 
 <head>
-    <title id="big-title">Hoth Rebel Soldier</title>
+    <title id="big-title">Resistance Trooper</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-    <link rel="icon" type="image/png" href="../image-perso/hoth-soldier/hoth-soldier-image.png">
+    <link rel="icon" type="image/png" href="../image-perso/resistance-trooper/resistance-trooper.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/hoth-soldier/hoth-soldier-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/resistance-trooper/resistance-trooper.png" alt="" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
             <!-- Sélecteur de langue -->
@@ -26,57 +26,57 @@
                     style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
 
-            <h1 id="title"><u>Hoth Rebel Soldier</u></h1>
+            <h1 id="title"><u>Resistance Trooper</u></h1>
             <p id="description">
-                Support character that debuffs, taunts, and defensively buffs, with Rebel and anti-Empire synergies.
+                Opportunistic Resistance attacker that can deal heavy damage to debuffed enemies
             </p>
             <br>
 
             <nav class="perso" style="font-size: 20px;">
                 <a class="capacite" style="color: blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
-                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
-                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
-                <a class="capacite" href="../classement-perso/combattant-rebelle.html" id="rebel-fighter">Rebel Fighter</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/résistance.html" id="resistance">Resistance</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew">Crew Members</a>
             </nav>
         </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/hoth-soldier/hoth-soldier.png" alt="Hoth Rebel Soldier"><br>
+    <img class="first" src="../image-perso/resistance-trooper/resistance-trooper-image.png" alt="Resistance Trooper"><br>
 
     <!-- Capacités -->
-    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Cover Fire</u></h2>
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Flush Out</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Hoth Rebel Soldier basique" src="../image-perso/hoth-soldier/hoth-soldier-basic.png">
+            <img class="attaque" alt="resistance trooper basique" src="../image-perso/resistance-trooper/resistance-trooper-basique.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
-                Deal Physical damage to target enemy with a 55% chance to inflict Offense Down for 2 Turns. In addition, inflict Offense Down for 2 Turns on critical hit.
+                Deal Physical damage to target enemy with a 65% chance to Expose them for 3 turns.
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Hold the Line (cooldown: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Opportune Strike (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Hoth Rebel Soldier spé" src="../image-perso/hoth-soldier/hoth-soldier-spe.png">
+            <img class="attaque" alt="resistance trooper spé" src="../image-perso/resistance-trooper/resistance-trooper-spe.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1">
-                Taunt and grant Rebel allies Defense Up for 3 turns. In addition, Hoth Rebel Soldier has a 25% chance to also gain 35% Health Up for 3 turns.
+                Deal Physical damage to target enemy and Dispel all buffs on them with a 50% chance of inflicting Speed Down for 2 turns. This ability's cooldown is reduced by 2 if the target is suffering any negative status effects.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Rebel Momentum</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Guerilla Tactics</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Hoth Rebel Soldier unique" src="../image-perso/hoth-soldier/hoth-soldier-unique.png">
+            <img class="attaque" alt="resistance trooper unique" src="../image-perso/resistance-trooper/resistance-trooper-unique.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="unique-ability">
-                Hoth Rebel Soldier gains Defense Up for 2 turns whenever an Empire enemy is defeated. At the start of his turn, if Hoth Rebel Soldier has Defense Up, he recovers 20% Max Health. Hoth Rebel Soldier has 40% Counter Chance.
+                Resistance Trooper has +10% Potency and gains 55% Turn Meter when an enemy who is not Exposed becomes Exposed.
             </p>
         </div>
     </div>
@@ -89,23 +89,23 @@
         <script>
             // Dictionnaire français
             const translationsFr = {
-                "big-title": "Soldat rebelle de Hoth",
-                "title": "<u>Soldat rebelle de Hoth</u>",
-                "description": "Personnage d'appui qui inflige des affaiblissements, railleries et améliorations défensives, alimenté par les rebelles et les personnages anti-Empire.",
+                "big-title": "Soldat de la Résistance",
+                "title": "<u>Soldat de la Résistance</u>",
+                "description": "attaquant de la Résistance opportuniste qui peut infliger de lourds dégâts aux ennemis subissant un affaiblissement.",
 
-                "basic-attack-title": "<u>Attaque Basique: Tir de couverture</u>",
-                "basic-attack": "Inflige des dégâts physiques à une cible ennemie avec 55 % de chances d'infliger un malus d'attaque pendant 2 tours. De plus, si l'attaque résulte en un coup critique, l'attaque inflige un malus d'attaque pendant 2 tours.",
+                "basic-attack-title": "<u>Attaque Basique: Débusquer</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie avec 65 % de chances de les exposer pendant 3 tours.",
 
-                "special-attack1-title": "<u>Attaque Spéciale : Tenir bon (délai : 3)</u>",
-                "special-attack1": "Raillerie et confère aux alliés rebelles un bonus de défense pendant 3 tours. De plus, le soldat rebelle de Hoth a 25 % de chances de gagner un bonus de santé de 35 % pendant 3 tours.",
+                "special-attack1-title": "<u>Attaque Spéciale : Frappe opportune (délai : 4)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie et dissipe toutes ses améliorations en cours, avec 50 % de chances d'infliger un malus de vitesse pendant 2 tours. Le délai de rechargement de cette capacité diminue de 2 si la cible est sous l'emprise d'un effet négatif.",
 
-                "unique-ability-title": "<u>Capacité Unique : Élan des rebelles</u>",
-                "unique-ability": "Le soldat rebemlle de Hoth gagne un bonus de défense pendant 2 tours chaque fois qu'une unité de l'Empire est vaincue. De plus, au début de chaqun de ses tours, le soldat Rebelle de Hoth récupère 20 % de sa santé maximale s'il bénéficie d'un bonus de défense, et il obtient un bonus de 40 % de chances de contre-attaque.",    
+                "unique-ability-title": "<u>Capacité Unique : tactiques de guérilla</u>",
+                "unique-ability": "Le soldat de la Résistance gagne un bonus de pouvoir de 10 % et un bonus de jauge de tour de 55 % chaque fois qu'un ennemi qui ne l'était pas auparavant est exposé.",    
                 
                 "lightside": "Coté Lumineux",
-                "support": "Soutien",
-                "rebel": "Rebelle",
-                "rebel-fighter": "Combattant Rebelle"
+                "attacker": "Attaquant",
+                "resistance": "Résistance",
+                "crew": "Membres de l'équipages"
             };
 
             const originalTexts = {};
