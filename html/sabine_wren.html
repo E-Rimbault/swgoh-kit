@@ -1,220 +1,189 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Sabine Wren</title>
-
+    <title id="big-title">Sabine Wren</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
     <meta property="og:url" content="https://e-rimbault.github.io/swgoh-kit/sabine_wren" />
-
     <link rel="icon" type="image/png" href="../image-perso/sabine-wren/sabine-image.png">
-        <!-- Lien vers la feuille de style -->
     <link rel="stylesheet" href="../style/unit-style.css">
-
-    <style>
-        .language-switcher {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 10px;
-            padding: 10px;
-        }
-
-        .language-switcher img {
-            width: 30px;
-            height: 20px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 
 <body class="simple">
 
     <header class="perso" style="display: flex; align-items: center;">
-            <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-                <img src="../image-perso/sabine-wren/sabine-image.png" alt="" style="max-width: 100%; max-height: 100%;">
-            </div>
-            <div style="flex: 1; padding-left: 20px;">
-                <div class="language-switcher">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                        onclick="switchLanguage('fr')">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
-                        alt="English" onclick="switchLanguage('en')">
-                </div>
-
-                <h1 id="title"><u>Sabine Wren</u></h1>
-                <p id="description">
-                    Aggressive Phoenix Attacker that permanently strips Defense and punishes slower enemies.
-                </p>
-                <br>
-
-                <nav class="perso" style="font-size: 20px;">
-                    <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html"
-                        id="light-side">Light Side</a>
-                    <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
-                    <a class="capacite" href="../classement-perso/mandalorien.html" id="mandalorian">Mandalorian</a>
-                    <a class="capacite" href="../classement-perso/phoenix.html" id="phoenix">Phoenix</a>
-                    <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
-                    <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew
-                        Members</a>
-                </nav>
-            </div>
-        </header>
-        <br>
-
-        <img class="first" src="../image-perso/sabine-wren/Sabine-wren.png" alt="Sabine Wren"><br>
-
-        <!-- Basic Attack Section -->
-        <h2 class="titre"><u id="basic-attack-title">Basic Attack: Blaster Akimbo</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="Sabine Basic" src="../image-perso/sabine-wren/sabine-basic.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque" id="basic-attack">
-                    Deal Physical damage to target enemy twice. This attack scores an additional hit for each of the
-                    following if the target:
-                    <br>
-                    - Has less than 70% Turn Meter
-                    <br>
-                    - Has less than 30% Turn Meter
-                    <br>
-                    - The target is debuffed
-                    <br>
-                    Additional hits deal 75% less damage.
-                </p>
-            </div>
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/sabine-wren/sabine-image.png" alt="Sabine Wren" style="max-width: 100%; max-height: 100%;">
         </div>
 
-        <!-- Special Attack 1 Section -->
-        <h2 class="titre"><u id="special-attack1-title">1st Special: Darksaber Strike (Cooldown: 2)</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="Sabine Spe1" src="../image-perso/sabine-wren/sabine-spe1.png">
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
-            <div class="right-column">
-                <p class="attaque" id="special-attack1">
-                    Deal Physical damage to target enemy and inflict Armor Shred for the rest of the battle.
-                </p>
-            </div>
+
+            <h1 id="title"><u>Sabine Wren</u></h1>
+            <p id="description">Aggressive Phoenix Attacker that permanently strips Defense and punishes slower enemies.</p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" href="../classement-perso/coté-lumineux.html" style="color: blue !important;" id="light-side">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/mandalorien.html" id="mandalorian">Mandalorian</a>
+                <a class="capacite" href="../classement-perso/phoenix.html" id="phoenix">Phoenix</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
+            </nav>
         </div>
+    </header>
+    <br>
 
-        <!-- Special Attack 2 Section -->
-        <h2 class="titre"><u id="special-attack2-title">2nd Special: Demolish (Cooldown: 5)</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="Sabine Spe2" src="../image-perso/sabine-wren/sabine-spe2.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque" id="special-attack2">
-                    Deal Physical damage to all enemies, Stagger them for 2 turns, and Expose target enemy for 2 turns. For each active Mandalorian and Phoenix ally, deal +15% more damage and Expose a random enemy for 2 turns. Mandalorian and Phoenix allies gain Critical Chance Up and Offense Up for 2 turns. If this attack scores a critical hit, reduce Sabine's cooldowns by 2. This attack can't be countered or evaded. </p>
-            </div>
+    <img class="first" src="../image-perso/sabine-wren/Sabine-wren.png" alt="Sabine Wren"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Blaster Akimbo</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Sabine Basic" src="../image-perso/sabine-wren/sabine-basic.png">
         </div>
-
-        <!-- Unique Ability Section -->
-        <h2 class="titre"><u id="unique-ability-title">Unique Ability: Take It Back</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img src="../image-perso/sabine-wren/sabine-unique.png" alt="Take It Back" class="attaque">
-            </div>
-            <div class="right-column">
-                <p class="attaque" id="unique-ability">
-                    Sabine has +25% Critical Chance and +25% Critical Damage.
-                </p>
-            </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy twice. This attack scores an additional hit for each of the following if the target:<br>
+                - Has less than 70% Turn Meter<br>
+                - Has less than 30% Turn Meter<br>
+                - The target is debuffed<br>
+                Additional hits deal 75% less damage.
+            </p>
         </div>
+    </div>
 
-        <!-- Ship Section -->
-        <h2 class="vaisseaux"><u id="ship-title">Ship: Phantom II</u></h2>
-        <a href="../html/phantom2.html"><img class="capacité" src="https://i.ibb.co/30DZMwm/sabine-phantom2.webp"
-                alt="phantom2"></a>
+    <h2 class="titre" id="special-attack1-title"><u>1st Special: Darksaber Strike (Cooldown: 2)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Sabine Spe1" src="../image-perso/sabine-wren/sabine-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and inflict Armor Shred for the rest of the battle.
+            </p>
+        </div>
+    </div>
 
-        <footer>
-            <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-            <script src="../javascript/bouton.js"></script>
-            <script>
-                const translations = {
-                    en: {
-                        title: "<u>Sabine Wren</u>",
-                        description: "Aggressive Phoenix Attacker that permanently strips Defense and punishes slower enemies",
-                        lightSide: "Light Side",
-                        attacker: "Attacker",
-                        mandalorian: "Mandalorian",
-                        phoenix: "Phoenix",
-                        rebel: "Rebel",
-                        crewMembers: "Crew Members",
-                        basicAttackTitle: "Basic Attack: Blaster Akimbo",
-                        basicAttack: "Deal Physical damage to target enemy twice.\nThis attack scores an additional hit for each of the following if the target:\n- Has less than 70% Turn Meter\n- Has less than 30% Turn Meter\n- The target is debuffed\nAdditional hits deal 75% less damage.",
-                        specialAttack1Title: "1st Special: Darksaber Strike (Cooldown: 2)",
-                        specialAttack1: "Deal Physical damage to target enemy and inflict Armor Shred for the rest of the battle.",
-                        specialAttack2Title: "2nd Special: Demolish (Cooldown: 5)",
-                        specialAttack2: "Deal Physical damage to all enemies, Stagger them for 2 turns, and Expose target enemy for 2 turns. For each active Mandalorian and Phoenix ally, deal +15% more damage and Expose a random enemy for 2 turns.Mandalorian and Phoenix allies gain Critical Chance Up and Offense Up for 2 turns. If this attack scores a critical hit, reduce Sabine's cooldowns by 2. This attack can't be countered or evaded.",
-                        uniqueAbilityTitle: "Unique Ability: Take It Back",
-                        uniqueAbility: "Sabine has +25% Critical Chance and +25% Critical Damage.",
-                        shipTitle: "Ship: Phantom II"
-                    },
-                    fr: {
-                        title: "<u>Sabine Wren</u>",
-                        description: "Attaquante Phoenix aggressive qui supprime la défense de manière permanente et punit les ennemis lents.",
-                        lightSide: "Coté Lumineux",
-                        attacker: "Attaquant",
-                        mandalorian: "Mandalorien",
-                        phoenix: "Phoenix",
-                        rebel: "Rebelle",
-                        crewMembers: "Membres Equipages",
-                        basicAttackTitle: "attaque basique : Blaster sur les hanches",
-                        basicAttack: "Inflige des dégâts physiques à une cible ennemie deux fois.\n Chacune de des attaques inflige un coup supplémentaire si:\n- la jauge de tour de la cible est à moins de 70%.\n- la jauge de tour de la cible est à moins de 30%.\n- si la cible souffre d'affaiblissements.\nLes coups supplémentaires infligent 75% de dégâts en moins.",
-                        specialAttack1Title: "1ere spéciale: Frappe au sabre noir (délai: 2)",
-                        specialAttack1: "Inflige des dégâts physiques à la cible ennemie et lui inflige la destruction d'armure pendant le reste de l'affrontement.",
-                        specialAttack2Title: "2eme spéciale: Démolition (délai: 5)",
-                        specialAttack2: "Inflige des dégâts physiques à tous les ennemis et leur inflige Faux pas pendant 2 tours. La cible ennemie subit également exposition pendant 2 tours. Pour chaque allié Mandalorien ou Phoenix actif, inflige +15% de dégâts supplémentaires et expose un ennemi aléatoire pendant 2 tours. Les alliés Mandaloriens et Phoenix obtiennent un bonus de chances de coup critiques et un bonus d'attaque pendant 2 tours. Si cette attaque inflige un coup critique, les délais de Sabine sont diminués de 2. Cette attaque ne peut pas être contrée ou esquivée.",
-                        uniqueAbilityTitle: "capacité unique: Contre-offensive",
-                        uniqueAbility: "Sabine obtient un bonus de chances de coup critiques de +25% et un bonus de dégâts critiques de +25%.",
-                        shipTitle: "vaisseau: phantom2"
+    <h2 class="titre" id="special-attack2-title"><u>2nd Special: Demolish (Cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Sabine Spe2" src="../image-perso/sabine-wren/sabine-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to all enemies, Stagger them for 2 turns, and Expose target enemy for 2 turns. For each active Mandalorian and Phoenix ally, deal +15% more damage and Expose a random enemy for 2 turns. Mandalorian and Phoenix allies gain Critical Chance Up and Offense Up for 2 turns. If this attack scores a critical hit, reduce Sabine's cooldowns by 2. This attack can't be countered or evaded.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="unique-ability-title"><u>Unique Ability: Take It Back</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Take It Back" src="../image-perso/sabine-wren/sabine-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Sabine has +25% Critical Chance and +25% Critical Damage.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="vaisseaux" id="ship-title"><u>Ship: Phantom II</u></h2>
+    <a href="../html/phantom2.html">
+        <img class="capacité" src="https://i.ibb.co/30DZMwm/sabine-phantom2.webp" alt="Phantom II">
+    </a>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            const translationsFr = {
+                "big-title": "Sabine Wren",
+                "title": "<u>Sabine Wren</u>",
+                "description": "Attaquante Phoenix agressive qui supprime la défense de manière permanente et punit les ennemis lents.",
+
+                "light-side": "Côté Lumineux",
+                "attacker": "Attaquant",
+                "mandalorian": "Mandalorien",
+                "phoenix": "Phoenix",
+                "rebel": "Rebelle",
+                "crew-members": "Membres d’Équipage",
+
+                "basic-attack-title": "<u>Attaque Basique : Blaster sur les hanches</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie deux fois. Cette attaque inflige un coup supplémentaire si :<br>- la jauge de tour de la cible est à moins de 70%.<br>- la jauge de tour de la cible est à moins de 30%.<br>- la cible subit un affaiblissement.<br>Les coups supplémentaires infligent 75% de dégâts en moins.",
+
+                "special-attack1-title": "<u>1ère Spéciale : Frappe au sabre noir (délai : 2)</u>",
+                "special-attack1": "Inflige des dégâts physiques à la cible ennemie et lui inflige la destruction d’armure pendant le reste de l'affrontement.",
+
+                "special-attack2-title": "<u>2ème Spéciale : Démolition (délai : 5)</u>",
+                "special-attack2": "Inflige des dégâts physiques à tous les ennemis et leur inflige Faux Pas pendant 2 tours. La cible ennemie subit également Exposition pendant 2 tours. Pour chaque allié Mandalorien ou Phoenix actif, inflige +15% de dégâts supplémentaires et expose un ennemi aléatoire pendant 2 tours. Les alliés Mandaloriens et Phoenix obtiennent un bonus de chances de coup critique et d’attaque pendant 2 tours. Si cette attaque inflige un coup critique, les délais de Sabine sont réduits de 2. Cette attaque ne peut pas être contrée ni esquivée.",
+
+                "unique-ability-title": "<u>Capacité Unique : Contre-offensive</u>",
+                "unique-ability": "Sabine obtient +25% de chances de coup critique et +25% de dégâts critiques.",
+
+                "ship-title": "<u>Vaisseau : Phantom II</u>"
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
                     }
-                };
-                // Set the default language to English on page load
-                window.onload = function () {
-                    switchLanguage('en');
-                };
-
-                function switchLanguage(lang) {
-                    const elements = {
-                        title: "title",
-                        description: "description",
-                        lightSide: "light-side",
-                        attacker: "attacker",
-                        mandalorian: "mandalorian",
-                        phoenix: "phoenix",
-                        rebel: "rebel",
-                        crewMembers: "crew-members",
-                        basicAttackTitle: "basic-attack-title",
-                        basicAttack: "basic-attack",
-                        specialAttack1Title: "special-attack1-title",
-                        specialAttack1: "special-attack1",
-                        specialAttack2Title: "special-attack2-title",
-                        specialAttack2: "special-attack2",
-                        uniqueAbilityTitle: "unique-ability-title",
-                        uniqueAbility: "unique-ability",
-                        shipTitle: "ship-title"
-                    };
-
-                    for (const [key, id] of Object.entries(elements)) {
-                        let textContent = translations[lang][key];
-
-                        // Remplacer les '\n' par des balises <br> pour ajouter des sauts de ligne
-                        if (textContent) {
-                            textContent = textContent.replace(/\n/g, '<br>');
-                        }
-
-                        // Mettre à jour l'élément avec le texte modifié
-                        document.getElementById(id).innerHTML = textContent;
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
                     }
                 }
-            </script>
-        </footer>
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+    </footer>
 </body>
 
 </html>
