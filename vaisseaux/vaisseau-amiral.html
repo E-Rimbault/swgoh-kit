@@ -200,9 +200,9 @@
 
   Promise.all([
     fetch("../filtre-recherche/ship.json").then(res => res.json()),
-    fetch("../data/faction.json").then(res => res.json()),
-    fetch("../data/roles.json").then(res => res.json()),
-    fetch("../data/alignements.json").then(res => res.json())
+    fetch("../data/ship-faction.json").then(res => res.json()),
+    fetch("../data/ship-roles.json").then(res => res.json()),
+    fetch("../data/ship-alignement.json").then(res => res.json())
   ])
     .then(([unitsData, factionData, rolesData, alignmentsData]) => {
       allUnits = unitsData;
