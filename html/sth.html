@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Stormtrooper Han</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/han-stormtrooper/han-stormtrooper-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/han-stormtrooper/han-stormtrooper-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Stormtrooper Han</u></h1>
+            <p id="description">
+                Versatile tank able to surprise enemies with sudden Turn Meter changes and Offense boosts
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/han-stormtrooper/han-stormtrooper.png" alt="Han Stormtrooper"><br>
+
+    <!-- Capacités -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Wary Shot</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Stormtrooper Han basic" src="../image-perso/han-stormtrooper/han-stormtrooper-basique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 70% chance to gain 35% Turn Meter. This attack has high damage variance.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Draw Fire (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Stormtrooper Han spe 1" src="../image-perso/han-stormtrooper/han-stormtrooper-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Han Taunts for 3 turns, and all other allies gain 30% Turn Meter. In addition, all other allies gain 20% Turn Meter when Han is damaged while his Taunt is active.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Plan B</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Stormtrooper Han lead" src="../image-perso/han-stormtrooper/han-stormtrooper-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                All allies gain 40% Defense while above 50% Health and 35% Offense while below 50% Health.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Bluff</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Stormtrooper Han unique" src="../image-perso/han-stormtrooper/han-stormtrooper-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Han has a 25% chance to remove 30% Turn Meter from each enemy at the start of each of his turns. In addition, Han recovers 5% Protection and has a 25% chance to remove 10% Turn Meter from each enemy when he is damaged.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Han en Stormtrooper",
+                "title": "<u>Han en Stormtrooper</u>",
+                "description": "Tank Polyvalent capable de surpendre ses ennemis par de soudaines altérations de la jauge de tour et des bonus d'attaque.",
+
+                "basic-attack-title": "<u>Attaque Basique: Tir méfiant</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie, avec 70% de chances de remplir la jauge de 35 %. Cette attaque a une amplitude de dégâts élevée.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Attirer le feu (délai : 4)</u>",
+                "special-attack1": "Han utilise Raillerie pendant 3 tours et la jauge de tour de tous les autres alliés se remplit de 30 %. De plus, la jauge de tour de tous les autres alliés se remplit de 20 % lorsqu'Han subit des dégâts pendant qu'il utilise Raillerie.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Plan B</u>",
+                "lead-ability": "Tous les alliés gagnent un bonus de défense de 40 % lorsque leur santé est supérieure à 50 % et un bonus d'attaque lorsque leur santé est inférieure à 50%.",
+
+                "unique-ability-title": "<u>Capacité Unique : Bluff</u>",
+                "unique-ability": "Au début de chacun de ses tours, Han a 25% de chances de réduires de 30% la jauge de tour de chaque ennemi. Han récupère 5% de protection et a 25% de chances de réduire de 10% la jauge de tour de chaque ennemi lorsqu'il subit des dégâts.",    
+                
+                "lightside": "Coté Lumineux",
+                "tank": "Tank",
+                "leader": "Chef",
+                "rebel": "Rebelle",
+                "scoundrel": "Vaurien"
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+
+    </footer>
+</body>
+
+</html>
