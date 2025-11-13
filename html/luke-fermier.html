@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Luke Skywalker (Farmboy)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/luke-fermier/luke-fermier.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/luke-fermier/luke-fermier.png" alt="luke fermier" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Luke Skywalker (Farmboy)</u></h1>
+            <p id="description">
+                Attacker that can boost his own Critical Rate, then disable enemies with Critical Hits
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/luke-fermier/luke-image.png" alt="luke farmboy"><br>
+
+    <!-- Capacités -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Frontier Marksmanship</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="luke farmboy basic" src="../image-perso/luke-fermier/luke-fermier-basique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical Damage to target enemy. If this attack scores a Critical Hit, gain 40% Turn Meter and inflict Damage Over Time for 3 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Bullseye (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="luke farmboy special" src="../image-perso/luke-fermier/luke-fermier-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and inflict Defense Down and Speed Down for 2 turns. If this attack scores a Critical Hit, Stun the target for 1 turn. Otherwise, dispel all buffs on the target.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: A New Hope</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="luke farmboy lead" src="../image-perso/luke-fermier/luke-fermier-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                All allies gain 50% Tenacity. Whenever an ally Resists a detrimental effect they gain Advantage for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Draw a Bead</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="luke farmboy unique" src="../image-perso/luke-fermier/luke-fermier-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Luke has +25% Critical Chance. At the start of each of his turns, Luke gains 10% Critical Damage (stacking) until the end of the encounter.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> Luke gains 30% Defense, Max Health, and Tenacity. At the start of each of his turns, Luke gains 10% Defense and Offense (stacking) until the end of the encounter. Whenever Luke scores a critical hit during his turn, he gains 20% Turn Meter, and Critical Damage Up and Offense Up for 2 turns. When Luke is prevented from using an ability during his turn, he recovers 50% Health and Protection.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Luke Skywalker (fermier)",
+                "title": "<u>Luke Skywalker (fermier)</u>",
+                "description": "Attaquant qui peut améliorer ses chances de coup critique et s'en servir contre ses ennemis.",
+
+                "basic-attack-title": "<u>Attaque Basique: Tireur d'élite de la frontière</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie. En cas de coup critique, cette attaque remplit votre jauge de tour de 40% et inflige des dégâts sur la durée pendant 3 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Dans le mille (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie et inflige un malus de défense et un malus de vitesse pendant 2 tours. Si cette attaque inflige un coup critique, la cible est étourdie pendant 1 tour. Sinon dissipe toutes les améliorations sur la cible.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Un nouvel espoir</u>",
+                "lead-ability": "Tous les alliés gagnent un bonus de ténacité de 50%. Lorsqu'un allié résiste à un effet négatif, il obtient l'avantage pendant 2 tours.",
+
+                "unique-ability-title": "<u>Capacité Unique : Dans le viseur</u>",
+                "unique-ability": "Luke a +25% de chances de coup critique. Au début de chacun de ses tours, Luke obtient 10% de dégâts critiques (cumulatif) jusqu'à l'affrontement.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> Luke obtient 30% de défense, de santé, de santé maximale et de ténacité. Au début de chacun de ses tours, Luke obtient 10% de défense et d'attaque (cumulatif) jusqu'à la fin de l'affrontement. Lorsque Luke inflige un coup critique pendant son tour, il obtient 20% de jauge de tour, un bonus de dégâts critique et un bonus d'attaque pendant 2 tours. Lorsque Luke n'est pas en mesure d'utiliser une capacité pendant son tour, il récupère 50 % de santé et de protection.",   
+                
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "rebel": "Rebelle"
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+
+    </footer>
+</body>
+
+</html>
