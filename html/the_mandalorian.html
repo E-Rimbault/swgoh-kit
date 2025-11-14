@@ -2,43 +2,51 @@
 <html lang="en">
 
 <head>
-    <title id="big-title">The mandalorian</title>
+    <title id="big-title">The Mandalorian</title>
 
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
 
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/mando/mando-image.png">
-
-    <!-- Lien vers la feuille de style -->
     <link rel="stylesheet" href="../style/unit-style.css">
+
+    <style>
+        .language-switcher img {
+            width: 40px;
+            height: 26px;
+            cursor: pointer;
+            border: 3px solid transparent;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+    </style>
 </head>
 
 <body class="simple">
 
-    <!-- Entête de la page -->
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
             <img src="../image-perso/mando/mando-image.png" alt="" style="max-width: 100%; max-height: 100%;">
         </div>
+
         <div style="flex: 1; padding-left: 20px;">
+
+            <!-- SWITCH LANGUES -->
             <div class="language-switcher">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                    onclick="switchLanguage('fr')">
-                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                    onclick="switchLanguage('en')">
+                <img id="lang-fr" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français">
+                <img id="lang-en" src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English">
             </div>
+
             <h1 id="title"><u>The Mandalorian</u></h1>
             <p id="description">
                 Powerful Mandalorian bounty hunter who relies on critical hits to overwhelm his enemies
             </p>
+
             <br>
             <nav class="perso" style="font-size: 20px;">
-                <a style="color: blue !important; " class="capacite" href="../classement-perso/coté-lumineux.html"
-                    id="lightside">Light Side</a>
-                <a class="class" href="../classement-perso/attaquant.html" id="attacker">attacker</a>
+                <a style="color: blue !important;" class="capacite" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
                 <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
                 <a class="capacite" href="../classement-perso/chasseur-de-primes.html" id="bounty">Bounty Hunter</a>
                 <a class="capacite" href="../classement-perso/mandalorien.html" id="mandalorien">Mandalorian</a>
@@ -46,16 +54,15 @@
             </nav>
         </div>
     </header>
+
     <br>
 
-    <!-- Image principale du personnage -->
     <img class="first" src="../image-perso/mando/Mando.png" alt="Mando"><br>
 
-    <!-- Section pour les différentes attaques spéciales -->
     <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Swift Shot</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Mando basic" src="../image-perso/mando/mando-basic.png">
+            <img class="attaque" src="../image-perso/mando/mando-basic.png" alt="Mando basic">
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
@@ -67,7 +74,7 @@
     <h2 class="titre" id="special-attack1-title"><u>1st Special: Transpierce (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Mando spé 1" src="../image-perso/mando/mando-spe.png">
+            <img class="attaque" src="../image-perso/mando/mando-spe.png" alt="Mando spé 1">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1">
@@ -79,7 +86,7 @@
     <h2 class="titre"><u id="lead-ability-title">Leader Ability: Asset Acquisition</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Mando Lead" src="../image-perso/mando/mando-lead.png">
+            <img class="attaque" src="../image-perso/mando/mando-lead.png" alt="Mando Lead">
         </div>
         <div class="right-column">
             <p class="attaque" id="lead-ability">
@@ -87,7 +94,7 @@
                 <br><br>
                 <u class="speciale">Contract:</u> While buffed, score critical hits against enemies 20 times. (Only Bounty Hunter abilities can contribute to this Contract)
                 <br><br>
-                <u class="speciale">Reward:</u> For the rest of the battle, all Bounty Hunter allies have their Payouts activated and gain the following: while a Bounty Hunter ally is attacking, they have +20% Offense and Health Steal for each buffed ally.
+                <u class="speciale">Reward:</u> All Bounty Hunter allies have their Payouts activated and gain +20% Offense and Health Steal for each buffed ally.
             </p>
         </div>
     </div>
@@ -95,7 +102,7 @@
     <h2 class="titre"><u id="unique-ability-title">Unique Ability: Disciplined Bounty Hunter</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Mando unique" src="../image-perso/mando/mando-unique.png">
+            <img class="attaque" src="../image-perso/mando/mando-unique.png" alt="Mando unique">
         </div>
         <div class="right-column">
             <p class="attaque" id="unique-ability">
@@ -107,101 +114,116 @@
     <h2 class="prime" id="prime-title"><u>The Mandalorian's Payout</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Mando prime" src="../image-perso/mando/mando-prime.png">
+            <img class="attaque" src="../image-perso/mando/mando-prime.png" alt="Mando prime">
         </div>
         <div class="right-column">
             <p class="attaque" id="prime">
-                Whenever the Mandalorian receives a Reward from a Contract, he also gains the following Payout. (Contracts are granted by certain Bounty Hunter Leader Abilities.)
+                Whenever the Mandalorian receives a Reward from a Contract, he also gains the following Payout:
                 <br><br>
-                <u class="speciale">Payout :</u>Grant the Mandalorian +50% Critical Damage and the Special ability Disintegrate until end of battle.
+                <u class="speciale">Payout :</u> Grant the Mandalorian +50% Critical Damage and the Special ability <u class="speciale">Disintegrate</u> until end of battle.
             </p>
         </div>
     </div>
 
-    
-    <h2 class="invocation" id="invocation-title"><u class="speciale">Disintegrate></u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="Mando spé accordé" src="../image-perso/mando/mando-os.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque" id="invocation"> 
-                    <u class="speciale">Disintegrate :</u> While the Mandalorian has Critical Chance Up or Critical Damage Up, this ability instantly defeats target enemy, which can't be evaded. Enemies defeated by this ability can't be revived.
-                    <br><br>
-                    Each time the Mandalorian scores a critical hit while buffed, reduce the cooldown of this ability by 1 (Cooldown: 8).
-                </p>
-            </div>
+    <h2 class="invocation" id="invocation-title"><u class="speciale">Disintegrate</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" src="../image-perso/mando/mando-os.png" alt="Mando spé accordé">
         </div>
+        <div class="right-column">
+            <p class="attaque" id="invocation">
+                <u class="speciale">Disintegrate :</u> While the Mandalorian has Critical Chance Up or Critical Damage Up, this ability instantly defeats target enemy. Enemies defeated by this ability cannot be revived.
+                <br><br>
+                Each time the Mandalorian scores a critical hit while buffed, reduce the cooldown of this ability by 1 (Cooldown: 8).
+            </p>
+        </div>
+    </div>
 
-    <!-- Pied de page -->
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SYSTÈME DE TRADUCTION -->
         <script>
-            const translations = {
-                en: {
-                    "big-title": "The Mandalorian",
-                    "title": "<u>The Mandalorian</u>",
-                    "description": "Powerful Mandalorian bounty hunter who relies on critical hits to overwhelm his enemies",
-                    "lightside": "Light Side",
-                    "attacker": "Attacker",
-                    "leader": "leader",
-                    "bounty": "Bounty Hunter",
-                    "mandalorien": "Mandalorian",
-                    "scoundrel": "Scoundrel",
-                    "basic-attack-title" : "<u>Basic Attack: Swift Shot</u>",
-                    "basic-attack" : "Deal Physical damage to target enemy and gain Critical Chance Up for 2 turns. On a critical hit, grant another random Bounty Hunter ally Critical Chance Up for 2 turns who does not already have it.",
-                    "special-attack1-title" : "<u>1st Special: Transpierce (cooldown: 3)</u>",
-                    "special-attack" : "Deal Physical damage to target enemy and call another target Bounty Hunter ally to assist. Then the Mandalorian and the assisting ally gain Critical Damage Up for 2 turns.",
-                    "lead-ability-title" : "<u>Leader Ability: Asset Acquisition</u>",
-                    "lead-ability" : "All Scoundrel allies have +20 Speed, +35% Tenacity, and +30% Critical Chance. When the Mandalorian is in the Leader slot, and not the Ally slot, the following Contract is active:\n\n<u class='speciale'>Contract:</u> While buffed, score critical hits against enemies 20 times. (Only Bounty Hunter abilities can contribute to this Contract).\n\n<u class='speciale'>Reward:</u> For the rest of the battle, all Bounty Hunter allies have their Payouts activated and gain the following: while a Bounty Hunter ally is attacking, they have +20% Offense and Health Steal for each buffed ally.",
-                    "unique-ability-title" : "<u>Unique Ability: Disciplined Bounty Hunter</u>",
-                    "unique-ability" : "Each time the Mandalorian scores a critical hit, he gains 30% Turn Meter and other Bounty Hunter allies gain half that amount. At the start of encounter, the Mandalorian has Bounty Hunter's Resolve until he is defeated.",
-                    "prime-title" : "<u class='prime'>The Mandalorian's Payout</u>",
-                    "prime" : "Whenever the Mandalorian receives a Reward from a Contract, he also gains the following Payout. (Contracts are granted by certain Bounty Hunter Leader Abilities.)\n\n<u class='speciale'>Payout :</u>Grant the Mandalorian +50% Critical Damage and the Special ability Disintegrate until end of battle.",
-                    "invocation-title" : "<u class='speciale'>Disintegrate</u>",
-                    "invocation" : "<u class='speciale'>Disintegrate :</u> While the Mandalorian has Critical Chance Up or Critical Damage Up, this ability instantly defeats target enemy, which can't be evaded. Enemies defeated by this ability can't be revived.\n\nEach time the Mandalorian scores a critical hit while buffed, reduce the cooldown of this ability by 1 (Cooldown: 8)."
-                },
-                fr: {
-                    "big-title": "Le Mandalorien",
-                    "title": "<u>Le Mandalorien</u>",
-                    "description": "Puissant chasseur de primes Mandalorien qui utilise les coups critiques pour écraser ses ennemis",
-                    "lightside": "Coté Lumineux",
-                    "attacker": "Attaquant",
-                    "leader": "Chef",
-                    "bounty": "Chasseur de Primes",
-                    "mandalorien": "Mandalorien",
-                    "scoundrel": "Vaurien",
-                    "basic-attack-title" : "<u>attaque basique : Tir vif</u>",
-                    "basic-attack" : "Inflige des dégâts physiques à une cible ennemie et confère un bonus de coup critique pendant 2 tours. En cas de coup critique, confère un bonus de chances de coup critique pendant 2 tours à un chasseur de primes allié aléatoire qui n'en dispose pas déjà.",
-                    "special-attack1-title" : "<u>1ere spéciale: transpercer (délai: 3)</u>",
-                    "special-attack1" : "Inflige des dégâts physiques à une cible ennemie et invoque le chasseur de prime allié ciblé. Le Mandalorien et l'allié invoqué obtiennent un bonus de dégâts critiques pendant 2 tours.",
-                    "lead-ability-title" : "<u>Capacité de chef: Acquisition</u>",
-                    "lead-ability" : "Tous les alliés Vaurien ont +20% de vitesse, +35% de ténacité et +30% de chances de coup critique. Lorsque le Mandalorien est dans l'emplacement de chef (et non dans l'emplacement d'allié), le contrat suivant est actif:\n\n <u class='speciale'>Contrat:</u> Lorsque vous disposez d'une amélioration, infligez des coups critiques aux ennemis 20 fois (seules les capacités de chasseurs de primes peuvent contribuer à ce contrat).\n\n<u class='speciale'>Récompense:</u> Pendant le reste de la bacapacitéle, la prime de tous les chasseurs de primes alliés est activée, et ils obtiennent le bonus suivant: Lorsqu'un allié chasseur de prime allié attaque, il a +20% d'attaque et de vol de santé pour chaque allié disposant d'une amélioration.",
-                    "unique-ability-title" : "<u>Capacité unique: Chasseur de primes discipliné</u>",
-                    "unique-ability" : "A chaque fois que Le Mandalorien inflige un coup critique, sa jauge de tour se remplit de 30% et les autre chasseurs de primes gagnent la moitié de cette valeur. Au début de l'affrontement, Le Mandalorien dispose de la détérmination du chasseur de primes jusqu'à ce qu'il soit vaincu.",
-                    "prime-title" : "<u class='prime'>Prime du Mandalorien</u>",
-                    "prime" : "Lorsque Le Mandalorien reçoit les récompenses d'un contrat, il obtient également la prime suivante (les contrats sont conférés par certaines capacités de chef des chasseurs de primes).\n\n<u class='speciale'>Prime :</u> Le Mandalorien obtient +50% de dégâts critiques ainsi que la capacité <u class='speciale'>Désintégration</u> jusqu'à la fin de la bataille.",
-                    "invocation-title" : "<u class='speciale'>Désintégration</u>",
-                    "invocation" : "<u class='speciale'>Désintégration :</u>Lorsque Le Mandalorien dispose d'un bonus de coup critique ou un bonus de dégâts critiques, cette capacité élimine immédiatement la cible ennemie (ne peut pas être esquivée). Les ennemis vaincus par cette capacité ne peuvent pas être ranimés.\n\nChaque fois que Le Mandalorien inflige un coup critique alors qu'il dispose d'une amélioration, diminue le délai de cette capacité de 1 (délai: 8)."
-                }
+            const translationsFr = {
+                "big-title": "Le Mandalorien",
+                "title": "<u>Le Mandalorien</u>",
+                "description": "Puissant chasseur de primes mandalorien utilisant les coups critiques pour submerger ses ennemis.",
+                "lightside": "Côté Lumineux",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "bounty": "Chasseur de Primes",
+                "mandalorien": "Mandalorien",
+                "scoundrel": "Vaurien",
+
+                "basic-attack-title": "<u>Attaque Basique : Tir Vif</u>",
+                "basic-attack": "Inflige des dégâts physiques et gagne un bonus de Chances de Coup Critique pendant 2 tours. En cas de coup critique, un chasseur de primes allié aléatoire reçoit aussi ce bonus s'il n'en dispose pas déjà.",
+
+                "special-attack1-title": "<u>1ère Spéciale : Transpercer (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques et appelle un allié chasseur de primes à assister. Le Mandalorien et l’allié gagnent un bonus de Dégâts Critiques pour 2 tours.",
+
+                "lead-ability-title": "<u>Capacité de Chef : Acquisition</u>",
+                "lead-ability":
+                    "Tous les alliés Vauriens gagnent +20 de Vitesse, +35% de Ténacité et +30% de Chances de Coup Critique.<br><br>" +
+                    "<u class='speciale'>Contrat :</u> Infliger 20 coups critiques en étant amélioré (seules les capacités des chasseurs de primes comptent).<br><br>" +
+                    "<u class='speciale'>Récompense :</u> Toutes les Primes des chasseurs de primes alliés s'activent et ils gagnent +20% d'Attaque et de Vol de Santé pour chaque allié amélioré.",
+
+                "unique-ability-title": "<u>Capacité Unique : Chasseur de Primes Discipliné</u>",
+                "unique-ability": "À chaque coup critique du Mandalorien, il gagne 30% de Jauge de Tour et les autres chasseurs de primes gagnent la moitié. Il commence l'affrontement avec la Détermination du Chasseur de Primes.",
+
+                "prime-title": "<u class='prime'>Prime du Mandalorien</u>",
+                "prime":
+                    "Lorsque le Mandalorien reçoit une Récompense, il gagne également la Prime suivante :<br><br>" +
+                    "<u class='speciale'>Prime :</u> +50% de Dégâts Critiques et accès à la capacité <u class='speciale'>Désintégration</u>.",
+
+                "invocation-title": "<u class='speciale'>Désintégration</u>",
+                "invocation":
+                    "<u class='speciale'>Désintégration :</u> Si le Mandalorien dispose d’un bonus de Chances ou Dégâts Critiques, cette attaque vainc instantanément la cible (imparable, irréanimable).<br><br>" +
+                    "Chaque coup critique du Mandalorien réduit le délai de cette capacité de 1 (Délai : 8)."
             };
 
-            function replaceNewLinesWithBr(text) {
-                return text.replace(/\n\n/g, '<br><br>');
-            }
+            const originalTexts = {};
 
-            function switchLanguage(lang) {
-                for (const [key, text] of Object.entries(translations[lang])) {
-                    const element = document.getElementById(key);
-                    if (element) {
-                        // Convert \n\n to <br><br> before injecting
-                        element.innerHTML = replaceNewLinesWithBr(text);
-                    }
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
                 }
             }
 
-            window.onload = () => switchLanguage('en');
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
         </script>
 
     </footer>
