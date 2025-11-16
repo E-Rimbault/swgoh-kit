@@ -1,113 +1,189 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Super commando impérial</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Imperial Super Commando</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/isc/isc-image.png">
-
-    <!-- Lien vers la feuille de style -->
-    <link rel="stylesheet" href="../style/styles.css">
-    <link rel="stylesheet" href="../style/capacite.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/isc/isc-image.png" alt="imperial super commando" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>Super commando impérial</u></h1>
-        <p>
-            Attaquant de l'Empire aux mécanisme de contre-attaque, qui<br>
-            dissipe les améliorations et confère l'immunité aux améliorations.
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: red;" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/empire.html">Empire</a>
-            <a class="capacite" href="../classement-perso/mandalorien.html">Mandalorien</a>
-            <a class="pilote" href="../classement-perso/membres-équipages.html">Membres Equipages</a>
-        </nav>
+            <h1 id="title"><u>Imperial Super Commando</u></h1>
+            <p id="description">
+                An Empire Attacker with counter mechanics who dispels buffs and applies buff immunity
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="capacite" href="../classement-perso/mandalorien.html" id="mandalorian">Mandalorian</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew">Crew Member</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/isc/imperial-mando.png" alt="ISC"><br>
+    <img class="first" src="../image-perso/isc/imperial-mando.png" alt="Imperial super commando"><br>
 
-    <h2 class="titre"><u>attaque basique : Prendre l'avantage</u></h2>
+    <!-- Capacités -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Seize the Advantage</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="ISC basique" src="../image-perso/isc/isc-basique.png">
+            <img class="attaque" alt="Imperial super commando basic" src="../image-perso/isc/isc-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie avec 70% de chances d'infliger un malus d'attaque<br>
-                pendant 2 tours, et inflige une attaque supplémentaire si la jauge de tour de la cible est  à moins de 50%.
-            </p>
-        
-        </div>
-    </div>
-
-    <h2 class="titre"><u>1ere spéciale: Tactiques supérieures (délai: 2)</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="isc spé 1" src="../image-perso/isc/isc-spe1.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie, dissipe toutes ses améliorations<br>
-                et inflige l'immunité aux améliorations pendant 2 tours.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 70% chance to inflict Offense Down for 2 turns and attack again if the target had less than 50% Turn Meter.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Prédominance</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Superior Tactics (cooldown: 2)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="isc unique 1" src="../image-perso/isc/isc-unique1.png">
+            <img class="attaque" alt="imperial super commando special" src="../image-perso/isc/isc-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Le Super commando impérial a +100% de chances de contre-attaque, et +15% d'attaque pour chaque ennemi ne disposant pas d'améliorations.<br>
-                <br>
-                Si tous les alliés sont des Mandaloriens du Coté Obscur ou s'ils occupent tous les rangs de l'Empire au début de la bataille :<br>
-                <br>
-                -Lorsqu'un allié Mandalorien du Coté Obscur attaque en dehors de son tour, il inflige des dégâts réels supplémentaires et récupère 10% de protection.<br>
-                <br>
-                -Lorsque le Super Commando Impérial ou Gar Saxon attaquent en dehors de leur tour, l'autre attaque également (limité à une fois par tour). 
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy, dispel all buffs on them, and inflict Buff Immunity for 2 turns.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>capacité unique: Super Commando en armure beskar</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Upper Hand</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="isc spé 2" src="../image-perso/isc/isc-unique2.png">
+            <img class="attaque" alt="imperial super commando unique" src="../image-perso/isc/isc-unique1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Le super Commando Impérial et Gar Saxon obtiennent 30% de défense et 50% d'esquive des critiques,<br>
-                20% de santé maximale et de protection maximale.<br>
-                <br>
-                La première fois que le Super Commando Impérial ou Gar Saxon aurait du être vaincu, il obtient Immunité aux dégâts pendant 2 tours à la place.
+            <p class="attaque" id="unique-ability">
+                Imperial Super Commando has +100% counter chance and gains +15% Offense for each enemy with no buffs.
+                <br><br>
+                If all allies were Dark Side Mandalorians or Empire at the start of battle:
+                <br><br>
+                - Whenever a Dark Side Mandalorian ally attacks out of turn, they deal additional True damage and recover 10% Protection
+                <br><br>
+                - Whenever Imperial Super Commando or Gar Saxon attack out of turn, the other attacks as well (limit once per turn)
             </p>
         </div>
     </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Super Commando Beskar Armor</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="imperial super commando unique" src="../image-perso/isc/isc-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                Imperial Super Commando and Gar Saxon gain 30% Defense, 50% Critical Avoidance, 20% Max Health, and 20% Max Protection.
+                <br><br>
+                The first time Imperial Super Commando or Gar Saxon would be defeated, they gain Damage Immunity for 2 turns instead.
+            </p>
+        </div>
+    </div>
+
 
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Super commando impérial",
+                "title": "<u>Super commando impérial</u>",
+                "description": "Attaquant de l'Empire aux mécanismes de contre-attaque, qui dissipe les améliorations et confère l'immunité aux améliorations.",
+
+                "basic-attack-title": "<u>Attaque Basique: Prendre l'avantage</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie avec 70 % de chances d'infliger un malus d'attaque pendant 2 tours, et inflige une attaque supplémentaire si la jauge de tour de la cible est à moins de 50 %.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Tactiques supérieures (délai : 2)</u>",
+                "special-attack1": "Inflige des dégât physiques à une cible ennemie, dissipe toutes ses améliorations et inflige l'immunité aux améliorations pendant 2 tours.",
+
+                "unique-ability-title": "<u>Capacité Unique : Prédominance</u>",
+                "unique-ability": "Le Super Commando Impérial a +100 % de chances de contre-attaque, et +15 % d'attaque pour chaque ennemi ne disposant pas d'améliorations\n\nSi tous les alliés sont des Mandaloriens du Coté Obscur ou s'il occipent tous les rangs de l'Empire au début de la bataille :\n\n- Lorsqu'un allié Mandalorien du Coté Obscur attaque en dehors de son tour, il inflige des dégâts réels supplémentaires et récup_re 10 % de protection.\n\n- Lorsque le Super Commando Impérial ou Gar Saxon attaque hors de son tour, l'autre attaqe également (limité à une fois par tour).",    
+
+                "unique-ability2-title": "<u>Capacité Unique : Super Commando en armure beskar</u>",
+                "unique-ability2": "Le Super Commando Impérial et Gar Saxon obtiennent 30 % de défense et 50 % d'esquive des critiques et de protection maximale.\n\nLa première fois que le Super Commando Impérial ou Gar Saxon aurait dû être vaincu, ils obtiennent immunité aux dégâts pendant 2 tours à la place.",              
+            
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "empire": "Empire",
+                "mandalorian": "Mandalorien",
+                "crew": "Membre de l'équipage"            
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+
     </footer>
 </body>
-</html> 
+
+</html>
