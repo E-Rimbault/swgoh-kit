@@ -18,6 +18,15 @@ let urls = [];
 // Ajoute la racine du site
 urls.push({ loc: `${baseUrl}/`, priority: 1.0 });
 
+// Fonction pour échapper les caractères spéciaux XML
+function encodeXML(str) {
+  return str.replace(/&/g, '&amp;')
+            .replace(/'/g, '&apos;')
+            .replace(/"/g, '&quot;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+}
+
 // Fonction pour ajouter les fichiers .html d'un dossier
 function addHtmlFilesFrom(folder) {
   const folderPath = path.join(__dirname, folder);
@@ -32,7 +41,7 @@ function addHtmlFilesFrom(folder) {
         ? `${baseUrl}/${folder}/${file}`
         : `${baseUrl}/${file}`;
 
-      urls.push({ loc: fileUrl, priority: 0.5 });
+      urls.push({ loc: encodeXML(fileUrl), priority: 0.5 });
     }
   });
 }
