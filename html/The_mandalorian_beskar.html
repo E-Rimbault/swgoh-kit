@@ -1,161 +1,228 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>The Mandalorian(beskar armor)</title>
-
+    <title id="big-title">The Mandalorian (Beskar Armor)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/bam/The-Mandalorian-image.png">
-    <link rel="stylesheet" href="../style/capacite.css">
-    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/bam/The-Mandalorian-image.png" alt="The Mandalorian" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Le mandalorien (armure en beskar)</u></h1>
-        <p>Chef vaurien intrépide qui pourchasse ses ennemies<br>
-            pour protéger ses alliés.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/mandalorien.html">Mandalorien</a>
-            <a class="capacite" href="../classement-perso/vaurien.html">Vaurien</a>
-            <a class="pilote" href="../classement-perso/membres-équipages.html">Membres Equipages</a>
-        </nav>
+            <h1 id="title"><u>The Mandalorian (Beskar Armor)</u></h1>
+            <p id="description">
+                Fearless Scoundrel leader who hunts down enemies to protect his allies
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/mandalorien.html" id="mandalorian">Mandalorien</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew">Crew Member</a>
+            </nav>
+        </div>
     </header>
+    <br>
 
+    <img class="first" src="../image-perso/bam/Mando-beskar.png" alt="The Mandalorian (beskar armor)"><br>
 
-    <img class="first" src="../image-perso/bam/Mando-beskar.png" alt="The mandalorian (beskar armor)"><br>
+    <!-- Capacités -->
 
-    <h2 class="titre"><u>attaque basique : Frappe Habile</u></h2>
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: </u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="bam basique" src="../image-perso/bam/bam-basique.png">
+            <img class="attaque" alt="The Mandalorian basic" src="../image-perso/bam/bam-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégats physique à une cible ennemie et inflige des dégats sur la durée pendant 3 tours.<br>
-                Si la cible ennemie souffrait déjà d'un affaiblissement, inflige des dégats supplémentaires.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Damage over Time for 3 turns. If they were already debuffed, deal damage again.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale : déploiement discipliné (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Disciplined Set Up (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="bam spé 1" src="../image-perso/bam/mando-spe1-partie-A.png">
+            <img class="attaque" alt="The Mandalorian spécial 1" src="../image-perso/bam/mando-spe1-partie-A.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Le mandalorien (armure en beskar) obtient 1 cumul <u class="speciale">de oiseau siffleur</u> pour chaque
-                ennemie<br>
-                (20 maximum) et il peut Uniquement utiliser ELIMINATION RAPIDE la prochaine fois qu'il utilise une capacité.<br>
-                Tant que le mandalorien (armure en beskar) n'utilise pas élimination rapide,<br>
-                il ne peut pas être invoqué ou contre-attaquer, il ignore la raillerie, et il obtient un<br>
-                cumul d'oiseau siffleur chaque fois qu'un ennemie subit des dégats (20 cumuls maximum).<br>
-                <br>
-                Oiseau siffleur dure jusqu'à ce qu'Elimnation rapide soit utilisée, ou bien<br>
-                que le mandalorien (armure en beskar) soit vaincu.<br>
-                <br>
-        
-                <u class="speciale">Oiseau Siffleur:</u> inflige des dégats réels à la cible ennemie<br>
-                pour chaque cumul lors de l'utilisation d'Elimnation rapide.
+            <p class="attaque" id="special-attack1">
+                The Mandalorian (Beskar Armor) gains 1 stack of <u class="speciale">Whistling Birds</u> for each enemy (max 20 stacks), and he may only use Swift Takedown the next time he uses an ability. Until The Mandalorian (Beskar Armor) uses Swift Takedown, he can't assist or counter attack, he ignores Stealth and Taunt, and he gains 1 stack of Whistling Birds whenever an enemy takes damage (max 20 stacks).
+                <br><br>
+                Whistling Birds last until Swift Takedown is used or until The Mandalorian (Beskar Armor) is defeated.
+                <br><br>
+                <u class="speciale">Whistling Birds:</u> Deal true damage to target enemy for each stack when using Swift Takedown
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>2eme spéciale : merveille de la force (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack1.5-title"><u style="color: yellow;">Special Attack : Swift Takedown</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="bam spé 2" src="../image-perso/bam/bam-spe2.png">
+            <img class="attaque" alt="The Mandalorian" src="../image-perso/bam/mando-accordé.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe tous les affaiblissement des alliés vaurien et équilibre leur protection.<br>
-                Tous les alliés vaurien récupèrent 20% de protection.<br>
-                Réduit la jauge de tour de tous les ennemies de 20% (ne peut pas être esquivé).<br>
-                <br>
-                Le mandalorien (armure en beskar) et le vaurien allié ciblé obtiennent l'immunité<br>
-                aux dégats pendant 1 tour(ne peut pas être copié, Dissipé ou évité) et un bonus de<br>
-                ténacité pendant 2 tours. Cette capacité commence avec un délai.
+            <p class="attaque" id="special-attack1.5">
+                Inflict Healing Immunity for 2 turns on all enemies, deal Physical damage to them, and lose 1 stack of Whistling Birds for each enemy damaged this way.
+                <br><br>
+                Deal true damage to target enemy for each stack of Whistling Birds. If target enemy is defeated by this ability, remaining Whistling Birds will damage the weakest remaining enemy.
+                <br><br>
+                This ability can't be countered or evaded, and enemies defeated by it can't be revived.
+                <br><br>
+                <u class="restreint">This ability can only be used immediately after Disciplined Set Up.</u>
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>spéciale : Elimnation rapide</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Wonder of the Force (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="bam spé 1-b" src="../image-perso/bam/mando-accord.png">
+            <img class="attaque" alt="The Mandalorian" src="../image-perso/bam/bam-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige l'immunité aux soins pendant 2 tours à tous les ennemies, leur inflige des dégats physiques,<br>
-                et 1 cumul d'oiseau siffleur et perdu pour chaque ennemi qui subit des dégats de cette manière.<br>
-                <br>
-                inflige des dégats réels à la cible ennemie pour chaque cumul d'oiseau siffleur.<br>
-                Si la cible est vaincue par cette capacité, les cumuls restants d'oiseau siffleur<br>
-                infligeront des dégats à l'ennemi restant le plus faible.<br>
-                <br>
-                Cette capacité ne peut pas être contrée ou esquivée, et les ennemies<br>
-                vaincu par cette capacité ne peuvent pas être ranimés.<br>
-                <br>
-            <u class="spécialité">
-                Cette capacité peut uniquement être utilisée immédiatement<br>
-                après Déploiement discipliné.</u>
+            <p class="attaque" id="special-attack2">
+                Dispel all debuffs on all Scoundrel allies and equalize their Protection. All Scoundrel allies recover 20% Protection. Remove 20% Turn Meter from all enemies, which can't be evaded.
+                <br><br>
+                The Mandalorian (Beskar Armor) and target other Scoundrel ally gain Damage Immunity for 1 turn, which can't be copied, dispelled, or prevented, and Tenacity Up for 2 turns. This ability starts on cooldown.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Capacité de chef : Tactique chevronnées</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Seasoned Tactics</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="bam lead" src="../image-perso/bam/bam-lead.png">
+            <img class="attaque" alt="The Mandalorian" src="../image-perso/bam/bam-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Pour chaque vaurien allié présent au début de la bataille (à l'exception des alliées<br>
-                invoqués), les vauriens alliés obtiennent 5% de santé maximale, de protection maximale<br>
-                et d'attaque.<br>
-                <br>
-                Lorsqu'un ennemi subit des dégats, la jauge de tour des vauriens<br>
-                alliés se remplit de 2%.
+            <p class="attaque" id="lead-ability">
+                For each Scoundrel ally at the start of battle (excluding summoned allies), Scoundrel allies gain 5% Max Health, Max Protection, and Offense.
+                <br><br>
+                Whenever an enemy takes damage, Scoundrel allies gain 2% Turn Meter.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>unique : Intution Protectrice</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Protective Intuition</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="bam unique" src="../image-perso/bam/bam-unique.png">
+            <img class="attaque" alt="The Mandalorian" src="../image-perso/bam/bam-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Le mandalorien (armure en beskar) est immunisé contre l'entrave<br>
-                des capacités et a +40% de pouvoiur et de ténacité.<br>
-                <br>
-                La première fois que la santé de chaque vaurien es réduite à<br>
-                75%, le mandalorien (armure en beskar) dissipe tous ses affaiblissement,<br>
-                il obtient 1 cumul d'oiseau siffleur, il utilise un tour bonus et le délai<br>
-                de Merveille de la Force est réinitialisé.
+            <p class="attaque" id="unique-ability">
+                The Mandalorian (Beskar Armor) is immune to Ability Block and has +40% Potency and Tenacity.
+                <br><br>
+                The first time each Scoundrel ally falls below 75% Health, The Mandalorian (Beskar Armor) dispels all debuffs on himself, gains 1 stack of Whistling Birds, and takes a bonus turn, and the cooldown of Wonder of the Force is reset.
             </p>
         </div>
     </div>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Le Mandalorien (armure en beskar)",
+                "title": "<u>Le mandalorien (armure en baskar)</u>",
+                "description": "Chef Vaurien intrépide qui pourchasse ses ennemis pour protéger ses alliés.",
+
+                "basic-attack-title": "<u>Attaque Basique: Frappe habile</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et inflige des dégâts sur la durée pendant 3 tours. Si la cible subissait déjà un affaiblissement, inflige des dégâts supplémentaires.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Déploiement discipliné (délai : 4)</u>",
+                "special-attack1": "Le Mandalorien (armure en beskar) obtient 1 cumul d'<u class='speciale'>Oiseau siffleur</u> pour chaque ennemi (20 cumuls maximum), et il peut uniquement utiliser Élimination rapide la prochaine fois qu'il utilise une capacité. Tant que le Mandalorien (armure en beskar), n'utilise pas Élimination rapide, il ne peut pas être invoquer ou contre-attaquer, il ignore le camouflage et Raillerie, et il obtient 1 cumul d'Oiseau siffleur chaque fois q'un ennemi subit des dégâts (20 cumuls maximum).\n\nOiseau siffleur dure jusqu'à ce qu'Élimination rapide oit utilisée ou jusq'à ce que le Mandalorien (armure en beskar) soit vaincu.\n\n<u class='speciale'>Oiseau siffleur :</u> inflige des dégâts réels à la cible ennemie pour chaque cumul lors de l'utilisation d'Élimination rapide.",
+
+                "special-attack1.5-title": "<u style='color : yellow'>Attaque Spéciale : Élimination rapide</u>",
+                "special-attack1.5": "Inflige l'immunité aux soins pendant 2 tours à tous les ennemis , leur inflige des dégâts physiques, et 1 cumul d'Oiseau siffleur est perdu pour chaque ennemi qui subit des dégâts de cette manière.\n\nInflige des dégâts réels à la cible ennemie pour chaque cumul d'Oiseau siffleur. Si la cible ennemie est vaincue par cette capacité, les cumuls restants d'Oiseau siffleur infligeront des dégâts à l'ennemi restant le plus faible.\n\nCette capacité ne peut pas être contrée ou esquivée, et les ennemis vaincus par cette capacité ne peuvent pas être ranimés.\n\n<u class='restreint'>Cette capacité ne peut uniquement être utilisée immédiatement après Déploiement discipliné.</u>",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Merveile de la Force (délai : 4)</u>",
+                "special-attack2": "Dissipe tous les affaiblissements des alliés Vaurien et équilibre leur protection. Tous les alliés Vaurien récupèrent 20 % de protection. Réduit la jauge de tour de tous les ennemis de 20 % (ne peut pas être esquivé).\n\nLe Mandalorien (armure en baskar) et le Vaurien allié ciblé obtiennent l'immunité aux dégâts pendant 1 tour (ne peut pas être copié, dissipé ou évité) et un bonus de ténacité pendant 2 tours. Cette capacité commence avec un délai.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Tactiques chevronnées</u>",
+                "lead-ability": "Pour chaque Vaurien allié présent au début de la bataille (à l'exception des alliés invoqués), les Vauriens alliés obtiennent 5 % de santé maximale, de protection maximale et d'attaque.\n\nLorsqu'un ennemi subit des dégâts, la jauge de tour des Vauriens alliés se remplit d 2 %.",
+
+                "unique-ability-title": "<u>Capacité Unique : Intuition protectrice</u>",
+                "unique-ability": "Le Mandalorien (armure en beskar) est immunisé contre l'entrave des capacités et a +40 % de pouvoir et de ténacité. La première fois que la santé de chaque Vaurien allié est réduite à moins de 75%, le Mandalorien (armure en beskar) dissipe tous ses affaiblissements, il obtient 1 cumul d'Oiseau siffleur, il utilise un tour bonus et le délait de Merveille de la Force est réinitialisé.",                
+                
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "mandalorian": "Mandalorien",
+                "scoundrel": "Vaurien",
+                "crew": "Membre d'équipage"
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+
     </footer>
 </body>
 
