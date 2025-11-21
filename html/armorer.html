@@ -1,124 +1,201 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>L'Armurière</title>
-
+    <title id="big-title">The Armorer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/armorer/armorer-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/armorer/armorer-image.png" alt="The Armorer" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>L'Armurière</u></h1>
-        <p>
-            Une unité de chef et de soutien Mandalorienne qui récupère du beskar pour améliorer son escouade
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a style="color: blue;" class="capacite" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/soutien.html">Soutien</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/mandalorien.html">Mandalorien</a>
-        </nav>
+            <h1 id="title"><u>The Armorer</u></h1>
+            <p id="description">
+                A Mandalorian leader and support unit that collects beskar to buff her team and rally them.
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/mandalorien.html" id="mandalorian">Mandalorian</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/armorer/armorer.png" alt="l'Armurière"><br>
+    <img class="first" src="../image-perso/armorer/armorer.png" alt="The armorer"><br>
 
-    <h2 class="titre"><u>attaque basique : Frappe tempérée</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Tempered Strike</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="armorer basique" src="../image-perso/armorer/armorer-basique.png">
+            <img class="attaque" alt="the armorer Basic" src="../image-perso/armorer/armorer-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie deux fois. Si la cible est sous l'effet d'une<br>
-                Destruction d'armure, L'Armurière obtient 1 cumul de Lingot de beskar (3 cumuls maximum).<br>
-                <br>
-                <u class="speciale">Lingot de beskar:</u> Utilisé pour conférer Armure en beskar aux alliés.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy twice. If the target has Armor Shred, The Armorer gains 1 stack of Beskar Ingot (Max 3 stacks).
+                <br><br>
+                <u class="speciale">Beskar Ingot:</u> Used to bestow Beskar Armor on allies
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>1ere spéciale: Digne du blason (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Earn Your Signet (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="armorer spe 1" src="../image-perso/armorer/armorer-spe1.png">
+            <img class="attaque" alt="the armorer special" src="../image-perso/armorer/armorer-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                L'Armurière perd tous ses cumuls de Lingot en beskar et confère à une autre cible alliée un niveau d'Armure<br>
-                en beskar, à hauteur du nombre de Lingot de beskar perdus, jusqu'à la fin de l'affrontement (ne peut pas être<br>
-                copié, dissippé ou empeché). Cette capacité ne peut pas être utilisée si L'Armurière ne possède pas de cumuls de<br>
-                Lingot de beskar, ou si le niveau d'Armure en beskar de la cible ne peut pas être augmentée.<br>
-                <br>
-                <u class="speciale">Armure en Beskar:</u> -Les effets positifs sont basés sur le nombre de cumuls:<br>
-                <br>
-                <u class="speciale">1 cumul: </u> +50% de défense et +15% de santé maximale.<br>
-                <br>
-                <u class="speciale">2 cumuls: </u> récupère 30% de protection à la fin du tour.<br>
-                <br>
-                <u class="speciale">3 cumuls: </u> +100% de chances de contre attaque et ne peut pas subir de coups critiques.
+            <p class="attaque" id="special-attack1">
+                The Armorer loses all stacks of Beskar Ingot and grants target other ally a tier of Beskar Armor equal to the number of stacks of Beskar Ingot removed until the end of the encounter, which can't be copied, dispelled, or prevented. This ability can't be used if The Armorer has no stacks of Beskar Ingot or if the target's Tier of Beskar Armor won't be increased.
+                <br><br>
+                <u class="speciale">Beskar Armor</u> - Beneficial effects build based on the cumulative number of stacks:<br>
+                <u class="speciale">1 Stack:</u> +50% Defense and +15% Max Health<br>
+                <u class="speciale">2 Stacks:</u> Recover 30% Protection at the end of turn<br>
+                <u class="speciale">3 Stacks:</u> +100% Counter chance and can't be critically hit
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Telle est la voie (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : This Is The Way (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="armorer spé 2" src="../image-perso/armorer/armorer-spe2.png">
+            <img class="attaque" alt="the armorer speciale" src="../image-perso/armorer/armorer-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige la destruction d'armure à la cible ennemie jusqu'à la fin de la bataille.<br>
-                Invoque tous les alliés Mandaloriens, ainsi que ceux qui disposent d'Armure en<br>
-                beskar (ils Infligent 10% de dégâts en moins).
+            <p class="attaque" id="special-attack2">
+                Inflict Armor Shred on target enemy until the end of battle. Call all Mandalorian allies and allies with Beskar Armor to assist, dealing 10% less damage.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Capacité de chef: Notre survie est notre force</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Our Survival is our Strength</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="armorer lead" src="../image-perso/armorer/armorer-lead.png">
+            <img class="attaque" alt="the armorer lead" src="../image-perso/armorer/armorer-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Au début de la bataille, les alliés Mandaloriens obtiennent une hausse de protection (200%),<br>
-                qui ne peut pas être dissipée ou évitée et l'immunité aux coups critiques pendant 2 tours.
+            <p class="attaque" id="lead-ability">
+                At the start of battle, Mandalorian allies gain Protection Up (200%), which can't be dispelled or prevented, and Critical Hit Immunity for 2 turns.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Chasseur et proie</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Both Hunter and Prey</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="armorer unique" src="../image-perso/armorer/armorer-unique.png">
+            <img class="attaque" alt="the armorer unique" src="../image-perso/armorer/armorer-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                La première fois que la santé d'un autre allié est à moins de 60%, L'Armurière obtient un cumul de<br>
-                Lingot de Beskar et cet allié récupère 40% de protection. L'Armurière commence avec 2 cumuls de Lingot de Beskar.
+            <p class="attaque" id="unique-ability">
+                The first time another ally falls below 60% Health, The Armorer gains a stack of Beskar Ingot and that ally recovers 40% Protection. The Armorer starts with 2 stacks of Beskar Ingot.
             </p>
         </div>
     </div>
-
 
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "L'Armurière",
+                "title": "<u>L'Armurière</u>",
+                "description": "Une unité de chef et de soutien Mandalorienne qui récupère du beskar pour améliorer son escouade.",
+
+                "basic-attack-title": "<u>Attaque Basique: Frappe tempérée</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie deux fois. Si la cible est sous l'effet d'une destruction d'armure, l'Armurière obtient 1 cumul de Lingot de beskar (3 cumuls maximum).\n\n<u class='speciale'>Lingot de beskar :</u> Utilisé pour conférer Armure en beskar aux alliés.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Digne du blason (délai : 3)</u>",
+                "special-attack1": "L'Armurière perd tous ses cumuls de Lingots de beskar et confère à une cible alliée un niveau d'Armure en beskar, à hauteur du nombre de cumuls de Lingots de beskar perdus, jusqu'à la fin de l'affrontement (ne peut pas être copié, dissipé ou empêché). Cette capacité ne peut pas être utilisée si l'Armurière ne possède pas de cumuls de Lingots de beskar, ou si le niveau d'Armure en beskar de la cible ne peut pas être augmenté.\n\n<u class='speciale'>Armure en beskar</u> - Les effets positifs sont basés sur le nombre de cumuls :\n\n<u class='speciale'>1 cumul :</u> +50 % de défense et +15 % de santé maximale.\n<u class='speciale'>2 cumuls :</u> récupère 30 % de protection à la fin du tour.\n<u class='speciale'>3 cumuls :</u> +100 % de chances de contre-attaque et ne peut pas subir de coups critiques.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Telle est la Voie (délai : 3)</u>",
+                "special-attack2": "Inflige la destruction d'Armure à la cible ennemie et jusqu'à la fin de la bataille. Invoque tous les alliés Mandaloriens, ainsi que ceux qui disposent d'Armure en beskar (ils infligent 10 % de dégâts en moins).",
+
+                "lead-ability-title": "<u>Capacité de Chef: Notre survie est notre force</u>",
+                "lead-ability": "Au début de la bataille, les alliés Mandaloriens obtiennent une hausse de protection (200 %), qui ne peut pas être dissipée ou évitée et l'immunité aux coups critiques pendant 2 tours.",
+
+                "unique-ability-title": "<u>Capacité Unique : Chasseur et proie</u>",
+                "unique-ability": "La première fois que la santé d'un autre allié est à moins de 60 %, l'Armurière obtient un cumul de Lingots de beskar et cet allié récupère 40 % de protection. L'Armurière commence avec 2 cumuls de Lingot de beskar.",     
+                
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "leader": "Chef",
+                "mandalorian": "Mandalorien"
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+
     </footer>
 </body>
-</html>    
+
+</html>

@@ -1,154 +1,211 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<title>Paz Vizsla</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="utf-8">
-<meta name="author" content="Rimbault Enzo" >
-
-<link rel="icon" type="image/png" href="../image-perso/paz-vizsla/Paz-Vizsla-image.png">
-<link rel="stylesheet" href="../style/capacite.css">
-<link rel="stylesheet" href="../style/styles.css">
+    <title id="big-title">Paz Vizsla</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/paz-vizsla/Paz-Vizsla-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/paz-vizsla/Paz-Vizsla-image.png" alt="Paz Vizsla" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-<header class="perso">
-    <h1><u>Paz Vizsla</u></h1>
-    <p>
-        Un tank mandalorien fier et vaillant, qui fait honneur au credo<br>
-        tout en dévastant le champ de bataille avec le canon de son blaster
-    </p>
-    <br> 
-    <nav class="perso" style="font-size: 20px;">
-        <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-        <a class="class" href="../classement-perso/tank.html">Tank</a>
-        <a class="capacite" href="../classement-perso/mandalorien.html">Mandalorien</a>
-    </nav>
-</header>
+            <h1 id="title"><u>Paz Vizsla</u></h1>
+            <p id="description">
+                A proud and stalwart Mandalorian Tank who upholds the Creed while laying down heavy fire from his blaster cannon
+            </p>
+            <br>
 
-<br>
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/mandalorien.html" id="mandalorian">Mandalorian</a>
+            </nav>
+        </div>
+    </header>
+    <br>
 
     <img class="first" src="../image-perso/paz-vizsla/Paz-vizsla.png" alt="Paz Vizsla"><br>
 
-    <h2 class="titre"><u>attaque basique : Barrage Vaillant</u></h2>
+    <!-- Capacités -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Stalwart Barrage</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="paz basique" src="../image-perso/paz-vizsla/paz-basique.png">
+            <img class="attaque" alt="Paz Vizsla basic" src="../image-perso/paz-vizsla/paz-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégats physique à la cible ennemie 3 fois.<br>
-               Confère 3 cumuls de Chauffe (10 maximum) ou de Surchauffe (20 maximum)<br>
-               jusqu'à la fin de la bataille (ne peut pas être copié, dissipé, ou empéché).<br>
-                <br>
-               <u class="speciale"> > 5 cumuls de Chauffe :</u>confère 1 cumul de Solide défense (10 maximum) jusqu'à la fin de la bataille.
-               <br>
-               <br>
-               <u class="speciale"> > 1 cumul de Surchauffe :</u> Inflige une Instance supplémentaire de dégats réels à la cible ennemie (ne peut pas être equivé).
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage 3 times to target enemy.
+                <br><br>
+                Gain 3 stacks of Heat (max 10) or Overheat (max 20) until the end of the battle, which can't be copied, dispelled, or prevented.
+                <br><br>
+                <u class="speciale">- 5+ Stacks of Heat:</u> Gain 1 stack of Resilient Defense (max 10) until the end of the encounter<br>
+                <u class="speciale">- 1+ Stack of Overheat:</u> Deal an additional instance of True damage to target enemy, which can't be evaded
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>attaque spéciale 1 : attaque ancestrale (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Ancestral Broadside (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="paz spé 1" src="../image-perso/paz-vizsla/paz-spe1.png">
+            <img class="attaque" alt="Paz Vizsla special 1" src="../image-perso/paz-vizsla/paz-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégats physiques à tous les ennemies et inflige Faille et un malus de dégats critiques critiques pendant 2 tours.<br>
-                <br>
-                Confère 5 cumuls de Chauffe (10 maximum) ou de Surchauffe (20 maximum) jusqu'à la fin de la bataille (ne peut pas être copié,<br>
-                dissipé ou empeché). Obtient 1 cumul de Solide défense (10 maximum) jusqu'à la fin de l'affrontement.<br>
-                <br>
-                Les alliées Mandaloriens récupèrents de la protection à hauteur de 10% de la protection maximale de Paz.<br>
-                <br>
-                <u class="speciale"> > 5 cumuls de Chauffe :</u>Les alliés mandaloriens du coté Lumineux<br>
-                recoivent un bonus d'esquive des critiques pendant 2 tours.<br>
-                <br>
-                <u class="speciale"> - 10 cumuls de Chauffe :</u>inflige Confusion à tous les ennemies pendant 1 tour<br>
-                <br>
-                <u class="speciale"> > 5 cumuls de Surchauffe :</u>Retire 15% de jauge de tour à tous les ennemies.
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies and inflict Breach and Critical Damage Down for 2 turns.
+                <br><br>
+                Gain 5 stacks of Heat (max 10) or Overheat (max 20) until the end of the battle, which can't be copied, dispelled, or prevented. Gain 1 stack of Resilient Defense (max 10) until the end of the encounter. Mandalorian allies recover Protection equal to 10% of Paz's Max Protection.
+                <br><br>
+                <u class="speciale">- 5+ Stacks of Heat:</u> Light Side Mandalorian allies gain Critical Avoidance Up for 2 turns<br>
+                <u class="speciale">- 10 Stacks of Heat:</u> Inflict Daze on all enemies for 1 turn<br>
+                <u class="speciale">- 5+ Stacks of Overheat:</u> Remove 15% Turn Meter from all enemies
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>attaque spéciale 2 : Incinération Vengeresse (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Vengeful Incineration (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="paz spé 2" src="../image-perso/paz-vizsla/paz-spe2.png">
+            <img class="attaque" alt="Paz Vizsla special 2" src="../image-perso/paz-vizsla/paz-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégats physiques à tous les ennemies, ainsi que Brûlure pendant 2 tours.<br>
-                Inflige Exposition et Faux pas à la cible ennemie pendant 1 tours.<br>
-                Paz Obtient un bonus de Proctection (50%) et Rétribution pendant 2 tours.<br>
-                <br>
-                Cette capacité inflige 30% de dégats supplémentaires pour chaque cumul de Surchauffe dont<br> 
-                dispose Paz. Supprime tous les cumuls de Chauffe et Surchauffe.
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to all enemies and inflict Burning for 2 turns. Inflict Expose and Stagger on target enemy for 1 turn. Paz gains Protection Up (50%) and Retribution for 2 turns.
+                <br><br>
+                This ability deals 30% more damage for each stack of Overheat Paz has. Remove all stacks of Overheat.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité Unique : Héritage de la maison Vizsla</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Legacy of House Vizsla</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="paz unique" src="../image-perso/paz-vizsla/paz-unique.png">
+            <img class="attaque" alt="Paz Vizsla unique" src="../image-perso/paz-vizsla/paz-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Au début de la btaille, Paz reçoit 10% de défense et de santé maximale pour chaque allié Mandalorien,<br>
-                Ainsi que 15% de défense et de santé maximale pour chaque autre allié Mandalorien du coté Lumineux.<br>
-                Lorsque Paz obtient Raillerie, il la dissipe et gagne 2 cumuls de Solide Défense (10 maximum) jusqu'à<br>
-                la fin de l'affrontement. Paz reçoit +10% d'esquives des critiques et de défenses pour chque cumul<br>
-                de Solide défense dont il dispose.<br>
-                <br>
-                Au début de chaque affrontement, si l'allié dans l'emplacement de chef est un mandalorien du coté Lumineux:<br>
-                PAz obtient Frénésie pendant 2 tours et de cumuls de Solide défense (10 maximum) jusqu'à la fin de l'affrontement.<br>
-                <br>
-                Lorsque Paz perd un cumul de Solide défense, il obtient 1 cumul de Chauffe (10 maximum) jusqu'à la fin de la bataille<br>
-                (ne peut pas être copié, dissipe ou empeché).<br>
-                A 10 cumuls, les capacités et effets qui généraient Chauffe générent désormais Surchauffe (cumulatif, 20 maximum)<br>
-                jusqu'à la fin de la bataille (ne peut pas être copié, dissipé ou empeché).<br>
-                Lorsqu'il recoit Surchauffe, il gagne 10% de jauge de tour. Lorsqu'il subit un affaiblissement qui ne peut pas<br>
-                être dissipé , il obtient 5% de jauge de tour.<br>
-                <br>
-                La 1ere fois que Paz tombe à 1% de santé, il dissipe tous les affaiblissement dont il dispose, récupère 100% de santé,<br>
-                gagne immunité aux dégats pendant 1 tour, prend 1 tour bonus avant d'être vaincu et tous les alliés mandaloriens<br>
-                du coté Lumineux récupèrent 100% de protection. Pendant sont tour bonus, ses délais sont réinitialisés et il a +100% d'attaque,<br>
-                ainsi qu'un maximum de cumul de Chauffe et de Surchauffe.<br>
-                <br>
-                <u class="speciale">Chauffe :</u>+10% de pouvouir par cumuls. Les capacités reçoivent des effets<br>
-                supplémentaires en fonction du nombre de cumuls.
-                <br>
-                <u class="speciale"> Surchauffe :</u>+10% d'attaque et -5% de ténacité par cumuls. Les capacités<br>
-                reçoivent des effets supplémentaires en fonction du nombre de cumuls.
-                <br>
-                <br>
-                <u class="omicron">Dans les Grandes Arènes:</u><br>
-                Paz dispose de +25% de défense, de santé maximale et de protection maximale.<br>
-                Au début de chaque affrontement Paz obtient 3 cumuls de solide défense (10 maximum)<br>
-                jusqu'à la fin de l'affrontement.<br>
-                <br>
-                lorsqu'un ennemie est ranimé, Paz reçoit:<br>
-                -5 cumuls de Chauffe (10 maximum) ou Surchauffe (20 maximum) jusqu'à la fin de la bataille<br>
-                (ne peut pas être copié, dissipé ou empeché).<br>
-                -3 cumuls de Solide Défense (10 maximum) jusqu'à la fin de l'affrontement.<br>
-                -50%de jauge de tour.<br>
-                -tous les alliés mandaloriens du coté Lumineux récupèrent 50% de santé et de protection.<br>
-                -inflige immunité aux soins à tous les ennemies pendant 2 tours (ne peut pas être esquivé ou résisté)
+            <p class="attaque" id="unique-ability">
+                At the start of battle, Paz gains 10% Defense and Max Health for each other Mandalorian ally and 15% Defense and Max Health for each other Light Side Mandalorian ally. Whenever Paz gains Taunt, he dispels it and gains 2 stacks of Resilient Defense (max 10) until the end of the encounter. Paz has +10% Critical Avoidance and Defense for each stack of Resilient Defense he has.
+                <br><br>
+                At the start of each encounter if the ally in the Leader slot is a Light Side Mandalorian: Paz gains Frenzy for 2 turns and 2 stacks of Resilient Defense (max 10) until the end of the encounter.
+                <br><br>
+                Whenever Paz loses a stack of Resilient Defense, he gains 1 stack of Heat (max 10) until the end of the battle, which can't be copied, dispelled, or prevented. At 10 stacks, abilities and effects that generate Heat instead generate Overheat (stacking, max 20) until the end of the battle, which can't be copied, dispelled, or prevented. Whenever he gains Overheat, he gains 10% Turn Meter. Whenever he's inflicted with a debuff that can be dispelled, he gains 5% Turn Meter.
+                <br><br>
+                The first time Paz reaches 1% Health, he dispels all debuffs on himself, recovers 100% Health, gains Damage Immunity for 1 turn, takes a bonus turn, and then is defeated, and all other Light Side Mandalorian allies recover 100% Protection. During this bonus turn, his cooldowns are reset, he has +100% Offense, and his Heat and Overheat stacks are set to max.
+                <br><br>
+                <u class="speciale">Heat:</u> +10% Potency per stack; abilities gain additional effects based on the number of stacks
+                <br><br>
+                <u class="speciale">Overheat:</u> +10% Offense and -5% Tenacity per stack; abilities gain additional effects based on the number of stacks
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Battles:</u> Paz has +25% Defense, Max Health, and Max Protection.
+                <br><br>
+                At the start of each encounter, Paz gains 3 stacks of Resilient Defense (max 10) until the end of the encounter.
+                <br><br>
+                Whenever an enemy is revived, Paz gains:
+                <br><br>
+                - 5 stacks of Heat (max 10) or Overheat (max 20) until the end of battle which can't be copied, dispelled, or prevented<br>
+                - 3 stacks of Resilient Defense (max 10) until the end of the encounter<br>
+                - 50% Turn Meter<br>
+                - All Light Side Mandalorian allies recover 50% Health and Protection<br>
+                - Inflict all enemies with Healing Immunity for 2 turns which can't be evaded or resisted
             </p>
         </div>
     </div>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Paz Vizsla",
+                "title": "<u>Paz Vizsla</u>",
+                "description": "Un tank Mandalorien fier et vaillant qui fait honneur au Credo tout en dévastant le champ de bataille avec le canon de son blaster.",
+
+                "basic-attack-title": "<u>Attaque Basique: Barrage vaillant</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie 3 fois.\n\nConfère 3 cumuls de Chauffe (10 maximum) ou de Surchauffe (20 maximum) jusqu'à la fin de la bataille (ne peut pas êrte copié, dissipé ou empêché).\n\n - <u class='speciale'>>5 cumuls de Chauffe :</u> confère 1 cumul de Solide défense (10 maximum) jusqu'à la fin de l'affontrement.\n- <u class='speciale'>>1 cumul de Surchauffe :</u> inflige une instance supplémentaire de dégâts réels à la cible ennemie (ne peut pas être esquivé). ",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Attaque ancestrale (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis et inflige Faille et un malus de dégâts critiques pendant 2 tours.\n\nConfère 5 cumuls de Chauffe (10 maximum) ou de Surchauffe (20 maximum) jusqu'à la fin de la bataille (ne peut pas être copié, dissipé ou empêché). Obtient 1 cumul de Solide défense (10 maximum) jusqu'à la fin de l'affrontement. Les alliés Mandaloriens récupèrent de la protection à hauteur de 10 % de la protection maximale de Paz.\n\n- <u class='speciale'>>5 cumuls de Chauffe :</u> Les alliés Mandaloriens du Coté lumineux reçoivent un bonus d'esquive des critiques pendant 2 tours.\n - <u class='speciale'>10 cumuls de Chauffe :</u> inflige Confusion à tous les ennemis pendant 1 tour.\n - <u class='speciale'>>5 cumuls de Surchauffe :</u> retire 15 % de jauge de tour à tous les ennemis.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Incinération vengeresse (délai : 3)</u>",
+                "special-attack2": "Inflige des dégâts physiques à tous les ennemis, ainsi que Brûlure pendant 2 tours. Inflige Exposition et Faux pas à la cible ennemie pendant 1 tour. Paz obtient un bonus de protection (50 %) et Rétribution pendant 2 tours.\n\n Cette capacité inflige 30 % de dégâts supplémentaires pour chaque cumuls de Surchauffe dont dispose Paz. Supprime tous les cumuls de Surchauffe.",
+
+                "unique-ability-title": "<u>Capacité Unique : Héritage de la maison Vizsla</u>",
+                "unique-ability": "Au début de la bataille, Paz reçoit 10 % de défense et de santé maximale pour chaque autre allié Mandalorien, ainsi que 15 % de santé et de santé maximale pour chaque autre Mandalorien du Coté Lumineux. Lorsque Paz obtient Raillerie, il la dissipe et gagne 2 cumuls de Solide défense (10 maximum) jusqu'à la fin de l'affrontement. Paz reçoit +10 % d'esquive des critiques et de défense pour chaque cumul de Solide défense dont il dispose.\n\n Au début de chaque affrontement, si l'allié dans l'emplacement de chef est un Mandalorien du Coté Lumineux : Paz obtient frénésie pendant 2 tours et 2 cumuls de Solide défense (10 maximum) jusqu'à la fin de l'affrontement.\n\n Lorsque Paz perd un cumul de Solide défense, il obtient 1 cumul de Chauffe (10 maximum) jusqu'à la fin de la bataille (ne peut pas êtree copié, dissipé ou epêché). A 10 cumuls, les capacités et effets qui généraient Chauffe génèrent désormais Surchauffe (cumulatif, 20 maximum) jusqu'à la fin de la bataille (ne peut pas être copié, dissipé ou empêché). Lorsqu'il reçoit Surchauffe, il gagne 10 % de jauge de tour. lorsqu'il subit un affaiblissement qui ne peut pas être dissipé, il obtient 5 % de jauge de tour.\n\n La première fois que Paz tombe à 1 % de santé, il disispe tous les affaiblissements dont il dispose, récupère 100 % de santé, gagne immunité aux dégâts pendant 1 tour, prend un tour bonus avant d'être vaincu et tous les autres Mandaloriens du Coté Lumineux récupèrent 100% de protection. Pendant son tour bonus, ces délais sont réinitialisés et il a +100 % d'attaque, ainsi qu'un maximum de cumuls de Chauffe et Surchauffe.\n\n <u class='speciale'>Chauffe :</u> +10 % de pouvoir par cumul. Les capacités reçoivent des effets supplémentaires en fonction du nombre de cumuls.\n\n <u class='speciale'>Surchauffe :</u> +10 % d'attaque et -5 % de ténacité par cumul. Les attaques reçoivent des effets supplémentaires en fonction du nombre de cumuls.\n\n <u class='omicron'>Amélioration Omicron : Dans les Batailles de territoire :</u> Paz dispose de +25 % de défense, de santé maximale et de protection maximale.\n\n Au début de chaque affontement, Paz obtient 3 cumuls de Solide défense (10 maximum) jusqu'à la fin de l'affrontement.\n\n Lorsqu'un ennemi est ranimé, Paz reçoit :\n\n -5 cumuls de Chauffe (10 maximum) ou Surchauffe (20 maximum) jusqu'à la fin de la bataille (ne peut pas être copié, dissipé ou empêché).\n -3 cumuls de Solide défense (10 maximum) jusqu'à la fin de l'affrontement.\n -50 % de jauge de tour.\n -Tous les alliés Mandaloriens du Coté Lumineux récupèrent 50 % de santé et de protection.\n -Inflige immnité aux soins à tous les ennemis pendant 2 tours (ne peut pas être esquivé ou résisté).",
+                
+                "lightside": "Coté Lumineux",
+               "tank": "Tank",
+               "mandalorian": "Mandalorien" 
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+
     </footer>
 </body>
+
 </html>

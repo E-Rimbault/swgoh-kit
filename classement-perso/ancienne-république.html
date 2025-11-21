@@ -231,7 +231,7 @@
     );
   }
 
-  function renderUnits() {
+function renderUnits() {
     const container = document.getElementById("characters");
     container.innerHTML = "";
 
@@ -240,6 +240,13 @@
       unit.factions &&
       unit.factions.some(f => normalizeString(f[currentLang] || f.en) === normalizeString(factionKey))
     );
+
+    // 🔹 Tri alphabétique par nom selon la langue sélectionnée
+    factionUnits.sort((a, b) => {
+        const nameA = (a.name?.[currentLang] || a.name?.en || "").toLowerCase();
+        const nameB = (b.name?.[currentLang] || b.name?.en || "").toLowerCase();
+        return nameA.localeCompare(nameB, currentLang);
+    });
 
     factionUnits.forEach(unit => {
       const name = unit.name?.[currentLang] || unit.name?.en || "";
@@ -288,7 +295,8 @@
       `;
       container.appendChild(col);
     });
-  }
+}
+
 
   // 🟢 Langue par défaut au chargement (depuis sessionStorage)
   window.addEventListener("load", () => {

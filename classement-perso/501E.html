@@ -231,64 +231,71 @@
     );
   }
 
-  function renderUnits() {
-    const container = document.getElementById("characters");
-    container.innerHTML = "";
+function renderUnits() {
+  const container = document.getElementById("characters");
+  container.innerHTML = "";
 
-    const factionKey = currentLang === "fr" ? "501E" : "501st";
-    const factionUnits = allUnits.filter(unit =>
-      unit.factions &&
-      unit.factions.some(f => normalizeString(f[currentLang] || f.en) === normalizeString(factionKey))
-    );
+  const factionKey = currentLang === "fr" ? "501E" : "501st";
+  const factionUnits = allUnits.filter(unit =>
+    unit.factions &&
+    unit.factions.some(f => normalizeString(f[currentLang] || f.en) === normalizeString(factionKey))
+  );
 
-    factionUnits.forEach(unit => {
-      const name = unit.name?.[currentLang] || unit.name?.en || "";
-      const img = unit.image || "../image/default.png";
-      const page = unit.page || "#";
+  // 🔹 Tri alphabétique
+  factionUnits.sort((a, b) => {
+    const nameA = (a.name?.[currentLang] || a.name?.en || "").toLowerCase();
+    const nameB = (b.name?.[currentLang] || b.name?.en || "").toLowerCase();
+    return nameA.localeCompare(nameB, currentLang);
+  });
 
-      const roleText = unit.role?.[currentLang] || unit.role?.en || "";
-      const alignmentText = unit.alignment?.[currentLang] || unit.alignment?.en || "";
-      const alignmentClass = getAlignmentClass(alignmentText);
+  factionUnits.forEach(unit => {
+    const name = unit.name?.[currentLang] || unit.name?.en || "";
+    const img = unit.image || "../image/default.png";
+    const page = unit.page || "#";
 
-      const roleMapping = findMapping(rolesMap, roleText);
-      const roleHTML = roleMapping && roleMapping.url
-        ? `<a href="${roleMapping.url}" class="role">${roleText}</a>`
-        : `<span class="role opacity-75" title="Rôle non défini">${roleText}</span>`;
+    const roleText = unit.role?.[currentLang] || unit.role?.en || "";
+    const alignmentText = unit.alignment?.[currentLang] || unit.alignment?.en || "";
+    const alignmentClass = getAlignmentClass(alignmentText);
 
-      const alignmentMapping = findMapping(alignmentsMap, alignmentText);
-      const alignmentHTML = alignmentMapping && alignmentMapping.url
-        ? `<a href="${alignmentMapping.url}" class="alignment ${alignmentClass}">${alignmentText}</a>`
-        : `<span class="alignment ${alignmentClass} opacity-75" title="Alignement non défini">${alignmentText}</span>`;
+    const roleMapping = findMapping(rolesMap, roleText);
+    const roleHTML = roleMapping && roleMapping.url
+      ? `<a href="${roleMapping.url}" class="role">${roleText}</a>`
+      : `<span class="role opacity-75" title="Rôle non défini">${roleText}</span>`;
 
-      const factions = (unit.factions || [])
-        .map(f => {
-          const factionName = f[currentLang] || f.en;
-          const mapping = findMapping(factionsMap, factionName);
-          if (mapping && mapping.url) {
-            return `<a href="${mapping.url}" class="badge">${factionName}</a>`;
-          } else {
-            return `<span class="badge opacity-50" title="Faction non définie">${factionName}</span>`;
-          }
-        })
-        .join("");
+    const alignmentMapping = findMapping(alignmentsMap, alignmentText);
+    const alignmentHTML = alignmentMapping && alignmentMapping.url
+      ? `<a href="${alignmentMapping.url}" class="alignment ${alignmentClass}">${alignmentText}</a>`
+      : `<span class="alignment ${alignmentClass} opacity-75" title="Alignement non défini">${alignmentText}</span>`;
 
-      const col = document.createElement("div");
-      col.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2");
+    const factions = (unit.factions || [])
+      .map(f => {
+        const factionName = f[currentLang] || f.en;
+        const mapping = findMapping(factionsMap, factionName);
+        if (mapping && mapping.url) {
+          return `<a href="${mapping.url}" class="badge">${factionName}</a>`;
+        } else {
+          return `<span class="badge opacity-50" title="Faction non définie">${factionName}</span>`;
+        }
+      })
+      .join("");
 
-      col.innerHTML = `
-        <div class="unit-card">
-          <a href="${page}">
-            <img src="${img}" alt="${name}" class="unit-img">
-          </a>
-          <div class="unit-name">${name}</div>
-          ${roleHTML}
-          ${alignmentHTML}
-          <div class="factions">${factions}</div>
-        </div>
-      `;
-      container.appendChild(col);
-    });
-  }
+    const col = document.createElement("div");
+    col.classList.add("col-6", "col-sm-4", "col-md-3", "col-lg-2");
+
+    col.innerHTML = `
+      <div class="unit-card">
+        <a href="${page}">
+          <img src="${img}" alt="${name}" class="unit-img">
+        </a>
+        <div class="unit-name">${name}</div>
+        ${roleHTML}
+        ${alignmentHTML}
+        <div class="factions">${factions}</div>
+      </div>
+    `;
+    container.appendChild(col);
+  });
+}
 
   // 🟢 Langue par défaut au chargement (depuis sessionStorage)
   window.addEventListener("load", () => {

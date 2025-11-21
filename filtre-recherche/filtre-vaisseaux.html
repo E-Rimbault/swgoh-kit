@@ -231,33 +231,41 @@
       return t;
     }
 
-    function applyFilters() {
-      const selectedFactions = Array.from(document.querySelectorAll(".filter:checked")).map(cb => cb.value.toLowerCase());
-      const selectedRole = document.getElementById("role-filter").value.toLowerCase();
-      const selectedAlignment = normalizeAlignment(document.getElementById("alignment-filter").value);
-      const searchQuery = document.getElementById("search-bar").value.trim().toLowerCase();
+function applyFilters() {
+  const selectedFactions = Array.from(document.querySelectorAll(".filter:checked")).map(cb => cb.value.toLowerCase());
+  const selectedRole = document.getElementById("role-filter").value.toLowerCase();
+  const selectedAlignment = normalizeAlignment(document.getElementById("alignment-filter").value);
+  const searchQuery = document.getElementById("search-bar").value.trim().toLowerCase();
 
-      const filtered = characters.filter(c => {
-        const factionsNames = (c.factions || []).map(f => (f[currentLang] || f.en).toLowerCase());
-        const matchFactions = selectedFactions.length === 0 || selectedFactions.every(f => factionsNames.includes(f));
-        const roleName = (c.role?.en || "").toLowerCase();
-        const alignmentName = normalizeAlignment(c.alignment?.en || "");
-        const matchRole = !selectedRole || roleName === selectedRole;
-        const matchAlignment = !selectedAlignment || alignmentName === selectedAlignment;
-        const name = (c.name?.[currentLang] || c.name?.en || "").toLowerCase();
-        const matchSearch = !searchQuery || name.includes(searchQuery);
-        const matchCustomTags = customTags.length === 0 || customTags.every(tag =>
-          name.includes(tag) ||
-          roleName.includes(tag) ||
-          alignmentName === tag ||
-          factionsNames.some(f => f.includes(tag))
-        );
-        return matchFactions && matchRole && matchAlignment && matchSearch && matchCustomTags;
-      });
+  const filtered = characters.filter(c => {
+    const factionsNames = (c.factions || []).map(f => (f[currentLang] || f.en).toLowerCase());
+    const matchFactions = selectedFactions.length === 0 || selectedFactions.every(f => factionsNames.includes(f));
+    const roleName = (c.role?.en || "").toLowerCase();
+    const alignmentName = normalizeAlignment(c.alignment?.en || "");
+    const matchRole = !selectedRole || roleName === selectedRole;
+    const matchAlignment = !selectedAlignment || alignmentName === selectedAlignment;
+    const name = (c.name?.[currentLang] || c.name?.en || "").toLowerCase();
+    const matchSearch = !searchQuery || name.includes(searchQuery);
+    const matchCustomTags = customTags.length === 0 || customTags.every(tag =>
+      name.includes(tag) ||
+      roleName.includes(tag) ||
+      alignmentName === tag ||
+      factionsNames.some(f => f.includes(tag))
+    );
+    return matchFactions && matchRole && matchAlignment && matchSearch && matchCustomTags;
+  });
 
-      renderActiveFilters(selectedFactions, selectedRole, selectedAlignment, searchQuery, customTags);
-      renderCharacters(filtered);
-    }
+  // 🔹 Tri alphabétique
+  filtered.sort((a, b) => {
+    const nameA = (a.name?.[currentLang] || a.name?.en || "").toLowerCase();
+    const nameB = (b.name?.[currentLang] || b.name?.en || "").toLowerCase();
+    return nameA.localeCompare(nameB, currentLang);
+  });
+
+  renderActiveFilters(selectedFactions, selectedRole, selectedAlignment, searchQuery, customTags);
+  renderCharacters(filtered);
+}
+
 
     function renderCharacters(list) {
       const container = document.getElementById("results");
