@@ -40,7 +40,7 @@
     <br>
 
     <img class="first" src="../image-perso/" alt=""><br>
-        <div id="effects-table"></div>
+    <div id="effects-table"></div>
     <div id="effects-popup" class="popup hidden"></div>
 
     <!-- Capacités -->
@@ -149,10 +149,10 @@
                 "lead-ability": "",
 
                 "unique-ability-title": "<u>Capacité Unique : </u>",
-                "unique-ability": "",                
-            
-                "prime-title" : "",
-                "prime" : ""
+                "unique-ability": "",
+
+                "prime-title": "",
+                "prime": ""
             };
 
             const originalTexts = {};
@@ -204,8 +204,9 @@
         </script>
 
                 <script>
-            const jsonURL = "../filtre-recherche/units.json";   // ← adapte si besoin
+            const jsonURL = "../filtre-recherche/units.json";
             const currentUnitId = "";
+            let currentUnit = null; // stocke l'unité chargée
 
             // récupération langue actuelle
             function getCurrentLanguage() {
@@ -220,18 +221,20 @@
                 let html = `
         <h2>${lang === "fr" ? "Effets appliqués" : "Applied Effects"}</h2>
 
-        <h3>${lang === "fr" ? "Buffs" : "Buffs"}</h3>
+        <h3>${lang === "fr" ? "Bonus" : "Buffs"}</h3>
         <div>
     `;
 
                 unit.effects.buffs.forEach(buff => {
-                    html += `<span class="effect-item" data-effect="${buff.en}">${buff[lang]}</span>`;
+                    const effectText = buff[lang] || buff.en;
+                    html += `<span class="effect-item" data-effect="${buff.en}">${effectText}</span>`;
                 });
 
-                html += `</div><h3>${lang === "fr" ? "Debuffs" : "Debuffs"}</h3><div>`;
+                html += `</div><h3>${lang === "fr" ? "Malus" : "Debuffs"}</h3><div>`;
 
                 unit.effects.debuffs.forEach(debuff => {
-                    html += `<span class="effect-item" data-effect="${debuff.en}">${debuff[lang]}</span>`;
+                    const effectText = debuff[lang] || debuff.en;
+                    html += `<span class="effect-item" data-effect="${debuff.en}">${effectText}</span>`;
                 });
 
                 html += `</div>`;
@@ -244,7 +247,6 @@
                 });
             }
 
-
             // pop-up affichant toutes les unités appliquant un buff/debuff
             async function showUnitsApplyingEffect(effectNameEN) {
                 const lang = getCurrentLanguage();
@@ -253,26 +255,14 @@
                 const response = await fetch(jsonURL);
                 const data = await response.json();
 
-                // retrouver l'objet de l'effet dans le JSON
                 let effectObj = null;
-
                 data.forEach(unit => {
-                    if (unit.effects?.buffs) {
-                        unit.effects.buffs.forEach(b => {
-                            if (b.en === effectNameEN) effectObj = b;
-                        });
-                    }
-                    if (unit.effects?.debuffs) {
-                        unit.effects.debuffs.forEach(d => {
-                            if (d.en === effectNameEN) effectObj = d;
-                        });
-                    }
+                    unit.effects?.buffs?.forEach(b => { if (b.en === effectNameEN) effectObj = b; });
+                    unit.effects?.debuffs?.forEach(d => { if (d.en === effectNameEN) effectObj = d; });
                 });
 
-                // nom traduit
-                const effectTitle = effectObj ? effectObj[lang] : effectNameEN;
+                const effectTitle = effectObj ? (effectObj[lang] || effectObj.en) : effectNameEN;
 
-                // filtrage unités qui appliquent cet effet
                 const matchingUnits = data.filter(unit =>
                     unit.effects &&
                     (
@@ -281,18 +271,16 @@
                     )
                 );
 
-                // contenu popup
-                let html = `
-        <span class="popup-close" onclick="closePopup()">✖</span>
-        <h2>${effectTitle} :</h2>
-    `;
+                let html = `<span class="popup-close" onclick="closePopup()">✖</span>
+                <h2>${effectTitle} :</h2>`;
 
                 matchingUnits.forEach(u => {
+                    const unitName = u.name[lang] || u.name.en;
                     html += `
             <div class="unit-entry">
                 <img src="${u.image}">
                 <div>
-                    <strong>${u.name[lang]}</strong><br>
+                    <strong>${unitName}</strong><br>
                     <a href="${u.page}?lang=${lang}" style="color:#4af">
                         ${lang === "fr" ? "Voir la page" : "View page"}
                     </a>
@@ -309,16 +297,32 @@
                 document.getElementById("effects-popup").classList.add("hidden");
             }
 
+            // mettre à jour la langue de la page (tableau et pop-up)
+            async function switchEffectTableLanguage() {
+                if (currentUnit) {
+                    createEffectTable(currentUnit);
+                }
+            }
 
             // charger unité et construire tableau
             window.addEventListener("load", async () => {
                 const response = await fetch(jsonURL);
                 const data = await response.json();
 
-                const unit = data.find(u => u.id === currentUnitId);
-                if (unit) {
-                    createEffectTable(unit);
+                currentUnit = data.find(u => u.id === currentUnitId);
+                if (currentUnit) {
+                    createEffectTable(currentUnit);
                 }
+
+                // ajouter gestion du switch de langue
+                document.getElementById("lang-fr").addEventListener("click", () => {
+                    sessionStorage.setItem("selectedLanguage", "fr");
+                    switchEffectTableLanguage();
+                });
+                document.getElementById("lang-en").addEventListener("click", () => {
+                    sessionStorage.setItem("selectedLanguage", "en");
+                    switchEffectTableLanguage();
+                });
             });
         </script>
 
