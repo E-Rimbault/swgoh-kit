@@ -13,7 +13,8 @@
 <body class="simple">
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/jmk/jmk-image.png" alt="Jedi Master Kenobi" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/jmk/jmk-image.png" alt="Jedi Master Kenobi"
+                style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
             <!-- Sélecteur de langue -->
@@ -33,11 +34,14 @@
             <br>
 
             <nav class="perso" style="font-size: 20px;">
-                <a class="legende" href="../classement-perso/legendes-galactiques.html" id="galactic-legend">Galactic Legend</a>
-                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="legende" href="../classement-perso/legendes-galactiques.html" id="galactic-legend">Galactic
+                    Legend</a>
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html"
+                    id="lightside">Light Side</a>
                 <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
                 <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
-                <a class="capacite" href="../classement-perso/république-galactique.html" id="galactic-republic">Galactic Republic</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html"
+                    id="galactic-republic">Galactic Republic</a>
                 <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
             </nav>
         </div>
@@ -45,6 +49,8 @@
     <br>
 
     <img class="first" src="../image-perso/jmk/Jmk.png" alt="Jedi Master Kenobi"><br>
+    <div id="effects-table"></div>
+    <div id="effects-popup" class="popup hidden"></div>
 
     <!-- Capacités -->
 
@@ -55,18 +61,29 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="ulti">
-            Requires at least 50% <u class="ulti">Ultimate Charge</u> to activate
-            <br><br>
-            <u class="ulti">Ultimate Charge:</u> Jedi Master Kenobi gains Ultimate Charge when he uses his abilities. If Jedi Master Kenobi is the Leader, he also gains 3% Ultimate Charge when another Light Side ally uses a Basic ability, doubled during their turn.
-            <br><br>
-            If at the start of battle there was a Light Side Unaligned Force User ally that is also Galactic Republic, all Jedi allies ignore Protection when targeting a Sith enemy and Sith enemies can't counter attack for the rest of battle. Dispel all debuffs on Light Side allies. All other Light Side allies gain a percentage of Mastery (stacking) equal to the amount of Ultimate Charge used with this ability, doubled at 100% Ultimate Charge, until the end of the encounter.
-            <br><br>
-            If less than 100% Ultimate Charge was used, Jedi Master Kenobi gains the <u class="speciale">High Ground</u> buff for 2 turns, which can't be copied, dispelled, or prevented. All Galactic Republic allies gain Protection Up (20%) for 3 turns which can't be dispelled or prevented.
-            <br><br>
-            If 100% Ultimate Charge was used, Jedi Master Kenobi gains the High Ground buff for 5 turns, which can't be copied, dispelled, or prevented. All Light Side allies recover 60% Health and Protection, and all Galactic Republic allies gain Protection Up (50%) for 3 turns which can't be dispelled or prevented.
-            <br><br>
-            <u class="speciale">High Ground:</u> Deals 35% more damage with out of turn attacks; +100% Counter Chance; -35% Speed; can't gain Ultimate Charge
-        </p>
+                Requires at least 50% <u class="ulti">Ultimate Charge</u> to activate
+                <br><br>
+                <u class="ulti">Ultimate Charge:</u> Jedi Master Kenobi gains Ultimate Charge when he uses his
+                abilities. If Jedi Master Kenobi is the Leader, he also gains 3% Ultimate Charge when another Light Side
+                ally uses a Basic ability, doubled during their turn.
+                <br><br>
+                If at the start of battle there was a Light Side Unaligned Force User ally that is also Galactic
+                Republic, all Jedi allies ignore Protection when targeting a Sith enemy and Sith enemies can't counter
+                attack for the rest of battle. Dispel all debuffs on Light Side allies. All other Light Side allies gain
+                a percentage of Mastery (stacking) equal to the amount of Ultimate Charge used with this ability,
+                doubled at 100% Ultimate Charge, until the end of the encounter.
+                <br><br>
+                If less than 100% Ultimate Charge was used, Jedi Master Kenobi gains the <u class="speciale">High
+                    Ground</u> buff for 2 turns, which can't be copied, dispelled, or prevented. All Galactic Republic
+                allies gain Protection Up (20%) for 3 turns which can't be dispelled or prevented.
+                <br><br>
+                If 100% Ultimate Charge was used, Jedi Master Kenobi gains the High Ground buff for 5 turns, which can't
+                be copied, dispelled, or prevented. All Light Side allies recover 60% Health and Protection, and all
+                Galactic Republic allies gain Protection Up (50%) for 3 turns which can't be dispelled or prevented.
+                <br><br>
+                <u class="speciale">High Ground:</u> Deals 35% more damage with out of turn attacks; +100% Counter
+                Chance; -35% Speed; can't gain Ultimate Charge
+            </p>
         </div>
     </div>
 
@@ -77,7 +94,9 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
-                Deal Physical damage to target enemy and if the target was Dark Side, inflict Ability Block for 1 turn (excludes Galactic Legends). The weakest Light Side ally without Defense Penetration Up gains it for 2 turns. If this ability is used during Jedi Master Kenobi's turn, he gains 9% Ultimate Charge.
+                Deal Physical damage to target enemy and if the target was Dark Side, inflict Ability Block for 1 turn
+                (excludes Galactic Legends). The weakest Light Side ally without Defense Penetration Up gains it for 2
+                turns. If this ability is used during Jedi Master Kenobi's turn, he gains 9% Ultimate Charge.
             </p>
         </div>
     </div>
@@ -89,7 +108,10 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1">
-                Deal Physical damage to target enemy and inflict Vulnerable and Healing Immunity for 2 turns, which can't be dispelled or resisted. Call target Light Side ally to assist, dealing 50% more damage. If Jedi Master Kenobi was selected, he is not called to assist and instead gains 12% Ultimate Charge, doubled if he is the Leader, and this ability deals 50% more damage on subsequent uses (stacking, max 10 stacks).
+                Deal Physical damage to target enemy and inflict Vulnerable and Healing Immunity for 2 turns, which
+                can't be dispelled or resisted. Call target Light Side ally to assist, dealing 50% more damage. If Jedi
+                Master Kenobi was selected, he is not called to assist and instead gains 12% Ultimate Charge, doubled if
+                he is the Leader, and this ability deals 50% more damage on subsequent uses (stacking, max 10 stacks).
             </p>
         </div>
     </div>
@@ -101,7 +123,10 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack2">
-                Light Side allies recover 40% Health and Protection and gain Foresight and Tenacity Up for 3 turns. Galactic Republic and Light Side Unaligned Force User allies gain Protection Up (20%) for 2 turns. Target other Galactic Republic ally gains Damage Immunity for 1 turn, which can't be copied, dispelled, or prevented, and their cooldowns are reset (excludes granted abilities).
+                Light Side allies recover 40% Health and Protection and gain Foresight and Tenacity Up for 3 turns.
+                Galactic Republic and Light Side Unaligned Force User allies gain Protection Up (20%) for 2 turns.
+                Target other Galactic Republic ally gains Damage Immunity for 1 turn, which can't be copied, dispelled,
+                or prevented, and their cooldowns are reset (excludes granted abilities).
                 <br><br>
                 Jedi Master Kenobi gains 1% Ultimate Charge (max 30%) for each buff on all Light Side allies.
             </p>
@@ -115,15 +140,25 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="lead-ability">
-                All Light Side allies have +25% Mastery, +30 Speed, and +25% Max Health. Galactic Republic allies gain Protection Up (75%, can't be dispelled) for 4 turns.
+                All Light Side allies have +25% Mastery, +30 Speed, and +25% Max Health. Galactic Republic allies gain
+                Protection Up (75%, can't be dispelled) for 4 turns.
                 <br><br>
-                While Jedi Master Kenobi has the High Ground, Light Side allies take 20% less damage, ignore Taunt, resist all debuffs, and Jedi Master Kenobi is called to assist when a Galactic Republic ally uses an ability during their turn.
+                While Jedi Master Kenobi has the High Ground, Light Side allies take 20% less damage, ignore Taunt,
+                resist all debuffs, and Jedi Master Kenobi is called to assist when a Galactic Republic ally uses an
+                ability during their turn.
                 <br><br>
-                At the start of battle if all allies are Light Side, Galactic Republic allies can't be Critically Hit while they have Protection Up, Galactic Republic Tanks gain Taunt for 2 turns at the start of each encounter if they did not have it, and when they lose Taunt they gain it for 2 turns if they have Protection but did not have Taunt. At the start of battle if all allies are Galactic Republic or Light Side Unaligned Force Users, the first time another ally reaches 1% Health, they dispel all debuffs on themself, recover 50% Health and Protection, and gain Protection Up (50%) for 2 turns.
+                At the start of battle if all allies are Light Side, Galactic Republic allies can't be Critically Hit
+                while they have Protection Up, Galactic Republic Tanks gain Taunt for 2 turns at the start of each
+                encounter if they did not have it, and when they lose Taunt they gain it for 2 turns if they have
+                Protection but did not have Taunt. At the start of battle if all allies are Galactic Republic or Light
+                Side Unaligned Force Users, the first time another ally reaches 1% Health, they dispel all debuffs on
+                themself, recover 50% Health and Protection, and gain Protection Up (50%) for 2 turns.
                 <br><br>
-                Whenever another Light Side ally uses a Basic ability, Jedi Master Kenobi gains 3% Ultimate Charge, doubled if it was during their turn.
+                Whenever another Light Side ally uses a Basic ability, Jedi Master Kenobi gains 3% Ultimate Charge,
+                doubled if it was during their turn.
                 <br><br>
-                Jedi allies' Armor Penetration is doubled when targeting a Sith enemy. Enemies and allies are immune to Turn Meter manipulation (excludes raid bosses).
+                Jedi allies' Armor Penetration is doubled when targeting a Sith enemy. Enemies and allies are immune to
+                Turn Meter manipulation (excludes raid bosses).
             </p>
         </div>
     </div>
@@ -135,11 +170,19 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="unique-ability">
-                Jedi Master Kenobi ignores Taunt effects during his turn. While Jedi Master Kenobi has the High Ground, he dispels Stealth from all enemies at the start of his turn.
+                Jedi Master Kenobi ignores Taunt effects during his turn. While Jedi Master Kenobi has the High Ground,
+                he dispels Stealth from all enemies at the start of his turn.
                 <br><br>
-                When another Light Side ally targets Jedi Master Kenobi with an ability, dispel all debuffs on him and he gains Mastery (stacking) equal to 10% of their current Mastery for the rest of the encounter. When Jedi Master Kenobi targets another Galactic Republic or Light Side Unaligned Force User ally with an ability, dispel all debuffs on them and they gain Mastery (stacking) equal to 20% of his current Mastery for the rest of the encounter. These effects can't be triggered by granted abilities and the Mastery gain will only trigger if the user has more than 0 Mastery.
+                When another Light Side ally targets Jedi Master Kenobi with an ability, dispel all debuffs on him and
+                he gains Mastery (stacking) equal to 10% of their current Mastery for the rest of the encounter. When
+                Jedi Master Kenobi targets another Galactic Republic or Light Side Unaligned Force User ally with an
+                ability, dispel all debuffs on them and they gain Mastery (stacking) equal to 20% of his current Mastery
+                for the rest of the encounter. These effects can't be triggered by granted abilities and the Mastery
+                gain will only trigger if the user has more than 0 Mastery.
                 <br><br>
-                When a Galactic Republic ally attacks out of turn, all Galactic Republic allies recover 2% Health and Protection and call the weakest other Light Side ally to assist dealing 20% less damage (limit once per turn).
+                When a Galactic Republic ally attacks out of turn, all Galactic Republic allies recover 2% Health and
+                Protection and call the weakest other Light Side ally to assist dealing 20% less damage (limit once per
+                turn).
             </p>
         </div>
     </div>
@@ -151,9 +194,11 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="unique-ability2">
-                This unit takes reduced damage from percent Health damage effects and massive damage effects. They take massive damage from destroy effects (excludes raid bosses) and are immune to stun effects.
+                This unit takes reduced damage from percent Health damage effects and massive damage effects. They take
+                massive damage from destroy effects (excludes raid bosses) and are immune to stun effects.
                 <br><br>
-                This unit has +10% Max Health and Max Protection per Relic Amplifier level, and damage they receive is decreased by 30%.
+                This unit has +10% Max Health and Max Protection per Relic Amplifier level, and damage they receive is
+                decreased by 30%.
             </p>
         </div>
     </div>
@@ -172,7 +217,7 @@
 
                 "ultime-title": "<u>Capacité Ultime: C'est terminé<u>",
                 "ulti": "Nécessite au moins 50 % de <u class='ulti'>charge ultime</u> pour être activé\n\n <u class='ulti'>Charge ultime :</u> le Maître Jedi Kenobi obtient de la charge ultime lorsqu'il utilise ses capacités. Si le Maître Jedi Kenobi est le chef, il obtient également 3 % de charge ultime lorsqu'un autre allié du Coté Lumineux utilise une capacité de base (doublé pendant son tour).\n\n si au début de la bataille, il y avait un utilisateur de la Force non aligné du Coté Lumineux  allié qui faisait également partie de la République Galactique, tous les Jedi alliés ignorent la protection lorsqu'ils ciblent un ennemi Sith, et les ennemis Sith ne peuvent pas contrer d'attaque pendant le reste de la bataille. Dissipe tous les affaiblissements en cours sur les alliés du Coté Lumineux. Tous les autres alliés du Coté Lumineux obtiennent un pourcentage de maîtrise (cumulatif) à hauteur de la valeur de charge ultime utilisée avec cette capacité (doublé à 100% de charge ultime) jusqu'à la fin de l'affrontement.\n\n Si la valeur de charge ultime utilisée est de moins de 100%, le Maître Jedi Kenobi obtient l'amélioration <u class='speciale'>Impératif moral</u> pendant 2 tours (ne peut pas être copié, dissipé ou empêché). Tous les alliés de la République Galactique obtiennent une hausse de protection (20 %) pendant 3 tours (ne peut pas être dissipé ou empêché).\n\n Si la valeur de charge ultime utilisée est de 100 %, le Maître Jedi Kenobi obtient l'amélioration Impératif moral pendant 5 tours (ne peut pas être copié, dissipé ou empêché). Tous les alliés du Coté Lumineux récupèrent 60 % de santé et de protection, et tous les alliés de la République Galactique obtiennent une hausse de protection (50 %) pendant 3 tours (ne peut pas être dissipé ou empêché).\n\n <u class='speciale'>Impératif moral :</u> inflige 35 % de dégâts supplémentaires lorsqu'il attaque en dehors de son tour ; +100 % de chances de contre-attaque ; -35 % de vitesse; ne peut pas obtenir de charge ultime.",
-                
+
                 "basic-attack-title": "<u>Attaque Basique: Lame ardente</u>",
                 "basic-attack": "Inflige des dégâts physiques à une cible ennemie. Si la cible ennemie appartenait au Coté Obscur, entrave les capacités pendant 1 tour (exclut les Légendes Galactiques). L'allié du Coté Lumineux le plus faible sans bonus de pénétration de défense l'obtient pendant 2 tours. Si cette capacité est utilisée pendant le tour du Maître Jedi Kenobi, il obtient 9 % de charge ultime.",
 
@@ -186,12 +231,12 @@
                 "lead-ability": "Tous les alliés du Coté Lumineux ont ++25 % de maîtrise, +30 de vitesse et +25 % de santé maximale. Les alliés de la République Galactique obtiennent une hausse de protection (75 %, ne peut pas être dissipée) pendant 4 tours.\n\n Lorsque le Maître Jedi Kenobi dispose d'Impératif moral, les alliés du Coté Lumineux subissent 20 % de dégâts en moins, ignorent Raillerie, résistent à tous les affaiblissements et le Maître Jedi Kenobi est invoqué lorsqu'un allié de la République Galactique utilise une capacité pendant son tour. \n\n Au début de la bataille, si tous les alliés appartiennent au Coté Lumineux, les alliés de la République Galactique ne peuvent pas infliger de coup critique tant qu'ils disposent d'une hausse de protection. Les tanks de la République Galactique utilisent Raillerie pendant 2 tours au début de chaque affrontement s'ils n'en disposaient pas, et lorsqu'ils perdent raillerie, ils obtiennent Raillerie pendant 2 tours s'ils disposaient de protection mais n'utilisaient pas Raillerie. Au début de chaque bataille, si tous les alliés appartiennent à la République Galactique ou sont des utilisateurs de la Force non alignés du Coté Lumineux, la première fois qu'un autre allié atteint 1 % de santé, il dissipe tous ses affaiblissements, récupère 50 % de santé et de protection, et obtient une hausse de protection (50 %) pendant son tour. \n\n Lorsqu'un autre allié du Coté Lumineux utilise une capacité de base, le Maître Jedi Kenobi obtient 3 % de charge ultime (doublé si c'était pendant son tour).\n\n La pénétration d'armure des alliés Jedi est doublée lorsqu'ils ciblent un ennemi Sith. Le ennemis et les alliés sont immunisés contre la manipulation de jauge de tour (exclut les boss de rai).",
 
                 "unique-ability-title": "<u>Capacité Unique : Que la force soit avec toi</u>",
-                "unique-ability": "Le Maître Jedi Kenobi ignore les effets de Raillerie pendant son tour. lorsque le Maître Jedi kenobi dipose d'Impératif moral, il dissipe le camouflage de tous les ennemis au début de son tour.\n\n Lorsqu'un autre allié duCoté Lumineux cible le Maître Jedi Kenobi avec une capacité, dissipe tous les affaiblissements l'affectant et lui confère de la maîtrise (cumulatif) à hauteur de 10 % de sa maîtrise actuelle jusqu'à la fin de l'affrontement. Lorsque le Maître Jedi Kenobi cible un autre allié utilisateur de la Force non aligné du Coté Lumineux ou de la République Galactique avec une capacité, dissipe tous les affaiblissements l'affectant et lui confère de la maîtrise (cumulatif) à hauteur de 20 % de sa maîtrise actuelle jusqu'à la fin de l'affrontement. Ces effets ne peuvent pas être déclenché par des capacité conférées et le fain de ma^trise n'est possible que si la mêitrise de l'utilisateur est supérieure à 0.\n\n Lorsqu'un allié de la République Galactique attaque en dehors de son tour, tous les alliés de la République Galactique récupèrent 2 % de santé et de protection. Invoque l'allié du Coté Lumineux le plus faible, quiinflige 20 % de dégâts en moins (limité à une fois par tour).",   
+                "unique-ability": "Le Maître Jedi Kenobi ignore les effets de Raillerie pendant son tour. lorsque le Maître Jedi kenobi dipose d'Impératif moral, il dissipe le camouflage de tous les ennemis au début de son tour.\n\n Lorsqu'un autre allié duCoté Lumineux cible le Maître Jedi Kenobi avec une capacité, dissipe tous les affaiblissements l'affectant et lui confère de la maîtrise (cumulatif) à hauteur de 10 % de sa maîtrise actuelle jusqu'à la fin de l'affrontement. Lorsque le Maître Jedi Kenobi cible un autre allié utilisateur de la Force non aligné du Coté Lumineux ou de la République Galactique avec une capacité, dissipe tous les affaiblissements l'affectant et lui confère de la maîtrise (cumulatif) à hauteur de 20 % de sa maîtrise actuelle jusqu'à la fin de l'affrontement. Ces effets ne peuvent pas être déclenché par des capacité conférées et le fain de ma^trise n'est possible que si la mêitrise de l'utilisateur est supérieure à 0.\n\n Lorsqu'un allié de la République Galactique attaque en dehors de son tour, tous les alliés de la République Galactique récupèrent 2 % de santé et de protection. Invoque l'allié du Coté Lumineux le plus faible, quiinflige 20 % de dégâts en moins (limité à une fois par tour).",
 
                 "unique-ability-title2": "<u>Capacité Unique : Légende Galactique</u>",
-                "unique-ability2": "Cette unité subit des dégâts réduits des effets de dégâts de pourcentage de santéé et des effets de dégâts importants, mais subit de lours dégâts des effets de destruction (exclut les boss de rai) et elle est immunisée contre les effets d'étourdissement.\n\n Cette unité a 10 % de santé maximale et de protection maximale par niveau d'amplificateur de relique, et ses dégâts subis sont réduits de 30 %.",                
-            
-                "galactic-legend" : "Légendes Galactiques",
+                "unique-ability2": "Cette unité subit des dégâts réduits des effets de dégâts de pourcentage de santéé et des effets de dégâts importants, mais subit de lours dégâts des effets de destruction (exclut les boss de rai) et elle est immunisée contre les effets d'étourdissement.\n\n Cette unité a 10 % de santé maximale et de protection maximale par niveau d'amplificateur de relique, et ses dégâts subis sont réduits de 30 %.",
+
+                "galactic-legend": "Légendes Galactiques",
                 "lightside": "Coté Lumineux",
                 "attacker": "Attaquant",
                 "leader": "chef",
@@ -244,6 +289,125 @@
 
                 document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
                 document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+        <script>
+            const jsonURL = "../filtre-recherche/units.json";   // ← adapte si besoin
+            const currentUnitId = "jedi master kenobi";
+
+            // récupération langue actuelle
+            function getCurrentLanguage() {
+                return sessionStorage.getItem("selectedLanguage") || "en";
+            }
+
+            // création du tableau des effets
+            function createEffectTable(unit) {
+                const lang = getCurrentLanguage();
+                const container = document.getElementById("effects-table");
+
+                let html = `
+        <h2>${lang === "fr" ? "Effets appliqués" : "Applied Effects"}</h2>
+
+        <h3>${lang === "fr" ? "Buffs" : "Buffs"}</h3>
+        <div>
+    `;
+
+                unit.effects.buffs.forEach(buff => {
+                    html += `<span class="effect-item" data-effect="${buff.en}">${buff[lang]}</span>`;
+                });
+
+                html += `</div><h3>${lang === "fr" ? "Debuffs" : "Debuffs"}</h3><div>`;
+
+                unit.effects.debuffs.forEach(debuff => {
+                    html += `<span class="effect-item" data-effect="${debuff.en}">${debuff[lang]}</span>`;
+                });
+
+                html += `</div>`;
+
+                container.innerHTML = html;
+
+                // activer clics
+                document.querySelectorAll(".effect-item").forEach(el => {
+                    el.addEventListener("click", () => showUnitsApplyingEffect(el.dataset.effect));
+                });
+            }
+
+
+            // pop-up affichant toutes les unités appliquant un buff/debuff
+            async function showUnitsApplyingEffect(effectNameEN) {
+                const lang = getCurrentLanguage();
+                const popup = document.getElementById("effects-popup");
+
+                const response = await fetch(jsonURL);
+                const data = await response.json();
+
+                // retrouver l'objet de l'effet dans le JSON
+                let effectObj = null;
+
+                data.forEach(unit => {
+                    if (unit.effects?.buffs) {
+                        unit.effects.buffs.forEach(b => {
+                            if (b.en === effectNameEN) effectObj = b;
+                        });
+                    }
+                    if (unit.effects?.debuffs) {
+                        unit.effects.debuffs.forEach(d => {
+                            if (d.en === effectNameEN) effectObj = d;
+                        });
+                    }
+                });
+
+                // nom traduit
+                const effectTitle = effectObj ? effectObj[lang] : effectNameEN;
+
+                // filtrage unités qui appliquent cet effet
+                const matchingUnits = data.filter(unit =>
+                    unit.effects &&
+                    (
+                        (unit.effects.buffs && unit.effects.buffs.some(b => b.en === effectNameEN)) ||
+                        (unit.effects.debuffs && unit.effects.debuffs.some(d => d.en === effectNameEN))
+                    )
+                );
+
+                // contenu popup
+                let html = `
+        <span class="popup-close" onclick="closePopup()">✖</span>
+        <h2>${effectTitle} :</h2>
+    `;
+
+                matchingUnits.forEach(u => {
+                    html += `
+            <div class="unit-entry">
+                <img src="${u.image}">
+                <div>
+                    <strong>${u.name[lang]}</strong><br>
+                    <a href="${u.page}?lang=${lang}" style="color:#4af">
+                        ${lang === "fr" ? "Voir la page" : "View page"}
+                    </a>
+                </div>
+            </div>
+        `;
+                });
+
+                popup.innerHTML = html;
+                popup.classList.remove("hidden");
+            }
+
+            function closePopup() {
+                document.getElementById("effects-popup").classList.add("hidden");
+            }
+
+
+            // charger unité et construire tableau
+            window.addEventListener("load", async () => {
+                const response = await fetch(jsonURL);
+                const data = await response.json();
+
+                const unit = data.find(u => u.id === currentUnitId);
+                if (unit) {
+                    createEffectTable(unit);
+                }
             });
         </script>
 
