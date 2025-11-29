@@ -1,0 +1,283 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SWGOH Effect Filter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    #scrollTopBtn {
+      position: fixed;bottom: 30px;right: 30px;z-index: 1000;display: none;
+      background-color: #007bff;color: white;border: none;border-radius: 50%;
+      width: 50px;height: 50px;font-size: 1.5rem;cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);transition: background 0.3s;
+    }
+    #scrollTopBtn:hover {background-color: #0056b3;}
+    body {font-family: Arial, sans-serif;background-color: #121212;color: white;margin: 0;}
+    #sidebar {
+      position: fixed;top: 0;left: 0;height: 100vh;width: 400px;
+      background: #1b1b1b;padding: 20px;overflow-y: auto;border-right: 2px solid #333;
+    }
+    #content {margin-left: 500px;padding: 20px;}
+    #filter-title {font-size: 1.6rem;text-align: center;margin-bottom: 25px;font-weight: bold;}
+    .filter-box {background: #222;padding: 15px;border-radius: 10px;margin-bottom: 25px;}
+    .filter-box h5 {margin-bottom: 10px;font-size: 1rem;font-weight: bold;color: #ddd;
+      border-bottom: 1px solid #444;padding-bottom: 5px;}
+    #results {display: flex;flex-wrap: wrap;gap: 20px;justify-content: flex-start;}
+    .card {width: 220px;background-color: #1e1e1e;border-radius: 12px;overflow: hidden;text-align: center;color: #f1f1f1;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);transition: transform 0.2s;}
+    .card:hover {transform: scale(1.03);}
+    .card img {width: 60%;height: auto;margin: 10px auto;display: block;border-bottom: 1px solid #333;object-fit: cover;}
+    .card-body {padding: 12px;}
+    .card-body h5 {margin-bottom: 8px;font-size: 1.1rem;font-weight: bold;}
+    .btn-primary {margin-top: 8px;width: 100%;border-radius: 8px;font-weight: bold;}
+    .lang-toggle {display:flex;justify-content:center;gap:10px;margin-bottom:15px;}
+    .lang-toggle img {cursor:pointer;width:32px;height:32px;border-radius:50%;border:2px solid transparent;}
+    .lang-toggle img.active {border-color:#007bff;}
+
+    /* Accordéon effets */
+    .effects-container {text-align:left;margin-top:8px;background:#141414;padding:8px;border-radius:8px;border:1px solid #2a2a2a;}
+    .accordion-block {margin-bottom:6px;}
+    .accordion-header {
+      background:#1a1a1a;color:#ddd;padding:6px 8px;border-radius:4px;cursor:pointer;
+      user-select:none;font-size:0.9rem;font-weight:bold;
+    }
+    .accordion-header:hover {background:#2a2a2a;}
+    .accordion-body {padding-left:10px;display:none;margin-top:4px;}
+    .effect-item {
+      display:inline-block;padding:4px 6px;margin:2px;border-radius:5px;background:#222;
+      border:1px solid #333;color:#fff;font-size:0.85rem;cursor:pointer;
+    }
+    .effect-item.buff {border-left:4px solid #2b9cff;}
+    .effect-item.debuff {border-left:4px solid #ff6b6b;}
+    .badge-effect {cursor:pointer;margin-right:6px;}
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <div id="filter-title">Effect Filter</div>
+
+    <!-- Language toggle -->
+    <div class="lang-toggle">
+      <img src="https://flagcdn.com/us.svg" alt="English" id="lang-en" class="active">
+      <img src="https://flagcdn.com/fr.svg" alt="Français" id="lang-fr">
+    </div>
+
+    <div class="filter-box">
+      <h5>Buffs & Debuffs</h5>
+      <select id="buff-filter" class="form-select mb-2">
+        <option value="">-- Buff --</option>
+      </select>
+      <select id="debuff-filter" class="form-select mb-2">
+        <option value="">-- Debuff --</option>
+      </select>
+      <input type="text" id="effect-search" class="form-control" placeholder="Search effect...">
+    </div>
+
+    <div class="filter-box">
+      <h5>Search / Reset</h5>
+      <div id="active-filters" class="mb-2"></div>
+      <button id="reset-filters" class="btn btn-danger w-100">Reset Filters</button>
+    </div>
+
+    <button id="scrollTopBtn" title="Back to top">↑</button>
+  </div>
+
+  <!-- Content -->
+  <div id="content">
+    <h4>Results:</h4>
+    <div id="results"></div>
+  </div>
+
+<script>
+const scrollBtn = document.getElementById("scrollTopBtn");
+window.addEventListener("scroll", () => { scrollBtn.style.display = document.documentElement.scrollTop > 200 ? "block" : "none"; });
+scrollBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+let characters = [];
+let currentLang = sessionStorage.getItem("selectedLanguage") || "en";
+
+// Load JSON
+fetch("units.json")
+  .then(res => res.json())
+  .then(data => { characters = data; applyLanguageOnLoad(); })
+  .catch(err => { console.error("Error loading JSON:", err); document.getElementById("results").innerHTML = "<p>Error loading characters</p>"; });
+
+function applyLanguageOnLoad() { toggleLangButtons(); updateStaticText(); generateEffectFilters(); applyFilters(); }
+function toggleLangButtons() {
+  if (currentLang === "fr") { document.getElementById("lang-fr").classList.add("active"); document.getElementById("lang-en").classList.remove("active"); }
+  else { document.getElementById("lang-en").classList.add("active"); document.getElementById("lang-fr").classList.remove("active"); }
+}
+document.getElementById("lang-en").addEventListener("click", () => { currentLang = "en"; sessionStorage.setItem("selectedLanguage", "en"); applyLanguageOnLoad(); });
+document.getElementById("lang-fr").addEventListener("click", () => { currentLang = "fr"; sessionStorage.setItem("selectedLanguage", "fr"); applyLanguageOnLoad(); });
+
+function updateStaticText() {
+  if (currentLang === "fr") {
+    document.getElementById("filter-title").textContent = "Filtre des effets";
+    document.querySelector("h4").textContent = "Résultats :";
+    document.getElementById("reset-filters").textContent = "Réinitialiser les filtres";
+    document.getElementById("effect-search").placeholder = "Rechercher effet...";
+  } else {
+    document.getElementById("filter-title").textContent = "Effect Filter";
+    document.querySelector("h4").textContent = "Results:";
+    document.getElementById("reset-filters").textContent = "Reset Filters";
+    document.getElementById("effect-search").placeholder = "Search effect...";
+  }
+}
+
+function generateEffectFilters() {
+  const buffSelect = document.getElementById("buff-filter");
+  const debuffSelect = document.getElementById("debuff-filter");
+  const buffsSet = new Set(), debuffsSet = new Set();
+
+  characters.forEach(c => {
+    (c.effects?.buffs || []).forEach(e => buffsSet.add(e[currentLang] || e.en));
+    (c.effects?.debuffs || []).forEach(e => debuffsSet.add(e[currentLang] || e.en));
+  });
+
+  buffSelect.innerHTML = `<option value="">-- ${currentLang==='fr'?'Bonus':'Buff'} --</option>`;
+  debuffSelect.innerHTML = `<option value="">-- ${currentLang==='fr'?'Malus':'Debuff'} --</option>`;
+
+  [...buffsSet].sort((a,b)=>a.localeCompare(b,currentLang)).forEach(b=>{ buffSelect.innerHTML += `<option value="${escapeHtml(b).toLowerCase()}">${escapeHtml(b)}</option>`; });
+  [...debuffsSet].sort((a,b)=>a.localeCompare(b,currentLang)).forEach(d=>{ debuffSelect.innerHTML += `<option value="${escapeHtml(d).toLowerCase()}">${escapeHtml(d)}</option>`; });
+}
+
+function normalizeText(t){return t?String(t).trim().toLowerCase():"";}
+
+function applyFilters(){
+  const selectedBuff=normalizeText(document.getElementById("buff-filter").value);
+  const selectedDebuff=normalizeText(document.getElementById("debuff-filter").value);
+  const effectSearch=normalizeText(document.getElementById("effect-search").value);
+
+  const filtered=characters.filter(c=>{
+    const buffs=(c.effects?.buffs||[]).map(e=>normalizeText(e[currentLang]||e.en));
+    const debuffs=(c.effects?.debuffs||[]).map(e=>normalizeText(e[currentLang]||e.en));
+    const matchBuff=!selectedBuff||buffs.includes(selectedBuff);
+    const matchDebuff=!selectedDebuff||debuffs.includes(selectedDebuff);
+    const matchSearch=!effectSearch||buffs.some(e=>e.includes(effectSearch))||debuffs.some(d=>d.includes(effectSearch));
+    return matchBuff && matchDebuff && matchSearch;
+  });
+
+  filtered.sort((a,b)=>{ const nameA=(a.name?.[currentLang]||a.name?.en||"").toLowerCase(); const nameB=(b.name?.[currentLang]||b.name?.en||"").toLowerCase(); return nameA.localeCompare(nameB,currentLang); });
+
+  renderActiveFilters(selectedBuff,selectedDebuff,effectSearch);
+  renderCharacters(filtered);
+}
+
+function renderCharacters(list){
+  const container=document.getElementById("results");
+  container.innerHTML=list.length?list.map(c=>renderCard(c)).join(""):(currentLang==='fr'? "<p>Aucune unité trouvée</p>" : "<p>No units found</p>");
+}
+
+function renderCard(c){
+  const name=escapeHtml(c.name?.[currentLang]||c.name?.en||"");
+  const id=escapeHtml(c.id||"");
+  const page=escapeHtml(c.page||"#");
+  const img=escapeHtml(c.image||"");
+
+  const buffs=(c.effects?.buffs||[]).map(e=>escapeHtml(e[currentLang]||e.en));
+  const debuffs=(c.effects?.debuffs||[]).map(e=>escapeHtml(e[currentLang]||e.en));
+
+  // Unique ID for accordions
+  const uniq = 'effects-' + Math.random().toString(36).slice(2,9);
+
+  // Buffs HTML
+  const buffsHtml = buffs.length ? buffs.map(b=>`<span class="effect-item buff" data-effect="${encodeURIComponent(b)}" onclick="selectEffectFromCard('${escapeJsParam(b)}','buff')">${b}</span>`).join("") : `<div style="font-size:0.85rem;color:#9a9a9a">${currentLang==='fr'?'Aucun bonus':'No buffs'}</div>`;
+  const debuffsHtml = debuffs.length ? debuffs.map(d=>`<span class="effect-item debuff" data-effect="${encodeURIComponent(d)}" onclick="selectEffectFromCard('${escapeJsParam(d)}','debuff')">${d}</span>`).join("") : `<div style="font-size:0.85rem;color:#9a9a9a">${currentLang==='fr'?'Aucun malus':'No debuffs'}</div>`;
+
+  return `
+    <div class="card">
+      <img src="${img}" alt="${name}">
+      <div class="card-body">
+        <h5>${name}</h5>
+        <p><strong>ID:</strong> ${id}</p>
+
+        <div class="effects-container">
+          <div class="accordion-block">
+            <div class="accordion-header" data-accordion="buffs-${uniq}">Buffs ▼</div>
+            <div class="accordion-body" id="buffs-${uniq}">${buffsHtml}</div>
+          </div>
+          <div class="accordion-block">
+            <div class="accordion-header" data-accordion="debuffs-${uniq}">Debuffs ▼</div>
+            <div class="accordion-body" id="debuffs-${uniq}">${debuffsHtml}</div>
+          </div>
+        </div>
+
+        <a href="${page}" class="btn btn-primary" target="_blank">${currentLang==='fr'?'Détails':'Details'}</a>
+      </div>
+    </div>
+  `;
+}
+
+// Accordéons toggle
+document.addEventListener("click", e=>{
+  if(e.target.classList.contains("accordion-header")){
+    const targetId=e.target.dataset.accordion;
+    const el=document.getElementById(targetId);
+    if(el){ el.style.display = (el.style.display==='none' || el.style.display==='')?'block':'none'; }
+  }
+});
+
+// Click effect in card → filter
+function selectEffectFromCard(effectName,type){
+  const effectValue=(''+effectName).trim().toLowerCase();
+  document.getElementById("effect-search").value="";
+  document.getElementById("buff-filter").value="";
+  document.getElementById("debuff-filter").value="";
+  if(type==='buff'){ document.getElementById("buff-filter").value=effectValue; }
+  else{ document.getElementById("debuff-filter").value=effectValue; }
+  applyFilters();
+  window.scrollTo({ top:0, behavior:'smooth' });
+}
+
+// Active filters rendering
+function renderActiveFilters(buff,debuff,search){
+  const container=document.getElementById("active-filters");
+  container.innerHTML="";
+  const filters=[];
+  if(buff) filters.push({type:"buff",value:buff});
+  if(debuff) filters.push({type:"debuff",value:debuff});
+  if(search) filters.push({type:"search",value:search});
+  if(filters.length===0) return;
+
+  const phrase=document.createElement("p");
+  phrase.style.margin='0 0 6px 0';
+  phrase.innerHTML=currentLang==='fr'?"Unités avec l'effet :":"Units with effect:";
+  container.appendChild(phrase);
+
+  filters.forEach(f=>{
+    const badge=document.createElement("span");
+    badge.className="badge bg-primary me-2 badge-effect";
+    badge.textContent=f.value;
+    badge.title=currentLang==='fr'?'Cliquer pour enlever':'Click to remove';
+    badge.addEventListener("click", ()=>{
+      if(f.type==='buff') document.getElementById("buff-filter").value="";
+      if(f.type==='debuff') document.getElementById("debuff-filter").value="";
+      if(f.type==='search') document.getElementById("effect-search").value="";
+      applyFilters();
+    });
+    container.appendChild(badge);
+  });
+}
+
+// Events
+document.getElementById("buff-filter").addEventListener("change",applyFilters);
+document.getElementById("debuff-filter").addEventListener("change",applyFilters);
+document.getElementById("effect-search").addEventListener("input",applyFilters);
+document.getElementById("reset-filters").addEventListener("click",()=>{
+  document.getElementById("buff-filter").value="";
+  document.getElementById("debuff-filter").value="";
+  document.getElementById("effect-search").value="";
+  applyFilters();
+});
+
+// Helpers
+function escapeHtml(str){ if(str===undefined||str===null) return ''; return String(str).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#39;"); }
+function escapeJsParam(s){ if(s===undefined||s===null) return ''; return String(s).replace(/\\/g,"\\\\").replace(/'/g,"\\'").replace(/\n/g,"\\n"); }
+</script>
+
+</body>
+</html>

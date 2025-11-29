@@ -116,11 +116,11 @@
                 "basic-attack-title": "<u>Attaque Basique : Frappe Revigorante</u>",
                 "basic-attack": "Inflige des dégâts physiques à une cible ennemie avec 45% de chances pour tous les alliés de récupérer 6% de la santé maximale de Barriss Offee.",
                 "special-attack1-title": "<u>Attaque Spéciale : Guérisseuse de Force (délai : 4)</u>",
-                "special-attack1": "Égalise les pourcentages de santé actuels de tous les alliés (cet effet ignore l’immunité aux soins). Ensuite, chaque allié récupère 14% de sa santé maximale et gagne un bonus de défense pendant 2 tours.",
+                "special-attack1": "Équilibre le pourcentage de remplissage de la jauge de PV entre tous les personnages alliés (cet effet ignore l'immunité aux soins). Ensuite chaque allié récupère 15 % de sa santé maximale et obtient un bonus de défense pendant 2 tours.",
                 "lead-ability-title": "<u>Capacité de Chef : Personne Ne Reste Derrière</u>",
-                "lead-ability": "Les alliés Jedi gagnent +20% de santé maximale et les autres alliés en gagnent la moitié. Au début de chacun de leurs tours, les alliés Jedi récupèrent 8% de la santé maximale de Barriss Offee et les autres la moitié.",
+                "lead-ability": "Les alliés Jedi gagnent 20% de santé maximale et les autres alliés un nombre de PV moitié moins élevé. De plus, au début de chacun de leurs tours, les alliés Jedi récupèrent 8 % de la santé maximale de Barriss Offee et les autres alliés un nombre de PV moitié moins élevé.",
                 "unique-ability-title": "<u>Capacité Unique : Convalescence Rapide</u>",
-                "unique-ability": "À la fin de chacun de ses tours, Barriss dissipe tous les affaiblissements de l’allié le plus faible et gagne 10% de jauge de tour pour chaque effet dissipé.<br><br>Lorsqu’un allié subit un coup critique, il récupère 20% de sa santé et Barriss gagne 10% de jauge de tour."
+                "unique-ability": "À la fin de chacun de ses tours, Barriss dissipe tous les affaiblissements de l’allié le plus faible et sa jauge de tour se remplit de 10 % pour chaque effet ainsi dissipé.\n\nLorsqu’un allié subit un coup critique, il récupère 20 % de santé et la jauge de tour de Barriss se remplit de 10%."
             };
 
             const originalTexts = {};
@@ -133,18 +133,18 @@
             }
 
             function replaceNewLinesWithBr(text) {
-                return text.replace(/\n\s*\n/g, '<br><br>');
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
             }
 
             function switchLanguageTo(lang) {
-                localStorage.setItem("selectedLanguage", lang);
+                sessionStorage.setItem("selectedLanguage", lang);
 
                 if (lang === "fr") {
                     for (const [id, text] of Object.entries(translationsFr)) {
                         const el = document.getElementById(id);
                         if (el) el.innerHTML = replaceNewLinesWithBr(text);
                     }
-                } else {
+                } else if (lang === "en") {
                     for (const [id, text] of Object.entries(originalTexts)) {
                         const el = document.getElementById(id);
                         if (el) el.innerHTML = text;
@@ -155,20 +155,22 @@
             }
 
             function updateFlagActive() {
-                const lang = localStorage.getItem("selectedLanguage") || "en";
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
                 document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
                 document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
             }
 
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
             window.addEventListener("load", () => {
                 saveOriginalTexts();
-                const lang = localStorage.getItem("selectedLanguage") || "en";
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
                 switchLanguageTo(lang);
 
                 document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
                 document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
             });
-        </script>
+        </script>                
     </footer>
 </body>
+
 </html>

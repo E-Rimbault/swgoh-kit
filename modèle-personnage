@@ -40,15 +40,13 @@
     <br>
 
     <img class="first" src="../image-perso/" alt=""><br>
-    <div id="effects-table"></div>
-    <div id="effects-popup" class="popup hidden"></div>
 
     <!-- Capacités -->
 
     <h2 class="titre"><u id="ultime-title">Ultimate: </u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="" src="">
+            <img class="attaque" alt="" src="../image-perso/">
         </div>
         <div class="right-column">
             <p class="attaque" id="ulti"></p>
@@ -58,7 +56,7 @@
     <h2 class="titre" id="basic-attack-title"><u>Basic Attack: </u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="" src="">
+            <img class="attaque" alt="" src="../image-perso/">
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
@@ -69,7 +67,7 @@
     <h2 class="titre" id="special-attack1-title"><u>Special Attack : (cooldown: )</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="" src="">
+            <img class="attaque" alt="" src="../image-perso/">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1">
@@ -80,7 +78,7 @@
     <h2 class="titre" id="special-attack2-title"><u>Special Attack : (cooldown: )</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="" src="">
+            <img class="attaque" alt="" src="../image-perso/">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack2">
@@ -91,7 +89,7 @@
     <h2 class="titre"><u id="lead-ability-title">Leader Ability: </u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="" src="">
+            <img class="attaque" alt="" src="../image-perso/">
         </div>
         <div class="right-column">
             <p class="attaque" id="lead-ability">
@@ -102,7 +100,7 @@
     <h2 class="titre"><u id="unique-ability-title">Unique Ability : </u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="" src="">
+            <img class="attaque" alt="" src="../image-perso/">
         </div>
         <div class="right-column">
             <p class="attaque" id="unique-ability">
@@ -202,130 +200,6 @@
                 document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
             });
         </script>
-
-                <script>
-            const jsonURL = "../filtre-recherche/units.json";
-            const currentUnitId = "";
-            let currentUnit = null; // stocke l'unité chargée
-
-            // récupération langue actuelle
-            function getCurrentLanguage() {
-                return sessionStorage.getItem("selectedLanguage") || "en";
-            }
-
-            // création du tableau des effets
-            function createEffectTable(unit) {
-                const lang = getCurrentLanguage();
-                const container = document.getElementById("effects-table");
-
-                let html = `
-        <h2>${lang === "fr" ? "Effets appliqués" : "Applied Effects"}</h2>
-
-        <h3>${lang === "fr" ? "Bonus" : "Buffs"}</h3>
-        <div>
-    `;
-
-                unit.effects.buffs.forEach(buff => {
-                    const effectText = buff[lang] || buff.en;
-                    html += `<span class="effect-item" data-effect="${buff.en}">${effectText}</span>`;
-                });
-
-                html += `</div><h3>${lang === "fr" ? "Malus" : "Debuffs"}</h3><div>`;
-
-                unit.effects.debuffs.forEach(debuff => {
-                    const effectText = debuff[lang] || debuff.en;
-                    html += `<span class="effect-item" data-effect="${debuff.en}">${effectText}</span>`;
-                });
-
-                html += `</div>`;
-
-                container.innerHTML = html;
-
-                // activer clics
-                document.querySelectorAll(".effect-item").forEach(el => {
-                    el.addEventListener("click", () => showUnitsApplyingEffect(el.dataset.effect));
-                });
-            }
-
-            // pop-up affichant toutes les unités appliquant un buff/debuff
-            async function showUnitsApplyingEffect(effectNameEN) {
-                const lang = getCurrentLanguage();
-                const popup = document.getElementById("effects-popup");
-
-                const response = await fetch(jsonURL);
-                const data = await response.json();
-
-                let effectObj = null;
-                data.forEach(unit => {
-                    unit.effects?.buffs?.forEach(b => { if (b.en === effectNameEN) effectObj = b; });
-                    unit.effects?.debuffs?.forEach(d => { if (d.en === effectNameEN) effectObj = d; });
-                });
-
-                const effectTitle = effectObj ? (effectObj[lang] || effectObj.en) : effectNameEN;
-
-                const matchingUnits = data.filter(unit =>
-                    unit.effects &&
-                    (
-                        (unit.effects.buffs && unit.effects.buffs.some(b => b.en === effectNameEN)) ||
-                        (unit.effects.debuffs && unit.effects.debuffs.some(d => d.en === effectNameEN))
-                    )
-                );
-
-                let html = `<span class="popup-close" onclick="closePopup()">✖</span>
-                <h2>${effectTitle} :</h2>`;
-
-                matchingUnits.forEach(u => {
-                    const unitName = u.name[lang] || u.name.en;
-                    html += `
-            <div class="unit-entry">
-                <img src="${u.image}">
-                <div>
-                    <strong>${unitName}</strong><br>
-                    <a href="${u.page}?lang=${lang}" style="color:#4af">
-                        ${lang === "fr" ? "Voir la page" : "View page"}
-                    </a>
-                </div>
-            </div>
-        `;
-                });
-
-                popup.innerHTML = html;
-                popup.classList.remove("hidden");
-            }
-
-            function closePopup() {
-                document.getElementById("effects-popup").classList.add("hidden");
-            }
-
-            // mettre à jour la langue de la page (tableau et pop-up)
-            async function switchEffectTableLanguage() {
-                if (currentUnit) {
-                    createEffectTable(currentUnit);
-                }
-            }
-
-            // charger unité et construire tableau
-            window.addEventListener("load", async () => {
-                const response = await fetch(jsonURL);
-                const data = await response.json();
-
-                currentUnit = data.find(u => u.id === currentUnitId);
-                if (currentUnit) {
-                    createEffectTable(currentUnit);
-                }
-
-                // ajouter gestion du switch de langue
-                document.getElementById("lang-fr").addEventListener("click", () => {
-                    sessionStorage.setItem("selectedLanguage", "fr");
-                    switchEffectTableLanguage();
-                });
-                document.getElementById("lang-en").addEventListener("click", () => {
-                    sessionStorage.setItem("selectedLanguage", "en");
-                    switchEffectTableLanguage();
-                });
-            });
-        </script>
-
 
     </footer>
 </body>

@@ -26,10 +26,14 @@
         <div style="flex: 1; padding-left: 20px;">
             <div class="language-switcher">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                    onclick="switchLanguage('fr')">
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+
                 <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                    onclick="switchLanguage('en')">
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
+
             <h1 id="title"><u>bb-8</u></h1>
             <p id="description">
                 Persistent Resistance Droid who empowers allies by circulating Secret Intel
@@ -56,7 +60,8 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
-                Deal Physical damage to target enemy and inflict Tenacity Down for 2 turns. If the target already had Tenacity Down, inflict Daze for 2 turns.
+                Deal Physical damage to target enemy and inflict Tenacity Down for 2 turns. If the target already had
+                Tenacity Down, inflict Daze for 2 turns.
             </p>
         </div>
     </div>
@@ -68,9 +73,13 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1">
-                BB-8 and a random ally who doesn't have it gain the <u class="speciale">Secret Intel</u> unique buff for 3 turns. Then, BB-8 gains 8% Turn Meter for each ally with <u class="speciale">Secret Intel</u>. If all active allies are Droids, BB-8 gains Taunt for 1 turn.
+                BB-8 and a random ally who doesn't have it gain the <u class="speciale">Secret Intel</u> unique buff for
+                3 turns. Then, BB-8 gains 8% Turn Meter for each ally with <u class="speciale">Secret Intel</u>. If all
+                active allies are Droids, BB-8 gains Taunt for 1 turn.
                 <br><br>
-                <u class="speciale">Secret Intel :</u> +25% Potency and when another ally uses a Special ability they gain Secret Intel for 3 turns, then the cooldown of Illuminated Destiny is reduced by 1 for each ally with Secret Intel.
+                <u class="speciale">Secret Intel :</u> +25% Potency and when another ally uses a Special ability they
+                gain Secret Intel for 3 turns, then the cooldown of Illuminated Destiny is reduced by 1 for each ally
+                with Secret Intel.
             </p>
         </div>
     </div>
@@ -82,7 +91,10 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack2">
-                Dispel all debuffs on all allies and Expose all enemies for 2 turns. All allies gain 80% Turn Meter and gain Advantage, Critical Chance Up, Critical Damage Up, Offense Up, and Speed Up for 4 turns. Droid and Resistance allies recover 20% Protection. This ability starts on cooldown and can't be Evaded. Whenever a Droid ally scores a Critical Hit, reduce the cooldown of this ability by 1.
+                Dispel all debuffs on all allies and Expose all enemies for 2 turns. All allies gain 80% Turn Meter and
+                gain Advantage, Critical Chance Up, Critical Damage Up, Offense Up, and Speed Up for 4 turns. Droid and
+                Resistance allies recover 20% Protection. This ability starts on cooldown and can't be Evaded. Whenever
+                a Droid ally scores a Critical Hit, reduce the cooldown of this ability by 1.
             </p>
         </div>
     </div>
@@ -106,7 +118,9 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="unique-ability2">
-                When BB-8 takes damage he has a 50% chance to gain Foresight for 2 turns. At the start of each encounter, if BB-8 is active, Droid allies gain 8% Turn Meter for each active Droid ally. When BB-8 Evades, Droid allies recover 8% Health and 8% Protection.
+                When BB-8 takes damage he has a 50% chance to gain Foresight for 2 turns. At the start of each
+                encounter, if BB-8 is active, Droid allies gain 8% Turn Meter for each active Droid ally. When BB-8
+                Evades, Droid allies recover 8% Health and 8% Protection.
             </p>
         </div>
     </div>
@@ -120,22 +134,27 @@
             // Dictionnaire français
             const translationsFr = {
                 "big-title": "bb-8",
-                "title": "bb-8",
+                "title": "<u>bb-8</u>",
                 "description": "Droïde tenace de la résistance capable de renforcer ses alliés en diffusant Donnéees secrètes",
                 "lightside": "Coté Lumineux",
                 "support": "Soutien",
                 "droïd": "Droïde",
                 "resistance": "Résistance",
+
                 "basic-attack-title": "<u>Attaque Basique : Arc à souder</u>",
-                "basic-attack": "inflige des dégâts physiques à une cible ennemie et inflige un malus de ténacité pendant 2 tours. Si la cible souffre déjà d'un malus de ténacité, inflige la Confusion pendan 2 tours",
+                "basic-attack": "inflige des dégâts physiques à une cible ennemie et inflige un malus de ténacité pendant 2 tours. Si la cible souffre déjà d'un malus de ténacité, inflige la Confusion pendant 2 tours",
+                
                 "special-attack1-title": "<u>1ere Spéciale : transfert de données confidentielles</u>",
                 "special-attack1": "BB-8 et un allié aléatoire qui n'en dispose pas obtient l'amélioration unique <u class='speciale'>Données secrètes</u> pendant 3 tours. Ensuite, la jauge de tour de BB-8 se remplit de 8% pour chaque allié qui dispose de <u class='speciale'>Données secrètes</u>. Si tous les alliés actifs sont des droïdes, BB-8 utilise la raillerie pendant 1 tour.\n\n<u class='speciale'>Données secrètes :</u> +25% de pouvoir, et lorsqu'un autre allié utilise une capacité spéciale ils obtiennent Données Secrètes pendant 3 tours, puis le délai d'Avenir Lucide est diminué de 1 pour chaque allié avec Données Secrètes",
+                
                 "special-attack2-title": "<u>2eme Spéciale : Avenir lucide (délai : 70)</u>",
-                "special-attack2": "Dissipe tous les affaiblissements en cours sur les alliés et expose tous les ennemis pendant 2 tours. La jauge de tour de tous les alliés se remplit de 80%et ils obtiennent l'avantage, un bonus de chances de coup critique, bonus de dégâts critiques, un bonus d'attaque et un bonus de vitesse pendant 4 tours. Les Droïdes et les alliés de la Résistance récupèrent 20% de protection. Cette capacité commence avec un délai et ne peut pas être esquivée. Lorsqu'un Droïde allié inflige un coup critique, le délai de cette capacité est réduit de 1.",
+                "special-attack2": "Dissipe tous les affaiblissements en cours sur les alliés et expose tous les ennemis pendant 2 tours. La jauge de tour de tous les alliés se remplit de 80% et ils obtiennent l'avantage, un bonus de chances de coup critique, bonus de dégâts critiques, un bonus d'attaque et un bonus de vitesse pendant 4 tours. Les Droïdes et les alliés de la Résistance récupèrent 20% de protection. Cette capacité commence avec un délai et ne peut pas être esquivée. Lorsqu'un Droïde allié inflige un coup critique, le délai de cette capacité est réduit de 1.",
+                
                 "unique-ability1-title": "<u>Capacité Unique : Suivre le rythme</u>",
                 "unique-ability1": "BB-8 a 80% de chances de contre-attaque. lorsque BB-8 attaque quand ce n'est pas son tour, il invoque un allié de la résistance aléatoire.",
+                
                 "unique-ability-title2": "<u>Capacité Unique : Protocole d'auto-préservation</u>",
-                "unique-ability2": "Lorsque BB-8 subit des dégâts, il a 50% de chances d'obtenir de prévoyance pendant 2 tours. Au début de chaque affrontement, si BB-8 est actif, la jauge de tour des alliés droïdes se remplit de 8% pour chaque allié droïde. Lorsque BB-8 esquive une attaque, les droïdes alliés récupèrent 8% de santé et 8% de protection."
+                "unique-ability2": "Lorsque BB-8 subit des dégâts, il a 50% de chances de prévoyance pendant 2 tours. Au début de chaque affrontement, si BB-8 est actif, la jauge de tour des alliés droïdes se remplit de 8% pour chaque allié droïde. Lorsque BB-8 esquive une attaque, les droïdes alliés récupèrent 8% de santé et 8% de protection."
             };
 
             const originalTexts = {};

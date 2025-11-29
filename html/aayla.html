@@ -122,59 +122,66 @@
         "jedi": "Jedi",
         "vanguard": "Avant-garde Jedi",
         "basic-attack-title": "<u>Attaque Basique : Frappe inspirante</u>",
-        "basic-attack": "Inflige des dégâts physiques à une cible ennemie avec 35% de chances d'appeler un allié à l'aide. Si l'allié est un Jedi, il inflige 50% de dégâts supplémentaires.",
+        "basic-attack": "Inflige des dégâts physiques à une cible ennemie unique avec 35% de chances de demander de l'aide à un allié. Si un Jedi apporte son aide, il inflige 50% de dégâts supplémentaires.",
         "special-attack1-title": "<u>Attaque Spéciale : Survivante (délai : 3)</u>",
-        "special-attack1": "Inflige des dégâts physiques à une cible ennemie et régénère un montant de santé égal à 65% des dégâts infligés.",
+        "special-attack1": "Inflige des dégâts physiques à une cible ennemie et régénère la santé à hauteur de 65% des dégâts infligés.",
         "lead-ability-title": "<u>Capacité de Chef : Bravoure Jedi</u>",
         "lead-ability": "Les alliés Jedi gagnent 40% de ténacité et récupèrent 10% de leur santé maximale lorsqu'ils résistent à un effet.",
         "unique-ability1-title": "<u>Capacité Unique : Riposte supérieure</u>",
-        "unique-ability1": "Aayla obtient +10% de chances de coup critique, 65% de chances de contre-attaque et +50% de dégâts de contre-attaque. De plus, elle étourdit sa cible pendant 1 tour lorsqu’elle inflige un coup critique.",
+        "unique-ability1": "Aayla obtient 10% de chances de coup critique, 65% de chances de contre-attaque et 50% de chances de dégâts en contre-attaque. De plus, elle étourdit sa cible pendant 1 tour lorsqu’elle inflige un coup critique.",
         "unique-ability2-title": "<u>Capacité Unique : Laissez-vous guider</u>",
-        "unique-ability2": "Au début du combat, si le Maître Jedi Mace Windu est le chef et qu’aucun autre attaquant Avant-garde Jedi ne possède de capacité de chef :<br><br>- Au début de chaque affrontement, inflige un malus de défense pendant 2 tours à tous les ennemis.<br><br>- Tous les alliés Avant-garde Jedi gagnent 30% de santé maximale, de puissance et de ténacité jusqu’à la fin de la bataille, et 30% de protection maximale jusqu’à la première défaite d’Aayla.<br><br>- Aayla gagne 50% de chances de coup critique et de ténacité, 30% de défense et 5% d’attaque par niveau de relique.<br><br>- Chaque fois qu’Aayla étourdit un ennemi, tous les alliés Avant-garde Jedi récupèrent 20% de santé et de protection.<br><br>- Lorsqu’Aayla inflige un coup critique, elle gagne 8% de chances de coup critique et de dégâts critiques cumulables jusqu’à la fin de l’affrontement. Si l’ennemi avait Investigation, il en gagne un cumul supplémentaire (max 5).<br><br>- Lorsqu’Aayla utilise une capacité spéciale, elle appelle un autre attaquant Avant-garde Jedi aléatoire à l’aide et tous les alliés Avant-garde Jedi récupèrent 25% de santé et de protection.<br><br>- Si tous les alliés sont Avant-garde Jedi et qu’il n’y a pas de Légende Galactique ennemie, lorsqu’un ennemi attaque hors de son tour, tous les alliés Avant-garde Jedi récupèrent 15% de santé et de protection, et l’allié attaqué dissipe tous ses malus. Si un ennemi est appelé à l’aide, tous les autres perdent 8% de jauge de tour (inévitable)."
+        "unique-ability2": "Au début de la bataille, si le Maître Jedi Mace Windu est dans l'emplacement de chef et qu’aucun autre attaquant de l'Avant-garde Jedi ne dispose d'une capacité de chef :\n\n- Au début de chaque affrontement, inflige un malus de défense pendant 2 tours à tous les ennemis.\n\n- Tous les alliés Avant-garde Jedi obtiennent 30% de santé maximale, de pouvoir et de ténacité jusqu’à la fin de la bataille, et 30% de protection maximale jusqu’à ce qu'aayla soit vaincue pour la première fois.\n\n- Aayla obtient 50% de chances de coup critique et de ténacité, 30% de défense et 5% d’attaque par niveau d'amplificateur de relique.\n\n- Chaque fois qu’Aayla inflige Étourdissement à un ennemi, tous les alliés de l'avant-garde Jedi récupèrent 20% de santé et de protection.\n\n- Lorsqu’Aayla inflige un coup critique, elle gagne 8% de chances de coup critique et de dégâts critiques (cumulatif) jusqu’à la fin de l’affrontement, et si cet ennemi avait un cumul d'Investigation, il obtient un autre cumul d'Investigation (5 maximum) pendant 2 tours.\n\n- Chaque fois qu'Aayla utilise une capacité spéciale, elle invoque un autre attaquant de l'avant-garde Jedi aléatoire à l’aide et tous les alliés de l'Avant-garde Jedi récupèrent 25% de santé et de protection.\n\n- Si tous les alliés faisaint partie de l'Avant-garde Jedi au dé&but de chaque affrontement et qu’il n’y a pas de Légende Galactique ennemie, lorsqu’un ennemi attaque en dehors de son tour, tous les alliés de l'Avant-garde Jedi récupèrent 15% de santé et de protection, et l’allié qu'ils ont attaqué dissipe tous ses affailbissemnts. Si un ennemi est invoqué, tous les autres perdent 8% de jauge de tour (ne peut pas être résisté)."
       };
 
       const originalTexts = {};
 
-      function saveOriginalTexts() {
-        for (const id in translationsFr) {
-          const el = document.getElementById(id);
-          if (el) originalTexts[id] = el.innerHTML;
-        }
-      }
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
 
-      function switchLanguageTo(lang) {
-        sessionStorage.setItem("selectedLanguage", lang);
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
 
-        if (lang === "fr") {
-          for (const [id, text] of Object.entries(translationsFr)) {
-            const el = document.getElementById(id);
-            if (el) el.innerHTML = text;
-          }
-        } else {
-          for (const [id, text] of Object.entries(originalTexts)) {
-            const el = document.getElementById(id);
-            if (el) el.innerHTML = text;
-          }
-        }
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
 
-        updateFlagActive();
-      }
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
 
-      function updateFlagActive() {
-        const lang = sessionStorage.getItem("selectedLanguage") || "en";
-        document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
-        document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
-      }
+                updateFlagActive();
+            }
 
-      window.addEventListener("load", () => {
-        saveOriginalTexts();
-        const lang = sessionStorage.getItem("selectedLanguage") || "en";
-        switchLanguageTo(lang);
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
 
-        document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
-        document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
-      });
-    </script>
-  </footer>
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+    </footer>
 </body>
+
 </html>
