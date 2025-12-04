@@ -4,32 +4,32 @@
 <head>
     <title id="big-title">Clone Wars Chewbacca</title>
 
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
 
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/clone-chewbacca/chewi-image.png">
-
-    <!-- Lien vers la feuille de style -->
-     <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
 
-    <!-- Entête de la page -->
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
             <img src="../image-perso/clone-chewbacca/chewi-image.png" alt="" style="max-width: 100%; max-height: 100%;">
         </div>
+
         <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
             <div class="language-switcher">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                    onclick="switchLanguage('fr')">
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
                 <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                    onclick="switchLanguage('en')">
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
+
             <h1 id="title"><u>Clone Wars Chewbacca</u></h1>
             <p id="description">
                 Durable Tank with both Taunt and self-Healing
@@ -37,22 +37,20 @@
             <br>
 
             <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html"
-                    id="lightside">Light Side</a>
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
                 <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
                 <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
-                <a class="capacite" href="../classement-perso/république-galactique.html"
-                    id="galactic-republic">Galactic Républic</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html" id="galactic-republic">Galactic Républic</a>
                 <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
                 <a class="capacite" href="../classement-perso/wookie.html" id="wookie">Wookiee</a>
             </nav>
         </div>
-    </header><br>
+    </header>
+    <br>
 
-    <!-- Image principale du personnage -->
     <img class="first" src="../image-perso/clone-chewbacca/chewie.png" alt="Chewbacca"><br>
 
-    <!-- Section pour les différentes attaques spéciales -->
+    <!-- Capacités -->
     <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Bowcaster</u></h2>
     <div class="capacity-container">
         <div class="left-column">
@@ -101,69 +99,78 @@
         </div>
     </div>
 
-    <!-- Pied de page -->
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
         <script>
-            const translations = {
-                en: {
-                    "big-title" : "Clone Wars Chewbacca",
-                    "title" : "<u>Clone Wars Chewbacca</u>",
-                    "description" : "Durable Tank with both Taunt and self-Healing",
-                    "lightside" : "Light Side",
-                    "tank" : "Tank",
-                    "leader" : "Leader",
-                    "galactic-republic" : "Galactic républic",
-                    "scoundrel" : "Scoundrel",
-                    "wookie" : "Wookiee",
-                    "basic-attack-title" : "<u>Basic Attack: Bowcaster</u>",
-                    "basic-attack" : "Deal Physical damage to target enemy with a 55% chance to remove 50% Turn Meter.",
-                    "special-attack1-title" : "<u>Special Attack: Wookiee Rage (cooldown: 3)</u>",
-                    "special-attack1" : "Chewbacca Taunts and gains 30% Health Up for 2 turns.",
-                    "special-attack2-title" : "<u>Special Attack: Defiant Roar (cooldown: 3)</u>",
-                    "special-attack2" : "Chewbacca dispels all debuffs from himself, recovers 50% of his Max Health, gains Defense Up for 3 Turns, and has a 50% Chance to gain 25% Turn Meter.",
-                    "lead-ability-title" : "<u>Leader Ability: Wookiee Resolve</u>",
-                    "lead-ability" : "All allies have +50 Defense, and a 50% chance to gain Defense Up for 3 turns whenever they are damaged.",
-                },
-                fr: {
-                    "big-title" : "Chewbacca Guerre des Clones",
-                    "title" : "<u>Chewbacca Guerre des Clones</u>",
-                    "description" : "Tank résistant qui dispose de la raillerie et de l'auto-guérisson.",
-                    "lightside" : "Coté Lumineux",
-                    "tank" : "Tank",
-                    "leader" : "Chef",
-                    "galactic-republic" : "République Galactique",
-                    "scoundrel" : "Vaurien",
-                    "wookie" : "Wookiee",
-                    "basic-attack-title" : "<u>Attaque Basique : Arbalète laser</u>",
-                    "basic-attack" : "inflige des dégâts physiques à une cible ennemie avec 55% de chances de réduire sa jauge de tour de 50%.",
-                    "special-attack1-title" : "<u>Attaque Spéciale : Rage Wookiee (délai : 3)</u>",
-                    "special-attack1" : "Chewbacca utilise la raillerie et récupère 30% de santé pendant 2 tours.",
-                    "special-attack2-title" : "<u>Attaque spéciale : Rugissement de défi (délai : 3)</u>",
-                    "special-attack2" : "Chewbacca supprime tous les affaiblissement l'affectant, récupère 50% de sa santé maximale, obtient un bonus de défense pendant 3 tours, et a 50% de chances de remplir sa jauge de tour de 25%",
-                    "lead-ability-title" : "<u>Capacité de Chef : détermination Wookiee</u>",
-                    "lead-ability" : "Tous les alliés ont +30 de défense ainsi que 25% de chances d'obtenir un bonus de défense pendant 2 tours quand ils subissent des dégâts.",
-                }
+            const translationsFr = {
+                "big-title" : "Chewbacca Guerre des Clones",
+                "title" : "<u>Chewbacca Guerre des Clones</u>",
+                "description" : "Tank résistant qui dispose de la raillerie et de l'auto-guérisson.",
+                "lightside" : "Coté Lumineux",
+                "tank" : "Tank",
+                "leader" : "Chef",
+                "galactic-republic" : "République Galactique",
+                "scoundrel" : "Vaurien",
+                "wookie" : "Wookiee",
+                "basic-attack-title" : "<u>Attaque Basique : Arbalète laser</u>",
+                "basic-attack" : "inflige des dégâts physiques à une cible ennemie avec 55% de chances de réduire sa jauge de tour de 50%.",
+                "special-attack1-title" : "<u>Attaque Spéciale : Rage Wookiee (délai : 3)</u>",
+                "special-attack1" : "Chewbacca utilise la raillerie et récupère 30% de santé pendant 2 tours.",
+                "special-attack2-title" : "<u>Attaque spéciale : Rugissement de défi (délai : 3)</u>",
+                "special-attack2" : "Chewbacca supprime tous les affaiblissement l'affectant, récupère 50% de sa santé maximale, obtient un bonus de défense pendant 3 tours, et a 50% de chances de remplir sa jauge de tour de 25%",
+                "lead-ability-title" : "<u>Capacité de Chef : détermination Wookiee</u>",
+                "lead-ability" : "Tous les alliés ont +50 de défense ainsi que 25% de chances d'obtenir un bonus de défense pendant 2 tours quand ils subissent des dégâts."
             };
 
-            function replaceNewLinesWithBr(text) {
-                return text.replace(/\n\n/g, '<br><br>');
-            }
+            const originalTexts = {};
 
-            function switchLanguage(lang) {
-                for (const [key, text] of Object.entries(translations[lang])) {
-                    const element = document.getElementById(key);
-                    if (element) {
-                        // Convert \n\n to <br><br> before injecting
-                        element.innerHTML = replaceNewLinesWithBr(text);
-                    }
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
                 }
             }
 
-            window.onload = () => switchLanguage('en');
-        </script>
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
 
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
     </footer>
 </body>
 

@@ -86,7 +86,8 @@
         <button id="add-tag-btn" class="btn btn-secondary">Add</button>
       </div>
       <datalist id="tag-suggestions"></datalist>
-      <button id="reset-filters" class="btn btn-danger w-100">Reset Filters</button>
+      <button id="reset-filters" class="btn btn-danger w-100">Reset Filters</button><br><br>
+      <button id="home-btn" style="background-color: cyan;" class="btn btn-danger w-100" onclick="window.location.href='../index.html'">🏠 Home</button>
     </div>
 
     <button id="scrollTopBtn" title="Back to top">↑</button>
@@ -155,6 +156,7 @@
         document.getElementById("add-tag-btn").textContent = "Ajouter";
         document.getElementById("search-bar").placeholder = "Rechercher un personnage...";
         document.getElementById("tag-input").placeholder = "Ajouter un tag...";
+        document.getElementById("home-btn").textContent = currentLang === "fr" ? "🏠 Menu" : "🏠 Home";
       } else {
         document.getElementById("filter-title").textContent = "Character Filter";
         document.querySelector("h4").textContent = "Results:";
@@ -162,6 +164,7 @@
         document.getElementById("add-tag-btn").textContent = "Add";
         document.getElementById("search-bar").placeholder = "Search character...";
         document.getElementById("tag-input").placeholder = "Add a tag...";
+        document.getElementById("home-btn").textContent =currentLang === "fr" ? "🏠 Menu" : "🏠 Home";
       }
     }
 
@@ -255,12 +258,13 @@ function applyFilters() {
     return matchFactions && matchRole && matchAlignment && matchSearch && matchCustomTags;
   });
 
-  // 🔹 Tri alphabétique
-  filtered.sort((a, b) => {
-    const nameA = (a.name?.[currentLang] || a.name?.en || "").toLowerCase();
-    const nameB = (b.name?.[currentLang] || b.name?.en || "").toLowerCase();
-    return nameA.localeCompare(nameB, currentLang);
-  });
+// 🔹 Tri par Base ID
+filtered.sort((a, b) => {
+  const idA = a.base_id?.toLowerCase() || "";
+  const idB = b.base_id?.toLowerCase() || "";
+  return idA.localeCompare(idB, undefined, { numeric: true });
+});
+
 
   renderActiveFilters(selectedFactions, selectedRole, selectedAlignment, searchQuery, customTags);
   renderCharacters(filtered);
