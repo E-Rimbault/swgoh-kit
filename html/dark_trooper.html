@@ -1,109 +1,185 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Dark Trooper</title>
-
+    <title id="big-title">Dark Trooper</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/dark-trooper/dark-tropper-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/dark-trooper/dark-tropper-image.png" alt="Dark Trooper" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Dark Trooper</u></h1>
-        <p>
-            Un attaquant du Vestige de l'empire dont les capacités sont modifiées en fonction du<br>
-            nombre des soldats dans l'escouade de Dark Trooper.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color:red" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/droïde.html">Droïde</a>
-            <a class="capacite" href="../classement-perso/empire.html">Empire</a>
-            <a class="capacite" href="../classement-perso/vestige-de-l'empire.html">Vestige de l'Empire</a>
-            <a class="capacite" href="../classement-perso/soldat-de-lempire.html">Soldat de l'Empire</a>
-        </nav>
+            <h1 id="title"><u>Dark Trooper</u></h1>
+            <p id="description">
+                An Imperial Remnant attacker whose abilities are modified by the amount in Dark Trooper Squad
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/droïde.html" id="droïd">Droïd</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="capacite" href="../classement-perso/vestige-de-l'empire.html" id="imperial-remnant">Imperial Remnant</a>
+                <a class="capacite" href="../classement-perso/soldat-clone.html" id="imperial-trooper">Imperial Trooper</a>
+            </nav>
+        </div>
     </header>
     <br>
 
     <img class="first" src="../image-perso/dark-trooper/dark-troper.png" alt="Dark Trooper"><br>
 
-    <h2 class="titre"><u>attaque basique : Frappe pneumatique</u></h2>
+    <!-- Capacités -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Pneumatic Punch</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="dark trooper basic" src="../image-perso/dark-trooper/dark-trooper-basic.png">
+            <img class="attaque" alt="Dark Trooper basic" src="../image-perso/dark-trooper/dark-trooper-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie une fois par cumul d'escoaude de Dark Trooper.<br>
-                Cette capacité ne peut pas infliger un coup critique à moins que cette unité dispose de l'avantage.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy once for each stack of Dark Trooper Squad. This ability can't critically hit unless this unit has Advantage.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Bombardement des renforts (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Bombarding Reinforcements (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Dark trooper spé" src="../image-perso/dark-trooper/dark-trooper-sp-1.png">
+            <img class="attaque" alt="Dark Trooper spe 1" src="../image-perso/dark-trooper/dark-trooper-spe-1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à tous les ennemis. Si le Dark Trooper dispose de 3 cumuls d'escouade<br>
-                de Dark Trooper ou plus, les alliés du Vestige de l'Empire obtiennenent l'avantage pendant 2 tours.<br>
-                Sinon, le Dark Trooper obtient 1 cumul d'escouade de Dark Trooper.
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies. If Dark Trooper has 3 or more stacks of Dark Trooper Squad, Imperial Remnant allies gain Advantage for 2 turns, otherwise Dark Trooper gains 1 stack of Dark Trooper Squad.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Parfaits soldats (délai: 5)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Perfect Soldiers (cooldown: 5)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Dark tropper spé 2" src="../image-perso/dark-trooper/dt-unique.png">
+            <img class="attaque" alt="Dark Trooper spe 2" src="../image-perso/dark-trooper/dark-trooper-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                La jauge de tour des soldats de l'Empire alliés se remplit de 10% pour chaque cumul d'escoaude de Dark<br>
-                Trooper dont dispose le Dark Trooper. Si le Dark Trooper dispose de 2 cumuls d'escouade de Dark Trooper<br>
-                ou plus, les alliés du Vestige de l'Empire obtiennenent un bonus d'attaque pendant 2 tours. Sinon, les<br>
-                alliés du Vestige de l'Empire obtiennenent un bonus d'attaque pendant 1 tour.
+            <p class="attaque" id="special-attack2">
+                Imperial Trooper allies gain 10% Turn Meter for each stack of Dark Trooper Squad the Dark Trooper has. If Dark Trooper has 2 or more stacks of Dark Trooper Squad, Imperial Remnant allies gain Offense Up for 2 turns, otherwise Imperial Remnant allies gain Offense Up for 1 turn instead.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Escouade de Dark Troopers</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Dark Trooper Squad</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="dark trooper unique" src="../image-perso/dark-trooper/dark-trooper-unique2.png">
+            <img class="attaque" alt="Dark Trooper unique" src="../image-perso/dark-trooper/dark-trooper-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Le Dark Trooper dispose de 4 cumuls d'Escouade de Dark Troopers, 25% de sa santé maximale et de sa protection<br>
-                maximale de base, est immunisé contre les effets de variation de santé maximale et de protection maximale,<br>
-                et ne peut pas être vaincu ou détruit tant qu'il dispose de plus d'un cumul d'escoaude de Dark Troopers.<br>
-                <br>
-                Si le Dark Trooper est vaincu lorsqu'il dispose de 2 cumuls d'Escouade de Dark Troopers ou plus, à la place<br>
-                tous ses affaiblissements sont dissipés , le nombre de cumuls d'Escouade de Dark Troopers est réduit de<br>
-                1 et il récupère 100% de santé et de protection.<br>
-                <br>
-                Le Dark Trooper a +25% de défense pour chaque cumuls d'Escouade de Dark Troopers. Le Dark Trooper ne peut<br>
-                pas être ranimé ni subir de coup critique.
+            <p class="attaque" id="unique-ability">
+                Dark Trooper has 4 stacks of Dark Trooper Squad, 25% of its base Max Health and Max Protection, is immune to Max Health and Max Protection changes and can't be defeated or destroyed while it has more than one stack of Dark Trooper Squad.
+                <br><br>
+                If Dark Trooper would be defeated while it has 2 or more stacks of Dark Trooper Squad, instead dispel all debuffs on it, reduce the number of Dark Trooper Squad stacks by 1 and recover 100% Health and Protection.
+                <br><br>
+                Dark Trooper has +25 Defense for each stack of Dark Trooper Squad it currently has. Dark Trooper can't be revived and can't be critically hit.
             </p>
         </div>
     </div>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Dark Trooper",
+                "title": "<u>Dark Trooper</u>",
+                "description": "Un attaquant du Vestige de l'Empire dont les capacités sont modifiées en fonction du nombre des soldats dans l'Escouade de Dark Troopers",
+
+                "basic-attack-title": "<u>Attaque Basique: Frappe Pneumatique</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie une fois par cumul d'Escouade de Dark Troopers. Cette capacité ne peut pas infliger un coup critique à moins que cette unité dispose de l'avantage.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Bombardement des renforts (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis. Si le Dark Trooper dispose de 3 cumuls d'Escouade de dark troopers ou plus, les alliés du Vestige de l'Empire obtiennent l'Avantage. Sinon Dark Trooper obtient 1 cumul d'Escouade de dark troopers.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Parfaits soldats (délai : 5)</u>",
+                "special-attack2": "La jauge de tout des soldats de l'Empire allié se remplit de 10 % pour chaque cumuls d'Escouade de dark troopers dont dispose le Dark Trooper. Si le Dark Trooper dispose de 2 cumuls ou plus d'Escouade de dark troopers ou plus, les alliés du Vestige de l'Empire obtiennent un bonus d'attaque pendant 2 tours. Sinon, les alliés du Vestige de l'Empire obtiennent un bonus d'attaque pendant 1 tour.",
+
+                "unique-ability-title": "<u>Capacité Unique : Escouade de Dark troopers</u>",
+                "unique-ability": "Le Dark Trooper dispose de 4 cumuls d'Escoaude de dark troopers, 25 % de santé maximale et de sa protection maximale de base, est immunisé contre les effets de variation de santé maximale et de protection maximale, et ne peut pas être vaincu tant qu'il dispose de plus d'un cumul d'Escouade de dark troopers.\n\nSi le Dark trooper est vaincu lorsqu'il dispose de 2 cumuls d'Escouade de dark troopers ou plus, à la place tous ses affaiblissements sont dissipés, le nombre de cumul d'Escouade de dark troopers est réduit de 1 et il récupère 100 % de santé et de protection.\n\nLe Dark Trooper a +25 de défense pour chaque cumul d'Escouade de dark troopers. Le Dark Trooper ne peut pas être ranimé ni subir de coups critiques.",
+
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "droïd": "Droïde",
+                "empire": "Empire",
+                "imperial-remnant": "Vestige de l'Empire",
+                "imperial-trooper" : "Soldat de l'Empire"
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
     </footer>
 </body>
-</html>    
+
+</html>

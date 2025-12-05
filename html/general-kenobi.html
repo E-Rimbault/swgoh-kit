@@ -134,7 +134,7 @@
             const translationsFr = {
                 "big-title": "Général Kenobi",
                 "title": "<u>Général Kenobi</u>",
-                "description": "Tank Jedi énergique qui gagne la prévoyance, dissipe les affaiblissements pour conférer des améliorations et invoque les alliés disposant d'améliorations.",
+                "description": "Tank Jedi énergique qui gagne prévoyance, dissipe les affaiblissements pour conférer des améliorations et invoque les alliés disposant d'améliorations.",
                 "light-side": "Côté Lumineux",
                 "tank": "Tank",
                 "leader": "Chef",
@@ -142,15 +142,15 @@
                 "jedi": "Jedi",
                 "fleet": "Commandant de la Flotte",
                 "basic-attack-title": "<u>Attaque Basique : Frappe Intuitive</u>",
-                "basic-attack": "Inflige des dégâts physiques à une cible ennemie avec 75% de chances de conférer aléatoirement la prévoyance à un allié qui n'en dispose pas pendant 2 tours. Si tous les alliés disposent de l'amélioration, inflige le double de dégâts.",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie avec 75% de chances de conférer aléatoirement prévoyance à un allié qui n'en dispose pas pendant 2 tours. Si tous les alliés disposent de l'amélioration, inflige le double de dégâts.",
                 "special-attack1-title": "<u>1ère Spéciale : Le Négociateur (délai : 4)</u>",
                 "special-attack1": "Dissipe tous les affaiblissements en cours sur les alliés et leur confère les améliorations opposées pendant 2 tours. Tous les alliés ne subissant pas d'affaiblissement obtiennent la rétribution pendant 3 tours. La jauge de tour du Général Kenobi se remplit de 60%.",
                 "special-attack2-title": "<u>2ème Spéciale : Menez la Charge (délai : 4)</u>",
                 "special-attack2": "Inflige des dégâts physiques à une cible ennemie et confère à un allié aléatoire un bonus d'attaque pendant 2 tours. Invoque tous les autres alliés disposant d'améliorations, qui infligent 30% de dégâts en moins. Le Chevalier Jedi Anakin et Ahsoka Tano (Chipie) ne sont pas affectés par cette pénalité sur les dégâts.",
-                "lead-ability-title": "<u>Capacité de Leader : Commandant du 212e Bataillon d'Attaque</u>",
+                "lead-ability-title": "<u>Capacité de Chef : Commandant du 212e Bataillon d'Attaque</u>",
                 "lead-ability": "Les Jedi et Clones alliés gagnent 30% de leur santé maximale et un bonus de défense de 70%.\n\nLorsqu'un Jedi allié utilise une capacité spéciale de soin de l'équipe, tous les autres alliés dont la santé est au maximum sont invoqués, infligeant 50% de dégâts. Lorsqu'un clone allié utilise une capacité spéciale, il obtient une amélioration (attaquant : avantage, soutien : camouflage, tank : raillerie) pendant 1 tour.",
                 "unique-ability-title": "<u>Capacité Unique : Soresu</u>",
-                "unique-ability": "À la fin de son tour, le Général Kenobi a 65% de chances d'obtenir la prévoyance pendant 2 tours.\n\nLorsqu'un autre allié subit un coup critique quand le Général Kenobi est en vie, il gagne l'immunité aux coups critiques pendant 1 tour et le Général Kenobi utilise la raillerie pendant 1 tour.\n\nSi tous les alliés appartiennent à la République Galactique, le Général Kenobi utilise la raillerie pendant 1 tour à chaque fois qu'un autre allié de la République Galactique perd sa hausse de protection."
+                "unique-ability": "À la fin de son tour, le Général Kenobi a 65% de chances d'obtenir Prévoyance pendant 2 tours.\n\nLorsqu'un autre allié subit un coup critique quand le Général Kenobi est en vie, il gagne l'immunité aux coups critiques pendant 1 tour et le Général Kenobi utilise raillerie pendant 1 tour.\n\nSi tous les alliés appartiennent à la République Galactique, le Général Kenobi utilise raillerie pendant 1 tour à chaque fois qu'un autre allié de la République Galactique perd sa hausse de protection."
             };
             ;
 
@@ -163,13 +163,17 @@
                 }
             }
 
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
             function switchLanguageTo(lang) {
                 sessionStorage.setItem("selectedLanguage", lang);
 
                 if (lang === "fr") {
                     for (const [id, text] of Object.entries(translationsFr)) {
                         const el = document.getElementById(id);
-                        if (el) el.innerHTML = text;
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
                     }
                 } else if (lang === "en") {
                     for (const [id, text] of Object.entries(originalTexts)) {
@@ -177,6 +181,7 @@
                         if (el) el.innerHTML = text;
                     }
                 }
+
                 updateFlagActive();
             }
 
@@ -186,6 +191,7 @@
                 document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
             }
 
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
             window.addEventListener("load", () => {
                 saveOriginalTexts();
                 const lang = sessionStorage.getItem("selectedLanguage") || "en";
@@ -195,6 +201,8 @@
                 document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
             });
         </script>
+
+
     </footer>
 </body>
 

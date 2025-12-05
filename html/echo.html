@@ -121,9 +121,9 @@
                     "basic-attack-title" : "<u>Attaque Basique : Défense audacieuse</u>",
                     "basic-attack" : "Inflige des dégâts physiques à une cibe ennemie. Confère un bonus de défense et un bonus d'esquive pendant 2 tours au soldat clone allié le plus faible qui n'en dispose pas déjà.",
                     "special-attack1-title" : "<u>Attaque Spéciale : Un coup d'avance (délai: 3)</u>",
-                    "special-attack1" : "Inflige l'immunité aux amélioration à la cible ennemie pendant 2 tours. Expose tous les ennemis pendant 2 tours.\n\nDissipe tous les affaiblissements en cours sur le soldat clone alliéciblé et l'invoque. Si cet allié fait partie du Bad Batch, cette immunité aux améliorations ne peut pas être dissipé et Echo augmente les délais de la cible ennemie de 1 (exclut les légendes galactiques). Cette attaque ne peut être esquivée.",
+                    "special-attack1" : "Inflige l'immunité aux amélioration à la cible ennemie pendant 2 tours. Expose tous les ennemis pendant 2 tours.\n\nDissipe tous les affaiblissements en cours sur le soldat clone allié ciblé et l'invoque. Si cet allié fait partie du Bad Batch, cette immunité aux améliorations ne peut pas être dissipé et Echo augmente les délais de la cible ennemie de 1 (exclut les légendes galactiques). Cette attaque ne peut être esquivée.",
                     "special-attack2-title" : "<u>Attaque Spéciale : Jamais de doute (délai: 3)</u>",
-                    "special-attack2" : "Inflige l'immunité aux amélioration à la cible ennemie pendant 2 tours. Expose tous les ennemis pendant 2 tours.\n\nDissipe tous les affaiblissements en cours sur le soldat clone alliéciblé et l'invoque. Si cet allié fait partie du Bad Batch, cette immunitéaux améliorations ne peut pas être dissipé et Echo augmente les délais de la cible ennemie de 1 (exclut les légendes galactiques). Cette attaque ne peut être esquivée.",
+                    "special-attack2" : "Les soldats clones alliés obtiennent un bonus d'esquive pendant 2 tours. Dissipe toutes les améliorations des ennemis et inflige la Confusion et l'immunité aux soins pendant 2 tours.\n\nPour chaque amélioration dissipée, les soldats clones alliés obtiennent 10 % d'attaque jusqu'à la fin de leur prochain tour, et la jauge de tour des alliés du Bat Batch se remplit de 5 %. Cette attaque ne peut pas être esquivée ou résistée.",
                     "unique-ability-title" : "<u>Capacité Unique : Un qui survit</u>",
                     "unique-ability" : "Chaque fois qu'un soldat clone allié obtient ou perd une amélioration à cause de la capacité d'un allié du Bad Batch, il récupère 4% de santé et de protection (doublé pour les alliés du Bad Batch).\n\nLorsqu'un allié du Bad Batch inflige un affaiblissement à un ennemi, ce dernier perd 8% de protection. Si cet ennemi a moins de 50% de protectionet plus de 50% de santé, il perd également 8% de santé. Cet effet exclut les boss de raid et les Légendes Galactiques.",
                 };
@@ -137,12 +137,17 @@
                 }
             }
 
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
             function switchLanguageTo(lang) {
                 sessionStorage.setItem("selectedLanguage", lang);
+
                 if (lang === "fr") {
                     for (const [id, text] of Object.entries(translationsFr)) {
                         const el = document.getElementById(id);
-                        if (el) el.innerHTML = text;
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
                     }
                 } else if (lang === "en") {
                     for (const [id, text] of Object.entries(originalTexts)) {
@@ -150,6 +155,7 @@
                         if (el) el.innerHTML = text;
                     }
                 }
+
                 updateFlagActive();
             }
 
@@ -163,6 +169,7 @@
                 saveOriginalTexts();
                 const lang = sessionStorage.getItem("selectedLanguage") || "en";
                 switchLanguageTo(lang);
+
                 document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
                 document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
             });

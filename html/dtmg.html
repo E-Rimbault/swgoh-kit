@@ -1,146 +1,215 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Moff Gideon Dark Tropper</title>
-
+    <title id="big-title">Dark Trooper Moff Gideon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/dtmg/dtmg-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/dtmg/dtmg-image.png" alt="Dark Trooper Moff Gideon" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Moff Gideon Dark Tropper</u></h1>
-        <p>
-            Un chef du Vestige de l'Empire qui sacrifie ses alliés les plus faibles<br>
-            pour rester en vie et qui controle la bataille avec perspicacité.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color:red" href="../classement-perso/coté-obscur.html">Coté obscur</a>
-            <a class="class" href="../classement-perso/tank.html">Tank</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/empire.html">Empire</a>
-            <a class="capacite" href="../classement-perso/vestige-de-l'empire.html">Vestige de l'empire</a>
-        </nav>
+            <h1 id="title"><u>Dark Trooper Moff Gideon</u></h1>
+            <p id="description">
+                Imperial Remnant Leader that sacrifices his weakest allies to stay alive and controls the battle with insight
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="capacite" href="../classement-perso/vestige-de-l'empire.html" id="imperial-remnant">Imperial Remnant</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/dtmg/Dark-trooper-moff-gideon.png" alt="dtmg"><br>
+    <img class="first" src="../image-perso/dtmg/Dark-trooper-moff-gideon.png" alt="Dark Trooper Moff Gideon"><br>
 
-    <h2 class="titre"><u>attaque basique : Lance de force</u></h2>
+    <!-- Capacités -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Force Lance</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="dtmg basique" src="../image-perso/dtmg/dtmg-basic.png">
+            <img class="attaque" alt="Dark Trooper Moff Gideon basic" src="../image-perso/dtmg/dtmg-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie. Obtient 1 cumul de Perspicacité (maximum 4) et jusqu'à<br>
-                la fin de l'affrontement et si la cible souffrait de Confusion, d'un malus d'attaque ou de Faux pas, elle<br>
-                subit Etourdissement pendant 1 tour. Cette attaque inflige 10% de dégâts supplémentaires pour chaque<br>
-                affaiblissement subi par la cible ennemie.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. Gain 1 stack of Insight (max 4) until the end of the encounter, and if the target had Daze, Offense Down, or Stagger, Stun them for 1 turn. This attack deals 10% more damage for each debuff on target enemy.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Assaut stratégique(délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Strategic Onslaught (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="dtmg spé 1" src="../image-perso/dtmg/dtmg-sp-1.png">
+            <img class="attaque" alt="Dark Trooper Moff Gideon special 1" src="../image-perso/dtmg/dtmg-sp-1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à tous les ennemis et retire 10% de jauge de tour pour chaque cumuls de Perspicacité<br>
-                possédé par Moff Gideon Dark Tropper (ne peut pas être esquivé). Moff Gideon Dark Tropper perd tous les cumuls de Perspicacité.<br>
-                <br>
-                <u class="omicron">Dans les Guerres de territoire:</u><br>
-                Inflige des dégâts supplémentaires et retire 10% de jauge supplémentaires pour chaque cumuls de Perspicacité posséde<br>
-                par Moff Gideon Dark Tropper. Inflige immunité aux soins à tous les ennemis pendant 2 tours (ne peut pas être dissipé ou résisté).
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies and remove 10% Turn Meter for each stack of Insight on Dark Trooper Moff Gideon, which can't be evaded. Dark Trooper Moff Gideon loses all stacks of Insight.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> Deal additional True damage and remove an additional 10% Turn Meter for each stack of Insight on Dark Trooper Moff Gideon. Inflict all enemies with Healing Immunity for 2 turns, which can't be dispelled or resisted.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Présence déterminée (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Unwavering Presence (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="dtmg spé 2" src="../image-perso/dtmg/dtmg-sp-2.png">
+            <img class="attaque" alt="Dark Trooper Moff Gideon special 2" src="../image-perso/dtmg/dtmg-sp-2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Tous les alliés gagnent un bonus de précision et un bonus de défense pendant 3 tours. Moff Gideon Dark Tropper utilise<br>
-                Raillerie pendant 2 tours (ne peut pas être dissipé ou empeché), récupère 30% de santé et de protection et invoque la cible alliée.<br>
-                <br>
-                Si Moff Gideon Dark Tropper est dans l'emplacement de chef, les alliés du Vestige de l'Empire vaincus sont ranimés avec 100% de santé<br>
-                et de protection et reçoivent Camouflage pendant 2 tours. Sinon, les alliés Mandaloriens du Coté obscur sont ranimés avec 30%<br>
-                de santé et de protection, et ils obtiennent Rétribution pendant 2 tours.
+            <p class="attaque" id="special-attack2">
+                All allies gain Accuracy Up and Defense Up for 3 turns. Dark Trooper Moff Gideon Taunts for 2 turns, which can't be dispelled or prevented, recovers 30% Health and Protection, and calls target other ally to assist.
+                <br><br>
+                If Dark Trooper Moff Gideon is in the leader slot, defeated Imperial Remnant allies are revived with 100% Health and Protection and Stealth for 2 turns. Otherwise, defeated Dark Side Mandalorian allies are revived with 30% Health and Protection and gain Retribution for 2 turns.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Capacité de chef: Contigence de l'ombre</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Shadow Contingency</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="dtmg lead" src="../image-perso/dtmg/dtmg-lead.png">
+            <img class="attaque" alt="Dark Trooper Moff Gideon lead" src="../image-perso/dtmg/dtmg-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Les alliés du Vestige de l'Empire non droïdes ont +75% de chances de coup critique, de dégâts critiques, de défense et d'attaque.<br>
-                <br>
-                Si tous les alliés font partie du Vestige de l'Empire au début de la bataille:<br>
-                -Lorsqu'un allié obtient ou perd un bonus de jauge de tour ou un tour bonus,<br>
-                il récupère cette quantité en santé et en protection.<br>
-                <br>
-                -Lorsqu'un ennemi obtient de la jauge de tour bonus ou un tour bonus, il perd 10%<br>
-                de défense et d'attaque jusqu'à la fin de son tour suivant.<br>
-                <br>
-                - A chaque tour de Moff Gideon Dark Tropper utilise une capacité spéciale, tous les alliés<br>
-                obtiennent 10% de défense et d'attaque (cumulatif) jusqu'à la fin de l'affrontement.<br>
-                <br>
-                -A chaque fois que Moff Gideon Dark Tropper prend son tour, lui et tous les Moff Gideon<br>
-                alliés obtiennent un cumul de Perspicacité jusqu'à la fin de l'affrontement.<br>
-                <br>
-                -La première fois qu'un autre allié est vaincu à chaque fois affrontement, Moff Gideon Dark Tropper<br>
-                obtient 100% de jauge de tour.<br>
-                <br>
-                <u class="speciale">Perspicacité</u>: Les personnages obtiennent des effets supplémentaires et des capacité<br>
-                supplémentaires en fonction du nombre de cumuls présent.<br>
-                <br>
-                <u class="omicron">Dans les Guerres de territoire:</u><br>
-                <br>
-                Les alliés du Vestige de l'Empire non droïdes disposent de +75% de santé et de maitrise ainsi que +30 de vitesse.<br>
-                Lorsqu'un allié du Vestige de l'Empire utilise Raillerie, dissipe tous les affaiblissement de tous les alliés et<br>
-                toutes les améliorations de tous les ennemis. Lorsqu'un allié du Vestige de l'Empire est ranimé, il reçoit un tour bonus.
+            <p class="attaque" id="lead-ability">
+                Non-Droid Imperial Remnant allies have +75% Critical Chance, Critical Damage, Defense, and Offense.
+                <br><br>
+                If all allies were Imperial Remnant at the start of battle:<br>
+                - Whenever an ally gains or loses Turn Meter or a bonus turn, they recover that much Health and Protection.<br>
+                - Whenever an enemy gains bonus Turn Meter or a bonus turn, they lose 10% Defense, Offense, and Turn Meter until the end of their next turn.<br>
+                - Whenever Dark Trooper Moff Gideon uses a Special ability, all allies gain 10% Defense and Offense (stacking) until the end of the encounter.<br>
+                - Whenever Dark Trooper Moff Gideon takes a turn, he and all allied Moff Gideons gain 1 stack of Insight until the end of the encounter.<br>
+                - The first time each other ally is defeated each encounter, Dark Trooper Moff Gideon gains 100% Turn Meter.
+                <br><br>
+                <u class="speciale">Insight:</u> Characters gain additional effects and abilities based on the number of stacks.
+                <br><br>
+               <u class="omicron">Omicron Boost : While in Territory Wars:</u> Non-Droid Imperial Remnant allies have +75% Health and Mastery and +30 Speed. Whenever an Imperial Remnant ally Taunts, dispel all debuffs from all allies and all buffs from all enemies. Whenever an Imperial Remnant ally is revived, grant them a bonus turn.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Dark trooper en armure beskar</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : <br></u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="dtmg unique" src="../image-perso/dtmg/dtmg-unique.png">
+            <img class="attaque" alt="Dark Trooper Moff Gideon unique" src="../image-perso/dtmg/dtmg-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Moff Gideon Dark trooper a +100% d'esquive des critiques, +50% de défense et +30% de santé maximale et<br>
-                de protection maximale.
+            <p class="attaque" id="unique-ability">
+                Dark Trooper Moff Gideon has +100% Critical Avoidance, +50% Defense, and +30% Max Health and Max Protection. At the end of his turn, he recovers 30% Protection. Whenever Dark Trooper Moff Gideon would be defeated, if he has 4 or more stacks of Insight, he recovers 100% Health, loses all stacks of Insight, and the weakest non-Galactic Legend ally is defeated instead.
+                <br><br>
+                If the allied Leader is a Dark Side Mandalorian:<br>
+                - Dark Trooper Moff Gideon gains 25% Offense.<br>
+                - Dark Side Mandalorian allies recover 20% Protection at the end of their turn.
+                <br><br>
+                <u class="speciale">Omicron Boost : While in Territory Wars:</u> Dark Trooper Moff Gideon gains an additional 30% Max Protection and recovers 100% Protection on his first turn. He begins the battle with Taunt for 2 turns, which can't be dispelled or prevented, and 4 stacks of Insight. Whenever he receives damage, he gains a stack of Insight (Max 4) until the end of the encounter.
             </p>
-        
         </div>
     </div>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Moff Gideon Dark Trooper",
+                "title": "<u>Moff Gideon Dark Trooper</u>",
+                "description": "Un chef du Vestige de l'Empire qui sacrifie ses alliés les plus faibles pour rester en vie et qui contrôle la bataille avec perspicacité.",
+
+                "basic-attack-title": "<u>Attaque Basique: Lance de force</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie. Obtient 1 cumul de Perspicacité (maximum 4) et jusqu'à la fin de l'affrontement et si la cible souffrait de Confusion, d'un malus d'attaque ou de Faux pas, elle subit Étourdissement pendant 1 tour. Cette attaque inflige 10 % de dégâts supplémentaires pour chaque affaiblissements subi par la cible ennemie.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Assaut stratégique (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis et retire 10 % de jauge de tour pour chaque cumul de Perspicacité possédé par Moff Gideon Dark Trooper (ne peut pas être esquivé). Moff Gideon Dark Trooper perd tous les cumuls de Perspicacité.\n\n <u class='omicron'>Amélioration Omicron : Dans les Guerres de territoires :</u> inflige des dégâts réels supplémentaires et retire 10 % de jauge de tour supplémentaire. Pour chaque cumul de Perspicacité possédé par Moff Gideon Dark Trooper. Inflige Immunité aux soins à tous les ennemis pendant 2 tours (ne peut pas être dissipé ou résisté).",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Présence déterminée (délai : 4)</u>",
+                "special-attack2": "Tous les alliés gagnent un bonus de précision et un bonus de défense pendant 3 tours. Moff Gideon Dark Trooper utilise Raillerie pendant 2 tours (ne peut pas être dissipé ou empêché), récupère 30 % de santé et de protection et invoque la cible alliée.\n\n Si Moff Gideon Dark Trooper est dans l'emplacement de chef, les alliés du Vestige de l'Empire sont ranimés avec 100 % de santé et de protection et reçoivent Camouflage pendant 2 tours. Sinon, les alliés Mandaloriens du Coté Obscur sont ranimés avec 30 % de santé et de protection, et ils obtiennent Rétribuition pendant 2 tours.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Contingence de l'ombre</u>",
+                "lead-ability": "Les alliés du VEstige de l'Empire non droïdes ont + 75 % de chances de coup critique, de dégâts critiques, de défense et d'attaque.\n\nSi tous les alliés font partie du Vestige de l'Empire au début de la bataille :\n- Lorsqu'un allié obtient ou perd de la la jauge de tour ou un tour bonus, il récupère cette quantité en soin et en protection.\n- Lorsqu'un ennemi obtient de la jauge de tour ou un tour bonus, il perd 10 % de défense, d'attaque et de jauge de tour jusqu'à la fin de son tour suivant.\n- A chaque fois que Moff Gideon Dark Trooper utilise une capacité spéciale, tous les alliés obtiennent 10 % de défense et d'attaque (cumulatif) jusqu'à la fin de l'affrontement.\n- A chaque fois que Moff Gideon Dark Trooper prend son tour, lui et tous les Moff Gideon obtiennent 1 cumul de Perspicacité jusqu'à la fin de l'affrontement.\n- La première fois qu'un autre allié est vaincu à chaque affrontement, Moff Gideon Dark Trooper obtient 100 % de jauge de tour.\n\n<u class='speciale'>Perspicacité :</u> Les personnages obtiennent des effets et des capacités supplémentaires en fonction du nombre de cumuls.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoires :</u> les alliés du Vestige de l'Empire non-droïdes disposent de +75 % de santé et de mâitrise ainsi que +30 de vitesse. Lorsqu'un allié du Vestige de l'Empire utilise Raillerie, dissipe tous les affaiblissements de tous les alliés et toutes les améliorations de tous les ennemis. Lorsqu'un allié du Vestige de l'Empire est ranimé, il reçoit un tour bonus.",
+
+                "unique-ability-title": "<u>Capacité Unique : Dark Trooper en armure beskar </u>",
+                "unique-ability": "Moff Gideon Dark Trooper a +100 %d'esquive des critiques, +50 % de défense et +30 % de santé maximale et de protection maximale A la fin de son tour, il récupère 30 % de protection. Lorsque Moff Gideon Dark Trooper est vaincu, s'il dispose de 4 cumuls de Perspicacité ou plus, il récupère 100 % de santé; perd tous les cumuls de Perspicacité et l'allié le plus faible hors Légende Galactique est vaincu à sa place.\n\n Si le cheg est un Mandalorien du Coté Obscur :\n- Moff Gideon Dark Trooper obtient un bonus d'attaque de 25 %.\n-Les alliés Mandaloriens du Coté Obscur récupèrent 20 % de protection à la fin de leur tour.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> Moff Gideon Dark Trooper obtient 30 % de protection maximale supplémentaire et récupère 100 % de protection pendant son premier tour. Il commence la bataille avec Raillerie pendant 2 tours (ne peut pas être dissipé ou empêché) et 4 cumuls de Perspicacité. Lorsqu'il subit des dégâts, il obtient 1 cumul de Perspicacité (maximum 4) jusqu'à la fin de l'affrontement.",
+
+                "darkside": "Coté Obscur",
+                'tank': "Tank",
+                "leader": "Chef",
+                "empire": "Empire",
+                "imperial-remnant": "Vestige de l'Empire"
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
     </footer>
 </body>
-</html>    
+
+</html>
