@@ -1,0 +1,147 @@
+/*-- partie vaisseau -- */
+.crew-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto 40px auto;
+}
+
+.crew-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.crew-image {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.crew-image:hover {
+    transform: scale(1.1);
+}
+
+.crew-name a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #007bff;
+    margin-top: 5px;
+    display: block;
+    transition: color 0.3s;
+}
+
+.crew-name a:hover {
+    color: #0056b3;
+}
+
+#crew-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.ship-nav {
+    display: flex;
+    flex-direction: column; /* ⬅️ empile badges puis unités */
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+}
+
+/* Badges (alignement / rôle / factions) */
+.nav-left {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Unités associées AU-DESSOUS des badges */
+.nav-right {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Carte unité */
+.ship-unit {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Image unité */
+.ship-unit-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+
+.ship-unit-image:hover {
+    transform: scale(1.1);
+}
+
+/* Nom unité */
+.ship-unit-name {
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+
+.ship-unit-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+
+.ship-unit-image:hover {
+    transform: scale(1.1);
+}
+
+.ship-unit-name {
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+/* Conteneur images crew */
+.crew-visual {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Image principale capacité */
+.capacity-container .left-column img.attaque-ship {
+    width: 140px;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #222;
+    background: #111;
+}
+
+/* Portrait pilote */
+.capacity-container .left-column img.pilote-ship {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid #222;
+    background: #111;
+}
+
+/* Lien pilote */
+.crew-pilot {
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.crew-pilot:hover {
+    transform: scale(1.08);
+}

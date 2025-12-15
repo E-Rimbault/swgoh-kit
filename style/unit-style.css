@@ -8,6 +8,7 @@ body.simple {
     line-height: 1.7;
 }
 
+
 /* --- Header avec portrait + infos --- */
 header.perso {
     background: linear-gradient(90deg, #162447, #1f4068);
@@ -64,7 +65,7 @@ a.capacite {
 
 a.legende {
     background-color: white !important; /* force le fond blanc */
-    color: goldenrod !important;                        /* couleur du texte */
+    color: orangered !important;                        /* couleur du texte */
     display: inline-block;               /* pour que le fond englobe le texte */
     padding: 5px 10px;                  /* espace autour du texte */
     text-decoration: underline;
@@ -79,8 +80,8 @@ a.class {
 }
 
 a.pilote {
-    background-color: white !important; /* force le fond blanc */
-    color: grey !important;                        /* couleur du texte */
+    background-color: grey !important; /* force le fond blanc */
+    color: white !important;                        /* couleur du texte */
     display: inline-block;               /* pour que le fond englobe le texte */
     padding: 5px 10px;                  /* espace autour du texte */
     text-decoration: underline;               /* enlève le soulignement */
@@ -312,4 +313,28 @@ footer {
     float: right;
     cursor: pointer;
     font-size: 20px;
+}
+
+.header-bottom {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.header-ship {
+    display: flex;
+    align-items: center;
+}
+
+.header-ship img {
+    width: 85px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.header-ship img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 6px rgba(0, 123, 255, 0.7));
 }

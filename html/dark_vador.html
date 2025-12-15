@@ -1,148 +1,218 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Dark Vador</title>
-
+    <title id="big-title">Darth Vader</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/dark-vador/vader-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/dark-vador/vader-image.png" alt="Darth Vader" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Dark Vador</u></h1>
-        <p>
-            Redoutable attaquant qui inflige des dégâts de zone sur la durée et qui écrase<br>
-            les cibles affaiblies pour obtenir des tours supplémentaires.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color:red" href="../classement-perso/coté-obscur.html">Coté Obscur</a></td>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a></td>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a></td>
-            <a class="capacite" href="../classement-perso/empire.html">Empire</a></td>
-            <a class="capacite" href="../classement-perso/sith.html">Sith</a></td>
-            <a class="pilote" href="../classement-perso/membres-équipages.html">Membres Equipages</a></td>
-        </nav>
+            <h1 id="title"><u>Darth Vader</u></h1>
+            <p id="description">
+                Fearsome Attacker that applies AoE Damage Over Time, and crushes debuffed targets for extra turns
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="capacite" href="../classement-perso/sith.html" id="sith">Sith</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew">Crew member</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/dark-vador/Dark-vador.png" alt="Vador"><br>
+    <img class="first" src="../image-perso/dark-vador/Dark-vador.png" alt="Darth Vader"><br>
 
+    <!-- Capacités -->
 
-    <h2 class="titre"><u>attaque basique : Taillade terrifiante</u></h2>
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Terrifying Swing</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="vador basique" src="../image-perso/dark-vador/vador-basic.png">
+            <img class="attaque" alt="vader basic" src="../image-perso/dark-vador/vador-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie, avec 80% de chances d'entraver ses capacités pendant 1 tour.<br>
-                Augmente à 100% si la cible est un jedi ou un rebelle. Les ennemis jedi et rebelles ne peuvent pas<br>
-                esquiver ou résister à cette attaque.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with an 80% chance to inflict Ability Block for 1 turn, increased to 100% if the target is Jedi or Rebel. This attack can't be evaded or resisted by Jedi and Rebel enemies.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>1ere spéciale: Ecrasement de force(délai: 5)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Force Crush (cooldown: 5)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="vadore spé 1" src="../image-perso/dark-vador/vador-spe1.png">
+            <img class="attaque" alt="vader spécial 1" src="../image-perso/dark-vador/vador-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à tous les ennemis et inflige également un malus de vitesse et 3<br>
-                effets de dégâts sur la durée pendant 2 tours. Cette attaque ne peut pas être contrée.
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies and inflict Speed Down and 3 Damage Over Time effects for 2 turns. This attack can't be Countered.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Lame abatteuse(délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Culling Blade (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="vador spé 2" src="../image-perso/dark-vador/vador-spe2.png">
+            <img class="attaque" alt="vader spécial 2" src="../image-perso/dark-vador/vador-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie et dissipe tous les affaiblissements l'affectant.<br>
-                Cette attaque inflige 50% de dégâts supplémentaires par effet dissipé; bonus augmenté de 100% contre<br>
-                les boss de raids, et remplit la jauge de tour de 100% si la cible est vaincue. Cette attaque bénéficie<br>
-                de 25% de chances de coup critique et ne peut pas être esquivée.
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to target enemy and dispel all debuffs on them. This attack deals 50% more damage for each effect dispelled, increased to 100% against raid bosses, and grants 100% Turn Meter if the target is defeated. This attack has +25% Critical Chance and can't be evaded.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>3eme spéciale: Massacre implacable(délai: 9)</u></h2>
+    <h2 class="titre" id="special-attack3-title"><u>Special Attack : Merciless Massacre (cooldown: 9)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="vador spé 3" src="../image-perso/dark-vador/vador-spe3.png">
+            <img class="attaque" alt="vader spécial 3" src="../image-perso/dark-vador/vador-spe3.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Confère <u class="speciale">Implacable</u> et utilise ensuite un tour bonus. Tous les ennemis obtiennent<br>
-                <u class="speciale">Ciblage implacable</u> (ne peut pas être esquivé ou résisté). Lorsque Dark Vador<br>
-                utilise une capacité Ciblage implacable est retiré de l'ennemi ciblé et Dark Vador obtient un tour bonus.<br>
-                Si la cible ne disposait pas de Ciblage implacable, alors implacable expire et Ciblage implacable est retiré<br>
-                de tous les ennemis restants. Dark Vador peut ignorer les effets de raillerie lorsqu'il cible<br>
-                des ennemis affectés par Ciblage implacable.<br>
-                <br>
-                <u class="speciale">Implacable:</u> +50% d'attaque (ne se cumule pas avec le bonus d'attaque), +50% de chances de<br>
-                coup critique et 50% de dégâts critiquess. Immunité conrtre la peur, l'étourdissement et la<br>
-                manipulation de jauge de tour. Les tours bonus de Dark Vador ne déclenchent pas les effets<br>
-                d'autres personnages basés sur les gain de tour bonus ou le remplissage de la jauge de tour.<br>
-                <br>
-                <u class="speciale">Ciblage implacable :</u> Dark Vador doit cibler une unité avec cette capacité ou un effet de<br>
-                raillerie. Il peut ignorer la raillerie pour cibler une unité, et il obtient un tour<br>
-                bonus après avoir utilisé une capacité en ciblant une unité.
+            <p class="attaque" id="special-attack3">
+                Gain <u class="speciale">Merciless</u> and take a bonus turn after this one. All enemies gain <u class="speciale">Merciless Target</u>, which can't be evaded or resisted. When Darth Vader uses an ability, Merciless Target is removed from the target enemy and Darth Vader takes a bonus turn. If the target did not have Merciless Target, Merciless expires and Merciless Target is removed from all remaining enemies. Darth Vader can ignore taunt effects when targeting enemies with Merciless Target.
+                <br><br>
+                <u class="speciale">Merciless:</u> +50% Offense (does not stack with Offense Up), +50% Critical Chance, and +50% Critical Damage; immune to Fear, Stun, and Turn Meter manipulation and Darth Vader's bonus turns do not trigger other characters' effects based on bonus turns or Turn Meter gain
+                <br><br>
+                <u class="speciale">Merciless Target:</u> Darth Vader must target a unit with this or a taunt effect, can ignore Taunt to target this unit, and takes a bonus turn after using an ability while targeting this unit
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Capacité de chef: Règne de terreur<u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="vadore lead" src="../image-perso/dark-vador/vador-lead.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Les alliés Sith et de l'empire ont +30% d'attaque, et ils ont 50% de chances de réduires de<br>
-                    20% la jauge de tour d'un ennemi quand ils infligent des dégâts. Cette réduction de la jauge<br>
-                    de tour ne peut pas être résistée. Lorsque Dark Vador est vivant, les dégats sur la durée<br>
-                    des ennemis sont prolongés pendant 2 tours lorsqu'ils arrivent à expiration.
-                </p>    
-            </div>
-        </div>
-
-
-    <h2 class="titre"><u>capacité unique: Aucune fuite possible</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Inspiring Through Fear</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="vador unique" src="../image-perso/dark-vador/vador-unique.png">
+            <img class="attaque" alt="vader lead" src="../image-perso/dark-vador/vador-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Au début de chaque affrontement, Dark Vador obtient 8 de vitesse jusqu'à la fin de l'affrontement<br>
-                pour chaque allié de l'Empire ou Sith et pour chaque ennemi Jedi ou rebelles<br>
-                <br>
-                Dark Vador est immunisé contre les effets de réduction de jauge de tour, et il récupère 2% de protection<br>
-                lorsqu'un effet de dégâts sur la durée d'un ennemi prend fin. Lorsque Dark Vador active<br>
-                Massacre implacable, il dissipe le camouflage de tous les ennemis.
+            <p class="attaque" id="lead-ability">
+                Empire and Sith allies have +30% Offense and have a 50% chance to remove 20% Turn Meter when they damage an enemy. This Turn Meter removal can't be Resisted. While Darth Vader is alive, enemies immediately regain Damage Over Time for 2 turns whenever Damage Over Time expires on them.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : No Escape</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="vader unique" src="../image-perso/dark-vador/vador-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                At the start of each encounter, Darth Vader gains 8 Speed until the end of the encounter for each of the following: Empire ally, Sith ally, Jedi enemy, and Rebel enemy.
+                <br><br>
+                Darth Vader is immune to Turn Meter reduction and recovers 5% Health and 2% Protection whenever a Damage Over Time effect on an enemy expires. Whenever Darth Vader activates Merciless Massacre, dispel Stealth from all enemies.
             </p>
         </div>
     </div>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Dark Vador",
+                "title": "<u>Dark Vador</u>",
+                "description": "Redoutable attaquant qui inflige des dgâts de zone sur la durée et qui écrase les cibles subissant un affaiblissement pour obtenir des tours supplémentaires.",
+
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "empire": "Empire",
+                "sith": "Sith",
+                "crew": "Membres d’Équipage",
+
+                "basic-attack-title": "<u>Attaque Basique: Taillade terrifiante</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie, avec 80 % de chances d'entraver ses capacités pendant 1 tour. Augmente a 100 % si la cible est un Jedi ou un Rebelle. Les ennemis Jedi et Rebelles ne peuvent pas esquiver ou résister à cette attaque.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Écrasement de Force (délai : 5)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis, et inflige également un malus de vitesse et 3 effets de dégâts sur la durée pendanr 2 tours. Cette attaque ne peut pas être contrée.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Lame abatteuse (délai : 4)</u>",
+                "special-attack2": "Inflige des dégâts physiques à une cible ennemie et dissipe tous les affaiblissements l'affectant. Cette attaque inflige 50 % de dégâts supplémentaires par effet dissipé, bonus augmenté de 100 % contre les boss de raid, et remplit la jauge de tour à 100 % si la cible est vaincue. Cette attaque bénéficie de +25 % de chances de coup critique et ne peut pas être esquivée.",
+
+                "special-attack3-title": "<u>Attaque Spéciale : Massacre implacable (délai : 9)</u>",
+                "special-attack3": "Confère <u class='speciale'>Implacable</u>et utilise ensuite un tour bonus. Tous les ennemis obtiennent <u class='speciale'>Ciblage implacable</u> (ne peut pas être esquivé ou résisté). Lorsque Dark Vador utilise une capacité, Ciblage implacable est retiré de l'ennemi ciblé et Dark Vador obtient un tour bonus. Si la cible ne diposait pas de Ciblage implacable, alors Implacable expire et Ciblage implacable est retiré de tous les ennemis restants. Dark Vador peut ignorer les effets de Raillerie lorsqu'il cible des ennemis affectés par Ciblage implacable.\n\n<u class='speciale'>Implacable :</u> +50 % d'attaque (ne se cumule pas avec le bonus d'attaque), +50 % de chances de coup critique et +50 % de dégâts critiques. Immunité contre la peur, l'Étourdissement et la manipulation de jauge de tour. Les tours bonus de Dark Vadore ne déclenchent pas les effets d'autres personnages basés sur le gain de tours bonus ou le remplissage de jauge de tour.\n\n<u class='speciale'>Ciblage implacable :</u> Dark Vador doit cibler une unité avec cette capacité ou un effet de Raillerie. Il peut ignorer Raillerie pour cibler cette unité, et il obtient un tour bonus après avoir utilisé une capacité en cblant cette unité.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Règne de terreur </u>",
+                "lead-ability": "Les alliés Sith et de l'Empire ont +30 % d'attaque, et ils ont 50 % de chances de réduire de 20 % la jauge de tour d'un ennemi quand ils lui infligent des dégâts. Cette réduction de la jauge de tour ne peut pas être résistée. Lorsque Dark Vador est vivant, les dégâts sur la durée des ennemis sont prolongés pendant 2 tours lorsqu'ils arrivent à expiration.",
+
+                "unique-ability-title": "<u>Capacité Unique : Aucune fuite possible</u>",
+                "unique-ability": "Au début de chaque affrontement, Dark Vador obtient 8 de vitesse jusqu'à la fin e l'affrontement pour chaque allié de l'Empire ou Sith, et pour chaque ennemi Jedi ou Rebelle.\n\nDark Vador est immunisé contre les effets de réduction de jauge de tour, et il récupère 5 % de santé et 2 % de protection lorsqu'un effet de dégâts sur la durée d'un ennemi prend fin. Lorsque Dark Vador active Massacre implacable, il dissipe le camouflage de tous les ennemis. ",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
     </footer>
 </body>
-</html>    
+
+</html>

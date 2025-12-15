@@ -1,111 +1,106 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Wampa</title>
-
+    <title id="big-title">Wampa</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/wampa/wampa-image.png">
-    <link rel="stylesheet" href="../style/styles.css">
-    <link rel="stylesheet" href="../style/capacite.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/wampa/wampa-image.png" alt="Wampa" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Wampa</u></h1>
-        <p>
-            Terrifiant prédateur de Hoth qui attaque sans cesse, augmentant sa force à chaque coup
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a style="color:red" class="capacite" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-        </nav>
+            <h1 id="title"><u>Wampa</u></h1>
+            <p id="description">
+                Fearsome predator from Hoth that attacks constantly with increasing strength
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/wampa/Wampa.png" alt="Wampa"><br>
+    <img class="first" src="../image-perso/wampa/Wampa.png" alt="wampa"><br>
 
-    <h2 class="titre"><u>attaque basique : Bam !</u></h2>
+    <!-- Capacités -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Womp!</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="wampa basique" src="../image-perso/wampa/wampa-basic.png">
+            <img class="attaque" alt="wampa basic" src="../image-perso/wampa/wampa-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie, et inflige des dégâts sur la durée pendant 2 tours.<br>
-                Si la cible avait déjà été exposée ou souffrait déjà de Faux pas, elle est étourdi pendant 1 tour.<br>
-                Si la cible souffre déjà d'un affaiblissement, la jauge de tour se remplit de 20%. Si le Wampa ne<br>
-                souffre pas d'affaiblissements, sa jauge de tour se remplit de 20%. Cette attaque ne peut pas être esquivée.<br>
-                Cette attaque bénéficie d'un bonus d'attaque de +100% contre les cibles rebelles.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Damage Over Time for 2 turns. If the target was Exposed or Staggered, Stun them for 1 turn. If the target was debuffed, gain 20% Turn Meter. If Wampa isn't debuffed, gain 20% Turn Meter. This attack can't be Evaded. This attack has +100% Offense against Rebel targets.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Brise-glace (délai: 5)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Icebreaker (cooldown: 5)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="wampa spé 1" src="../image-perso/wampa/wampa-spe1.png">
+            <img class="attaque" alt="wampa special 1" src="../image-perso/wampa/wampa-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe tous les affaiblissements en cours sur le Wampa. Inflige des dégâts physiques à tous les ennemis,<br>
-                et les rends confus pendant 2 tours. Le Wampa obtient une hausse de protection (150%) jusqu'à la prochaine<br>
-                utilisation de cette capacité (ne peux pas être dissipé ou évité).
+            <p class="attaque" id="special-attack1">
+                Dispel all debuffs on Wampa. Deal Physical damage to all enemies and Daze them for 2 turns. Wampa gains Protection Up (150%) until the next time this ability is used, which can't be Dispelled or prevented.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Adversaire déchainé (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Furious Foe (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="wampa spé 2" src="../image-perso/wampa/wampa-spe2.png">
+            <img class="attaque" alt="wampa special 2" src="../image-perso/wampa/wampa-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige immunité aux soins à tous les ennemis pendant 2 tours (ne peut pas être esquivé). Le Wampa gagne 40%<br>
-                de précision, 40% de chances de coup critique et 40% d'attaque (cumulatif) jusqu'à la fin de l'affrontement. La<br>
-                jauge de tour du Wampa se remplit de 15% pour chaque allié vaincu et chaque ennemi actif. Cette capacité commence avec un délai.
+            <p class="attaque" id="special-attack2">
+                Inflict Healing Immunity on all enemies for 2 turns, which can't be Evaded. Wampa gains 40% Accuracy, 40% Critical Chance, and 40% Offense (stacking) until the end of the encounter. Wampa gains 15% Turn Meter for each defeated ally and each active enemy. This ability starts on cooldown.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Rage furieuse </u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Howling Rage</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="wampa unique" src="../image-perso/wampa/wampa-unique.png">
+            <img class="attaque" alt="wampa unique 1" src="../image-perso/wampa/wampa-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Tant que le Wampa dispose d'une hausse de protection, il a +20%de chances de contre-attaque, +50% d'attaque et +50% de ténacité
+            <p class="attaque" id="unique-ability1">
+                While Wampa has Protection Up, it has +20% Counter Chance, +50% Offense, and +50% Tenacity.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Bête bléssée</u></h2>
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Cornered Beast</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="wampa unique 2" src="../image-perso/wampa/wampa-unique2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Le Wampa a +50% de chances de contre-attaque. Le Wampa a +10% de chances de contre-attaque, +5% de vol de santé et<br>
-                +5% d'attaque pour chaque effet de dégâts sur la durée sur chaque ennemi.<br>
-                <br>
-                <u class="omicron">Dans les Grandes arènes: (omicron)</u><br>
-                <br>
-                Le Wampa obtient +100% de ténacité. S'il n'y a pas d'autres alliés actifs au début de la bataille, le Wampa obtient<br>
-                +75% de défense,dde santé maximale, de protexion maximale et d'attaque (doublé s'il n'y a qu'un seul ennemi actif<br>
-                au début de la bataille). Lorsque le Wampa subit des dégâts, inflige 2 cumuls de dégâts sur la durée pendant 3 tours<br>
-                à l'attaquant ennemi(ne peut pas être esquivé ou résisté), le délai d'Adversaire déchainé est réduit de 1.
+            <p class="attaque" id="unique-ability2">
+                Wampa has +50% Counter Chance. Wampa has +10% Counter Chance, +5% Health Steal, and +5% Offense for each Damage Over Time on each enemy.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> Wampa gains +100% Tenacity. If there are no other active allies at the start of battle, Wampa gains +75% Defense, Max Health, Max Protection, and Offense, doubled if there is only 1 active enemy at the start of battle. Whenever Wampa is damaged by an attack, inflict 2 stacks of Damage Over Time for 3 turns on the attacking enemy, which can't be evaded or resisted, the cooldown of Furious Foe is reduced by 1, and gain +30% Tenacity (stacking) until the end of the encounter.
             </p>
         </div>
     </div>
@@ -113,10 +108,83 @@
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-    
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Wampa",
+                "title": "<u>Wampa</u>",
+                "description": "Terrifiant prédateur de Hoth qui attaque sans cesse, augmentant sa force à chaque coup. ",
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+
+                "basic-attack-title": "<u>Attaque Basique: Bam !</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie, et inflige des dégâts sur la durée pendant 2 tours. Si la cible avait déjà été exposée ou souffrait déjà de Faux Pas, elle est étourdie pendant 1 tour. Si la cible subit déjà un affaiblissement, la jauge de tour se remplit de 20 %. Si le Wampa ne subit pas d'affaiblissement, sa jauge de our se remplit de 20 %. Cette attaque ne peut pas être esquivée. Cette attaque bénéficie d'un bonus d'attaque de +100 % contre les cibles rebelles.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Brise-glace (délai : 5)</u>",
+                "special-attack1": "Dissipe tous les affaiblissements en cours sur le Wampa. Inflige des dégâts physiques à tous les ennemis, et les rends confus pendant pendant 2 tours. Le Wampa obtient une hausse de protection (150 %) jusqu'à la prochaine utilisation de cette capacité (ne peut pas être dissipé ou empêché).",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Adversaire déchaîné (délai : 4)</u>",
+                "special-attack2": "Inflige l'immunité aux soins à tous les ennemis pendant 2 tours (ne peut pas être esquivé). Le Wampa gagne 40 % de chances de coup critique, et 40 % d'attaque (cumulatif) jusqu'à la fin de l'affrontement. La jauge de tour du Wampa se remplut de 15 % pour chaque allié vaincu et chaque ennemi actif. Cette capacité commence avec un délai.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Rage furieuse</u>",
+                "unique-ability1": "Tant que le Wampa dispose d'une hausse de protection, il a +20 % de chances de contre-attaque, +50 % d'attaque et +50 % de ténacité.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Bête blessée</u>",
+                "unique-ability2": "Le Wampa a +50 % de chances de contre-attaque. Le Wampa a +10 % de chances de contre-attaque, +5% de vol de santé et +5 % d'attaque pour chaque effets de dégâts sur la durée sur chaque ennemi.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> le Wampa obtient +100 % de ténacité. S'il n'y a pas d'autres alliés actifs au début de la bataille, le Wampa obtient +75 % de défense, de santé maximale, de protection maximale et d'attaque (doublé s'il n'y a que 1 ennemi actif au début de la bataille). Lorsque le Wampa subit des dégâts, inflige 2 cumuls de dégâts sur la durée pendant 3 tours à l'attaquant ennemi (ne peut pas être esquivé ou résisté), le délai d'Adversaire déchaîné est réduit de 1, et confère +30 % de ténacité (cumulatif) jusqu'à la fin de l'affrontement.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
     </footer>
-    
-    
 </body>
-</html>    
+
+</html>

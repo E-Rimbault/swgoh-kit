@@ -3,34 +3,35 @@
 
 <head>
     <title id="big-title">Obi-Wan Kenobi (Old Ben)</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
 
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/old-ben/old-ben-image.png">
-
-    <!-- Lien vers la feuille de style -->
-    <link rel="stylesheet" href="../style/styles.css">
-    <link rel="stylesheet" href="../style/capacite.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
 
-    <!-- Entête de la page -->
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
             <img src="../image-perso/old-ben/old-ben-image.png" alt="" style="max-width: 100%; max-height: 100%;">
         </div>
+
         <div style="flex: 1; padding-left: 20px;">
+
+            <!-- Sélecteur de langue -->
             <div class="language-switcher">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                    onclick="switchLanguage('fr')">
-                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                    onclick="switchLanguage('en')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg"
+                     alt="Français"
+                     id="lang-fr"
+                     style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+                     alt="English"
+                     id="lang-en"
+                     style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
+
             <h1 id="title"><u>Obi-Wan Kenobi (Old Ben)</u></h1>
             <p id="description">
                 Durable Jedi Tank able to shut down enemy offense with multiple debuffs
@@ -38,22 +39,25 @@
             <br>
 
             <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="capacite" style="color: blue !important"
+                   href="../classement-perso/coté-lumineux.html"
+                   id="lightside">Light Side</a>
                 <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
                 <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
                 <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
                 <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
             </nav>
         </div>
-    </header><br>
+    </header>
 
-    <!-- Image principale du personnage -->
     <img class="first" src="../image-perso/old-ben/old-ben.png" alt="Old Ben"><br>
+
+    <!-- Capacités -->
 
     <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Elegant Form</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="old ben basic" src="../image-perso/old-ben/old-ben-basic.png">
+            <img class="attaque" src="../image-perso/old-ben/old-ben-basic.png" alt="old ben basic">
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
@@ -65,7 +69,7 @@
     <h2 class="titre" id="special-attack1-title"><u>Special Attack: Mind Tricks (cooldown: 5)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="old ben spé 1" src="../image-perso/old-ben/old-ben-spe1.png">
+            <img class="attaque" src="../image-perso/old-ben/old-ben-spe1.png" alt="old ben spé 1">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1">
@@ -77,7 +81,7 @@
     <h2 class="titre" id="special-attack2-title"><u>Special Attack: Devoted Protector (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="old ben spé 2" src="../image-perso/old-ben/old-ben-spe2.png">
+            <img class="attaque" src="../image-perso/old-ben/old-ben-spe2.png" alt="old ben spé 2">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack2">
@@ -89,7 +93,7 @@
     <h2 class="titre" id="lead-ability-title"><u>Leader Ability: Old Jedi Knight</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="old ben lead" src="../image-perso/old-ben/old-ben-lead.png">
+            <img class="attaque" src="../image-perso/old-ben/old-ben-lead.png" alt="old ben lead">
         </div>
         <div class="right-column">
             <p class="attaque" id="lead-ability">
@@ -101,7 +105,7 @@
     <h2 class="titre" id="unique-ability-title"><u>Unique Ability: If You Strike Me Down</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="old ben unique" src="../image-perso/old-ben/old-ben-unique.png">
+            <img class="attaque" src="../image-perso/old-ben/old-ben-unique.png" alt="old ben unique">
         </div>
         <div class="right-column">
             <p class="attaque" id="unique-ability">
@@ -110,72 +114,80 @@
         </div>
     </div>
 
-    <!-- Pied de page -->
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
         <script>
-            const translations = {
-                en: {
-                    "big-title" : "Obi-Wan Kenobi (Old Ben)",
-                    "title" : "<u>Obi-Wan Kenobi (Old Ben)</u>",
-                    "description" : "Durable Jedi Tank able to shut down enemy offense with multiple debuffs",
-                    "lightside" : "Light Side",
-                    "tank" : "Tank",
-                    "leader" : "Leader",
-                    "jedi" : "Jedi",
-                    "rebel" : "Rebel",
-                    "basic-attack-title" : "<u>Basic Attack: Elegant Form</u>",
-                    "basic-attack" : "Deal Physical damage to target enemy, inflict Evasion Down for 2 turns, then gain Potency Up for 2 turns. This attack can't be Evaded.",
-                    "special-attack1-title" : "<u>Special Attack: Mind Tricks (cooldown: 5)</u>",
-                    "special-attack1" : "Inflict Ability Block on all enemies for 1 turn and Offense Down for 2 turns, with an 80% chance to remove 60% Turn Meter. Jedi and Rebel allies gain 3% Turn Meter for each effect Resisted. This attack can't be Evaded.",
-                    "special-attack2-title" : "<u>Special Attack: Devoted Protector (cooldown: 4)</u>",
-                    "special-attack2" : "Old Ben gains Taunt for 2 turns. When this Taunt expires, Old Ben gains Taunt for 1 turn. All allies gain Defense Up for 2 turns.",
-                    "lead-ability-title" : "<u>Leader Ability: Old Jedi Knight</u>",
-                    "lead-ability" : "All allies gain 15% Evasion and gain 30% Turn Meter whenever they Evade an attack.",
-                    "unique-ability-title" : "<u>Unique Ability: If You Strike Me Down</u>",
-                    "unique-ability" : "Whenever another Jedi or Rebel ally takes damage, Old Ben gains 5% Turn Meter. The first time Old Ben is defeated, all allies gain Offense Up and Speed Up for 2 turns, recover 50% Health and 50% Protection, and gain 25% Turn Meter."
-                },
-                fr: {
-                    "big-title" : "Obi-Wan Kenobi (vieux Ben)",
-                    "title" : "<u>Obi-Wan Kenobi (vieux Ben)</u>",
-                    "description" : "Tank Jedi résistant capable d'arréter les attaques ennemies grâce à de multiples affaiblissements",
-                    "lightside" : "Coté Lumineux",
-                    "tank" : "Tank",
-                    "leader" : "Chef",
-                    "jedi" : "Jedi",
-                    "rebel" : "Rebelle",
-                    "basic-attack-title" : "<u>Attaque Basique : Forme élégante</u>",
-                    "basic-attack" : "Inflige des dégâts physiques à une cible ennemie, inflige un malus d'esquive pendant 2 tours, puis confère un bonus de pouvoir pendant 2 tours. Cette attaque ne peut pas être esquivée",
-                    "special-attack1-title" : "<u>Attaque Spéciale : Ruses de Jedi (délai : 5)</u>",
-                    "special-attack1" : "Entrave les capacités de tous les ennemis pendant 1 tour et réduit leur attaque pendant 2 tours, avec 80% de chances de réduire la jauge de tour de 60%. La jauge de tour des alliés Jedi et Rebelles se remplit de 3% à chaque effet résisté. Cette attaque ne peut pas être esquivée.",
-                    "special-attack2-title" : "<u>Attaque Spéciale : Protecteur dévoué (délai : 4)</u>",
-                    "special-attack2" : "Le vieux Ben utilise la Raillerie pendant 2 tours. Lorsque la raillerie en cours se termine, le Vieux Ben utilise à nouveau la raillerie pendant 1 tour. Tous les alliés gagnent un bonus de défense pendant 2 tours.",
-                    "lead-ability-title" : "<u>Capacité de chef : Vieux chevalier Jedi</u>",
-                    "lead-ability" : "Tous les alliés gagnent un binus d'esquive de 15% et remplissent la jauge de tour de 30% à chaque fois qu'ils esquivent une attaque.",
-                    "unique-ability-title" : "<u>Capacité Unique : Si tu me terrasses...</u>",
-                    "unique-ability" : "Lorsqu'un autre allié Jedi ou Rebelle subit des dégâts, la jauge de tour du Vieux Ben se remplit de 5%. La première fos que le Vieux Ben est vaincu, tous les alliés obtiennent un bonus d'attaque et un bonus de vitesse pendant 2 tours, ils récupèrent 50% de santé et 50% de protection, et leur jauge de tour se remplit de 25%."
-                }
+            const translationsFr = {
+                "big-title": "Obi-Wan Kenobi (vieux Ben)",
+                "title": "<u>Obi-Wan Kenobi (vieux Ben)</u>",
+                "description": "Tank Jedi résistant capable d'arréter les attaques ennemies grâce à de multiples affaiblissements",
+                "lightside": "Coté Lumineux",
+                "tank": "Tank",
+                "leader": "Chef",
+                "jedi": "Jedi",
+                "rebel": "Rebelle",
+                "basic-attack-title": "<u>Attaque Basique : Forme élégante</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie, inflige un malus d'esquive pendant 2 tours, puis confère un bonus de pouvoir pendant 2 tours. Cette attaque ne peut pas être esquivée",
+                "special-attack1-title": "<u>Attaque Spéciale : Ruses de Jedi (délai : 5)</u>",
+                "special-attack1": "Entrave les capacités de tous les ennemis pendant 1 tour et réduit leur attaque pendant 2 tours, avec 80% de chances de réduire la jauge de tour de 60%. La jauge de tour des alliés Jedi et Rebelles se remplit de 3% à chaque effet résisté. Cette attaque ne peut pas être esquivée.",
+                "special-attack2-title": "<u>Attaque Spéciale : Protecteur dévoué (délai : 4)</u>",
+                "special-attack2": "Le vieux Ben utilise la Raillerie pendant 2 tours. Lorsque la raillerie en cours se termine, le Vieux Ben utilise à nouveau la raillerie pendant 1 tour. Tous les alliés gagnent un bonus de défense pendant 2 tours.",
+                "lead-ability-title": "<u>Capacité de chef : Vieux chevalier Jedi</u>",
+                "lead-ability": "Tous les alliés gagnent un binus d'esquive de 15% et remplissent la jauge de tour de 30% à chaque fois qu'ils esquivent une attaque.",
+                "unique-ability-title": "<u>Capacité Unique : Si tu me terrasses...</u>",
+                "unique-ability": "Lorsqu'un autre allié Jedi ou Rebelle subit des dégâts, la jauge de tour du Vieux Ben se remplit de 5%. La première fos que le Vieux Ben est vaincu, tous les alliés obtiennent un bonus d'attaque et un bonus de vitesse pendant 2 tours, ils récupèrent 50% de santé et 50% de protection, et leur jauge de tour se remplit de 25%."
             };
 
-            function replaceNewLinesWithBr(text) {
-                return text.replace(/\n\n/g, '<br><br>');
-            }
+            const originalTexts = {};
 
-            function switchLanguage(lang) {
-                for (const [key, text] of Object.entries(translations[lang])) {
-                    const element = document.getElementById(key);
-                    if (element) {
-                        // Convert \n\n to <br><br> before injecting
-                        element.innerHTML = replaceNewLinesWithBr(text);
-                    }
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
                 }
             }
 
-            window.onload = () => switchLanguage('en');
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
         </script>
-
     </footer>
-</body>
 
+</body>
 </html>

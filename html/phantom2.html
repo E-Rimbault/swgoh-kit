@@ -1,199 +1,276 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <title id="big-title">Phantom II</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-    <title>Phantom 2</title>
-    <link rel="icon" type="image/png" href="../vaisseaux/phantom2/phantom_2.png">
+    <link rel="icon" type="image/png" href="../image-vaisseaux/phantom2/phantom2-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
-    <style>
-        img {
-            width: 40%;
-            height: auto; /* Ajustement pour maintenir les proportions */
-        }
-
-        table,
-        tr,
-        td {
-            margin: auto;
-        }
-
-        .crew-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .crew-container figure {
-            margin: 0 30px; /* Espace de 30 pixels entre les membres */
-            text-align: center;
-            color: white;
-            font-size: 14px;
-        }
-
-        .crew-container img {
-            width: 100px; /* Ajustez la taille des images comme vous le souhaitez */
-            height: auto;
-        }
-
-        .crew-container figcaption {
-            margin-top: 5px; /* Espace au-dessus du nom */
-            font-size: 14px; /* Taille de police pour les noms */
-        }
-
-        section {
-            margin-bottom: 40px;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        /* Ajout de styles pour le bouton de retour en haut */
-        #scrollBtn {
-            display: none; /* Caché par défaut */
-            position: fixed;
-            bottom: 20px;
-            right: 30px;
-            z-index: 99;
-            border: none;
-            outline: none;
-            background-color: #555;
-            color: white;
-            cursor: pointer;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        #scrollBtn:hover {
-            background-color: #333;
-        }
-    </style>
+    <link rel="stylesheet" href="../style/ship-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-vaisseaux/phantom2/phantom2-image.png" alt="phantom2"
+                style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Phantom 2</u></h1>
-        <p>
-            Attaquant rebelle insaisissable qui sert de leurre au Ghost<br>
-            tout en conférant des améliorations à ses alliés.
-        </p>
+            <h1 id="title"><u>Phantom II</u></h1>
+            <p id="description">
+                Evasive Rebel attacker that provides as a decoy for the Ghost while applying buffs to allies
+            </p>
+            <br>
 
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: blue;" href="../vaisseaux/vaisseau-coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../vaisseaux/vaisseau-attaquant.html">Attaquant</a>
-            <a class="capacite" href="../vaisseaux/vaisseaux-rebelle.html">Rebelle</a>
-            <a class="capacite" href="../vaisseaux/vaisseaux-phoenix.html">Phoenix</a>
-            <a class="capacite" href="../vaisseaux/vaisseaux-de-marchandise.html">Vaisseau de Marchandise</a>
-        </nav>
+            <nav class="perso ship-nav">
+                <!-- Partie gauche : catégories -->
+                <div class="nav-left">
+                    <a class="capacite" style="color: blue !important;" href="../vaisseaux/vaisseau-coté-lumineux.html"
+                        id="lightside">Light Side</a>
+                    <a class="class" href="../vaisseaux/vaisseau-attaquant.html" id="attacker">Attacker</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-rebelle.html" id="rebel">Rebel</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-phoenix.html" id="phoenix">Phoenix</a>
+                    <a class="capacite" href="../vaisseaux/vaisseux-de-marchandise.html" id="cargo">Cargo Ship</a>
+                </div>
+                <br>
+                <!-- Partie droite : unités associées -->
+                <div class="nav-right">
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href="https://e-rimbault.github.io/swgoh-kit/html/sabine_wren.html">
+                            <img src="../image-perso/sabine-wren/sabine-image.png" alt="Sabine Wren"
+                                class="ship-unit-image">
+                        </a>
+                        <span id="unit-sabine-wren" class="ship-unit-name">Sabine Wren</span>
+                    </div>
+                    <!--Fin d'une unité-->
+                    <div class="ship-unit">
+                        <a href="https://e-rimbault.github.io/swgoh-kit/html/ezra.html">
+                            <img src="../image-perso/ezra/ezra-image.png" alt="Ezra Bridger" class="ship-unit-image">
+                        </a>
+                        <span id="unit-ezra-bridger" class="ship-unit-name">Ezra Bridger</span>
+                    </div>
+                    <div class="ship-unit">
+                        <a href="https://e-rimbault.github.io/swgoh-kit/html/chopper.html">
+                            <img src="../image-perso/chopper/chopper.png" alt="chopper" class="ship-unit-image">
+                        </a>
+                        <span id="unit-chopper" class="ship-unit-name">Chopper</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../vaisseaux/phantom2/phantom2.jpg" alt="Phantom 2"><br>
+    <img class="first" src="../image-vaisseaux/phantom2/phantom2.png" alt="phantom2"><br>
 
-    <h2 class="titre" style="text-align: center;"><u>Membres équipages</u></h2>
-    <div class="crew-container">
-        <figure id="sabine">
-            <a href="../html/sabine_wren.html"><img src="https://media.discordapp.net/attachments/1282378206757785611/1282378314580754532/sabine_image.png?ex=66df235f&is=66ddd1df&hm=73f1a08aa68331de535530c9a3698dd3f498b43a8d849f8657ec71e09c337f80&=&format=webp&quality=lossless" alt="Sabine Wren"></a>
-            <figcaption><a style="color: white; font-size: 30px;" href="#speciale-1">Sabine Wren</a></figcaption>
-        </figure>
-        <figure id="ezra">
-            <a href="../html/ezra.html"><img src="../personnage/ezra/ezra_image.png" alt="Ezra Bridger"></a>
-            <figcaption><a style="color: white; font-size: 30px;" href="#speciale-2">Ezra Bridger</a></figcaption>
-        </figure>
-        <figure id="chopper">
-            <a href="../html/chopper.html"><img src="../personnage/chopper/chopper_image.png" alt="Chopper"></a>
-            <figcaption><a style="color: white; font-size: 30px;" href="#unique-chopper">Chopper</a></figcaption>
-        </figure>
+    <!-- partie présentant les capacités du vaisseau -->
+
+    <!--Capacité basique-->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Slip Away</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="phantomII basic" src="../image-vaisseaux/phantom2/phantom2-basique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 75% chance to gain Stealth for 2 turns.
+            </p>
+        </div>
     </div>
 
-    <section id="attaque-basique">
-        <h2 class="titre"><u>Attaque basique : Dérobade</u></h2>
-        <img class="crew" src="../vaisseaux/phantom2/phantom2_basic.png" alt="Attaque basique">
-        <p class="attaque">
-            Inflige des dégâts physiques à une cible ennemie, avec 75% de chances de gagner le camouflage pendant 2 tours.
-        </p>
-    </section>
+    <h2 class="titre" id="crew-ability-title1">
+        <u>Crew Ability - <strong><u class="speciale">Sabine Wren</u></strong> : Sights Locked (cooldown: 3)</u>
+    </h2>
 
-    <section id="speciale-1">
-        <h2 class="titre"><u>1ère spéciale : Cibles en vue (délai : 3)</u></h2>
-        <img class="crew" src="../vaisseaux/phantom2/phantom2_spe1.png" alt="1ère spé">
-        <p class="attaque">
-            Inflige le verrouillage à une cible ennemie pendant 2 tours, avec 70% de chances d'infliger également le<br>
-            verrouillage à un autre ennemi qui n'est pas verrouillé. Ces effets ne peuvent pas être esquivés ou résistés.<br>
-            Si la cible ennemie est un allié de l'Empire, inflige également un malus de vitesse pendant 2 tours,<br>
-            ce qui ne peut pas être esquivé.
-        </p>
-    </section>
+    <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/phantom2/phantom2-crew-sabine.png" alt="Crew Ability">
 
-    <section id="speciale-2">
-        <h2 class="titre"><u>2ème spéciale : Impact maximum (délai : 3)</u></h2>
-        <img class="crew" src="../vaisseaux/phantom2/phantom2_spe2.png" alt="2ème spé">
-        <p class="attaque">
-            Inflige des dégâts physiques à une cible ennemie, avec 70% de chances de conférer un<br>
-            bonus de chances de coup critique à tous les alliés pendant 2 tours.
-        </p>
-    </section>
+            <!-- Pilote -->
+            <a href="../html/sabine_wren.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/sabine-wren/sabine-image.png" alt="crew pilote">
+            </a>
+        </div>
 
-    <section id="unique-chopper">
-        <h2 class="titre"><u>Capacité unique : Chopper multi-fonctions</u></h2>
-        <img class="crew" src="../vaisseaux/phantom2/phantom2_crew_chopper.png" alt="Unique Chopper">
-        <p class="attaque">
-            Tant que le Phantom II ne dispose pas de protection, il a 60% de chances d'obtenir l'avantage, la prévoyance,<br>
-            un bonus de défense, un bonus de vitesse ou un bonus d'attaque pendant 2 tours à la fin de son tour.<br>
-            Tant que le Phantom II est actif, le Ghost dispose également de cette capacité.
-        </p>
-    </section>
+        <div class="right-column">
+            <p class="attaque" id="crew-ability1">
+                Inflict Target Lock on target enemy for 2 turns, with a 70% chance to also inflict Target Lock on another random enemy that isn't Target Locked. These effects can't be Evaded or Resisted. If target enemy is Empire, also inflict Speed Down for 2 turns, which can't be Evaded.
+            </p>
+        </div>
+    </div>
 
-    <section id="unique-tactique">
-        <h2 class="titre"><u>Capacité unique : Tactique de distraction</u></h2>
-        <img class="crew" src="../vaisseaux/phantom2/phantom2_unique.png" alt="Unique">
-        <p class="attaque">
-            Le Phantom II obtient un bonus d'esquive de 5% pour chaque allié Rebelle actif. De plus, à chaque fois<br>
-            que le Ghost souffre d'un affaiblissement ou subit un coup critique, le Phantom II obtient la prévoyance<br>
-            et utilise la raillerie jusqu'à sa prochaine esquive. Lorsque le Ghost est présent, le Phantom II<br>
-            obtient l'immunité aux coups critiques, ce qui ne peut pas être évité ou dissipé.
-        </p>
-    </section>
+    
+    <h2 class="titre" id="crew-ability-title2">
+        <u>Crew Ability - <strong><u class="speciale">Ezra Bridger :</u></strong> Maximum Impact (cooldown: 3)</u>
+    </h2>
 
-    <section id="renfort">
-        <h2 class="renfort"><u>Capacité de renfort : Frappe discrète</u></h2>
-        <img class="crew" src="../vaisseaux/phantom2/phantom2_allie.png" alt="Renfort">
-        <p class="attaque">
-            <u class="speciale">Rejoindre la bataille :</u> Le Phantom II gagne le camouflage, l'avantage et un bonus d'attaque<br>
-            pendant 2 tours, et réduit le délai d'Appeler des renforts sur le vaisseau amiral allié de 1.
-        </p>
-    </section>
+    <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/phantom2/phantom2-crew-ezra.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/ezra.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/ezra/ezra-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability2">
+                Deal Physical damage to target enemy with a 70% chance to grant all allies Critical Chance Up for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    
+    <h2 class="titre" id="crew-ability-title3">
+        <u>Crew Ability - <strong><u class="speciale">Chopper</u></strong> : Chopper Does It All</u>
+    </h2>
+
+    <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/phantom2/phantom2-crew-chopper.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/chopper.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/chopper/chopper.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability3">
+                While Phantom II has no Protection, it has a 60% Chance each to gain Advantage, Defense Up, Foresight, Offense Up, and Speed Up for 2 turns at the end of its turn. While the Phantom II is active, the Ghost also has this ability.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité unique-->
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Distraction Tactics</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="phantom2 unique" src="../image-vaisseaux/phantom2/phantom2-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Phantom II gains 5% Evasion for each active Rebel ally. Additionally, any time the Ghost receives a debuff or is Critically Hit, Phantom II gains Foresight and Taunt until the next time it Evades. While Ghost is present, Phantom II gains Critical Hit Immunity, which can't be prevented or Dispelled.
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité de type renfort-->
+    <h2 class="titre" id="reinforcement-title"><u>Reinforcement Ability: Covert Strike</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="" src="../image-vaisseaux/phantom2/phantom2-renfort.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="reinforcement-description">
+                <u class="speciale">Enter Battle:</u> Phantom II gains Stealth, Advantage, and Offense Up for 2 turns, and reduces the cooldown of Call Reinforcement on the allied Capital Ship by 1.
+            </p>
+        </div>
+    </div>
 
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
-    </footer>
 
-    <script>
-        // JavaScript pour le bouton de retour en haut
-        window.onscroll = function () {
-            var scrollBtn = document.getElementById("scrollBtn");
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                scrollBtn.style.display = "block";
-            } else {
-                scrollBtn.style.display = "none";
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            const translationsFr = {
+                "big-title": "PhantomII",
+                "title": "<u>Phantom II</u>",
+                "description": "Attaquant rebelle insaisissable qui sert de leurre au Ghost tout en conférant des améliorations à ses alliés",
+                "unit-sabine-wren": "Sabine Wren",
+                "unit-ezra-bridger": "Ezra Bridger",
+                "unit-chopper": "Chopper",
+
+                "basic-attack-title": "<u>Attaque Basique: Dérobade</u>",
+                "basic-attack": "nflige des dégâts physiques à une cible ennemie, avec 75 % de chances de gagner le camouflage pendant 2 tours.",
+
+                "crew-ability-title1": "<u>Capacité équipage - <strong><u class='speciale'>Sabine Wren</u></strong> : Cibles en vue (délai : 3)</u>",
+                "crew-ability1": "Inflige le vérouillage à une cible ennemie pendant 2 tours, avec 70 % de chances d'infliger également le vérouillage à un auutre ennemi aléatoire qui n'est pas vérouillé. Ces effets ne peuvent pas être esquivés ou résistés. Si la cible ennemie est un allié de l'Empire, inflige également un malus de vitesse pendant 2 tours, ce qui ne peut pas être esquivé.",
+                
+                "crew-ability-title2": "<u>Capacité équipage - <strong><u class='speciale'>Ezra bridger</u></strong> : Impact maximum (délai : 3)</u>",
+                "crew-ability2": "Inflige des dégâts physiques à une cible ennemie, avec 70 % de chances de conférer un bonus de chances de coups critique à tous les alliés pendant 2 tours.",
+
+                "crew-ability-title3": "<u>Capacité équipage - <strong><u class='speciale'>Chopper</u></strong> : Chopper multi-fonctions</u>",
+                "crew-ability3": "Tant que le Phantom II ne dispose pas de protection, il a 60 % de chances d'obtenir l'avantage, Prévoyance, un bonus de défense, un bonus de vitesse, un bonus d'attaque pendant 2 tour à la fin de son tour. Tant que le Phantom II est actif, le Ghost dispose également de cette capacité.",
+
+                "unique-ability-title": "<u>Capacité Unique : Tactique de distraction</u>",
+                "unique-ability": "Le Phantom II obtient un bonus d'esquive de 5% pour chaque allié rebelle actif. De plus, à chaque fois que le Ghost subit un affaiblissement ou subit un coup critique, le Phantom II obtient Prévoyance et utilise Raillerie jusqu'à sa prochaine esquive. Lorsque le Ghost est présent, le Phantom II obtient l'immunité aux coups critiques, ce qui ne peut pas être évité ou dissipé.",
+
+                "reinforcement-title": "<u>Capacité de Renfort : Frappe discrète</u>",
+                "reinforcement-description": "<u class='speciale'>Rejoindre la bataille :</u> le Phantom II gagne le camouflage, l'Avantage et un bonus d'attaque pendant 2 tours, et réduit le délai d'Appeler des renfots sur le vaisseau amiral allié de 1.",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "rebel": "Rebelle",
+                "phoenix": "Phoenix",
+                "cargo": "Vaisseau de marchandise"
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
             }
-        };
 
-        function scrollToTop() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-    </script>
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
 
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+    </footer>
 </body>
 
 </html>

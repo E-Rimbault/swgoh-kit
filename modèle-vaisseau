@@ -6,177 +6,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-    <link rel="icon" type="image/png" href="../image-perso/">
+    <link rel="icon" type="image/png" href="../image-vaisseaux/">
     <link rel="stylesheet" href="../style/unit-style.css">
-    <style>
-        /* Container principal des membres d'équipage */
-        .crew-container {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            width: 100%;
-            margin: 0 auto 40px auto;
-        }
-
-        .crew-member {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .crew-image {
-            max-width: 150px;
-            max-height: 150px;
-            border-radius: 10px;
-            transition: transform 0.3s;
-            cursor: pointer;
-        }
-
-        .crew-image:hover {
-            transform: scale(1.1);
-        }
-
-        .crew-name a {
-            text-decoration: none;
-            font-weight: bold;
-            color: #007bff;
-            margin-top: 5px;
-            display: block;
-            transition: color 0.3s;
-        }
-
-        .crew-name a:hover {
-            color: #0056b3;
-        }
-
-        #crew-title {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="../style/ship-style.css">
 </head>
 
 <body class="simple">
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/" alt="" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-vaisseaux/" alt="" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
             <!-- Sélecteur de langue -->
             <div class="language-switcher">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                    id="lang-fr" style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
-                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                    id="lang-en" style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
 
             <h1 id="title"><u></u></h1>
             <p id="description"></p>
             <br>
 
-            <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" href="../classement-vaisseaux/" id=""></a>
-                <a class="class" href="../classement-vaisseaux/" id=""></a>
-                <a class="capacite" href="../classement-vaisseaux/" id=""></a>
+            <nav class="perso ship-nav">
+                <!-- Partie gauche : catégories -->
+                <div class="nav-left">
+                    <a class="capacite" style="color: blue or red !important;" href="../vaisseaux/" id=""></a>
+                    <a class="class" href="../vaisseaux/" id="attacker"></a>
+                    <a class="capacite" href="../vaisseaux/" id=""></a>
+                </div>
+
+                <!-- Partie droite : unités associées -->
+                <div class="nav-right">
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href=""><img src="../image-perso/" alt="" class="ship-unit-image"></a>
+                        <span id="unit-" class="ship-unit-name"></span>
+                    </div>
+                </div>
             </nav>
         </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/" alt=""><br>
-
-    <!-- Membres d'équipage -->
-    <h2 class="titre" id="crew-title"><u>Crew Members:</u></h2>
-    <div class="crew-container">
-        <!-- Exemple de membre d'équipage -->
-        <div class="crew-member">
-            <a href="../html/">
-                <img class="crew-image" id="crew1-image" src="../image-perso/" alt="member name">
-            </a>
-            <p class="crew-name">
-                <a href="../html/" id="crew1-name"><u>member name</u></a>
-            </p>
-        </div>
-
-        <div class="crew-member">
-            <a href="../html/">
-                <img class="crew-image" id="crew2-image" src="../image-perso/" alt="member name">
-            </a>
-            <p class="crew-name">
-                <a href="../html/" id="crew2-name"><u>member name</u></a>
-            </p>
-        </div>
-
-        <!-- Ajouter d'autres membres ici -->
-    </div>
+    <img class="first" src="" alt=""><br>
 
     <!-- Capacités du vaisseau -->
+
+    <!--Capacité ultime-->
     <h2 class="titre"><u id="ultime-title">Ultimate: </u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="" src="">
+            <img class="attaque" alt="" src="../image-vaisseaux/">
         </div>
         <div class="right-column">
             <p class="attaque" id="ulti"></p>
         </div>
     </div>
 
+    <!--Capacité basique-->
     <h2 class="titre" id="basic-attack-title"><u>Basic Attack: </u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="" src="">
+            <img class="attaque" alt="" src="../image-vaisseaux/">
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack"></p>
         </div>
     </div>
 
+    <!--capacité spécial-->
     <h2 class="titre" id="special-attack1-title"><u>Special Attack : (cooldown: )</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="" src="">
+            <img class="attaque" alt="" src="../image-vaisseaux/">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1"></p>
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack2-title"><u>Special Attack : (cooldown: )</u></h2>
+    <h2 class="titre" id="crew-ability-title">
+        <u>Crew Ability - <strong><u class="speciale"></u></strong> : (cooldown: )</u>
+    </h2>
+
     <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="" src="">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="..html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/" alt="crew pilote">
+            </a>
         </div>
+
         <div class="right-column">
-            <p class="attaque" id="special-attack2"></p>
+            <p class="attaque" id="crew-ability">
+
+            </p>
         </div>
     </div>
 
+    <!--capacité de lead-->
     <h2 class="titre"><u id="lead-ability-title">Leader Ability: </u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="" src="">
+            <img class="attaque" alt="" src="../image-vaisseaux/">
         </div>
         <div class="right-column">
             <p class="attaque" id="lead-ability"></p>
         </div>
     </div>
 
+    <!--capacité unique-->
     <h2 class="titre"><u id="unique-ability-title">Unique Ability : </u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="" src="">
+            <img class="attaque" alt="" src="../image-vaisseaux/">
         </div>
         <div class="right-column">
             <p class="attaque" id="unique-ability"></p>
         </div>
     </div>
 
+    <!--Capacité de type renfort-->
     <h2 class="titre" id="reinforcement-title"><u>Reinforcement Ability: </u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" id="reinforcement-image" alt="" src="">
+            <img class="attaque" alt="" src="../image-vaisseaux/">
         </div>
         <div class="right-column">
             <p class="attaque" id="reinforcement-description"></p>
@@ -193,6 +152,7 @@
                 "big-title": "",
                 "title": "<u></u>",
                 "description": "",
+                "unit-": "",
 
                 "ultime-title": "<u>Capacité Ultime: <u>",
                 "ulti": "",
@@ -203,8 +163,8 @@
                 "special-attack1-title": "<u>Attaque Spéciale : (délai : )</u>",
                 "special-attack1": "",
 
-                "special-attack2-title": "<u>Attaque Spéciale : (délai : )</u>",
-                "special-attack2": "",
+                "crew-ability-title": "<u>Capacité équipage - <strong><u class='speciale'></u></strong> : (délai : )</u>",
+                "crew-ability": "",
 
                 "lead-ability-title": "<u>Capacité de Chef: </u>",
                 "lead-ability": "",
@@ -214,10 +174,6 @@
 
                 "reinforcement-title": "<u>Capacité de Renfort : </u>",
                 "reinforcement-description": "",
-
-                "crew-title": "<u>Membres d'équipage :</u>",
-                "crew1-name": "<u>member name</u>",
-                "crew2-name": "<u>member name</u>"
             };
 
             const originalTexts = {};
