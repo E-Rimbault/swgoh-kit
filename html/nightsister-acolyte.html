@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Nightsister Acolyte</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/acolyte/acolyte.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/acolyte/acolyte.png" alt="Nightsister Acolyte" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Nightsister Acolyte</u></h1>
+            <p id="description">
+                Stealth attacker with some enemy debuffing and self healing ability.
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/soeur-de-la-nuit.html" id="sister">Night Sister</a>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/acolyte/acolyte-image.png" alt="Nightsister acolyte"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Strike from the Shadows</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Nightsister Acolyte basic" src="../image-perso/acolyte/acolyte-basique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Nightsister Acolyte has a 90% chance to gain Stealth for 2 turns. Then, deal Physical damage to target enemy. If Nightsister Acolyte has Stealth, this attack deals double damage.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Sacrificial Magicks (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Nightsister Acolyte special" src="../image-perso/acolyte/acolyte-special.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to target enemy. On a Critical Hit, gain 30% Turn Meter and Dispel all debuffs on a random Nightsister ally. This attack gains 20% Critical Damage for each active Nightsister ally and each debuffed enemy. On a finishing blow, reduce the cooldown of this ability by 1.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Thrill of Victory</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Nightsister Acolyte unique" src="../image-perso/acolyte/acolyte-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Nightsister Acolyte has +25% Critical Chance and recovers 40% Health on each Critical Hit. While Nightsister Acolyte has Stealth, she has +50% Offense.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Acolyte des Sœurs de la nuit",
+                "title": "<u>Acolyte des Sœurs de la nuit</u>",
+                "description": "Attaquante basée sur le camouflage, dotée de capacité d'affaiblissement des ennemis et d'auto-guérison",
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "sister": "Sœurs de la nuit",
+
+                "basic-attack-title": "<u>Attaque Basique: Frappe depuis les ombres</u>",
+                "basic-attack": "LAcolyte des Sœurs de la nuit a 90 % de chances de gagner le camouflage pendant 2 tours. L'attaque inflige ensuite des dégâts physiques à une cible ennemie. Si l'Acolyte des Sœurs de la nuit est camouflée, cette attaque inflige deux fois plus de dégâts.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Magie sacrificielle (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à une cible ennemie. En cas de coup critique, la jauge de tour augmente de 30 % et tous les affaiblissements infligés à un allié Sœurs de la nuit aléatoire sont dissipés. Cette attaque obtient 20 % de dégâts critiques pour chaque allié Sœurs de la nuit actif et chaque ennemi subissant un affaiblissement En cas de coup de grâce, réduit de 1 le délai de rechargement de la capacité.",
+
+                "unique-ability-title": "<u>Capacité Unique : Fastes de la victoire</u>",
+                "unique-ability": "L'Acolyte des Sœurs de la nuit a +25 de chances d'infliger u coup critique et elle récupère 40 % de sa santé à chaque coup critique. Tant que l'Acolyte des Sœurs de la nuit est camouflée, elle dispose de +50 % d'attaque.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+    </footer>
+</body>
+
+</html>
