@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Range Trooper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/range-trooper/range-trooper.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/range-trooper/range-trooper.png" alt="Range Trooper" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Range Trooper</u></h1>
+            <p id="description">
+                Aggressive Empire Support that provides other Imperial Trooper allies with Assist chance
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="capacite" href="../classement-perso/soldat-de-lempire.html" id="empire-trooper">Imperial Trooper</a>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/range-trooper/range-trooper-image.png" alt="Range Trooper"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Take Aim</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Range Trooper Basic" src="../image-perso/range-trooper/range-trooper-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. This attack deals 30% more damage if Range Trooper is buffed.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Steady (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Range Trooper special" src="../image-perso/range-trooper/range-trooper-special.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                All Empire allies gain Protection Up (40%) for 3 turns. All Imperial Trooper allies Recover 30% Protection and gain Retribution for 3 turns. Then, another random ally attacks and Range Trooper assists them.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Power In Numbers</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Range Trooper unique" src="../image-perso/range-trooper/range-trooper-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Range Trooper has +70% Tenacity while he is buffed. While Range Trooper is active, Imperial Trooper allies have +50% chance to call another buffed Imperial Trooper ally to Assist when they use an ability during their turn, doing 20% less damage.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Range Trooper",
+                "title": "<u>Range Trooper</u>",
+                "description": "Soutien impérial agressif qui confère aux autres soldats de l'Empire une chance de l'invoquer.",
+                "darkside": "Coté Obscur",
+                "support": "Soutien",
+                "empire": "Empire",
+                "empire-trooper": "Soldat de l'Empire",
+
+                "basic-attack-title": "<u>Attaque Basique: En joue </u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie. Cette attaque inflige 30 % de dégpats en plus si le Range Trooper dispose d'améliorations.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Stabilisation (délai : 3)</u>",
+                "special-attack1": "Tous les alliés de l'Empire gagnent une hausse de protection (40 %) pendant 3 tours. Tous les soldats de l'Empire alliés récupèrent 30 % de protection et gagnent la rétribution pendant 3 tours. Puis un allié aléatoire attaque avec l'assistance du Range Trooper.",
+                
+                "unique-ability-title": "<u>Capacité Unique : Force du nombre</u>",
+                "unique-ability": "Le Range Trooper gagne +70 % de ténacité lorsqu'il dispose d'une amélioration. Lorsque le Range Trooper est actif, les alliés soldats de l'Empire ont +50 % de chances d'invoquer un autre soldat de l'EMpire disposant d'une amélioration, infligeant 20 % de dégâts en moins, quand ils utilisent une cacpacité pendant leur tour.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+    </footer>
+</body>
+
+</html>
