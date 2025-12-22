@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Tusken Shaman</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/Shaman/Shaman-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/Shaman/Shaman-image.png" alt="Tusken Shaman" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Tusken Shaman</u></h1>
+            <p id="description">
+                Offensive Healer that can also boost Offense and rapidly stack Damage Over Time effects
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soigneur.html" id="healer">Healer</a>
+                <a class="capacite" href="../classement-perso/tusken.html" id="tusken">Tusken</a>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/Shaman/Shaman.png" alt="Tusken Shaman"><br>
+
+    <!-- Capacités -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Desert Toxins</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Tusken Shaman basic" src="../image-perso/Shaman/Shaman-basique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical Damage to target enemy and inflict Damage Over Time for 2 turns. This attack inflicts an additional Damage Over Time effect if that target was already suffering a negative status effect.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Rite of Savagery (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Tusken Shaman special" src="../image-perso/Shaman/Shaman-special.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                All allies gain Offense Up for 1 turn and recover Health equal to 20% of their Max Health, plus an additional 10% for each enemy suffering a negative status effect
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Master Storyteller</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Tusken Shaman unique" src="../image-perso/Shaman/Shaman-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Whenever any unit is defeated, all Tusken allies gain 25% Turn Meter and recover 10% of their Max Health.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Chaman Tusken",
+                "title": "<u>Chaman Tusken</u>",
+                "description": "Soigneur offensif qui peut aussi améliorer l'attaque et cumuler rapidement des effets de dégâts sur la durée.",
+
+                "basic-attack-title": "<u>Attaque Basique: Toxine du désert</u>",
+                "basic-attack": "Inflige dess dégâts physiques à une cible ennemie et inflige des dégâts sur la durée pendant 2 tours. Cette attaque inflige des dégâts sur la durée supplémentaire si cette cible subit déjà un affaiblissement.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Rite de sauvagerie (délai : 4)</u>",
+                "special-attack1": "Tous les alliés obtiennent un bonus d'attaque pendant 1 tour et récupère,t de la santé à hauteur de 20 % de leur santé maximum, et 10 % supplémentaire pour chaque ennemi subissant un affaiblissement.",
+
+                "unique-ability-title": "<u>Capacité Unique : Mâitre conteur</u>",
+                "unique-ability": "Lorsqu'une unité est vaincue, la jauge de tour des tous les alliés Tusken se remplit de 25 % et ils sont soignés à hauteur de 10 % de leur santé maximale.",
+
+                "darkside": "Coté Obscur",
+                "healer": "Soigneur",
+                "tusken": "Tusken",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+    </footer>
+</body>
+
+</html>

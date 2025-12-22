@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Kylo Ren</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/kylo-ren/kylo-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/kylo-ren/kylo-image.png" alt="Kylo Ren" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Kylo Ren</u></h1>
+            <p id="description">
+                Versatile First Order attacker that can reuse special attacks when damaged
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/premier-odre.html" id="first-order">First Order</a>
+                <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Force User</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew">Crew Member</a>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/kylo-ren/kylo-ren.png" alt="Kylo Ren"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Ragged Cut</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Kylo Ren basic" src="../image-perso/kylo-ren/kylo-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 75% chance to inflict Healing Immunity for 2 turns and a 75% chance to inflict Damage Over Time for 3 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Lash Out (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Kylo Ren special 1" src="../image-perso/kylo-ren/kylo-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies and gain Retribution for 2 turns. This attack can't Critically Hit and deals bonus damage equals to 50% of Kylo Ren's Critical Damage. First Order allies and allies with Advantage gain 25% Turn Meter.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Outrage (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Kylo Ren special 2" src="../image-perso/kylo-ren/kylo-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to target enemy and, if Kylo has full Health, inflict Stun for 1 turn. This attack deals 75% more damage if Kylo is below full Health. Recover Protection equal to the damage dealt.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Unstoppable</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Kylo Ren unique" src="../image-perso/kylo-ren/kylo-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Whenever Kylo takes damage he gains 50% Defense (stacking) and 15% Offense (stacking) for 1 turn, and has a 50% chance to reset his cooldowns. Kylo takes reduced damage from Percent Health damage effects and gains 10 Speed for each debuff on him. Whenever Kylo uses a Special ability he gains Damage Over Time for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Kylo Ren",
+                "title": "<u>Kylo Ren</u>",
+                "description": "Attaquant du Premier Ordre polyvalent qui peut réutiliser des attaques spéciales lorsqu'il a subi des dégâts.",
+
+                "basic-attack-title": "<u>Attaque Basique: Entaille furieuse</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie avec 75 % de chances de l'immuniser aux soins pendant 2 tours et 75 % de chances d'infliger des dégâts sur la durée pendant 3 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Impétuosité (délai : 4)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemiset gagne la Rétribution pendant 2 tous. Cette attaque ne peut pas infliger de coup critique, et elle inflige des dégâts bonus ) hauteur de 50 % des dégâts critiques de Kylo Ren. La jauge de tour des alliés du Premier Ordre et des alliés qui disposent de l'Avantage se remplit de 25 %.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Outrage (délai : 3)</u>",
+                "special-attack2": "Inflige des dégâts physiques à une cible ennemie, et si Kylo dispose de toute sa santé, étourdit la cible pendant 1 tour. Cette attaque inflige 75 % de dégâts supplémentaire si Kylo ne dispose pas de toute sa santé. Récupère de la protection à hauteur des dégâts infligés.",
+
+                "unique-ability-title": "<u>Capacité Unique : Implacable</u>",
+                "unique-ability": "Lorsque Kylo subit des dégâts, il gagne un bonus de défense de 50 % (cumulatif) et un bonus d'attaque de 15 % (cumulatif) pendant 1 tour, et il a 50 % de chances de réinitilaiser ses délais. Kylo subit des dégâts réduits des effets de dégpats de pourcentage de santé et obtient un bonus de votesse de 10 pour chaque affaiblissement dont il souffe. Lorsque Kylo utilise une capacité spéciale, il obtient un effet de dégâts sur la durée pendant 2 tours.",
+            
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "first-order": "Premier Ordre",
+                "force-user": "Utilisateur de la Force non aligné",
+                "crew": "Membres d’Équipage",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+    </footer>
+</body>
+
+</html>
