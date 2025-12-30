@@ -87,6 +87,7 @@
       </div>
       <datalist id="tag-suggestions"></datalist>
       <button id="reset-filters" class="btn btn-danger w-100">Reset Filters</button>
+      <button id="home-btn" style="background-color: cyan;" class="btn btn-danger w-100" onclick="window.location.href='../index.html'">🏠 Home</button>
     </div>
 
     <button id="scrollTopBtn" title="Back to top">↑</button>
@@ -155,6 +156,7 @@
         document.getElementById("add-tag-btn").textContent = "Ajouter";
         document.getElementById("search-bar").placeholder = "Rechercher un personnage...";
         document.getElementById("tag-input").placeholder = "Ajouter un tag...";
+                document.getElementById("home-btn").textContent = currentLang === "fr" ? "🏠 Menu" : "🏠 Home";
       } else {
         document.getElementById("filter-title").textContent = "Ship Filter";
         document.querySelector("h4").textContent = "Results:";
@@ -162,6 +164,7 @@
         document.getElementById("add-tag-btn").textContent = "Add";
         document.getElementById("search-bar").placeholder = "Search character...";
         document.getElementById("tag-input").placeholder = "Add a tag...";
+                document.getElementById("home-btn").textContent =currentLang === "fr" ? "🏠 Menu" : "🏠 Home";
       }
     }
 
