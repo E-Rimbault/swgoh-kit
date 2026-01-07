@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title id="big-title">Kylo Ren's Command Shuttle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-vaisseaux/kylo-shuttle/kylo-shuttle-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="stylesheet" href="../style/ship-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-vaisseaux/kylo-shuttle/kylo-shuttle-image.png" alt="Kylo Ren's Command Shuttle" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Kylo Ren's Command Shuttle</u></h1>
+            <p id="description">Durable First Order Support with unparalleled ability to manipulate allied Turn Meter</p>
+            <br>
+
+            <nav class="perso ship-nav">
+                <!-- Partie gauche : catégories -->
+                <div class="nav-left">
+                    <a class="capacite" style="color: red !important;" href="../vaisseaux/vaisseau-coté-obscur.html" id="darkside">Dark Side</a>
+                    <a class="class" href="../vaisseaux/vaisseau-soutien.html" id="support">Support</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-premier-ordre.html" id="first-order">First Order</a>
+                </div>
+                 <br>
+                <!-- Partie droite : unités associées -->
+                <div class="nav-right">
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href="https://e-rimbault.github.io/swgoh-kit/html/kylo-ren.html"><img src="../image-perso/kylo-ren/kylo-image.png" alt="Kylo Ren" class="ship-unit-image"></a>
+                        <span id="unit-kylo-ren" class="ship-unit-name">Kylo Ren</span>
+                    </div>
+                    <!--fin d'une unité-->
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href="https://e-rimbault.github.io/swgoh-kit/html/phasma.html"><img src="../image-perso/phasma/phasma-image.png" alt="Captain Phasma" class="ship-unit-image"></a>
+                        <span id="unit-captain-phasma" class="ship-unit-name">Captain Phasma</span>
+                    </div>
+                    <!--fin d'une unité-->
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href="https://e-rimbault.github.io/swgoh-kit/html/first-order-stormtrooper.html"><img src="../image-perso/fo-stormtrooper/stormtrooper-image.png" alt="First Order Stormtrooper" class="ship-unit-image"></a>
+                        <span id="unit-fo-stormtrooper" class="ship-unit-name">First Order Stormtrooper</span>
+                    </div>
+                    <!--fin d'une unité-->
+                </div>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-vaisseaux/kylo-shuttle/kylo-shuttle.png" alt="Kylo Ren Shuttle"><br>
+
+    <!-- Capacités du vaisseau -->
+
+    <!--Capacité basique-->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Defensive Fire</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="" src="../image-vaisseaux/kylo-shuttle/kylo-shuttle-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and gain Protection Up (50%) for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="crew-ability1-title">
+        <u>Crew Ability - <strong><u class="speciale">Kylo Ren</u></strong> : Surprise Raid (cooldown: 4)</u>
+    </h2>
+
+    <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/kylo-shuttle/kylo-shuttle-crew-kylo.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/kylo-ren.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/kylo-ren/kylo-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability1">
+                Target ally gains 100% Turn Meter and Advantage for 1 turn, and their cooldowns are reduced by 1, but they lose 20% Protection.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="crew-ability2-title">
+        <u>Crew Ability - <strong><u class="speciale">Captain Phasma</u></strong> : Strike Team (cooldown: 4)</u>
+    </h2>
+
+    <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/kylo-shuttle/kylo-shuttle-crew-phasma.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/phasma.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/phasma/phasma-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability2">
+                Target ally gains 100% Turn Meter and Advantage for 1 turn, and their cooldowns are reduced by 1, but they lose 20% Protection.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="crew-ability3-title">
+        <u>Crew Ability - <strong><u class="speciale">First Order Stormtrooper</u></strong> : Zeal of the First Order</u>
+    </h2>
+
+    <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/kylo-shuttle/kylo-shuttle-crew-stormtrooper.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/first-order-stormtrooper.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/fo-stormtrooper/stormtrooper-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability3">
+                Kylo Ren's Command Shuttle has +40 Speed while it has Protection and +100% Counter Chance while it doesn't. When another First Order ally takes damage, Kylo Ren's Command Shuttle gains 15% Turn Meter and all his cooldowns are reduced by 1.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité special-->
+    <h2 class="titre"><u id="special-ability-title">Special Ability : Advanced Jamming Array (cooldown : 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="kylo shuttle special" src="../image-vaisseaux/kylo-shuttle/kylo-shuttle-special.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Dispel all buffs on target enemy, with a 70% chance to remove 30% Turn Meter and inflict Healing Immunity for 2 turns, which can't be Evaded. Also inflict Ability Block on target enemy for 2 turns, which can't be Evaded or Resisted.
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité de type renfort-->
+    <h2 class="titre" id="reinforcement-title"><u>Reinforcement Ability: Enforcer of the First Order</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="" src="../image-vaisseaux/kylo-shuttle/kylo-shuttle-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="reinforcement-description">
+                <u class="specile">Enter Battle:</u> Kylo Ren's Command Shuttle removes 20% Turn Meter from enemy ships when they are called in as Reinforcements. Kylo Ren's Command Shuttle gains 20% Turn Meter when an enemy reinforces, other First Order allies gain half of that amount.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            const translationsFr = {
+                "big-title": "Navette de commandement de Kylo Ren",
+                "title": "<u>Navette de commandement de Kylo Ren</u>",
+                "description": "Soutien du Premier Ordre résistant, avec une capacité inégale à manipuler les jauges de tour des alliés.",
+                "unit-kylo-ren": "Kylo Ren",
+                "unit-captain-phasma": "Capitaine Phasma",
+                "unit-fo-stormtrooper": "Stormtrooper du Premier Ordre",
+
+                "darkside": "Coté Obscur",
+                "support": "Soutien",
+                "first-order": "Premier Ordre",
+
+                "basic-attack-title": "<u>Attaque Basique: Tirs défensifs</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et gagne une hausse de protection (50 %) pendant 2 tours.",
+
+                "crew-ability1-title": "<u>Capacité équipage - <strong><u class='speciale'>Kylo Ren</u></strong> : Raid surprise (délai : 4)</u>",
+                "crew-ability1": "La jauge de tour de la cible alliée se remplit de 100 %, elle obtient l'avanatage pendant 1 tour, et ses délais diminuent de 1. Cependant, elle perd 20 % de protection",
+                
+                "crew-ability2-title": "<u>Capacité équipage - <strong><u class='speciale'>Capitaine Phasma</u></strong> : Brigade d'intervention (délai : 4)</u>",
+                "crew-ability2": "La jauge de tour de la cible alliée se vide complètement. Ensuite, la jauge de tour de tous les alliés se remplit de 40 %, plus 25 % de la jauge de tour perdue par cet allié (doublé pour les alliés du Premier Ordre). Si la Navette de commandement se cible elle même, les alliés du Premier Ordre gagnent l'avantage pendant 2 tours.",
+
+                "crew-ability3-title": "<u>Capacité équipage - <strong><u class='speciale'>Stormtrooper du Premier Ordre</u></strong> : Zèle du premier ordre</u>",
+                "crew-ability3": "La Navette de commandement de Kylo Ren gagne un bonus de vitesse de +40 si elle dispose de la protection et un bonus de chances de contre-attaque de +100 % lorsqu'elle n'en dispose pas. Lorsqu'un autre allié du Premier Ordre subit des dégâts, la jauge de tour de la navette de commandement de Kylo Ren se remplit de 15 % et ses délais sont réduits de 1.",
+
+                "special-ability-title": "<u>Capacité spéciale  : Dispositif de brouillage avancé (délai : 4)</u>",
+                "unique-ability": "Dissipe toutes les améliorations en cours sur la cible, avec 70 % de chances de réduire sa jauge de tour de 30 % et d'infliger l'immunité aux soins pendant 2 tours. Cette attaque ne peut pas être esquivée. Inflige également l'entrave des capacités à la cible ennemie pendant 2 tours, ce qui ne peut pas être esquivé ou résisté.",
+
+                "reinforcement-title": "<u>Capacité de Renfort : Exécuteur d Premier Ordre</u>",
+                "reinforcement-description": "<u class='speciale'>Rejoindre la bataille :</u> La Navette de commandement de Kylo Ren réduit la jauge de tour des vaisseaux ennemis de 20 % quand ils sont appelés enn renfort. La jauge de tour de la Navette de commandement de Kylo Ren se remplit de 20 % quand un ennemi fait appel à des renforts. La jauge de tour des alliés du Premier Ordre se remplit à hauteur de la moitié de cette valeur.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+    </footer>
+</body>
+
+</html>

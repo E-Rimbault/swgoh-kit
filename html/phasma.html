@@ -2,18 +2,18 @@
 <html lang="en">
 
 <head>
-    <title id="big-title">Kylo Ren</title>
+    <title id="big-title">Captain Phasma</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-    <link rel="icon" type="image/png" href="../image-perso/kylo-ren/kylo-image.png">
+    <link rel="icon" type="image/png" href="../image-perso/phasma/phasma-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/kylo-ren/kylo-image.png" alt="Kylo Ren" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/phasma/phasma-image.png" alt="Captain Phasma" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
             <!-- Sélecteur de langue -->
@@ -26,17 +26,17 @@
                     style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
 
-            <h1 id="title"><u>Kylo Ren</u></h1>
+            <h1 id="title"><u>Captain Phasma</u></h1>
             <p id="description">
-                Versatile First Order attacker that can reuse special attacks when damaged
+                High-damage First Order support that can grant allies many extra attacks
             </p>
             <br>
 
             <nav class="perso" style="font-size: 20px;">
                 <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
-                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
                 <a class="capacite" href="../classement-perso/premier-odre.html" id="first-order">First Order</a>
-                <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Force User</a>
                 <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew">Crew Member</a>
             </nav>
 
@@ -53,54 +53,57 @@
     </header>
     <br>
 
-    <img class="first" src="../image-perso/kylo-ren/kylo-ren.png" alt="Kylo Ren"><br>
+    <img class="first" src="../image-perso/phasma/phasma.png" alt="Captain Phasma"><br>
 
     <!-- Capacités -->
 
-    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Ragged Cut</u></h2>
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Onslaught</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Kylo Ren basic" src="../image-perso/kylo-ren/kylo-basic.png">
+            <img class="attaque" alt="Captain Phasma basic" src="../image-perso/phasma/phasma-basique.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
-                Deal Physical damage to target enemy with a 75% chance to inflict Healing Immunity for 2 turns and a 75% chance to inflict Damage Over Time for 3 turns.
+                Deal Physical Damage to target enemy and inflict Defense Down for 2 turns on a Critical Hit. If this attack is not a Critical Hit, Phasma has a 50% chance to gain Advantage for 2 turns instead.
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Lash Out (cooldown: 4)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Victory March (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Kylo Ren special 1" src="../image-perso/kylo-ren/kylo-spe1.png">
+            <img class="attaque" alt="Captain Phasma special" src="../image-perso/phasma/phasma-spe1.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1">
-                Deal Physical damage to all enemies and gain Retribution for 2 turns. This attack can't Critically Hit and deals bonus damage equals to 50% of Kylo Ren's Critical Damage. First Order allies and allies with Advantage gain 25% Turn Meter.
+                All allies gain 50% Turn Meter and Advantage for 2 turns.
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Outrage (cooldown: 3)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Fusillade (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Kylo Ren special 2" src="../image-perso/kylo-ren/kylo-spe2.png">
+            <img class="attaque" alt="Captain Phasma special" src="../image-perso/phasma/phasma-spe2.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack2">
-                Deal Physical damage to target enemy and, if Kylo has full Health, inflict Stun for 1 turn. This attack deals 75% more damage if Kylo is below full Health. Recover Protection equal to the damage dealt.
+                Deal Physical damage to all enemies with a 90% chance to inflict Speed Down for 2 turns.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Unstoppable</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Fire at Will</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Kylo Ren unique" src="../image-perso/kylo-ren/kylo-unique.png">
+            <img class="attaque" alt="Captain Phasma lead" src="../image-perso/phasma/phasma-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque" id="unique-ability">
-                Whenever Kylo takes damage he gains 50% Defense (stacking) and 15% Offense (stacking) for 1 turn, and has a 50% chance to reset his cooldowns. Kylo takes reduced damage from Percent Health damage effects and gains 10 Speed for each debuff on him. Whenever Kylo uses a Special ability he gains Damage Over Time for 2 turns.
+            <p class="attaque" id="lead-ability">
+                First Order allies have +20% Potency, gain Advantage for 2 turns at the start of each encounter, and can't be critically hit while they have Advantage. Whenever an ally attacks, they have a 20% chance to call a random ally to assist. This chance is tripled if the attacking ally is First Order. If that ally had Advantage, they regain it for 2 turns.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> Additional +10% chance to call a random ally to assist. Captain Phasma has +100 Speed. Whenever a First Order ally attacks out of turn, First Order allies recover 5% Health and Protection. Whenever a First Order ally gains Advantage, they also gain 10% Offense (stacking) for the rest of battle and all First Order allies gain 7.5% Turn Meter.
+
             </p>
         </div>
     </div>
@@ -113,27 +116,26 @@
         <script>
             // Dictionnaire français
             const translationsFr = {
-                "big-title": "Kylo Ren",
-                "title": "<u>Kylo Ren</u>",
-                "description": "Attaquant du Premier Ordre polyvalent qui peut réutiliser des attaques spéciales lorsqu'il a subi des dégâts.",
+                "big-title": "Capitaine Phasma",
+                "title": "<u>Capitaine Phasma</u>",
+                "description": "Soutien du Premier Ordre infligeant des dégâts élevés qui peut conférer de nombreuses attaques bonus aux alliés.",
 
-                "basic-attack-title": "<u>Attaque Basique: Entaille furieuse</u>",
-                "basic-attack": "Inflige des dégâts physiques à une cible ennemie avec 75 % de chances de l'immuniser aux soins pendant 2 tours et 75 % de chances d'infliger des dégâts sur la durée pendant 3 tours.",
-
-                "special-attack1-title": "<u>Attaque Spéciale : Impétuosité (délai : 4)</u>",
-                "special-attack1": "Inflige des dégâts physiques à tous les ennemiset gagne la Rétribution pendant 2 tous. Cette attaque ne peut pas infliger de coup critique, et elle inflige des dégâts bonus ) hauteur de 50 % des dégâts critiques de Kylo Ren. La jauge de tour des alliés du Premier Ordre et des alliés qui disposent de l'Avantage se remplit de 25 %.",
-
-                "special-attack2-title": "<u>Attaque Spéciale : Outrage (délai : 3)</u>",
-                "special-attack2": "Inflige des dégâts physiques à une cible ennemie, et si Kylo dispose de toute sa santé, étourdit la cible pendant 1 tour. Cette attaque inflige 75 % de dégâts supplémentaire si Kylo ne dispose pas de toute sa santé. Récupère de la protection à hauteur des dégâts infligés.",
-
-                "unique-ability-title": "<u>Capacité Unique : Implacable</u>",
-                "unique-ability": "Lorsque Kylo subit des dégâts, il gagne un bonus de défense de 50 % (cumulatif) et un bonus d'attaque de 15 % (cumulatif) pendant 1 tour, et il a 50 % de chances de réinitilaiser ses délais. Kylo subit des dégâts réduits des effets de dégpats de pourcentage de santé et obtient un bonus de votesse de 10 pour chaque affaiblissement dont il souffe. Lorsque Kylo utilise une capacité spéciale, il obtient un effet de dégâts sur la durée pendant 2 tours.",
-            
                 "darkside": "Coté Obscur",
-                "attacker": "Attaquant",
+                "support": "Soutien",
                 "first-order": "Premier Ordre",
-                "force-user": "Utilisateur de la Force non aligné",
                 "crew": "Membres d’Équipage",
+
+                "basic-attack-title": "<u>Attaque Basique: Ravage</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et lui inflige un malus de défense pendant 2 tours en cas de coup critique. Si cette attaque n'inflige pas un coup critique, le Capitaine Phasma a 50 % de chances de prendre l'avantage pendant 2 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Marche victorieuse (délai : 4)</u>",
+                "special-attack1": "La jauge de tour de tous les alliés se remplit de 50 % et ils gagnent l'avantage pendant 2 tours.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Fusillade (délai : 4)</u>",
+                "special-attack2": "Inflige des dégâts physiques à tous les ennmis avec 90 % de chances d'infliger un malus de vitesse pendant 2 tours.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Feu à volonté </u>",
+                "lead-ability": "Les alliés du Premier Ordre ont +20 % de pouvoir, ils obtiennent l'avantage pendant 2 tours au début de chaque affrontement, et ils ne peuvent pas subir de coup critique lorsqu'ils ont l'avantage. Lorsqu'un allié attaque, il a 20 % de chances d'invoquer un allié aléatoire. Ces chances sont triplées si l'allié attaquant fait partie du premier Ordre. Si cet allié avait l'avantage, il sera prolongé pendant 2 tours.\n\n <u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> +10 % de chances supplémentaires d'invoquer un allié aléatoire. Le Capitaine Phasma a +100 de vitesse. Lorsqu'un allié du Premier Ordre attaque en dehors de son tour, les alliés du Premier Ordre récupèrent 5 % de santé et de protection. Lorsqu'un allié du Premier Ordre obtient l'avantage, il gagne aussi 10 % d'attaque (cumulatif) pendant le reste de la bataille, et tous les alliés du Premier Ordre obtiennent 7,5 % de jauge de tour. ",
 
                 "ship-title": "<u>Vaisseau : Navette de commandement de Kylo Ren</u>"
             };
