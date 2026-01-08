@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Imperial TIE Bomber</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-vaisseaux/tie-bomber/tie-bomber-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="stylesheet" href="../style/ship-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-vaisseaux/tie-bomber/tie-bomber-image.png" alt="Imperial TIE Bomber" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Imperial TIE Bomber</u></h1>
+            <p id="description">
+                Debilitating Empire Tank that inflicts Burning, cripples enemies' Offense, and provides heavy defensive capability.
+            </p>
+            <br>
+
+            <nav class="perso ship-nav">
+                <!-- Partie gauche : catégories -->
+                <div class="nav-left">
+                    <a class="capacite" style="color:  red !important;" href="../vaisseaux/vaisseau-coté-obscur.html" id="darkside">Dark Side</a>
+                    <a class="class" href="../vaisseaux/vaisseau-tank.html" id="tank">Tank</a>
+                    <a class="capacite" href="../vaisseaux/vaisseau-empire.html" id="empire">Empire</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-vaisseaux/tie-bomber/tie-bomber.png" alt="Imperial TIE Bomber"><br>
+
+    <!-- Capacités du vaisseau -->
+
+    <!--Capacité basique-->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: L-s1 Laser Cannons</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Imperial TIE Bomber basic" src="../image-vaisseaux/tie-bomber/tie-bomber-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Target Lock for 1 turn, which can't be resisted by Rebels.
+                <br><br>
+                <u class="speciale">Target Lock:</u> Inflict Burning for 1 turn, which can't be dispelled from or resisted by Rebels.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité spécial-->
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Proton Bombardment (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Imperial TIE Bomber special" src="../image-vaisseaux/tie-bomber/tie-bomber-special.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Dispel all buffs on all enemies. Then, deal Physical damage and inflict Burning on them for 2 turns, which can't be dispelled from or resisted by Rebels. This ability can't be evaded.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité unique-->
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Dual-Pod Design</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Imperial TIE Bomber unique" src="../image-vaisseaux/tie-bomber/tie-bomber-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                The Imperial TIE bomber has +20% Max Protection for each active Empire ally (including the allied Capital Ship) when it enters battle and gains 20% Max Protection every time another Empire ally enters battle from reinforcements. Empire allies ignore 20% Defense for each Rebel and each Target Locked enemy.
+                <br><br>
+                The Imperial TIE bomber gains Taunt at the end of the turn if an enemy is Target Locked and the TIE bomber isn't already Taunting. This effect expires at the end of the turn if there are no Target Locked enemies. While any Rebel enemy is Target Locked, all Rebel enemies deal 50% less damage.
+                <br><br>
+                While enemies are inflicted with Burning, they have -25% Offense, doubled for Light Side enemies. Rebel enemies can't attack out of turn while Burning.
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité de type renfort-->
+    <h2 class="titre" id="reinforcement-title"><u>Reinforcement Ability: Reserve Ordnance</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Imperial TIE Bomber reinforcement" src="../image-vaisseaux/tie-bomber/tie-bomber-renfort.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="reinforcement-description">
+                <u class="speciale">Enter Battle:</u> Inflict Burning on all enemies for 2 turns, which can't be dispelled from or resisted by Rebels. Then, call another random Empire ally to assist. This ability can't be evaded.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            const translationsFr = {
+                "big-title": "Bombardier TIE Impérial",
+                "title": "<u>Bombardier TIE Impérial</u>",
+                "description": "Char de l'Empire incapacitant infligeant l'effet brûlure, paralysant l'attaque de l'ennemi et offrant un important potentiel défensif",
+                "darkside": "Coté Obscur",
+                "tank": "Tank",
+                "empire": "Empire",
+
+                "basic-attack-title": "<u>Attaque Basique: Canons laser L-s1</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et verouille la cible pendant 1 tour. Les rebelles ne peuvent pas résister à cet effet.\n\n<u class='speciale'>Verouillage :</u> inflige brûrlure pendant 1 tour. Les Rebelles ne peuvent pas résister à cet effet ou le dissiper",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Bombardement protonique (délai : 3)</u>",
+                "special-attack1": "Dissipe toutes les améliorations dont disposent les ennemis. Leur inflige ensuite des dégâts physques et l'effet brûlure pendant 2 tours. Les Rebelles ne peuvent pas résister à cet effet ou le dissiper. Cette capacité ne peut pas être esquivée.",
+
+                "unique-ability-title": "<u>Capacité Unique : Double module</u>",
+                "unique-ability": "Le Bombardier TIE impérial obtient +20 % de protection maximum pour chaque allié de l'Empire actif (y compris le vaisseau amiral allié) lorsqu'il rejoint le combat et 20 % de protection maximale à chaque fois qu'un autre allié de l'Empire rejoint le combat depuis les renforts. Les alliés de l'Empire ignorent 20 % de défense pour chaque Rebelle et pour chaque ennemi verouillé.\n\n Le Bombardier TIE impérial obtient Raillerie à la fin du tour si un ennemi est vérouillé et que le Bombardier TIE impériale n'est pas déjà en Raillerie. Cet effet expire à la fin du tour si aucun ennemi n'est vérouillé. Lorsqu'un ennemi rebelle est vérouillé, tous les ennemis rebelles infligent 50 % de dégâts en moins.\n\n Lorsque les ennemis sont affectés par brûlure, leur attaque est diminuée de 25 % et cet effet est doublé pour les ennemis du Coté Lumineux. Les ennemis rebelles ne peuvent pas attaquer en dehors de leur tour en cas de brûlure. ",
+
+                "reinforcement-title": "<u>Capacité de Renfort : En réserve</u>",
+                "reinforcement-description": "<u class='speciale'>Rejoint la bataille :</u> inflige brûlure à tous les ennemis pendant 2 tours (ne peut pas être esquivé). Les Rebelles ne peuvent pas résister à cet effet ou le dissiper. Appelle ensuite un autre allié de l'Empire aléatoire pour l'aider.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+    </footer>
+</body>
+
+</html>

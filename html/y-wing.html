@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Rebel Y-wing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-vaisseaux/y-wing/y-wing-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="stylesheet" href="../style/ship-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-vaisseaux/y-wing/y-wing-image.png" alt="Rebel Y-wing" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Rebel Y-wing</u></h1>
+            <p id="description">
+                Sturdy Rebel Tank that can disable enemy Protection
+            </p>
+            <br>
+
+            <nav class="perso ship-nav">
+                <!-- Partie gauche : catégories -->
+                <div class="nav-left">
+                    <a class="capacite" style="color: blue !important;" href="../vaisseaux/vaisseau-coté-lumineux.html" id="lightside">Light Side</a>
+                    <a class="class" href="../vaisseaux/vaisseau-tank.html" id="tank">Tank</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-rebelle.html" id="rebel">Rebel</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-vaisseaux/y-wing/y-wing.png" alt="Rebel Y-wing"><br>
+
+    <!-- Capacités du vaisseau -->
+
+    <!--Capacité basique-->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: SW-4 Ion Cannons</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Rebel Y-wing basic" src="../image-vaisseaux/y-wing/y-wing-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. The Rebel Y-wing gains Taunt until the start of its next turn if it didn't already have it.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité spécial-->
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Ion Torpedoes (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Rebel Y-wing special" src="../image-vaisseaux/y-wing/y-wing-special.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Dispel all buffs on target enemy and inflict <u class="speciale">Shield Disruption</u> for 2 turns. Then, deal Physical damage to them. The Y-wing gains Taunt for 2 turns.
+                <br><br>
+                <u class="speciale">Shield Disruption:</u> Protection is disabled, immune to Protection Up and bonus Protection
+            </p>
+        </div>
+    </div>
+
+    <!--capacité unique-->
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Chempat Shield Generator</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Rebel Y-wing unique" src="../image-vaisseaux/y-wing/y-wing-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Rebel allies recover 20% Protection whenever a Rebel ally critically hits an enemy.
+                <br><br>
+                If the allied Capital Ship is Rebel, the Y-wing has +30% Potency and a 35% chance to assist other Rebel allies when they attack out of turn (limit once per turn).
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité de type renfort-->
+    <h2 class="titre" id="reinforcement-title"><u>Reinforcement Ability: Rebel Tracking Computer</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Rebel Y-wing Reinforcement" src="../image-vaisseaux/y-wing/y-wing-renfort.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="reinforcement-description">
+                <u class="speciale">Enter Battle:</u> Rebel allies gain 3% Critical Chance for each Rebel ally until the Rebel Y-wing is defeated.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            const translationsFr = {
+                "big-title": "Y-wing rebelle",
+                "title": "<u>Y-wing rebelle</u>",
+                "description": "Char rebelle robuste capable de désactiver la protection ennemie",
+                "lightside": "Coté Lumineux",
+                "tank": "Tank",
+                "rebel": "Rebelle",
+
+                "basic-attack-title": "<u>Attaque Basique: Canon à ions SW-4</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie. Le Y-wing rebelle utilise Raillerie jusqu'au début du prochain tour s'il n'en disposait pas déjà.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Torpilles ioniques (délai : 3)</u>",
+                "special-attack1": "Dissipe toutes les améliorations en cours sur la cible ennemie et inflige <u class='speciale'>perturbation de bouclier</u> pendant 2 tour. Lui inflige ensuite des dégâts physiques. Le Y-wing obtient Raillerie pendant 2 tours.\n\n<u class='speciale'>perturbation de bouclier :</u> la protection est désactivée, ne tient pas en compte de la hausse de protection.",
+
+                "unique-ability-title": "<u>Capacité Unique : Générateur de bouclier chempat</u>",
+                "unique-ability": "Les alliés rebelles récupèrent 20 % de protection lorsqu'un allié rebelle inflige un coup critique à un ennemi.\n\nSi le vaisseau amiral allié est rebelle, le Y-wing dispose de +30 % de ténacité et 35 % de chances d'aider d'autres alliés rebelles lorsqu'ils attaquent en dehors de leur tour (limité à une fois par tour).",
+
+                "reinforcement-title": "<u>Capacité de Renfort : Ordinateur de repérage rebelle</u>",
+                "reinforcement-description": "<u class='speciale'>Rejoint la bataille :</u> les alliés rebelles gagnent 3 % de chances de coup critique pour chaque allié rebelle jusqu'à ce que le Y-wing rebelle soit vaincu.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+    </footer>
+</body>
+
+</html>
