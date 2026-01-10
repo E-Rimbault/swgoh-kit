@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Ahsoka Tano's Jedi Starfighter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-vaisseaux/ahsoka-fighter/ahsoka-fighter-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="stylesheet" href="../style/ship-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-vaisseaux/ahsoka-fighter/ahsoka-fighter-image.png" alt="Ahsoka Tano's Jedi Starfighter" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Ahsoka Tano's Jedi Starfighter</u></h1>
+            <p id="description" class="ship-style-description">
+                Versatile Jedi Attacker that uses dispels and buffs to adapt to the battle.
+            </p>
+            <br>
+
+            <nav class="perso ship-nav">
+                <!-- Partie gauche : catégories -->
+                <div class="nav-left">
+                    <a class="capacite" style="color: blue !important;" href="../vaisseaux/vaisseau-coté-lumineux.html" id="lightside">Light Side</a>
+                    <a class="class" href="../vaisseaux/vaisseau-attaquant.html" id="attacker">Attacker</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-république-galactique.html" id="galactic-republic">Galactic Republic</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-jedi.html" id="jedi">Jedi</a>
+                </div>
+                <br>
+                <!-- Partie droite : unités associées -->
+                <div class="nav-right">
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href="../html/ahsoka_tano.html"><img src="../image-perso/ahsoka-tano/Ahsoka-image.png" alt="Ahsoka Tano's Jedi Starfighter" class="ship-unit-image"></a>
+                        <span id="unit-ahsoka-tano" class="ship-unit-name">Ahsoka Tano (Snips)</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <img class="first" src="../image-vaisseaux/ahsoka-fighter/ahsoka-fighter.png" alt="Ahsoka Tano's Jedi Starfighter"><br>
+
+    <!-- Capacités du vaisseau -->
+
+    <!--Capacité basique-->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Reflexive Shot</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Ahsoka Tano's Jedi Starfighter basic" src="../image-vaisseaux/ahsoka-fighter/ahsoka-fighter-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 70% chance to gain Offense Up for 2 turns.
+                <br><br>
+                <u class="speciale">Target Lock:</u> Grant another random ally Offense Up for 2 turns
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="crew-ability-title">
+        <u>Crew Ability - <strong><u class="speciale">Ahsoka Tano (Snips)</u></strong> : Turnabout (cooldown: 3)</u>
+    </h2>
+
+    <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/ahsoka-fighter/ahsoka-fighter-crew.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/ahsoka_tano.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/ahsoka-tano/Ahsoka-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability">
+                Dispel all debuffs on Ahsoka's Starfighter and gain Protection Up (50%) for 2 turns. If any debuffs were dispelled this way, Ahsoka's Starfighter and all other debuffed allies gain Retribution for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité spécial-->
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Shut Down (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Ahsoka Tano's Jedi Starfighter special" src="../image-vaisseaux/ahsoka-fighter/ahsoka-fighter-special.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and Dispel all buffs on them. This ability's cooldown is reset and Ahsoka's Starfighter gains 50% Turn Meter whenever an enemy Reinforces.
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité de type renfort-->
+    <h2 class="titre" id="reinforcement-title"><u>Reinforcement Ability: Cunning Maneuver</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Ahsoka Tano's Jedi Starfighter reinforcement" src="../image-vaisseaux/ahsoka-fighter/ahsoka-fighter-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="reinforcement-description">
+                <u class="speciale">Enter Battle:</u> Dispel all buffs on target enemy and gain 20% Max Health for each buff dispelled.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            const translationsFr = {
+                "big-title": "Chasseur stellaire d'Ahsoka Tano",
+                "title": "<u>Chasseur stellaire d'Ahsoka Tano</u>",
+                "description": "Attaquant Jedi qui utilise la dissipation et les améliorations pour s'adapter au combat.",
+                "unit-ahsoka-tano": "Ahsoka Tano (chipie)",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "galactic-republic": "République Galactique",
+                "jedi": "Jedi",
+
+                "basic-attack-title": "<u>Attaque Basique: Tir instinctif</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie, avec 70 % de chances de gagner un bonus d'attaque pendant 2 tours.\n\n<u class='speciale'>Verouillage :</u> confère à un allié aléatoire un bonus d'attaque pendant 2 tours.",
+
+                "crew-ability-title": "<u>Capacité équipage - <strong><u class='speciale'>Ahsoka Tano (Chipie)</u></strong> : Volte-face (délai : 3)</u>",
+                "crew-ability": "Dissipe tous les affaiblissements en cours sur le chasseur stellaire d'Ahsoka et confère une hausse de protection (50 %) pendant 2 tours. Si des affaiblissements sont dissipés de cette façon; le chasseur stellaire d'Ahsoka et tous les autres alliés subissant un affaiblissements gagnent la rétribution pendant 2 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Désactivation (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie et dissipe toutes ses améliorations. Le délai de cette capacité se réinitialise et la jauge de tour du chasseur tellaire d'Ahsoka se remplit de 50 % à chaque fois qu'un ennemi fait appel à des renforts.",
+
+                "reinforcement-title": "<u>Capacité de Renfort : Manœuvre rusée</u>",
+                "reinforcement-description": "<u class='speciale'>Rejoindre la bataille :</u> dissipe toutes les améliorations dont dispose la cible et gagne 20 % de santé maximum pour chaque amélioration dissipée.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+    </footer>
+</body>
+
+</html>
