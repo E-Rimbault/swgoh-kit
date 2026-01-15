@@ -1,194 +1,233 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Dark Bane</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Darth Bane</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/darth_bane/bane-image.png">
-
-    <!-- Lien vers la feuille de style -->
-     <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/darth_bane/bane-image.png" alt="Darth Bane" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>Dark Bane</u></h1>
-        <p>
-            Un ancien seigneur Sith dont on parle à voix basse. Il élimine ses ennemis par la force et croit<br>
-            que seul les plus puissants devraient vivre afin de pouvoir manier le pouvoir du Coté Obscur.
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" href="../classement-perso/coté-obscur.html" style="color: red;">Coté Obscur</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/sith.html">Sith</a>
-        </nav>
+            <h1 id="title"><u>Darth Bane</u></h1>
+            <p id="description">
+                Ancient Sith Lord spoken of in whispers who defeats foes through strength and cunning and believes only the strong should live to wield the power of the dark side
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/sith.html" id="sith">Sith</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/darth_bane/Bane.png" alt="bane"><br>
+    <img class="first" src="../image-perso/darth_bane/Bane.png" alt="Darth Bane"><br>
 
-    <!-- Section pour les différentes attaques spéciales -->
-    <h2 class="titre"><u>attaque basique : Séparateur d'âme</u></h2>
-    
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Soul Sever</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="bane basique" src="../image-perso/darth_bane/bane-basique.png">
+            <img class="attaque" alt="Darth Bane basic" src="../image-perso/darth_bane/bane-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à la cible ennemie et réduit son attaque de 20% (cumulatif), puis Bane obtient 20%<br>
-                d'attaque (cumulatif, ne peut pas être résisté) pendant 2 tours. Sur un coup critique, il gagne 2 cumuls de Siphonnage<br>
-                jusqu'à la fin de l'affrontement. Si cette attaque vainc un ennemi, confère 2 cumuls supplémentaires de Siphonnage.<br>
-                <br>
-                Si la cible ennemie dispose de plus de 50% de santé, cette attaque infligera un coup critique si possible.<br>
-                Si sa santé est inférieure à 50%, cette attaque inflige 200% de dégâts supplémentaires.<br>
-                <br>
-                Les ennemis vaincus par cette attaque ne peuvent pas être ranimés. 
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and reduce their Offense by 20% (stacking) and Bane gains 20% Offense (stacking), which can't be resisted, for 2 turns. On a critical hit, gain 2 Siphon until the end of the encounter. If this attack defeats an enemy, gain an additional 2 Siphon.
+                <br><br>
+                If target enemy is above 50% Health, this attack will critically hit if able. If they are below 50% Health, this attack deals 200% more damage.
+                <br><br>
+                Enemies defeated by this attack can't be revived.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Tourbillon malveillant (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Malevolent Whirlwind (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="bane spé 1" src="../image-perso/darth_bane/bane-sp-1.png">
+            <img class="attaque" alt="Darth Bane special 1" src="../image-perso/darth_bane/bane-spé-1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe toutes les améliorations de tous les ennemis deux fois, puis inflige des dégâts physiques à tous les ennemis deux fois,<br>
-                infligeant 10% de dégâts supplémentaires pour chaque améliorations dissipée, et inflige immunité aux soins pendant 2 tours.<br>
-                Si l'allié dans l'emplacement de chef est l'Empereur Eternel Sith, il obtient 1% de charge ultime pour chaque ennemie qui<br>
-                a subi des dégâts provenant de Dupé ou Enchainé. Bane obtient 5 cumuls de Siphonnage jusqu'à la fin de l'affrontement.<br>
-                <br>
-                Cette capacité dispose de +200% de vol de santé.<br>
-                <br>
-                <u class="omicron">Dans les Grandes arènes:</u><br>
-                <br>
-                +3% de charge ultime supplémentaire contre les ennemis subissant Dupé ou Enchainé.<br>
-                Bane obtient 5 cumuls de Siphonnage suplllémentaires.
+            <p class="attaque" id="special-attack1">
+                Dispel all buffs on all enemies twice, then deal Physical damage to all enemies twice, dealing 10% more damage for each buff dispelled, and inflict Healing Immunity for 2 turns. If the ally in the Leader slot is Sith Eternal Emperor, he gains 1% Ultimate Charge for each enemy that was dealt damage with Deceived or Linked. Bane gains 5 Siphon until the end of the encounter.
+                <br><br>
+                This ability has +200% Health Steal.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> Additional 3% Ultimate Charge gained against Deceived or Linked enemies. Bane gains an additional 5 Siphon.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Essence de domination (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Essence of Dominance (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="bane spé 2" src="../image-perso/darth_bane/bane-spe2.png">
+            <img class="attaque" alt="Darth Bane special 2" src="../image-perso/darth_bane/bane-spé-2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à tous les ennemis en fonction de la santé maximale de Bane et augmente leurs délai de 1<br>
-                (ne peut pas être résisté). Bane <u class="speciale">Siphonne la santé maximale</u> de la cible ennemie (ne peut pas être résisté).<br>
-                <br>
-                Les alliés Sith obtiennent un bonus de pénétration de défense, de vol de santé, d'attaque et de vitesse pendant 2 tours.<br>
-                <br>
-                <u class="speciale">Siphonnage de santé maximale:</u><br>
-                <br>
-                Confère un pourcentage de santé maximale à hauteur du Siphonnage de cette unité jusqu'à la fin de l'affrontement et la<br>
-                cible perd la même quantité de santé maximale (cumulatif, exclut les boss de raid et les Légendes Galactiques).<br>
-                <br>
-                <u class="omicron">Dans les Grandes arènes:</u><br>
-                <br>
-                Augmente les délais des ennemis de 2.<br>
-                <br>
-                Supprime 50% de jauge de tour sur tous les ennemis et les alliés Sith obtiennent 50% de jauge de tour. Diminue la défense<br>
-                et la ténacité de tous les ennemis de 20% (cumulatif, ne peut pas être résisté) jusqu'à la fin de la bataille. 
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to all enemies based on Bane's Max Health, and increase their cooldowns by 1, which can't be resisted. Bane <u class="speciale">Siphons Max Health</u> from target enemy, which can't be resisted.
+                <br><br>
+                Sith allies gain Defense Penetration Up, Health Steal Up, Offense Up, and Speed Up for 2 turns.
+                <br><br>
+                <u class="speciale">Siphon Max Health:</u> Gain a percentage of Max Health equal to this unit's Siphon until the end of the encounter and the target loses that much Max Health (stacking, excludes raid bosses and Galactic Legends)
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> Increase enemy cooldowns by 2 instead.
+                <br><br>
+                Remove 50% Turn Meter from all enemies and Sith allies gain 50% Turn Meter. Reduce all enemies' Defense and Tenacity by 20% (stacking), which can't be resisted, until the end of the battle.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Capacité de chef: La survie aux plus fort</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Only The Strong Survive</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="bane lead" src="../image-perso/darth_bane/bane-lead.png">
+            <img class="attaque" alt="Darth Bane lead" src="../image-perso/darth_bane/bane-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Les alliés Sit reçoivent +30% d'attaque et de vitesse. Les alliés Sith ne peuvent pas être ranimés.<br>
-                Les ennemis du Coté Lumineux ont un malus de vitesse de -10 (doublé pour les Jedi).<br>
-                <br>
-                Au début de la bataille, les alliés obtiennent un bonus de défense, d'esquive et de santé pendant 2 tours.<br>
-                <br>
-                Chaque fois qu'un allié Sith es vaincu, les délais de Bane sont réinitialisés, il récupère 50% de santé et gagne 50% de jauge de tour.<br>
-                <br>
-                Tant que Bane est actif: à la fin de chacun de ses tours, l'allié Sith le plus faible subit des dégâts à hauteur de 15% de<br>
-                la santé maximale de Bane,et Bane obtient 5% de sa santé maximale pour chaque allié Sith pendant le reste de la bataille.<br>
-                La première fois que la santé d'un autre allié Sith qui n'est pas une Légende Galactique est réduite à 30% ou moins,<br>
-                Ce dernier obtient un tour bonus et est vaincu au début de ce tour bonus, puis Bane récuupère 5% de santé maximale,<br>
-                de protection maximale et d'attaque, ainsi que 5 de vitesse supplémentaires pour chaque niveau d'amplificateur de relique<br>
-                que possédait cet allié Sith vaincu. 
+            <p class="attaque" id="lead-ability">
+                Sith allies have +30% Offense and +30 Speed. Sith allies can't be revived. Light Side enemies have -10 Speed, doubled for Jedi.
+                <br><br>
+                At the start of battle, allies gain Defense Up, Evasion Up, and Health Up for 2 turns.
+                <br><br>
+                Whenever a Sith ally is defeated, Bane's cooldowns are reset, he recovers 50% Health and gains 50% Turn Meter.
+                <br><br>
+                While Bane is active: At the end of each of his turns, the weakest other Sith ally takes damage equal to 15% of Bane's Max Health and Bane gains 5% Max Health for each other Sith ally for the rest of the battle. The first time each other non-Galactic Legend Sith ally above 30% Health would be reduced to 30% or less Health, they are granted a bonus turn and defeated at the start of that bonus turn, then Bane gains 5% Max Health, Max Protection, and Offense, and 5 Speed, and an additional 5% Max Health, Max Protection, and Offense and 5 Speed for each Relic Amplifier level that the defeated Sith ally had.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Règle de deux</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Rule of Two</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="bane unique" src="../image-perso/darth_bane/bane-unique.png">
+            <img class="attaque" alt="Darth Bane unique" src="../image-perso/darth_bane/bane-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Bane gagne 20M% de chances de coup critique, de dégâts critiques, et +50% de vol de santé.<br>
+            <p class="attaque" id="unique-ability">
+                Bane has +20% Critical Chance, Critical Damage, and +50% Health Steal.
+                <br><br>
+                Whenever he is Dazed, he gains 10% Max Health (stacking) until the end of battle. Whenever an enemy starts their turn, Bane gains 5 Speed (max 100) until the end of battle.
+                <br><br>
+                At the start of battle if there is only one other non-Summon ally present and they are Sith: Bane takes reduced damage from Percent Health damage effects and gains 350% Defense. Whenever his other ally gains Ultimate Charge, they gain an additional 2% Ultimate Charge, and the following effects occur for Bane and other Sith ally:
                 <br>
-                Lorsqu'il subit Confusion, il obtient 10% de santé maximale (cumulatif) jusqu'à la fin de la bataille.<br>
-                Lorsqu'un ennemi commence son tour, Bane obtient un bonus de vitesse de 5 (100 maximum) jusqu'à la fin de la bataille.<br>
-                <br>
-                Au début de la bataillen s'il n'y a qu'un seul autre allié qui n'est pas invoqué et qu'il s'agit d'un Sith:<br>
-                Bane subit des dégâts réduits des effets de dégâts de pourcentage de santé et gagne 350% de défense.<br>
-                Lorsque l'autre allié obtient de la charge ultime, ce dernier reçoit 2% de charge ultime supplémentaire<br>
-                et les effets suivants de produisent pour Bane et cet autre allié Sith:<br>
-                <br>
-                -Immunité contre Entrave des capacités, l'augmentation des délais, immunité aux soins, Etourdissement et la réduction de jauge de tour.<br>
-                <br>
-                -confère 75% de santé maximale.<br>
-                <br>
-                -Confère 75%de protection maximale jusqu'à la première fois qu'il soit vaincu.<br>
-                <br>
-                ignore les effets de Raillerie.<br>
-                <br>
-                -Au début de son tour, récupère 35% de protection et dissipe tous les affaiblissements l'affectant.<br>
-                <br>
-                -Lorsque Bane ou cet autre allié est vaincu: L'allié restant obtient 5% de dégâts critiques, d'attaque et de pouvoir, ainsi<br>
-                que 15% supplémentaires de ces stats par niveau d'amplificateur de relique du personnage vaincu jusqu'à la fin de la bataille.<br>
-                <br>
-                <u class="omicron">Dans les Grandes arènes</u><br>
-                <br>
-                Au début de la bataille, s'il n'y a qu'un autre allié qui n'est pas invoqué et qu'il s'agit d'un Sith:<br>
-                <br>
-                -Bane gagne 75% de Maitrise, de santé maximale et de protection maximale.<br>
-                <br>
-                -Chaque fois qu'un ennemi est vaincu, Bane obtient 10% de santé maximal, de protection<br>
-                maximale et d'attaque (cumulatif) jusqu'à la fin de la bataille.<br>
-                <br>
-                -Au début de la bataille, Bane obtient un tour bonus.<br><br>
-                Ces effets persistent si Bane est vaincu.
+                - Immune to Ability Block, Cooldown Increase, Healing Immunity, Stun, and Turn Meter reduction<br>
+                - Gain 75% Max Health<br>
+                - Gain 75% Max Protection until the first time they are defeated<br>
+                - Ignore Taunt effects<br>
+                - At the start of their turn, recover 35% Protection and dispel all debuffs on themselves<br>
+                - When Bane or other ally is defeated: The remaining ally gains 5% Critical Damage, Offense and Potency plus an additional 15% of these stats per the defeated character's Relic Amplifier level until the end of battle
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> At the start of battle if there is only one other non-Summon ally present and they are Sith:
+                <br><br>
+                - Bane gains 75% Mastery, Max Health, and Max Protection<br>
+                - Whenever an enemy is defeated, Bane gains 10% Max Health, Max Protection, and Offense (stacking) until the end of battle<br>
+                - At the start of battle, Bane takes a bonus turn
+                <br><br>
+                These effects persist if Bane is defeated.
             </p>
         </div>
     </div>
-
 
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Dark Bane",
+                "title": "<u>Dark Bane</u>",
+                "description": "Un ancien Seigneur Sith dont on parle à voix basse. Il élimine ses ennemis par la force et la ruse et croit que seuls les plus puissants devraient vivre afin de manier le pouvoir du Coté Obscur.",
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "sith": "Sith",
+
+                "basic-attack-title": "<u>Attaque Basique: Séparateur d'âme</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie et réduit son attaque de 20 % (cumulatif), puis Bane obtient 20 % d'attaque (cumulatif, ne peut pas être résisté) pendant 2 tours. Sur un coup critique, il gagne 2 cumuls de Siphonnage jusqu'à la fin de l'affrontement. Si cette attaque vainc un ennemi, confère 2 cumuls supplémentaires de Siphonnage.\n\nSi la cible dispose de plus de 50 % de santé, cette attaque infligera un coup critique si possible. Si sa santé est inférieure à 50 %, cette attaque inflige 200 % de dégâts supplémentaires.\n\nLes ennemis vaincus par cette attaque ne peuvent pas être ranimés.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Tourbillon malveillant (délai : 3)</u>",
+                "special-attack1": "Dissipe toutes les améliorations de tous les ennemis deux fois, puis inflige des dégâts physiques à tous les ennemis deux fois, infligeant 10 % de dégâts supplémentaires pour chaque amélioration dissipée et inflige l'immunité aux soins pendant 2 tours. Si l'allié dans l'emplacement de chef est l'Empereur Éternel Sith, il obtient 1 % de charge ultime pour chaque ennemi qui a subi des dégâts provenant de Dupé ou Enchainé. Bane obtient 5 cumuls de Siphonnage jusqu'à la fin de l'affrontement.\n\nCette capacité dispose de +200 % de vol de santé.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> +3 % de charge ultime supplémentaire contre les ennemis subissant Dupé ou Enchaîné. Bane obtient 5 cumuls de Siphonnage supplémentaires. ",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Essence de domination (délai : 4)</u>",
+                "special-attack2": "Inflige des dégâts physiques à tous les ennemis en fonction de la santé maximale de Bane et augmente les délais de 1 (ne peut pas être résisté). Bane <u class='speciale'>siphonne la santé maximale</u> de la cible ennemie (ne peut pas être résisté).\n\n Les alliés Sith obtiennent un bonus de pénétration de défense, de vol de santé, d'attaque et de vitesse pendant 2 tours.\n\n<u class='speciale'>Siphonnage de santé maximale :</u> Confère un pourcentage de santé maximale à hauteur du Siphonnage de cette unité jusqu'à la fin de l'affrontement et la cible ennemie perd la même quantité de santé maximale (cumulatif, exclut les boss de raid et les Légendes Galactiques).\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> Augmente les délais des ennemis de 2.\n\n Supprime 50 % de jauge de tour de tous les ennemis et les alliés Sith obtiennent 50 % de jauge de tour. Diminue la défense et la ténacité de tous les ennemis de 20 % (cumulatif, ne peut pas être résisté) jusqu'à la fin de la bataille.",
+
+                "lead-ability-title": "<u>Capacité de Chef: La survie au plus forts</u>",
+                "lead-ability": "Les alliés Sith reçoivent +30 % d'attaque et +30 de vitesse. Les alliés Sith ne peuvent pas être ranimés. Les ennemis du Coté Lumineux ont un malus de vitesse de -10 (doublé pour les Jedis).\n\nAu début de la bataille, les alliés obtiennent un bonus de défense, d'esquive et de santé pendant 2 tours.\n\nChaque fois qu'un allié Sith est vaincu, les délais de Bane sont réinitialisés, il récupère 50 % de santé et gagne 50 % de jauge de tour.\n\nTant que Bane est actif : à la fin de chacun de ses tours, l'allié Sith le plus faible subit des dégâts à hauteur de 15 % de la santé maximale de Bane, et Bane obtient 5 % de sa santé maximale pour chaque allié Sith pendant le reste de la bataille. La première fois que a santé d'un autre allié Sith qui n'est pas une Légende Galactique est réduite à 30 % ou moins, ce dernier obtient un tour bonus et est vaincu au début de ce tour bonus, puis Bane obtient 5 % de santé maximale, de protection maximale et d'attaque, ainsi que 5 de vitesse supplémentaire pour chaque niveau d'amplificateur de relique que possédait cet allié Sith vaincu. ",
+
+                "unique-ability-title": "<u>Capacité Unique : Rêgle de deux</u>",
+                "unique-ability": "Babe gagne +20 % de chances de coup critique, de dégâts critiques et +50 % de vol de santé.\n\nLorsqu'il subit Confusion, il obtient 10 % de santé maximale (cumulatif) jusqu'à la fin de la bataille. Lorsqu'un ennemi commence son tour, Bane obtient un bonus de vitesse de 5 (100 maximum) jusqu'à la fin de la bataille.\n\n Au début de la bataille, s'il n'y a qu'un seul autre allié qui n'est pas invoqué et qu'il s'agit d'un Sith : Bane subit des dégâts réduits des effets de pourcentage de santé et gagne 350 % de défense. Lorsque l'autre allié obtient de la charge ultime, ce dernier reçoit 2 % de charge ultume supplémentaire, et les effets suivants se produisent pour Bane et cet autre allié Sith :\n\n- Immunité contre Entrave des capacités, l'augmentation des délais, Immunité aux soins, Étourdissement et la réduction de jauge de tour.\n- Confère 75 % de santé maximale.\n- Confère 75 % de protection maximale jusqu'à la premire fois qu'il soit vaincu.\n- Ignore les effets de Raillerie.\n- Au début de son tour, récupère 35 % de protection et dissipe tous les affaiblissements l'affectant.\n- Lorsque Bane ou un autre allié est vaincu : l'allié restant obtient 5 % de cdégâts critiques, d'attaque et de pouvoir, ainsi que 15 % pour chaque niveau d'amplificateur de relique du personnage vaincu jusqu'à la fin de la bataille.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> au début de la bataille, s'il n'y a qu'un autre allié qui n'est pas invoqué et qu'il s'agit d'un Sith :\n\n-Bane gagne 75 % de maîtrise, de santé maximale et de protection maximale.\n- Chaque fois qu'un ennemi est vaincu Bane obtient 10 % de santé maximale et d'attaque (cumulatif) jusqu'à la fin de la bataille.\n- Au début de la bataille, Bane obtient un tour bonus.\n\n Ces effets persistent si Bane est vaincu.  ",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
     </footer>
 </body>
-</html>    
+
+</html>
