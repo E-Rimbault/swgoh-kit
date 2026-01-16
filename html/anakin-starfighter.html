@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Anakin's Eta-2 Starfighter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-vaisseaux/anakin-eta-starfighter/anakin-eta-starfighter-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="stylesheet" href="../style/ship-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-vaisseaux/anakin-eta-starfighter/anakin-eta-starfighter-image.png" alt="Anakin's Eta-2 Starfighter" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Anakin's Eta-2 Starfighter</u></h1>
+            <p id="description">
+                Aggressive Jedi Attacker that bolsters Offense and retaliates when allies are in trouble
+            </p>
+            <br>
+
+            <nav class="perso ship-nav">
+                <!-- Partie gauche : catégories -->
+                <div class="nav-left">
+                    <a class="capacite" style="color: blue !important;" href="../vaisseaux/vaisseau-coté-lumineux.html" id="lightside">Light Side</a>
+                    <a class="class" href="../vaisseaux/vaisseau-attaquant.html" id="attacker">Attacker</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-république-galactique.html" id="galactic-republic">Galactic Republic</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-jedi.html" id="jedi">Jedi</a>
+                </div>
+
+                <!-- Partie droite : unités associées -->
+                <div class="nav-right">
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href="../html/jedi_knight_anakin.html"><img src="../image-perso/jka/jka-image.png" alt="Jedi Knight Anakin" class="ship-unit-image"></a>
+                        <span id="unit-anakin" class="ship-unit-name">Jedi Knight Anakin</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-vaisseaux/anakin-eta-starfighter/anakin-eta-starfighter.png" alt="Anakin's Eta-2 Starfighter"><br>
+
+    <!-- Capacités du vaisseau -->
+
+    <!--Capacité basique-->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Locked On</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Anakin's Eta-2 Starfighter basic" src="../image-vaisseaux/anakin-eta-starfighter/eta-2-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Target Lock for 2 turns. This attack can't be Evaded.
+                <br><br>
+                <u class="speciale">Target Lock:</u> Grant another random ally Valor for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="crew-ability-title">
+        <u>Crew Ability - <strong><u class="speciale">Jedi Knight Anakin</u></strong> : Surge All Power</u>
+    </h2>
+
+    <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/anakin-eta-starfighter/eta-2-crew.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/jedi_knight_anakin.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/jka/jka-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability">
+                Jedi and Clone allies gain +30% Offense (doubled if they have Valor). Whenever another ally falls below 100% Health or is defeated, Anakin's Starfighter gains 100% Turn Meter and its next attack deals 50% more damage. Additionally, Anakin's Starfighter immediately regains Valor for 2 turns whenever it expires.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité spécial-->
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Impeding Assault (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt=" special" src="../image-vaisseaux/anakin-eta-starfighter/eta-2-special.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies and inflict Healing Immunity and Buff Immunity on target enemy for 2 turns. Anakin's Starfighter gains 20% Protection Up (stacking) for 2 turns for each Critical Hit.
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité de type renfort-->
+    <h2 class="titre" id="reinforcement-title"><u>Reinforcement Ability: Aggressive Approach</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Anakin's Eta-2 Starfighter reinforcement" src="../image-vaisseaux/anakin-eta-starfighter/eta-2-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="reinforcement-description">
+                <u class="speciale">Enter Battle:</u> Grant all allies Accuracy Up for 2 turns and all Galactic Republic allies Offense Up for 2 turns. Inflict Expose on all enemies for 2 turns, which can't be Evaded.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            const translationsFr = {
+                "big-title": "Chasseur Eta-2 d'Anakin",
+                "title": "<u>Chasseur Eta-2 d'Anakin</u>",
+                "description": "Attaquant Jedi aggresif capable d'améliorer l'attaque de son équipe et d'infliger de sévères représailles lorsque ses alliés sont en danger",
+                "unit-anakin": "Chevalier Jedi Anakin",
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "galactic-republic": "République Galactique",
+                "jedi": "Jedi",
+
+                "basic-attack-title": "<u>Attaque Basique: Verouillé</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et vérouille la cible pendant 2 tours. Cette attaque ne peut pas être esquivée.\n\n<u class='speciale'>Verouillage :</u> Confère la bravoure à un allié aléatoire pendant 2 tours.",
+
+                "crew-ability-title": "<u>Capacité équipage - <strong><u class='speciale'>Chevalier Jedi Anakin</u></strong> : Déferlement de puissance</u>",
+                "crew-ability": "Confère un bonus de +30 % d'attaque aux Jedi et clones alliés (doublés s'ils bénéficient de la bravoure). Lorsque la santé d'un allié passe en dessous de 100 % ou qu'un allié est vaincu, la jauge de tour du chasseur d'Anakin se remplit de 100 %, et confère 50 % de dégâts supplémentaires à sa prochaine attaque. Confère également la bravoure pendant 2 tours au chasseur d'Anakin chaque fois que l'effet expire.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Assaut imminent (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis ainsi que l'immunité aux sois et aux améliorations à la cible ennemie pendant 2 tours. Le chasseur d'Anakin gagne une hausse de protection de 20 % (cumulatif) pendant 2 tours pour chaque coup critique.",
+
+                "reinforcement-title": "<u>Capacité de Renfort : Approche agressive</u>",
+                "reinforcement-description": "<u class='speciale'>Rejoindre la bataille :</u> confère un bonus de précision à tous les alliés pendant 2 tours et un bonus d'attaque à tous les alliés de la République Galactique. Expose tous les ennemis pendant 2 tours (ne peut pas être esquivé).",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+    </footer>
+</body>
+
+</html>

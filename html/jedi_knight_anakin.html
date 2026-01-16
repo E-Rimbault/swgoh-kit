@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Jedi Knight Anakin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/jka/jka-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/jka/jka-image.png" alt="Jedi Knight Anakin" >
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Jedi Knight Anakin</u></h1>
+            <p id="description">
+                High-pressure Jedi attacker that punishes enemies for wounding his allies
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue  !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html" id="galactic-republic">Galactic Republic</a>
+                <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew">Crew Member</a>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/anakin-starfighter.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/anakin-eta-starfighter/anakin-eta-starfighter-image.png" alt="Anakin's Eta-2 Starfighter">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: Anakin's Eta-2 Starfighter</u>
+                </h2>
+            </section>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/jka/jka.png" alt="Jedi Knight Anakin"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Deft Bladework</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Jedi Knight Anakin basic" src="../image-perso/jka/jka-basique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with an 80% chance to inflict Healing Immunity and Buff Immunity for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Overpowering Assault (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Jedi Knight Anakin special" src="../image-perso/jka/jka-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies and grant all allies Offense Up and Critical Chance Up for 2 turns. For each enemy critically hit, grant Protection Up (10%, stacking) to each Galactic Republic ally for 1 turn. If Padmé Amidala is an ally, dispel all buffs on all enemies. This attack can't be evaded.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: On the Offensive</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Jedi Knight Anakin lead" src="../image-perso/jka/jka-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Jedi and Clone allies have +30% Offense and +20% Critical Damage and other allies have half that amount. Whenever an ally is evaded, they gain Advantage for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Righteous Fury</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Jedi Knight Anakin unique" src="../image-perso/jka/jka-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Whenever another ally falls below 50% Health or is defeated, Anakin takes a bonus turn, and his next attack deals 100% more damage if all allies were Galactic Republic at the start of battle. If Padmé Amidala is an ally, she takes a bonus turn after each of Anakin's bonus turns.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Chevalier Jedi Anakin",
+                "title": "<u>Chevalier Jedi Anakin</u>",
+                "description": "Puissant attaquant Jedi punissant ses ennemis d'avoir blessé ses alliés.",
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "galactic-republic": "République Galactique",
+                "jedi": "Jedi",
+                "crew": "Membres d’Équipage",
+
+                "basic-attack-title": "<u>Attaque Basique: Habileté au sabre laser</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie avec 80 % de chances d'infliger l'immunité aux soins et aux améliorations pendant 2 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Assaut accablant (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis et confère un bonus d'attaque et un bonus de chances de coup critique à tous les alliés pendant 2 tours. Chaque allié de la République Galactique obtient une hausse de protection (10 %, cumulatif) pendant 1 tour pourchaque ennemi qui subit des dégâts critiques. Si Padmé Amidala est une alliée, dissipe toutes les améliorations en cours sur les ennemis. Cette attaque ne peut pas être esquivée.",
+
+                "lead-ability-title": "<u>Capacité de Chef: A l'attaque</u>",
+                "lead-ability": "Les Jedi et clones alliés ont +30 % d'attaque et +20 % de dégâts critiques. Les autres alliés gagnent la moitié de ces valeurs. Lorsqu'un ennemi esquive les dégâts d'un allié, ce dernier gagne l'avantage pendant 2 tours.",
+
+                "unique-ability-title": "<u>Capacité Unique : Fureur vertueuse</u>",
+                "unique-ability": "Lorsque la santé d'un autre allié est réduite à moins de 50 %, Anakin obtient un tour bonus et sa prochaine attaque inflige 100 % de dégâts supplémentaires si tous les alliés au début de la bataille appartiennent à la République Galactique. Si Padmé Amidala est une allié, elle obtient un tour bonus après chacun des tours bonus d'anakin.",
+
+                "ship-title": "<u>Vaisseau : Chasseur Eta-2 d'Anakin</u>"
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+    </footer>
+</body>
+
+</html>
