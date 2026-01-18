@@ -1,91 +1,164 @@
-/*-- partie vaisseau -- */
-.crew-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    width: 100%;
-    margin: 0 auto 40px auto;
+/* ======================================================
+   BASE
+====================================================== */
+
+body.simple {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: radial-gradient(circle at 20% 20%, #101020, #000 80%);
+    color: #e8ecf5;
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
 }
 
-.crew-member {
+/* ======================================================
+   HEADER GLOBAL
+====================================================== */
+
+header.perso {
+    position: relative;
+    background: linear-gradient(90deg, #595c66, #4a5158);
+    color: #fff;
+    padding: 20px;
+    border-bottom: 2px solid #00d4ff;
+
+    /* IMPORTANT : layout */
+    align-items: flex-start;
+}
+
+/* ======================================================
+   IMAGE VAISSEAU (GAUCHE)
+====================================================== */
+
+header.perso > div:first-child {
+    flex: 0 0 20%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+header.perso > div:first-child img {
+    max-width: 100%;
+}
+
+/* ======================================================
+   COLONNE DROITE (TEXTE)
+====================================================== */
+
+header.perso > div:nth-child(2) {
+    flex: 1;
+    padding-left: 20px;
+    position: relative;
+
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
 }
 
-.crew-image {
-    max-width: 150px;
-    max-height: 150px;
-    border-radius: 10px;
-    transition: transform 0.3s;
+/* ======================================================
+   TITRE & DESCRIPTION
+====================================================== */
+
+#title {
+    margin: 0 0 10px 0;
+    font-size: 300%;
+}
+
+#description {
+    margin: 0;
+    font-size: 25px;
+    color: black;
+    max-width: 85%;
+}
+
+/* ======================================================
+   SWITCH DE LANGUE
+====================================================== */
+
+.language-switcher {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    display: flex;
+    gap: 8px;
+}
+
+.language-switcher img {
+    width: 32px;
+    height: 32px;
     cursor: pointer;
+    border-radius: 50%;
+    border: 1px solid #444;
+    transition: transform 0.2s;
 }
 
-.crew-image:hover {
+.language-switcher img:hover {
     transform: scale(1.1);
 }
 
-.crew-name a {
-    text-decoration: none;
-    font-weight: bold;
-    color: #007bff;
-    margin-top: 5px;
-    display: block;
-    transition: color 0.3s;
-}
+/* ======================================================
+   NAVIGATION
+====================================================== */
 
-.crew-name a:hover {
-    color: #0056b3;
-}
+nav.perso.ship-nav {
+    margin-top: 15px;
 
-#crew-title {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.ship-nav {
     display: flex;
-    flex-direction: column; /* ⬅️ empile badges puis unités */
-    align-items: flex-start;
-    gap: 12px;
-    width: 100%;
+    flex-direction: column;
+    gap: 15px;
 }
 
-/* Badges (alignement / rôle / factions) */
+/* Boutons catégories */
+
 .nav-left {
     display: flex;
-    gap: 15px;
+    gap: 10px;
     flex-wrap: wrap;
+    font-size: 150%;
 }
 
-/* Unités associées AU-DESSOUS des badges */
+nav.perso a {
+    padding: 6px 14px;
+    border-radius: 20px;
+    background-color: rgba(255,255,255,0.05);
+    color: #e8ecf5;
+    font-weight: bold;
+    border: 1px solid rgba(0,212,255,0.4);
+    transition: all 0.3s;
+}
+
+nav.perso a:hover {
+    background-color: rgba(0,212,255,0.15);
+    border-color: #00d4ff;
+    color: #fff;
+}
+
+/* ======================================================
+   UNITÉS ASSOCIÉES
+====================================================== */
+
 .nav-right {
     display: flex;
-    gap: 20px;
-    align-items: center;
+    gap: 30px;
     flex-wrap: wrap;
 }
 
 /* Carte unité */
+
 .ship-unit {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }
 
 /* Image unité */
+
 .ship-unit-image {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     transition: transform 0.2s ease;
-}
-
-#description.ship-style-description{
-    color: black;
-    font-size: 25px;
 }
 
 .ship-unit-image:hover {
@@ -93,31 +166,113 @@
 }
 
 /* Nom unité */
-.ship-unit-name {
-    font-size: 16px;
-    white-space: nowrap;
-}
-
-.ship-unit-image:hover {
-    transform: scale(1.1);
-}
 
 .ship-unit-name {
-    font-size: 25px;
-    white-space: nowrap;
+    font-size: 200%;
+    text-align: center;
     text-decoration: underline;
 }
 
-/* Conteneur images crew */
-.crew-visual {
+/* ======================================================
+   BOUTONS CLASSE / CAPACITÉ
+====================================================== */
+
+a.capacite {
+    background-color: white !important;
+    color: black !important;
+    padding: 5px 10px;
+    text-decoration: underline;
+}
+
+a.class {
+    background-color: white !important;
+    color: green !important;
+    padding: 5px 10px;
+    text-decoration: underline;
+}
+
+/* ======================================================
+   IMAGE PRINCIPALE
+====================================================== */
+
+img.first {
+    display: block;
+    max-width: 100%;
+    border-radius: 14px;
+}
+
+/* style des liens */
+a.capacite {
+    background-color: white !important; /* force le fond blanc */
+    color: black !important;                        /* couleur du texte */
+    display: inline-block;               /* pour que le fond englobe le texte */
+    padding: 5px 10px;                  /* espace autour du texte */
+    text-decoration: underline;               /* enlève le soulignement */
+}
+
+a.legende {
+    background-color: white !important; /* force le fond blanc */
+    color: orangered !important;                        /* couleur du texte */
+    display: inline-block;               /* pour que le fond englobe le texte */
+    padding: 5px 10px;                  /* espace autour du texte */
+    text-decoration: underline;
+}
+
+a.class {
+    background-color: white !important; /* force le fond blanc */
+    color: green !important;                        /* couleur du texte */
+    display: inline-block;               /* pour que le fond englobe le texte */
+    padding: 5px 10px;                  /* espace autour du texte */
+    text-decoration: underline;               /* enlève le soulignement */
+}
+
+a.pilote {
+    background-color: grey !important; /* force le fond blanc */
+    color: white !important;                        /* couleur du texte */
+    display: inline-block;               /* pour que le fond englobe le texte */
+    padding: 5px 10px;                  /* espace autour du texte */
+    text-decoration: underline;               /* enlève le soulignement */
+}
+
+/* --- Conteneur des capacités --- */
+.titre {
+    font-size: 200%;
+    text-decoration: underline;
+    background-color: #595c66;
+}
+
+.capacity-container {
     display: flex;
-    align-items: center;
-    gap: 12px;
+    align-items: flex-start;
+    margin: 20px 0;
+    gap: 18px;
+}
+
+.capacity-container .left-column {
+    flex: 0 0 125px;
+    display: flex;
+    justify-content: center;
+}
+
+.capacity-container .left-column img.attaque {
+    width: 150%;
+    max-width: 150px;
+    border-radius: 8px;
+    border: 1px solid #222;
+    background: #111;
+}
+.capacity-container .right-column {
+    flex: 1;
+    background: rgba(20, 30, 50, 0.6);
+    backdrop-filter: blur(6px);
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,212,255,0.2);
 }
 
 /* Image principale capacité */
 .capacity-container .left-column img.attaque-ship {
-    width: 140px;
+    width: 150px;
     height: auto;
     border-radius: 8px;
     border: 1px solid #222;
@@ -126,8 +281,8 @@
 
 /* Portrait pilote */
 .capacity-container .left-column img.pilote-ship {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     border: 1px solid #222;
     background: #111;
@@ -142,4 +297,157 @@
 
 .crew-pilot:hover {
     transform: scale(1.08);
+}
+
+/* --- Texte des capacités --- */
+p.attaque {
+    line-height: 1.7em;
+    font-size: 125%;
+    margin: 0;
+    color: #e8ecf5;
+}
+
+u.ulti {
+    font-weight: bold;
+    color: orange;
+    text-decoration: none;
+}
+
+u.restreint {
+    font-weight: bold;
+    background-color: red;
+    color: black;
+    text-decoration: none;
+    text-decoration: underline;
+}
+
+u.speciale {
+    font-weight: bold;
+    color: #ffd700;
+    text-decoration: underline;
+}
+
+u.omicron {
+    font-weight: bold;
+    color: pink;
+    background-color: black;
+    text-decoration: underline;
+}
+
+u.omicron a.omicron-link {
+    color: #22b422;             /* vert omicron */
+    text-decoration: underline; /* soulignement permanent */
+    font-weight: inherit;       /* garde le gras du parent */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+u.omicron a.omicron-link:hover {
+    color: #28d828;             /* vert un peu plus clair au survol */
+    transform: scale(1.05);     /* léger zoom pour retour visuel */
+}
+
+
+
+u.prime {
+    font-weight: bold;
+    color: cyan;
+    text-decoration: underline;
+}
+
+
+/* --- Pied de page --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: rgba(10,10,25,0.95);
+    border-top: 2px solid #00d4ff;
+    color: #aab6d6;
+    font-size: 0.9em;
+}
+
+/* --- Bouton scroll top --- */
+#scrollBtn {
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    background: rgba(0, 212, 255, 0.2);
+    color: #00d4ff;
+    border: 1px solid #00d4ff;
+    border-radius: 50%;
+    padding: 14px 18px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+#scrollBtn:hover {
+    background: rgba(0, 212, 255, 0.35);
+    color: #fff;
+    transform: scale(1.15);
+}
+
+#effects-table {
+    margin: 20px auto;
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    background: #222;
+    color: white;
+}
+
+#effects-table h3 {
+    margin-bottom: 5px;
+}
+
+.effect-item {
+    display: inline-block;
+    margin: 5px 10px;
+    padding: 5px 10px;
+    background: #444;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.effect-item:hover {
+    background: #666;
+}
+
+/* POPUP */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #111;
+    padding: 20px;
+    border-radius: 12px;
+    width: 60%;
+    max-height: 70%;
+    overflow-y: auto;
+    color: white;
+    z-index: 9999;
+}
+
+.popup.hidden {
+    display: none;
+}
+
+.popup .unit-entry {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.popup .unit-entry img {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+.popup-close {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
 }

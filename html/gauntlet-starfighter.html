@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Gauntlet Starfighter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-vaisseaux/gauntlet-starfighter/gauntlet-starfighter-image.png">
+    <link rel="stylesheet" href="../style/ship-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-vaisseaux/gauntlet-starfighter/gauntlet-starfighter-image.png" alt="Gauntlet Starfighter" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Gauntlet Starfighter</u></h1>
+            <p id="description">
+                Reliable Empire Support that dispels ally debuffs and prevents enemy buffs
+            </p>
+            <br>
+
+            <nav class="perso ship-nav">
+                <!-- Partie gauche : catégories -->
+                <div class="nav-left">
+                    <a class="capacite" style="color: red !important;" href="../vaisseaux/vaisseau-coté-obscur.html" id="darkside">Dark Side</a>
+                    <a class="class" href="../vaisseaux/vaisseau-soutien.html" id="support">Support</a>
+                    <a class="capacite" href="../vaisseaux/vaisseau-empire.html" id="empire">Empire</a>
+                </div>
+
+                <!-- Partie droite : unités associées -->
+                <div class="nav-right">
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href="../html/gar_saxon.html"><img src="../image-perso/gar-saxon/saxon-image.png" alt="Gar Saxon" class="ship-unit-image"></a>
+                        <span id="unit-gar-saxon" class="ship-unit-name">Gar Saxon</span>
+                    </div>
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href="../html/isc.html"><img src="../image-perso/isc/isc-image.png" alt="Imperial Super Commando" class="ship-unit-image"></a>
+                        <span id="unit-isc" class="ship-unit-name">Imperial Super Commando</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-vaisseaux/gauntlet-starfighter/gauntlet-starfighter.png" alt="Gauntlet Starfighter"><br>
+
+    <!-- Capacités du vaisseau -->
+
+    <!--Capacité basique-->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Gauntlet Assault</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Gauntlet Starfighter basic" src="../image-vaisseaux/gauntlet-starfighter/gauntlet-starfighter-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy.
+                <br><br>
+                <u class="speciale">Target Lock:</u> Grant another random ally 25% Turn Meter.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="crew-ability1-title">
+        <u>Crew Ability - <strong><u class="speciale">Gar Saxon</u></strong> : Reinvigorate (cooldown: 3)</u>
+    </h2>
+
+    <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/gauntlet-starfighter/gauntlet-starfighter-crew-saxon.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/gar_saxon.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/gar-saxon/saxon-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability1">
+                Dispel all debuffs on all allies and grant them Protection Up (30%) for 2 turns, doubled for Empire allies.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="crew-ability2-title">
+        <u>Crew Ability - <strong><u class="speciale">Imperial Super Commando</u></strong> : Proton Missile Launcher (cooldown: 3)</u>
+    </h2>
+
+    <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/gauntlet-starfighter/gauntlet-starfighter-crew-isc.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/isc.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/isc/isc-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability2">
+                Deal Physical damage to target enemy and inflict Buff Immunity for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité unique-->
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Superior Maneuverability</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Gauntlet Starfighter unique" src="../image-vaisseaux/gauntlet-starfighter/gauntlet-starfighter-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Gauntlet Starfighter has +20 Speed and gains an additional +15 Speed for each other active Empire ally. Additionally, it grants +25% Defense to all allies, doubled for Empire allies.
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité de type renfort-->
+    <h2 class="titre" id="reinforcement-title"><u>Reinforcement Ability: Viceroy of Mandalore</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Gauntlet Starfighter reinforcement" src="../image-vaisseaux/gauntlet-starfighter/gauntlet-starfighter-reinforcement.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="reinforcement-description">
+                <u class="speciale">Enter Battle:</u> All allies recover 30% Protection and Empire allies gain 30% Max Protection.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            const translationsFr = {
+                "big-title": "Chasseur Gauntlet",
+                "title": "<u>Chasseur Gauntlet</u>",
+                "description": "Fidèle soutien de l'Empire qui dissipe les affaiblissements des alliés et empêche les ennemis d'utiliser des améliorations.",
+                "unit-gar-saxon": "Gar Saxon",
+                "unit-isc": "Super Commando Impérial",
+                "darkside": "Coté Obscur",
+                "support": "Soutien",
+                "empire": "Empire",
+
+                "basic-attack-title": "<u>Attaque Basique: Assaut Gauntlet</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie.\n\n<u class='speciale'>Verrouillage :</u> remplit la jauge de tour d'un allié aléatoire de 25 %.",
+
+                "crew-ability1-title": "<u>Capacité équipage - <strong><u class='speciale'>Gar Saxon</u></strong> : Coup de fouet (délai : 3)</u>",
+                "crew-ability1": "Dissipe tous les affaiblissements en cours sur les alliés et leur confère une hausse de protection (30 %) pendant 2 tours. Ce bonus est doublé pour les alliés de l'Empire.",
+
+                "crew-ability2-title": "<u>Capacité équipage - <strong><u class='speciale'>Super Commando Impérial</u></strong> : Lance-missibles à protons (délai : 3)</u>",
+                "crew-ability2": "inflige des dégâts physiques à une cible ennemie et inflige l'immunité aux améliorations pendant 2 tours.",
+
+                "unique-ability-title": "<u>Capacité Unique : Manœuvrabilité supérieur</u>",
+                "unique-ability": "Le Chasseur Gauntlet obtient un bonus de vitesse de +20, et +15 de vitesse supplémentaire pour chaque allié de l'Empire actif. De plus, il confère un bonus de défense de +25 % à tous les alliés (doublés pour les alliés de l'Empire).",
+
+                "reinforcement-title": "<u>Capacité de Renfort : Vice-roi de Mandalore</u>",
+                "reinforcement-description": "<u class='speciale'>Rejoindre la bataille :</u> tous les alliés récupèrent 30 % de protection et les alliés de l'Empire gagnent 30 % de protection supplémentaires.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+    </footer>
+</body>
+
+</html>
