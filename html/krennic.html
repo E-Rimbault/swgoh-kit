@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Director Krennic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/krennick/krennick_image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/krennick/krennick_image.png" alt="Director Krennic" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Director Krennic</u></h1>
+            <p id="description">
+                Intimidating Empire Support who inflicts devastating debuffs and slows enemies
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/krennick/krennick.png" alt="Director Krennic"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Test Their Defenses</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Director Krennic basic" src="../image-perso/krennick/krennick_basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy and inflict Tenacity Down for 3 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Death Trooper Assault (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Director Krennic special 1" src="../image-perso/krennick/krennick-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to all enemies with a 70% chance to inflict Stagger for 2 turns. If any enemies are debuffed, revive Death Trooper with 20% Health for each debuffed enemy. If Death Trooper is present, he is called to Assist.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Experimental Weaponry (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Director Krennic special 2" src="../image-perso/krennick/krennick-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Special damage to target enemy and inflict a debuff (Attacker: Stun, Healer/Support: Ability Block, Tank: Buff Immunity) for 2 turns. If the target is a Rebel, also inflict Speed Down for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Director of Advanced Weapons Research</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Director Krennic lead" src="../image-perso/krennick/krennic-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Empire allies gain 25% Critical Chance and 25% Potency. Debuffed enemies who are Critically Hit during an Empire ally's turn suffer Ability Block for 1 turn. This effect can't be Resisted. Empire allies recover 10% Protection whenever they score a Critical Hit.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Immeasurable Power</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Director Krennic unique" src="../image-perso/krennick/krennick-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Director Krennic gains 10% Critical Damage for each debuffed enemy and 10% Critical Damage for each Rebel enemy. If Death Trooper is present he also gains these bonuses.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> Krennic gains +30% Defense Penetration, Health, and Offense. If Death Trooper is present he also gains these bonuses. Whenever Krennic attacks, Death Trooper is called to assist and has his cooldowns reduced by 1. While allied Death Trooper is active, both Krennic and Death Trooper ignore Taunt effects.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Directeur Krennic",
+                "title": "<u>Directeur Krennic</u>",
+                "description": "Impressionnant soutien de l'Empire qui inflige des malus dévastateurs et ralentit les ennemis.",
+                "darkside": "Coté Obscur",
+                "support": "Soutien",
+                "leader": "Chef",
+                "empire": "Empire",
+
+                "basic-attack-title": "<u>Attaque Basique: Tester les défenses</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie et lui inflige un malus de ténacité pendant 3 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Attaque de Death Trooper (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à tous les ennemis, avec 70 % de chances d'infliger Faux pas pendant 2 tours. Si des ennemis sont affectés par un affaiblissement, réanime le Death Trooper avec 20 % de sa santé pour chaque ennemi subissant un afaiblissement. Le Death Trooper est invoqué s'il est présent.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Armement expérimental (délai : 3)</u>",
+                "special-attack2": "Inflige des dégâts spéciaux à une cible ennemie ainsi qu'un affaiblissement (attaquant : étourdissement, soigneur/soutien : entrave des capacités, tank : immunités aux améliorations) pendant 2 tours. Si la cible est un rebelle, inflige également un malus de vitesse pendant 2 tours.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Directeur de la division de recherche en arme avancées</u>",
+                "lead-ability": "Les alliés de l'Empire gagnent +25 % de chances de coup critique et +25 % de pouvoir. Les ennemis subissant un affaiblissement qui reçoivent un coup critique durant le tour d'un allié de l'Empire voient leurs capacités entravées pendant 1 tour. Cet effet ne peut pas être résisté. Les alliés de l'Empire récupèrent 10 % de protection à chaque coup critique porté.",
+
+                "unique-ability-title": "<u>Capacité Unique : Puissance incommensurable</u>",
+                "unique-ability": "Le Directeur Krennic gagne +10 % aux dégâts critiques pour chaque ennemi subissant un affaiblissement et +10 % aux dégâts critiques pour chaque ennemi rebelle. Si le Death Trooper est présent, il reçoit aussi ces bonus.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> Krennic obtient +30 % de pénétration de défense, de santé et d'attaque. Si le Death Trooper est présent, il obtient également ces bonus. A chaque fois que Krennic attaque, le Death Trooper est invoqué et ses délais diminuent de 1. Tant que le Death Trooper allié est actif, Krennic et le Death Trooper ignorent tous deux les effets de Raillerie.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+    </footer>
+</body>
+
+</html>
