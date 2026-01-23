@@ -393,3 +393,121 @@ footer {
     transform: scale(1.1);
     filter: drop-shadow(0 0 6px rgba(0, 123, 255, 0.7));
 }
+
+/* partie mobile */ 
+
+@media (max-width: 768px) {
+
+    /* =============================
+       HEADER GLOBAL
+    ============================== */
+
+    header.perso {
+        padding: 16px;
+        text-align: center;
+    }
+
+    /* =============================
+       PORTRAIT UNITÉ
+    ============================== */
+
+    header.perso > div:first-child {
+        position: relative;
+        transform: none;
+        padding: 0;
+        margin-bottom: 15px;
+
+        display: flex;
+        justify-content: center;
+    }
+
+    header.perso > div:first-child img {
+        max-width: 120px;
+        border-radius: 12px;
+    }
+
+    /* =============================
+       COLONNE TEXTE
+    ============================== */
+
+    header.perso > div:nth-child(2) {
+        padding-left: 0;
+    }
+
+    #title {
+        margin-left: 0;
+        font-size: 2em;
+    }
+
+    #description {
+        margin-left: 0;
+        font-size: 1.1em;
+        color: #e8ecf5;
+    }
+
+    /* =============================
+       HEADER SHIP / PILOTE
+    ============================== */
+
+    .header-ship {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .header-ship img {
+        width: 70px;
+    }
+
+    /* =============================
+       NAVIGATION (TAGS)
+    ============================== */
+
+    nav.perso {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    nav.perso a {
+        margin-right: 0;
+        font-size: 0.9em;
+        padding: 6px 12px;
+    }
+
+    /* =============================
+       CAPACITÉS
+    ============================== */
+
+    .capacity-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .capacity-container .left-column {
+        flex: none;
+        margin-bottom: 10px;
+    }
+
+    .capacity-container .left-column img.attaque {
+        width: 120px;
+    }
+
+    .capacity-container .right-column {
+        width: 100%;
+    }
+
+    p.attaque {
+        font-size: 1em;
+    }
+
+    /* =============================
+       POPUP
+    ============================== */
+
+    .popup {
+        width: 90%;
+        max-height: 80%;
+    }
+}
