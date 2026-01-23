@@ -39,6 +39,53 @@
     .lang-toggle {display:flex;justify-content:center;gap:10px;margin-bottom:15px;}
     .lang-toggle img {cursor:pointer;width:32px;height:32px;border-radius:50%;border:2px solid transparent;}
     .lang-toggle img.active {border-color:#007bff;}
+
+    @media (max-width: 768px) {
+
+  /* Sidebar */
+  #sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 2px solid #333;
+  }
+
+  /* Content */
+  #content {
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  /* Résultats centrés */
+  #results {
+    justify-content: center;
+  }
+
+  /* Cartes un peu plus larges */
+  .card {
+    width: 90%;
+    max-width: 320px;
+  }
+
+  /* Bouton scroll */
+  #scrollTopBtn {
+    right: 15px;
+    bottom: 15px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .filter-box {
+    margin-bottom: 15px;
+  }
+
+  .category-grid {
+    max-height: 150px;
+  }
+}
+
   </style>
 </head>
 <body>
