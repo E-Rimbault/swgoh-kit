@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Slave I</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-vaisseaux/slave1/slave1-image.png">
+    <link rel="stylesheet" href="../style/ship-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-vaisseaux/slave1/slave1-image.png" alt="Slave I" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Slave I</u></h1>
+            <p id="description">
+                Deadly Bounty Hunter Attacker that inflicts and exploits Target Lock for high area-of-effect damage
+            </p>
+            <br>
+
+            <nav class="perso ship-nav">
+                <!-- Partie gauche : catégories -->
+                <div class="nav-left">
+                    <a class="capacite" style="color: red !important;" href="../vaisseaux/vaisseau-coté-obscur.html" id="darkside">Dark Side</a>
+                    <a class="class" href="../vaisseaux/vaisseau-attaquant.html" id="attacker">Attacker</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-chasseur-de-primes.html" id="hunter">Bounty Hunter</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-vaurien.html" id="scoundrel">Scoundrel</a>
+                    <a class="capacite" href="../vaisseaux/vaisseux-de-marchandise.html" id="cargo-ship">Cargo Ship</a>
+                </div>
+
+                <!-- Partie droite : unités associées -->
+                <div class="nav-right">
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href="../html/boba.html"><img src="../image-perso/boba-fett/boba-image.png" alt="Boba Fett" class="ship-unit-image"></a>
+                        <span id="unit-boba-fett" class="ship-unit-name">Boba Fett</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-vaisseaux/slave1/slave1.png" alt="Slave I"><br>
+
+    <!-- Capacités du vaisseau -->
+
+    <!--Capacité basique-->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Rotating Twin Blaster Cannons</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Slave I basic" src="../image-vaisseaux/slave1/slave1-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 55% chance each to damage them a second and third time. Each hit has a 70% chance to inflict Target Lock for 2 turns, but hits after the first deal 75% less damage. If the target enemy is Breached, dispel all buffs on them.
+                <br><br>
+                <u class="speciale">Target Lock:</u> Gain 20% Turn Meter on each Critical Hit.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="crew-ability-title">
+        <u>Crew Ability - <strong><u class="speciale">Boba Fett</u></strong> : Proton Torpedoes (cooldown: 3)</u>
+    </h2>
+
+    <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/slave1/slave1-crew.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/boba.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/boba-fett/boba-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability">
+                Deal Physical damage to target enemy and all Target Locked enemies, and inflict Ability Block for 1 turn on all affected targets.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité spécial-->
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Seismic Charge (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Slave I special" src="../image-vaisseaux/slave1/slave1-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies, plus bonus damage equal to 30% of their maximum Health. This attack ignores Armor and Protection. This ability starts on cooldown.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité unique-->
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : No Good To Me Dead</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Slave I unique" src="../image-vaisseaux/slave1/slave1-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                At the start of battle or when Reinforced, for each active enemy, Slave I gains 5% Offense, 2% Crit Chance, and 5 Speed for the rest of battle.
+                <br><br>
+                The first time all enemies are Breached while Slave I is active, or if Slave I enters the battle while all enemies are Breached, Seismic Charge's cooldown is reset.
+                <br><br>
+                While Slave I is active, Breached enemies deal 50% less damage when they attack out of turn
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité de type renfort-->
+    <h2 class="titre" id="reinforcement-title"><u>Reinforcement Ability: All Out Offensive</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Slave I reinforcement" src="../image-vaisseaux/slave1/slave1-reinforcement.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="reinforcement-description">
+                <u class='speciale'>Enter Battle :</u> Slave I gains Taunt, Retribution, and Protection Up (10%) for 2 turns, and Critical Hit Immunity for 3 turns. Slave I gains additional Protection Up (20%) per Breached enemy. Then, inflict Ability Block on target enemy for 1 turn, which can't be evaded or resisted.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            const translationsFr = {
+                "big-title": "Slave I",
+                "title": "<u>Slave I</u>",
+                "description": "Attaquant chasseur de primes mortel qui utilise et exploite le verouillage pour infliger de lourds dégâts à effets de zone.",
+                "unit-boba-fett": "Boba Fett",
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "hunter": "Chasseur de primes",
+                "scoundrel": "Vaurien",
+                "cargo-ship": "Vaisseau de marchandise",
+
+                "basic-attack-title": "<u>Attaque Basique: Double canon blaster rotatif</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie, avec 55 % de chances d'infliger des dégâts une deuxième fois et une troisième fois. Chaque coup a 70 % de chances d'infliger le verouillage pendant 2 toursn mais les dégâts infligés après le premier coup sont 75 % moins importants. Si la cibble ennemie souffre de Faille, dissipe toutes ses amélioration.\n\n<u class='speciale'>Verouillage :</u> remplit la jauge de tour de 20 % à chaque coup critique.",
+
+                "crew-ability-title": "<u>Capacité équipage - <strong><u class='speciale'>Boba Fett</u></strong> : Torpille à protons (délai : 3)</u>",
+                "crew-ability": "Inflige des dégâts à une cible ennemie ainsi qu'à tous les ennemis vérrouillés, et entrave les capacités de toutes les cibles affectées pendant 1 tour.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Charge sismique (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis, ainsi que des dégâts bonus à hauteur de 30 % de leur santé maximale. Cette attaque ignore l'armure et la protection. Cette capacité commence avec un délai.",
+
+                "unique-ability-title": "<u>Capacité Unique : Mort, il ne me servira à rien</u>",
+                "unique-ability": "Au début de la bataille ou lorsqu'il fait appel à des renforts, pour chaque ennemi actif, le Slave I obtient 5 % d'attaque; 2 % de chances de coup critique et 5 de vitesse pour le reste de l'affrontement.\n\nLa première fois que tous les ennemis souffrent de Faille lorsque le Slave I est actif, ou si le Slave I rejoint la bataille alors que tous les ennemis souffrent de Faille, le délai de Charge sismique est réinitalisé.\n\nLorsque le Slave I est actif, les ennemis qui souffrent de Faille infligent 50 % de dégâts en moins lorsqu'ils attaquent en dehors de leur tour.",
+
+                "reinforcement-title": "<u>Capacité de Renfort : Offensive générale</u>",
+                "reinforcement-description": "<u class='speciale'>Rejoindre la Bataille :</u> le Slave I obtient Raillerie, la rétribution et une hausse de protection (10 %) pendant 2 tours, ainsi que l'immunité aux coups critiques pendant 3 tours. Le SLave I obtient une hausse de protection (20 %) par ennemi qui souffre de Faille. Ensuite, inflige l'entrave des capacité à la cible ennemie pendant 1 tour (ne peut pas être esquivé ou résisté).",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+    </footer>
+</body>
+
+</html>
