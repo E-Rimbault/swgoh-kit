@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Razor Crest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-vaisseaux/razor-crest/razor-crest-image.png">
+    <link rel="stylesheet" href="../style/ship-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-vaisseaux/razor-crest/razor-crest-image.png" alt="Razor Crest" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Razor Crest</u></h1>
+            <p id="description">
+                Tenacious Bounty Hunter attacker with Breach synergy.
+            </p>
+            <br>
+
+            <nav class="perso ship-nav">
+                <!-- Partie gauche : catégories -->
+                <div class="nav-left">
+                    <a class="capacite" style="color: blue !important;" href="../vaisseaux/vaisseau-coté-lumineux.html" id="lightside">Light Side</a>
+                    <a class="class" href="../vaisseaux/vaisseau-attaquant.html" id="attacker">Attacker</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-chasseur-de-primes.html" id="hunter">Bounty Hunter</a>
+                    <a class="capacite" href="../vaisseaux/vaisseux-de-marchandise.html" id="cargo-ship">Cargo Ship</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-vaurien.html" id="scoundrel">Scoundrel</a>
+                </div>
+
+                <!-- Partie droite : unités associées -->
+                <div class="nav-right">
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href="../html/The_mandalorian_beskar.html"><img src="../image-perso/bam/The-Mandalorian-image.png" alt="Razor Crest" class="ship-unit-image"></a>
+                        <span id="unit-mando-beskar" class="ship-unit-name">The Mandalorian (Beskar Armor)</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-vaisseaux/razor-crest/razor-crest.png" alt="Razor Crest"><br>
+
+    <!-- Capacités du vaisseau -->
+
+    <!--Capacité basique-->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Most Wanted</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Razor Crest basic" src="../image-vaisseaux/razor-crest/razor-crest-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. If the enemy is Breached, inflict Marked for 2 turns, which can't be evaded or resisted.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="crew-ability-title">
+        <u>Crew Ability - <strong><u class="speciale">The Mandalorian (Beskar Armor)</u></strong> : Tenacious Pilot</u>
+    </h2>
+
+    <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/razor-crest/razor-crest-crew.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/The_mandalorian_beskar.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/bam/The-Mandalorian-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability">
+                Whenever another Bounty Hunter ally uses a Special ability, they first inflict Breach on the selected target for 2 turns, which can't be evaded or resisted.
+                <br><br>
+                The first time allies inflict Breach 6 times while Razor Crest is active, Razor Crest gains +50% Critical Damage for the rest of the battle and active Bounty Hunter allies gain +25% Offense and +25 Speed for the rest of the battle.
+                <br><br>
+                If a Marked enemy is defeated, reduce the cooldowns of active allied Bounty Hunter ships by 1.
+                <br><br>
+                While Razor Crest is active, Breached enemies have -30% Critical Damage.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité spécial-->
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Stalling Strafe (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Razor Crest special" src="../image-vaisseaux/razor-crest/razor-crest-speciale.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and inflict Breach for 2 turns. If the target already had Breach, inflict Buff Immunity for 2 turns. Call target other Bounty Hunter ally to assist.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité unique-->
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Trusty Transport</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Razor Crest unique" src="../image-vaisseaux/razor-crest/razor-crest-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                This ship ignores taunt effects during its turn.
+                <br><br>
+                At the start of battle, Razor Crest gains 5 stacks of <u class="speciale">Reinforced Hull</u>, which can't be copied, dispelled, or prevented. The first time Razor Crest is reduced to 1% Health, it recovers 90% Health and gains 3 stacks of Reinforced Hull.
+                <br><br>
+                <u class="speciale">Reinforced Hull:</u> +250% Defense per stack; lose one stack of Reinforced Hull when receiving damage
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité de type renfort-->
+    <h2 class="titre" id="reinforcement-title"><u>Reinforcement Ability: Pre-Empire Transponder</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Razor Crest Reinforcement" src="../image-vaisseaux/razor-crest/razor-crest-renfort.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="reinforcement-description">
+                <u class='speciale'>Enter Battle :</u> Razor Crest gains Stealth for 2 turns and inflicts Ability Block on target enemy for 1 turn, which can't be evaded or resisted.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            const translationsFr = {
+                "big-title": "Razor Crest",
+                "title": "<u>Razor Crest</u>",
+                "description": "Attaquant chasseur de primes tenace qui dispose d'une synergie avec Faille.",
+                "unit-mando-beskar": "Le Mandalorien (armure en beskar)",
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "hunter": "Chasseur de primes",
+                "cargo-ship": "Vaisseau de marchandise",
+                "scoundrel": "Vaurien",
+
+                "basic-attack-title": "<u>Attaque Basique: Les plus recherchés</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie. Si l'ennemi souffre de Faille, inflige Marqué pendant 2 tours (ne peut pas être esquivé ou résisté).",
+
+                "crew-ability-title": "<u>Capacité équipage - <strong><u class='speciale'>Le Mandalorien (armure en besar)</u></strong> : Pilote tenace</u>",
+                "crew-ability": "Lorsqu'un Chasseur de primes alliés utilise une capacité spéciale, inflige Faille à la cible séléctionnée pendant 2 tours (ne peut pas être esquivé ou résisté.)\n\nLa première fois que les alliés infligent Faille 6 fois lorsque le Razor Crest est actif, ce dernier obtient +50 % de dégâts critiques pendant le reste de la bataille, et les Chasseur de primesalliés actifs obtiennent +25 % d'attaque et +25 de vitesse pendant le reste de la bataille.\n\nSi un ennemi marqué est vaincu, le délai des vaisseaux de Chasseurs de primes alliés actifs est réduit de 1.\n\nLorsque le Razor Crest est actif, les ennemis qui disposent de Faillé ont -30 % de dégâts critiques.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Rafale de décrochage (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie, ainsi que Faille pendant 2 tours. Si la cible souffre déjà de Faille, inflige l'immunité aux améliorations pendant 2 tours. Invoque le Chasseur de primes allié ciblé.",
+
+                "unique-ability-title": "<u>Capacité Unique : Transport de confiance</u>",
+                "unique-ability": "Ce vaisseau ignore les effets de Raillerie pendant son tour.\n\nAu début de la bataille, le Razor Crest obtient 5 cumuls de <u class='speciale'>Coque renforcée</u> (ne peut pas être copié, dissipé ou évité). La première fois que la santé du Razor Crest est réduite à 1 %, il récupère 90 % de santé et obtient 3 cumuls de coque renforcée.\n\n<u class='speciale'>Coque renforcée :</u> +250 % de défense par cumul. En cas de dégâts subis, perd un cumul de Coque renforcée.",
+
+                "reinforcement-title": "<u>Capacité de Renfort : Transpondeur pré-Empire</u>",
+                "reinforcement-description": "<u class='speciale'>Rejoindre la Bataille :</u> Le Razor Crest obtient le Camouflage pendant 2 tours et inflige l'entrave des capacités à une cible ennemie pendant 1 tours (ne peut pas être esquivé ou résisté).",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+    </footer>
+</body>
+
+</html>
