@@ -1,96 +1,179 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title></title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Sith Marauder</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/maraudeur-sith/marauder.png">
-
-    <!-- Lien vers la feuille de style -->
-    <link rel="stylesheet" href="../style/styles.css">
-    <link rel="stylesheet" href="../style/capacite.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/maraudeur-sith/marauder.png" alt="Sith Marauder" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>Maraudeur Sith</u></h1>
-        <p>
-            Attaquant Sith qui tire profit de tous les affaiblissements et améliorations en combat.
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: red;" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/sith.html">Sith</a>
-            <a class="capacite" href="../classement-perso/empire-sith.html">Empire Sith</a>
-            <a class="pilote" href="../classement-perso/membres-équipages.html">Membre Equipages</a>
-        </nav>
+            <h1 id="title"><u>Sith Marauder</u></h1>
+            <p id="description">
+                Destructive Sith Attacker that takes advantage of all buffs and debuffs in battle
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Darkside</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/sith.html" id="sith">Sith</a>
+                <a class="capacite" href="../classement-perso/empire-sith.html" id="sith-empire">Sith Empire</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/bombardier-b-28.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/empire-sith-bomber/empire-sith-bomber-image.png" alt="">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: B-28 Extinction-class Bomber</u>
+                </h2>
+            </section>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/maraudeur-sith/maraudeur-sith.png" alt="Sith Maraudeur"><br>
+    <img class="first" src="../image-perso/maraudeur-sith/maraudeur-sith.png" alt="Sith Marauder"><br>
 
-    <!-- Section pour les différentes attaques spéciales -->
-    <h2 class="titre"><u>attaque basique : La puissance par la passion</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Strength Through Passion</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="sith marauder basique" src="../image-perso/maraudeur-sith/maraudeur-basic.png">
+            <img class="attaque" alt="Sith Marauder basic" src="../image-perso/maraudeur-sith/maraudeur-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie et lui inflige un malus d'attaque pendant 2 tours.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Offense Down for 2 turns.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: La victoire par le pouvoir (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Victory Through Power (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="sith marauder spé 1" src="../image-perso/maraudeur-sith/maraudeur-sp.png">
+            <img class="attaque" alt="Sith Marauder speciale" src="../image-perso/maraudeur-sith/maraudeur-sp.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie et confère un bonus de pouvoir à tous les alliés pendant 2 tours.<br>
-                Si cette attaque inflige un coup critique, diminue la santé maximale de la cible de 15% jusqu'à la fin de l'affrontement<br>
-                (ne peut pas être résisté). Boss de Raid: Cette attaque ignore l'armure.
-             </p>
-        </div>
-    </div>
-
-
-    <h2 class="titre"><u>capacité unique: La Force me libérera</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="sith marauder unique" src="../image-perso/maraudeur-sith/maraudeur-unique.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Le Maraudeur Sith a +10% de défense, +10% de vol de santé et +10% de ténacité pour chaque améliorations en cours sur tous les<br>
-                personnages. Le Maraudeur Sith a +2% de chances de coup critique, +2% d'attaque et +2% de pouvoir pour chaque affaiblissements<br>
-                en cours sur tous les personnages. Lorsqu'un ennemi utilise une capacité quand ce n'est pas son tour, la jauge de tour<br>
-                du Maraudeur Sith se remplit de 20%.
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and grant all allies Potency Up for 2 turns. If this attack scores a Critical Hit, reduce the target's Max Health by 15%, which can't be Resisted, until the end of the encounter.
+                <br><br>
+                Raid Bosses: This attack ignores Armor.
             </p>
         </div>
     </div>
 
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : The Force Shall Free Me</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Sith Marauder unique" src="../image-perso/maraudeur-sith/maraudeur-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Sith Marauder has +10% Defense, +10% Health Steal, and +10% Tenacity for each buff on all characters. Sith Marauder has +2% Critical Chance, +2% Offense and +2% Potency for each debuff on all characters. When an enemy uses an ability outside of their turn, Sith Marauder gains 20% Turn Meter.
+            </p>
+        </div>
+    </div>
+    </div>
 
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Maraudeur Sith",
+                "title": "<u>Maraudeur Sith</u>",
+                "description": "Attaquant Sith destructeur qui tire profit de tous les affaiblissements et améliorations en combat",
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "sith": "Sith",
+                "sith-empire": "Empire Sith",
+                "crew-members": "Membres d’Équipage",
+
+                "basic-attack-title": "<u>Attaque Basique: La puissance par la passion</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et lui inflige un malus d'attaque pendant 2 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : La victoire par le pouvoir (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie et confère un bonus de pouvoir à tous les alliés pendant 2 tours. Si cette attaquen inflige un coup critique, diminue la santé maximale de la cible de 15 % jusqu'à la fin de l'affrontement (ne peut pas être résisté).\n\nBoss de raid : Cette attaque ignore l'armure.",
+
+                "unique-ability-title": "<u>Capacité Unique : La Force me libérera</u>",
+                "unique-ability": "Le Maraudeur Sith a +10 % de défense, +10 % de vol de santé et +10 % de ténacité pour chaque amélioration en cours sur tous les personnages. Le Maraudeur Sith a +2 % de chances de coup critique, +2 % d'attaque et +2 % de pouvoir pour chaque affaiblisements en cours sur tous les personnages. Lorsqu'un ennemi utilise une capacité quand ce n'est pas son tour, la jauge detour du Maraudeur Sith se remplit d 20 %.",
+
+                "ship-title": "<u>Vaisseau : Bombardier de classe extinction B-28</u>"
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
     </footer>
 </body>
-</html>    
+
+</html>

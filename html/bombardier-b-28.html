@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">B-28 Extinction-class Bomber</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-vaisseaux/empire-sith-bomber/empire-sith-bomber-image.png">
+    <link rel="stylesheet" href="../style/ship-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-vaisseaux/empire-sith-bomber/empire-sith-bomber-image.png" alt="B-28 Extinction-class Bomber" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>B-28 Extinction-class Bomber</u></h1>
+            <p id="description">
+                Aggressive Sith Tank with a passive Taunt and self-preservation tactics
+            </p>
+            <br>
+
+            <nav class="perso ship-nav">
+                <!-- Partie gauche : catégories -->
+                <div class="nav-left">
+                    <a class="capacite" style="color: red !important;" href="../vaisseaux/vaisseau-coté-obscur.html" id="darkside">Dark Side</a>
+                    <a class="class" href="../vaisseaux/vaisseau-tank.html" id="tank">Tank</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-siths.html" id="sith">Sith</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-empire-sith.html" id="sith-empire">Sith Empire</a>
+                </div>
+
+                <!-- Partie droite : unités associées -->
+                <div class="nav-right">
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href="../html/sith_marauder.html"><img src="../image-perso/maraudeur-sith/marauder.png" alt="Sith Maraudeur" class="ship-unit-image"></a>
+                        <span id="unit-maraudeur" class="ship-unit-name">Sith Marauder</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-vaisseaux/empire-sith-bomber/empire-sith-bomber.png" alt="B-28 Extinction-class Bomber"><br>
+
+    <!-- Capacités du vaisseau -->
+
+    <!--Capacité basique-->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Laser Barrage</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="B-28 Extinction-class Bomber basic" src="../image-vaisseaux/empire-sith-bomber/empire-sith-bomber-basique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to the target enemy. On a Critical Hit, the B-28 gains Defense Up for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="crew-ability-title">
+        <u>Crew Ability - <strong><u class="speciale">Sith Marauder</u></strong> : Bombing Run (cooldown: 3)</u>
+    </h2>
+
+    <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/empire-sith-bomber/empire-sith-bomber-crew.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/sith_marauder.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/maraudeur-sith/marauder.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability">
+                Deal Physical damage to all enemies and place <u class="speciale">Concussion Mines</u> on them. After 1 turn, these Concussion Mines explode.
+                <br><br>
+                <u class="speciale">Concussion Mine:</u> Deals damage equal to 10% of the target's Max Health and Dazes the target for 2 turns when it explodes. Can't be Dispelled.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité unique-->
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : High-Value Target</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="B-28 Extinction-class Bomber unique" src="../image-vaisseaux/empire-sith-bomber/empire-sith-bomber-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                The first time another Sith ally takes damage and any time another Sith ally drops below 100% Health, the B-28 gains Taunt for 2 turns. While Taunting, the B-28 gains +25% Critical Avoidance.
+                <br><br>
+                Whenever a Sith ally takes damage or evades an attack from an enemy, there is an 80% chance to place a Concussion Mine on that enemy. The B-28 recovers 15% Protection any time a Concussion Mine explodes on an enemy.
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité de type renfort-->
+    <h2 class="titre" id="reinforcement-title"><u>Reinforcement Ability: Bomber Backup</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="B-28 Extinction-class Bomber Reinforcement" src="../image-vaisseaux/empire-sith-bomber/empire-sith-bomber-reinforcement.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="reinforcement-description">
+                <u class='speciale'>Enter Battle :</u> Place 2 <u class="speciale">Concussion Mines</u> on all enemies, which can't be Evaded. After 1 turn, these Concussion Mines explode. While the B-28 is active, Sith allies recover 5% Protection any time a Concussion Mine explodes on an enemy.
+                <br><br>
+                <u class="speciale">Concussion Mine:</u> Deals damage equal to 10% of the target's Max Health and Dazes the target for 2 turns when it explodes. Can't be Dispelled.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            const translationsFr = {
+                "big-title": "Bombardier de classe extinction B-28",
+                "title": "<u>Bombardier de classe extinction B-28</u>",
+                "description": "Tank sith agressif qui emploie Raillerie et des tactiques d'auto-préservation.",
+                "unit-maraudeur": "Maraudeur Sith",
+                "darkside": "Coté Obscur",
+                "tank": "Tank",
+                "sith": "Sith",
+                "sith-empire": "Empire Sith",
+
+                "basic-attack-title": "<u>Attaque Basique: Barrage laser</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie. En cas de coup critique, le B-28 bénéficie d'un bonus de défense pendant 2 tours.",
+
+                "crew-ability-title": "<u>Capacité équipage - <strong><u class='speciale'>Maraudeur Sith</u></strong> : Bombardement (délai : 3)</u>",
+                "crew-ability": "Inflige des dégâts physiques à tous les ennemis et place des <u class='speciale'>mines à concussion</u> sur chacun d'eux. Ces mines à concussion explosent après 1 tour.\n\n<u class='speciale'>Mine à consussion :</u> Inflige des dégâts à hauteur de 10 % de la santé maximale de la cible et l'étourdit pendant 2 tours lorsqu'elle explose. Ne peut pas être dissipé.",
+
+                "unique-ability-title": "<u>Capacité Unique : Cible inestimable</u>",
+                "unique-ability": "La première fois qu'un allié Sith subit des dégâts, puis à chaque fois que la santé d'un allié Sith devient inférieure à 100%, le B-28 bénéficie d'un bonus d'esquive des coups critiques de 25 %.\n\nA chaque fois qu'un Sith allié subit des dégâts ou esquive une attaque ennemie, il y a 80 % de chances qu'une mine à concussion soit placé sur l'attaquant ennemi. Le B-28 récupèr 15 % de protection à chaque fois qu'une mine à concussion explose sur un ennemi.",
+
+                "reinforcement-title": "<u>Capacité de Renfort : Bombardier en renfort</u>",
+                "reinforcement-description": "<u class='speciale'>Rejoindre la Bataille :</u> place 2 <u class='speciale'>mines à concussion</u> sur chaque ennemi (ne peut pas être esquivé). Après 1 tour, ces mines à consussion explosent. Lorsque le B-28 est actif, les Sith alliés récupèrent 5 % de protection à chaque fois qu'une mine à concussion explose sur un ennemi.\n\n<u class='speciale'>Mine à concussion :</u> assène des dégâts à hauteur de 10 % de la santé maximale de la cible et lui inflige la confusion pendant 2 tours lorsqu'elle explose. Ne peut pas être esquivé.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+    </footer>
+</body>
+
+</html>
