@@ -35,8 +35,16 @@
             border: 1px solid #444;
         }
 
-        #ally-code-input {
-            width: 80%;
+        /* --- AJUSTEMENT DES INPUTS --- */
+        .auth-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        #ally-code-input, #ally-pin-input {
+            width: 100%;
             padding: 12px;
             background: #111;
             border: 2px solid var(--sw-blue, #00d4ff);
@@ -45,7 +53,21 @@
             font-family: 'Saira', sans-serif;
             font-size: 1.1rem;
             border-radius: 4px;
+            box-sizing: border-box; /* Évite les débordements */
+        }
+
+        #ally-code-input {
             letter-spacing: 2px;
+        }
+
+        #ally-pin-input {
+            border-color: #555; /* Couleur plus discrète pour le PIN */
+            font-size: 0.9rem;
+        }
+
+        #ally-pin-input:focus {
+            border-color: var(--sw-yellow, #FFE81F);
+            outline: none;
         }
 
         #countdown-container {
@@ -87,14 +109,13 @@
             display: none !important;
         }
 
-        /* --- STYLES POUR LA GRILLE DES UNITÉS --- */
+        /* --- GRILLE DES UNITÉS --- */
         #units-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             gap: 15px;
             padding: 20px;
             border: 2px solid white;
-            /* L'encadré blanc de ton dessin */
             border-radius: 12px;
             margin-top: 30px;
             background: rgba(0, 0, 0, 0.6);
@@ -127,7 +148,6 @@
         .unit-info h4 {
             margin: 8px 0;
             font-size: 1.1rem;
-            /* Agrandit le nom */
             color: #FFE81F;
             text-transform: uppercase;
         }
@@ -135,7 +155,6 @@
         .unit-info .align-text {
             margin: 4px 0;
             font-size: 1rem;
-            /* Agrandit l'alignement */
             color: #fff;
             font-weight: bold;
         }
@@ -143,7 +162,6 @@
         .unit-info .role-text {
             margin: 2px 0;
             font-size: 0.95rem;
-            /* Agrandit le rôle */
             color: #ddd;
         }
 
@@ -151,30 +169,22 @@
             display: block;
             margin: 6px 0;
             font-size: 0.85rem;
-            /* Agrandit les factions */
             color: #aaa;
             font-style: italic;
             line-height: 1.2;
         }
 
-        /* --- FORCE L'AFFICHAGE L'UN EN DESSOUS DE L'AUTRE --- */
         .extra-indices {
             display: flex;
             flex-direction: column;
-            /* Force le retour à la ligne */
             align-items: center;
-            /* Centre les badges */
             gap: 6px;
-            /* Espace entre les badges */
             margin-top: 10px;
         }
 
-        /* Style des badges (indices supplémentaires) */
         .badge-extra {
             display: block;
-            /* Force l'occupation de la ligne */
             width: fit-content;
-            /* S'adapte au texte */
             padding: 4px 10px;
             border-radius: 4px;
             font-size: 0.85rem;
@@ -182,10 +192,8 @@
             text-transform: uppercase;
             border: 1px solid rgba(255, 255, 255, 0.2);
             line-height: 1;
-            /* Évite le chevauchement interne */
         }
 
-        /* Couleurs distinctives */
         .badge-leader {
             background: rgba(170, 134, 0, 0.3);
             color: #FFE81F;
@@ -213,8 +221,9 @@
         <h1 id="game-title">swgoh Wordle</h1>
 
         <div id="setup-container">
-            <div class="input-wrapper">
+            <div class="auth-grid">
                 <input type="number" id="ally-code-input" placeholder="ALLY CODE" autocomplete="on">
+                <input type="password" id="ally-pin-input" placeholder="PIN CODE (4 digits)" maxlength="4">
             </div>
 
             <div id="game-controls">
