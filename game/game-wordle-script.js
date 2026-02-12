@@ -1,5 +1,5 @@
 const DATA_URL = "https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json";
-const API_URL = "https://swgoh-info-stat.byethost12.com/api-wordle/save.php";
+
 let allUnits = [];
 let targetUnit = null;
 let attempts = 0;
@@ -38,30 +38,7 @@ const translations = {
         "tag-leader": "Chef", "tag-crew": "membre de l'équipage", "tag-commander": "commandant de la flotte"
     }
 };
-async function syncCloud(action, historyData = null) {
-    // On récupère le PIN s'il existe, sinon "1234" par défaut
-    const pin = document.getElementById("ally-pin-input")?.value || "1234";
-    
-    try {
-        const response = await fetch(API_URL, {
-            method: 'POST',
-            mode: 'cors', // Important pour ByetHost
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                allyCode: currentAllyCode,
-                pin: pin,
-                action: action,
-                history: historyData
-            })
-        });
 
-        if (!response.ok) throw new Error("Erreur de synchronisation");
-        return await response.json();
-    } catch (error) {
-        console.error("Cloud Sync Error:", error);
-        return null;
-    }
-}
 // --- COMPTE À REBOURS ---
 function updateTimer() {
     const now = new Date();
@@ -123,7 +100,7 @@ function getDailyUnit(units) {
 }
 
 // --- GESTION ALLY CODE & ÉTAT DU JEU ---
-async function handleStartClick() {
+function handleStartClick() {
     const allyInput = document.getElementById("ally-code-input");
     const code = allyInput.value.trim();
 
@@ -136,27 +113,15 @@ async function handleStartClick() {
     currentAllyCode = code;
     localStorage.setItem("last_ally_code", currentAllyCode);
 
-    // --- NOUVEAU : SYNC AVEC BYETHOST ---
-    const startBtn = document.getElementById("start-btn");
-    startBtn.disabled = true; // Empêche le double clic pendant le chargement
+    const history = JSON.parse(localStorage.getItem(`history_${currentAllyCode}`) || "[]");
+    const today = new Date().toLocaleDateString();
+    const alreadyPlayed = history.find(h => h.date === today);
 
-    const cloudHistory = await syncCloud('load');
-    startBtn.disabled = false;
-
-    if (cloudHistory && !cloudHistory.error) {
-        // Met à jour le cache local avec les données du serveur
-        localStorage.setItem(`history_${currentAllyCode}`, JSON.stringify(cloudHistory));
-        
-        const today = new Date().toLocaleDateString();
-        const alreadyPlayed = cloudHistory.find(h => h.date === today);
-
-        if (alreadyPlayed) {
-            showAlreadyPlayedModal(alreadyPlayed);
-            return;
-        }
+    if (alreadyPlayed) {
+        showAlreadyPlayedModal(alreadyPlayed);
+    } else {
+        startNewGame("daily");
     }
-    
-    startNewGame("daily");
 }
 
 function showAlreadyPlayedModal(entry) {
@@ -178,7 +143,7 @@ function showAlreadyPlayedModal(entry) {
     modal.classList.remove("hidden");
 }
 
-async function saveToHistory(unit, count) {
+function saveToHistory(unit, count) {
     const key = `history_${currentAllyCode}`;
     let history = JSON.parse(localStorage.getItem(key) || "[]");
     const today = new Date().toLocaleDateString();
@@ -186,12 +151,7 @@ async function saveToHistory(unit, count) {
     if (!history.find(h => h.date === today)) {
         history.unshift({ date: today, name: getLoc(unit.name), attempts: count, img: unit.image });
         if (history.length > 30) history.pop();
-        
-        // Sauvegarde locale (sécurité)
         localStorage.setItem(key, JSON.stringify(history));
-        
-        // --- NOUVEAU : SAUVEGARDE SUR LE CLOUD ---
-        await syncCloud('save', history);
     }
 }
 
