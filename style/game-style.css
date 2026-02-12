@@ -1,0 +1,221 @@
+/* =========================
+GLOBAL
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+body {
+font-family: Arial, Helvetica, sans-serif;
+color: white;
+background-color: #121212;
+min-height: 100vh;
+overflow-x: hidden;
+}
+
+/* =========================
+LANGUAGE SWITCHER
+========================= */
+
+.language-switcher {
+position: fixed;
+top: 15px;
+right: 15px;
+display: flex;
+gap: 10px;
+z-index: 10;
+}
+
+.language-switcher img {
+width: 35px;
+cursor: pointer;
+border-radius: 4px;
+transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.language-switcher img:hover {
+transform: scale(1.1);
+opacity: 0.8;
+}
+
+/* =========================
+HEADER / TITRES
+========================= */
+
+header {
+text-align: center;
+margin-top: 80px;
+margin-bottom: 60px;
+}
+
+header span,
+header h1 {
+font-size: 2.8rem;
+font-weight: bold;
+text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+/* =========================
+MAIN SECTIONS (home)
+========================= */
+
+.main-sections {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 50px;
+flex-wrap: wrap;
+padding: 40px;
+}
+
+.section {
+background: rgba(0, 0, 0, 0.7);
+padding: 30px 45px;
+border-radius: 12px;
+text-align: center;
+backdrop-filter: blur(4px);
+transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.section:hover {
+transform: translateY(-5px);
+box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.section h3 {
+margin-bottom: 15px;
+font-size: 1.4rem;
+}
+
+.section a {
+text-decoration: none;
+color: #ffd700;
+font-weight: bold;
+font-size: 1.1rem;
+}
+
+.section a:hover {
+text-decoration: underline;
+}
+
+
+
+/* =========================
+SIMPLE PAGE (jeux.html)
+========================= */
+
+.center-content {
+text-align: center;
+margin-top: 40px;
+}
+
+.center-content a {
+color: #ffd700;
+font-size: 1.1rem;
+text-decoration: none;
+}
+
+.center-content a:hover {
+text-decoration: underline;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+
+header span,
+header h1 {
+    font-size: 2rem;
+}
+
+.main-sections {
+    gap: 25px;
+}
+
+.section {
+    width: 90%;
+}
+
+
+}
+
+/* =========================
+GAME PAGE (cartes de jeux)
+========================= */
+
+.game-section {
+max-width: 700px;
+margin: 60px auto;
+padding: 40px;
+background: rgba(0, 0, 0, 0.75);
+border-radius: 18px;
+text-align: center;
+backdrop-filter: blur(6px);
+box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
+transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.game-section:hover {
+transform: translateY(-6px);
+box-shadow: 0 0 30px rgba(255, 215, 0, 0.25);
+}
+
+/* Titre jeu */
+.game-section h2 {
+font-size: 2rem;
+margin-bottom: 18px;
+color: #1d7c2d;
+text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Description */
+.game-section p {
+font-size: 1.1rem;
+opacity: 0.9;
+margin-bottom: 28px;
+line-height: 1.5;
+}
+
+/* Bouton jeu */
+.game-button {
+display: inline-block;
+padding: 14px 32px;
+border-radius: 10px;
+background: linear-gradient(135deg, #ffffff, #ffffff);
+color: black;
+font-weight: bold;
+text-decoration: none;
+font-size: 1.05rem;
+transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.game-button:hover {
+transform: scale(1.07);
+filter: brightness(1.05);
+color: black;
+box-shadow: 0 0 18px rgba(0, 0, 0, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+.game-section {
+    width: 92%;
+    padding: 25px;
+}
+
+.game-section h2 {
+    font-size: 1.6rem;
+}
+
+.game-section p {
+    font-size: 1rem;
+}
+
+}

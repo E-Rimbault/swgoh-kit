@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Game SWGOH</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/game-style.css">
+</head>
+
+<body>
+
+<!-- Sélecteur langue -->
+<div class="language-switcher">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" onclick="switchLanguage('fr')">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" onclick="switchLanguage('en')">
+</div>
+
+<!-- Titre -->
+<header>
+    <h1 id="title">Game SWGOH</h1>
+</header>
+
+<!-- ========================= -->
+<!-- SECTION WORDLE -->
+<!-- ========================= -->
+<section class="game-section center-content">
+
+    <h2 id="wordleTitle">SWGOH Wordle</h2>
+
+    <p id="wordleIntro">
+        Guess the Star Wars Galaxy of Heroes character in a Wordle-style game!
+    </p>
+
+    <a href="../game/jeu-wordle-swgoh.html" style="color: black;" class="game-button" target="_blank" id="wordleButton">
+        Play the game
+    </a>
+
+</section>
+
+<div class="center-content">
+    <a href="../index.html" class="back-home">
+        <img style="height: 15%; width: 15%;" src="../image/logo_star_wars.png" alt="Home logo"><br>
+        <span id="back">Back to home</span>
+    </a>
+</div>
+
+
+
+
+<script>
+    const translations = {
+        en: {
+            "title": "Game SWGOH",
+            "back": "Back to home",
+
+            "wordleTitle": "SWGOH Wordle",
+            "wordleIntro": "Guess the Star Wars Galaxy of Heroes character in a Wordle-style game!",
+            "wordleButton": "Play the game"
+        },
+
+        fr: {
+            "title": "Jeu SWGOH",
+            "back": "Retour à l'accueil",
+
+            "wordleTitle": "SWGOH Wordle",
+            "wordleIntro": "Devinez le personnage Star Wars Galaxy of Heroes dans un jeu façon Wordle !",
+            "wordleButton": "Jouer au jeu"
+        }
+    };
+
+    window.onload = function () {
+        const savedLang = sessionStorage.getItem("selectedLanguage") || "en";
+        switchLanguage(savedLang);
+    };
+
+    function switchLanguage(lang) {
+        sessionStorage.setItem("selectedLanguage", lang);
+
+        const elements = document.querySelectorAll('[id]');
+        elements.forEach(function (element) {
+            const key = element.id;
+            if (translations[lang] && translations[lang][key]) {
+                element.textContent = translations[lang][key];
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

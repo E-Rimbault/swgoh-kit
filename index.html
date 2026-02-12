@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Informations générales -->
@@ -10,133 +10,193 @@
     <meta name="author" content="Rimbault Enzo">
     <meta name="copyright" content="© 2025 Rimbault Enzo">
 
-    <!-- SEO : description & mots-clés -->
+    <!-- SEO -->
     <meta name="description" content="Site dédié au jeu Star Wars Galaxy of Heroes : informations sur les personnages, vaisseaux, filtres de recherche et ressources utiles.">
     <meta name="keywords" content="Star Wars, Galaxy of Heroes, SWGOH, personnages, vaisseaux, filtres, guides, stats, jeu mobile, EA, CG">
     <meta name="robots" content="index, follow">
-
-    <!-- SEO : langue & géoposition -->
     <meta name="language" content="fr,en">
-    <meta name="og:locale" content="fr_FR">
-
-    <!-- Accessibilité : couleur du thème -->
     <meta name="theme-color" content="#000000">
 
-    <!-- Canonical (évite le contenu dupliqué) -->
     <link rel="canonical" href="https://e-rimbault.github.io/swgoh-kit/">
-
-    <!-- Sitemap -->
     <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
 
-    <!-- Open Graph (Facebook, Discord, LinkedIn…) -->
+    <!-- Open Graph -->
     <meta property="og:title" content="Star Wars Galaxy of Heroes - Fan Website">
     <meta property="og:description" content="Accédez aux personnages, vaisseaux et filtres de recherche du jeu SWGOH.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://e-rimbault.github.io/swgoh-kit/">
     <meta property="og:image" content="https://e-rimbault.github.io/swgoh-kit/image/logo_star_wars.png">
 
-    <!-- Twitter Cards -->
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Star Wars Galaxy of Heroes - Fan Website">
     <meta name="twitter:description" content="Informations, filtres et ressources sur SWGOH.">
     <meta name="twitter:image" content="https://e-rimbault.github.io/swgoh-kit/image/logo_star_wars.png">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="image/logo_star_wars.png">
 
-    <!-- Feuille de style -->
-    <link rel="stylesheet" href="style/index-style.css">
-
-    <meta name="google-site-verification" content="gsiXAOd6OBH_Tkr6PywZmm2FZQrvEfPcpKFDbRB8X2Y" />
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
-</head>
-
-
-<body>
-    <!-- Sélecteur de langue -->
-    <div class="language-switcher">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" onclick="switchLanguage('fr')">
-        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" onclick="switchLanguage('en')">
-    </div>
-
-    <!-- Image de fond à la place de la vidéo -->
-    <div class="background-image"></div>
-
-    <!-- Titre -->
-    <header><span id="title">Star Wars galaxy of heroes website</span></header>
-
-    <!-- Sections principales -->
-    <div class="main-sections">
-        <div class="section">
-            <h3 id="Character">Character</h3>
-            <a href="filtre-recherche/filtre-personnage.html" id="voir-perso">Character</a>
-        </div>
-        <div class="section">
-            <h3 id="ship">Ship</h3>
-            <a href="filtre-recherche/filtre-vaisseaux.html" id="voir-vaisseau">Ship</a>
-            <!--
-        </div>
-            <div class="section">
-            <h3 id="effet">Buff / Debuff</h3>
-            <a href="filtre-recherche/filtre-effet.html" id="voir-effet">Buff / Debuff</a>
-        </div>-->
-    </div>
-
-    <script>
-        const translations = {
-            en: {
-                "title": "Star Wars galaxy of heroes website",
-                "Character": "Character",
-                "ship": "Ship",
-                "voir-perso": "Character",
-                "voir-vaisseau": "Ship",
-                //"effet": "Buff / Debuff",
-                //"voir-effet": "effects"
-            },
-            fr: {
-                "title": "Site Web Star Wars : Les Héros de la Galaxie",
-                "Character": "Personnages",
-                "ship": "Vaisseaux",
-                "voir-perso": "Personnage",
-                "voir-vaisseau": "Vaisseau",
-                //"effet": "Bonus / malus",
-                //"voir-effet" : "effets"
-            }
-        };
-
-        // 🔹 Au chargement de la page
-        window.onload = function () {
-            const savedLang = sessionStorage.getItem("selectedLanguage") || "en";
-            switchLanguage(savedLang);
-        };
-
-        // 🔹 Fonction de changement de langue
-        function switchLanguage(lang) {
-            sessionStorage.setItem("selectedLanguage", lang);
-            const elements = document.querySelectorAll('[id]');
-            elements.forEach(function (element) {
-                const key = element.id;
-                if (translations[lang] && translations[lang][key]) {
-                    element.textContent = translations[lang][key];
-                }
-            });
-        }
-    </script>
-
+    <!-- Styles -->
     <style>
-        /* 🔹 Style pour l'image de fond */
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        /* Background */
         .background-image {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background-image: url("swgoh-10ans-2025.png");
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
             z-index: -1;
         }
+
+        /* Header */
+        header {
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 30px 10px 10px;
+        }
+
+        /* Language switch */
+        .language-switcher {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+
+        .language-switcher img {
+            width: 32px;
+            cursor: pointer;
+            margin-left: 8px;
+            border-radius: 4px;
+            transition: transform .2s;
+        }
+
+        .language-switcher img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Sections grid */
+        .main-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            padding: 40px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section {
+            background: rgba(0, 0, 0, 0.65);
+            padding: 25px;
+            border-radius: 12px;
+            backdrop-filter: blur(4px);
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
+        }
+
+        .section h3 {
+            margin-bottom: 15px;
+        }
+
+        .section a {
+            color: #00bfff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .section a:hover {
+            text-decoration: underline;
+        }
     </style>
+</head>
+
+<body>
+
+<div class="background-image"></div>
+
+<!-- Lang switch -->
+<div class="language-switcher">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" onclick="switchLanguage('fr')">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" onclick="switchLanguage('en')">
+</div>
+
+<header id="title">Star Wars Galaxy of Heroes Website</header>
+
+<!-- Sections -->
+<div class="main-sections">
+
+    <div class="section">
+        <h3 id="character-title">Character</h3>
+        <a href="filtre-recherche/filtre-personnage.html" id="character-link">Character</a>
+    </div>
+
+    <div class="section">
+        <h3 id="ship-title">Ship</h3>
+        <a href="filtre-recherche/filtre-vaisseaux.html" id="ship-link">Ship</a>
+    </div>
+
+    <div class="section">
+        <h3 id="effect-title">Buff / Debuff</h3>
+        <a href="filtre-recherche/filtre-effet.html" id="effect-link">Effects</a>
+    </div>
+
+    <div class="section">
+        <h3 id="game-title">Game</h3>
+        <a href="game/jeux.html" id="game-link">Game SWGOH</a>
+    </div>
+
+</div>
+
+<script>
+const translations = {
+    en: {
+        "title": "Star Wars Galaxy of Heroes Website",
+        "character-title": "Character",
+        "character-link": "Character",
+        "ship-title": "Ship",
+        "ship-link": "Ship",
+        "effect-title": "Buff / Debuff",
+        "effect-link": "Effects",
+        "game-title": "Game",
+        "game-link": "Game SWGOH"
+    },
+    fr: {
+        "title": "Site Web Star Wars : Galaxy of Heroes",
+        "character-title": "Personnages",
+        "character-link": "Personnages",
+        "ship-title": "Vaisseaux",
+        "ship-link": "Vaisseaux",
+        "effect-title": "Bonus / Malus",
+        "effect-link": "Effets",
+        "game-title": "Jeu",
+        "game-link": "Jeu SWGOH"
+    }
+};
+
+window.onload = () => {
+    const savedLang = sessionStorage.getItem("selectedLanguage") || "en";
+    switchLanguage(savedLang);
+};
+
+function switchLanguage(lang) {
+    sessionStorage.setItem("selectedLanguage", lang);
+
+    document.querySelectorAll("[id]").forEach(el => {
+        if (translations[lang][el.id]) {
+            el.textContent = translations[lang][el.id];
+        }
+    });
+}
+</script>
+
 </body>
 </html>

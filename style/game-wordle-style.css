@@ -1,0 +1,255 @@
+@import url('https://fonts.cdnfonts.com/css/star-wars');
+
+body {
+    background-color: #0a0a0a;
+    /* Effet étoilé subtil */
+    background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px);
+    background-size: 550px 550px;
+    color: white;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1 {
+    font-family:  sans-serif;
+    color: white;
+    text-transform: uppercase;
+    font-size: clamp(1.5rem, 5vw, 3rem); /* Taille adaptative */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    margin: 40px 0;
+}
+
+/* Conteneur principal plein écran */
+main {
+    width: 90%;
+    max-width: 95vw; /* Occupe 95% de la largeur totale */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.suggestions-list div {
+    padding: 15px 20px; /* Augmente l'espace interne pour des lignes plus hautes */
+    border-bottom: 1px solid #333;
+    display: flex;
+    align-items: center;
+    gap: 20px;          /* Augmente l'espace entre l'image et le nom */
+    cursor: pointer;
+    font-size: 1.3rem;  /* Augmente la taille du texte du nom de l'unité */
+    color: #eee;
+}
+
+/* Grille de résultats Adaptative */
+#guesses-container {
+    width: 90%;
+    margin-top: 20px;
+}
+
+.guess-row {
+    display: grid;
+    /* On définit 6 colonnes de largeur égale (1 fraction chacune) */
+    grid-template-columns: repeat(6, 1fr); 
+    gap: clamp(5px, 1vw, 15px);
+    margin-bottom: 15px;
+    width: 90%;
+    animation: slideIn 0.5s ease-out;
+}
+
+.header-cell {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: clamp(0.7rem, 1.2vw, 1rem);
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cell {
+    /* Suppression des largeurs fixes pour laisser le 1fr agir */
+    width: 90%; 
+    aspect-ratio: 1 / 1; /* Garde les cellules carrées si possible */
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid #444;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.7);
+    font-size: clamp(0.6rem, 1vw, 0.9rem);
+    transition: all 0.3s ease;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+    word-break: break-word; /* Évite que les longs noms de factions dépassent */
+    padding: 5px;
+}
+
+/* Images dans les cellules */
+.row-img {
+    width: clamp(30px, 4vw, 60px);
+    height: clamp(30px, 4vw, 60px);
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-bottom: 8px;
+    object-fit: cover;
+}
+
+/* Barre de recherche */
+#search-container {
+    margin: 40px 0 40px 0;
+    width: 90%;
+    max-width: 90%;
+}
+
+#unit-input {
+    width: 90%;
+    padding: 15px 25px;
+    border-radius: 50px;
+    border: 2px solid white;
+    background: rgba(255, 255, 255, 0.95);
+    color: #121212;
+    font-size: 1.1rem;
+    box-shadow: 0 0 20px rgba(255, 232, 31, 0.2);
+}
+
+/* Couleurs de validation */
+.correct { 
+    border-color: #2e7d32 !important;
+    box-shadow: 0 0 15px rgba(46, 125, 50, 0.4), inset 0 0 10px rgba(46, 125, 50, 0.2);
+    background: rgba(46, 125, 50, 0.15);
+}
+
+.wrong { 
+    border-color: #c62828 !important;
+    background: rgba(198, 40, 40, 0.1);
+}
+
+.partial { 
+    border-color: #f9a825 !important;
+    box-shadow: 0 0 15px rgba(249, 168, 37, 0.3);
+    background: rgba(249, 168, 37, 0.15);
+}
+
+/* Responsive : Si l'écran est trop petit (mobile), on autorise le défilement */
+@media (max-width: 768px) {
+    #guesses-container {
+        overflow-x: auto;
+        padding-bottom: 20px;
+    }
+    .guess-row {
+        grid-template-columns: repeat(6, 140px); /* Taille minimum des colonnes sur mobile */
+        width: max-content;
+    }
+}
+
+/* Grille de départ */
+.units-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    width: 90%;
+}
+
+.unit-card-mini {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+.unit-card-mini:hover { transform: scale(1.1); }
+.unit-card-mini img { width: 90%; height: 90%; object-fit: cover; }
+
+.hidden { display: none !important; }
+
+/* Pop-up de victoire améliorée */
+/* Positionnement fixe pour que la modal soit toujours au centre de l'écran */
+.modal {
+    position: fixed; /* Reste fixé à l'écran même en scrollant */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Fond sombre */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Par-dessus tout le reste */
+}
+
+/* On s'assure que le contenu est bien visible */
+.modal-content {
+    position: relative;
+    max-height: 90vh; /* Évite que la modal soit plus grande que l'écran */
+    overflow-y: auto; /* Permet de scroller à l'intérieur si besoin */
+}
+
+.modal-content {
+    background: #1a1a1a;
+    padding: 30px;
+    border: 3px solid white;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 50px rgb(255, 255, 255);
+    max-width: 500px;
+    width: 90%;
+    color: white;
+}
+
+.modal-content h2 {
+    font-family: sans-serif;
+    color: white;
+    margin-bottom: 10px;
+}
+
+#victory-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid white;
+    margin: 15px 0;
+    object-fit: cover;
+}
+
+.victory-details {
+    text-align: left;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.victory-details p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+}
+
+.victory-details span {
+    color: white;
+    font-weight: bold;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.unit-card-mini {
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 232, 31, 0);
+}
+
+.unit-card-mini:hover {
+    transform: scale(1.15);
+    z-index: 10;
+    border-color: white;
+    box-shadow: 0 0 15px rgba(255, 232, 31, 0.4);
+}

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SWGOH Wordle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/game-wordle-style.css">
+    <style>
+        .language-switcher {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+        }
+
+        .language-switcher img {
+            width: 30px;
+            cursor: pointer;
+            margin-left: 10px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .language-switcher img:hover {
+            transform: scale(1.1);
+        }
+
+        #setup-container {
+            margin: 20px auto;
+            max-width: 350px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #444;
+        }
+
+        #ally-code-input {
+            width: 80%;
+            padding: 12px;
+            background: #111;
+            border: 2px solid var(--sw-blue, #00d4ff);
+            color: white;
+            text-align: center;
+            font-family: 'Saira', sans-serif;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            letter-spacing: 2px;
+        }
+
+        #countdown-container {
+            font-size: 0.85rem;
+            margin-top: 15px;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #timer {
+            color: #FFE81F;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: block;
+            margin-top: 5px;
+        }
+
+        #game-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        #history-btn {
+            background: #222;
+            border: 1px solid #555;
+            transition: 0.3s;
+        }
+
+        #history-btn:hover {
+            background: #444;
+            border-color: #FFE81F;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* --- STYLES POUR LA GRILLE DES UNITÉS --- */
+        #units-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            padding: 20px;
+            border: 2px solid white;
+            /* L'encadré blanc de ton dessin */
+            border-radius: 12px;
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .unit-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .unit-card:hover {
+            transform: translateY(-5px);
+            border-color: #FFE81F;
+            background: rgba(255, 232, 31, 0.1);
+        }
+
+        .unit-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid #555;
+            margin-bottom: 8px;
+        }
+
+        .unit-info h4 {
+            margin: 8px 0;
+            font-size: 1.1rem;
+            /* Agrandit le nom */
+            color: #FFE81F;
+            text-transform: uppercase;
+        }
+
+        .unit-info .align-text {
+            margin: 4px 0;
+            font-size: 1rem;
+            /* Agrandit l'alignement */
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .unit-info .role-text {
+            margin: 2px 0;
+            font-size: 0.95rem;
+            /* Agrandit le rôle */
+            color: #ddd;
+        }
+
+        .unit-info .factions-text {
+            display: block;
+            margin: 6px 0;
+            font-size: 0.85rem;
+            /* Agrandit les factions */
+            color: #aaa;
+            font-style: italic;
+            line-height: 1.2;
+        }
+
+        /* --- FORCE L'AFFICHAGE L'UN EN DESSOUS DE L'AUTRE --- */
+        .extra-indices {
+            display: flex;
+            flex-direction: column;
+            /* Force le retour à la ligne */
+            align-items: center;
+            /* Centre les badges */
+            gap: 6px;
+            /* Espace entre les badges */
+            margin-top: 10px;
+        }
+
+        /* Style des badges (indices supplémentaires) */
+        .badge-extra {
+            display: block;
+            /* Force l'occupation de la ligne */
+            width: fit-content;
+            /* S'adapte au texte */
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            line-height: 1;
+            /* Évite le chevauchement interne */
+        }
+
+        /* Couleurs distinctives */
+        .badge-leader {
+            background: rgba(170, 134, 0, 0.3);
+            color: #FFE81F;
+            border-color: #aa8600;
+        }
+
+        .badge-ship {
+            background: rgba(0, 85, 119, 0.3);
+            color: #00d4ff;
+            border-color: #005577;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="language-switcher">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+            onclick="switchLanguage('fr')">
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+            onclick="switchLanguage('en')">
+    </div>
+
+    <header>
+        <h1 id="game-title">swgoh Wordle</h1>
+
+        <div id="setup-container">
+            <div class="input-wrapper">
+                <input type="number" id="ally-code-input" placeholder="ALLY CODE" autocomplete="on">
+            </div>
+
+            <div id="game-controls">
+                <button id="start-btn" class="main-btn">Lancer la partie</button>
+                <button id="history-btn" class="main-btn" title="Historique">📜</button>
+            </div>
+
+            <div id="countdown-container">
+                <span id="next-unit-text">Next Unit in</span>
+                <span id="timer">00:00:00</span>
+            </div>
+        </div>
+
+        <div id="search-container" class="hidden">
+            <div class="input-wrapper">
+                <input type="text" id="unit-input" placeholder="Enter character name" autocomplete="off">
+                <span class="input-icon">>>></span>
+            </div>
+            <div id="suggestions" class="suggestions-list"></div>
+        </div>
+    </header>
+
+    <main>
+        <div id="summary-container" class="hidden">
+            <div class="victory-details" style="border: 1px solid var(--sw-blue); margin-bottom: 20px;">
+                <p id="summary-title"
+                    style="text-align: center; font-weight: bold; color: var(--sw-blue); text-transform: uppercase;">
+                    Indices Identifiés</p>
+                <div id="summary-content"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+                </div>
+            </div>
+        </div>
+
+        <div id="guesses-container"></div>
+
+        <div id="units-container" class="units-grid"></div>
+    </main>
+
+    <div id="victory-modal" class="modal hidden"></div>
+
+    <script src="game-wordle-script.js"></script>
+
+</body>
+
+</html>
