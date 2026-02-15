@@ -59,37 +59,18 @@ function updateTimer() {
 }
 setInterval(updateTimer, 1000);
 
-// --- LOGIQUE UNITÉ QUOTIDIENNE AVEC ROTATION 30 JOURS ---
+// --- LOGIQUE UNITÉ QUOTIDIENNE ---
 function getDailyUnit(units) {
-    const history = JSON.parse(localStorage.getItem(`history_${currentAllyCode}`) || "[]");
-    const blockedNames = history.map(h => h.name);
-
     const d = new Date();
     let dateSeed = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
-    
     let index = dateSeed % units.length;
     let selected = units[index];
 
-    // Debug Console : Affichage des unités bloquées
-    console.clear();
-    console.log("%c--- SYSTÈME DE ROTATION (30 JOURS) ---", "color: #FFE81F; font-weight: bold; font-size: 12px;");
-    
-    if (history.length > 0) {
-        history.forEach(item => {
-            const parts = item.date.split('/');
-            const unitDate = new Date(parts[2], parts[1] - 1, parts[0]); 
-            const diffDays = Math.floor((new Date() - unitDate) / (1000 * 60 * 60 * 24));
-            const remaining = 30 - diffDays;
-            
-            if (remaining > 0) {
-                console.log(`🚫 %c${item.name}%c : Bloqué encore %c${remaining} jour(s)`, "color: #ff4444; font-weight: bold;", "color: white;", "color: #00d4ff;");
-            }
-        });
-    } else {
-        console.log("Aucune unité dans l'historique pour l'Ally Code : " + currentAllyCode);
-    }
+    logRotationHistory(units);
 
-    // Algorithme d'exclusion
+    const history = JSON.parse(localStorage.getItem(`history_${currentAllyCode}`) || "[]");
+    const blockedNames = history.map(h => h.name);
+    
     let safetyBreak = 0;
     while (blockedNames.includes(getLoc(selected.name)) && safetyBreak < units.length) {
         index = (index + 1) % units.length;
@@ -99,8 +80,27 @@ function getDailyUnit(units) {
     return selected;
 }
 
-// --- GESTION ALLY CODE & ÉTAT DU JEU ---
-function handleStartClick() {
+function logRotationHistory(units) {
+    const history = JSON.parse(localStorage.getItem(`history_${currentAllyCode}`) || "[]");
+    let playedCount = 0;
+    
+    console.clear();
+    console.log("%c--- RAPPORT D'ACTIVITÉ ---", "color: #FFE81F; font-weight: bold;");
+
+    for (let i = 0; i < 30; i++) {
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() - i);
+        const dateString = targetDate.toLocaleDateString();
+        const unitAtDate = getDailyUnitForDate(units, targetDate);
+        const entry = history.find(h => h.date === dateString);
+
+        if (entry) playedCount++;
+    }
+    console.log(`Joueur : ${currentAllyCode} | Taux : ${Math.round((playedCount / 30) * 100)}%`);
+}
+
+// --- GESTION CONNEXION & FIREBASE ---
+async function handleStartClick() {
     const allyInput = document.getElementById("ally-code-input");
     const code = allyInput.value.trim();
 
@@ -113,6 +113,27 @@ function handleStartClick() {
     currentAllyCode = code;
     localStorage.setItem("last_ally_code", currentAllyCode);
 
+    // --- SYNCHRONISATION CLOUD ---
+    if (window.db && window.fbOps) {
+        try {
+            const playerRef = window.fbOps.doc(window.db, "players", currentAllyCode);
+            const playerDoc = await window.fbOps.getDoc(playerRef);
+            
+            if (playerDoc.exists()) {
+                const cloudHistory = playerDoc.data().history || [];
+                // Fusionner avec le local ou écraser par le cloud (plus sûr pour le multi-appareil)
+                localStorage.setItem(`history_${currentAllyCode}`, JSON.stringify(cloudHistory));
+                console.log("☁️ Données Cloud récupérées");
+            } else {
+                await window.fbOps.setDoc(playerRef, { history: [] });
+            }
+        } catch (e) {
+            console.warn("Firebase indisponible, utilisation du mode local uniquement.", e);
+        }
+    }
+
+    logRotationHistory(allUnits);
+
     const history = JSON.parse(localStorage.getItem(`history_${currentAllyCode}`) || "[]");
     const today = new Date().toLocaleDateString();
     const alreadyPlayed = history.find(h => h.date === today);
@@ -123,6 +144,34 @@ function handleStartClick() {
         startNewGame("daily");
     }
 }
+
+async function saveToHistory(unit, count) {
+    const key = `history_${currentAllyCode}`;
+    let history = JSON.parse(localStorage.getItem(key) || "[]");
+    const today = new Date().toLocaleDateString();
+    
+    if (!history.find(h => h.date === today)) {
+        const newEntry = { date: today, name: getLoc(unit.name), attempts: count, img: unit.image };
+        history.unshift(newEntry);
+        if (history.length > 30) history.pop();
+        
+        // 1. Sauvegarde Locale
+        localStorage.setItem(key, JSON.stringify(history));
+
+        // 2. Sauvegarde Cloud
+        if (window.db && window.fbOps) {
+            try {
+                const playerRef = window.fbOps.doc(window.db, "players", currentAllyCode);
+                await window.fbOps.updateDoc(playerRef, { history: history });
+                console.log("☁️ Historique synchronisé !");
+            } catch (e) {
+                console.error("Erreur de synchro Cloud :", e);
+            }
+        }
+    }
+}
+
+// --- RESTE DU CODE (LOGIQUE DE JEU) ---
 
 function showAlreadyPlayedModal(entry) {
     const lang = sessionStorage.getItem("selectedLanguage") || "en";
@@ -143,51 +192,48 @@ function showAlreadyPlayedModal(entry) {
     modal.classList.remove("hidden");
 }
 
-function saveToHistory(unit, count) {
-    const key = `history_${currentAllyCode}`;
-    let history = JSON.parse(localStorage.getItem(key) || "[]");
-    const today = new Date().toLocaleDateString();
-    
-    if (!history.find(h => h.date === today)) {
-        history.unshift({ date: today, name: getLoc(unit.name), attempts: count, img: unit.image });
-        if (history.length > 30) history.pop();
-        localStorage.setItem(key, JSON.stringify(history));
-    }
-}
-
 function showHistory() {
-    if (!currentAllyCode) {
-        currentAllyCode = document.getElementById("ally-code-input").value.trim() || "Guest";
-    }
     const lang = sessionStorage.getItem("selectedLanguage") || "en";
-    const history = JSON.parse(localStorage.getItem(`history_${currentAllyCode}`) || "[]");
+    const t = translations[lang];
+    const historyCache = JSON.parse(localStorage.getItem(`history_${currentAllyCode}`) || "[]");
     
     let html = `<div class="modal-content">
-        <h2 style="font-size:1.2rem">${translations[lang]["hist-title"]}</h2>
-        <p style="font-size:0.8rem; color:#888">Ally Code: ${currentAllyCode}</p>
-        <div style="max-height: 300px; overflow-y: auto; margin: 15px 0;">`;
-    
-    if (history.length === 0) {
-        html += `<p style="text-align:center; padding: 20px;">No data found for this code.</p>`;
-    } else {
-        history.forEach(item => {
-            html += `
-            <div style="display: flex; align-items: center; border-bottom: 1px solid #333; padding: 8px 0;">
-                <img src="${item.img}" width="35" style="border-radius:50%; margin-right: 12px; border: 1px solid #555;">
-                <div style="text-align:left; font-size:0.9rem">
-                    <div style="color:var(--sw-yellow); font-size:0.7rem">${item.date}</div>
-                    <strong>${item.name}</strong> • ${item.attempts} essais
+        <h2 style="font-size:1.2rem">${t["hist-title"]}</h2>
+        <div style="max-height: 400px; overflow-y: auto; margin: 15px 0; padding-right:5px;">`;
+
+    for (let i = 0; i < 30; i++) {
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() - i);
+        const dateString = targetDate.toLocaleDateString();
+        const unitAtDate = getDailyUnitForDate(allUnits, targetDate);
+        const userEntry = historyCache.find(h => h.date === dateString);
+
+        const isPlayed = !!userEntry;
+        const opacity = isPlayed ? "1" : "0.5";
+        const statusText = isPlayed ? `${userEntry.attempts} ${t["vic-tries"]}` : `<span style="color:#666">❌ Non joué</span>`;
+
+        html += `
+            <div style="display: flex; align-items: center; border-bottom: 1px solid #333; padding: 10px 0; opacity: ${opacity}">
+                <img src="${unitAtDate.image}" width="40" style="border-radius:50%; margin-right: 12px; border: 1px solid ${isPlayed ? 'var(--sw-yellow)' : '#444'}">
+                <div style="text-align:left; font-size:0.85rem">
+                    <div style="color:#888; font-size:0.7rem">${dateString}</div>
+                    <strong style="color:${isPlayed ? 'white' : '#aaa'}">${getLoc(unitAtDate.name)}</strong><br>
+                    ${statusText}
                 </div>
             </div>`;
-        });
     }
-    
-    html += `</div><button onclick="closeModal()" class="main-btn">${translations[lang]["btn-back"]}</button></div>`;
+
+    html += `</div><button onclick="closeModal()" class="main-btn">${t["btn-back"]}</button></div>`;
     modal.innerHTML = html;
     modal.classList.remove("hidden");
 }
 
-// --- FONCTIONS JEU ---
+function getDailyUnitForDate(units, dateObj) {
+    let dateSeed = dateObj.getFullYear() * 10000 + (dateObj.getMonth() + 1) * 100 + dateObj.getDate();
+    let index = dateSeed % units.length;
+    return units[index];
+}
+
 function getLoc(obj) {
     const lang = sessionStorage.getItem("selectedLanguage") || "en";
     return obj[lang] || obj["en"];
@@ -230,11 +276,9 @@ function switchLanguage(lang) {
     document.getElementById("game-title").textContent = t["game-title"];
     document.getElementById("start-btn").textContent = t["start-btn"];
     input.placeholder = t["placeholder"];
-    
     if (allUnits.length > 0) displayAllUnits(allUnits);
-    
     updateTimer();
-    if (!document.getElementById("summary-container").classList.contains("hidden")) updateSummary();
+    if (document.getElementById("summary-container") && !document.getElementById("summary-container").classList.contains("hidden")) updateSummary();
 }
 
 function startNewGame(mode) {
@@ -359,18 +403,15 @@ input.addEventListener("input", () => {
     });
 });
 
-// --- AFFICHAGE DE TOUTES LES UNITÉS (GRILLE) ---
 function displayAllUnits(units) {
     const container = document.getElementById("units-container");
     if (!container) return;
-    
     container.innerHTML = ""; 
     const lang = sessionStorage.getItem("selectedLanguage") || "en";
     
     units.forEach(unit => {
         const card = document.createElement("div");
         card.className = "unit-card"; 
-        
         const name = getLoc(unit.name);
         const role = getLoc(unit.role);
         const align = getLoc(unit.alignment);
@@ -378,16 +419,9 @@ function displayAllUnits(units) {
 
         let extraTags = "";
         const rawFactions = unit.factions.map(f => f.en.toLowerCase());
-        
-        if (rawFactions.includes("leader")) {
-            extraTags += `<span class="badge-extra badge-leader">${translations[lang]["tag-leader"]}</span>`;
-        }
-        if (rawFactions.includes("crew member")) {
-            extraTags += `<span class="badge-extra badge-ship">${translations[lang]["tag-crew"]}</span>`;
-        }
-        if (rawFactions.includes("fleet commander")) {
-            extraTags += `<span class="badge-extra badge-ship">${translations[lang]["tag-commander"]}</span>`;
-        }
+        if (rawFactions.includes("leader")) extraTags += `<span class="badge-extra badge-leader">${translations[lang]["tag-leader"]}</span>`;
+        if (rawFactions.includes("crew member")) extraTags += `<span class="badge-extra badge-ship">${translations[lang]["tag-crew"]}</span>`;
+        if (rawFactions.includes("fleet commander")) extraTags += `<span class="badge-extra badge-ship">${translations[lang]["tag-commander"]}</span>`;
 
         card.innerHTML = `
             <img src="${unit.image}" alt="${name}" onerror="this.src='${PLACEHOLDER_SVG}'">
@@ -397,8 +431,7 @@ function displayAllUnits(units) {
                 <p class="role-text">${role}</p>
                 <small class="factions-text">${factions}</small>
                 <div class="extra-indices">${extraTags}</div>
-            </div>
-        `;
+            </div>`;
         
         card.onclick = () => {
             if (!searchContainer.classList.contains("hidden")) {
@@ -406,7 +439,6 @@ function displayAllUnits(units) {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         };
-        
         container.appendChild(card);
     });
 }
@@ -422,11 +454,9 @@ window.onload = () => {
     if (savedCode) {
         currentAllyCode = savedCode;
         document.getElementById("ally-code-input").value = savedCode;
-        
-        // On attend que le fetch des unités soit fini pour scanner la rotation
         const checkData = setInterval(() => {
             if (allUnits.length > 0) {
-                getDailyUnit(allUnits); // Affiche les logs dès le départ
+                logRotationHistory(allUnits);
                 clearInterval(checkData);
             }
         }, 100);
