@@ -45,59 +45,80 @@ main {
 
 /* Grille de résultats Adaptative */
 #guesses-container {
-    width: 90%;
-    margin-top: 20px;
+    width: 95%; /* Augmenté pour donner plus d'espace horizontal */
+    margin: 20px auto 0 auto; /* Centré horizontalement */
 }
 
 .guess-row {
     display: grid;
-    /* On définit 6 colonnes de largeur égale (1 fraction chacune) */
-    grid-template-columns: repeat(6, 1fr); 
-    gap: clamp(5px, 1vw, 15px);
+    /* PASSAGE À 7 COLONNES : repeat(7, 1fr) */
+    grid-template-columns: repeat(7, 1fr); 
+    gap: 8px; /* Espace fixe réduit pour gagner de la place */
     margin-bottom: 15px;
-    width: 90%;
+    width: 100%; /* Utilise tout l'espace du conteneur parent */
     animation: slideIn 0.5s ease-out;
+    align-items: start; /* Aligne le haut des cellules sur la même ligne */
 }
 
 .header-cell {
     color: white;
     font-weight: bold;
     text-align: center;
-    font-size: clamp(0.7rem, 1.2vw, 1rem);
+    /* Taille de police réduite pour que "Year of appearance" tienne */
+    font-size: clamp(0.6rem, 1vw, 0.85rem); 
     padding-bottom: 10px;
     border-bottom: 2px solid rgb(255, 255, 255);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px; /* Force la même hauteur pour tous les titres */
 }
 
 .cell {
-    /* Suppression des largeurs fixes pour laisser le 1fr agir */
-    width: 90%; 
-    aspect-ratio: 1 / 1; /* Garde les cellules carrées si possible */
-    min-height: 80px;
+    width: 100%; /* Doit être à 100% pour remplir sa colonne de la grille */
+    aspect-ratio: 1 / 1; 
+    min-height: 90px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     border: 2px solid #444;
-    border-radius: 12px;
+    border-radius: 8px; /* Arrondi légèrement réduit pour gagner de l'espace interne */
     background: rgba(0, 0, 0, 0.7);
-    font-size: clamp(0.6rem, 1vw, 0.9rem);
+    font-size: clamp(0.55rem, 0.9vw, 0.8rem);
     transition: all 0.3s ease;
-    box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
-    word-break: break-word; /* Évite que les longs noms de factions dépassent */
-    padding: 5px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+    word-break: break-word; 
+    padding: 4px;
+    box-sizing: border-box; /* Important pour que le padding ne casse pas la largeur */
 }
 
 /* Images dans les cellules */
 .row-img {
-    width: clamp(30px, 4vw, 60px);
-    height: clamp(30px, 4vw, 60px);
+    width: clamp(25px, 3.5vw, 50px); /* Taille légèrement réduite */
+    height: clamp(25px, 3.5vw, 50px);
     border-radius: 50%;
-    border: 2px solid white;
-    margin-bottom: 8px;
+    border: 1px solid white;
+    margin-bottom: 4px;
     object-fit: cover;
+}
+
+/* Ajustement spécifique pour les écrans mobiles */
+@media (max-width: 768px) {
+    .guess-row {
+        gap: 4px;
+    }
+    .cell {
+        min-height: 70px;
+        border-width: 1px;
+    }
+    .header-cell {
+        letter-spacing: 0;
+        font-size: 0.55rem;
+    }
 }
 
 /* Barre de recherche */

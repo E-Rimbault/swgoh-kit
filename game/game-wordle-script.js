@@ -356,10 +356,13 @@ function startNewGame(mode) {
     const t = translations[lang];
     
     guessesContainer.innerHTML = `<div class="guess-row headers">
-        <div class="header-cell">${t["h-name"]}</div><div class="header-cell">${t["h-align"]}</div>
-        <div class="header-cell">${t["h-ship"]}</div><div class="header-cell">${t["h-factions"]}</div>
-        <div class="header-cell">${t["h-leader"]}</div><div class="header-cell">${t["h-role"]}</div>
-        <div class="header-cell">${t["h-year"]}</div> </div>
+        <div class="header-cell">${t["h-name"]}</div>
+        <div class="header-cell">${t["h-align"]}</div>
+        <div class="header-cell">${t["h-ship"]}</div>
+        <div class="header-cell">${t["h-factions"]}</div>
+        <div class="header-cell">${t["h-leader"]}</div>
+        <div class="header-cell">${t["h-role"]}</div>
+        <div class="header-cell">${t["h-year"]}</div> 
     </div>`;
     
     updateSummary();
@@ -436,7 +439,11 @@ function renderGuessRow(data) {
         <div class="cell ${data.role.match ? 'correct' : 'wrong'}">${data.role.val}</div>
         <div class="cell ${data.year.status}">${data.year.val}</div> 
     `;
-    guessesContainer.querySelector('.headers').insertAdjacentElement('afterend', row);
+    // On s'assure d'insérer après les headers
+    const headerRow = guessesContainer.querySelector('.headers');
+    if (headerRow) {
+        headerRow.insertAdjacentElement('afterend', row);
+    }
 }
 
 function showVictory() {
