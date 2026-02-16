@@ -7,7 +7,7 @@ let gameMode = "daily";
 let currentAllyCode = ""; 
 
 // --- ÉTAT DES INDICES ---
-let foundTraits = { alignment: "?", role: "?", ship: "?", leader: "?", factions: new Set() };
+let foundTraits = { alignment: "?", role: "?", ship: "?", leader: "?", factions: new Set(), year: "?" };
 
 const FACTION_BLACKLIST = ["leader", "crew member", "fleet commander"];
 const container = document.getElementById("units-container");
@@ -26,7 +26,8 @@ const translations = {
         "vic-attempts": "Number of attempt(s) :", "vic-tries": "attempts.", "btn-replay": "REPLAY", "btn-back": "BACK",
         "yes": "Yes", "no": "No", "sum-title": "Identified Clues", "btn-free": "PLAY IN FREE MODE",
         "next-unit": "Next Unit in", "hist-title": "Last 30 Days", "already-played": "Daily challenge already completed!",
-        "tag-leader": "Leader", "tag-crew": "crew member", "tag-commander": "fleet commander"
+        "tag-leader": "Leader", "tag-crew": "crew member", "tag-commander": "fleet commander",
+        "h-year": "Year of appearance"
     },
     fr: {
         "game-title": "Jeu SWGOH Wordle", "start-btn": "Lancer la partie", "placeholder": "Nom de l'unité...",
@@ -35,7 +36,8 @@ const translations = {
         "vic-attempts": "Nombre de tentative(s) :", "vic-tries": "tentatives.", "btn-replay": "REJOUER", "btn-back": "RETOUR",
         "yes": "Oui", "no": "Non", "sum-title": "Indices Identifiés", "btn-free": "JOUER EN MODE LIBRE",
         "next-unit": "Prochaine unité", "hist-title": "30 derniers jours", "already-played": "Défi quotidien déjà complété !",
-        "tag-leader": "Chef", "tag-crew": "membre de l'équipage", "tag-commander": "commandant de la flotte"
+        "tag-leader": "Chef", "tag-crew": "membre de l'équipage", "tag-commander": "commandant de la flotte",
+        "h-year": "Année d'apparition"
     }
 };
 
@@ -245,6 +247,7 @@ function showHistory() {
     const lang = sessionStorage.getItem("selectedLanguage") || "en";
     const t = translations[lang];
     const historyCache = JSON.parse(localStorage.getItem(`history_${currentAllyCode}`) || "[]");
+    const todayStr = new Date().toLocaleDateString(); // On récupère la date du jour
     
     let html = `<div class="modal-content">
         <h2 style="font-size:1.2rem">${t["hist-title"]}</h2>
@@ -258,15 +261,24 @@ function showHistory() {
         const userEntry = historyCache.find(h => h.date === dateString);
 
         const isPlayed = !!userEntry;
+        const isToday = (dateString === todayStr);
+
+        // --- LOGIQUE ANTI-SPOIL ---
+        // Si c'est aujourd'hui et que ce n'est pas joué, on cache les infos
+        const displayName = (isToday && !isPlayed) ? "???" : getLoc(unitAtDate.name);
+        const displayImg = (isToday && !isPlayed) ? PLACEHOLDER_SVG : unitAtDate.image;
+        
         const opacity = isPlayed ? "1" : "0.5";
-        const statusText = isPlayed ? `${userEntry.attempts} ${t["vic-tries"]}` : `<span style="color:#666">❌ Non joué</span>`;
+        const statusText = isPlayed 
+            ? `${userEntry.attempts} ${t["vic-tries"]}` 
+            : `<span style="color:#666">${isToday ? "🔒 En attente..." : "❌ Non joué"}</span>`;
 
         html += `
             <div style="display: flex; align-items: center; border-bottom: 1px solid #333; padding: 10px 0; opacity: ${opacity}">
-                <img src="${unitAtDate.image}" width="40" style="border-radius:50%; margin-right: 12px; border: 1px solid ${isPlayed ? 'var(--sw-yellow)' : '#444'}">
+                <img src="${displayImg}" width="40" style="border-radius:50%; margin-right: 12px; border: 1px solid ${isPlayed ? 'var(--sw-yellow)' : '#444'}">
                 <div style="text-align:left; font-size:0.85rem">
                     <div style="color:#888; font-size:0.7rem">${dateString}</div>
-                    <strong style="color:${isPlayed ? 'white' : '#aaa'}">${getLoc(unitAtDate.name)}</strong><br>
+                    <strong style="color:${isPlayed ? 'white' : '#aaa'}">${displayName}</strong><br>
                     ${statusText}
                 </div>
             </div>`;
@@ -313,7 +325,7 @@ function updateSummary() {
     document.getElementById("summary-content").innerHTML = `
         <p><span>${t["h-align"]} :</span> ${foundTraits.alignment}</p>
         <p><span>${t["h-role"]} :</span> ${foundTraits.role}</p>
-        <p><span>${t["h-ship"]} :</span> ${foundTraits.ship}</p>
+        <p><span>${t["h-year"]} :</span> ${foundTraits.year}</p> <p><span>${t["h-ship"]} :</span> ${foundTraits.ship}</p>
         <p><span>${t["h-leader"]} :</span> ${foundTraits.leader}</p>
         <p style="grid-column: 1 / -1;"><span>${t["h-factions"]} :</span> ${Array.from(foundTraits.factions).join(", ") || "?"}</p>
     `;
@@ -333,7 +345,7 @@ function switchLanguage(lang) {
 function startNewGame(mode) {
     gameMode = mode;
     attempts = 0;
-    foundTraits = { alignment: "?", role: "?", ship: "?", leader: "?", factions: new Set() };
+    foundTraits = { alignment: "?", role: "?", ship: "?", leader: "?", factions: new Set(), year: "?" };
     
     targetUnit = (mode === "daily") ? getDailyUnit(allUnits) : allUnits[Math.floor(Math.random() * allUnits.length)];
 
@@ -347,6 +359,7 @@ function startNewGame(mode) {
         <div class="header-cell">${t["h-name"]}</div><div class="header-cell">${t["h-align"]}</div>
         <div class="header-cell">${t["h-ship"]}</div><div class="header-cell">${t["h-factions"]}</div>
         <div class="header-cell">${t["h-leader"]}</div><div class="header-cell">${t["h-role"]}</div>
+        <div class="header-cell">${t["h-year"]}</div> </div>
     </div>`;
     
     updateSummary();
@@ -376,6 +389,20 @@ function submitGuess(unit) {
         }
     });
 
+    // --- LOGIQUE DE L'ANNÉE ---
+    let yearArrow = "";
+    let yearStatus = "wrong";
+
+    if (unit.year === targetUnit.year) {
+        yearStatus = "correct";
+    } else if (unit.year < targetUnit.year) {
+        yearArrow = " ↑"; // La cible est plus récente
+    } else {
+        yearArrow = " ↓"; // La cible est plus ancienne
+    }
+
+    if (unit.year === targetUnit.year) foundTraits.year = unit.year;
+
     updateSummary();
 
     const guessData = {
@@ -385,11 +412,13 @@ function submitGuess(unit) {
         ship: { val: getYesNo(checkShip(unit)), match: checkShip(unit) === checkShip(targetUnit) },
         leader: { val: getYesNo(checkLeader(unit)), match: checkLeader(unit) === checkLeader(targetUnit) },
         role: { val: getLoc(unit.role), match: unit.role.en === targetUnit.role.en },
-        factions: { val: getCleanFactions(unit).map(f => getLoc(f)).join(", "), status: factionStatus }
+        factions: { val: getCleanFactions(unit).map(f => getLoc(f)).join(", "), status: factionStatus },
+        // Ajout de l'année dans l'objet de données
+        year: { val: unit.year + yearArrow, status: yearStatus }
     };
+    renderGuessRow(guessData); // Affiche la ligne dans le tableau
 
-    renderGuessRow(guessData);
-    if (unit.id === targetUnit.id) {
+    if (unit.id === targetUnit.id || getLoc(unit.name) === getLoc(targetUnit.name)) {
         if(gameMode === "daily") saveToHistory(targetUnit, attempts);
         showVictory();
     }
@@ -405,6 +434,7 @@ function renderGuessRow(data) {
         <div class="cell ${data.factions.status}">${data.factions.val}</div>
         <div class="cell ${data.leader.match ? 'correct' : 'wrong'}">${data.leader.val}</div>
         <div class="cell ${data.role.match ? 'correct' : 'wrong'}">${data.role.val}</div>
+        <div class="cell ${data.year.status}">${data.year.val}</div> 
     `;
     guessesContainer.querySelector('.headers').insertAdjacentElement('afterend', row);
 }
@@ -426,6 +456,7 @@ function showVictory() {
                 <p><span>${t["h-ship"]} :</span> ${getYesNo(checkShip(targetUnit))}</p>
                 <p><span>${t["h-leader"]} :</span> ${getYesNo(checkLeader(targetUnit))}</p>
                 <p><span>${t["h-factions"]} :</span> ${getCleanFactions(targetUnit).map(f => getLoc(f)).join(", ")}</p>
+                <p><span>${t["h-year"]} :</span> ${targetUnit.year}</p>
             </div>
             <p>${t["vic-attempts"]} <strong>${attempts}</strong> ${t["vic-tries"]}</p>
             <button onclick="startNewGame('free'); closeModal();" class="main-btn">${buttonLabel}</button>
