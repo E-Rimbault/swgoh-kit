@@ -215,7 +215,9 @@
         <div id="setup-container">
             <div class="input-wrapper">
                 <input type="number" id="ally-code-input" placeholder="ALLY CODE" autocomplete="on">
+                <input type="password" id="password-input" placeholder="PASSWORD" style="margin-top:10px; width: 80%; padding: 12px; background: #111; border: 2px solid var(--sw-blue); color: white; border-radius: 4px;">
             </div>
+        </div>
 
             <div id="game-controls">
                 <button id="start-btn" class="main-btn">Lancer la partie</button>
@@ -256,9 +258,11 @@
 
     <div id="victory-modal" class="modal hidden"></div>
 
-    <script type="module">
+ <script type="module">
+  // Ajout des imports pour l'Authentification
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
   import { getFirestore, doc, setDoc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+  import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyC_HzhuTAUtYOtCYSb6zd9IuJYQV4TA0Fk",
@@ -270,21 +274,28 @@
     measurementId: "G-QM6N6V8Z8H"
   };
 
-  // Initialisation
+  // Initialisation de Firebase
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
+  const auth = getAuth(app);
 
-  // On expose db et les fonctions Firestore à la fenêtre globale (window)
-  // pour que ton script 'game-wordle-script.js' puisse les utiliser.
+  // Exposition des outils Firestore
   window.db = db;
   window.fbOps = { doc, setDoc, getDoc, updateDoc };
 
-  // Une fois Firebase prêt, on charge ton script de jeu
+  // Exposition des outils d'Authentification
+  window.fbAuth = { 
+    auth, 
+    signInWithEmailAndPassword, 
+    createUserWithEmailAndPassword,
+    onAuthStateChanged 
+  };
+
+  // Chargement de ton script de jeu une fois que Firebase est prêt
   const gameScript = document.createElement('script');
   gameScript.src = "game-wordle-script.js";
   document.body.appendChild(gameScript);
 </script>
-
 </body>
 
 </html>

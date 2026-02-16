@@ -102,38 +102,65 @@ function logRotationHistory(units) {
 // --- GESTION CONNEXION & FIREBASE ---
 async function handleStartClick() {
     const allyInput = document.getElementById("ally-code-input");
+    const passInput = document.getElementById("password-input"); // Assure-toi que l'ID correspond au HTML
+    
     const code = allyInput.value.trim();
+    const password = passInput.value.trim();
 
-    if (code.length < 3) {
-        allyInput.style.borderColor = "red";
-        setTimeout(() => allyInput.style.borderColor = "var(--sw-blue)", 2000);
+    if (code.length < 3 || password.length < 6) {
+        alert("Ally Code (min 3) and Password (min 6) required");
         return;
     }
 
     currentAllyCode = code;
-    localStorage.setItem("last_ally_code", currentAllyCode);
+    const fakeEmail = `${code}@swgohwordle.com`; // Format d'email interne
 
-    // --- SYNCHRONISATION CLOUD ---
-    if (window.db && window.fbOps) {
+    if (window.db && window.fbAuth) {
         try {
-            const playerRef = window.fbOps.doc(window.db, "players", currentAllyCode);
+            let user;
+            try {
+                // 1. On tente d'abord la CONNEXION
+                const res = await window.fbAuth.signInWithEmailAndPassword(window.fbAuth.auth, fakeEmail, password);
+                user = res.user;
+                console.log("🔓 Login réussi");
+            } catch (err) {
+                // 2. Si l'utilisateur n'existe pas, on le CRÉE
+                if (err.code === 'auth/user-not-found' || err.code === 'auth/invalid-credential') {
+                    const res = await window.fbAuth.createUserWithEmailAndPassword(window.fbAuth.auth, fakeEmail, password);
+                    user = res.user;
+                    console.log("✨ Compte créé avec succès");
+                } else {
+                    // Si c'est une autre erreur (ex: mauvais mot de passe)
+                    throw err; 
+                }
+            }
+
+            // 3. Récupération des données Firestore via l'UID
+            const playerRef = window.fbOps.doc(window.db, "players", user.uid);
             const playerDoc = await window.fbOps.getDoc(playerRef);
             
             if (playerDoc.exists()) {
                 const cloudHistory = playerDoc.data().history || [];
-                // Fusionner avec le local ou écraser par le cloud (plus sûr pour le multi-appareil)
                 localStorage.setItem(`history_${currentAllyCode}`, JSON.stringify(cloudHistory));
-                console.log("☁️ Données Cloud récupérées");
             } else {
-                await window.fbOps.setDoc(playerRef, { history: [] });
+                // Initialisation du document si nouveau joueur
+                await window.fbOps.setDoc(playerRef, { history: [], allyCode: code });
             }
+
         } catch (e) {
-            console.warn("Firebase indisponible, utilisation du mode local uniquement.", e);
+            console.error("Erreur Auth:", e);
+            if (e.code === 'auth/wrong-password' || e.code === 'auth/invalid-credential') {
+                alert("Mot de passe incorrect pour cet Ally Code.");
+            } else {
+                alert("Erreur : " + e.message);
+            }
+            return;
         }
     }
 
-    logRotationHistory(allUnits);
-
+    // Suite de la logique (lancement du jeu)
+    localStorage.setItem("last_ally_code", currentAllyCode);
+    
     const history = JSON.parse(localStorage.getItem(`history_${currentAllyCode}`) || "[]");
     const today = new Date().toLocaleDateString();
     const alreadyPlayed = history.find(h => h.date === today);
@@ -151,22 +178,44 @@ async function saveToHistory(unit, count) {
     const today = new Date().toLocaleDateString();
     
     if (!history.find(h => h.date === today)) {
-        const newEntry = { date: today, name: getLoc(unit.name), attempts: count, img: unit.image };
+        const newEntry = { 
+            date: today, 
+            name: getLoc(unit.name), 
+            attempts: count, 
+            img: unit.image 
+        };
         history.unshift(newEntry);
         if (history.length > 30) history.pop();
         
-        // 1. Sauvegarde Locale
+        // 1. Sauvegarde Locale (on garde l'Ally Code pour le stockage navigateur)
         localStorage.setItem(key, JSON.stringify(history));
 
-        // 2. Sauvegarde Cloud
-        if (window.db && window.fbOps) {
+        // 2. Sauvegarde Cloud Sécurisée
+        // On vérifie si l'utilisateur est bien connecté via Firebase Auth
+        const user = window.fbAuth.auth.currentUser;
+
+        if (window.db && window.fbOps && user) {
             try {
-                const playerRef = window.fbOps.doc(window.db, "players", currentAllyCode);
-                await window.fbOps.updateDoc(playerRef, { history: history });
-                console.log("☁️ Historique synchronisé !");
+                // IMPORTANT : On utilise user.uid (l'ID secret) et non currentAllyCode
+                const playerRef = window.fbOps.doc(window.db, "players", user.uid);
+                
+                await window.fbOps.updateDoc(playerRef, { 
+                    history: history,
+                    lastAllyCode: currentAllyCode, // Optionnel : on garde une trace du code
+                    lastUpdate: new Date()
+                });
+                
+                console.log("☁️ Historique sécurisé synchronisé !");
             } catch (e) {
                 console.error("Erreur de synchro Cloud :", e);
+                // Si le document n'existe pas encore, on utilise setDoc au lieu de updateDoc
+                if (e.code === 'not-found') {
+                    const playerRef = window.fbOps.doc(window.db, "players", user.uid);
+                    await window.fbOps.setDoc(playerRef, { history: history, allyCode: currentAllyCode });
+                }
             }
+        } else {
+            console.warn("Cloud non synchronisé : Utilisateur non connecté ou Firebase non chargé.");
         }
     }
 }
