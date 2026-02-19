@@ -64,18 +64,24 @@ setInterval(updateTimer, 1000);
 // --- LOGIQUE UNITÉ QUOTIDIENNE ---
 function getDailyUnit(units) {
     const d = new Date();
+    // 1. On garde ta base de date
     let dateSeed = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
-    let index = dateSeed % units.length;
+    
+    // 2. FONCTION DE MÉLANGE (Muranaka Hash simplifiée)
+    // On multiplie par un grand nombre premier pour "éparpiller" les résultats
+    let scrambledSeed = (dateSeed * 15485863) % 999999; 
+    
+    // 3. On utilise cette seed mélangée pour l'index
+    let index = scrambledSeed % units.length;
     let selected = units[index];
 
-    logRotationHistory(units);
-
+    // --- Garder ta logique anti-doublon existante ---
     const history = JSON.parse(localStorage.getItem(`history_${currentAllyCode}`) || "[]");
     const blockedNames = history.map(h => h.name);
     
     let safetyBreak = 0;
     while (blockedNames.includes(getLoc(selected.name)) && safetyBreak < units.length) {
-        index = (index + 1) % units.length;
+        index = (index + 7) % units.length; // On saute de 7 en 7 si doublon pour plus d'aléa
         selected = units[index];
         safetyBreak++;
     }
@@ -291,7 +297,9 @@ function showHistory() {
 
 function getDailyUnitForDate(units, dateObj) {
     let dateSeed = dateObj.getFullYear() * 10000 + (dateObj.getMonth() + 1) * 100 + dateObj.getDate();
-    let index = dateSeed % units.length;
+    // Utiliser EXACTEMENT la même formule de mélange
+    let scrambledSeed = (dateSeed * 15485863) % 999999;
+    let index = scrambledSeed % units.length;
     return units[index];
 }
 
