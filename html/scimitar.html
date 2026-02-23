@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Scimitar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-vaisseaux/scimitar/scimitar-image.png">
+    <link rel="stylesheet" href="../style/ship-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-vaisseaux/scimitar/scimitar-image.png" alt="Scimitar" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Scimitar</u></h1>
+            <p id="description">
+                Deadly Sith Support that can Stealth allies to set up devastating attacks
+            </p>
+            <br>
+
+            <nav class="perso ship-nav">
+                <!-- Partie gauche : catégories -->
+                <div class="nav-left">
+                    <a class="capacite" style="color: red !important;" href="../vaisseaux/vaisseau-coté-obscur.html" id="darkside">Coté Obscur</a>
+                    <a class="class" href="../vaisseaux/vaisseau-soutien.html" id="support">Support</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-siths.html" id="sith">Sith</a>
+                </div>
+
+                <!-- Partie droite : unités associées -->
+                <div class="nav-right">
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href="../html/dark-maul.html"><img src="../image-perso/dark-maul/dark-maul-image.png" alt="Dark Maul" class="ship-unit-image"></a>
+                        <span id="unit-maul" class="ship-unit-name">Darth Maul</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-vaisseaux/scimitar/scimitar.png" alt="Scimitar"><br>
+
+    <!-- Capacités du vaisseau -->
+
+    <!--Capacité basique-->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Dread Cannons</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Scimitar basic" src="../image-vaisseaux/scimitar/scimitar-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. If the Scimitar is Stealthed, remove 80% Turn Meter and lose Stealth.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="crew-ability-title">
+        <u>Crew Ability - <strong><u class="speciale">Darth Maul</u></strong> : Slip Through (cooldown: 3)</u>
+    </h2>
+
+    <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/scimitar/scimitar-special.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/dark-maul/dark-maul-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability">
+                Target ally gains Protection Up (50%) and Retribution for 2 turns. If target ally is Sith, they also gain Critical Hit Immunity for 2 turns. All other allies gain Stealth for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité unique-->
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Lurking Threat</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Scimitar unique" src="../image-vaisseaux/scimitar/scimitar-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Stealthed allies have +30% Offense. In addition, whenever an enemy Reinforces, the Scimitar inflicts Target Lock on them for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité de type renfort-->
+    <h2 class="titre" id="reinforcement-title"><u>Reinforcement Ability: Drifting Shade</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Scimitar reinforcement" src="../image-vaisseaux/scimitar/scimitar-reinforcement.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="reinforcement-description">
+                <u class='speciale'>Enter Battle :</u> All allies gain 25% Critical Chance until Scimitar is defeated, doubled for Sith allies. All allies gain 15 Speed, doubled for Sith allies for the rest of the battle (including the Capital ship) and persists through defeat.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            const translationsFr = {
+                "big-title": "Cimeterre",
+                "title": "<u>Cimeterre</u>",
+                "description": "Soutien Sith meurtrier qui peut camoufler ses alliés pour préparer des attaques dévastatrices.",
+                "unit-maul": "Dark Maul",
+                "darkdside": "Coté Obscur",
+                "support": "Soutien",
+                "sith": "Sith",
+
+                "basic-attack-title": "<u>Attaque Basique: Canons d'effroi</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie. Si le Cimeterre est sous camouflage, diminue la jauge de tour de 80 % et perd le camouflage",
+
+                "crew-ability-title": "<u>Capacité équipage - <strong><u class='speciale'>Dark Maul</u></strong> : Dissimulation (délai : 3)</u>",
+                "crew-ability": "La cible alliée obtient une hausse de protection (50 %) et la rétribution pendant 2 tours. Si la cible alliée est Sith, elle obtient également l'immunité aux coups critiques pendant 2 tours. Tous les autres alliés gagnent le camouflage pendant 2 tours.",
+
+                "unique-ability-title": "<u>Capacité Unique : Menace de l'ombre</u>",
+                "unique-ability": "Les alliés camouflés gagnent un bonus d'attaque de +30 %. De plus, lorsqu'un ennemi fait appel à des renforts, le Cimeterre le verouille pendant 2 tours.",
+
+                "reinforcement-title": "<u>Capacité de Renfort : Ombre dérivante</u>",
+                "reinforcement-description": "<u class='speciale'>Rejoindre la Bataille :</u> tous les alliés gagnent 25 % de chances de coup critique jusqu'à ce que le Cimeterre soit vaincu (doublé pour les alliés Sith). Tous les alliés obtiennent 15 de vitesse (doublé pour les alliés Sith, y compris pour le vaisseau amiral) pour le reste de la bataille, et cette vitesse persiste au-delà de la défaite.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+    </footer>
+</body>
+
+</html>

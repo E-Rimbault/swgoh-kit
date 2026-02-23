@@ -1,113 +1,199 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Ezra Bridger</title>
-
+    <title id="big-title">Ezra Bridger</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/ezra/ezra-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
-    <link rel="stylesheet" href="../style/capacite.css">
-    <link rel="stylesheet" href="../style/styles.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/ezra/ezra-image.png" alt="Ezra Bridger" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Ezra Bridger</u></h1>
-        <p>
-            attaquant Phoenix polyvalent qui peut conférer divers effets selon le rôle de ses alliés.
-        </p>
-        <br>
-       
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/jedi.html">Jedi</a>
-            <a class="capacite" href="../classement-perso/phoenix.html">Phoenix</a>
-            <a class="capacite" href="../classement-perso/rebelle.html">Rebelle</a>
-            <a class="pilote" href="../classement-perso/membres-équipages.html">Membres Equipages</a>
-        </nav>      
-        </table>
-        
+            <h1 id="title"><u>Ezra Bridger</u></h1>
+            <p id="description">
+                Versatile Phoenix Attacker that can perform a variety of effects based on the Roles of allies
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Phoenix</a>
+                <a class="capacite" href="../classement-perso/phoenix.html" id="phoenix">Phoenix</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew">Crew Member</a>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/phantom2.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/phantom2/phantom2-image.png" alt="Phantom II">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: Phantom II</u>
+                </h2>
+            </section>
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/ezra/Ezra.png" alt="Ezra"><br>
+    <img class="first" src="../image-perso/ezra/Ezra.png" alt="Ezra Bridger"><br>
 
-    <h2 class="titre"><u>attaque basique : Frappe éclair</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Rushing Strike</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="ezra basique" src="../image-perso/ezra/ezra-basic.png">
+            <img class="attaque" alt="Ezra Bridger basic" src="../image-perso/ezra/ezra-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physique à une cible ennemie, avec 40% de chances d'attaquer<br>
-                à nouveau. Si Ezra ne souffre pas d'affaiblissements, ces chances sont doublées.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 40% chance to attack again. If Ezra has no debuffs, the chance is doubled.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Révolte (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Flourish (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="ezra spé 1" src="../image-perso/ezra/ezra-spe1.png">
+            <img class="attaque" alt="Ezra Bridger spécial 1" src="../image-perso/ezra/ezra-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physique à une cible ennemie et dissipe toutes ses améliorations.<br>
-                Si l'ennemi ne dispose pas d'améliorations, le délai de cette attaque diminue de 1 et<br>
-                la jauge de tour d'Ezra se remplit de 75%. Ezra obtient un bonus de défense pendant 2 tours.
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and dispel all buffs on them. If the enemy had no buffs, this attack's cooldown is reduced by 1 and Ezra gains 75% Turn Meter instead. Ezra gains Defense Up for 2 turns.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Observer et apprendre (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Watch and Learn (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="ezra spé 2" src="../image-perso/ezra/ezra-spe2.png">
+            <img class="attaque" alt="Ezra Bridger spécial 2" src="../image-perso/ezra/ezra-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                La cible alliée attaque, puis Ezra l'assiste à son tour, infligeant 20%<br>
-                de dégâts en plus. Les deux attaquants obtiennent un effet bonus<br>
-                selon le rôle de l'allié séléctionné:<br>
+            <p class="attaque" id="special-attack2">
+                Target ally attacks and then Ezra assists them, dealing 20% more damage. Both attackers gain a bonus effect based on the chosen ally's role:
                 <br>
-                -Attaquant: inflige un coup critique pour cette attaque. Si possible.<br>
+                - Attacker: Scores a critical hit for this attack if possible                
                 <br>
-                -Tank: Bonus de protection (40%) pendant 2 tours.<br>
+                - Tank: Protection Up (40%) for 2 turns
                 <br>
-                Soutien: +40% de jauge de tour.
+                - Support: +40% Turn Meter Gain
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Intrépide</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Push Through</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="ezra unique" src="../image-perso/ezra/ezra-unique.png">
+            <img class="attaque" alt="Ezra Bridger unique" src="../image-perso/ezra/ezra-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Ezra obtient 10% d'attaque (cumulatif, 40% maximum) à la fin de son tour<br>
-                pour le reste de l'affrontement et sera réinitialisé lorsqu'Ezra est vaincu.
+            <p class="attaque" id="unique-ability">
+                Ezra gains 10% Offense (stacking, max 40%) at the end of his turn for the rest of the encounter and will reset if he is defeated.
             </p>
-        
         </div>
     </div>
-    <h2 class="vaisseaux"><u>vaisseau: phantom2</u></h2>
-    <a href="../html/phantom2.html"><img class="tail" src="../vaisseaux/phantom2/phantom_2.png" alt="phantom2"></a>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Ezra Bridger",
+                "title": "<u>Ezra Bridger</u>",
+                "description": "Attaquant Phoenix polyvalent qui peut conférer divers effets selon le rôle de ses alliés.",
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "jedi": "Jedi",
+                "phoenix": "Phoenix",
+                "rebel": "Rebelle",
+                "crew": "Membres d'Équipage",
+
+                "basic-attack-title": "<u>Attaque Basique: Frappe éclair</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie, avec 40 % de chances d'attaquer à nouveau. Si Ezra ne souffre pas d'affaiblissements, ces chances sont doublées.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Révolte (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie et dissipe toutes ses améliorations. Si l'ennemi ne dispose pas d'améliorations, le délai de cette attaque diminue de 1 et la jauge de tour d'Ezra se remplit de 75 %. Ezra obtient un bonus de défense pendant 2 tours.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Observer et apprendre (délai : 3)</u>",
+                "special-attack2": "La cible alliée attaque, puis Ezra l'assiste à son tour, infligeant 20 % de dégâts en plus. Les deux attaquants obtiennent un effet bonus selon le rôle de l'allié sélectionné :\n-Attaquant : inflige un coup critique pour cette attaque, si possible.\n- Tank : bonus de protection (40 %) pendant 2 tours.\n- Soutien : +40 % de jauge de tour.",
+
+                "unique-ability-title": "<u>Capacité Unique : Intrépide</u>",
+                "unique-ability": "Ezra obtient 10 % d'attaque (cumulatif, 40 % maximum) à la fin de son tour pour le reste de l'affrontement et sera réinitialisé lorsqu'Ezra est vaincu.",
+
+                "ship-title": "<u>Vaisseau : Phantom II</u>"
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
     </footer>
 </body>
-</html>    
+
+</html>

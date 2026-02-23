@@ -1,140 +1,197 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Dark Talon</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Darth Talon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/talon/talon-image.png">
-
-    <!-- Lien vers la feuille de style -->
-    <link rel="stylesheet" href="../style/styles.css">
-    <link rel="stylesheet" href="../style/capacite.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/talon/talon-image.png" alt="Darth Talon" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>Dark Talon</u></h1>
-        <p>
-            Attaquante Sith agile dont la loyauté et la létalité sont incontestables
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a style="color: red;" class="capacite" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-            <a class="class" href="../classement-perso/attaquant.html">attaquant</a>
-            <a class="capacite" href="../classement-perso/sith.html">Sith</a>
-        </nav>
+            <h1 id="title"><u>Darth Talon</u></h1>
+            <p id="description">
+                Nimble Sith attacker whose loyalty and lethality is without question
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/sith.html" id="sith">Sith</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/talon/dark-Talon.png" alt="Talon"><br>
+    <img class="first" src="../image-perso/talon/dark-Talon.png" alt="Darth Talon"><br>
 
-    <!-- Section pour les différentes attaques spéciales -->
-    <h2 class="titre"><u>attaque basique : Frappe de Talon</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Talon's Strike</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="talon basique" src="../image-perso/talon/talon-basique.png">
+            <img class="attaque" alt="Darth Talon basic" src="../image-perso/talon/talon-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie et entrave ses capacités pendant 1 tour.<br>
-                Si la cible souffre déjà d'un affaiblissement, le délai de Sombre frénésie est diminué de 1.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Ability Block for 1 turn. If the target was already debuffed, reduce the cooldown of Dark Frenzy by 1.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Assassinat commandité (délai: 2)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Ordered Assassination (cooldown: 2)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="talon spé 1" src="../image-perso/talon/talon-sp-1.png">
+            <img class="attaque" alt="Darth Talon special 1" src="../image-perso/talon/talon-spe-1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie et confère le camouflage pendant 1 tour.<br>
-                Si cette attaque élimine un ennemie, elle obtient 100% de jauge de tour.
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and gain Stealth for 1 turn. If this attack defeats an enemy, gain 100% Turn Meter.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Sombre frénésie (délai: 5)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Dark Frenzy (cooldown: 5)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="talon spé 2" src="../image-perso/talon/talon-sp-2.png">
+            <img class="attaque" alt="Darth Talon special 2" src="../image-perso/talon/talon-spe-2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie et confère Frénésie pendant 2 tours. Si la cible souffre<br>
-                déjà d'un affaiblissement, confère 2 cumuls de <u class="speciale">Main Loyale</u> (20 max) et inflige<br>
-                des dégâts supplémentaires à tous les ennemis. Cette capacité commence avec un délai.<br>
-                <br>
-                <u class="speciale">Main loyale:</u> +10% de protection maximale et d'attaque (cumulatif, 20 max).<br>
-                Cette amélioration ne peut pas être copiée, évitée ou dissipée.
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to target enemy and gain Frenzy for 2 turns. If target enemy was debuffed, gain 2 stacks of <u class="speciale">Loyal Hand</u> (max 20) and deal damage an additional time to all enemies. This ability starts on cooldown.
+                <br><br>
+                <u class="speciale">Loyal Hand:</u> +10% Max Protection and Offense (stacking, max 20) This buff cannot be copied, prevented, or dispelled.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Loyauté éprouvée</u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Proven Loyalty</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="talon unique" src="../image-perso/talon/talon-unique.png">
+            <img class="attaque" alt="Darth Talon unique 1" src="../image-perso/talon/talon-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Si tous les alliés au debut de la bataille sont des Sith (à l'exception des alliés invoqués), lorsque le chef<br>
-                subit des dégâts, tous les alliés obtiennent 5% de jauge de tour. La première fois que le chef va être vaincu<br>
-                pendant que Dark Talon est active, tous leurs affaiblissement sont dissipés, ils récupèrent 100% de santé et <br>
-                obtiennent 100% de jauge de tour. Ensuite, Dark Talon obtient 3 cumuls de Main Loyale (20 max), perd 50% de <br>
-                santé, et obtient le camouflage pendant 1 tour. Dark Talon ne peut pas être vaincu par ces dégâts.<br>
-                De plus, le délai de Sombre frénésie est réinitialisé.
+            <p class="attaque" id="unique-ability1">
+                If all allies are Sith at the start of battle (excluding summoned allies), whenever the Leader is damaged, all allies gain 5% Turn Meter. The first time they would be defeated while Darth Talon is active, they dispel all debuffs on themselves, recover 100% Health, and gain 100% Turn Meter; then, Darth Talon gains 3 stacks of Loyal Hand (max 20), loses 50% Health, and gains Stealth for 1 turn. Darth Talon can't be defeated by this damage. Additionally, Dark Frenzy's cooldown is refreshed.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Cruauté Sith</u></h2>
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Sith Cruelty</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="talon uniqye 2" src="../image-perso/talon/talon-unique2.png">
+            <img class="attaque" alt="Darth Talon unique 1" src="../image-perso/talon/talon-unique2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Au début de la bataille, Dark Talon obtient le camouflage pendant 1 tour. Les alliés Sith obtiennent +30% de<br>
-                santé maximale, +30% d'attaque et +20 de vitesse. Chaque fois que la santé de Dark Talon passe en dessous de<br>
-                100%, les Tanks Sith obtiennent larétribution et utilise la Raillerie pendant 1 tour.<br>
-                <br>
-                <u class="omicron">Dans les Grandes arènes:</u><br>
-                <br>
-                Si la cible ennemie souffre d'<u class="speciale">Isolation</u> ou de <u class="speciale">Douleur</u>, les attaque de<br>
-                Dark Talon gagnent des effets supplémentaires. Chaque fois que Dark Talon élimine un ennemi, tous les autres alliés Sith<br>
-                obtiennent 5% de protection maximale et 5% d'attaque pour chaque cumul de Main loyale sur elle.<br>
-                <br>
-                <u class="speciale">Isolation: </u> Les attaques de Dark Talon diminuent le délai de Sombre<br>
-                frénésie de 1. Confère 2 cumuls de Main loyale.<br>
-                <br>
-                <u class="speciale">Douleur: </u> Sombre frénésie infligle l'immunité aux améliorations à tous les ennemis pendant 2 tours.<br>
-                Les attaques de Dark Talon régénèrent la santé de tous les alliés à hauteur de 50% des dégâts infligés (doublé pour l'allié<br>
-                Dark Sion). Confère +20 de vitesse pendant le reste de l'affrontement (cumulatif, 200 max) et 1 cumul de Main loyale (20 max);
+            <p class="attaque" id="unique-ability2">
+                At the start of the battle, Darth Talon gains Stealth for 1 turn. Sith allies gain +30% Max Health, +30% Offense, and +20 Speed. Whenever Darth Talon falls below 100% Health, Sith Tanks gain Retribution and Taunt for 1 turn.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> If target enemy is inflicted with <u class="speciale">Isolate</u> or <u class="speciale">Pain</u>, Darth Talon's attacks gain additional effects. Whenever Darth Talon defeats an enemy, all other Sith allies gain 5% Max Protection and 5% Offense for each stack of Loyal Hand on her.
+                <br><br>
+                <u class="speciale">Isolate:</u> Darth Talon's attacks lower the cooldown of Dark Frenzy by 1. Gain 2 stacks of Loyal Hand (max 20).<br>
+                <u class="speciale">Pain:</u> Dark Frenzy inflicts Buff Immunity on all enemies for 2 turns. Darth Talon's attacks recover all allies' Health equal to 50% of the damage dealt, doubled for allied Darth Sion. Gain +20 Speed for the rest of the encounter (stacking, max 200) and 1 stack of Loyal Hand (max 20).
             </p>
         </div>
+    </div>
 
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Dark Talon",
+                "title": "<u>Dark Talon</u>",
+                "description": "Attaquant Sith agile dont la loyauté et la létalité sont incontestables.",
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "sith": "Sith",
+
+                "basic-attack-title": "<u>Attaque Basique: Frappe de Talon</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et entrave ses capacités pendant 1 tour. Si la cible subit déjà un affaiblissement, le délai de Sombre frénésie est diminué de 1.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Assassinat commandité (délai : 2)</u>",
+                "special-attack1": "inflige des dégâts physiques à une cible ennemie et confère le camouflage pendant 1 tour. Si cette attaque élimine un ennemi, elle obtient 100 % de jauge de tour.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Sombre frénésie (délai : 5)</u>",
+                "special-attack2": "Inflige des dégâts physiques à une cible ennemie et confère Frénésie pendant 2 tours. Si la cible ennemie subit déjà un affaiblissement; confère 2 cumuls de <u class='speciale'>Main loyale</u> (20 max.) et inflige des dégâts supplémentaires à tous les ennemis. Cette capacité commence avec un délai.\n\n<u class='speciale'>Main loyale :</u> +10 % de protection maximale et d'attaque (cumulatif, 20 max.). Cette amélioration ne peut pas être copiée, évitée ou dissipée.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Loyauté éprouvée</u>",
+                "unique-ability1": "Si tous les alliés au début de la bataille sont des Sith (à l'exception des alliés invoqués), lorsque le chef subit des dégâts, tous les alliés obtiennent 5 % de jauge de tour. La première fois que le chef va être vaincu pendant que Dark Talon est active, tous leurs affaiblissemnts sont dissipés, ils récupèrent 100 % de santé et obtiennent 100 % de jauge de tour. Ensuite, Dark Talon obtient 3 cumuls de Main Loyale (20 max.), perd 50 % de santé, et obtient le camouflage pendant 1 tour. Dark Talon ne peut pas être vaincue par ces dégâts. De plus, le délai de Sombre frénésie est réinitialisé.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Cruauté sith</u>",
+                "unique-ability2": "Au début de la bataille, Dark Talon, obtient le camouflage pendant 1 tour. Les alliés Sith obtiennent +30 % de santé maximale, +30 % d'attaque et +20 de vitesse. Chaque fois que la santé de Dark Talon passe en dessous de 100 %, les tanks Sith obtiennent la rétribution et utilisent Raillerie pendant 1 tour.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> si la cible ennemie souffre d'<u class='speciale'>isolation</u> ou de douleur, les attaques de Dark Talon gagnent des effets supplémentaires. Chaque fois que Dark Talon élimine un ennemi, tous les autres alliés Sith obtiennent 5 % de protection maximale et 5 % d'attaque pour chaque cumul de Main Loyale sur elle.\n\n<u class='speciale'>Isolation :</u> les attaques de Dark Talon diminuent le délai de Sombre frénésie de 1. Confère 2 cumuls de Main loyale (20 max.).\n<u class='speciale'>Douleur :</u> Sombre frénésie inflige l'Immunité aux améliorations à tous les ennemis pendant 2 tours. Les attaques de Dark Talon régénèrent de la santé à hauteur de 50 % des dégâts infligés (doublé pour l'allié Dark Sion.) Confère +20 de vitesse pendant le reste de l'affrontement (cumulatif, 200 max.) et 1 cumul de Main loyale (20 max.).",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
     </footer>
 </body>
-</html>    
+
+</html>

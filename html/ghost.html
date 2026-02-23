@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Ghost</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-vaisseaux/ghost/ghost-image.png">
+    <link rel="stylesheet" href="../style/ship-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-vaisseaux/ghost/ghost-image.png" alt="Ghost" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Ghost</u></h1>
+            <p id="description">
+                Elusive Rebel attacker that reduces enemy Potency and wreaks havok with Rebel allies
+            </p>
+            <br>
+
+            <nav class="perso ship-nav">
+                <!-- Partie gauche : catégories -->
+                <div class="nav-left">
+                    <a class="capacite" style="color: blue !important;" href="../vaisseaux/vaisseau-coté-lumineux.html" id="lightside">Light Side</a>
+                    <a class="class" href="../vaisseaux/vaisseau-attaquant.html" id="attacker">Attacker</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-rebelle.html" id="rebel">Rebel</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-phoenix.html" id="phoenix">Phoenix</a>
+                    <a class="capacite" href="../vaisseaux/vaisseux-de-marchandise.html" id="cargo">Cargo Ship</a>
+                </div>
+
+                <!-- Partie droite : unités associées -->
+                <div class="nav-right">
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href="../html/hera_syndulla.html"><img src="../image-perso/hera-syndulla/hera-image.png" alt="Hera Syndulla" class="ship-unit-image"></a>
+                        <span id="unit-hera" class="ship-unit-name">Hera Syndulla</span>
+                    </div>
+                
+                    <div class="nav-right">
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href="../html/kanan.html"><img src="../image-perso/kanan/kanan-image.png" alt="Kanan Jarrus" class="ship-unit-image"></a>
+                        <span id="unit-kanan" class="ship-unit-name">Kanan Jarrus</span>
+                    </div>
+                
+                    <div class="nav-right">
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href="../html/zeb.html"><img src="../image-perso/zeb/zeb-image.png" alt="Zeb" class="ship-unit-image"></a>
+                        <span id="unit-zeb" class="ship-unit-name">Garazeb "Zeb" Orrelios</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-vaisseaux/ghost/ghost.png" alt="ghost"><br>
+
+    <!-- Capacités du vaisseau -->
+
+    <!--Capacité basique-->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: MS-2B Twin Laser Cannon</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="ghost basic" src="../image-vaisseaux/ghost/ghost-basique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. If the Ghost is Stealthed, this attack is guaranteed to be a Critical Hit.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="crew-ability1-title">
+        <u>Crew Ability - <strong><u class="speciale">Hera Syndulla</u></strong> : Static Jammer (cooldown: 4)</u>
+    </h2>
+
+    <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/ghost/ghost-hera-crew.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/hera_syndulla.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/hera-syndulla/hera-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability1">
+                The Ghost and target other ally gain Stealth for 3 turns. Then, call target ally and two Rebel allies to Assist, dealing 40% less damage.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="crew-ability2-title">
+        <u>Crew Ability - <strong><u class="speciale">Kanan Jarrus</u></strong> : Attack All Angles (cooldown: 4)</u>
+    </h2>
+
+    <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/ghost/ghost-crew-kanan.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/kanan.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/kanan/kanan-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability2">
+                Deal Physical damage to all enemies and deal 40% bonus damage for each Rebel ally.
+                <br><br>
+                <u class="speciale">Target Lock:</u> Inflict Ability Block for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="crew-ability3-title">
+        <u>Crew Ability - <strong><u class="speciale">Garazeb "Zeb" Orrelios</u></strong> : Take 'em Down (cooldown: 3)</u>
+    </h2>
+
+    <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/ghost/ghost-crew-zeb.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/zeb.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/zeb/zeb-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability3">
+                Inflict Defense Down to all enemies for 2 turns, which can't be Evaded. Expose target enemy for 2 turns, which can't be Evaded or Resisted. The Ghost gains 30% Turn Meter for each debuffed enemy.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité unique-->
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Sensor Scrambler</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="ghost unique" src="../image-vaisseaux/ghost/ghost-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                All enemies have -25% Potency. Whenever an enemy debuff is Resisted by an ally, Ghost inflicts Speed Down on that enemy for 2 turns. This effect can't be Resisted. Additionally, while Phantom II is present, the Ghost cannot be Target Locked. When Phantom II is defeated, Ghost gains Protection Up (50%) for 2 turns and 100% Defense until the end of the battle.
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité de type renfort-->
+    <h2 class="titre" id="reinforcement-title"><u>Reinforcement Ability: Reconnaissance</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="ghost reinforcement" src="../image-vaisseaux/ghost/ghost-reinforcement.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="reinforcement-description">
+                <u class='speciale'>Enter Battle :</u> Inflict Critical Chance Down on all enemies for 2 turns and inflict Target Lock on enemies who suffer from Ghost's Critical Chance Down, which can't be Evaded or Resisted.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            const translationsFr = {
+                "big-title": "Ghost",
+                "title": "<u>Ghost</u>",
+                "description": "Attaquant rebelle insaisissable qui diminue le pouvoir ennemi et fait des ravages avec les alliés rebelles.",
+                "unit-hera": "Hera Syndulla",
+                "unit-kanan": "Kanan Jarrus",
+                "unit-zeb": "Garazeb \"Zeb\" Orrelios",
+
+                "basic-attack-title": "<u>Attaque Basique: Double canon laser MS-2B</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible enne!mie. Si le Ghost est sous camouflage, cette attaque infligera un coup critique.",
+
+                "crew-ability1-title": "<u>Capacité équipage - <strong><u class='speciale'>Hera Syndulla</u></strong> : Brouilleur tatique (délai : 4)</u>",
+                "crew-ability1": "Le Ghost et la cible allié gagnent le camouflage pendant 3 tours. Puis, invoque la cible alliée et deux alliés rebelles, qui infligent 40 %  de déga^ts en moins.",
+
+                "crew-ability2-title": "<u>Capacité équipage - <strong><u class='speciale'>Kanan Jarrus</u></strong> : Attaque totale (délai : 4)</u>",
+                "crew-ability2": "Inflige des dégâts physiques à tous les enenmis et inflige 40 % de dégâts bonus pour chaque allié rebelle.\n\n <u class='speciale'>Verrouillage : </u> inflige l'entrave des capacités pendant 1 tour.",
+                
+                "crew-ability3-title": "<u>Capacité équipage - <strong><u class='speciale'>Garazeb \"Zeb\" Orrelios</u></strong> : Cibles faciles (délai : 3)</u>",
+                "crew-ability3": "Inflige un malus de défense à tous les ennemis pendant 2 tours, ce qui ne peut pas être esquivée. Expose tous les ennemis verrouillés pendant 2 tours, ce qui ne peut pas être esquivé ou résisté. La jauge de tour du Ghost se remplit de 30 % pour chaque ennemi subissant un affaiblissement.",
+
+                "unique-ability-title": "<u>Capacité Unique : Capteurs brouillés</u>",
+                "unique-ability": "Tous les ennemis subisent un malus de -25 % de pouvoir. A chaque fois qu'un allié résiste à un affaiblissement, le Ghost inflige un malus de vitesse à cet ennemi pendant 2 tours. Cet effet ne peut pas être résisté. De plus, lorsque le Phantom II est présent, le Ghost ne peut pas être vérrouillé. Lorsque le Phantom II est vaincu, leGhost obtient une hausse de protection (50 %) pendant 2 tours et 100 % de défense jusqu'à la fin de l'affrontement.",
+
+                "reinforcement-title": "<u>Capacité de Renfort : Reconnaissance</u>",
+                "reinforcement-description": "<u class='speciale'>Rejoindre la Bataille :</u> inflige un malus de chances de coup critique à tous les ennemis pendant 2 tours et inflige verrouillage aux ennemis subissant le malus de chances de coup critique du Ghost. Cet effet ne peut pas être esquivé ou résisté.",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "rebel": "Rebelle",
+                "phoenix": "Phoenix",
+                "cargo": "Vaisseau de marchandise"
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+    </footer>
+</body>
+
+</html>

@@ -5,6 +5,7 @@ let targetUnit = null;
 let attempts = 0;
 let gameMode = "daily";
 let currentAllyCode = ""; 
+let hintUsed = false; // Pour limiter à 1 indice par partie
 
 // --- ÉTAT DES INDICES ---
 let foundTraits = { alignment: "?", role: "?", ship: "?", leader: "?", factions: new Set(), year: "?" };
@@ -27,7 +28,19 @@ const translations = {
         "yes": "Yes", "no": "No", "sum-title": "Identified Clues", "btn-free": "PLAY IN FREE MODE",
         "next-unit": "Next Unit in", "hist-title": "Last 30 Days", "already-played": "Daily challenge already completed!",
         "tag-leader": "Leader", "tag-crew": "crew member", "tag-commander": "fleet commander",
-        "h-year": "Year of appearance"
+        "h-year": "Year of appearance",
+        "rules-title": "HOW TO PLAY", "rules-next": "NEXT UNIT IN:", "rules-prop": "PROPERTIES", "rules-feed": "FEEDBACK",
+        "rule-align": "<strong>ALIGNMENT:</strong> Light Side, Dark Side, or Neutral.",
+        "rule-ship": "<strong>SHIP:</strong> Does the unit have a ship?",
+        "rule-fact": "<strong>FACTIONS:</strong> Groups (Empire, Jedi, etc.).",
+        "rule-lead": "<strong>LEADER:</strong> Does it have a leader ability?",
+        "rule-year": "<strong>YEAR:</strong> Release year of the unit.",
+        "rule-role": "<strong>ROLE:</strong> Combat role (Attacker, Tank, etc.).",
+        "feed-correct": "Correct", "feed-partial": "Partial (Factions)", "feed-wrong": "Incorrect",
+        "hist-not-played": "❌ Not played", "hist-pending": "🔒 Pending...",
+        "btn-hint": "🔍 HINT", "hint-pop-title": "Matching Units", "hint-back": "BACK",
+        "btn-giveup": "🏳️ GIVE UP", "confirm-giveup": "Do you really want to give up and reveal the unit?",
+        "revealed-title": "UNIT REVEALED"
     },
     fr: {
         "game-title": "Jeu SWGOH Wordle", "start-btn": "Lancer la partie", "placeholder": "Nom de l'unité...",
@@ -37,7 +50,19 @@ const translations = {
         "yes": "Oui", "no": "Non", "sum-title": "Indices Identifiés", "btn-free": "JOUER EN MODE LIBRE",
         "next-unit": "Prochaine unité", "hist-title": "30 derniers jours", "already-played": "Défi quotidien déjà complété !",
         "tag-leader": "Chef", "tag-crew": "membre de l'équipage", "tag-commander": "commandant de la flotte",
-        "h-year": "Année d'apparition"
+        "h-year": "Année d'apparition",
+        "rules-title": "COMMENT JOUER", "rules-next": "PROCHAINE UNITÉ DANS :", "rules-prop": "PROPRIÉTÉS", "rules-feed": "FEEDBACK",
+        "rule-align": "<strong>ALIGNEMENT :</strong> Light Side, Dark Side, ou Neutral.",
+        "rule-ship": "<strong>VAISSEAU :</strong> L'unité possède-t-elle un vaisseau ?",
+        "rule-fact": "<strong>FACTIONS :</strong> Groupes d'appartenance (Empire, Jedi, etc.).",
+        "rule-lead": "<strong>CHEF :</strong> Possède-t-elle une capacité de chef ?",
+        "rule-year": "<strong>ANNÉE :</strong> Année de sortie de l'unité.",
+        "rule-role": "<strong>RÔLE :</strong> Rôle en combat (Attaquant, Tank, etc.).",
+        "feed-correct": "Correct", "feed-partial": "Partiel (Factions)", "feed-wrong": "Incorrect",
+        "hist-not-played": "❌ Non joué", "hist-pending": "🔒 En attente...",
+        "btn-hint": "🔍 INDICE", "hint-pop-title": "Unités Correspondantes", "hint-back": "RETOUR",
+        "btn-giveup": "🏳️ ABANDONNER", "confirm-giveup": "Voulez-vous vraiment abandonner et révéler l'unité ?",
+        "revealed-title": "UNITÉ RÉVÉLÉE"
     }
 };
 
@@ -180,6 +205,44 @@ async function handleStartClick() {
     }
 }
 
+function showHintPopup() {
+    hintUsed = true;
+    const lang = sessionStorage.getItem("selectedLanguage") || "en";
+    const t = translations[lang];
+    
+    // Filtrage des unités qui correspondent à TOUS les indices trouvés
+    const filtered = allUnits.filter(u => {
+        const matchAlign = foundTraits.alignment === "?" || getLoc(u.alignment) === foundTraits.alignment;
+        const matchRole = foundTraits.role === "?" || getLoc(u.role) === foundTraits.role;
+        const matchYear = foundTraits.year === "?" || u.year == foundTraits.year;
+        const matchShip = foundTraits.ship === "?" || getYesNo(checkShip(u)) === foundTraits.ship;
+        const matchLeader = foundTraits.leader === "?" || getYesNo(checkLeader(u)) === foundTraits.leader;
+        
+        const unitFactions = u.factions.map(f => getLoc(f));
+        const matchFactions = Array.from(foundTraits.factions).every(f => unitFactions.includes(f));
+
+        return matchAlign && matchRole && matchYear && matchShip && matchLeader && matchFactions;
+    });
+
+    let html = `<div class="modal-content">
+        <h2 style="color:#00d4ff">${t["hint-pop-title"]} (${filtered.length})</h2>
+        <div style="max-height:300px; overflow-y:auto; display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:15px 0;">`;
+    
+    filtered.forEach(u => {
+        html += `<div style="font-size:0.8rem; background:rgba(255,255,255,0.1); padding:5px; border-radius:5px; text-align:center;">
+            <img src="${u.image}" width="30" style="border-radius:50%"><br>${getLoc(u.name)}
+        </div>`;
+    });
+
+    html += `</div><button onclick="closeModal()" class="main-btn">${t["hint-back"]}</button></div>`;
+    modal.innerHTML = html;
+    modal.classList.remove("hidden");
+    
+    // On vide le conteneur pour faire disparaître le bouton utilisé
+    const helpActions = document.getElementById("help-actions-container");
+    if (helpActions) helpActions.innerHTML = "";
+}
+
 async function saveToHistory(unit, count) {
     const key = `history_${currentAllyCode}`;
     let history = JSON.parse(localStorage.getItem(key) || "[]");
@@ -277,7 +340,7 @@ function showHistory() {
         const opacity = isPlayed ? "1" : "0.5";
         const statusText = isPlayed 
             ? `${userEntry.attempts} ${t["vic-tries"]}` 
-            : `<span style="color:#666">${isToday ? "🔒 En attente..." : "❌ Non joué"}</span>`;
+            : `<span style="color:#666">${isToday ? t["hist-pending"] : t["hist-not-played"]}</span>`;
 
         html += `
             <div style="display: flex; align-items: center; border-bottom: 1px solid #333; padding: 10px 0; opacity: ${opacity}">
@@ -342,36 +405,103 @@ function updateSummary() {
 function switchLanguage(lang) {
     sessionStorage.setItem("selectedLanguage", lang);
     const t = translations[lang];
+
+    // 1. Éléments de l'interface principale
     document.getElementById("game-title").textContent = t["game-title"];
     document.getElementById("start-btn").textContent = t["start-btn"];
     input.placeholder = t["placeholder"];
+
+    // 2. Mise à jour de la Modal d'Aide (Règles)
+    const helpModal = document.getElementById("help-modal");
+    if (helpModal) {
+        document.getElementById("help-modal-title").textContent = t["rules-title"];
+        const helpSub = helpModal.querySelector(".help-sub");
+        if (helpSub) helpSub.textContent = t["rules-next"];
+        
+        const sections = helpModal.querySelectorAll(".help-section h3");
+        if (sections[0]) sections[0].textContent = t["rules-prop"];
+        if (sections[1]) sections[1].textContent = t["rules-feed"];
+
+        const propsList = helpModal.querySelector(".properties-list");
+        if (propsList) {
+            propsList.innerHTML = `
+                <li>${t["rule-align"]}</li>
+                <li>${t["rule-ship"]}</li>
+                <li>${t["rule-fact"]}</li>
+                <li>${t["rule-lead"]}</li>
+                <li>${t["rule-year"]}</li>
+                <li>${t["rule-role"]}</li>
+            `;
+        }
+
+        const feedbackLabels = helpModal.querySelectorAll(".feedback-item span");
+        if (feedbackLabels.length >= 3) {
+            feedbackLabels[0].textContent = t["feed-correct"];
+            feedbackLabels[1].textContent = t["feed-partial"];
+            feedbackLabels[2].textContent = t["feed-wrong"];
+        }
+    }
+
+    // 3. Traduction des Boutons d'Action (Indice / Abandon)
+    // On les cherche dans le DOM pour les traduire s'ils sont déjà affichés
+    const activeHintBtn = document.querySelector(".hint-btn");
+    if (activeHintBtn) activeHintBtn.textContent = t["btn-hint"];
+    
+    const activeGiveUpBtn = document.querySelector(".giveup-btn");
+    if (activeGiveUpBtn) activeGiveUpBtn.textContent = t["btn-giveup"];
+
+    // 4. Traduction des En-têtes du tableau de jeu (si le jeu a commencé)
+    const headers = document.querySelectorAll(".header-cell");
+    if (headers.length >= 7) {
+        headers[0].textContent = t["h-name"];
+        headers[1].textContent = t["h-align"];
+        headers[2].textContent = t["h-ship"];
+        headers[3].textContent = t["h-factions"];
+        headers[4].textContent = t["h-leader"];
+        headers[5].textContent = t["h-role"];
+        headers[6].textContent = t["h-year"];
+    }
+
+    // 5. Actualisation des composants de jeu
     if (allUnits.length > 0) displayAllUnits(allUnits);
+    
     updateTimer();
-    if (document.getElementById("summary-container") && !document.getElementById("summary-container").classList.contains("hidden")) updateSummary();
+
+    // Actualisation du résumé (Indices identifiés)
+    if (document.getElementById("summary-container") && !document.getElementById("summary-container").classList.contains("hidden")) {
+        updateSummary();
+    }
 }
 
 function startNewGame(mode) {
     gameMode = mode;
     attempts = 0;
-    foundTraits = { alignment: "?", role: "?", ship: "?", leader: "?", factions: new Set(), year: "?" };
+    hintUsed = false;
     
+    foundTraits = { alignment: "?", role: "?", ship: "?", leader: "?", factions: new Set(), year: "?" };
     targetUnit = (mode === "daily") ? getDailyUnit(allUnits) : allUnits[Math.floor(Math.random() * allUnits.length)];
 
     document.getElementById("setup-container").classList.add("hidden");
     searchContainer.classList.remove("hidden");
     
+    // On vide les anciens boutons si une partie précédente a eu lieu
+    const helpContainer = document.getElementById("help-actions-container");
+    if (helpContainer) helpContainer.innerHTML = "";
+
     const lang = sessionStorage.getItem("selectedLanguage") || "en";
     const t = translations[lang];
     
-    guessesContainer.innerHTML = `<div class="guess-row headers">
-        <div class="header-cell">${t["h-name"]}</div>
-        <div class="header-cell">${t["h-align"]}</div>
-        <div class="header-cell">${t["h-ship"]}</div>
-        <div class="header-cell">${t["h-factions"]}</div>
-        <div class="header-cell">${t["h-leader"]}</div>
-        <div class="header-cell">${t["h-role"]}</div>
-        <div class="header-cell">${t["h-year"]}</div> 
-    </div>`;
+    // On ne garde que les headers ici
+    guessesContainer.innerHTML = `
+        <div class="guess-row headers">
+            <div class="header-cell">${t["h-name"]}</div>
+            <div class="header-cell">${t["h-align"]}</div>
+            <div class="header-cell">${t["h-ship"]}</div>
+            <div class="header-cell">${t["h-factions"]}</div>
+            <div class="header-cell">${t["h-leader"]}</div>
+            <div class="header-cell">${t["h-role"]}</div>
+            <div class="header-cell">${t["h-year"]}</div> 
+        </div>`;
     
     updateSummary();
 }
@@ -407,9 +537,9 @@ function submitGuess(unit) {
     if (unit.year === targetUnit.year) {
         yearStatus = "correct";
     } else if (unit.year < targetUnit.year) {
-        yearArrow = " ↑"; // La cible est plus récente
+        yearArrow = " ↑"; 
     } else {
-        yearArrow = " ↓"; // La cible est plus ancienne
+        yearArrow = " ↓"; 
     }
 
     if (unit.year === targetUnit.year) foundTraits.year = unit.year;
@@ -424,15 +554,95 @@ function submitGuess(unit) {
         leader: { val: getYesNo(checkLeader(unit)), match: checkLeader(unit) === checkLeader(targetUnit) },
         role: { val: getLoc(unit.role), match: unit.role.en === targetUnit.role.en },
         factions: { val: getCleanFactions(unit).map(f => getLoc(f)).join(", "), status: factionStatus },
-        // Ajout de l'année dans l'objet de données
         year: { val: unit.year + yearArrow, status: yearStatus }
     };
-    renderGuessRow(guessData); // Affiche la ligne dans le tableau
 
+    renderGuessRow(guessData);
+
+// --- LOGIQUE DES BOUTONS D'AIDE (INDICE & ABANDON) ---
+    const helpContainer = document.getElementById("help-actions-container");
+    if (helpContainer) {
+        const lang = sessionStorage.getItem("selectedLanguage") || "en";
+        const t = translations[lang];
+
+        // On vide pour reconstruire proprement à chaque essai
+        helpContainer.innerHTML = ""; 
+
+        // 1. Création du bouton INDICE (si >= 4 essais ET non utilisé)
+        if (attempts >= 4 && !hintUsed) {
+            const btnHint = document.createElement("button");
+            btnHint.className = "main-btn hint-btn";
+            btnHint.textContent = t["btn-hint"];
+            btnHint.onclick = showHintPopup;
+            helpContainer.appendChild(btnHint);
+        }
+
+        // 2. Création du bouton ABANDON (si >= 10 essais)
+        // On utilise un 'if' séparé pour que les deux boutons puissent être là en même temps
+        if (attempts >= 10) {
+            const btnGiveUp = document.createElement("button");
+            btnGiveUp.className = "main-btn giveup-btn";
+            // Ajout d'une petite marge à gauche si le bouton indice est déjà présent
+            if (helpContainer.children.length > 0) btnGiveUp.style.marginLeft = "10px";
+            
+            btnGiveUp.textContent = t["btn-giveup"];
+            btnGiveUp.onclick = handleGiveUp;
+            helpContainer.appendChild(btnGiveUp);
+        }
+    }
+
+    // --- VÉRIFICATION VICTOIRE ---
     if (unit.id === targetUnit.id || getLoc(unit.name) === getLoc(targetUnit.name)) {
+        if (helpContainer) helpContainer.innerHTML = "";
         if(gameMode === "daily") saveToHistory(targetUnit, attempts);
         showVictory();
     }
+}
+
+async function handleGiveUp() {
+    const lang = sessionStorage.getItem("selectedLanguage") || "en";
+    const t = translations[lang];
+
+    // Utilisation de la confirmation traduite
+    if (!confirm(t["confirm-giveup"])) return;
+
+    if (gameMode === "daily") {
+        const key = `history_${currentAllyCode}`;
+        let history = JSON.parse(localStorage.getItem(key) || "[]");
+        const today = new Date().toLocaleDateString();
+
+        if (!history.find(h => h.date === today)) {
+            const entry = {
+                date: today,
+                name: getLoc(targetUnit.name),
+                // On enregistre le statut d'abandon de façon lisible
+                attempts: lang === "fr" ? "Abandon" : "Gave Up", 
+                img: targetUnit.image
+            };
+            history.unshift(entry);
+            localStorage.setItem(key, JSON.stringify(history));
+            
+            // Synchronisation Firebase si connecté
+            const user = window.fbAuth?.auth?.currentUser;
+            if (user && window.db) {
+                try {
+                    const playerRef = window.fbOps.doc(window.db, "players", user.uid);
+                    await window.fbOps.updateDoc(playerRef, { history: history });
+                } catch(e) {
+                    console.error("Erreur synchro abandon:", e);
+                }
+            }
+        }
+    }
+    
+    // On affiche la modal de fin
+    showVictory();
+    
+    // On change le titre de la modal pour indiquer la révélation
+    setTimeout(() => {
+        const title = modal.querySelector("h2");
+        if (title) title.textContent = t["revealed-title"];
+    }, 10);
 }
 
 function renderGuessRow(data) {
@@ -537,6 +747,32 @@ function displayAllUnits(units) {
         container.appendChild(card);
     });
 }
+
+function openHelp() {
+    const helpModal = document.getElementById("help-modal");
+    helpModal.classList.remove("hidden");
+    
+    // Mise à jour du chrono dans la modal immédiatement
+    updateHelpTimer();
+}
+
+function closeHelp() {
+    document.getElementById("help-modal").classList.add("hidden");
+}
+
+function updateHelpTimer() {
+    const timerText = document.getElementById("timer").textContent;
+    const helpTimer = document.getElementById("help-timer");
+    if (helpTimer) helpTimer.textContent = timerText;
+}
+
+// Optionnel : Mettre à jour le chrono de la modal chaque seconde si elle est ouverte
+setInterval(() => {
+    const helpModal = document.getElementById("help-modal");
+    if (helpModal && !helpModal.classList.contains("hidden")) {
+        updateHelpTimer();
+    }
+}, 1000);
 
 // --- INIT ---
 fetch(DATA_URL).then(r => r.json()).then(data => {

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Emperor's Shuttle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-vaisseaux/shuttle-palpatine/shuttle-palpatine-image.png">
+    <link rel="stylesheet" href="../style/ship-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-vaisseaux/shuttle-palpatine/shuttle-palpatine-image.png" alt="Emperor's Shuttle" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Emperor's Shuttle</u></h1>
+            <p id="description">
+                Versatile Support that boosts Empire and Sith survivability while debuffing enemies
+            </p>
+            <br>
+
+            <nav class="perso ship-nav">
+                <!-- Partie gauche : catégories -->
+                <div class="nav-left">
+                    <a class="capacite" style="color:red !important;" href="../vaisseaux/vaisseau-coté-obscur.html" id="darkside">Dark Side</a>
+                    <a class="class" href="../vaisseaux/vaisseau-soutien.html" id="support">Support</a>
+                    <a class="capacite" href="../vaisseaux/vaisseau-empire.html" id="empire">Empire</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-siths.html" id="sith">Sith</a>
+                </div>
+
+                <!-- Partie droite : unités associées -->
+                <div class="nav-right">
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href="../html/empereur_palpatine.html"><img src="../image-perso/emperor-palpatine/palpatine-image.png" alt="Emperor Palpatine" class="ship-unit-image"></a>
+                        <span id="unit-palpatine" class="ship-unit-name">Emperor Palpatine</span>
+                    </div>
+                    <div class="ship-unit">
+                        <a href="../html/royal-guard.html"><img src="../image-perso/royal-guard/royal-guard-image.png" alt="Royal Guard" class="ship-unit-image"></a>
+                        <span id="unit-royal-guard" class="ship-unit-name">Royal Guard</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-vaisseaux/shuttle-palpatine/shuttle-palpatine.png" alt="Emperor's Shuttle"><br>
+
+    <!-- Capacités du vaisseau -->
+
+    <!--Capacité basique-->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Emperor's Shuttle</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="shuttle basic" src="../image-vaisseaux/shuttle-palpatine/shuttle-palpatine-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy.
+                <br><br>
+                <u class="speciale">Target Lock:</u> Inflict Critical Damage Down on target enemy for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité membre équipage-->
+    <h2 class="titre" id="crew-ability1-title">
+        <u>Crew Ability - <strong><u class="speciale">Emperor Palpatine</u></strong> : Emperor's Influence (cooldown: 3)</u>
+    </h2>
+
+    <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/shuttle-palpatine/shuttle-palpatine-crew-palpatine.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/empereur_palpatine.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/emperor-palpatine/palpatine-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability1">
+                Dispel all debuffs from target Empire or Sith ally, then they recover 50% of their Max Health and Protection. Dispel all buffs from target enemy and inflict Buff Immunity on all Target Locked enemies for 2 turns. This ability starts on cooldown and can't be evaded.
+            </p>
+        </div>
+    </div>
+    <!--fin capacité équipage-->
+
+    <!--Capacité membre équipage-->
+    <h2 class="titre" id="crew-ability2-title">
+        <u>Crew Ability - <strong><u class="speciale">Royal Guard</u></strong> : Royal Escort (cooldown: 3)</u>
+    </h2>
+
+    <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/shuttle-palpatine/shuttle-palpatine-crew-royal.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/royal-guard.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/royal-guard/royal-guard-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability2">
+                Deal Special damage to target enemy and inflict Target Lock on them for 2 turns. Then, the healthiest other Empire or Sith ally Taunts for 2 turns.
+            </p>
+        </div>
+    </div>
+    <!--fin capacité équipage-->
+
+    <!--capacité unique-->
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Battle-Tested Formation</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="emperor shuttle unique" src="../image-vaisseaux/shuttle-palpatine/shuttle-palpatine-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Dispel all debuffs on the Emperor's Shuttle any time it takes damage from a Target Locked enemy. Empire and Sith allies gain Protection Up (20%) for 2 turns when critically hit, doubled to 40% for Empire or Sith allies that are Taunting.
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité de type renfort-->
+    <h2 class="titre" id="reinforcement-title"><u>Reinforcement Ability: Imperial Entanglement</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="emperor shuttle reinforcement" src="../image-vaisseaux/shuttle-palpatine/shuttle-palpatine-reinforcement.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="reinforcement-description">
+                <u class='speciale'>Enter Battle :</u> The Emperor's Shuttle gains Protection Up (25%) and Critical Hit Immunity for 2 turns. Empire and Sith allies gain Offense Up for 2 turns. Inflict Tenacity Down on target enemy for 2 turns, which can't be evaded or resisted. The Emperor's Shuttle can use Emperor's Influence immediately.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            const translationsFr = {
+                "big-title": "Navette de l'Empereur",
+                "title": "<u>Navette de l'Empereur</u>",
+                "description": "Vaisseau de soutien polyvalent qui renforce la capacité de survie de l'Empire et des Sith tout en affaiblissant ses ennemis.",
+                "unit-palpatine": "Empereur Palpatine",
+                "unit-royal-guard": "Garde Royal",
+                "darkside": "Coté Obscur",
+                "support": "Soutien",
+                "empire": "Empire",
+                "sith": "Sith",
+
+                "basic-attack-title": "<u>Attaque Basique: Offensive agressive</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie.\n\n<u class='speciale'>Verrouillage :</u> inflige un malus de dégâts critiques à la cible ennemie pendant 2 tours.",
+
+                "crew-ability1-title": "<u>Capacité équipage - <strong><u class='speciale'>Empereur Palpatine</u></strong> : Influence de l'Empereur (délai : 3)</u>",
+                "crew-ability1": "Dissipe tous les affaiblissements que subit l'allié Sith ou de l'Empire ciblé puis régénère 50 % de sa santé maximale et de sa protection. Dissipe tous les améliorations dont bénéficie la cible ennemie et inflige l'immunité aux améliorations à tous les ennemis verrouillés pendant 2 tours. Cette capacité commence avec un délai et ne peut pas être esquivée.",
+
+                "crew-ability2-title": "<u>Capacité équipage - <strong><u class='speciale'>Garde Royal</u></strong> : Escorte Royale (délai : 3)</u>",
+                "crew-ability2": "Inflige des dégâts spéciaux à une cible ennemie et la verouille pendant 2 tours. Ensuite, l'allié Sith ou de l'Empire à la santé la plus élevée utilise Raillerie pendant 2 tours.",
+
+                "unique-ability-title": "<u>Capacité Unique : Formation de combat éprouvée</u>",
+                "unique-ability": "Dissipe tous les affaiblissements qui affectent la navette de l'Empereur à chaque fois qu'elles ubit des dégâts infligés par un ennemi verrouillé. Les alliés Sith et de l'Empire ggnent une hausse de protection (20 %) pendant 2 tours lorsqu'ils subissent un coup critique. Elle est doublé (40 %) pour les alliés Sith et de l'Empire qui utilisent Raillerie.",
+
+                "reinforcement-title": "<u>Capacité de Renfort : Confusion impériale</u>",
+                "reinforcement-description": "<u class='speciale'>Rejoindre la Bataille :</u> la navette de l'Empereur gagne une hausse de protection (25 %) et l'immunité contre les coups critiques pendant 2 tours. Les alliés Sith et de l'Empire gagnent un bonus d'attaque pendant 2 tours. Inflige un malus de ténacité à une cible ennemie pendant 2 tours. Cet effet ne peut pas être esquivé ou réssité. La navette de l'Empereur peut utiliser l'influence de l'Empereur immédiatement.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+    </footer>
+</body>
+
+</html>

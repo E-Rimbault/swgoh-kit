@@ -215,19 +215,20 @@
         <div id="setup-container">
             <div class="input-wrapper">
                 <input type="number" id="ally-code-input" placeholder="ALLY CODE" autocomplete="on">
-                <input type="password" id="password-input" placeholder="PASSWORD" style="margin-top:10px; width: 80%; padding: 12px; background: #111; border: 2px solid var(--sw-blue); color: white; border-radius: 4px;">
+                <input type="password" id="password-input" placeholder="PASSWORD"
+                    style="margin-top:10px; width: 80%; padding: 12px; background: #111; border: 2px solid var(--sw-blue); color: white; border-radius: 4px;">
             </div>
         </div>
 
-            <div id="game-controls">
-                <button id="start-btn" class="main-btn">Lancer la partie</button>
-                <button id="history-btn" class="main-btn" title="Historique">📜</button>
-            </div>
+        <div id="game-controls">
+            <button id="start-btn" class="main-btn">Lancer la partie</button>
+            <button id="history-btn" class="main-btn" title="Historique">📜</button>
+        </div>
 
-            <div id="countdown-container">
-                <span id="next-unit-text">Next Unit in</span>
-                <span id="timer">00:00:00</span>
-            </div>
+        <div id="countdown-container">
+            <span id="next-unit-text">Next Unit in</span>
+            <span id="timer">00:00:00</span>
+        </div>
         </div>
 
         <div id="search-container" class="hidden">
@@ -236,6 +237,9 @@
                 <span class="input-icon">>>></span>
             </div>
             <div id="suggestions" class="suggestions-list"></div>
+
+            <div id="help-actions-container" class="help-actions"
+                style="margin-top: 10px; display: flex; justify-content: center; gap: 10px;"></div>
         </div>
     </header>
 
@@ -246,7 +250,7 @@
                     style="text-align: center; font-weight: bold; color: var(--sw-blue); text-transform: uppercase;">
                     Indices Identifiés</p>
                 <div id="summary-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-            </div>
+                </div>
             </div>
         </div>
 
@@ -257,44 +261,85 @@
 
     <div id="victory-modal" class="modal hidden"></div>
 
- <script type="module">
-  // Ajout des imports pour l'Authentification
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import { getFirestore, doc, setDoc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-  import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    <div id="help-modal" class="modal hidden">
+        <div class="modal-content help-content">
+            <span class="close-help" onclick="closeHelp()">&times;</span>
+            <h2 id="help-modal-title">COMMENT JOUER</h2>
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyC_HzhuTAUtYOtCYSb6zd9IuJYQV4TA0Fk",
-    authDomain: "swgoh-game-wordle.firebaseapp.com",
-    projectId: "swgoh-game-wordle",
-    storageBucket: "swgoh-game-wordle.firebasestorage.app",
-    messagingSenderId: "284595162358",
-    appId: "1:284595162358:web:2efb3ae9b9813d8839b0d7",
-    measurementId: "G-QM6N6V8Z8H"
-  };
+            <div id="help-timer-container">
+                <p class="help-sub">PROCHAINE UNITÉ DANS :</p>
+                <div id="help-timer">00:00:00</div>
+            </div>
 
-  // Initialisation de Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-  const auth = getAuth(app);
+            <div class="help-section">
+                <h3>PROPRIÉTÉS</h3>
+                <ul class="properties-list">
+                    <li><strong>ALIGNEMENT:</strong> Light Side, Dark Side, ou Neutral.</li>
+                    <li><strong>VAISSEAU:</strong> L'unité possède-t-elle un vaisseau ?</li>
+                    <li><strong>FACTIONS:</strong> Factions d'appartenance (Empire, Jedi, etc.).</li>
+                    <li><strong>LEADER:</strong> L'unité possède-t-elle une capacité de chef ?</li>
+                    <li><strong>ANNÉE:</strong> Année de sortie de l'unité.</li>
+                    <li><strong>RÔLE:</strong> Rôle en jeu (Attaquant, Soutien, Tank, etc.).</li>
+                </ul>
+            </div>
 
-  // Exposition des outils Firestore
-  window.db = db;
-  window.fbOps = { doc, setDoc, getDoc, updateDoc };
+            <div class="help-section">
+                <h3>FEEDBACK</h3>
+                <div class="feedback-grid">
+                    <div class="feedback-item">
+                        <div class="box correct"></div> <span>Correct</span>
+                    </div>
+                    <div class="feedback-item">
+                        <div class="box partial"></div> <span>Partiel (Factions)</span>
+                    </div>
+                    <div class="feedback-item">
+                        <div class="box wrong"></div> <span>Incorrect</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  // Exposition des outils d'Authentification
-  window.fbAuth = { 
-    auth, 
-    signInWithEmailAndPassword, 
-    createUserWithEmailAndPassword,
-    onAuthStateChanged 
-  };
+    <div id="info-btn" onclick="openHelp()">?</div>
 
-  // Chargement de ton script de jeu une fois que Firebase est prêt
-  const gameScript = document.createElement('script');
-  gameScript.src = "game-wordle-script.js";
-  document.body.appendChild(gameScript);
-</script>
+    <script type="module">
+        // Ajout des imports pour l'Authentification
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, doc, setDoc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyC_HzhuTAUtYOtCYSb6zd9IuJYQV4TA0Fk",
+            authDomain: "swgoh-game-wordle.firebaseapp.com",
+            projectId: "swgoh-game-wordle",
+            storageBucket: "swgoh-game-wordle.firebasestorage.app",
+            messagingSenderId: "284595162358",
+            appId: "1:284595162358:web:2efb3ae9b9813d8839b0d7",
+            measurementId: "G-QM6N6V8Z8H"
+        };
+
+        // Initialisation de Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+
+        // Exposition des outils Firestore
+        window.db = db;
+        window.fbOps = { doc, setDoc, getDoc, updateDoc };
+
+        // Exposition des outils d'Authentification
+        window.fbAuth = {
+            auth,
+            signInWithEmailAndPassword,
+            createUserWithEmailAndPassword,
+            onAuthStateChanged
+        };
+
+        // Chargement de ton script de jeu une fois que Firebase est prêt
+        const gameScript = document.createElement('script');
+        gameScript.src = "game-wordle-script.js";
+        document.body.appendChild(gameScript);
+    </script>
 </body>
 
 </html>

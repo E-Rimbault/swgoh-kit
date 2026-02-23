@@ -1,126 +1,192 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Dark Nihilus</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Darth Nihilus</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/nihilus/nihilus-image.png">
-
-    <!-- Lien vers la feuille de style -->
-    <link rel="stylesheet" href="../style/styles.css">
-    <link rel="stylesheet" href="../style/capacite.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/nihilus/nihilus-image.png" alt="Darth Nihilus" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>Dark Nihilus</u></h1>
-        <p>
-            Soutien Sith qui peut vaincre ses ennemis instantanément en canalisant les délais.
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a style="color: red;" class="capacite" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-            <a class="class" href="../classement-perso/soutien.html">Soutien</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/sith.html">Sith</a>
-        </nav>
+            <h1 id="title"><u>Darth Nihilus</u></h1>
+            <p id="description">
+                Sith Support that can instantly defeat enemies by draining cooldowns
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/sith.html" id="sith">Sith</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/nihilus/Dark-nihilus.png" alt="Nihilus"><br>
+    <img class="first" src="../image-perso/nihilus/Dark-nihilus.png" alt="Darth Nihilus"><br>
 
-    <!-- Section pour les différentes attaques spéciales -->
-    <h2 class="titre"><u>attaque basique : Soif incessante</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Ceaseless Craving</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="nihilus basique" src="../image-perso/nihilus/nihilus-basique.png">
+            <img class="attaque" alt="Darth Nihilus basic" src="../image-perso/nihilus/nihilus-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à une cible ennemie et disipe toutes ses améliorations.<br>
-                Si des améliorations ont été dissipées, le délai de Drain de force est diminué de 1.
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy and Dispel all buffs on them. If any buffs were dispelled, reduce the cooldown of Drain Force by 1
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Drain de Force (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Drain Force (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="nihilus spé 1" src="../image-perso/nihilus/nihilus-spe1.png">
+            <img class="attaque" alt="Darth Nihilus spéciale 1" src="../image-perso/nihilus/nihilus-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à tous les ennemis, avec 50% de chances d'augmenter leurs délais de 1 (doublés<br>
-                contre les ennemis souffrant d'un affaiblissement, ne peut pas être résisté). Pour chaque ennemi<br>
-                dont les délais ont été augmentés, le délai d'Annihilation est diminué de 1.
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to all enemies with a 50% chance (doubled against debuffed enemies) to increase their cooldowns by 1, which can't be resisted. For each enemy whose cooldowns were increased, reduce the cooldown of Annihilate by 1.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Annihilation (délai: 8)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Annihilate (cooldown: 8)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="nihilus spé 2" src="../image-perso/nihilus/nihilus-spe2.png">
+            <img class="attaque" alt="Darth Nihilus spéciale 2" src="../image-perso/nihilus/nihilus-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Vainc la cible instantanément. Nihilus obtient un bonus de santé à hauteur de la santé maximale de la cible.<br>
-                La cible vaincue ne peut pas être ranimée. Cette capacité ne peut pas être esquivée et commence avec un délai.
+            <p class="attaque" id="special-attack2">
+                stantly defeat target enemy. Nihilus gains Max Health equal to the target's Max Health. The defeated target can't be Revived. This ability can't be Evaded and starts on cooldown.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Capacité de chef: Puissance du vide</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Strength of the Void</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="nihilus lead" src="../image-perso/nihilus/nihilus-lead.png">
+            <img class="attaque" alt="Darth Nihilus lead" src="../image-perso/nihilus/nihilus-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Les alliés Sith obtiennent un bonus d'attaque de 60% et un bonus de vol de santé de 150%.<br>
-                Les alliés Sith perdent leurs protection et récupèrent le même montant de santé. Les alliés<br>
-                Sith sont immunisés aux effets de Soin autre que le vol de vie, et ils ne peuvent pas infliger de coups critiques.
+            <p class="attaque" id="lead-ability">
+                Sith allies gain 60% Offense and 150% Health Steal. Sith allies lose all Protection and gain that much Max Health. Sith allies are immune to Healing effects that aren't Health Steal and can't score Critical Hits.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Seigneur de la faim</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Lord of Hunger</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="nihilus unique" src="../image-perso/nihilus/nihilus-unique.png">
+            <img class="attaque" alt="Darth Nihilus unique" src="../image-perso/nihilus/nihilus-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Au début de chacun de ses tours, Nihilus inflige des dégâts sur la durée pendant 2 tours à un ennemi aléatoire<br>
-                qui ne subit aucun affaiblissement. Si aucun ennemi ne souffre d'affaiblissement, inflige des dégâts sur la durée<br>
-                à un ennemi aléatoire. Au début de chaque tour ennemi, Nihilus leur inflige un malus de santé pendant 2 tours.<br>
-                Quand les alliés Dark Sion ou Dark Traya subisssent un affaiblissement, la jauge de tour de Nihilus se remplit de<br>
-                10% et il obtient un bonus de +30% de santé maximale (cumulable) jusqu'à la fin de l'affontement.
+            <p class="attaque" id="unique-ability">
+                At the start of each of his turns, Nihilus inflicts Damage Over Time for 2 turns on a random enemy that doesn't have any debuffs. If all enemies are debuffed, inflict Damage Over Time on a random enemy. At the start of each enemy turn, Nihilus inflicts Health Down on them for 2 turns. When allied Darth Sion or Darth Traya are inflicted with a debuff, Nihilus gains 10% Turn Meter and +30% Max Health (stacking) until the end of the encounter.
             </p>
         </div>
     </div>
-
 
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Dark Nihilus",
+                "title": "<u>Dark Nihilus</u>",
+                "description": "Soutien Sith qui peut vaincre ses ennemis instantanément en canalisant les délais.",
+                "darkside": "Coté Obscur",
+                "support": "Soutien",
+                "leader": "Chef",
+                "sith": "Sith",
+
+                "basic-attack-title": "<u>Attaque Basique: Soif incessante</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie et dissipe toutes ses améliorations. Si des améliorations ont été dissipées, le délai de Drain de Force est diminué de 1.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Drain de Force (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à tous les ennemis, avec 50 % de chances d'augmenter leurs délais de 1 (doublés contre les ennemis subissant un affaiblissement, ne peut pas être résisté). Pour chaque ennemi dont les délais ont été augmentés, le délai d'Annihilation est diminué de 1.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Annihilation (délai : 8)</u>",
+                "special-attack2": "Vainc la cible instantanément. Nihilus obtient un bonus de santé à hauteur de la santé maximale de la cible. La cible vaincue ne peut pas être ranimée. Cette capacité ne peut pas être esquivéee et commence avec un délai.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Puissance du vide</u>",
+                "lead-ability": "Les alliés Sith obtiennent un bonus d'attaque de 60 % et un bonus de vol de santé de 150 %. Les alliés Sith perdent leur protection et récupère le même montant de santé. Les alliés Sith sont immuniés aux effets de soins autres que le vol de vie, et ils ne peuvent pas infliger de coups critiques.",
+
+                "unique-ability-title": "<u>Capacité Unique : Seigneur de la faim</u>",
+                "unique-ability": "Au début de chacun de ses tours, Nihilus inflige des dégâts sur la durée pendant 2 tours à une ennemi aléatoire qui ne subit aucun affaiblissement. Si aucun ennemi ne subit d'affaiblissements, inflige des dégâts sur la durée à un ennemi aléatoire. Au début de chaque tour ennemie, Nihilus leur inflige un malus de santé pendant 2 tours. Quand les alliés Dark Sion ou Dark Traya subissent un affaiblissement, la jauge de tour de Nihilus se remplit de 10 % et il obtient un bonus de +30 % de santé maximale (cumulable) jusqu'à la fin de l'affrontement.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
     </footer>
 </body>
-</html>  
+
+</html>

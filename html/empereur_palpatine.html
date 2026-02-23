@@ -1,125 +1,209 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Empereur Palpatine</title>
-
+    <title id="big-title">Emperor Palpatine</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/emperor-palpatine/palpatine-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/emperor-palpatine/palpatine-image.png" alt="Emperor Palpatine" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Empereur Palpatine</u></h1>
-        <p>
-            Implacable soutien Sith qui inflige un Choc et<br>
-            peut étourdir les ennemis pendant plusieur tours.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color:red" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-            <a class="class" href="../classement-perso/soutien.html">Soutien</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/empire.html">Empire</a>
-            <a class="capacite" href="../classement-perso/sith.html">Sith</a>
-            <a class="pilote" href="../classement-perso/membres-équipages.html">Membres Equipages</a>
-        </nav>
+            <h1 id="title"><u>Emperor Palpatine</u></h1>
+            <p id="description">
+                Overwhelming Sith Support who inflicts Shock and can Stun targets for multiple turns
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="capacite" href="../classement-perso/sith.html" id="sith">Sith</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/palpatine-shuttle.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/shuttle-palpatine/shuttle-palpatine-image.png" alt="palpatine shuttle">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: Emperor's Shuttle</u>
+                </h2>
+            </section>
+        </div>
     </header>
-    <br>
 
-    <img class="first" src="../image-perso/emperor-palpatine/Palpatine.png" alt="Palpatine"><br>
+    <img class="first" src="../image-perso/emperor-palpatine/Palpatine.png" alt="Emperor Palpatine">
 
-    <h2 class="titre"><u>attaque basique : Foudre</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Lightning Strike</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="palpatine basique" src="../image-perso/emperor-palpatine/palpatine-basic.png">
+            <img class="attaque" alt="Emperor Palpatine basic" src="../image-perso/emperor-palpatine/palpatine-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à une cible ennemie et lui inflige un Choc pendant 3 tours. Ensuite,<br>
-                remplit la jauge de tour de Palpatine se remplit de 15% pour chaque ennemi ayant subi un Choc.<br>
-                <br>
-                Choc: impossible d'obtenir de la santé, des améliorations ou un bonus de jauge de tour.
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy and Shock them for 3 turns. Then, Palpatine gains 15% Turn Meter for each Shocked enemy.
+                <br><br>
+                Shock: Can't gain Health, Buffs, or Bonus Turn Meter.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: pouvoir du coté Obscur(délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Power of the Dark Side (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="palpatine spé 1" src="../image-perso/emperor-palpatine/palpatine-spe1.png">
+            <img class="attaque" alt="Emperor Palpatine special 1" src="../image-perso/emperor-palpatine/palpatine-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à tous les ennemis, avec 70% de chances de les étourdir<br>
-                pendant 1 tour. Les ennemis ayant subi un Choc sont étourdis pendant 2 tours et le <br>
-                Choc est dissipé. Tous les alliés obtiennent un bonus d'attaque pendant 2 tours.
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to all enemies with a 70% chance to Stun them for 1 turn. Shocked enemies are Stunned for 2 turns and have their Shock dispelled. All allies gain Offense Up for 2 turns.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Envahi par la haine(délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Let the Hate Flow (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="palpatine spé 2" src="../image-perso/emperor-palpatine/palpatine-spe2.png">
+            <img class="attaque" alt="Emperor Palpatine special 2" src="../image-perso/emperor-palpatine/palpatine-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Toutes les autres unités perdent 5% de santé, et palpatine récupère de la santé à<br>
-                hauteur de 150% du montant total perdu. La jauge de tour de Palpatine se remplit<br>
-                de 50% pour chaque ennemi ayant subi un  choc. Tous les alliés obtiennent un <br>
-                bonus de vol de santé pendant 1 tour. 
+            <p class="attaque" id="special-attack2">
+                All other units lose 5% Health and Palpatine recovers Health equal to 150% of the total amount lost. Palpatine gains 50% Turn Meter for each Shocked enemy. All allies gain Health Steal Up for 1 turn.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Capacité de chef: Empereur de l'Empire Galactique</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Emperor of the Galactic Empire</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Palpatine lead" src="../image-perso/emperor-palpatine/palpatine-lead.png">
+            <img class="attaque" alt="Emperor Palpatine lead" src="../image-perso/emperor-palpatine/palpatine-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Les alliés Sith et de l'Empire ont +35% de pouvoir et 35% de santé maximale.<br>
-                Les ennemis Jedi et Rebelles ony -35% de pouvoir et -35% d'esquive. Lorsqu'un<br>
-                allié de l'Empire inflige un affaiblissement pendant son tour, sa jauge de tour<br>
-                se remplit de 20%. Lorsqu'un allié Sith inflige un affaiblissement pendant son tour,<br>
-                il récupère 20% de santé. Lorsqu'un affaiblissement en cours sur un ennemi prend fin,<br>
-                la jauge de tour des alliés Sith et de l'Empire se remplit de 5%.
+            <p class="attaque" id="lead-ability">
+                Empire and Sith allies have +35% Potency and 35% Max Health. Jedi and Rebel enemies have -35% Potency and -35% Evasion. When an Empire ally inflicts a debuff during their turn, they gain 20% Turn Meter. When a Sith ally inflicts a debuff during their turn, they recover 20% Health. When a debuff on an enemy expires, Empire and Sith allies gain 5% Turn Meter.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Fin crépitante</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Crackling Doom</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="palpatine unique" src="../image-perso/emperor-palpatine/palpatine-unique.png">
+            <img class="attaque" alt="Emperor Palpatine unique" src="../image-perso/emperor-palpatine/palpatine-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Tant que Palpatine est actif, les ennemis subissent des dégâts cumulatifs à hauteur<br>
-                de 20% de leur santé maximale au début de chacun de leur tour si: ils ont subi un Choc,<br>
-                ce sont des Jedi, ce sont des Rebelles. Ces dégâts ne peuvent pas éliminer les ennemis.<br>
-                Palpatine  +50% de protection maximum, et lorsqu'il inflige Choc, il obtient 5% de<br>
-                protection maximum supplémentaire jusqu'à la fin de l'affrontement.
+            <p class="attaque" id="unique-ability">
+                While Palpatine is active, at the start of each enemy turn, they take damage equal to 20% of their Max Health for each of the following: they are Shocked; they are a Jedi; they are a Rebel. This damage can't defeat enemies. Palpatine has +50% Max Protection, and, when he inflicts Shock, he gains 5% Max Protection until the end of the encounter.                
             </p>
         </div>
     </div>
-
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Empereur Palpatine",
+                "title": "<u>Empereur Palpatine</u>",
+                "description": "Implacable soutien Sith qui inflige un Choc et peut étourdir les cibles pendant plusieurs tours.",
+                "darkside": "Coté Obscur",
+                "support": "Soutien",
+                "leader": "Chef",
+                "empire": "Empire",
+                "sith": "Sith",
+                "crew-members": "Membres d’Équipage",
+
+                "basic-attack-title": "<u>Attaque Basique: Foudre</u>",
+                "basic-attack": "Inflige des dégâts spécuiaux à une cible ennemie et lui inflige un choc pendant 3 tours. Ensuite la jauge de tour de Palpatine se remplit de 15 % pour chaque ennemi ayant subi un choc.\n\nChoc : impossible d'obtenir de la santé, des améliorations ou un bonus de jauge de tour.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : pouvoir du Coté Obscur (délai : 4)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à tous les ennemis avec 70 % de chances de les étourdir pendant 1 tour. Les ennemis ayant subi un choc sont étourdis pendant 2 tours et le choc est dissipé. Tous les alliés obtiennent un bonus d'attaque pendant 2 tours.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Envahi par la haine (délai : 3)</u>",
+                "special-attack2": "Toutes les autres unité perdent 5 % de santé, et Palpatine récupère de la santé à hauteur de 150 % du montant total perdu. La jauge de tour de Palpatine se remplit de 50 % pour chaque ennemi ayant subi un choc. Tous les alliés obtiennent un bonus de vol de santé pendant 1 tour.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Empereur de l'Empire galactique</u>",
+                "lead-ability": "Les alliés Sith et de l'Empire ont +35 % de pouvoir et 35 % de santé maximale. Les ennemis Jedi et Rebelles ont -35 % de pouvoir et -35 % d'esquive. Lorsqu'un allié de l'Empire inflige un affaiblissement pendant son tour, sa jauge de tour se remplit de 20 %. Lorsqu'un allié Sith inflige un affaiblissement pendant son tour, il récupère 20 % de santé. Lorsqu'un affaiblissement en cours sur un ennemi prend fin, la jauge de tour des alliés Sith et de l'Empire se remplit de 5 %.",
+
+                "unique-ability-title": "<u>Capacité Unique : Fin crépitante</u>",
+                "unique-ability": "Tant que Palpatine est actif, les ennemis subissent des dégâts cumulatifs à hauteur de 20 % de leur santé maximale au début de leurs tours si : ils ont subi un choc, ce sont des Jedi, ce sont des Rebelles. Ces dégâts ne peuvent pas éliminer les ennemis. Palpatine a +50 % de protection maximum, et lorsqu'il inflige un choc, il obtient 5 % de protection maximale supplémentaire jusqu'à la fin de l'affrontement.",
+
+                "ship-title": "<u>Vaisseau : Navette de l'Empereur</u>"
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
     </footer>
 </body>
-</html>    
+
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Young Han Solo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/young-han/young-han-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/young-han/young-han-image.png" alt="Young Han Solo" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Young Han Solo</u></h1>
+            <p id="description">
+                Scoundrel Attacker who becomes more deadly over time
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/mercenaire.html" id="mercenary">Mercenary</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="capacite" href="../classement-perso/contrebandier.html" id="smuggler">Smuggler</a>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/young-han/young-han.png" alt="Young Han Solo"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Trick Shot</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Young Han Solo basic" src="../image-perso/young-han/young-han-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Speed Down for 2 turns. Han becomes Prepared if target was below 50% Turn Meter.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Upper Hand (cooldown: 2)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Young Han Solo spécial 1" src="../image-perso/young-han/young-han-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Han gains Protection Up (100%) and Retribution for 2 turns. Han also gains +50 Speed for rest of the encounter. This effect can stack up to +200 Speed.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Just In Time (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Young Han Solo spécial 2" src="../image-perso/young-han/young-han-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to target enemy. This attack deals 25% more damage for each other Prepared ally. Target other ally recovers Protection equal to 50% of damage dealt.
+                <br><br>
+                <u class="speciale">Prepared:</u> If Young Han Solo is Prepared, target other ally becomes Prepared and Han is no longer Prepared. Then, all Prepared allies gain Critical Damage Up for 1 turn and Han recovers Protection equal to 50% of damage dealt.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Ready For Anything</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Young Han Solo Unique" src="../image-perso/young-han/young-han-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                When Han starts his turn with Protection Up, he gains +10% Offense (stacking) and +10% Critical Chance (stacking) until the end of battle. While Prepared, Han has 70% chance to Assist another Scoundrel ally's attack during their turn, limited once per turn.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Han Solo jeune",
+                "title": "<u>Han Solo jeune</u>",
+                "description": "Vaurien attaquant qui devient de plus en plus redoutable avec le temps",
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "mercenary": "Mercenaire",
+                "scoundrel": "Vaurien",
+                "smuggler": "Contrebandier",
+
+                "basic-attack-title": "<u>Attaque Basique: Coup en traître </u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et inflige un malus de vitesse pendant 2 tours. Han devient préparé si la jauge de tour de la cible était remplie à moins de 50 %.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Prédominance (délai : 2)</u>",
+                "special-attack1": "Han bénéficie d'une hausse de protection (100 %) et de la rétribution pendant 2 tours. Han bénéficie également de +50 de vitesse pendant le reste de l'affrontement. Cet effet peut se cumuler jusqu'à +200 de vitesse.",
+
+                "special-attack2-title": "<u>Attaque Spéciale :  Juste à temps (délai : 3)</u>",
+                "special-attack2": "Inflige des dégâts physiues à une cible ennemie. Cette attaque inige 25 % de dégâts supplémentaires pour chaque allié préparé. Une cible alliée récuppèe de la protection à hauteur de 50 % des dégâts infligés.\n\n<u class='speciale'>Préparation :</u> si Han Solo jeune est préparé, la cible alliée bénéficie de la préparation et Han n'est plus préparé. Puis tous les alliés préparés bénéficient d'un bonus de dégâts critiques pendant 1 tour et Han récupère de la protection à hauteur de 50 % des dégâts infligés.",
+
+                "unique-ability-title": "<u>Capacité Unique : Prêt à tout</u>",
+                "unique-ability": "Quand Han commence son tour, avec une hausse de protection, il bénéficie d'un bonus d'attaque de +10 % (cumulable) jusqu'à la fin de l'affrontement. Quand il est préparé, Han a 70 % de chances d'assister un autre Vaurien allié quand ce dernier attaque pendant son tour (une fois par tour).",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+    </footer>
+</body>
+
+</html>
