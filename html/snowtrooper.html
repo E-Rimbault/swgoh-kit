@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">snowtrooper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/snowtrooper/snowtrooper-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/snowtrooper/snowtrooper-image.png" alt="snowtrooper" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>snowtrooper</u></h1>
+            <p id="description">
+                Empire Attacker that becomes faster and stronger as enemies are defeated
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="capacite" href="../classement-perso/soldat-de-lempire.html" id="empire-trooper">Imperial Trooper</a>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/snowtrooper/snowtrooper.png" alt="snowtrooper"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Assault Shock Troops</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="snowtrooper basic" src="../image-perso/snowtrooper/snowtrooper-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 50% chance to inflict Ability Block for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Overwhelming Assault (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="snowtrooper special 1" src="../image-perso/snowtrooper/snowtrooper-special.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies and gain Critical Damage Up for 2 turns. For each Critical Hit scored, reduce the cooldown of this ability by 1.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Assault Training</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="snowtrooper unique" src="../image-perso/snowtrooper/snowtrooper-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                snowtrooper gains 30% Turn Meter whenever any unit is defeated, and other Empire allies gain half that amount.
+                <br><br>
+                While snowtrooper is active, Imperial Trooper allies have +20% Critical Damage.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "snowtrooper",
+                "title": "<u>snowtrooper</u>",
+                "description": "Attaquant de l'Empire qui gagne en vitesse et en puissance alors que les ennemis sont vaincus",
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "empire": "Empire",
+                "empire-trooper": "Soldat de l'Empire",
+
+                "basic-attack-title": "<u>Attaque Basique: Assaut des troupes de choc</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie avec 50 % de chances d'entraver ses capacités pendant 1 tour.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Assaut irrésistible (délai : 4)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis et confère un bonus de dégâts critiques pendant 2 tours. A chaque coup critique infligé, diminue le délai de cette capacité de 1.",
+
+                "unique-ability-title": "<u>Capacité Unique : Entrainement d'assaut</u>",
+                "unique-ability": "La jauge de tour du snowtrooper se remplit de 30 % à chaque allié ou ennemi vaincu et celle des alliés de l'Empire se remplit de moitié moins.\n\nTant que le snowtrooper est actif, les soldats de l'Empire infligent +20 % de dégâts critiques.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+    </footer>
+</body>
+
+</html>
