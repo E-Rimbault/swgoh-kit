@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Zaalbar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/zaalbar/zaalbar-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/zaalbar/zaalbar-image.png" alt="Zaalbar" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Zaalbar</u></h1>
+            <p id="description">
+                Versatile Scoundrel Tank with a powerful AoE attack and reactive Taunt
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue  !important" href="../classement-perso/coté-lumineux.html" id="lightside">light Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">tank</a>
+                <a class="capacite" href="../classement-perso/mercenaire.html" id="mercenary">Mercenary</a>
+                <a class="capacite" href="../classement-perso/ancienne-république.html" id="old-republic">Old Republic</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="capacite" href="../classement-perso/wookie.html" id="wookie">Wookie</a>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/zaalbar/zaalbar.png" alt="Zaalbar"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Stalwart Ally</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Zaalbar basic" src="../image-perso/zaalbar/zaalbar-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage and inflict 2 Damage Over Time effects on target enemy for 2 turns. Zaalbar recovers 10% Health.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Power Blast (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Zaalbar spéciale" src="../image-perso/zaalbar/zaalbar-special.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies and gain Taunt for 3 turns. On a Critical Hit, inflict Armor Shred on target enemy for rest of the battle.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Wookiee Toughness</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Zaalbar unique" src="../image-perso/zaalbar/zaalbar-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Zaalbar gains 20% Defense (stacking) each time he takes damage from an attack for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Mission's Guardian</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Zaalbar unique 2" src="../image-perso/zaalbar/zaalbar-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                Zaalbar has +25% Critical Avoidance. If Mission Vao is an ally, she also gains this bonus. When any other ally falls below 100% Health, Zaalbar gains Retribution and Taunt for 2 turns. At the start of each of his turns, Zaalbar and Mission recover 10% Protection for each stack of Damage Over Time on enemies.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> Zaalbar gains Retribution and Taunts for 1 turn at the start of battle, at the start of his turn, and whenever he loses Retribution or Taunt. Whenever he attacks out of turn, inflict a stack of Damage Over Time for 2 turns on all enemies, which can’t be evaded or resisted. Enemies can't gain Defense Up or Stealth.
+                <br><br>
+                <u class="omicron">While in 5v5 Grand Arenas, if all allies are Light Side Old Republic and the Leader is not a Jedi:</u> Allies are immune to Daze and Expose. At the start of each turn allies gain 20% Defense and Tenacity for each enemy debuff until the end of the turn. Whenever another ally Taunts, they dispel it, take a bonus turn, and gain 400% Offense (stacking) until the end of the encounter or the start of a Galactic Legend's turn. Whenever an enemy gains bonus Turn Meter, they are inflicted with a stack of Damage Over Time for 2 turns, which can’t be evaded or resisted. If Jolee Bindo is an ally, That Looks Pretty Bad revives all defeated allies. These bonuses persist if Zaalbar is defeated.
+                <br><br>
+                <u class="omicron">While in 3v3 Grand Arenas, if Darth Revan and Mission Vao are allies and there is no enemy Galactic Legend:</u> Zaalbar and Mission gain the Sith Empire tag until the end of battle. Mission gains a bonus turn at the start of battle. Until the start of that turn she can't be targeted by enemies. At the start of that turn she is instantly defeated and grants her Critical Chance, Critical Damage, Offense, and Speed to Zaalbar and Darth Revan in addition to their own until the end of battle. These effects persist through defeat. Zaalbar and Darth Revan gain Guard until Zaalbar is defeated. Once per turn, Darth Revan assists whenever Zaalbar uses an ability.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Zaalbar",
+                "title": "<u>Zaalbar</u>",
+                "description": "Tank vaurien polyvalent avec une puissante attaque a effet de zone et une Raillerie réctive",
+                "lightside": "Coté Lumineux",
+                "tank": "Tank",
+                "mercenary": "Mercenaire",
+                "old-republic": "Ancienne République",
+                "scoundrel": "Vaurien",
+                "wookie": "Wookie",
+
+                "basic-attack-title": "<u>Attaque Basique: Allié fidèle</u>",
+                "basic-attack": "Inflige des dégâts physiques et 2 effets de dégâts sur la durée à une cible ennemie. Zaalbar récupère 10 % de santé.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Puissante explosion (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis et confère Raillerie pendant 3 tours. En cas de coup critique, inflige la destruction d'armure à la cible ennemie pendant le reste de l'affrontement.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Wookie coriace</u>",
+                "unique-ability1": "Zaalbar gagne 20 % de défense (cumulable) à chaque fois qu'une attaque lui inflige des dégâts pendant 1 tour.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Gardien de Mission</u>",
+                "unique-ability2": "Zaalbar reçoit +25 % d'esquive des critiques. Si Mission Vao fait partie des alliés, elle bénéficie également de ce bonus. Lorsque la santé d'un autre allié tombe en dessous de 100 %, Zaalbar gagne Rétribution et Raillerie pendant 2 tours. Au début de chacun des tours de Zaalbar, lui et Mission récupèrent 10 % de protection pour chaque cumul de dégâts sur la durée que subissent les ennemis.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> Zaalbar obtient Rétribution et utilise Raillerie pendant 1 tour au début de la bataille, au début de son tour et à chaque fois qu'il perd Rétribution ou Raillerie. Lorsqu'il attaque en dehors de son tour, il inflige un cumul de dégâts sur la durée pendant 2 tours à tous les ennemis (ne peut pas petre esquivé ou résisté). Les ennemis ne peuvent pas obtenir de bonus de défense ou Camouflage.\n\n<u class='omicron'> Dans les Grandes arènes en 5c5, si tous les alliés appartiennent à l'Ancienne République du Coté Lumineux et que le chef n'est pas un Jedi :</u> les alliés sont immunisés contre Confusion et Exposition. Au début de chaque tour, les alliés obtiennent 20 % de défense et de ténacité pour chaque affaiblissement subi par les ennemis jusqu'à la fin du tour. Lorsqu'un autre allié utilise Raillerie, elle est dissipée, l'allié obtient un tour bonus et gagne 400 % d'atttaque (cumulatif) jusqu'à la fin de l'affrontement ou jusqu'à la fin de l'affrontement ou jusqu'au début du tour d'une Légende Galactique. Lorsqu'un ennemi obtient un bonus de jauge de tour, il reçoit un cumul de dégâts sur la durée pendant  2 tours (ne peut pas être esquivé ou résisté). Si Jolee Bindo fait partie des alliés, A doit faire mal ranime tous les alliés vaincus. Ces bonus persistent si Zaalbar est vaincu.\n\n<u class='omicron'> Dans les Grandes arènes en 3c3, si Dark Revan et Mission Vao font parti des alliés et qu'il n'y a pas de Légende Galactique ennemie :</u> Zaalbar et Mission prennent l'identifiant Empire Sith jusqu'à la fin de la bataille. Mission obtient un tour bonus au début de la bataille. Jusqu'au début de ce tour, elle ne peut pas être prise pour cible par les ennemis. Au début de ce tour, elle est instantanément vaincue et confère ses chances de coup critiques, son attaque et sa vitesse à Zaalbar et Dark Revan qui sont rajoutés à leurs statistiques jusqu'à la fin de la bataille. Ces effets persistent après la défaite Zaalbar et Dark Revan reçoivent Garde jusquà ce que Zaalbar soit vaincu. Une fois par tour, Dark Revan est invoqué lorsque Zaalbar utilise une capacité.",    
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+    </footer>
+</body>
+
+</html>

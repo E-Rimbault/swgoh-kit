@@ -1,109 +1,181 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Mission Vao</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Mission Vao</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/mission/mission-image.png">
-
-    <!-- Lien vers la feuille de style -->
-    <link rel="stylesheet" href="../style/styles.css">
-    <link rel="stylesheet" href="../style/capacite.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/mission/mission-image.png" alt="Mission Vao" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>Mission Vao</u></h1>
-        <p>
-            Attaquante vaurienne insaisissable qui aveugle ses ennemis
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: blue;" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/mercenaire.html">Mercenaire</a>
-            <a class="capacite" href="../classement-perso/ancienne-république.html">Ancienne République</a>
-            <a class="capacite" href="../classement-perso/vaurien.html">Vaurien</a>
-        </nav>
+            <h1 id="title"><u>Mission Vao</u></h1>
+            <p id="description">
+                Slippery Scoundrel Attacker who blinds her enemies
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue  !important" href="../classement-perso/coté-lumineux.html" id="lightside">light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/mercenaire.html" id="mercenary">Mercenary</a>
+                <a class="capacite" href="../classement-perso/ancienne-république.html" id="old-republic">Old Republic</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
     <img class="first" src="../image-perso/mission/mission.png" alt="Mission Vao"><br>
 
-     <!-- Section pour les différentes attaques spéciales -->
-     <h2 class="titre"><u>attaque basique : Ne clignez pas des yeux</u></h2>
-     <div class="capacity-container">
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Don't Blink</u></h2>
+    <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Mission Vao basique" src="../image-perso/mission/mission-basic.png">
+            <img class="attaque" alt="Mission Vao basic" src="../image-perso/mission/mission-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie avec 70% de chances d'infliger la Confusion pendant 2 tours.<br>
-                La jauge de tour de Mission se remplit de 10% si la cible ennemie subit un affaiblissement.
-             </p>
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 70% chance to inflict Daze for 2 turns. Mission gains 10% Turn Meter if target enemy was debuffed.
+            </p>
         </div>
     </div>
 
- 
-     <h2 class="titre"><u>1ere spéciale: Débrouillardise (délai: 3)</u></h2>
-     <div class="capacity-container">
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Street Smarts (cooldown: 3)</u></h2>
+    <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Mission spé 1" src="../image-perso/mission/missionspe2.png">
+            <img class="attaque" alt="Mission Vao spéciale" src="../image-perso/mission/missionspe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Mission dissipe tous les affaiblissements dont elle souffre, sa jauge de tour se remplit de 50% et elle gagne le Camouflage pendant 1 tour.<br>
-                Mission et Zaalbar gagnent une hausse de protection (50%) pendant 2 tours. Inflige la cécité à une cible ennemie pendant 2 tours.
-             </p>
-        </div>
-    </div>
- 
-     <h2 class="titre"><u>capacité unique: Me voilà !</u></h2>
-     <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="Mission unique 1" src="../image-perso/mission/mission-unique1.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Mission gagne un bonus de pouvoir de +80% et inflige des dégâts sur la durée à la cible ennemie pendant 2 tours lorsqu'elle utilise une capacité.<br>
-                Cet effet ne peut pas être esquivé. Lorsqu'un ennemi résiste, Mission gagne un bonus de pouvoir de +20% (cumulable)<br>
-                jusqu'à ce qu'elle inflige un effet de dégâts sur la durée.
-             </p>
+            <p class="attaque" id="special-attack1">
+                Mission Dispels all debuffs on herself, gains 50% Turn Meter and Stealth for 1 turn. Mission and Zaalbar gain Protection Up (50%) for 2 turns. Inflict Blind on target enemy for 2 turns.
+            </p>
         </div>
     </div>
 
-     <h2 class="titre"><u>capacité unique: Big Z et moi, pour toujours</u></h2>
-     <div class="capacity-container">
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Now You See Me</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Mission Vao unique" src="../image-perso/mission/mission-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Mission has +80% Potency and inflicts Damage Over Time on target enemy for 2 turns when she uses an ability, which can't be Evaded. When an enemy Resists, Mission gains +20% Potency (stacking) until she inflicts a Damage Over Time effect.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Me and Big Z Forever</u></h2>
+    <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="Mission Vao unique 2" src="../image-perso/mission/missionunique2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Mission gagne un bonus d'attaque de +50%. Si Zaalbar est présent, il bénéficie également de ce bonus. Une fois par tour, Mission est invoquée<br>
-                par Zaalbar lorsqu'il utilise une capacité. Lorsqu'une attaque inflige des dégâts à Zaalbar, Mission gagne 10% d'attaque (cumulable) pendant 2 tours.<br>
-                Quand Mission inflige des dégâts à un ennemi, Zaalbar récupère 10% de santé.
-             </p>
+            <p class="attaque" id="unique-ability2">
+                Mission has +50% Offense. If Zaalbar is present, he also gains this bonus. Once per turn, Mission Assists when Zaalbar uses an ability. When Zaalbar takes damage from an attack, Mission gains 10% Offense (stacking) for 2 turns. When Mission deals damage to an enemy, Zaalbar recovers 10% Health.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars, if all allies are Old Republic, and the Leader is a Jedi:</u> at the start of battle, Mission Vao gains the Jedi faction tag. All allies gain 100 Speed for 1 turn and they are immune to cooldown increase, which persists through defeat. Whenever Mission uses her Basic ability, all allies gain Riposte for 2 turns. If Zaalbar is not an ally at the start of battle, Mission's abilities all consider the leader to be Zaalbar.
+            </p>
         </div>
     </div>
 
-
-         <!-- Pied de page -->
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Mission Vao",
+                "title": "<u>Mission Vao</u>",
+                "description": "Attaquant vaurienne insaisissable qui aveugle ses ennemis.",
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "mercenary": "Mercenaire",
+                "old-republic": "Ancienne République",
+                "scoundrel": "Vaurien",
+
+                "basic-attack-title": "<u>Attaque Basique: Ne clignez pas des yeux</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie ave 70 % de chances d'infliger la confusion pendant 2 tours. La jauge de tour de Mission se remplit de 10 % si la cible ennemie subit un affaiblissement.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Débrouillardise (délai : 3)</u>",
+                "special-attack1": "Mission dissipe tous les affaiblissements dont elle souffre, sa jauge de tour se remplit de 50 % et elle gagne le camouflage pendant 1 tour. Mission et Zaalbar gagnent une hausse de protection (50 %) pendant 2 tours. Inflige la cécité à une cible ennemie pendant 2 tours.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Me voilà !</u>",
+                "unique-ability1": "Mission gagne un bonus de pouvoir de +80 % et inflige des dégâts sur la durée à la cible ennemie pendant 2 tours lorsqu'elle utilise une capacité. Cet effet ne peut pas être esquivé. Lorsqu'un ennemi résiste, Mission gagne un bonus de pouvoir de +20 % (cumulable) jusqu'à ce qu'elle inflige un effet de dégâts sur la durée.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Big Z et moi, pour toujours</u>",
+                "unique-ability2": "Mission gagne un bonus d'attaque de +50 %. Si Zaalbar est présent, il bénéficie également de ce bonus. Une fois par tour, Mission est invoquée par Zaalbar lorsqu'il utilise une capacité. Lorsqu'une attaqe inflige des dégâts à Zaalbar, Mission gagne 10 % d'attaque (cumulatif) pendant 2 tours. Quand Mission inflige des dégâts à un ennemi, Zaalbar récupère 10 % de santé.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoires, si tous les alliés sont de l'Ancienne République et que le chef est un Jedi :</u> au début de la bataille, Mission Vao obtient l'identifiant Jedi. Tous les alliés obtiennent 100 de vitesse pendant 1 tour et ils sont immuniés contre l'augmentation des délais (persiste en cas de défaite). Chaque fois que Mission utilise sa capacité de base, tous les alliés obtiennent Ripopste pendant 2 tours. Si Zaalbar ne fait pas partie des alliés au début de la bataille, les capacités de Mission considèrent toutes que le chef est Zaalbar.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
     </footer>
 </body>
-</html>    
+
+</html>
