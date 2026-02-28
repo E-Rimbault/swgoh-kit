@@ -2,35 +2,30 @@
 <html lang="en">
 
 <head>
-    <title id="big-title"></title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Rey</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
-    <link rel="icon" type="image/png" href="../image-perso/rey_gl/rey-image.png">
-
-    <!-- Lien vers la feuille de style -->
+    <link rel="icon" type="image/png" href="../image-perso/">
     <link rel="stylesheet" href="../style/unit-style.css">
-
 </head>
 
 <body class="simple">
-
-    <!-- Entête de la page -->
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/rey_gl/rey-image.png" alt="rey gl" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/rey_gl/rey-image.png" alt="Rey" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
             <div class="language-switcher">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                    onclick="switchLanguage('fr')">
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
                 <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                    onclick="switchLanguage('en')">
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
+
             <h1 id="title"><u>Rey</u></h1>
             <p id="description">
                 Resistance Leader who safeguards her allies by providing powerful shields and delivering high damage
@@ -38,7 +33,7 @@
             <br>
 
             <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color:orangered !important; " href="../classement-perso/legendes-galactiques.html" id="legend">Galactic Legend</a>
+                <a class="legende" href="../classement-perso/legendes-galactiques.html" id="galactic-legend">Galactic Legend</a>
                 <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
                 <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
                 <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
@@ -46,28 +41,25 @@
                 <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Force User</a>
             </nav>
         </div>
-    </header><br>
+    </header>
+    <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/rey_gl/rey.png" alt="rey"><br>
+    <img class="first" src="../image-perso/rey_gl/rey.png" alt="Rey"><br>
+
+    <!-- Capacités -->
 
     <h2 class="titre"><u id="ultime-title">Ultimate: Heir to the Jedi</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="rey ulti" src="../image-perso/rey_gl/rey-ulti.png">
+            <img class="attaque" alt="rey Ultimate" src="../image-perso/rey_gl/rey-ulti.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="ulti">
                 Requires 100% <u class="ulti">Ultimate Charge</u> to activate
                 <br><br>
-                <u class="ulti">Ultimate Charge :</u> Rey gains 6% Ultimate Charge at the start of every character's
-                turn.
+                <u class="ulti">Ultimate Charge:</u> Rey gains 6% Ultimate Charge at the start of every character's turn.
                 <br><br>
-                Until the end of Rey's next turn, she enters a defensive stance and damage Light Side allies receive is
-                reduced to 1. While in this stance, Rey can't act, has 30% less Speed, is immune to all detrimental
-                effects, and can't be defeated. Upon activating this ability again, she deals true damage (ignores
-                defense, but can't critically hit) to the enemy team split among them and all Ultimate Charge is
-                consumed. This attack can't be countered or evaded.
+                Until the end of Rey's next turn, she enters a defensive stance and damage Light Side allies receive is reduced to 1. While in this stance, Rey can't act, has 30% less Speed, is immune to all detrimental effects, and can't be defeated. Upon activating this ability again, she deals true damage (ignores defense, but can't critically hit) to the enemy team split among them and all <u class="ulti">Ultimate Charge</u> is consumed. This attack can't be countered or evaded.
             </p>
         </div>
     </div>
@@ -79,171 +71,168 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
-                Deal Physical damage to target enemy. If it's Rey's turn, she deals damage a second time, has +50%
-                Health Steal, and ignores 50% of the target's Armor. This Health Steal is doubled while Rey is under 50%
-                Health.
+                Deal Physical damage to target enemy. If it's Rey's turn, she deals damage a second time, has +50% Health Steal, and ignores 50% of the target's Armor. This Health Steal is doubled while Rey is under 50% Health.
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack1-title"><u>Special Attack: Lifeblood</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Lifeblood</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="rey spe 1" src="../image-perso/rey_gl/rey-spe-1.png">
+            <img class="attaque" alt="rey special 1" src="../image-perso/rey_gl/rey-spe-1.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1">
-                Rey loses 25% Health and target Light Side ally gains bonus Protection equal to the amount lost. All
-                other Light Side allies gain half of that amount. If Rey is at full health when she uses this ability,
-                all Light Side allies gain Critical Hit Immunity for 2 turns.
+                Rey loses 25% Health and target Light Side ally gains bonus Protection equal to the amount lost. All other Light Side allies gain half of that amount. If Rey is at full health when she uses this ability, all Light Side allies gain Critical Hit Immunity for 2 turns.
                 <br><br>
-                Target other ally gains <u class="speciale">Lifeblood</u> until they are defeated or until Lifeblood is
-                granted to a different ally, which can't be copied, dispelled, or prevented. Rey can't be defeated by
-                this ability.
+                Target other ally gains Lifeblood until they are defeated or until <u class="speciale">Lifeblood</u> is granted to a different ally, which can't be copied, dispelled, or prevented. Rey can't be defeated by this ability.
                 <br><br>
-                <u class="speciale">Lifeblood :</u> Damage received decreased by 30% and damage dealt increased by 30%
+                <u class="speciale">Lifeblood:</u> Damage received decreased by 30% and damage dealt increased by 30%
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack2-title"><u>Special Attack: Sudden Whirlwind</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Sudden Whirlwind</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="rey spe 2" src="../image-perso/rey_gl/rey-spe2.png">
+            <img class="attaque" alt="rey special 2" src="../image-perso/rey_gl/rey-spe2.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack2">
-                Deal 2x massive damage to target enemy, dealing 7% more damage per Relic Amplifier level. Then, deal
-                Physical damage to all enemies. Enemies defeated by this ability can't be revived. This attack can't be
-                countered or evaded.
+                Deal 2x massive damage to target enemy, dealing 7% more damage per Relic Amplifier level. Then, deal Physical damage to all enemies. Enemies defeated by this ability can't be revived. This attack can't be countered or evaded.
                 <br><br>
-                <u class="restreint">This ability can't be used unless a Light Side ally dropped below 60% Health since
-                    its last use. A Light Side ally needs to have dropped below 60% Health in order to use this ability
-                    for the first time.
+                <u class="restreint">This ability can't be used unless a Light Side ally dropped below 60% Health since its last use. A Light Side ally needs to have dropped below 60% Health in order to use this ability for the first time.</u>
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="lead-ability-title"><u>Leader Ability: Wisdom of the Sacred Texts</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Wisdom of the Sacred Texts</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="rey lead" src="../image-perso/rey_gl/rey-lead.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="lead-ability">
-                Light Side allies have +40% Mastery, +30 Speed, and +30% Max Health. Whenever an enemy gains bonus Turn
-                Meter, Inspired Light Side allies gain 5% Mastery (stacking) until the end of the encounter.
+                Light Side allies have +40% Mastery, +30 Speed, and +30% Max Health. Whenever an enemy gains bonus Turn Meter, Inspired Light Side allies gain 5% Mastery (stacking) until the end of the encounter.
                 <br><br>
-                The first time each Light Side ally falls below 50% Health, they gain Damage Immunity for 1 turn, which
-                can't be copied, dispelled, or prevented, and recover 50% Health when it expires.
+                The first time each Light Side ally falls below 50% Health, they gain Damage Immunity for 1 turn, which can't be copied, dispelled, or prevented, and recover 50% Health when it expires.
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="unique-ability1-title"><u>Unique Ability: Manifest Inspiration</u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Manifest Inspiration</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="rey unique 1" src="../image-perso/rey_gl/rey-unique.png">
+            <img class="attaque" alt="rey unique" src="../image-perso/rey_gl/rey-unique.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="unique-ability1">
-                At the start of her turn, Rey becomes Inspired. If she is already Inspired, she instead Inspires the
-                healthiest Light Side ally who isn't. Inspired Light Side allies dispel all debuffs on themselves when
-                they use a Basic ability during their turn. Light Side allies with Inspired or Damage Immunity can't
-                have their Turn Meter reduced.
+                At the start of her turn, Rey becomes Inspired. If she is already Inspired, she instead Inspires the healthiest Light Side ally who isn't. Inspired Light Side allies dispel all debuffs on themselves when they use a Basic ability during their turn. Light Side allies with Inspired or Damage Immunity can't have their Turn Meter reduced.
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="unique-ability2-title"><u>Unique Ability: Galactic Legend</u></h2>
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Galactic Legend</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="rey unique 2" src="../image-perso/rey_gl/rey-gl.png">
+            <img class="attaque" alt="rey gl" src="../image-perso/rey_gl/rey-gl.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="unique-ability2">
-                This unit takes reduced damage from percent Health damage effects and massive damage effects. They take
-                massive damage from destroy effects (excludes raid bosses) and are immune to stun effects.
+                This unit takes reduced damage from percent Health damage effects and massive damage effects. They take massive damage from destroy effects (excludes raid bosses) and are immune to stun effects.
                 <br><br>
-                This unit has +10% Max Health and Max Protection per Relic Amplifier level, and damage they receive is
-                decreased by 30%.
+                This unit has +10% Max Health and Max Protection per Relic Amplifier level, and damage they receive is decreased by 30%.
             </p>
         </div>
     </div>
 
-    <!-- Pied de page -->
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
         <script>
-            const translations = {
-                en: {
-                    "big-title" : "Rey",
-                    "title" : "<u>Rey</u>",
-                    "description" : "Resistance Leader who safeguards her allies by providing powerful shields and delivering high damage",
-                    "legend" : "Galactic Legend",
-                    "lightside" : "Light Side",
-                    "attacker" : "Attacker",
-                    "leader": "Leader",
-                    "resistance" : "Resistance",
-                    "force-user" : "Unaligned Force User",
-                    "ultime-title" : "<u>Ultimate: Heir to the Jedi</u>",
-                    "ulti" : "Requires 100% <u class='ulti'>Ultimate Charge</u> to activate \n\n<u class='ulti'>Ultimate Charge :</u> Rey gains 6% Ultimate Charge at the start of every character's turn. \n\nUntil the end of Rey's next turn, she enters a defensive stance and damage Light Side allies receive is reduced to 1. While in this stance, Rey can't act, has 30% less Speed, is immune to all detrimental effects, and can't be defeated. Upon activating this ability again, she deals true damage (ignores defense, but can't critically hit) to the enemy team split among them and all Ultimate Charge is consumed. This attack can't be countered or evaded.",
-                    "basic-attack-title" : "<u>Basic Attack: Relentless Advance</u>",
-                    "basic-attack" : "Deal Physical damage to target enemy. If it's Rey's turn, she deals damage a second time, has +50% Health Steal, and ignores 50% of the target's Armor. This Health Steal is doubled while Rey is under 50% Health.",
-                    "special-attack1-title" : "<u>Special Attack: Lifeblood</u>",
-                    "special-attack1" : "Rey loses 25% Health and target Light Side ally gains bonus Protection equal to the amount lost. All other Light Side allies gain half of that amount. If Rey is at full health when she uses this ability, all Light Side allies gain Critical Hit Immunity for 2 turns. \n\n Target other ally gains <u class='speciale'>Lifeblood</u> until they are defeated or until Lifeblood is granted to a different ally, which can't be copied, dispelled, or prevented. Rey can't be defeated by this ability. \n\n <u class='speciale'>Lifeblood :</u> Damage received decreased by 30% and damage dealt increased by 30%",
-                    "special-attack2-title" : "<u>Special Attack: Sudden Whirlwind</u>",
-                    "special-attack2" : "Deal 2x massive damage to target enemy, dealing 7% more damage per Relic Amplifier level. Then, deal Physical damage to all enemies. Enemies defeated by this ability can't be revived. This attack can't be countered or evaded. \n\n <u class='restreint'>This ability can't be used unless a Light Side ally dropped below 60% Health since its last use. A Light Side ally needs to have dropped below 60% Health in order to use this ability for the first time.</u>",
-                    "lead-ability-title" : "<u>Wisdom of the Sacred Texts</u>",
-                    "lead-ability" : "Light Side allies have +40% Mastery, +30 Speed, and +30% Max Health. Whenever an enemy gains bonus Turn Meter, Inspired Light Side allies gain 5% Mastery (stacking) until the end of the encounter. \n\n The first time each Light Side ally falls below 50% Health, they gain Damage Immunity for 1 turn, which can't be copied, dispelled, or prevented, and recover 50% Health when it expires.",
-                    "unique-ability1-title" : "<u>Manifest Inspiration</u>",
-                    "unique-ability1" : "At the start of her turn, Rey becomes Inspired. If she is already Inspired, she instead Inspires the healthiest Light Side ally who isn't. Inspired Light Side allies dispel all debuffs on themselves when they use a Basic ability during their turn. Light Side allies with Inspired or Damage Immunity can't have their Turn Meter reduced.",
-                    "unique-ability2-title" : "<u>Galactic Legend</u>",
-                    "unique-ability2" : "This unit takes reduced damage from percent Health damage effects and massive damage effects. They take massive damage from destroy effects (excludes raid bosses) and are immune to stun effects. \n\n This unit has +10% Max Health and Max Protection per Relic Amplifier level, and damage they receive is decreased by 30%."
-                },
-                fr: {
-                    "big-title" : "Rey",
-                    "title" : "<u>Rey</u>",
-                    "description" : "Chef de la résistance qui protège ses alliées avec de puissants bouclier et en infligeant de lourds dégâts.",
-                    "legend" : "Légende Galactique",
-                    "lightside" : "Coté Lumineux",
-                    "attacker" : "Attaquant",
-                    "leader": "Chef",
-                    "resistance" : "Resistance",
-                    "force-user" : "Utilisateur de la Force non aligné",
-                    "ultime-title" : "<u>Ultime: Héritière des Jedi</u>",
-                    "ulti" : "Nécessite 100% de <u class='ulti'>charge ultime</u> pour être acivée. \n\n<u class='speciale'>Charge ultime:</u> Rey obtient 6% de charge ultime au début du tour de chaque personnage. \n\n jusqu'à la fin du prochain tour de Rey, elle adopte une posture défensive et les dégâts subis par les alliés du Coté Lumineux sont réduis à 1. Dans cette posture, Rey ne peut pas agir, elle a 30% de vitesse en moins, est immunisée contre tous les effets négatifs, et ne peut pas être vaincue. En activant à nouveau cette capacité, elle inflige des dégâts réels (ignore la défense, mais ne peut pas infliger de coups critiques) à l'escouade ennemie (divisés de manière égale) et toute la charge ultime est consommée. Cette attaque ne peut pas être contrée ou esquivée.",
-                    "basic-attack-title" : "<u>Attaque basique : Progression implacable</u>",
-                    "basic-attack" : "Inflige des dégâts physiques à une cible ennemie. Si le tour de rey est en cours, elle inflige des dégâts une seconde fois à +50% de vol de santé et ignore 50% de l'armure de la cible. Ce vol de santé est doublé si la santé de Rey est à moins de 50%.",
-                    "special-attack1-title" : "<u>1ere spéciale: Énergie vitale</u>",
-                    "special-attack1" : "Rey perd 25% de santé et la cible alliée du Coté Lumineux obtient un bonus de protection à hauteur du pourcentage perdu. Tous les autres alliés du Coté Lumineux obtiennent la moitié de cette valeur. Si Rey dispose de toute sa santé lorsqu'elle utilise cette capacité, tous les alliés du Coté Lumineux obtiennent l'immunité aux coups critiques pendant 2 tours. \n\n La cible alliée obtient l'<u class='speciale'>énérgie vitale</u> jusqu'à ce qu'elle soit vaincue, ou jusqu'à ce que l'énergie vitale soit conférée à un allié différent (ne peut pas être copié, dissipé ou évité). Rey ne peut pas être vaincue par cette capacité. \n\n <u class='speciale'>Énergie vitale</u> : les dégâts subis sont réduis de 30% et les dégâts infligés sont augmentés de 30%.",
-                    "special-attack2-title" : "<u>2eme spéciale: Tourbillon spéciale</u>",
-                    "special-attack2" : "Inflige deux fois de lours dégâts, et 7% de dégâts supplémentaires par niveau d'amplificateur de relique. Ensuite, inflige des dégâts physiques à tous les ennemis. Les ennemis vaincus par cette capacité ne peuvent pas être ranimés. Cette capacité ne peut pas être contrée ou esquivée. \n\n <u class='restreint'>Cette capacité peut uniquement être utilisée si la santé d'un allié du Coté Lumineux est passé en dessous de 60% depuis sa dernière utilisation. La santé d'un allié du Coté Lumineux doit être passé en dessous de 60% pour pouvoir utiliser cette capacité pour la première fois.</u>",
-                    "lead-ability-title" : "<u>Capacité de chef: Sagesse des textes sacrés</u>",
-                    "lead-ability" : "Les alliés du Coté Lumineux ont +40% de maitrise, +30% de santé maimale. Lorsqu'un ennmi obtient un bonus de jauge de tour, les alliés inspirés du coté lumineux obtiennent 5% de maitrise (cumulable) jusqu'à la fin de l'affrontement. \n\n La première fois que la santé de chaque alliée du Coté Lumineux est à moins de 50%, il obtient l'immunité ayx dégâts pendant 1 tour (ne peut pas être copié, dissipé ou évité), et il récupère 50% de santé lorsqu'elle expire.",
-                    "unique-ability1-title" : "<u>capacité unique: Inspiration évidente</u>",
-                    "unique-ability1" : "Au début de son tour, Rey devient inspirée. Si Rey est déjà inspirée, elle inspire à la place l'allié du Coté Lumineux qui possède la santé la plus élévée. Les alliés inspirés du Coté Lumineux dissipent tous leurs affaiblissements lorsqu'ils utilisent une capacité de base pendant leur tour. Les alliés du Coté Lumineux inspirés ou qui possèdent l'immunité aux dégâts ne peuvent pas subir de réduction de jauge de tour.",
-                    "unique-ability2-title" : "<u>capacité unique 2: Légende Galactique</u>",
-                    "unique-ability2" : "Cette unité subit des dégâts réduits des effets de dégâts de pourcentage de santé et des effets de dégâts important, mais subit de lourds dégâts des effets de destruction (exclut les boss de raid) et elle est immunisée contre les effets d'étourdissement.\n\n Cette unité a +10% de santé maximale et de protection maximale par niveau d'amplification de reliques et ses dégâts subis sont réduis de 30%."
-                }
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Rey",
+                "title": "<u>Rey</u>",
+                "description": "Chef de la résistance qui protège ses alliés avec de puissants boucliers et en infligeant de lourds dégâts.",
+
+                "ultime-title": "<u>Capacité Ultime: Héritière des Jedi<u>",
+                "ulti": "Nécessite 100 % de <u class='ulti'>charge ultime</u> pour être activée.\n\n<u class='ulti'>Charge ultime :</u> Rey obtient 6 % de charge ultime au début du tour de chaque personnage.\n\nJusqu' la fin du prochain tour de Rey, elle adopte une posture défensive et les dégâts subis par les alliés du Coté Lumineux sont réduits à 1. Dans cette posture, Rey ne peut pas agir, elle a 30 % de vitesse en moins, est immunisée contre tous les effets négatifs, et ne peut pas être vaincue. En activant à nouveau cette capacité, elle inflige des dégâts réels (ignore la défense, mais ne peut pas infliger de coups critiques) à l'escouade ennemie (divisés de manière égale) et toute la <u class='ulti'>charge ultime</u> est consommée. Cette attaque ne peut pas être contrée ou esquivée.",
+
+                "basic-attack-title": "<u>Attaque Basique: Progression implacable</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie. Si le tour de Rey est en cours, elle inflige des dégâts une seconde fois, a +50 % de vol de santé et ignore 50 % de l'armure de la cible. Ce vol de santé est doublé si lan santé de Rey est à moins de 50 %",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Énergie vitale</u>",
+                "special-attack1": "Rey perd 25 % de santé et la cible alliée du Coté Lumineux obtient un bonus de protection à hauteur du pourcentage perdu. Tous les autres alliés du Coté Lumineux obtiennent la moitié de cette valeur. Si Rey dispose de toute sa santé lorsqu'elle utilise cette capacité, tous les alliés du Coté Lumineux obtiennent l'immunité aux coups critiques pendant 2 tours.\n\nLa cible allié obtient l'<u class='speciale'>Énergie vitale</u> jusqu'à ce qu'elle soit vaincue, oujusqu'à ce que l'énergie vitale soit conférée à un allié différent (ne peut pas être copié, dissipé ou évité). Rey ne peut pas etre vaincue par cette capacité.\n\n<u class='speciale'>Énergie vitale :</u> les dégâts subis sont réduits de 30 % et les dégâts infligés sont augmentés de 30 %.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Tourbillon brutal</u>",
+                "special-attack2": "Inflige deux fois de lourds dégâts, et 7 % de dégâts supplémentaires par niveau d'amplificateur de relique. Ensuite, inflige des dégâts physiques à tous les ennemis. Les ennemis vaincus par cette capacité ne peut pas être ranimés. Cette capacité ne peut pas être contrée ou esquivée.\n\n<u class='restreint'>Cette capacité peut uniquement être utilisée si la santé d'un allié du Coté Lumineux est passée en dessous de 60 % depuis sa dernière utilisation. La santé d'un allié du Coté Lumineux doit être passée en dessous de 60 % pour pouvoir utiliser cette capacité pour la première fois.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Sagesse des textes sacrés</u>",
+                "lead-ability": "Les alliés du Coté Lumineux ont +40 % de maîtrise, +30 de vitesse et +30 % de santé maximale. lorsqu'un ennemi obtient un bonus de jauge de tour, les alliés du Coté Lumineux obtiennent 5 % de maîtrise (cumulable) jusqu'à la fin de l'affrontement.\n\n La première fois que la santé de chaque allié du Coté Lumineux est à moins de 50 %, il obtient l'immunité aux dégâts pendant 1 tour (ne peut pas être copié, dissipé ou évité), et il récupère 50 % de santé lorsqu'elle expire",
+
+                "unique-ability1-title": "<u>Capacité Unique : Inspiration évidente</u>",
+                "unique-ability1": "Au début de son tour, Rey devient inspirée. Si Rey est déjà inspirée, elle inspire à la place l'allié du Coté Lumineux qui possède la santé l plus élevée. Les alliés du Coté Lumineux dissipent tous leurs affaiblissements lorsqu'ils utilisent une capacité de base pendant leur tour. Les alliés du Coté Lumineux inspirés ou qui possèdnt l'immunité aux dégâts ne peuvent pas subir de réductions de jauge de tour.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Légende Galactique</u>",
+                "unique-ability2": "Cette unité subit des dégâts réduits des effets de pourcentage de de santé et des effets de dégâts importants maus subit de lours dégâts des effets de destruction (exclut les boss de raid) et elle est immunisée contre les effets d'étourdissement.\n\nCette unité a +10 % de santé maximale et de protection maximale par niveau d'amplificateur de relique, et ses dégâts subis sont réduits de 30 %.",
+
+                "galactic-legend": "Légendes Galactiques",
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "leader": "chef",
+                "resistance": "Resistance",
+                "force-user": "utilisateur de la Force non aligné"
             };
 
-            function replaceNewLinesWithBr(text) {
-                return text.replace(/\n\n/g, '<br><br>');
-            }
+            const originalTexts = {};
 
-            function switchLanguage(lang) {
-                for (const [key, text] of Object.entries(translations[lang])) {
-                    const element = document.getElementById(key);
-                    if (element) {
-                        // Convert \n\n to <br><br> before injecting
-                        element.innerHTML = replaceNewLinesWithBr(text);
-                    }
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
                 }
             }
 
-            window.onload = () => switchLanguage('en');
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
         </script>
 
     </footer>
