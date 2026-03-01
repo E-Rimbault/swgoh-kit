@@ -1,103 +1,192 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Kanan Jarrus</title>
-
+    <title id="big-title">Kanan Jarrus</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/kanan/kanan-image.png">
-    <link rel="stylesheet" href="../style/capacite.css">
-    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/kanan/kanan-image.png" alt="Kanan Jarrus" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Kanan Jarrus</u></h1>
-        <p>
-            Tank Phoenix qui entrave l'attaque ennemie et soigne ses alliés
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/tank.html">Tank</a>
-            <a class="capacite" href="../classement-perso/Jedi.html">Jedi</a>
-            <a class="capacite" href="../classement-perso/phoenix.html">Phoenix</a>
-            <a class="capacite" href="../classement-perso/rebelle.html">Rebelle</a>
-            <a class="pilote" href="../classement-perso/membres-équipages.html">Membres Equipages</a>
-        </nav>
+            <h1 id="title"><u>Kanan Jarrus</u></h1>
+            <p id="description">Durable Phoenix Tank that keeps enemy Offense crippled and allies healthy</p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
+                <a class="capacite" href="../classement-perso/phoenix.html" id="phoenix">Phoenix</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew">Crew Member</a>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/ghost.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/ghost/ghost-image.png" alt="Ghost">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: Ghost</u>
+                </h2>
+            </section>
+        </div>
     </header>
-
-
     <br>
 
-    <img class="first" src="../image-perso/kanan/Kanan.png" alt="Kanan"><br>
+    <img class="first" src="../image-perso/kanan/Kanan.png" alt="Kanan Jarrus"><br>
 
-    <h2 class="titre"><u>attaque basique : Frappe accablante</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Disarming Strike</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="kanan basique" src="../image-perso/kanan/kanan-basique.png">
+            <img class="attaque" alt="Kanan Jarrus basic" src="../image-perso/kanan/kanan-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie et lui inflige un malus d'attaque jusqu'au prochain tour de Kanan,<br>
-                ou jusqu'à ce qui soit vaincu. Si cette attaque inflige un coup critique, cet effet ne peut pas être résisté. Cette<br>
-                capacité obtient 15% de chances de coup critique pour chaque allié qui ne dispose pas de toute sa santé.
+            <p class="attaque" id="basic-attack">
+                Deal physical damage to target enemy and inflict Offense Down until the start of Kanan's next turn or until he is defeated. If this attack scores a critical hit, this effect can't be resisted. This ability gains 15% Critical Chance for each ally under full Health.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Intervention (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Intervene (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="kanan spé 1" src="../image-perso/kanan/kanan-spe1.png">
+            <img class="attaque" alt="Kanan Jarrus special 1" src="../image-perso/kanan/kanan-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie et utilise Raillerie pendant 2 tours, puis dissipe tous les<br>
-                affaiblissements en cours sur une cible allié. Quand Kanan dispose de cette amélioration, sa ténacité est doublé.
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and Taunt for 2 turns, then dispel all debuffs on another target ally. While Kanan has this taunt buff, his Tenacity is doubled.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Défense totale (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Total Defense (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Kanan spé 2" src="../image-perso/kanan/kanan-spe2.png">
+            <img class="attaque" alt="Kanan Jarrus special 2" src="../image-perso/kanan/kanan-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe tous les affaiblissements en cours sur les alliés Phoenix et leurs confère un bonus de défense pendant 3 tours.<br>
-                Kanan et la cible alliée obtiennent la prévoyance et une hausse de protection (40%) pendant 2 tours. Lorsque chaque bonus<br>
-                de prévoyance expire, la jauge de tour de Kanan se remplit de 100%, et celle des autres alliés Phoenix de 50%.
+            <p class="attaque" id="special-attack2">
+                Dispel all debuffs on Phoenix allies and grant them Defense Up for 3 turns. Kanan grants himself and another target ally Foresight and Protection Up (40%) for 2 turns. When each of these Foresights expire, Kanan gains 100% Turn Meter and other Phoenix allies gain 50% Turn Meter.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Esprit dégagé</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Clear Mind</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Kanan unique" src="../image-perso/kanan/kanan-unique.png">
+            <img class="attaque" alt="Kanan Jarrus unique" src="../image-perso/kanan/kanan-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Kanan gagne un bonus de chances de contre-attaque de 70% et il récupère 25% de santé lorsqu'il souffre d'un affaiblissement.
+            <p class="attaque" id="unique-ability">
+                Kanan has 70% counter chance and recovers 25% Health whenever he suffers a debuff.
             </p>
-        
         </div>
     </div>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
-    </footer>
 
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Kanan Jarrus",
+                "title": "<u>Kanan Jarrus</u>",
+                "description": "Tank Phoenix résistant qui entrave l'attaque ennemie et soigne ses alliés.",
+
+                "basic-attack-title": "<u>Attaque Basique: Frappe accablante</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et lui inflige un malus d'attaque jusqu'au début du prochain tour de Kanan ou jusqu'à ce qu'il soit vaincu. Si cette attaque inflige un coup critique, cet effet ne peut pas être résisté. Cette capacité obtient 15 % de chances de coup critique pour chaque allié qui ne dispose pas de toute sa santé.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Intervention (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie et utilise Raillerie pendant 2 tours, puis dissipe tous les affaiblissements en cours sur une cible alliée. Quand Kanan sipose de cette amélioration, sa ténacité est doublée.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Défense totale (délai : 3)</u>",
+                "special-attack2": "Dissipe tous les affaiblissements en cours sur les alliés Phoenix et leur confère un bonus de défense pendant 3 tours. Kanan et la cible alliée obtiennent Prévoyance et une hausse de protection (40 %) pendant 2 tours. Lorsque chaque bonus de Prévoyance expire, la jauge de tour de Kanan se remplit de 100 %, et celle des autres alliés Phoenix de 50 %.",
+
+                "unique-ability-title": "<u>Capacité Unique : Esprit dégagé</u>",
+                "unique-ability": "Kanan gagne un bonus de chances de contre-attaque de 70 %, et il récupère 25 % de santé lorsqu'il subit un affaiblissement.",
+
+                "ship-title": "<u>Vaisseau : Ghost</u>",
+
+                "lightside": "Coté Lumineux",
+                "tank": "Tank",
+                "jedi": "Jedi",
+                "phoenix": "Phoenix",
+                "rebel": "Rebelle",
+                "crew": "Membres d’Équipage",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+    </footer>
 </body>
+
 </html>
