@@ -1,153 +1,218 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Rey (entrainement de jedi)</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Rey (Jedi Training)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/rjt/rjt-image.png">
-
-    <!-- Lien vers la feuille de style -->
-    <link rel="stylesheet" href="../style/styles.css">
-    <link rel="stylesheet" href="../style/capacite.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/rjt/rjt-image.png" alt="Rey (Jedi Training)" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>Rey (entrainement de jedi)</u></h1>
-        <p>
-            Tank de la résistance tenace qui venge les alliés subissant<br>
-            un affaiblissemnt et côntrole le champ de bataille.
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: blue;" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/tank.html">Tank</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/résistance.html">Résistance</a>
-            <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html">Utilisateur de la Force non aligné</a>
-        </nav>
+            <h1 id="title"><u>Rey (Jedi Training)</u></h1>
+            <p id="description">
+                Resilient Resistance Tank who avenges debuffed allies and controls the battlefield
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue  !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="lead">Leader</a>
+                <a class="capacite" href="../classement-perso/résistance.html" id="resistance">Resistance</a>
+                <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Force User</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/rjt/rjt.png" alt="RJT"><br>
+    <img class="first" src="../image-perso/rjt/rjt.png" alt="Rey (Jedi Training)"><br>
 
-    <h2 class="titre"><u>attaque basique : Frappes liées</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Connected Strikes</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="rey basique" src="../image-perso/rjt/rjt-basique.png">
+            <img class="attaque" alt="Rey (Jedi Training) basic" src="../image-perso/rjt/rjt-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie. Les dégâts sont augmentés de 25% dans chacun des cas suivants:<br>
-                Rey ne souffre pas d'affaiblissemnts, Rey dispose d'améliorations, la cible ne dispose pas d'améliorations, la cible souffre d'affaiblissemnts.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. Damage is increased by 25% for each of the following: Rey has no debuffs; Rey has any buffs; the target has no buffs; the target has any debuffs.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Taillade rebelle (délai: 5)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Defiant Slash (cooldown: 5)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="rey spé 1" src="../image-perso/rjt/rjt-spe1.png">
+            <img class="attaque" alt="Rey (Jedi Training) spécial 1" src="../image-perso/rjt/rjt-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie et lui inflige l'immunité aux soins pendant 2 tours,<br>
-                (cet effet ne peut pas être copié, dissipé ou résisté). Cible un allié de la Résistance, dissipe tous<br>
-                ses affaiblissemnts, l'invoque et lui confère la Prévoyance pendant 2 tours.       
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and inflict Healing Immunity for 2 turns (this effect can’t be Copied, Dispelled, or Resisted). Target other Resistance ally and dispel all their debuffs, call them to Assist, and grant them Foresight for 2 turns.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Ruse mentale (délai: 5)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Mind Trick (cooldown: 5)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="rey spé 2" src="../image-perso/rjt/rjt-spe2.png">
+            <img class="attaque" alt="Rey (Jedi Training) spécial 2" src="../image-perso/rjt/rjt-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe toutes les améliorations en cours sur la cible ennemie, entrave ses capacités et inflige la confusion<br>
-                un malus d'attaque et un malus de vitesse pendant 2 tours. Pour chaque affaiblissemnt infligé, diminue la jauge<br>
-                ennemie de 10% (ne peut pas ête résisté). Pour chaque affaiblissemnt résisté, diminue la jauge ennemie de 20% (ne<br>
-                peut pas être résisté). Pour chaque allié de la Résistance actif, remplit la jauge de tour de 15%. Cette attaque ne peut pas être esquivée. 
+            <p class="attaque" id="special-attack2">
+                Dispel all buffs on target enemy and inflict Ability Block, Daze, Offense Down, and Speed Down for 2 turns. For each debuff inflicted, remove 10% Turn Meter, which can't be Resisted. For each debuff Resisted, remove 20% Turn Meter, which can't be Resisted. For each active Resistance ally, gain 15% Turn Meter. This attack can't be Evaded.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Capacité de chef: Présence Charismatique</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Inspirational Presence</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="rey lead" src="../image-perso/rjt/rjt-lead.png">
+            <img class="attaque" alt="Rey (Jedi Training) lead" src="../image-perso/rjt/rjt-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Les alliés de la Résistance ont +30% de chances de coup critique et +30% de dégâts critiques. Lorsqu'il<br>
-                infligent un coup critique, ils ont 70% de chances d'infliger l'exposition pendant 2 tours (ne peut pas être résisté.)<br>
-                La jauge de tour des alliés de la Résistance se remplit de 10% lorsqu'un ennemi est exposé.<br>
-                <br>
-                Lorsqu'un allié de la Résistance utilise une capacité spéciale : <br>
-                <br>
-                -La jauge de tour de tous les ennemis exposés diminue de 5% (cet effet ne peut pas être résisté).<br>
-                -Si l'allié de la Résistance ne souffre pas d'affaiblissemnt, diminue ses délais de 1.
+            <p class="attaque" id="lead-ability">
+                Resistance allies have +30% Critical Chance and +30% Critical Damage. When they score a Critical Hit, they have a 70% chance to inflict Expose for 2 turns (this effect can't be Resisted). Resistance allies gain 10% Turn Meter when an enemy is Exposed.
+                <br><br>
+                When a Resistance ally uses a Special ability:<br>
+                - All Exposed enemies lose 5% Turn Meter (this effect can't be Resisted)<br>
+                - If the Resistance ally has no debuffs, reduce their Cooldowns by 1
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Protectrice vertueuse</u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Virtuous Protector</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="rjt unique" src="../image-perso/rjt/rjt-unique.png">
+            <img class="attaque" alt="Rey (Jedi Training) unique" src="../image-perso/rjt/rjt-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Lorsqu'un allié subit un affaiblissemnt, ou lorqu'un autre allié de la Résistance obtient l'amélioration<br>
-                Données secrètes, la jauge de tour de Rey se remplit de 8%. Lorsque Rey subit un affaiblissemnt,<br>
-                elle a 40% de chances de dissiper tous les affaiblissemnts l'affectant.
+            <p class="attaque" id="unique-ability1">
+                When another ally suffers a debuff, or when another Resistance ally gains Secret Intel, Rey gains 8% Turn Meter. When Rey suffers a debuff, she has a 40% chance to Dispel all debuffs on herself.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Perspicacité</u></h2>
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Insight</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="rjt unique 2" src="../image-perso/rjt/rjt-unique2.png">
+            <img class="attaque" alt="Rey (Jedi Training) unique 2" src="../image-perso/rjt/rjt-unique2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Au début de chaque affrontement, Rey obtient la prévoyance jusqu'à ce qu'elle esquive une attaque.<br>
-                Lorsque Rey esquive une attaque, elle récupère 5% de santé et 5% de protection.<br>
-                <br>
-                A la fin du tour de Rey : <br>
-                -Rey obtient la prévoyance jusqu'à ce qu'elle esquive une attaque.<br>
-                -Si Rey dispose de la prévoyance, elle obtient un bonus de dégâts critiques<br>
-                jusqu'à ce qu'elle subisse des dégâts.<br>
-                -Si Rey dispose d'un bonus de dégâts critiques, elle obtient un bonus de<br>
-                d'attaque jusqu'à ce qu'elle subisse des dégâts.
+            <p class="attaque" id="unique-ability2">
+                At the start of each encounter, Rey gains Foresight until she Evades. When Rey Evades, she recovers 5% Health and 5% Protection.
+                <br><br>
+                At the end of Rey's turn:<br>
+                - Rey gains Foresight until she Evades<br>
+                - If Rey has Foresight, she gains Critical Damage Up until she is damaged<br>
+                - If Rey has Critical Damage Up, she gains Offense Up until she is damaged
             </p>
         </div>
-    </div>
-
-
+    </div>    
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Rey (entraînement de Jedi)",
+                "title": "<u>Rey (entraînement de Jedi)</u>",
+                "description": "Tank de la Résistance tenace qui venge les alliés subissant un affaiblissement et contrôle le champ de bataille.",
+
+                "lightside": "Coté Lumineux",
+                "tank": "Tank",
+                "lead": "Chef",
+                "resistance": "Résistance",
+                "force-user": "Utilisateur de la Force non aligné",
+
+                "basic-attack-title": "<u>Attaque Basique: Frappes liées</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie. Les dégâts sont augmentés de 25 % danc chacun des cas suivants : Rey ne souffre pas d'affaiblissements, Rey dispose d'améliorations, la cible ne dispose pas d'améliorations, la cible souffre d'affaiblissements.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Taillade rebelle (délai : 5)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie et lui inflige l'immunité aux soins pendant 2 tours (cet effet ne peut pas être copié, dissipé ou résisté). Cible un allié de la Résistance, dissipe tous ses affaiblissement, l'invoque et lui confère prévoyance pendant 2 tours.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Ruse mentale (délai : 5)</u>",
+                "special-attack2": "Dissipe toutes les améliorations en cours sur la cible ennemie, entrave ses capacités et inflige la confusion, un malus d'attaque et un malus de vitesse pendant 2 tours. Pour chaque affaiblissements infligé, diminue la jauge de tour ennemie de 10 % (ne peut pas être résisté). Pour chaque allié de la Résistance actif, remplit la jauge de tour de 15 %. Cette attaque ne peut pas être esquivée.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Présence charismatique</u>",
+                "lead-ability": "Les alliés de la Résistance ont +30 % de chances de coup critique et +30 % de dégâts critiques. Lorsqu'ils infligent un coup critique, ils ont70 % de chances d'infliger l'exposition pendant 2 tours (cet effet ne peut pas être résisté). La jauge de tour des alliés de la Résistance se remplit de 10 % lorsqu'un ennemi est exposé.\n\nLorsqu'un allié de la Résistance utilise une capacité spéciale :\n-La jauge de tour de tous les ennemis exposés diminue de 5 % (cet effet ne peut pas être résisté).\n-Si l'allié de la Résistance ne souffre pas d'affaiblissements, diminue ses délais de 1.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Protectrice vertueuse</u>",
+                "unique-ability1": "Lorsqu'un autre allié subit un affaiblissement, ou lorsqu'un autre allié de la Résistance obtient l'amélioration données secrètes, la jauge de tour de Rey se remplit de 8 %. Lorsque Rey subit un affaiblissement, elle a 40 % de chances de dissiper tous les affaiblissements l'affectant.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Perspicacité</u>",
+                "unique-ability2": "Au début de chaque affrontement, Rey obtient Prévoyance jusqu'à ce qu'elle esquive une attaque. Lorsque Rey esquive une attaque; elle récupère 5 % de santé et 5 % de protection.\n\nA la fin du tour de Rey :\n-Rey obtient prévoyance jusqu'à ce qu'elle esquive une attaque.\n-Si Rey dispose de Prévoyance, elle obtient un bonuys de dégâts critiques jusqu'à ce quelle subisse des dégâts.\n-Si Rey dispose d'un bonus de dégâts critique, elle obtient un bonus d'attaque jusqu'à ce qu'elle subisse des dégâts.",                
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
     </footer>
 </body>
-</html>    
+
+</html>
