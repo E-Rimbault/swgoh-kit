@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Umbaran Starfighter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-vaisseaux/umbaran-fighter/umbaran-fighter-image.png">
+    <link rel="stylesheet" href="../style/ship-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-vaisseaux/umbaran-fighter/umbaran-fighter-image.png" alt="Umbaran Starfighter" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Umbaran Starfighter</u></h1>
+            <p id="description">
+                Risky Clone Tank that inflicts great damage and debuffs, but grants Turn Meter to enemies
+            </p>
+            <br>
+
+            <nav class="perso ship-nav">
+                <!-- Partie gauche : catégories -->
+                <div class="nav-left">
+                    <a class="capacite" style="color: blue !important;" href="../vaisseaux/vaisseau-coté-lumineux.html" id="lightside">Light Side</a>
+                    <a class="class" href="../vaisseaux/vaisseau-tank.html" id="tank">Tank</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-république-galactique.html" id="galactic-republic">Galactic Republic</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-soldat-clone.html" id="clone">Clone Trooper</a>
+                </div>
+
+                <!-- Partie droite : unités associées -->
+                <div class="nav-right">
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href="../html/fives.html"><img src="../image-perso/fives/fives-image.png" alt="CT-5555 fives" class="ship-unit-image"></a>
+                        <span id="unit-fives" class="ship-unit-name">CT-5555 "Fives"</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-vaisseaux/umbaran-fighter/umbaran-fighter.png" alt="Umbaran Starfighter"><br>
+
+    <!-- Capacités du vaisseau -->
+
+    <!--Capacité basique-->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Plasma Weapons</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Umbaran Starfighter basic" src="../image-vaisseaux/umbaran-fighter/umbaran-fighter-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Offense Down and Defense Down for 2 turns.
+                <br><br>
+                <u class="speciale">Target Lock:</u> Dispel all buffs on Target enemy.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="crew-ability-title">
+        <u>Crew Ability - <strong><u class="speciale"></u>CT-5555 "Fives"</strong> : Umbaran Missile Pods (cooldown: 4)</u>
+    </h2>
+
+    <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/umbaran-fighter/umbaran-fighter-crew.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/fives.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/fives/fives-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability">
+                Inflict Target Lock for 2 turns on target enemy, which can't be Resisted, then deal Physical damage to each Target Locked enemy. This attack deals +20% damage for each Target Locked enemy.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité unique-->
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Reckless Piloting</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Umbaran Starfighter unique" src="../image-vaisseaux/umbaran-fighter/umbaran-fighter-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Whenever Umbaran Starfighter attacks, it gains 30% Turn Meter and target enemy gains 20% Turn Meter. Additionally, when Umbaran Starfighter attacks, it gains 5% Offense (stacking) and loses 5% Defense (stacking) until the end of the encounter.
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité de type renfort-->
+    <h2 class="titre" id="reinforcement-title"><u>Reinforcement Ability: Advanced Defense Systems</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Umbaran Starfighter reinforcement" src="../image-vaisseaux/umbaran-fighter/umbaran-fighter-reinforcement.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="reinforcement-description">
+                <u class='speciale'>Enter Battle :</u> Remove 25% Turn Meter from all enemies, which can't be Evaded, and grant all allies Defense Up for 2 turns. Then, inflict Target Lock on all enemies with 0% Turn Meter, which can't be Evaded or Resisted.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            const translationsFr = {
+                "big-title": "Chasseur umbarien",
+                "title": "<u>Chasseur umbarien</u>",
+                "description": "Tank clone prenant des risques qui infligent de lourds dégâts et des affaiblissements, mais augmente la jauge de tour des ennemis.",
+                "unit-fives": "CT-5555 \Cinqs\"",
+
+                "basic-attack-title": "<u>Attaque Basique: Armes à plasma</u>",
+                "basic-attack": "Inflige de lourds dégâts physiques  une cible ennemie et inflige un malus d'attaque et de défense pendant 2 tours.\n\n<u class='speciale'>Verrouillage :</u> dissipe toutes les améliorations dont dispose la cible.",
+
+                "crew-ability-title": "<u>Capacité équipage - <strong><u class='speciale'>CT-5555 \Cinqs\"</u></strong> : Missiles umbariens (délai : 4)</u>",
+                "crew-ability": "Inflige le verrouillage à une cible ennemie pendant 2 tours (ne peut pas être résisté), puis inflige des dégâts à chaque ennemi verrouillé. Cette attaque inflige +20 % de dégâts pour chaque ennemi verrouillé.",
+
+                "unique-ability-title": "<u>Capacité Unique : Pilotage téméraire</u>",
+                "unique-ability": "A chaque fois que le Chasseur stellaire umbarien attaque, sa jauge de tour se remplit de 30 % et la jauge de tour de la cible ennemie se remplit de 20 %. De plus, lorsque le chasseur stellaire umbarien attaque, il gagne 5 % d'attaque (cumulable) et perd 5 % de défense (cumulable) jusqu'à la fin de l'affrontement.",
+
+                "reinforcement-title": "<u>Capacité de Renfort : Systèmes de défense avancés</u>",
+                "reinforcement-description": "<u class='speciale'>Rejoindre la Bataille :</u> la jauge de tour de tous les ennemis est réduite de 25 %, ce qui ne peut pas être esquivé, et tous les alliés bénéficient d'un bonus de défense pendant 2 tours. Puis, inflige le verrouillage à tous les ennemis dont la jauge de tour est à 0 %, ce qui ne peut pas être esquivé ou résisté.",
+            
+                "lightside": "Coté Lumineux",
+                "tank": "Tank",
+                "galactic-republic": "République Galactique",
+                "clone": "Soldat Clone",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+    </footer>
+</body>
+
+</html>

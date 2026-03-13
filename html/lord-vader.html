@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Lord Vader</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/lord-vader/lord-vader-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/lord-vader/lord-vader-image.png" alt="Lord Vader" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Lord Vader</u></h1>
+            <p id="description">
+                Legendary Sith Lord who utilizes the actions of others to empower his own potential and is not to be underestimated
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="legende" href="../classement-perso/legendes-galactiques.html" id="galactic-legend">Galactic Legend</a>
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="capacite" href="../classement-perso/sith.html" id="sith">Sith</a>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/lord-vader/lord-vader.png" alt="Lord Vader"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre"><u id="ultime-title">Ultimate: End of the Galactic Republic</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="lord vader ulti" src="../image-perso/lord-vader/lord-vader-ulti.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="ulti">
+                Requires at least 65% <u class="ulti">Ultimate Charge</u> to activate.
+                <br><br>
+                <u class="ulti">Ultimate Charge:</u> Lord Vader gains Ultimate Charge when he uses Dark Harbinger. If Lord Vader is the Leader, when debuffed Dark Side allies receive damage he gains 2% Ultimate Charge, increased to 3% if that ally was an Unaligned Force User. If all other allies are Dark Side Clone Troopers at the start of encounter, Lord Vader gains 3% Ultimate Charge whenever a debuffed Dark Side Clone Trooper ally takes damage.
+                <br><br>
+                Lord Vader gains 50% of other Dark Side allies' current Mastery (stacking) until the end of the encounter, then they lose that much. Empire and Dark Side Unaligned Force User allies don't lose Mastery from this ability.
+                <br><br>
+                If 100% Ultimate Charge was used, Lord Vader instead gains 75% Mastery from this ability, dispels all debuffs on himself, takes a bonus turn, reduces his cooldowns by 1, and gains Ashes of the Republic for 5 turns, which can't be copied, dispelled, or prevented.
+                <br><br>
+                These Mastery gains will only trigger if the character has more than 0 Mastery.
+                <br><br>
+                <u class="speciale">Ashes of the Republic:</u> Lord Vader's abilities gain additional effects; enemies defeated while this is active can't be revived; Lord Vader is immune to Ability Block, Healing Immunity, and Shock; can't gain Ultimate Charge
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Vindictive Storm</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="lord vader basic" src="../image-perso/lord-vader/lord-vader-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and if Lord Vader has 30 or more stacks of Underestimated, he deals damage again.
+                <br><br>
+                Each time this ability deals damage in the same attack, it deals 25% more damage (max 50%).
+                <br><br>
+                <u class="speciale">Ashes of the Republic:</u> Deal damage again
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Dark Harbinger (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="lord vader special 1" src="../image-perso/lord-vader/lord-vader-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Inflict Buff Immunity and Healing Immunity for 2 turns and deal Physical damage to target enemy. This ability deals 20% more Physical damage on subsequent uses (stacking, max 5 stacks).
+                <br><br>
+                Lord Vader gains 1% Ultimate Charge and Empire and Dark Side Unaligned Force User allies recover 0.5% Health for each stack of Underestimated.
+                <br><br>
+                <u class="speciale">Ashes of the Republic:</u> This attack also deals true damage
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Unshackled Emotions (cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="lord vader spé 2" src="../image-perso/lord-vader/lord-vader-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to all enemies and inflict Daze and 4 Damage Over Time effects for 2 turns, which can't be resisted. For each stack of Underestimated, this ability deals 2.5% more damage, and all Dark Side allies gain 1% Mastery (stacking) until the end of the encounter.
+                <br><br>
+                <u class="speciale">Ashes of the Republic:</u> Inflict Ability Block for 1 turn which can't be dispelled or resisted, and increase target enemy's cooldowns by 2
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: My New Empire</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="lord vader lead" src="../image-perso/lord-vader/lord-vader-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Dark Side allies have +20 Speed, +20% Mastery, and +15% Max Health, doubled for Empire or Dark Side Unaligned Force User allies.
+                <br><br>
+                At the start of battle, other Empire and Dark Side Unaligned Force User allies lose all Protection and gain that much Max Health. If a Dark Side Unaligned Force User ally was present at the start of battle, for the rest of the battle all Empire or Dark Side Unaligned Force User allies take 30% reduced damage from enemy Light Side Unaligned Force User attacks. If all allies are Dark Side at the start of battle, Empire and Dark Side Unaligned Force User allies are immune to Fear, Empire Tanks gain Taunt for 2 turns, and when an Empire ally loses Taunt, they are inflicted with Marked for 1 turn, which can't be dispelled, prevented, or resisted.
+                <br><br>
+                Whenever a Dark Side ally loses a buff, Empire and Dark Side Unaligned Force User allies gain 1% Mastery (stacking) until the end of encounter. Whenever a debuffed Dark Side ally takes damage, Lord Vader gains 2% Ultimate Charge, increased to 3% if that ally was an Unaligned Force User. If all other allies are Dark Side Clone Troopers at the start of encounter, Lord Vader gains 3% Ultimate Charge whenever a debuffed Dark Side Clone Trooper ally takes damage.
+                <br><br>
+                Empire and Dark Side Unaligned Force User allies have +35% Critical Chance and Critical Damage when targeting a Galactic Republic enemy. Whenever an enemy critically hits an Empire or Dark Side Unaligned Force User ally, that enemy has -30% Critical Damage (stacking) for 3 turns.
+                <br><br>
+                While Empire and Dark Side Unaligned Force User allies are at certain Health thresholds, they gain different benefits.
+                <br><br>
+                - <u class="speciale">While above 35% Health:</u> During an enemy's attack they are immune to Max Health reduction and other damage that is based on Max Health.<br><br>
+                - <u class="speciale">While above 50% Health:</u> They are immune to Damage Over Time and Thermal Detonator effects.<br><br>
+                - <u class="speciale">While below 80% Health:</u> Can't be critically hit.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Twisted Prophecy</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="lord vader Unique" src="../image-perso/lord-vader/lord-vader-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Lord Vader is immune to Turn Meter manipulation and his attacks can't be evaded. At the start of battle he loses all Protection and gains that much Max Health, and Dark Side Unaligned Force User allies gain Speed Up and Stealth for 2 turns.
+                <br><br>
+                At the start of each of Lord Vader's turns, enemies are inflicted with 2 Damage Over Time effects for 2 turns, which can't be resisted. Enemies with Damage Over Time effects can't gain bonus Turn Meter.
+                <br><br>
+                At the start of each other character's turn Lord Vader gains 1 stack of <u class="speciale">Underestimated</u> (max: 60), doubled for Galactic Republic and Jedi enemies.
+                <br><br>
+                <u class="speciale">Underestimated:</u> Vindictive Storm, Dark Harbinger, and Unshackled Emotions gain additional effects
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="gl-ability-title">Unique Ability : Galactic Legend</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="lord vader gl" src="../image-perso/lord-vader/lord-vader-gl.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="gl-ability">
+                This unit takes reduced damage from percent Health damage effects and massive damage effects. They take massive damage from destroy effects (excludes raid bosses) and are immune to stun effects.
+                <br><br>
+                This unit has +10% Max Health and Max Protection per Relic Amplifier level, and damage they receive is decreased by 30%.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Seigneur Vador",
+                "title": "<u>Seigneur Vador</u>",
+                "description": "Seigneur Sith légendaire qui utilise les actions des autres pour augmenter son propre potentiel, et qui ne doit pas être sous-estimé.",
+                "galactic-legend": "Légende Galactique",
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "empire": "Empire",
+                "sith": "Sith",
+
+                "ultime-title": "<u>Capacité Ultime: Fin de la République Galactique<u>",
+                "ulti": "Nécessite au moins <u class='ulti'>65 % de charge ultime</u> pour être activé.\n\n<u class='ulti'>Charge ultime :</u> Le Seigneur Vador obtient de la charge ultime lorsqu'il utilise Sombre présage. Si le Seigneur Vador est le chef, lorsque les alliés du Coté Obscur subissant un affaiblissement subissent des dégâts, il obtient 2 % de charge ultime. Le montant de charge ultime passe à 3 % si cet allié est un utilisateur de la Force non aligné. Si tous les autres alliés sont des Soldats Clones du Coté Obscur au début de l'affrontement, le Seigneur Vador obtient 3 % de charge ultime chaque fois qu'un soldat clone du Coté Obscur allié disposant d'un affaiblissement subit des dégâts.\n\nLe Seigneur Vador obtient 50 % de la maîtrise actuelle des autres alliés du COté Obscur (cumulable) jusqu'à la fin de l'affrontement, puis les alliés perdent ce montant.Les alliés de l'Empire et les utilisateurs de la Force non alignés du Coté Obscur alliés ne perdent pas de maîtrise avec cette capacité.\n\nSi 100 % de charge ultime a été utilisée, le Seigneur Vador obtient à la place 75 % de maîtrise avec cette capacité, dissipe tous les affaiblissements l'affectant, obtient un tour bonus, diminue ses délais de 1 et obtient Cendres de la République pendant 5 tours (ne peut pas être copié, dissipé ou emêché).\n\n<u class='speciale'>Cendres de la République :</u> les capacités du Seigneur Vador confèrent des effets supplémentaires. Les ennemis vaincus pendant que cet effet est actif, ne peuvent pas être ranimés. Le Seigner Vador est immunisé ontre Entrave des capacités, Immunité aux soins et Choc. Il ne peut pas obtenir de charge ultime.",
+
+                "basic-attack-title": "<u>Attaque Basique: Tempête vindicative</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie. Si le Seigneur Vador a 30 cumuls ou plus de Sous-estimé, il inflige à nouveau des dégâts.\n\nChaque fois que cette capacité inflige des dégâts lors d'une même attaque, elle inflige 25 % de dégâts supplemtaires (50 % maximum).\n\n<u class='speciale'>Cendres de la République :</u> inflige des dégâts supplémentaires.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Sombre présage (délai : 3)</u>",
+                "special-attack1": "Inflige l'immunité aux améliorations et l'immunité aux soins pendant 2 tours, ainsi que des dégâts physiques à la cible ennemie. Cette capacité inflige 20 % de dégâts supplémentaires lors des utilisations suivantes (cumulatif, 5 cumuls maximum)\n\nLe Seigneur Vador obtient 1 % de charge ultime et les alliés de l'Empire ou les utilisateurs de la Force non alignés du Coté Obscur alliés récupèrent 0,5 % de santé pour chaque cumul de Sous-estimé.\n\n<u class='speciale'>Cendres de la République :</u> cette attaque inflige également des dégâts réels.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Émotions débridées (délai : 5)</u>",
+                "special-attack2": "Inflige des dégâts physiques à tous les ennemis,  ainsi que la Confusion et 4 effets de dégâts sur la durée (ne peut pas être résisté). Pour chaque cumul de Sous-estimé, cette capacité inflige 2,5 % de dégâts supplémentaires et tous les alliés obtiennent 1 % de maîtrise (cumulatif) jusqu' la fin de l'affrontement.\n\n<u class='speciale'>Cendres de la République :</u> entrave les capacités pendant 1 tours (ne peut pas être dissipé ou résisté), et augment les délais de la cible ennemie de 2.",
+
+                "lead-ability-title": "<u>Capacité de Chef: mon nouvel empire</u>",
+                "lead-ability": "Les alliés du Coté Obscur ont +20 de vitesse, +20 % de maîtrise et +15 % de santé maximale (doublés pour les alliés de l'Empire ou les utilisateurs de la Force non alignés du Coté Obscur alliés).\n\nAu début de la bataille, les autres alliés de l'Empire ou les utilisateurs de la Force non aligné du Coté Obscur alliés perdent toutes leur protection et obtiennent le même montant de santé maximale. Si un utilisateur de la Force non aligné du Coté Obscur allié était présent au début de la bataille, tous les alliés de l'Empire ou les utilisateurs de la Force non alignés du oté Obscur alliés subissent 30 % de dégâts en moins lors des attaques des utilisateurs de la Force non alignés du coté lumineux ennemis pendant le reste de la bataille. Si tous les alliés appartiennent au Coté Obscur au début de la bataille, les alliés de l'Empire ou les utilisateurs de la Force non alignés du Coté Obscur sont immunisés contre Peur, les Tanks de l'Empire utilisent Raillerie pendant 2 tours, et lorsqu'un allié de l'Empire perd Raillerie, il subit Marque pendant 1 tour (ne peut pas être dissipé, empêché ou réssité).\n\nLorsqu'un allié du Coté Obscur perd une amélioration, les alliés de l'Empire ou les utilisateur de la Force non aligné du Coté Obscur alliés obtiennent 1 % de maîtrise (cumulatif) jusqu'à la fin de l'affrontement. Chaque fois qu'un allié du Coté Obscur disposant d'un affaiblissement subit des dégâts, le Seigneur Vador obtient 2 % de charge ultime. Le montant de charge ultime passe à 3 % si cet allié est un utilisateur de la Force non aligné. Si tous les autres alliés sont des soldats clones du Coté Obscur au début de l'affrontement, le Seigneur Vador obtient 3 % de charge ultime chaque fois qu'un soldat clone du Coté Obscur allié disposant d'un affaiblissement subit des dégâts.\n\nLes alliés de l'Empire ou les utilisateurs de la Force non aligné du Coté Obscur alliés ont +35 % de chances de coup critique et de dégâts critiques losqu'ils ciblent un ennemi de la République Galactique. Lorsqu'un ennemi inflige un coup critique à un allié de l'Empire ou à un utilisateur de la Force non aligné du Coté Obscur allié, cet ennemi a -30 % de dégâts critiques (cumulatif) pendant 3 tours.\n\nLorsque les alliés de l'Empire ou les utilisateurs de la Force non aligné du Coté Obscur alliés sont à certains niveaux de santén ils obtiennent différents avantages.\n\n<u class='speciale'>- Plus de 35 % de santé :</u> lors d'une attaque ennemie, ils sont immunisés contre les effets de réduction e la santé maximale et autres dégâts basés sur la santé maximale.\n<u class='speciale'>- Plus de 50 % de santé :</u> ils sont immunisés contre les dégâts et l\n\n<u class='speciale'> Moins de 80 % de santé :</u> ils ne subissent pas de coups critiques.",
+
+                "unique-ability-title": "<u>Capacité Unique : Prophétie tortueuse</u>",
+                "unique-ability": "Le Seigneur Vador est immunisé contre la manipulation de jauge de tour et ses attaques ne peuvent pas être esquivées. Au début de ma bataille, il perd toute sa protection et obtient le même montant de santé maximale, et les utilisateurs de la force non alignés du Coté Obscur alliés obtiennent un bonus de vitesse et le camouflage pendant 2 tours. Au début de chaque tour du Seigneur Vadore, les ennemis subissent 2 effets de dégâts sur la durée pendant 2 tours (ne peut pas être résisté). Les ennemis qui ont des effets de dégâts sur la durée ne peuvent pas obtenir de bonus de jauge de tour.\n\nAu début du tour de chaque personnage, le Seigneur Vador obtient 1 cumul de <u class='speciale'>Sous-estimé</u> (max.:  60), doublé pour les ennemis Jedi et de la République Galactique.\n\n<u class='speciale'>Sous-estimé :</u>Tempête vindicative, Sombre présage et Émotion débridées confèrent des effets supplémentaires.",
+
+                "gl-ability-title": "<u>Capacité Unique : Légende Galactique</u>",
+                "gl-ability": "Cette unité subit des dégâts réduits des effets de pourcentage de santé et des effets de dégâts important, mais subit de lours dégâts des effets de destruction (exclut les boss de raid) et elle est immunisée contre les effets d'étourdissement.\n\nCette unité a +10 % de santé maximale et de protection maximale par niveau d'amplificateur de relique, et ses dégâts subis sont réduis de 30 %.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+    </footer>
+</body>
+
+</html>
