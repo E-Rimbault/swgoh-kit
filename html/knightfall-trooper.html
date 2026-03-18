@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Knightfall Trooper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/appo/appo-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/appo/appo-image.png" alt="CC-1119 Appo" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+            
+            <h1 id="title"><u>Summoned Unit : Knightfall Trooper</u></h1><br><br>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/soldat-clone.html" id="clone">Clone Trooper</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+            </nav>
+
+            <!-- Section pour les invocations -->
+            <h2 class="invocation" id="invocation-title"><u>Original Unit :</u> CC-1119 "Appo"</h2>
+            <div class="capacity-container">
+                <div class="left-column">
+                    <a href="../html/appo.html">
+                        <img class="attaque" alt="" style="height: 70%; width: 70%;" src="../image-perso/appo/appo-image.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Imperial March</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="appo basic" src="../image-perso/appo/appo-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and grant Defense Penetration Up to the strongest ally that does not have it for 2 turns. On his turn, call other Attacker allies with Defense Penetration Up to assist.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Defender of the Empire (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="appo spé 1" src="../image-perso/appo/appo-spécial-1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Call a random Dark Side Clone Trooper Support ally to assist and they Stealth for 1 turn, then deal Physical damage to target enemy. Appo and Knightfall Trooper gain Advantage for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Batallion Brothers</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="appo unique" src="../image-perso/appo/appo-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Whenever Knightfall Trooper uses an ability, he gains 20% Offense (stacking), doubled if he scores a critical hit.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Summoned</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="appo unique 2" src="../image-perso/appo/invocation.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                - This unit's stats scale with the summoner's stats.<br>
+                - This unit can only be summoned to the ally slot if it's available.<br>
+                - This unit can't be summoned in certain raids.<br>
+                - If an effect counts defeated units, this unit doesn't count.<br>
+                - When there are no other allied combatants, this unit escapes from battle.<br>
+                - A unit can't be revived if this summoned unit exists in their slot.<br>
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Soldat knightfall",
+                "title": "<u>Unité Invoqué : Soldat Knightfall</u>",
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "clone": "Soldat Clone",
+                "empire": "Empire",
+
+                "basic-attack-title": "<u>Attaque Basique: Marche impériale</u>",
+                "basic-attack": "inflige des dégâts physiques à la cible ennemie et confère un bonus de pénétration de défense à l'allié le plus fort qui n'en dispose pas déjà pendant 2 tours. Pendant le tour du Soldat Knightfall, tous les attaquants alliés diposant d'un bonus de pénétration de défense sont invoqués.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Protecteur de l'Empire (délai : 4)</u>",
+                "special-attack1": "Invoque un soldat clone soutien du Coté Obscur allié qui utilise camouflage pendant 1 tour, puis inflige des dégâts physiques à la cible ennemie. Appo et le Soldat Knightfall obtiennent Avantage pendant 1 tour.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Frères de bataillon</u>",
+                "unique-ability1": "Chaque fois que le Soldat Knightfall utilise une capacité, il obtient 20 % d'attaque (cumulatif), et ce montant est doublé jusqu'à la fin de l'affrontement s'il s'agit d'un coup critique.",
+
+                "unique-ability2-title": "<u>Capacité Unique : invoqué</u>",
+                "unique-ability2": "-Les statistiques de cette unité s'améliorent avec celles de l'invovateur.\n-Cette unité ne peut être invoqué dans l'emplacement d'allié que s'il est diposnible.\n-Cette unité ne peut pas être invoquée dans certain raids.\n-Cette unité ne peut pas être ranimée.\n-Si un effet compte les unités vaincues, cette unité ne compte pas.\n-Quand il n'y a pas d'autres combattants alliés, cette unité fuit la bataille.\n-Une unité ne peut pas être ranimée si cette unité invoqué existe dans son emplacement.", 
+
+                "invocation-title" : "<u>Unité invocatrice : CC-1119 \"Appo\"</u>"
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+    </footer>
+</body>
+
+</html>
