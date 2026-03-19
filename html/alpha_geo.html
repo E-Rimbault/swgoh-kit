@@ -1,146 +1,229 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Alpha Géonosien</title>
-
+    <title id="big-title">Geonosian Brood Alpha</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/alpha-geo/alpha-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/alpha-geo/alpha-image.png" alt="Geonosian Brood Alpha" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Alpha Géonosien</u></h1>
-        <p>
-            Personnage de soutien Géonosien qui submerge les ennemis en invoquant ses alliés et<br>
-            grâce à Conscience Collective
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: red;" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-            <a class="class" href="../classement-perso/soutien.html">Soutien</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/géonosien.html">Géonosien</a>
-            <a class="capacite" href="../classement-perso/séparatiste.html">Séparatiste</a>
-        </nav>
+            <h1 id="title"><u>Geonosian Brood Alpha</u></h1>
+            <p id="description">
+                Géonosian Support that swarms ennemis with summoned allies and Hive Mind
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/géonosien.html" id="geonosian">Geonosian</a>
+                <a class="capacite" href="../classement-perso/séparatiste.html" id="separatist">Separatist</a>
+            </nav>
+
+            <!-- Partie pour les invocations -->
+            <h2 class="invocation" id="invocation-title"><u>Invocation : </u>Geonosian Brute</h2>
+            <div class="capacity-container">
+                <div class="left-column">
+                    <a href="../html/geonosian-brute.html">
+                        <img class="attaque" alt="Geonosian Brute" style="height: 70%; width: 70%;" src="../image-perso/alpha-geo/brute-image.png">
+                    </a>
+                </div>
+            </div>
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/alpha-geo/Alpha-geonosien.png" alt="Alpha"><br>
+    <img class="first" src="../image-perso/alpha-geo/Alpha-geonosien.png" alt="Geonosian Brood Alpha"><br>
 
-    <h2 class="titre"><u>attaque basique : frappe de bouclier</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Shield Bash</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="alpha géo basic" src="../image-perso/alpha-geo/geo-alpha-basic.png">
+            <img class="attaque" alt="Geonosian Brood Alpha basic" src="../image-perso/alpha-geo/geo-alpha-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie et dissipe toutes ses améliorations en cas de coup critique.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and dispel all buffs on them on a critical hit.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Coup de glaive (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Glaive Sweep (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="alpha géo spé 1" src="../image-perso/alpha-geo/geo-alpha-spe1.png">
+            <img class="attaque" alt="Geonosian Brood Alpha spécial 1" src="../image-perso/alpha-geo/geo-alpha-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe toutes les améliorations en cours sur les cibles ennemis. Inflige des dégâts physiques à tous les ennemis<br>
-                et les expose pendant 2 tours. Ensute, diminue la jauge de tour des ennemis souffrant d'un affaiblissement de 15%.
+            <p class="attaque" id="special-attack1">
+                Dispel all buffs on all enemies. Deal Physical damage to all enemies and Expose them for 2 turns. Then, remove 15% Turn Meter from debuffed enemies.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Conscription (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Conscription (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="alpha géo spé 2" src="../image-perso/alpha-geo/geo-alpha-spe2.png">
+            <img class="attaque" alt="Geonosian Brood Alpha spécial 2" src="../image-perso/alpha-geo/geo-alpha-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe tous les affaiblissements affectant les alliés Géonosiens. Invoque une Brute Géonosienne au combat. Si une<br>
-                Brute Géonosienne est déjà présente, il obtient un bonus de dégâts critiques et un bonus d'attaque pendant 2 tours.<br>
-                Ensuite, la jauge de tour de tous les alliés Géonosiens se remplit de 15%, et ils récupèrent 35% de santé et de protection.
-            </p>
-        </div>
-    </div>  
-
-    <h2 class="invocation">Brute Géonosienne</h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="alpha géo invocation" src="../image-perso/alpha-geo/alpha-invocation.png">
-            <p>Coté Obscur, tank, Géonosien, Séparatiste<br></p>
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                <br>
-                <u class="speciale">[basique] Frappe provocatrice:</u> inflige des dégats physiques à une cible ennemie et utilise Raillerie pendant 1 tour.<br>
-                <br>
-                <u class="speciale">[spéciale] Tactique de horde:</u> Inflige des dégats physiques à une cible ennemie et<br>
-                invoque tous les alliés Géonosiens.<br>
-                <br>
-                <u class="speciale">[unique] Représailles imprudentes:</u> Brute Géonosienne gagne 100% d'attaque pour chaque allié Géonosien<br>
-                actif et 25% de chances de contre-attaque supplémentaires<br>
-                <br>
-                <u class="speciale">[unique] Invocation:</u> Les statistiques de cet unité s'améliorient avec celles de l'invocateur.<br>
-                Cette unité ne peut être invoquée dans l'emplacement d'allié que s'il est disponible. Cette unité ne peut pas être invoqué<br>
-                dans certains raids. Cette unité ne peut pas être ranimée. Si un effet compte les unités vaincues, cette unité ne compte pas.<br>
-                Quand il n'y a pas d'autre combattants alliés, cette unité fuit la bataille. Une unité ne peut pas être ranimé si cette<br>
-                unité invoquée existe dans son emplacement.
+            <p class="attaque" id="special-attack2">
+                Dispel all debuffs on all Geonosian allies. Summon a Geonosian Brute to battle if the ally slot is available, or if a Geonosian Brute is already present, he gains Critical Damage Up and Offense Up for 2 turns. Then, all Geonosian allies gain 15% Turn Meter and recover 35% Health and Protection.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Capacité de chef: Essaim Géonosien</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Geonosian Swarm</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="alpha géo lead" src="../image-perso/alpha-geo/geo-alpha-lead.png">
+            <img class="attaque" alt="Geonosian Brood Alpha lead" src="../image-perso/alpha-geo/geo-alpha-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Les alliés Géonosiens ont +15 000 de santé et de protection maximale, ainsi que que +50% de vol de santé. Les alliés<br>
-                Géonosiens récupèrent 3% de protection lorsqu'ils utilisent une capacité de base. Les capacités de base des alliés<br>
-                Géonosiens infligent 10% de dégâts supplémentaires pour chaque ennemi disposant d'améliorations.
+            <p class="attaque" id="lead-ability">
+                Geonosian allies have +15,000 Max Health and Max Protection, and +50% Health Steal. Geonosian allies recover 3% Protection when they use their Basic ability. Basic abilities of Geonosian allies deal 10% more damage for each buffed enemy.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Volonté de la reine</u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Queen's Will</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="alpha géo unique" src="../image-perso/alpha-geo/geo-alpha-unique.png">
+            <img class="attaque" alt="Geonosian Brood Alpha unique" src="../image-perso/alpha-geo/geo-alpha-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                L'Alpha Géonosien a +60% de ténacité. Tous les alliés géonosien disposent de l'amélioration Conscience Collective lorsque<br>
-                l'Alpha Géonosien est actif (ne peut pas être dissipé ou évité). Lorsqu'un autre allié Géonosien est vaincu, diminu le délai de<br>
-                Conscription de . Au début de l'affrontement, invoque une Brute Géonosienne qui utilise la Raillerie pendant 1 tour.<br>
-                <br>
-                <u class="speciale">Conscience Collective: </u> Le personnage est invoqué lorsqu'un allié Géonosien utilise une capacité<br>
-                pendant son tour, et il inflige 50% de dégâts en moins. Équilibre la santé et la protection de tous les alliés qui<br>
-                disposent de Conscience Collective lorsqu'un ennemi utilise une capacité.
+            <p class="attaque" id="unique-ability1">
+                Geonosian Brood Alpha has +60% Tenacity. All Geonosian allies have the Hive Mind buff while Geonosian Brood Alpha is active, which can't be dispelled or prevented. When another Geonosian ally is defeated, reduce the cooldown of Conscription by 1. At the start of the encounter, summon a Geonosian Brute who Taunts for 1 turn.
+                <br><br>
+                <u class="speciale">Hive Mind:</u> Assist whenever another Geonosian ally uses an ability during his turn, dealing 50% less damage; equalize Health and Protection with Hive Mind allies whenever an enemy uses an ability
             </p>
         </div>
     </div>
 
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Geonosian Brute</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Geonosian Brood Alpha unique brute" src="../image-perso/alpha-geo/alpha-invocation.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                <u style="color: red; text-decoration: none;">Dark Side</u>, Tank, Geonosian, Separatist
+                <br><br>
+                <u class="speciale">[Basic] Goading Strike:</u> Deal Physical damage to target enemy and Taunt for 1 turn.<br><br>
+                <u class="speciale">[Special] Swarm Tactics:</u> Deal Physical damage to target enemy and call all other Geonosian allies to assist.<br><br>
+                <u class="speciale">[Unique] Reckless Retaliation:</u> Geonosian Brute has +25% Offense for each active Geonosian ally and +100% counter chance.<br><br>
+                <u class="speciale">[Unique] Summoned:</u> This unit's stats scale with the summoner's stats. This unit can only be summoned to the ally slot if it's available. This unit can't be summoned in certain raids. This unit can't be revived. If an effect counts defeated units, this unit doesn't count. When there are no other allied combatants, this unit escapes from battle. A unit can't be revived if this summoned unit exists in their slot.
+            </p>
+        </div>
+    </div>
 
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Alpha Géonosien",
+                "title": "<u>Alpha Géonosien</u>",
+                "description": "Personnage de soutien Géonosien qui submerge les ennemis en invoquant ses alliés et grâce  Conscience collective.",
+
+                "darkside": "Coté Obscur",
+                "support": "Soutien",
+                "leader": "Chef",
+                "geonosian": "Géonosien",
+                "separatist": "Séparatiste",
+
+                "basic-attack-title": "<u>Attaque Basique: Frappe de bouclier</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et dissipe toutes ses améliorations en cas de coup critique.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Coup de glaive (délai : 3)</u>",
+                "special-attack1": "Dissipe toutes les améliorations en cours sur tous les ennemis. Inflige des dégâts physiques à tous les ennemis et les expose pendant 2 tours. Ensuite, dominue la jauge de tour des ennemis subissant un affaiblissement de 15 %",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Conscription (délai : 3)</u>",
+                "special-attack2": "Dissipe tous les affaiblissements affectant les alliés Géonosiens. Invoque une Brute Géonosienne au combat si l'emplacement d'allié est disponible. Si une Brute Géonosienne est déjà présente, il obtient un bonus de dégâts critiques et un bonus d'attaque pendant 2 tours. Ensuite, la jauge de tour de tous les alliés Géonosiens se remplit de 15 %, et ils récupèrent 35 % de santé et de protection.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Essaim Géonosien</u>",
+                "lead-ability": "Les alliés Géonosiens ont +15 000 de santé et de protection maximales, ainsi que +50 % de vol de santé. Les alliés Géonosiens récupèrent 3 % de protection lorsqu'ils utilisent leur capacité de base. Les capacités de base des alliés Géonosiens infligent 10 % de dégâts supplémentaires pour chaque ennemi disposant d'améliorations.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Volonté de la reine</u>",
+                "unique-ability1": "L'Alpha Géonosien a +60 % de ténacité. Tous les alliés Géonosiens disposent de l'amélioration Conscience collective lorsque l'Alpha Géonosien est actif (ne peut pas être dissipé ou empêché). Lorsqu'un autre allié Géonosien est vaincu, diminue le délai de Conscription de 1. Au début de l'affrontement, invoque une Brute Géonosienne qui utilise Raillerie pendant 1 tour.\n\n<u class='speaciale'>Conscience collective :</u> Le personnage est invoqué lorsqu'un allié Géonosien utilise une capacité pendant son tour, et il inflige 50 % de dégâts en moins. Équilibre la santé et la protection de tous les alliés qui disposent de Conscience collective lorsqu'un ennemi utilise une capacité.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Brute géonosienne</u>",
+                "unique-ability2": "<u style=\"color: red; text-decoration: none;\">Coté Obscur</u> Tank, Géonosien, Séparatiste\n\n<u class='speciale'>[Basique] Frappe provocatrice :</u> inflige des dégâts physiques à une cible ennemie et utilise Raillerie pendant 1 tour.\n\n<u class='speciale'>[Spécial] Tactiques de horde :</u> inflige des dégâts physiques à une cible ennemie et invoque tous les autres alliés Géonosiens.\n\n<u class='speciale'>[unique] Représailles imprudentes :</u> La Brute Géonosienne a +25 % d'attaque pour chaque allié Géonosien actif et +100 % de chaque de contre-attaque.\n\n<u class='speciale'>[unique] Invoqué :</u> les statistiques de cette unité s'améliorent avec celles de l'invocateur. Cette unité ne peut être invoquée dans l'emplacement d'allié que s'il est diponible. Cette unité ne peut pas être invoqué dans certains raids. Cette unité ne peut pas être ranimée. Si un effet ompte les unités vaincues, cette unité ne compte pas. Quand il n'y a pas d'autres combattants alliés, cette unité fuit la bataille. Une unité ne peut pas être ranimée si cette unité invoquée existe dans son emplacement.",
+
+                "invocation-title" : "<u>Invocation : Brute géonosienne</u> "
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
     </footer>
 </body>
-</html>    
+
+</html>
