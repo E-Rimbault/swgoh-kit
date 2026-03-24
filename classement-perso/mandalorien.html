@@ -10,125 +10,33 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
-    body {
-      background-color: #031952;
-      color: #ffffff;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    /* Conteneur du Tableau */
-    .table-container {
-      background-color: #ffffff;
-      border-radius: 12px;
-      padding: 15px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      overflow-x: auto;
-    }
-
-    .table {
-      margin-bottom: 0;
-      vertical-align: middle;
-      color: #212529;
-    }
-
-    /* Nom Unité (Noir sur Blanc) */
-    .unit-link {
-      color: #212529 !important;
-      font-weight: 700;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .unit-link:hover {
-      color: #0d6efd !important;
-    }
-
-    .unit-img-table {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-      border-radius: 4px;
-    }
-
-    /* Sidebar de Filtres */
-    .filter-sidebar {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 25px;
-      border-radius: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(5px);
-    }
-
-    .form-label {
-      font-weight: 600;
-      color: #0d6efd;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-    }
-
-    .form-control, .form-select {
-      background-color: #f8f9fa;
-      border: 2px solid transparent;
-      transition: 0.3s;
-    }
-
-    .form-control:focus, .form-select:focus {
-      border-color: #0d6efd;
-      box-shadow: none;
-    }
-
-    /* Liens et Badges */
-    .role { color: #198754; font-weight: 600; text-decoration: none; }
+    body { background-color: #031952; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    .table-container { background-color: #ffffff; border-radius: 12px; padding: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); overflow-x: auto; }
+    .table { margin-bottom: 0; vertical-align: middle; color: #212529; }
+    .unit-link { color: #212529 !important; font-weight: 700; text-decoration: underline; display: flex; align-items: center; gap: 12px; }
+    .unit-link:hover { color: #0d6efd !important; }
+    .unit-img-table { width: 85px !important; height: 85px !important; object-fit: contain; border-radius: 4px; flex-shrink: 0;}
+    
+    .filter-sidebar { background-color: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); }
+    .form-label { font-weight: 600; color: #0d6efd; text-transform: uppercase; font-size: 0.8rem; }
+    
+    /* Rôle : Vert + Souligné */
+    .role { color: #198754; font-weight: 600; text-decoration: underline; }
     .role:hover { text-decoration: underline; }
 
+    /* Alignements dynamiques */
     .alignment { font-weight: bold; text-decoration: none; }
-    .alignment.lightside { color: #0d6efd; }
-    .alignment.darkside { color: #dc3545; }
-    .alignment.neutral { color: #6c757d; }
+    .alignment.lightside { color: #0d6efd !important; }
+    .alignment.darkside { color: #dc3545 !important; }
+    .alignment.neutral { color: #6c757d !important; }
+
+    .badge-faction { background-color: #495057; color: #fff; padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; margin: 2px; display: inline-block; text-decoration: none; }
+    .flag-switcher { display: flex; justify-content: end; gap: 15px; padding: 15px; }
+    .flag-switcher img { width: 32px; cursor: pointer; border: 2px solid transparent; border-radius: 4px; transition: 0.2s; }
+    .btn-return-container { margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
     
-    .badge-faction {
-      background-color: #495057;
-      color: #fff;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 0.7rem;
-      margin: 2px;
-      display: inline-block;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-
-    .badge-faction:hover {
-      background-color: #0d6efd;
-      color: white;
-    }
-
-    .flag-switcher {
-      display: flex;
-      justify-content: end;
-      gap: 15px;
-      padding: 15px;
-    }
-
-    .flag-switcher img {
-      width: 32px;
-      cursor: pointer;
-      border: 2px solid transparent;
-      border-radius: 4px;
-      transition: 0.2s;
-    }
-
-    .btn-return-container {
-      margin-top: 30px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    #filter-title {
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
+    .btn-reset { width: 100%; background-color: #6c757d; border: none; font-weight: bold; margin-bottom: 15px; }
+    .badge-count { background-color: #0d6efd !important; }
   </style>
 </head>
 
@@ -145,15 +53,27 @@
         <div class="filter-sidebar">
           <h4 id="sidebar-title" class="mb-4">Options</h4>
           
-          <div class="mb-4">
+          <div class="mb-3">
             <label id="label-search" class="form-label">Recherche</label>
             <input type="text" id="searchInput" class="form-control" placeholder="..." onkeyup="renderUnits()">
           </div>
-
-          <div class="mb-4">
+          
+          <div class="mb-3">
             <label id="label-role" class="form-label">Rôle</label>
             <select id="roleFilter" class="form-select" onchange="renderUnits()"></select>
           </div>
+
+          <div class="mb-3">
+            <label id="label-align" class="form-label">Alignement</label>
+            <select id="alignFilter" class="form-select" onchange="renderUnits()"></select>
+          </div>
+          
+          <div class="mb-4 form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="leadCheck" onchange="renderUnits()">
+            <label class="form-check-label" for="leadCheck" id="label-lead">Chef uniquement</label>
+          </div>
+
+          <button id="btn-reset" class="btn btn-secondary btn-reset" onclick="resetFilters()">Réinitialiser</button>
 
           <div class="btn-return-container text-center">
             <p id="txt-return" class="mb-2" style="font-size: 0.85rem;">Retour</p>
@@ -165,13 +85,10 @@
       </div>
 
       <div class="col-lg-9 col-md-8">
-        <h2 id="filter-title" class="mb-4 d-flex align-items-center flex-wrap">Mandalorian Characters</h2>
-        
+        <h2 id="filter-title" class="mb-4 d-flex align-items-center flex-wrap"></h2>
         <div class="table-container">
           <table class="table table-hover">
-            <thead class="table-dark">
-              <tr id="table-head"></tr>
-            </thead>
+            <thead class="table-dark"><tr id="table-head"></tr></thead>
             <tbody id="characters-table-body"></tbody>
           </table>
         </div>
@@ -182,33 +99,24 @@
   <script>
     const translations = {
       en: {
-        "page-title": "Mandalorian",
-        "filter-title": "Characters with tag: Mandalorian",
-        "sidebar-title": "Filters",
-        "label-search": "Search Character",
-        "label-role": "Filter by Role",
-        "opt-all": "All Roles",
-        "txt-return": "Main Menu",
-        "table-head": ["Unit", "Role", "Alignment", "Factions"],
-        "count-suffix": "results"
+        "page-title": "Mandalorian", "filter-title": "Characters: Mandalorian",
+        "sidebar-title": "Filters", "label-search": "Search", 
+        "label-role": "Role", "label-align": "Alignment", "label-lead": "Leader only", "opt-all": "All",
+        "txt-return": "Main Menu", "table-head": ["Unit", "Role", "Alignment", "Factions"],
+        "count-suffix": "results", "btn-reset": "Reset Filters"
       },
       fr: {
-        "page-title": "Mandalorien",
-        "filter-title": "Personnages avec le tag : Mandalorien",
-        "sidebar-title": "Filtres",
-        "label-search": "Rechercher un personnage",
-        "label-role": "Filtrer par rôle",
-        "opt-all": "Tous les rôles",
-        "txt-return": "Menu Principal",
-        "table-head": ["Unité", "Rôle", "Alignement", "Factions"],
-        "count-suffix": "résultats"
+        "page-title": "Mandalorien", "filter-title": "Personnages : Mandalorien",
+        "sidebar-title": "Filtres", "label-search": "Recherche", 
+        "label-role": "Rôle", "label-align": "Alignement", "label-lead": "Chef uniquement", "opt-all": "Tous",
+        "txt-return": "Menu Principal", "table-head": ["Unité", "Rôle", "Alignement", "Factions"],
+        "count-suffix": "résultats", "btn-reset": "Réinitialiser les filtres"
       }
     };
 
     let currentLang = "fr";
     let allUnits = [], factionsMap = [], rolesMap = [], alignmentsMap = [];
 
-    // Chargement initial
     window.addEventListener("load", () => {
       Promise.all([
         fetch("../filtre-recherche/units.json").then(res => res.json()),
@@ -216,117 +124,107 @@
         fetch("../data/roles.json").then(res => res.json()),
         fetch("../data/alignements.json").then(res => res.json())
       ]).then(([units, factions, roles, alignments]) => {
-        allUnits = units;
-        factionsMap = factions;
-        rolesMap = roles;
-        alignmentsMap = alignments;
-        
+        allUnits = units; factionsMap = factions; rolesMap = roles; alignmentsMap = alignments;
         const savedLang = sessionStorage.getItem("selectedLanguage") || "fr";
         switchLanguage(savedLang);
-      }).catch(err => console.error("Erreur Data Load:", err));
+      });
     });
 
     function switchLanguage(lang) {
-      // Sauvegarde de l'index du filtre rôle avant changement
-      const roleSelect = document.getElementById("roleFilter");
-      const savedRoleIndex = roleSelect.selectedIndex;
-
+      const prevRole = document.getElementById("roleFilter").value;
+      const prevAlign = document.getElementById("alignFilter").value;
       currentLang = lang;
       sessionStorage.setItem("selectedLanguage", lang);
 
-      // Mise à jour des textes
-      document.getElementById("page-title").innerText = translations[lang]["page-title"];
-      document.getElementById("sidebar-title").innerText = translations[lang]["sidebar-title"];
-      document.getElementById("label-search").innerText = translations[lang]["label-search"];
-      document.getElementById("label-role").innerText = translations[lang]["label-role"];
-      document.getElementById("txt-return").innerText = translations[lang]["txt-return"];
+      for (let key in translations[lang]) {
+        const el = document.getElementById(key);
+        if (el) el.innerText = translations[lang][key];
+      }
+      document.getElementById("table-head").innerHTML = translations[lang]["table-head"].map(t => `<th>${t}</th>`).join('');
 
-      const headRow = document.getElementById("table-head");
-      headRow.innerHTML = translations[lang]["table-head"].map(t => `<th>${t}</th>`).join('');
-
-      // Gestion visuelle des drapeaux
       const flags = document.querySelectorAll(".flag-switcher img");
-      flags.forEach(f => f.style.border = "2px solid transparent");
-      if (lang === 'fr') flags[0].style.border = "2px solid #0d6efd";
-      else flags[1].style.border = "2px solid #0d6efd";
+      flags[0].style.border = (lang === 'fr') ? "2px solid #0d6efd" : "2px solid transparent";
+      flags[1].style.border = (lang === 'en') ? "2px solid #0d6efd" : "2px solid transparent";
 
-      // Reconstruction du filtre et restauration de la position
-      populateRoleFilter();
-      if (savedRoleIndex !== -1) roleSelect.selectedIndex = savedRoleIndex;
+      populateFilter("roleFilter", "role");
+      populateFilter("alignFilter", "alignment");
+      if (prevRole) document.getElementById("roleFilter").value = prevRole;
+      if (prevAlign) document.getElementById("alignFilter").value = prevAlign;
 
       renderUnits();
     }
 
-    function populateRoleFilter() {
-      const select = document.getElementById("roleFilter");
-      
-      const rawRoles = allUnits.map(u => u.role?.[currentLang] || u.role?.en).filter(Boolean);
-      const cleanRoles = [...new Set(rawRoles.map(r => 
-        r.trim().charAt(0).toUpperCase() + r.trim().slice(1).toLowerCase()
-      ))].sort((a, b) => a.localeCompare(b, currentLang));
-
+    function populateFilter(elementId, field) {
+      const select = document.getElementById(elementId);
+      const seen = new Set();
+      const uniqueValues = [];
+      allUnits.forEach(u => {
+        const valEn = u[field]?.en;
+        const valTrans = u[field]?.[currentLang] || valEn;
+        if (valEn && !seen.has(valEn)) {
+          seen.add(valEn);
+          uniqueValues.push({ en: valEn, label: valTrans });
+        }
+      });
+      uniqueValues.sort((a, b) => a.label.localeCompare(b.label, currentLang));
       select.innerHTML = `<option value="all">${translations[currentLang]["opt-all"]}</option>`;
-      cleanRoles.forEach(r => {
-        select.innerHTML += `<option value="${r.toLowerCase()}">${r}</option>`;
+      uniqueValues.forEach(v => {
+        select.innerHTML += `<option value="${v.en.toLowerCase()}">${v.label}</option>`;
       });
     }
 
+    function resetFilters() {
+      document.getElementById("searchInput").value = "";
+      document.getElementById("roleFilter").value = "all";
+      document.getElementById("alignFilter").value = "all";
+      document.getElementById("leadCheck").checked = false;
+      renderUnits();
+    }
+
+    function normalize(str) { return str ? str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim() : ''; }
+    function findMapping(mapArray, name) { return mapArray.find(m => normalize(m.en) === normalize(name) || normalize(m.fr) === normalize(name)); }
+    
     function getAlignmentClass(alignment) {
-      const val = alignment.toLowerCase();
+      const val = normalize(alignment);
       if (val.includes("light") || val.includes("lumineux")) return "lightside";
       if (val.includes("dark") || val.includes("obscur")) return "darkside";
       return "neutral";
     }
 
-    function normalize(str) {
-      return str ? str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim() : '';
-    }
-
-    function findMapping(mapArray, name) {
-      return mapArray.find(m => normalize(m.en) === normalize(name) || normalize(m.fr) === normalize(name));
-    }
-
     function renderUnits() {
       const tbody = document.getElementById("characters-table-body");
       const searchTerm = normalize(document.getElementById("searchInput").value);
-      
-      const roleSelect = document.getElementById("roleFilter");
-      const selectedRoleText = roleSelect.options[roleSelect.selectedIndex]?.text.toLowerCase();
-      const allRolesLabel = translations[currentLang]["opt-all"].toLowerCase();
-
+      const roleVal = document.getElementById("roleFilter").value;
+      const alignVal = document.getElementById("alignFilter").value;
+      const isLeadOnly = document.getElementById("leadCheck").checked;
       const factionTag = (currentLang === "fr") ? "mandalorien" : "mandalorian";
 
       tbody.innerHTML = "";
 
       let filtered = allUnits.filter(unit => {
-        // Tag Faction
         const unitFactions = unit.factions || [];
-        const isMando = unitFactions.some(f => normalize(f[currentLang] || f.en) === normalize(factionTag));
+        const isMando = unitFactions.some(f => normalize(f.en) === "mandalorian" || normalize(f.fr) === "mandalorien");
         
-        // Nom
         const name = normalize(unit.name?.[currentLang] || unit.name?.en || "");
-        
-        // Rôle (Comparaison par texte pour la synchro langue)
-        const unitRole = (unit.role?.[currentLang] || unit.role?.en || "").toLowerCase();
-        const matchesRole = (selectedRoleText === allRolesLabel || unitRole === selectedRoleText);
+        const matchesSearch = name.includes(searchTerm);
+        const matchesRole = (roleVal === "all" || normalize(unit.role?.en) === roleVal);
+        const matchesAlign = (alignVal === "all" || normalize(unit.alignment?.en) === alignVal);
+        const hasLeadTag = unitFactions.some(f => normalize(f.en) === "leader" || normalize(f.fr) === "chef");
+        const matchesLead = !isLeadOnly || hasLeadTag;
 
-        return isMando && name.includes(searchTerm) && matchesRole;
+        return isMando && matchesSearch && matchesRole && matchesAlign && matchesLead;
       });
 
-      // Tri
-      filtered.sort((a, b) => {
-        const nameA = (a.name?.[currentLang] || a.name?.en || "").toLowerCase();
-        const nameB = (b.name?.[currentLang] || b.name?.en || "").toLowerCase();
-        return nameA.localeCompare(nameB, currentLang);
-      });
+      filtered.sort((a, b) => (a.name?.[currentLang] || "").localeCompare(b.name?.[currentLang] || "", currentLang));
 
-      document.getElementById("filter-title").innerHTML = `${translations[currentLang]["filter-title"]} <span class="badge bg-primary ms-3">${filtered.length} ${translations[currentLang]["count-suffix"]}</span>`;
+      document.getElementById("filter-title").innerHTML = `${translations[currentLang]["filter-title"]} <span class="badge badge-count ms-3">${filtered.length} ${translations[currentLang]["count-suffix"]}</span>`;
 
       filtered.forEach(unit => {
         const name = unit.name?.[currentLang] || unit.name?.en || "";
         const roleText = unit.role?.[currentLang] || unit.role?.en || "";
         const alignText = unit.alignment?.[currentLang] || unit.alignment?.en || "";
-        
+        const alignClass = getAlignmentClass(alignText);
+
         const rMap = findMapping(rolesMap, roleText);
         const aMap = findMapping(alignmentsMap, alignText);
 
@@ -339,20 +237,12 @@
             </a>
           </td>
           <td>${rMap?.url ? `<a href="${rMap.url}" class="role">${roleText}</a>` : `<span class="role opacity-50">${roleText}</span>`}</td>
-          <td>${aMap?.url ? `<a href="${aMap.url}" class="alignment ${getAlignmentClass(alignText)}">${alignText}</a>` : `<span class="${getAlignmentClass(alignText)}">${alignText}</span>`}</td>
-          <td>
-            ${(unit.factions || []).map(f => {
-              const fName = f[currentLang] || f.en;
-              const fMap = findMapping(factionsMap, fName);
-              return `<a href="${fMap?.url || '#'}" class="badge-faction">${fName}</a>`;
-            }).join("")}
-          </td>
+          <td>${aMap?.url ? `<a href="${aMap.url}" class="alignment ${alignClass}">${alignText}</a>` : `<span class="alignment ${alignClass}">${alignText}</span>`}</td>
+          <td>${unit.factions.map(f => `<a href="${findMapping(factionsMap, f.en)?.url || '#'}" class="badge-faction">${f[currentLang] || f.en}</a>`).join("")}</td>
         `;
         tbody.appendChild(row);
       });
     }
   </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
