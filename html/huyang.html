@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Huyang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/huyang/huyang-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/huyang/huyang-image.png" alt="Huyang" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Huyang</u></h1>
+            <p id="description">
+                A Droid Attacker and strong ally to Ahsoka Tano with the ability to bring out the best in her and her squad
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue  !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/droïde.html" id="droïd">Droïd</a>
+                <a class="capacite" href="../classement-perso/spectre.html" id="spectre">Spectre</a>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/huyang/huyang.png" alt="Huyang"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Droid Pugilist</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Huyang basic" src="../image-perso/huyang/huyang_basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and Expose them for 1 turn. If it's Huyang's turn and the target had Stagger, Stun them for 1 turn as well.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Auxiliary Grapplers (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Huyang spécial 1" src="../image-perso/huyang/huyang-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and Spectre allies gain Speed Up for 1 turn. Deal an additional instance of damage for each other Light Side Droid ally or ally with Exile at the start of the battle. This ability gains 10% damage per active Spectre ally. Inflict a stack of Off Balance to target enemy for 1 turn for each ally that has removed Exile this battle, which can't be copied or evaded.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Stay Together (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Huyang spécial 2" src="../image-perso/huyang/huyang-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Call all Light Side allies to assist, then, if there are two or more Light Side Droid or Spectre allies, the strongest ally and weakest ally gain Advantage, Damage Immunity, and Offense Up for 1 turn and Tenacity Up for 3 turns. Otherwise, Light Side Droid and Spectre allies recover 100% Health and Protection. If either the strongest or weakest other ally has Exile, they gain 75 Speed for 1 turn instead.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Battles:</u> Dispel all ally debuffs and enemy buffs. All Light Side allies recover 50% Health and Protection. Spectre allies recover an additional 50% Health and Protection. Reduce all ally Light Side Droids' and Spectre's cooldowns by 1. Light Side Droids and Spectre allies gain 25% Defense Penetration (stacking) for the rest of the battle and 20% Turn Meter
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Lightsaber Architect</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Huyang unique" src="../image-perso/huyang/huyang-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                At the start of battle Jedi allies gain 21% Max Protection, Light Side Droid allies gain 34% Critical Damage, and Spectre allies gain 55% Offense until the end of battle. If the ally in the Leader slot is Spectre and a Galactic Legend at the start of battle: ally Jedi, any Ahsoka Tano, and Padawan Sabine Wren gain Jedi Lessons for 3 turns at the start of their first turn. If they had Jedi Lessons whenever Huyang gains any version of History of the Galaxy, the duration is reset to 3 turns.
+                <br><br>
+                If a Light Side ally evades an attack or resists a debuff, ally Light Side Droids gain 5% Critical Damage and 5% Offense (stacking, max 100%) until the end of battle.
+                <br><br>
+                The first time that an ally Spectre loses Exile, Huyang gains <u class="speciale">History of the Galaxy, Part One</u> for the rest of the battle. Whenever Huyang gains any version of History of the Galaxy, ally Spectres gain 50% bonus Protection for 2 turns. Whenever he gains Part Three, reset the cooldown of Stay Together.
+                <br><br>
+                While Huyang <u class="speciale">has History of the Galaxy, Part One:</u> ally Jedi, any Ahsoka Tano, and Padawan Sabine Wren gain Force Connection (max 10 stacks) whenever they use a Basic ability until the first time Huyang is defeated; whenever a second ally Spectre loses Exile for the first time, this ability upgrades to <u class="speciale">History of the Galaxy, Part Two</u>
+                <br><br>
+                While Huyang has <u class="speciale">History of the Galaxy, Part Two:</u> Remove the max stack limit whenever ally Jedi, any Ahsoka Tano, and Padawan Sabine Wren gain Force Connection; if there were 5 Spectre allies at the start of battle and there are no allies with Exile, this ability upgrades to <u class="speciale">History of the Galaxy, Part Three</u>
+                <br><br>
+                While Huyang has <u class="speciale">History of the Galaxy, Part Three:</u> ally Jedi, any Ahsoka Tano, and Padawan Sabine Wren gain Force Connection whenever they use an ability until the first time Huyang is defeated
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Huyang",
+                "title": "<u>huyang</u>",
+                "description": "Un attaquant droïde et un allié puissant d'Ahsoka Tano avec la capacité de faire ressortir le meilleur d'elle et de son escouade.",
+
+                "basic-attack-title": "<u>Attaque Basique: Droïde pugiliste</u>",
+                "basic-attack": "inflige des dégâts physiques à une cible ennemie et l'expose pendant 1 tour. Si c'est le tour de Huyang et que la cible souffrait de Faux pas, elle subit également Étourissement pendant 1 tour.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Grappins auxiliaires (délai : 3)</u>",
+                "special-attack1": "inflige des dégâts physiques à une cible ennemie et les alliés Spectre obtiennent un bonus de vitesse pendant 1 tour. Inflige une instance supplémentaires de dégâts pour chaque autre allié Droïde du Coté Lumineux ou allié avec Exil au début de la bataille. Cette capacité inflige 10 % de dégâts supplémentaires par allié Spectre actif. Inflige un cumul de Déséquilibre à la cible ennemie pendant 1 tour pour chaque allié ayant supprimé Exil durant cette bataille (ne peut pas être copié ou esquivé).",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Rester ensemble (délai : 4)</u>",
+                "special-attack2": "Invoue tous les alliés du Coté Lumineux, puis s'il y a deux alliés ou plus étant droïdes du Coté Lumineux ou Spectre, l'allié le plus fort et l'allié le plus faible obtiennent Avantage, Immunité aux dégâts et un bonus d'attaque pendant 1 tour ainsi qu'un bonus de ténacité pendant 3 tours. Sinon, les alliés droïdes du Coté Lumineux ou Spectre récupèrent 100 % de santé et de protection. Si l'allié le plus fort ou le plus faible a Exil, il gagne 75 de vitesse pendant 1 tour à la place.\n\n<u class='omicron'>Amélioration Omicron : Dans les Batailles de territoire :</u> Dissipe tous les affaiblissements des alliés et améliorations des ennemis. Tous les alliés du Coté Lumineux récupèrent 50 % de santé et de protection. Les alliés Spectre récupèrent 50 % supplémentaires en santé et en protection. Réduit tous les délais des droïdes du Coté Lumineux et Spectre d'un tour. LEs alliés droïdes du Coté Lumineux et Spectre obtiennent 25 % de pénétratio de défense (cumulatif) pour le reste de la bataille ainsi que +20 % de jauge de tour.",
+
+                "unique-ability-title": "<u>Capacité Unique : Architecte de sabres laser</u>",
+                "unique-ability": "Au début de la bataille, les alliés Jedi obtiennent 21 % de protection maximale, les alliés droïdes du Coté Lumineux obtiennent 34 % de dégâts critiques et les alliés Spectre obtiennent 55 % d'attaque jusqu'à la fin de la bataille. Si l'allié dans l'emplacement de chef est un Spectre et une Légende Galactique au début de la bataille : les alliés Jedi, n'importe quelle version d'Ahsoka Tano et Padawan Sabine Wren obtiennent Leçons Jedi pendant 3 tours au début de leur premier tour. S'ils avaient Leçons de Jedi lorsque Huayng obtient une version quelconque d'Histoire de la Galaxie, la durée est réinitialisée à 3 tours.\n\nSi un alliés du COté Lumineux esquive une attaque ou résiste à un affaiblissement, les alliés droïdes du Coté Lumineux obtiennent 5 % de dégâts critiques et 5 % d'attaque (cumulatif jusqu'à 100 %) jusqu'à la fin de la bataille.\n\nLa première fois qu'un allié Spectre perd Exil, Huyang obtient <u class='speciale'>Histoire la Galaxie, Partie Une</u> pour le reste de la bataille. Chaque fois que Huyang obtient une version quelconque d'Histoire de la Galaxie, les Alliés Spectre obtiennent 50 % de bonus de protection pendant 2 tours. Chaque fois qu'il obtient Partie Trois, le délai de Rester ensemble est réinitialisé.\n\nTant que Huyang a <u class='speciale'>Histoire la Galaxie, Partie Une :</u> les alliés Jedi, n'importe quelle version d'Ahsoka Tano et Padawan Sabine Wren gagnent Connexion avec la Force (max. 10 cumuls) chaque fois qu'ils utilisent une capacité de base jusqu'à ce que Huyang soit vaincu pour la première fois ; chaque fois qu'un deuxième allié perd Exil pour la première fois, cette capacité s'améliore en <u class='speciale'>Histoire la Galaxie, Partie Deux</u>.\n\nTant que Huyang a <u class='speciale'>Histoire la Galaxie, Partie Deux :</u> la limite maximum des cumuls est supprimé chaque fois que les alliés Jedi, n'importe quelle version d' Ahsoka Tano et la Padawan Sabine Wren gagnent Connexion avec la Force ; s'il y avait 5 alliés SPectre au début de la bataille, et qu'il n'y a plus d'alliés avec Exil, cette capacité s'améliore en <u class='speciale'>Histoire la Galaxie, PArtie Trois</u>.\n\nTant que Huyang a <u class='speciale'>Histoire la Galaxie, Partie Trois :</u> les alliés Jedi, n'importe quelle version d'Ahsoka Tano et Padawan Sabine Wren gagnent Connexion avec la Force chaque fois q'uils utilisent une capacité jusqu'à ce que Hiyang soit vaincu pour la première fois",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "droïd": "Droïde",
+                "spectre": "Spectre",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+    </footer>
+</body>
+
+</html>
