@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Veteran Smuggler Han Solo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/veteran-han/veteran-han-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/veteran-han/veteran-han-image.png" alt="Veteran Smuggler Han Solo" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Veteran Smuggler Han Solo</u></h1>
+            <p id="description">
+                Scoundrel Attacker with multi-attack and multiple devastating debuffs
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue  !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/mercenaire.html" id="mercenary">Mercenary</a>
+                <a class="capacite" href="../classement-perso/résistance.html" id="resistance">Resistance</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="capacite" href="../classement-perso/contrebandier.html" id="smuggler">Smuggler</a>
+            </nav>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/veteran-han/veteran-han.png" alt="Veteran Smuggler Han Solo"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Trueshot</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Veteran Smuggler Han Solo basic" src="../image-perso/veteran-han/veteran-han-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with 50% chance to attack again. The chance is doubled if the target is debuffed. Han inflicts Stagger for 2 turns when he attacks again.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Can I Try That? (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Veteran Smuggler Han Solo spécial" src="../image-perso/veteran-han/veteran-han-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies. Stun the primary target for 1 turn and inflict Ability Block on all enemies for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Resistance Rapport</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Veteran Smuggler Han Solo unique" src="../image-perso/veteran-han/veteran-han-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Han has +25% Critical Chance and +50% Health Steal. When Veteran Smuggler Chewbacca or a Resistance ally in the leader slot takes damage, Han gains 20% Critical Damage (stacking) until he scores a Critical Hit. When Veteran Smuggler Chewbacca or a Resistance ally in the leader slot is defeated, Han gains 100% Turn Meter, his cooldowns are reset, and he takes an additional turn after his next turn (max 1 bonus turn).
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Swindle</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Veteran Smuggler Han Solo unique 2" src="../image-perso/veteran-han/veteran-han-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                When an enemy gains a buff, Han gains 25% Counter Chance (stacking) until the end of his next turn. When Han gains a debuff, he gains 50% Defense (stacking) until the end of his next turn. When Han gains any status effect, he gains 50 Armor Penetration (stacking) until the end of his next turn.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Contrebandier vétéran Han Solo",
+                "title": "<u>Contrebandier vétéran Han Solo</u>",
+                "description": "Ce combattant est un véritable vaurien avec ses attaques multiples et ces affaiblissemnts dévastateurs.",
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "mercenary": "Mercenaire",
+                "resistance": "Résistance",
+                "scoundrel": "Vaurien",
+                "smuggler": "Contrebandier",
+
+                "basic-attack-title": "<u>Attaque Basique: Tir ultime</u>",
+                "basic-attack": "Inflige des dégâts physiques  une cible ennemie avec 50 % de chances d'attaquer à nouveau. Ces chances sont doublées si la cible subit un affaiblissement. Han inflige Faus pas pendant 2 tours lorsqu'il attaque à nouveau.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Je peux essayer ? (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis. Étourdit la cible principale pendant 1 tour et entrave les capacités de tous les ennemis pendant 1 tour.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Rapport de la Résistance</u>",
+                "unique-ability1": "HAn a un bonus de chances de coup critique de +25 % et +50 % de vol de santé. Lorsque le Contrebandier vétéran Chewbacca ou un allié de la Résistance dans l'emplacement de chef subit des dégâts, Han obtient un bonus de dégâts critiques de 20 % (cumulatif) jusqu'à ce qu'il inflige un coup critique. Lorsque le Contrebandier vétéran Chewbacca ou un allié de la Résistance dans l'emplacement de chef est vaincu, la jauge de tour de Han se remplit de 100 %, tous ses délais sont réinitialisés et il obtient un tour supplémentaire après son prochain tour (1 tour bonus max.).",
+
+                "unique-ability2-title": "<u>Capacité Unique : Escroquerie</u>",
+                "unique-ability2": "Lorsqu'un ennemi obtient une amélioration, Han gagne +25 % de chances de contre-attaque (cumulatif) jusqu'à la fin de son prochain tour. Quand Han obtient un affaiblissement, il gagne un bonus de défense de 50 % (cumulatif) jusqu'à la fin de son prochain tour. Lorsque Han obtient un effet, il gagne 50 de pénétrations d'armure (cumulatif) jusqu'à la fin de son prochain tour.",
+
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+    </footer>
+</body>
+
+</html>

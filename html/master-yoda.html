@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Grand Master Yoda</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/gmy/gmy-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/gmy/gmy-image.png" alt="Grand Master Yoda" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Grand Master Yoda</u></h1>
+            <p id="description">
+                Masterful Jedi support that can replicate enemy buffs and share them with allies
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html" id="galactic-republic">Galactic Republic</a>
+                <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/gmy/gmy.png" alt="Grand Master Yoda"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Ataru</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Grand Master Yoda basic" src="../image-perso/gmy/gmy-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy and inflict Potency Down for 1 Turn. If that enemy has 50% or more Health, Yoda gains 40% Turn Meter and Foresight for 2 turns. If that enemy has less than 50% Health, Yoda gains Offense Up and Defense Penetration Up for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Masterstroke (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Grand Master Yoda special 1" src="../image-perso/gmy/gmy-special1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to all enemies. Then, for each buff an enemy has, Grand Master Yoda gains that effect for 3 turns. (<u class="speciale">Unique</u> status effects can't be copied.) Grand Master Yoda takes a bonus turn as long as there is one other living Jedi ally.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Unstoppable Force (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Grand Master Yoda special 2" src="../image-perso/gmy/gmy-special2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Special damage to target enemy and remove 70% Turn Meter. If that enemy had less than 100% Health, they are also Stunned for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack3-title"><u>Special Attack : Battle Meditation (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Grand Master Yoda special 3" src="../image-perso/gmy/gmy-special3.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack3">
+                Yoda gains Tenacity Up, Protection Up (30%), and Foresight for 2 turns, then grants each ally every non-unique buff he has (excluding Stealth and Taunt) for 2 turns. Yoda grants himself +35% Turn Meter and an additional +10% Turn Meter for each other living Jedi ally.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Grand Master's Guidance</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Grand Master Yoda lead" src="../image-perso/gmy/gmy-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                edi allies have +30% Tenacity. Whenever a Jedi ally Resists a debuff, they gain the following: 30% Turn Meter, Critical Chance Up for 2 turns, and Critical Damage Up for 2 turns. Whenever they suffer a debuff, they gain Tenacity Up for 1 turn at the end of that turn. Grand Master Yoda is immune to Shock.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Grand Maître Yoda",
+                "title": "<u>Grand Maître Yoda</u>",
+                "description": "Maître Jedi de soutien qui peut reproduire les améliorations ennemies et les partager avec ses alliés.",
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "leader": "Chef",
+                "galactic-republic": "République Galactique",
+                "jedi": "Jedi",
+
+                "basic-attack-title": "<u>Attaque Basique: Ataru</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à un ennemi et un malus de pouvoir pour 1 tour. Si l'ennemi a 50 % de santé ou plus, Yoda gagne un un bonus de jauge de tour de 40 % et prévoyance pendant 2 tours. Si l'ennemi a moins de 50 % de santé, Yoda gagne un bonus d'attaque et de prénétration de défense pour 2 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Coup de maître (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à tous les ennemis. Ensuite, pour chaque améliorations dont dispose un ennemi, Le Grand Maître Yoda gagne le même effet pendant 3 tours. (les effets <u class='speciale'>Uniques</u> ne peuvent pas être copiés.) Le Grand Maître Yoda gagne un tour bonus tant qu'il y a un autre allié Jedi en vie.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Force inexorable (délai : 4)</u>",
+                "special-attack2": "Inflige des dégâts spéciaux à une cible ennemie et réduit sa jauge de tour de 70 %. Si cet ennemie diposait de moins de 100 % de santé, il est également étourdi pendant 1 tour.",
+
+                "special-attack3-title": "<u>Attaque Spéciale : Méditation de combat (délai : 4)</u>",
+                "special-attack3": "Yoda gagne un bonus de ténacité, une hausse de protection (30 %) et Prévoyance pendant 2 tours, puis il confère à chaque allié toutes les améliorations qui ne sont pas uniques dont il dispose (sauf le camouflage etRraillerie) pendant 2 tours. Yoda augmente également sa jauge de tour de 35 % et de 10 % supplémentaires pour chaque allié Jedi en vie.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Les conseils du Grand Maître</u>",
+                "lead-ability": "Les alliés Jedi gagnent +30 % de ténacité. A chaquefois qu'un allié Jedi résiste à un affaiblissement, sa jauge de tour se remplit de 30 % et il obtient un bonus de chances de coup critique pendant 2 tours et un bonus de dégâts critiques pendant 2 tours. A chaque fois qu'il subit un affailbissement, il obtient un bonus de ténacité pendant 1 tour à la fin du tour. Le Grand Maître Yoda est immunisé contre le choc.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+    </footer>
+</body>
+
+</html>
