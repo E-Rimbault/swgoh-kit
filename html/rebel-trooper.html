@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Rebel Trooper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/mon-mothma/mon-mothma-invocation-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/mon-mothma/mon-mothma-invocation-image.png" alt="Rebel Trooper" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Summoned Unit : Rebel Trooper</u></h1>
+            <br><br><br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue  !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="capacite" href="../classement-perso/combattant-rebelle.html" id="rebel-fighter">Rebel Fighter</a>
+            </nav>
+
+            <!-- Partie pour les invocations -->
+            <h2 class="invocation" id="invocation-title"><u>Original Unit :</u> Mon Mothma</h2>
+            <div class="capacity-container">
+                <div class="left-column">
+                    <a href="../html/mon-mothma.html">
+                        <img class="attaque" alt="Mon Mothma" style="height: 70%; width: 70%;" src="../image-perso/mon-mothma/mon-mothma-image.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Rebel Bravado</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Rebel Trooper basic" src="../image-perso/mon-mothma/invocation-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Dispel all buffs on target enemy and deal Physical damage to them.
+                <br><br>
+                If this unit has been promoted to Officer or Commander, inflict Daze for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Rebel Morale (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Rebel Trooper speciale" src="../image-perso/mon-mothma/invocation-special.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Rebel allies gain Defense Penetration Up for 2 turns.
+                <br><br>
+                If this unit has been promoted to Commander, <u style="color: orange; text-decoration: none;">Rally</u> all Rebel Fighter allies.
+                <br><br>
+                This ability can only be used once this unit has been promoted to Officer or Commander.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Rebellion Tactics</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Rebel Trooper unique" src="../image-perso/mon-mothma/invocation-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Mon Mothma and Rebel Fighter allies have +15% Critical Damage and +30% Tenacity.
+                <br><br>
+                If this unit has been promoted to Commander, these bonuses are tripled.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Summoned</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Rebel Trooper invocation" src="../image-perso/mon-mothma/invocation.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                 This unit's stats scale with the summoner's stats.<br>
+                - This unit can only be summoned to the ally slot if it's available.<br>
+                - This unit can't be summoned in certain raids.<br>
+                - If an effect counts defeated units, this unit doesn't count.<br>
+                - When there are no other allied combatants, this unit escapes from battle.<br>
+                - A unit can't be revived if this summoned unit exists in their slot.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Soldat Rebelle",
+                "title": "<u>Soldat Rebelle</u>",
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "rebel": "Rebelle",
+                "rebel-fighter": "Combattant Rebelle",
+                
+                "basic-attack-title": "<u>Attaque Basique: Bravade rebelle</u>",
+                "basic-attack": "dissipe toutes les améliorations en cours sur la cible ennemie et lui inflige des dégâts physiques.\nSi cette unité a été promue au rang d'officier ou de commandant, inflige Confusion pendant 1 tour.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Moral des rebelles  (délai : 4)</u>",
+                "special-attack1": "les alliés rebelles bénéficient d'un bonus de pénétration de défense pendant 2 tours.\nSi cette unité a été promue au rang de commandant, utilise <u style='color: orange'; text-decoration :'none'>Ralliement</u> sur tous les combattant rebelles alliés. Cette capacité ne peut être utilisé que si le soldat rebelle a été promue au rang d'officier ou de commandant.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Tactiques reblles</u>",
+                "unique-ability1": "mon Mothma et les combattants rebelles alliés gagnent +15 % de dégâts critiques et +30 % de ténacité.\nSi cette unité a été promue au rang de commandant, ces bonus sont triplés.",
+
+                "unique-ability2-title": "Invocation",
+                "unique-ability2": "- les statistiques de cette unité s'ajustent aux statistiques de l'invocateur.\n- Cette unité peut uniquement être invoquée à l'emplacement d'allié si celui-ci est disponible.\n- Cette unité ne peut pas être invoquée dans certains raids.\n- Cette unité ne peut pas être ranimée. Si un effet compte les unités vaincues, cette unité ne compte pas.\n- Lorsqu'il n'y a plus d'autres combattants alliés, cette unité fuit la bataille.\n- Une unité ne peut pas être ranimée si cette unité invoquée se trouve dans son emplacement.",
+
+                "invocation-title" : "<u>Invocateur : Mon Mothma</u> "
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+    </footer>
+</body>
+
+</html>

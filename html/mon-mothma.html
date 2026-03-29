@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Mon Mothma</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/mon-mothma/mon-mothma-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/mon-mothma/mon-mothma-image.png" alt="Mon Mothma" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Mon Mothma</u></h1>
+            <p id="description">Rebel Leader who supports and rallies her allies</p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+            </nav>
+
+            <!-- Partie pour les invocations -->
+            <h2 class="invocation" id="invocation-title"><u>Invocation :</u> Rebel Trooper</h2>
+            <div class="capacity-container">
+                <div class="left-column">
+                    <a href="../html/rebel-trooper.html">
+                        <img class="attaque" alt="Rebel Trooper" style="height: 70%; width: 70%;" src="../image-perso/mon-mothma/mon-mothma-invocation-image.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/mon-mothma/mon-mothma.png" alt="Mon Mothma"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Advocate For Peace</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Mon Mothma basic" src="../image-perso/mon-mothma/invocation-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Dispel all debuffs on the weakest Rebel ally. Rebel allies recover 6% Health and Protection.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Restore Our Republic (cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Mon Mothma special 1" src="../image-perso/mon-mothma/mon-mothma-special1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Revive a random Rebel Fighter ally with 40% Health and Protection. All Rebel allies have their current Health percentages equalized. Then, <u style="color: orange; text-decoration: none;">Rally</u> Mon Mothma and all Rebel Fighter allies.
+                <br><br>
+                <u style="color: orange; text-decoration: none;">Rallied characters act based on their role:</u><br>
+                - <strong style="text-decoration: none; color: #B5E7F5;">Tanks</strong> Taunt and gain Critical Hit Immunity for 2 turns<br>
+                - <strong style="text-decoration: none; color: #B5E7F5;">Attackers</strong> assist<br>
+                - <strong style="text-decoration: none; color: #B5E7F5;">Healers and Supports</strong> restore 15% Health and Protection to all allies
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Field Promotion (cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Mon Mothma special 2" src="../image-perso/mon-mothma/mon-mothma-special2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Summon a Rebel Trooper. If Luthen Rael is an ally, summon a Rebel Commander instead. If a Rebel Trooper is already present, they are promoted to a Rebel Officer.
+                <br><br>
+                If they were already a Rebel Officer, they are promoted to a Rebel Commander.
+                <br><br>
+                If they were already a Rebel Commander, dispel all debuffs on them, they recover 25% Health and Protection, and reduce the cooldowns of Mon Mothma and all Rebel Fighter allies by 1.
+                <br><br>
+                This ability can only be used if all allies are Rebel at the start of battle.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Alliance Chancellor</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Mon Mothma lead" src="../image-perso/mon-mothma/mon-mothma-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                At the start of battle, if Mon Mothma is in the Leader slot, she and all Rebel Fighter allies gain 8% of their combined base Max Health, Max Protection, Offense, Defense, Potency, and Tenacity.
+                <br><br>
+                Mon Mothma and Rebel Fighter allies have a 100% chance to assist each other whenever they use an ability during their turn, dealing 90% less damage (limit once per turn per ally). If that ability dealt no damage, the damage penalty is reduced to 45% less damage and that ally dispels all debuffs on the healthiest Rebel ally.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : This Is Our Rebellion</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Mon Mothma unique" src="../image-perso/mon-mothma/invocation-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Mon Mothma has +50 Speed. Mon Mothma can't be targeted and is immune to taunt effects.
+                <br><br>
+                If there are no other allied combatants at the start of a turn, Mon Mothma escapes from battle.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Rebel Trooper</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Mon Mothma unique invocation" src="../image-perso/mon-mothma/mon-mothma-invocation-image.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                <u style="color: #AFFFFFFF; text-decoration: none;">Light Side</u>, Attacker, Rebel, Rebel Fighter
+                <br><br>
+                <u class="speciale">[Basic] Rebel Bravado:</u> Dispel all buffs on target enemy and deal Physical damage to them.<br>
+                If this unit has been promoted to Officer or Commander, inflict Daze for 1 turn.
+                <br><br>
+                <u class="speciale">[Special] Rebel Morale:</u> Rebel allies gain Defense Penetration Up for 2 turns.<br>
+                If this unit has been promoted to Commander, <u style="color: orange; text-decoration: none;">Rally</u> all Rebel Fighter allies.<br>
+                This ability can only be used if Rebel Trooper has been promoted to Officer or Commander.<br>
+                <br><br>
+                <u class="speciale">[Unique] Rebellion Tactics:</u> Mon Mothma and Rebel Fighter allies have +15% Critical Damage and +30% Tenacity.<br>
+                If this unit has been promoted to Commander, these bonuses are tripled.
+                <br><br>
+                <u class="speciale">[Unique] Summoned:</u> This unit's stats scale with the summoner's stats. This unit can only be summoned to the ally slot if it's available. This unit can't be summoned in certain raids. This unit can't be revived. If an effect counts defeated units, this unit doesn't count. When there are no other allied combatants, this unit escapes from battle. A unit can't be revived if this summoned unit exists in their slot.
+            </p>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Mon Mothma",
+                "title": "<u>Mon Mothma</u>",
+                "description": "Chef rebelle qui soutient et rallie ses alliés",
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "leader": "Chef",
+                "rebel": "Rebelle",
+
+                "basic-attack-title": "<u>Attaque Basique: Au service de la paix</u>",
+                "basic-attack": "Dissipe tous les affaiblissements affectant l'allié rebelle le plus faible. Les alliés rebelles récupèrent 6 % de santé et de protection.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Restauratrice de la République (délai : 5)</u>",
+                "special-attack1": "Réanime un Combattant rebelle allié aléatoire avec 40 % de santé et de protection. Équilibre le pourcentage de remplissage de la jauge de PV entre tous les alliés reblles. Puis <u style='color: orange' text-decoration :'none'>rallie</u> Mon Mothma et tous les combattants rebelles alliés</u>.\n\n<u style='color: orange' text-decoration :'none'>Les personnages ralliés agissent en fonction de leur rôle :</u>\n- Les <strong style='text-decoration: none; color: #B5E7F5;'>tanks</strong> utilisent Raillerie et bénéficient de l'immunité aux coups critiques pendant 2 tours.\n- Les <strong style='text-decoration: none; color: #B5E7F5;'>attaquants</strong> apportent leur aide.\n- Les <strong style='text-decoration: none; color: #B5E7F5;'>Soigneurs et soutiens</strong> restaurent 15 % de santé et de protection à tous les alliés.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Promotion de terrain (délai : 5)</u>",
+                "special-attack2": "Invoque un soldat rebelle. Si Luthen Rael est un allié, invoque plutôt un commandant rebelle. Si un soldat rebelle est déjà présent, il est promu au rang d'officier rebelle.\n\nS'il est déjà officier rebelle, il est promu au rang de commandant rebelle.\n\nS'il est déjà commandant rebelle, dissipe tous les affaiblissements l'affectant, régénère 25 % de santé et de protection et diminue les délais de Mon Mothma et de tous les combattants rebelles alliés de 1.\n\nCette capacité ne peut être utilisée que si tous les alliés étaient rebelles au début de la bataille.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Chancelière de l'Alliance</u>",
+                "lead-ability": "Au début de la bataille, si Mon Mothma est dans l'emplacement de chef, tous les combattants rebeles alliés et elle-même récupèrent 8 % de leur santé maximale, protection maximale, attaque, défense, pouvoir et ténacité de base combinés.\n\nMon Mothma et les combattants rebelles alliés ont 100 % de chances de s'invoquer mutuellment à chaque fois qu'il utilisent une capacité pendant leur tour, infligeant 90 % de dégâts en moins (limité à une fois par tour et par allié). Si la capacité n'inflige pas de dégâts, la pénalité de dégâts est réduite à 45 % de dégâts en moins et l'allié dissipe tous les affaiblissements affectant l'allié qui possède la santé la plus élevée.",
+
+                "unique-ability1-title": "<u>Capacité Unique : La rébellion nous appartient</u>",
+                "unique-ability1": "Mon Mothma gagne un bonus de vitesse de +50. Elle ne peut pas être prise pour cible et est immunisée contre les effets de Raillerie.\n\nS'il n'y a pas d'autres combattant allié au début d'un tour, Mon Mothma fuit la bataille.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Soldat Rebelle</u>",
+                "unique-ability2": "<u style='color: #AFFFFFFF; text-decoration: none;'>Côté Lumineux</u>, attaquant, rebelle, Combattant rebelle.\n\n<u class='speciale'>[Basique] Bravade rebelle :</u> dissipe toutes les améliorations en cours sur la cible ennemie et lui inflige des dégâts physiques.\nSi cette unité a été promue au rang d'officier ou de commandant, inflige Confusion pendant 1 tour.\n\n<u class='speciale'>[Spéciale] Moral des rebelles :</u> les alliés rebelles bénéficient d'un bonus de pénétration de défense pendant 2 tours.\nSi cette unité a été promue au rang de commandant, utilise <u style='color: orange; text-decoration : none'>Ralliement</u> sur tous les combattant rebelles alliés. Cette capacité ne peut être utilisé que si le soldat rebelle a été promue au rang d'officier ou de commandant.\n\n<u class='speciale'>[unique] Tactiques reblles :</u> mon Mothma et les combattants rebelles alliés gagnent +15 % de dégâts critiques et +30 % de ténacité.\nSi cette unité a été promue au rang de commandant, ces bonus sont triplés.\n\n<u class='speciale'>[unique] Invocation :</u> les statistiques de cette unité s'ajustent aux statistiques de l'invocateur. Cette unité peut uniquement être invoquée à l'emplacement d'allié si celui-ci est disponible. Cette unité ne peut pas être invoquée dans certains raids. Cette unité ne peut pas être ranimée. Si un effet compte les unités vaincues, cette unité ne compte pas. Lorsqu'il n'y a plus d'autres combattants alliés, cette unité fuit la bataille. Une unité ne peut pas être ranimée si cette unité invoquée se trouve dans son emplacement.",
+
+                "invocation-title" : "<u>Invocation : Soldat Rebelle</u> "
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+    </footer>
+</body>
+
+</html>
