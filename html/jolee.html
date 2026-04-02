@@ -1,116 +1,189 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Jolee Bindo</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Jolee Bindo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/jolee/jolee-bindo.png">
-
-    <!-- Lien vers la feuille de style -->
-    <link rel="stylesheet" href="../style/styles.css">
-    ²<link rel="stylesheet" href="../style/capacite.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/jolee/jolee-bindo.png" alt="Jolee Bindo" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>Jolee Bindo</u></h1>
-        <p>
-            Soigneur Jedi très résistant et imperturbable
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: blue;" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/soigneur.html">Soigneur</a>
-            <a class="capacite" href="../classement-perso/jedi.html">Jedi</a>
-            <a class="capacite" href="../classement-perso/ancienne-république.html">Ancienne République</a>
-        </nav>
+            <h1 id="title"><u>Jolee Bindo</u></h1>
+            <p id="description">Potent Jedi Healer with high durability and resistance to disruption</p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue  !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soigneur.html" id="healer">Healer</a>
+                <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
+                <a class="capacite" href="../classement-perso/ancienne-république.html" id="old-republic">Old Republic</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
     <img class="first" src="../image-perso/jolee/jolee.png" alt="Jolee Bindo"><br>
 
-    <h2 class="titre"><u>attaque basique : Aucune alternative</u></h2>
+    <!-- Capacités -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: No Other Options</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Jolee Basic" src="../image-perso/jolee/jolee-basic.png">
+            <img class="attaque" alt="Jolee Bindo basic" src="../image-perso/jolee/jolee-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie et récupère 30% de santé. Si cette attaque<br>
-                parvient à Infliger des dégâts, diminue les délais des autres capacités de Jolee de 1.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and recover 30% Health. If this attack deals any damage, reduce the cooldowns of Jolee's other abilities by 1.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>1ere spéciale: Eh, c'est à toi (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Eh, You Do It (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Jolee spé 1" src="../image-perso/jolee/jolee-spe1.png">
+            <img class="attaque" alt="Jolee Bindo spécial 1" src="../image-perso/jolee/jolee-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Invoque un autre allié aléatoire et le soigne à hauteur de 30% de la santé maximale de Jolee,<br>
-                puis soigne tous les autres alliés Jedi à hauteur de la moitié de cette valeur.
+            <p class="attaque" id="special-attack1">
+                Another target ally Assists. Heal that ally for 30% of Jolee's Max Health, then all other Jedi allies recover half that amount.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>2eme spéciale: Ça doit faire mal (délai: 5 )</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : That Looks Pretty Bad (cooldown: 5)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Jolee spé 2" src="../image-perso/jolee/jolee-bindo-spe2.png">
+            <img class="attaque" alt="Jolee Bindo spécial 2" src="../image-perso/jolee/jolee-bindo-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe tous les affaiblissements de la cible allié qui récupère 40% de santé.<br>
-                Ranime avec 80% de santé tous les alliés Jedi vaincus et confère à ces alliés<br>
-                l'immunité aux coups critiques pendant 5 tours.
+            <p class="attaque" id="special-attack2">
+                Dispel all debuffs on target ally and they recover 40% Health. Then, Revive all defeated Jedi allies at 80% Health and grant those allies Crit Immunity for 5 turns.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>capacité unique: Cessez de m'interrompre !</u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Don't Interrupt Me!</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Jolee unique 1" src="../image-perso/jolee/jolie-unique.png">
+            <img class="attaque" alt="Jolee Bindo unique 1" src="../image-perso/jolee/jolie-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Jolee gagne +100% de ténacité et lui confère l'immunité contre les effets de réduction de jauge de tour.<br>
-                Au début de la bataille, Jolee obtient également un bonus d'esquive des critiques à hauteur de la moitié de sa ténacité.
+            <p class="attaque" id="unique-ability1">
+                Jolee has +100% Tenacity and is immune to Turn Meter reduction effects. In addition, at the start of the battle, he gains bonus Critical Avoidance equal to half of his Tenacity.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>capacité unique: Expérience et sagesse</u></h2>
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Experience and Wisdom</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Jolee unique 2" src="../image-perso/jolee/jolee-unique2.png">
+            <img class="attaque" alt="Jolee Bindo unique 2" src="../image-perso/jolee/jolee-unique2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                La santé maximale de Jolee augmente de 30%. Lorsqu'il utilise une capacité qui cible un allié,<br>
-                il lui confère une hausse de protection à hauteur de 30% de sa santé maximale pendant 2 tours.
+            <p class="attaque" id="unique-ability2">
+                Jolee has +30% Max Health. Whenever he uses an ability that targets an ally, he grants that ally Protection Up for 2 turns equal to 30% of his Max Health.
             </p>
         </div>
     </div>
 
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Jolee Bindo",
+                "title": "<u>Jolee Bindo</u>",
+                "description": "Soigneur Jedi très résistant et imperturbable",
+                "lightside": "Coté Lumineux",
+                "healer": "Soigneur",
+                "jedi": "Jedi",
+                "old-republic": "Ancienne République",
+
+                "basic-attack-title": "<u>Attaque Basique: Aucune alternative</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et récupère 30 % de santé. Si cette attaque parveint à infliger des dégâts, diminue les délais des autres capacités de Jolee de 1.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Eh, c'est à toi (délai : 3)</u>",
+                "special-attack1": "Invoque un autre allié et le soigne à hauteur de 30 % de la santé maximale de Jolee, puis soigne tous les autres alliés Jedi à hauteur de la moitié de cette valeur.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Ça doit faire mal (délai : 5)</u>",
+                "special-attack2": "Dissipe tous les affaiblissement de la cible allié qui récupère 40 % de santé. Réanime avec 80 % de santé tous les alliés Jedi vaincus et confère à ces alliés l'Immunité aux coups critiques pendant 5 tours.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Cessez de m'interrompre ! </u>",
+                "unique-ability1": "Jolee gagne +100 % de ténacité et lui confère  l'immunité contre les effets de réduction de jauge de tour. Au début de la bataille, Jolee obtient également un bonus d'esquive des critiques à hauteur de la moitié de sa ténacité.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Expérience et sagesse</u>",
+                "unique-ability2": "La santé maximale de Jolee augmente de 30 %. Lorsqu'il utilise une capacité qui cible un allié, il lui confère une hausse de protection de 30 % de sa santé maximale.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
     </footer>
 </body>
-</html>  
+
+</html>
