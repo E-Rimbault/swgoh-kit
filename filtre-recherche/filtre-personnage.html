@@ -138,7 +138,7 @@
     <div id="filter-title">CHARACTER FILTER</div>
 
     <div class="lang-toggle">
-      <img src="https://flagcdn.com/us.svg" alt="English" id="lang-en" class="active">
+      <img src="https://flagcdn.com/us.svg" alt="English" id="lang-en">
       <img src="https://flagcdn.com/fr.svg" alt="Français" id="lang-fr">
     </div>
 
@@ -198,7 +198,7 @@
       "fleet commander": 3, "commandant de la flotte": 3
     };
 
-    // 📦 Chargement
+    // 📦 Chargement JSON
     fetch("units.json")
       .then(res => res.json())
       .then(data => {
@@ -210,9 +210,17 @@
       });
 
     function initPage() {
+      syncLangUI(); // Synchronise visuellement les drapeaux au chargement
       updateStaticText();
       generateFactionFilters();
       applyFilters();
+    }
+
+    // Gère l'apparence active des drapeaux
+    function syncLangUI() {
+      document.querySelectorAll(".lang-toggle img").forEach(i => i.classList.remove("active"));
+      const activeFlag = document.getElementById("lang-" + currentLang);
+      if (activeFlag) activeFlag.classList.add("active");
     }
 
     function updateStaticText() {
@@ -350,13 +358,18 @@
     }
 
     // --- Events ---
-    document.getElementById("lang-en").onclick = () => { currentLang = "en"; updateLangUI("en"); };
-    document.getElementById("lang-fr").onclick = () => { currentLang = "fr"; updateLangUI("fr"); };
+    document.getElementById("lang-en").onclick = () => { 
+        currentLang = "en"; 
+        updateLangUI("en"); 
+    };
+    document.getElementById("lang-fr").onclick = () => { 
+        currentLang = "fr"; 
+        updateLangUI("fr"); 
+    };
 
     function updateLangUI(l) {
         sessionStorage.setItem("selectedLanguage", l);
-        document.querySelectorAll(".lang-toggle img").forEach(i => i.classList.remove("active"));
-        document.getElementById("lang-" + l).classList.add("active");
+        syncLangUI();
         initPage();
     }
 
@@ -389,4 +402,4 @@
 
   </script>
 </body>
-</html>RÉSULTATS DE L'HOLOCRON
+</html>
