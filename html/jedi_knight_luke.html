@@ -1,168 +1,232 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Chevalier Jedi Luke Skywalker</title>
-
+    <title id="big-title">Jedi Knight Luke Skywalker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/jkl/jkl-image.png">
-    <link rel="stylesheet" href="../style/styles.css">
-    <link rel="stylesheet" href="../style/capacite.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/jkl/jkl-image.png" alt="Jedi Knight Luke Skywalker" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Chevalier Jedi Luke Skywalker</u></h1>
-        <p>
-            Un légendaire et courageux héros Jedi, qui brave toutes les épreuves<br>
-            aux cotés de ses alliés par la volonté de la Force.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/jedi.html">Jedi</a>
-        </nav>
+            <h1 id="title"><u>Jedi Knight Luke Skywalker</u></h1>
+            <p id="description">
+                Stalwart Jedi hero of legend who ascends to victorious heights alongside his Jedi allies through the will of the Force
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/jkl/Jkl.png" alt="jkl"><br>
+    <img class="first" src="../image-perso/jkl/Jkl.png" alt="Jedi Knight Luke Skywalker"><br>
 
-    <h2 class="titre"><u>attaque basique : Frappe prédominante</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Prevailing Strike</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="jkl basique" src="../image-perso/jkl/jkl-basique.png">
+            <img class="attaque" alt="Jedi Knight Luke Skywalker basic" src="../image-perso/jkl/jkl-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe toutes les améliorations et inglige des dégâts physiques à une cible ennemie.<br>
-                Si la cible est un tank, lui inflige également des dégâts réels (eclut les boss de raid<br>
-                et les Légendes Galactiques). Diminue ensuite ses dégâts critiques et 10% (cumulatif).<br>
-                Le Chevalier Jedi Luke Skywalker obtient 10% de protection maximale (cumulatif, 100%<br>
-                maximum) jusqu'à la fin de l'affrontement. cette attaque ne peut pas être contrée.
+            <p class="attaque" id="basic-attack">
+                Dispel all buffs and deal Physical damage to target enemy. If they are a Tank, also deal true damage to them (excludes raid bosses and Galactic Legends). Then reduce their critical damage by 10% (stacking). Jedi Knight Luke Skywalker gains 10% Max Protection (stacking, max 100%) until the end of the encounter. This attack can't be countered.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Avancée vaillante (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Stalwart Advance (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="jkl spé 1" src="../image-perso/jkl/jkl-spe1.png">
+            <img class="attaque" alt="Jedi Knight Luke Skywalker special 1" src="../image-perso/jkl/jkl-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à la cible ennemie et invoque un allié ciblé.<br>
-                <br>
-                Le Chevalier Jedi Luke Skywalker obtient <u class="speciale">Volonté de Jedi</u> pendant 2 tours<br>
-                (ne peut pas être copié, disisipé, ou évité). Si l'allié ciblé est un autre Jedi<br>
-                qui n'appartient pas à l'ancienne République, ce dernier obtient également <u class="speciale">Volonté de Jedi</u><br>
-                pendant 2 tours.<br>
-                <br>
-                <u class="speciale">Volonté de Jedi:</u> +100% de chances de coups contre-attaque, +50% d'attaque, +25% de ténacité.
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and call another target ally to assist. Inflict Blind on target enemy for 2 turns.
+                <br><br>
+                Jedi Knight Luke Skywalker gains <u class="speciale">Jedi's Will</u> for 2 turns, which can't be copied, dispelled, or prevented. If target other ally is a Jedi, who is not Old Republic, they also gain Jedi's Will for 2 turns.
+                <br><br>
+                <u class="speciale">Jedi's Will:</u> +100% Counter Chance, +50% Offense, +25% Speed, +25% Tenacity
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Répulsion (délai: 5)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Repulse (cooldown: 5)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="jkl spé 2" src="../image-perso/jkl/jkl-spe2.png">
+            <img class="attaque" alt="Jedi Knight Luke Skywalker special 2" src="../image-perso/jkl/jkl-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige l'étourdissement pendant 1 tour et la vulnérabilité pendant 2 tours à tous les ennemis.<br>
-                Jusqu'à la fin de l'affrontement, tous les ennemis perdent 10% de santé et de protection <br>
-                maximale (cumulatif, 50% maximum).<br>
-                <br>
-                Répulsion sur les boss de raid et les Légendes Galactiques:<br>
-                inflige des dégâts physiques trois fois à la cible ennemie ainsi que la vulnérabilité pendant 2 tours.<br>
-                <br>
-                cette capacité ne peut pas être esquivée ou résistée.
+            <p class="attaque" id="special-attack2">
+                Inflict Stun for 1 turn and Vulnerable for 2 turns on all enemies. Until end of encounter, all enemies lose 10% Max Health and Protection (stacking, max 50%).
+                <br><br>
+                Repulse on raid bosses and Galactic Legends: Deal Physical damage to target enemy three times and inflict Vulnerable for 2 turns.
+                <br><br>
+                This ability can't be evaded or resisted.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Capacité de chef: Le retour du Jedi</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Return of the Jedi</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="jkl lead" src="../image-perso/jkl/jkl-lead.png">
+            <img class="attaque" alt="Jedi Knight Luke Skywalker lead" src="../image-perso/jkl/jkl-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                tous les alliés du Coté Lumineux ont +15% de chances de coup critique et de dégats<br>
-                critiques (doublé pour les alliés Jedi)<br>
-                <br>
-                Au début de chaque tour du Chevalier Jedi Luke Skywalker, la vitesse de tous les <br>
-                ennemis est réduite à la vitesse de base de Luke jusqu'à la fin de l'affrontement,<br>
-                et leur vitesse de base ne peut pas être augmenté une fois fixé ainsi (la valeur de<br>
-                base de Luke correspond à sa vitesse au début de l'affrontement, avant l'utilisation<br>
-                d'améliorations ou d'affaiblissements). cette limitation de vitesse n'affecte pas les<br>
-                boss de raid et ne s'active pas si Luke dispose de moins de 40 d'endurance dans une<br>
-                bataille de conquète, ou si le camp ennemie dispose d'une capacité de limitation<br>
-                de vitesse ou d'une Légende Galactique.<br>
-                <br>
-                Au début de l'affrontement, tous les alliés Jedi (à l'exception des Jedi de l'ancienne<br>
-                République) obtiennent la capacité <u class="speciale">Avénement des Héros</u><br>.
-                <br>
+            <p class="attaque" id="lead-ability">
+                All Light Side allies have +15% Critical Chance and Critical Damage, doubled for Jedi allies.
+                <br><br>
+                At the start of each of Jedi Knight Luke Skywalker's turns, all enemies are reduced to his base Speed until the end of the encounter, and their base Speed can't be increased after their Speed is limited this way (his base value is recorded at the start of the encounter before any buffs or debuffs are applied). This Speed limitation does not affect raid bosses, and it does not activate if Luke has less than 40 Stamina in a Conquest battle or the enemy side has a Speed limiting ability or a Galactic Legend.
+                <br><br>
+                At the start of encounter, all Jedi allies (excluding Old Republic Jedi) gain the granted ability <u class="speciale">Heroes Arise</u>.
+                <br><br>
+                <u class="speciale">Heroes Arise:</u> Dispel all debuffs on all allies, then call all Jedi allies to assist, dealing 20% less damage. All Jedi allies (excluding Old Republic Jedi) recover 25% Health and Protection and gain Jedi's Will for 2 turns. Then Jedi Knight Luke Skywalker is granted 100% Turn Meter.
+                <br><br>
+                This ability is on a shared cooldown between allies who have <u class="speciale">Heroes Arise</u> and is immune to cooldown manipulation (Cooldown: 10).
             </p>
         </div>
     </div>
 
-
-    <h2 class="invocation">Avénement des Héros</h2>
+    <h2 class="invocation" id="invocation-title">Granted Ability : Heroes Arise (cooldown : 10)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="jkl accordée" src="../image-perso/jkl/jkl-accorde.png">
+            <img class="attaque" src="../image-perso/jkl/jkl-accorde.png" alt="Jedi Knight Luke Skywalker granted">
         </div>
         <div class="right-column">
-            <p class="attaque">  
-                Dissipe tous les affaiblissements des alliés, puis invoque<br>
-                tous les alliés Jedi, qui infligent 20% de dégats en moins. Tous les alliés Jedi<br>
-                (à l'exception des Jedi de l'Ancienne République) récupèrent 25% de santé et de<br>
-                protection et obtiennent Volonté de Jedi pendant 2 tours. Ensuite, la jauge de tour<br>
-                du Chevalier Jedi Luke Skywalker se remplit de 100%.<br>
-                <br>
-                Cette capacité partage son délais entre tous les alliés qui disposent d'<u class="speciale">Avénement des Héros</u>,<br>
-                et son délai ne peut pas être manipulé (délai : 10).
+            <p class="attaque" id="invocation">
+                Dispel all debuffs on all allies then call all Jedi allies to assist, dealing 20% less damage. All Jedi allies (excluding Old Republic Jedi) recover 25% Health and Protection and gain Jedi's Will for 2 turns. Then Jedi Knight Luke Skywalker gains 100% Turn Meter.
+                <br><br>
+                This ability is on a shared cooldown between allies who have Heroes Arise and is immune to cooldown manipulation.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: détermination du Chevalier Jedi</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Jedi Knight's Resolve</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="jkl unique" src="../image-perso/jkl/jkl-unique.png">
+            <img class="attaque" alt="Jedi Knight Luke Skywalker unique" src="../image-perso/jkl/jkl-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Chaque fois que le Chevalier Jedi Luke Skywalker subit des dégats, sa jauge de tour se remplit de 5%<br>
-                et il obtient 5% d'attaque (cumulatif, 25% maximum) jusqu'à ce qu'il utilise Frappe prédominante<br>
-                pendant son tour.<br>
-                <br>
-                Lorsqu'il attaque en dehors de son tour ou qu'il subit un coup critique, il obtient 2 de vitesse<br>
-                (cumulatif, 20 maximum) jusqu'à la fin de l'affrontement.<br>
-                <br>
-                A la fin du tour des autres alliés Jedi (à l'exception des Jedi de l'Ancienne République), la jauge<br>
-                de tour du Chevalier Jedi Luke Skywalker se remplit de 10%.<br>
-                <br>
-                le Chevalier Jedi Luke Skywalker est immunisé contre l'Etourdissement et la Peur.
+            <p class="attaque" id="unique-ability">
+                Each time Jedi Knight Luke Skywalker is damaged, he gains 5% Turn Meter and 5% Offense (stacking, max 25%) until he uses Prevailing Strike on his turn.
+                <br><br>
+                When he attacks out of turn or is critically hit, he gains 2 Speed (stacking, max 20) until end of encounter.
+                <br><br>
+                At the end of each other Jedi ally's turn (excluding Old Republic Jedi), Jedi Knight Luke Skywalker gains 10% Turn Meter.
+                <br><br>
+                Jedi Knight Luke Skywalker is immune to Stun and Fear.
             </p>
         </div>
     </div>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Chevalier Jedi Luke Skywalker",
+                "title": "<u>Chevalier Jedi Luke Skywalker</u>",
+                "description": "Un légendaire et courageux héros Jedi, qui brave toutes les épreuves aux côtés de ses alliés par la volonté de la Force.",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "jedi": "Jedi",
+
+                "basic-attack-title": "<u>Attaque Basique: Frappe prédominante</u>",
+                "basic-attack": "Dissipe toutes les améliorations et inflige des dégâts physiques à une cible ennemie. Si la cible est un tank, lui inflige également des dégâts réels (exclut les boss de raid et les Légendes Galactiques). Diminue ensuite ses dégâts critiques de 10 % (cumulatif). Le Chevalier Jedi Luke Skywalker obtient 10 % de protection maximale (cumulatif, 100 % maximum) jusqu'à la fin de l'affrontement. Cette attaque ne peut pas être contrée.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Avancée vaillante (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à la cible ennemie et invoque un allié ciblé. Inflige la cécité à une cible ennemie pendant 2 tours.\n\nLe Chevalier Jedi Lule Skywalker obtient <u class='speciale'>Volonté de Jedi</u> pendant 2 tours (ne peut pas être dissipé, copié ou évité). Si l'allié ciblé est un Jedi qui n'appartient pas à l'Ancienne République, ce dernier obtient également <u class='speciale'>Volonté de Jedi</u> pendant 2 tours.\n\n<u class='speciale'>Volonté de Jedi :</u> +100 % de chances de contre-attaque, +50 % d'attaque, +25 % de vitesse, +25 % de ténacité.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Répulsion (délai : 5)</u>",
+                "special-attack2": "Inflige l'étourdissement pendant 1 tour et la vulnérabilité pendant 2 tours à tous les ennemis. Jusqu'à la fin de l'affrontement, tous les ennemis perdent 10 % de santé et de protection maximale (cumulatif, 50 % maximum).\n\nRépulsion sur les boss de raid et les Légendes Galactiques : inflige des dégâts physiques trois fois à la cible ennemie, ainsi que vulnérabilité pendant 2 tours.\n\nCette attaque ne peut pas être esquivée ou résistée.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Le retour du Jedi</u>",
+                "lead-ability": "Tous les alliés du Coté Lumineux ont +15 % de chances de coup critique et de dégâts critiques (doublés pour les alliés Jedi).\n\nAu début de chaque tour du Chevalier Jedi Luke Skywalker, la vitesse de tous les ennemis est réduite à la vitesse de base de Luke jusqu'à la fin de l'affrontement, et leur vitesse de base ne peut pas être augmentée une fois fixé ainsi (la valeur de base de Luke correspond à sa vitesse au début de l'affrontement, avant utilisation d'améliorations ou d'affaiblissements). Cette limitation n'affecte pas les boss de raid et ne s'active pas si Luke dispose de moins de 40 % d'endurance dans une bataille de Conquête, ou si le camp ennemi dispose d'une capacité de limitation de vitesse ou d'une Légende Galactique.\n\nAu début de l'affrontement, tous les alliés Jedi (à l'exception de Jedi de l'Ancienne République) obtiennent la capacité <u class='speciale'>Avènement des héros</u>.\n\n<u class='speciale'>Avènement des héros :</u> Dissipe tous les affaiblissement des alliés, puis invoque tous les alliés Jedi, qui infligent 20 % de dégâts en moins. Tous les alliés Jedi (à l'exception des Jedi de l'Ancienne République) récupèrent 25 % de santé et de protection et obtiennent Volonté de Jedi pendant 2 tours. Ensuite, la jauge de tour du Chevalier Jedi Luke Skywalker se remplit de 100 %.\n\nCette capacité partage son délai entre les alliés quu disposent d'<u class='speciale'>Avènement des héros</u>, et son délai ne peut pas être manipulé (délai : 10).",
+
+                "invocation-title": "Capacité accordée : Avènement des héros (délai : 10)</u>",
+                "invocation": "Dissipe tous les affaiblissement des alliés, puis invoque tous les alliés Jedi, qui infligent 20 % de dégâts en moins. Tous les alliés Jedi (à l'exception des Jedi de l'Ancienne République) récupèrent 25 % de santé et de protection et obtiennent Volonté de Jedi pendant 2 tours. Ensuite, la jauge de tour du Chevalier Jedi Luke Skywalker se remplit de 100 %.\n\nCette capacité partage son délai entre les alliés quu disposent d'Avènement des héros, et son délai ne peut pas être manipulé.",
+
+                "unique-ability-title": "<u>Capacité Unique : Détermination du Chevalier Jedi</u>",
+                "unique-ability": "Chaque fois que le Chevalier Jedi Luke Skywalker subit des dégâts, sa jauge de tour se remplit de 5 % et il obtient 5 % d'attaque (cumulatif, 25 % maximum) jusqu'a ce qu'il utilise Frappe prédominante pendant son tour.\n\nLorsqu'il attaque en dehors de son tour ou qu'il subit un coup critique, il obtient 2 de vitesse (cumulatif, 20 maximum) jusqu'à la fin de l'affrontement.\n\nA la fin du tour des autres alliés Jedi ( l'exception des Jedi de l'Ancienne République, la jauge de tour du Chevalier Jedi Luke Skywalker se remplit de 10 %.\n\nLe Chevalier Jedi Luke Skywalker est immunisé contre l'étourdissement et la peur.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
     </footer>
 </body>
+
 </html>

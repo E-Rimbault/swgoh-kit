@@ -1,168 +1,245 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Ki-Adi-Mundi</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Ki-Adi-Mundi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/kam/ki-adi-image.png">
-
-    <!-- Lien vers la feuille de style -->
-    <link rel="stylesheet" href="../style/capacite.css">
-    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/kam/ki-adi-image.png" alt="Ki-Adi-Mundi" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>Ki-Adi-Mundi</u></h1>
-        <p>
-            Redoutable Maitre Jedi qui utilise les formes de sabre laser Ataru et Makashi
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" href="../classement-perso/coté-lumineux.html" style="color: blue;">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/jedi.html">Jedi</a>
-            <a class="capacite" href="../classement-perso/république-galactique.html">République Galactique</a>
-        </nav>
+            <h1 id="title"><u>Ki-Adi-Mundi</u></h1>
+            <p id="description">
+                Formidable Jedi Master who shifts between Ataru and Makashi lightsaber forms
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html" id="galactic-republic">Galactic Republic</a>
+                <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
     <img class="first" src="../image-perso/kam/ki-adi.png" alt="Ki-Adi-Mundi"><br>
 
-    <h2 class="titre"><u>attaque basique : Frappe versatile</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Versatile Strike</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="kam basique" src="../image-perso/kam/kam-spe1.png">
+            <img class="attaque" alt="Ki-Adi-Mundi basic" src="../image-perso/kam/kam-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie.<br>
-                <br>
-                Si Ki-Adi-Mundi utilise la <u class="speciale">Forme Ataru</u>, il attaque à nouveau.<br>
-                <br>
-                S'il utilise la <u class="speciale">Forme Makashi</u>, sa jauge de tour se<br>
-                remplit de 15% et il récupère 10% de protection.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy.
+                <br><br>
+                If Ki-Adi-Mundi is using <u class="speciale">Ataru Form</u>, attack again.
+                <br><br>
+                If he's using <u class="speciale">Makashi Form</u>, gain 15% Turn Meter and recover 10% Protection.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Forme adaptive (délai: 2)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Adaptive Form (cooldown: 2)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="kam spé 1" src="../image-perso/kam/kam-spe1.png">
+            <img class="attaque" alt="Ki-Adi-Mundi special 1" src="../image-perso/kam/kam-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Change de forme,  dissipe tous les affaiblissements et remplit sa jauge de tour de 100%.<br>
-                <br>
-                <u class="speciale">Forme Ataru:</u> +100% d'attaque, +30% de pénétration de défense et +20 de vitesse.<br>
-                <br>
-                <u class="speciale">Forme Makashi:</u> +100% de chances de contre-attaque, +60% de ténacité et obtient l'immunité aux coups critiques.
+            <p class="attaque" id="special-attack1">
+                Switch forms, dispel all debuffs, and gain 100% Turn Meter.
+                <br><br>
+                <u class="speciale">Ataru Form:</u> +100% Offense, +30% Defense Penetration, and +20 Speed
+                <br><br>
+                <u class="speciale">Makashi Form:</u> +100% counter chance, +60% Tenacity, and Critical Hit Immunity
+                <br><br>
+                This ability is immune to cooldown manipulation.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Estoc décisif (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Decisive Thrust (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="kam spé 2" src="../image-perso/kam/kam-spe2.png">
+            <img class="attaque" alt="Ki-Adi-Mundi special 2" src="../image-perso/kam/kam-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie. Cette attaque inflige +100%<br>
-                de dégâts pour chaque allié Jedi de la République Galactique.<br>
-                <br>
-                Si ki-adi-mundi utilise la <u class="speciale">Forme Ataru</u> et que cette capacité<br>
-                élimine un ennemi, tous ses délais sont réinitialisés.<br>
-                <br>
-                S'il utilise la <u class="speciale">Forme Makashi</u>, dissipe tous les affaiblissements<br>
-                sur les alliés Jedi de la République Galactique et remplit leur jauge de tour de 25%.
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to target enemy. This attack deals +100% damage for each Galactic Republic Jedi ally.
+                <br><br>
+                If Ki-Adi-Mundi is using <U class="speciale">Ataru Form</U> and this ability defeats an enemy, reset all of his cooldowns.
+                <br><br>
+                If he's using <u class="speciale">Makashi Form</u>, dispel all debuffs on Galactic Republic Jedi allies and they gain 25% Turn Meter.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Conseil Jedi </u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Jedi Council</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="kam unique" src="../image-perso/kam/tex-abilityui-passive-jedi.png">
+            <img class="attaque" alt="Ki-Adi-Mundi unique" src="../image-perso/kam/tex-abilityui-passive-jedi.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Au début de la bataille, si tous les alliés sont des Jedi de la République Galactique, ils disposent<br>
-                de +30% de vitesse, +40% de santé maximale et +20% d'attaque.<br>
-                <br>
-                Les alliés Jedi de la République Galactique qui ont un rôle de soutien ou de soigneur<br>
-                disposent d'une amélioration d'attaque à hauteur de 10% de leur santé maximale.
+            <p class="attaque" id="unique-ability1">
+                At the start of each battle if all allies are Galactic Republic Jedi, they have +30 Speed, +40% Max Health, and +20% Offense.
+                <br><br>
+                Galactic Republic Jedi allies with a Support or Healer role have additional Offense equal to 10% of their Max Health.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Maitre des Formes</u></h2>
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Master of Forms</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Kam unique 2" src="../image-perso/kam/kam-unique2.png">
+            <img class="attaque" alt="Ki-Adi-Mundi unique 2" src="../image-perso/kam/kam-unique2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-
-            </p>
-        </div>
-    </div>
-    <p class="attaque">
-        Ki-Adi-Mundi commence la bataille en utilisant la <u class="speciale">Forme Ataru</u>, et il dispose<br>
-        d'une capacité supplémentaire en fonction de la forme utilisée.<br>
-        <br>
-        Lorsque Ki-Adi-Mundi passe à la <u class="speciale">Forme Makashi</u>, il récupère 10% de protection<br>
-        et il utiise la raillerie pendant 3 tours.
-    </p>
-
-    <h2 class="invocation">Fente Ataru: (délai: 3)</h2>    
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="kam ataru" src="../image-perso/kam/ataru.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie, ainsi que la destruction d'armure.
+            <p class="attaque" id="unique-ability2">
+                Ki-Adi-Mundi starts the battle using <u class="speciale">Ataru Form</u> and has an additional ability depending on which form he's using.
+                <br><br>
+                When Ki-Adi-Mundi switches to <u class="speciale">Makashi Form</u> he recovers 10% Protection and gains Protection Up (30%) for 3 turns.
+                <br><br>
+                <u class="speciale">Ataru Lunge:</u> Deal Physical damage to target enemy and inflict Armor Shred.
+                <br><br>
+                <u class="speciale">Makashi Jab:</u> Daze all enemies for 2 turns and deal Physical damage to target enemy. This ability can't be evaded.
             </p>
         </div>
     </div>
 
-
-    <h2 class="invocation">Coup Makashi: (delai: 3)</h2>
+    <h2 class="invocation" id="invocation-1-title">Ataru Lunge: (cooldown : 3)</h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="kam makashi" src="../image-perso/kam/makashi.png">
+            <img class="attaque" alt="Ki-Adi-Mundi ataru" src="../image-perso/kam/ataru.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                rend tous les ennemis confus pendant 2 tours et inflige des dégâts physiques à la cible ennemie<br>
-                Cette capacité ne peut pas être esquivée.
+            <p class="attaque" id="invocation-1">
+                Deal Physical damage to target enemy and inflict Armor Shred.
             </p>
-        
+        </div>
+    </div>
+
+    <h2 class="invocation" id="invocation-2-title">Makashi Jab: (cooldown : 3)</h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Ki-Adi-Mundi makashi" src="../image-perso/kam/makashi.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="invocation-2">
+                Daze all enemies for 2 turns and deal Physical damage to target enemy. This ability can't be evaded.
+            </p>
         </div>
     </div>
 
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Ki-Adi-Mundi",
+                "title": "<u>Ki-Adi-Mundi</u>",
+                "description": "Redoutable Maître Jedi qui utilise les formes de sabre laser Ataru et Makashi.",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "galactic-republic": "République Galactique",
+                "jedu": "Jedi",
+
+                "basic-attack-title": "<u>Attaque Basique: Frappe versatile</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie.\n\nSi ki-Adi-Mundi utilise la <u class='speciale'>forme Ataru</u>, il attaque à nouveau.\n\nS'il utilise la <u class='speciale'>forme Makashi</u>, sa jauge de tour se remplit de 15 % et il recupère 10 % de protection.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Forme adaptative (délai : 2)</u>",
+                "special-attack1": "Change de forme, dissipe tous les affaiblissements et remplit la jauge de tour de 100 %.\n\n<u class='speciale'>Forme Ataru :</u> +100 % d'attaque, +30 % de pénétration de défense et +20 de vitesse.\n\n<u class='speciale'>Forme Makashi :</u> +100 % de chances de contre-atatque, +60 % de ténacité et obtient l'immunité aux coups critiques.\n\nLe délai de cette capacité ne peut pas être manipulé.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Estoc décisif (délai : 4)</u>",
+                "special-attack2": "Inflige des dégâts physiques à une cible ennemie. Cette attaque inflige +100 % de dégâts pour chaque allié Jedi de la République Galactique.\n\nSi Ki-Adi-Mundi utilise la <u class='speciale'>forme Ataru</u> et que cette capacité élimine un ennemi, tous ses délais sont réinitialisés.\n\nS'il utilise la <u class='speciale'>forme Makashi</u>, dissipe tous les affaiblissements sur les alliés Jedi de la République Galactique et remplit leur jauge de tour de 25 %.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Conseil Jedi</u>",
+                "unique-ability1": "Au début de chaque bataille, si tous ses alliés sont des Jedi de la République Galactique, ils disposent de +30 de vitesse, +40 % de santé maximale et +20 % d'attaque.\n\nLes alliés Jedi de la République Galactique qui ont un rôle de soutien ou de soigneur disposent d'une amélioration d'attaque à hauteur de 10 % de leur santé maximale",
+
+                "unique-ability2-title": "<u>Capacité Unique : Maître des formes</u>",
+                "unique-ability2": "Ki-Adi-Mundi commence la bataille en utilisant la <u class='speciale'>forme Ataru</u>, et il dispose d'une capacité supplémentaire en fonction de la forme utilisée.\n\nLorsque Ki-Adi-Mundi passe à la <u class='speciale'>forme Makashi</u>, il récupère 10 % de protection et obtient un bonus de protection (30 %) pendant 3 tours.\n\n<u class='speciale'>Fente Ataru : </u> inflige des dégâts physiques à la cible ennemie, ainsi que Destruction d'armure.\n\n<u class='speciale'>Coup Makashi :</u> inflige Confusion à tous les ennemis pendant 2 tours et inflige des dégâts physiques à la cible ennemie. Cette capacité ne peut pas être esquivée.",
+
+                "invocation-1-title" : "Fente Ataru : (délai : 3)",
+                "invocation-1": "Inflige des dégâts physiques à la cible ennemie, ainsi que Destruction d'armure.",
+
+                "invocation-2-title": "Coup Makashi : (délai : 3",
+                "invocation-2": "Inflige COnfusion à tous les ennemis pendant 2 tours et inflige des dégâts physiques à la cible ennemie. Cette capacité ne peut pas être esquivée.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
     </footer>
 </body>
-</html>    
+
+</html>

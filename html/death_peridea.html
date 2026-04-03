@@ -1,150 +1,189 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Death Trooper (Peridea)</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Death Trooper (Peridea)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/death-trooper-peridea/death-peridea-image.png">
-
-    <!-- Lien vers la feuille de style -->
-     <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/death-trooper-peridea/death-peridea-image.png" alt="Death Trooper (Peridea)" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>Death Trooper (Peridea)</u></h1>
-        <p>
-            Un attaquant implacable dont les efforts pour détruire l'ennemo sont tenaces, mêmes après la mort.
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: red;" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/vestige-de-l'empire.html">Vestige de l'Empire</a>
-            <a class="capacite" href="../classement-perso/soeur-de-la-nuit.html">Soeur de la nuit</a>
-        </nav>
+            <h1 id="title"><u>Death Trooper (Peridea)</u></h1>
+            <p id="description">
+                A relentless Attacker whose efforts to destroy the enemy are persistent, even after death
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/vestige-de-l'empire.html" id="imperial-remnant">Imperial Remnant</a>
+                <a class="capacite" href="../classement-perso/soeur-de-la-nuit.html" id="nightsister">Nightsister</a>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/death-trooper-peridea/death-tropper-peridea.png" alt="Death Trooper (peridea)"><br>
+    <img class="first" src="../image-perso/death-trooper-peridea/death-tropper-peridea.png" alt="Death Trooper (Peridea)"><br>
 
-    <h2 class="titre"><u>attaque basique : Tir instinctif</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Firing by Rote</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="death trooper peridea basique"
-                src="../image-perso/death-trooper-peridea/death-peridea-basique.png">
+            <img class="attaque" alt="Death Trooper (Peridea) basic" src="../image-perso/death-trooper-peridea/death-peridea-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à la cible ennemie. Si la cible ennemie subissait déjà Plaie, les dégâts de
-                cette attaque sont doublés.<br>
-                Si cette attaque inflige un coup critique, tous les alliés du Vestige de l'Empire obtiennent un bonus
-                d'attaque pendant 1 tour. Sinon,<br>
-                le Death Trooper (Peridea) obtient un bonus de chances de coup critique pendant 1 tour.<br>
-                <br>
-                Dans les Guerres de territoire et si le Death Trooper (Peridea) a activé son omicron : gagne 5 cumuls de
-                Siphonnage quand cette capacité est utilisée.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 40% chance to inflict a stack of Blight, which can't be copied or dispelled, until the end of the encounter. If the target enemy already had Blight, this attack deals double damage. If this attack scores a critical hit, all Imperial Remnant allies gain Offense Up for 1 turn. Otherwise, Death Trooper (Peridea) gains Critical Chance Up for 1 turn.
+                <br><br>
+                While in Territory Wars and if Death Trooper (Peridea) has their Omicron activated: gain 5 stacks of Siphon when this ability is used.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Juste un petit croc (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Just a Little Nibble (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="death-peridea-spé 1" src="../image-perso/death-trooper-peridea/death-peridea-spe1.png">
+            <img class="attaque" alt="Death Trooper (Peridea) special 1" src="../image-perso/death-trooper-peridea/death-peridea-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à la cible ennemie et Plaie (ne peut pas être dissipé) jusqu'à la fin de
-                l'affrontement ou jusqu'à ce qu'il<br>
-                récupère toute sa santé. Si la cible ennemie souffre déjà de Plaie, inflige également 2 cumuls de dégâts
-                sur la durée pendant 2 tours et<br>
-                supprime 5% de la jauge de tour sur la cible ennemie 3 fois. Si cette capacité fais tomber la santé d'un
-                ennemi en dessous de 10%, vainc<br>
-                immédiatement ce dernier (à l'exception des boss de raid et des Légendes Galactiques). Si cette capacité
-                élimine un ennemi, le Death Trooper<br>
-                (Péridea) obtient un tour bonus et le délai de cette capacité est réinitialisé.<br>
-                <br>
-                <u class="omicron">Dans les Guerres de territoire, et si tous les alliés appartiennent au Vestige de
-                    l'Empire ou aux Soeurs de la nuit au début de la bataille :</u><br>
-                <br>
-                Le Death Trooper (Peridea) utilise <u class="speciale">Siphonnage sur les dégâts critiques</u> de la
-                cible ennemie (ne peut pas être résisté).<br>
-                Si cette capacité fait tomber la santé d'un ennemi en dessous de 20%, vainc immédiatement ce dernier (à
-                l'eexception des boss de raid et des Légendes Galactiques).<br>
-                Si la cible ennemie souffre déjà de Plaie, lui inflige également Destruction d'armure jusqu'à la fin de
-                la bataille.<br>
-                <br>
-                Tant que son omicron est actif, Tir instinctif et Tissu nécrotique obtiennent des effets supplémentaires.<br>
-                <br>
-                <u class="speciale">Siphonnage des dégâts critiques :</u><br>
-                <br>
-                obtient un pourcentage de dégâts critiques à hauteur du Siphonnage de cette unité jusqu'à la fin de
-                l'affrontement. La cible ennemie perd la même quantité de dégâts critique (cumulatif, à l'exception des boss de raid et des Légendes Galactiques.)
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and inflict Blight, which can't be dispelled, until the end of the encounter or until they recover to full Health. If the target enemy already had Blight, also inflict 2 stacks of Damage Over Time for 2 turns and remove 5% Turn Meter from the target enemy 3 times. If this ability takes an enemy below 10% Health, instantly defeat them (excluding raid bosses and Galactic Legends). If this ability defeats an enemy, Death Trooper (Peridea) gains a bonus turn and this ability's cooldown is reset.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars and if all allies are Imperial Remnant or Nightsister at the start of battle :</u> Death Trooper (Peridea) <u class="speciale">Siphons Critical Damage</u> from the target enemy, which can't be resisted. If this ability takes an enemy below 20% Health, instantly defeat them (excluding raid bosses and Galactic Legends). If the target enemy already had Blight, also inflict Armor Shred until the end of battle.
+                <br><br>
+                While this Omicron is active, Firing by Rote and Necrotic Tissue gain additional effects.
+                <br><br>
+                <u class="speciale">Siphon Critical Damage:</u> Gain a percentage of Critical Damage equal to this unit's Siphon until the end of the encounter and the target loses that much Critical Damage (stacking, excludes raid bosses and Galactic Legends)
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Tissu nécrotique (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Necrotic Tissue (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="death-peridea-spe2" src="../image-perso/death-trooper-peridea/death-peridea-spe2.png">
+            <img class="attaque" alt="Death Trooper (Peridea) special 2" src="../image-perso/death-trooper-peridea/death-peridea-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à tous les ennemis, ainsi qu'un malus d'attaque et de ténacité pendant 2 tours.<br>
-                Si l'allié dans l'emplacement de chef est un Soutien appartennant au Vestige de l'Empire, dissipe toutes les améliorations des ennemis.<br>
-                Si la cible souffre déjà de Plaie, inflige un cumul de Plaie (ne peut pas être dissipé)<br>
-                à un ennemi qui n'en dispise pas déjà, jusqu'à la fin de l'affrontement ou jusqu'à ce qu'il récupère toute sa santé.
-                Tous les alliés obtiennent un bonus d'attaque et de vitesse pendant 2 tours.<br>
-                <br>
-                Dans les Guerres de territoire et si le Death trooper (Peridea) a activé son omicron : cette capacité
-                inflige des dégâts supplémentaires à hauteur de 40% de ses dégâts critiques et si l'allié dans l'emplacement de chef
-                est un Soutien appartennant au Vestige de l'Empire, le Death Trooper (Peridea) reçoit 10 cumuls de Siphonnage pour chaque affaiblissement infligé par cette capacité.
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to all enemies and inflict Offense Down and Tenacity Down for 2 turns. If the ally in the Leader slot is an Imperial Remnant Support, dispel all buffs from all enemies. If the target enemy already had Blight, inflict a stack of Blight, which can't be dispelled, on a random enemy that doesn't already have it until the end of the encounter or until they are restored to full Health. All allies gain Offense Up and Speed Up for 2 turns.
+                <br><br>
+                While in Territory Wars and if Death Trooper (Peridea) has his Omicron activated: this ability deals additional damage equal to 40% of his Critical Damage and if the ally in the Leader slot is an Imperial Remnant Support, Death Trooper (Peridea) gains 10 stacks of Siphon for each debuff inflicted by this ability.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Tes pensées sont miennes</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : In Your Head</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="death trooper unique" src="../image-perso/death-trooper-peridea/death-peridea-unique.png">
+            <img class="attaque" alt="Death Trooper (Peridea) Unique" src="../image-perso/death-trooper-peridea/death-peridea-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Le Death Trooper (Peridea) obtient 25% de vitesse. Les alliés du Vestige de l'Empire gagnent 35% de
-                chances de coup critique et d'attaque.<br>
-                Les alliés Soeurs de la nuit obtiennent 35% de santé maximale et de protection maximale.<br>
-                <br>
-                Si l'allié dans l'emplacement de chef n'est pas un Tank du Vestige de l'Empire, à chaque fois qu'un allié du Vestige de l'Empire<br>
-                subit Confusion, Étourdissement, Choc ou un malus de vitesse, tous les alliés du Vestige de l'Empire obtiennent 15 de vitesse (cumulatif,<br>
-                60 maximum) pour le reste de l'affrontement. Lorsqu'un allié appartennant au Vestige de l'Empire subit un coup critique, supprime 3%<br>
-                de la jauge de tour sur tous les ennemis. Le Death Trooper (Peridea) gagne 5% de jauge de tour (cumulatif) pour chaque cumul de Plaie infligé à un ennemi.
+            <p class="attaque" id="unique-ability">
+                Death Trooper (Peridea) gains 25 Speed. Imperial Remnant allies have +35% Critical Chance and Offense. Nightsister allies have +35% Max Health and Max Protection.
+                <br><br>
+                If the ally in the Leader slot is not an Imperial Remnant Tank, whenever an Imperial Remnant ally is Dazed, Stunned, Shocked, or inflicted with Speed Down, all Imperial Remnant allies gain 15 Speed (stacking, max 60) for the rest of the battle. Whenever an Imperial Remnant ally is critically hit, remove 3% Turn Meter from all enemies. Death Trooper (Peridea) gains 5% Turn Meter (stacking) for each stack of Blight inflicted on an enemy.
             </p>
         </div>
     </div>
 
-
-    <!-- Pied de page -->
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Death Trooper (Peridea)",
+                "title": "<u>Death Trooper (Peridea)</u>",
+                "description": "Un attaquant implacable dont les efforts pour détruire l'ennemi sont tenaces même après la mort.",
+
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "imperial-remnant": "Vestige de l'Empire",
+                "nightsister": "Sœurs de la nuit",
+
+                "basic-attack-title": "<u>Attaque Basique: Tir instinctif</u>",
+                "basic-attack": "Infligez des dégâts physiques à l'ennemi ciblé avec 40 % de chances d'infliger un cumul de Plaie, (ne peut pas être copiée ou dissipée) jusqu'à la fin de l'affrontement. Si la cible ennemie souffrait déjà de Plaie, cette attaque inflige deux fois plus de dégâts. Si cette attaque inflige un coup critique, tous les alliés du Vestige impérial gagnent un bonus d'attaque pendant 1 tour. Sinon Death Trooper (Peridea) gagne un bonus de chances de coup critique pendant 1 tour.\n\nPendant les Guerres de territoire et si Death Trooper (Peridea) a activé son omicron : gagne 5 cumuls de Siphonnage quand cette capacité est utilisée.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Juste un petit croc (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à la cible ennemie et Plaie (ne peut pas être dissipé) jusqu'à la fin de l'affrontement ou jusqu'à ce qu'il récupère toute sa santé. Si la cible ennemie souffre déjà de Plaie, inflige également 2 cumuls de dégâts sur la durée pendant 2 tours et supprime 5 % de la jauge de tour sur la cible ennemie 3 fois. Si cette capacité fait tomber la santé d'un ennemi en dessous de 10 %, vainc immédiatement ce dernier (à l'exception des boss de raid et des Légendes Galactiques). Si cette capacité élimine un ennemi, le Death Trooper (Peridea) obtient un tour bonus et le délai de cette capacité est réinitialisé.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire, et si tous les alliés appartiennent au Vestige de l'Empire ou au Sœurs de la nuit au début de la bataille :</u> le Death Trooper (Peridea) utilise <u class='speciale'>Siphonnage sur les dégâts critiques</u> de la cible ennemie (ne peut pas être résisté). Si cette capacité fait tomber la santé d'un ennemi en dessous de 20 %, vainc immédiatement ce dernier (à l'exception des boss de raid et des Légendes Galactiques). Si la cible ennemie souffre déjà de Plaie, lui inflige également Destruction d'armure jusqu'à la fin de la bataille.\n\nTant que son omicron est actif, Tir instinctif et Tissu nécrotique obtiennent des effets supplémentaires.\n\n<u class='speciale'>Siphonnage des dégâts critiques :</u> obtient un pourcentage de dégâts critiques à hauteur du Siphonnage de cette unité jusqu'à la fin de l'affrontement. La cible ennemie perd la même quantité de dégâts critiques (cumulatif, à l'exception des boss de raid et des Légendes Galactiques).",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Tissu nécrotique (délai : 3)</u>",
+                "special-attack2": "Inflige des dégâts physiques à tous les ennemis, ainsi qu'un malus d'attaque et de ténacité pendant 2 tours. Si l'allié dans l'emplacement de chef est un soutien appartenant au Vestige de l'Empire, dissipe toutes les améliorations des ennemis. Si la cible ennemie souffre déjà de Plaie, inflige un cumul de Plaie (ne peut pas être dissipé) à un ennemi aléatoire qui n'en dispose pas déjà, jusqu'à la fin de l'affrontement ou jusqu'à ce qu'il récupère toute sa santé. Tous les alliés obtiennent un bonus d'attaque et de vitesse pendant 2 tours.\n\nDans les Guerres de territoire et si le Death Trooper (Peridea) a activé son omicron : cette capacité inflige des dégâts supplémentaires à hauteur de 40 % de ses dégâts critiques et si l'allié dans l'emplacement de chef est un soutien appartenant au Vestige de l'Empire, le Death Trooper (Peridea) reçoit 10 cumuls de Siphonnage pour chaque affaiblissement infligé par cette capacité.",
+
+                "unique-ability-title": "<u>Capacité Unique : Tes pensées sont les miennes</u>",
+                "unique-ability": "Le Death Trooper (Peridea) obtient 25 de vitesse. Les alliés du Vestige de l'Empire gagnent 35 % de chances de coup critique et d'attaque. Les alliés Sœurs de la nuit obtiennent 35 % de santé maximale et de protection maximale.\n\nSi l'allié dans l'emplacement de chef n'est pas un tank du Vestige de l'Empire, à chaque fois qu'un allié du Vestige de l'Empire subit Confusion, Étourdissement, Choc ou un malus de vitesse, tous les alliés du Vestige de l'Empire obtiennent 15 de vitesse (cumulatif, 60 maximum) pour le reste de l'affrontement Lorsqu'un allié appartenant au Vestige de l'Empire subit un coup critique, supprime 3 % de jauge de tour sur tous les ennemis. Le Death Trooper (Peridea) gagne 5 % de jauge de tour (cumulatif) pour chaque cumul de Plaie infligée à un ennemi.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
     </footer>
 </body>
 
