@@ -214,7 +214,7 @@ function showHintPopup() {
     const filtered = allUnits.filter(u => {
         const matchAlign = foundTraits.alignment === "?" || getLoc(u.alignment) === foundTraits.alignment;
         const matchRole = foundTraits.role === "?" || getLoc(u.role) === foundTraits.role;
-        const matchYear = foundTraits.year === "?" || u.year == foundTraits.year;
+        const matchYear = foundTraits.year === "?" || u.years_of_apparition == foundTraits.year;
         const matchShip = foundTraits.ship === "?" || getYesNo(checkShip(u)) === foundTraits.ship;
         const matchLeader = foundTraits.leader === "?" || getYesNo(checkLeader(u)) === foundTraits.leader;
         
@@ -530,19 +530,21 @@ function submitGuess(unit) {
         }
     });
 
-    // --- LOGIQUE DE L'ANNÉE ---
-    let yearArrow = "";
-    let yearStatus = "wrong";
+// --- LOGIQUE DE L'ANNÉE ---
+let yearArrow = "";
+let yearStatus = "wrong";
 
-    if (unit.year === targetUnit.year) {
-        yearStatus = "correct";
-    } else if (unit.year < targetUnit.year) {
-        yearArrow = " ↑"; 
-    } else {
-        yearArrow = " ↓"; 
-    }
+// Correction ici : years_of_apparition au lieu de year
+if (unit.years_of_apparition === targetUnit.years_of_apparition) {
+    yearStatus = "correct";
+    foundTraits.year = unit.years_of_apparition; // Mise à jour de l'indice trouvé
+} else if (unit.years_of_apparition < targetUnit.years_of_apparition) {
+    yearArrow = " ↑"; 
+} else {
+    yearArrow = " ↓"; 
+}
 
-    if (unit.year === targetUnit.year) foundTraits.year = unit.year;
+
 
     updateSummary();
 
@@ -554,7 +556,7 @@ function submitGuess(unit) {
         leader: { val: getYesNo(checkLeader(unit)), match: checkLeader(unit) === checkLeader(targetUnit) },
         role: { val: getLoc(unit.role), match: unit.role.en === targetUnit.role.en },
         factions: { val: getCleanFactions(unit).map(f => getLoc(f)).join(", "), status: factionStatus },
-        year: { val: unit.year + yearArrow, status: yearStatus }
+        year: { val: unit.years_of_apparition + yearArrow, status: yearStatus }
     };
 
     renderGuessRow(guessData);
@@ -681,7 +683,7 @@ function showVictory() {
                 <p><span>${t["h-ship"]} :</span> ${getYesNo(checkShip(targetUnit))}</p>
                 <p><span>${t["h-leader"]} :</span> ${getYesNo(checkLeader(targetUnit))}</p>
                 <p><span>${t["h-factions"]} :</span> ${getCleanFactions(targetUnit).map(f => getLoc(f)).join(", ")}</p>
-                <p><span>${t["h-year"]} :</span> ${targetUnit.year}</p>
+                <p><span>${t["h-year"]} :</span> ${targetunit.years_of_apparition}</p>
             </div>
             <p>${t["vic-attempts"]} <strong>${attempts}</strong> ${t["vic-tries"]}</p>
             <button onclick="startNewGame('free'); closeModal();" class="main-btn">${buttonLabel}</button>
