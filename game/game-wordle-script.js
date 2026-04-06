@@ -6,6 +6,7 @@ let attempts = 0;
 let gameMode = "daily";
 let currentAllyCode = ""; 
 let hintUsed = false; // Pour limiter à 1 indice par partie
+let gameOver = false;
 
 // --- ÉTAT DES INDICES ---
 let foundTraits = { alignment: "?", role: "?", ship: "?", leader: "?", factions: new Set(), year: "?" };
@@ -214,7 +215,7 @@ function showHintPopup() {
     const filtered = allUnits.filter(u => {
         const matchAlign = foundTraits.alignment === "?" || getLoc(u.alignment) === foundTraits.alignment;
         const matchRole = foundTraits.role === "?" || getLoc(u.role) === foundTraits.role;
-        const matchYear = foundTraits.year === "?" || u.years_of_apparition == foundTraits.year;
+        const matchYear = foundTraits.year === "?" || u.year == foundTraits.year;
         const matchShip = foundTraits.ship === "?" || getYesNo(checkShip(u)) === foundTraits.ship;
         const matchLeader = foundTraits.leader === "?" || getYesNo(checkLeader(u)) === foundTraits.leader;
         
@@ -477,6 +478,7 @@ function startNewGame(mode) {
     gameMode = mode;
     attempts = 0;
     hintUsed = false;
+    gameOver = false;
     
     foundTraits = { alignment: "?", role: "?", ship: "?", leader: "?", factions: new Set(), year: "?" };
     targetUnit = (mode === "daily") ? getDailyUnit(allUnits) : allUnits[Math.floor(Math.random() * allUnits.length)];
@@ -510,6 +512,7 @@ function submitGuess(unit) {
     attempts++;
     input.value = "";
     suggestions.innerHTML = "";
+    if (gameOver) return;
     
     const targetFactionsEN = targetUnit.factions.map(f => f.en.toLowerCase());
     const cleanGuessEN = getCleanFactions(unit).map(f => f.en.toLowerCase());
@@ -530,21 +533,19 @@ function submitGuess(unit) {
         }
     });
 
-// --- LOGIQUE DE L'ANNÉE ---
-let yearArrow = "";
-let yearStatus = "wrong";
+    // --- LOGIQUE DE L'ANNÉE ---
+    let yearArrow = "";
+    let yearStatus = "wrong";
 
-// Correction ici : years_of_apparition au lieu de year
-if (unit.years_of_apparition === targetUnit.years_of_apparition) {
-    yearStatus = "correct";
-    foundTraits.year = unit.years_of_apparition; // Mise à jour de l'indice trouvé
-} else if (unit.years_of_apparition < targetUnit.years_of_apparition) {
-    yearArrow = " ↑"; 
-} else {
-    yearArrow = " ↓"; 
-}
+    if (unit.years_of_apparition === targetUnit.years_of_apparition) {
+        yearStatus = "correct";
+    } else if (unit.years_of_apparition < targetUnit.years_of_apparition) {
+        yearArrow = " ↑"; 
+    } else {
+        yearArrow = " ↓"; 
+    }
 
-
+    if (unit.years_of_apparition === targetUnit.years_of_apparition) foundTraits.year = unit.year;
 
     updateSummary();
 
@@ -560,6 +561,9 @@ if (unit.years_of_apparition === targetUnit.years_of_apparition) {
     };
 
     renderGuessRow(guessData);
+
+    if (unit.id === targetUnit.id || getLoc(unit.name) === getLoc(targetUnit.name)) {
+    gameOver = true;}
 
 // --- LOGIQUE DES BOUTONS D'AIDE (INDICE & ABANDON) ---
     const helpContainer = document.getElementById("help-actions-container");
@@ -636,6 +640,8 @@ async function handleGiveUp() {
             }
         }
     }
+
+    gameOver = true;
     
     // On affiche la modal de fin
     showVictory();
@@ -683,7 +689,7 @@ function showVictory() {
                 <p><span>${t["h-ship"]} :</span> ${getYesNo(checkShip(targetUnit))}</p>
                 <p><span>${t["h-leader"]} :</span> ${getYesNo(checkLeader(targetUnit))}</p>
                 <p><span>${t["h-factions"]} :</span> ${getCleanFactions(targetUnit).map(f => getLoc(f)).join(", ")}</p>
-                <p><span>${t["h-year"]} :</span> ${targetunit.years_of_apparition}</p>
+                <p><span>${t["h-year"]} :</span> ${targetUnit.years_of_apparition}</p>
             </div>
             <p>${t["vic-attempts"]} <strong>${attempts}</strong> ${t["vic-tries"]}</p>
             <button onclick="startNewGame('free'); closeModal();" class="main-btn">${buttonLabel}</button>

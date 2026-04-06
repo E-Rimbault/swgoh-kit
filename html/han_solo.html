@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Han Solo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/han-solo/han-solo-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/han-solo/han-solo-image.png" alt="Han Solo" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Han Solo</u></h1>
+            <p id="description">
+                Daring Attacker that stacks Criticals in his favor and always shoots first
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue  !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/mercenaire.html" id="mercenary">Mercenary</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="capacite" href="../classement-perso/contrebandier.html" id="smuggler">Smuggler</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew">Crew Member</a>
+            </nav>
+            
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/han-falcon.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/han-falcon/han-falcon-image.png" alt="Han's Millennium Falcon">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: Han's Millennium Falcon</u>
+                </h2>
+            </section>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/han-solo/han-solo.png" alt="Han Solo"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Quick Draw</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Han Solo basic" src="../image-perso/han-solo/han-solo-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. If the target has less than 50% Turn Meter, deal 75% more damage. Otherwise, remove 35% Turn Meter. This attack can't be Evaded.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Deadeye (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Han Solo special 1" src="../image-perso/han-solo/han-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and Stun them for 1 turn. Gain Turn Meter equal to Han's Critical Chance.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Never Tell Me The Odds (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Han Solo special 2" src="../image-perso/han-solo/han-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                All allies gain Critical Chance Up and Evasion Up for 2 turns. Han gains 50% Turn Meter and Critical Damage Up for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Shoots First</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Han Solo unique" src="../image-perso/han-solo/han-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Han has +35% counter chance and +20% Critical Chance. The first time each turn that Han uses his Basic ability he attacks again, dealing 50% less damage.
+                <br><br>
+                At the start of encounter Han takes a bonus turn. During this turn he can only use his Basic ability, can ignore Taunt effects, and Stuns the target enemy for 1 turn, which can't be resisted.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Han Solo",
+                "title": "<u>Han Solo</u>",
+                "description": "Attaquant hardi qui cumule les coups critiques en sa faveur et tire toujours le premier.",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "mercenary": "Mercenaire",
+                "rebel": "Rebelle",
+                "scoundrel": "Vaurien",
+                "smuggler": "Contrebandier",
+                "crew": "Membres d’Équipage",
+
+                "basic-attack-title": "<u>Attaque Basique: Dégaine rapide</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie. Si la jauge de tour de la cible est à moins de 50 %, inflige 75 % de ségâts supplémentaires. Autrement, réduit la jauge de tour de 35 %. Cette attaque ne peut pas être esquivée.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Tireur d'élite (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie et l'étourdit pendant 1 tour. Remplit la jauge de tour à hauteur des chances de coup critique de Han.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Tu sais, moi et les probabilités... (délai : 4)</u>",
+                "special-attack2": "Tous les alliés obtiennent un bonus de chances de coup critique et un bonus d'esquive pendant 2 tours. La jauge de tour de Han se remplit de 50 % et il obtient un bonus de dégâts critiques pendant 2 tours.",
+
+                "unique-ability-title": "<u>Capacité Unique : Tirer le premier</u>",
+                "unique-ability": "Han gagne +35 % de chances de contre-attaque et +20 % de chances de coup critique. Chaque tour, la première fois qu'il utilise sa capacité de basen il attaque de nouveau, en infligeant 50 % de dégâts en moins.\n\nAu début de l'affrontement, Han utilise un tour bonus. Pendant ce tour, il ne peut qu'utiliser sa capacité de base, peut ignorer les effets de Raillerie et inflige Étourdissement à la cible ennemie pendant 1 tour (ne peut pas être résisté).",
+
+                "ship-title": "<u>Vaisseau : Faucon Millenium de Han</u>",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+    </footer>
+</body>
+
+</html>
