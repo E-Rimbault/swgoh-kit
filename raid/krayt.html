@@ -1,0 +1,1045 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>SWGOH - Krayt Dragon Hunt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    u.speciale {
+      font-weight: bold;
+      color: yellow;
+      text-decoration: none;
+    }
+
+    u.rage {
+      font-weight: bold;
+      color: red;
+      text-decoration: none;
+    }
+
+    :root {
+      --sw-bg-dark: #050505;
+      --sw-bg-card: #121212;
+      --sw-border: #333;
+      --sw-text-main: #e0e0e0;
+      --sw-blue-text: #00a2ff;
+      --font-titles: 'Orbitron', sans-serif;
+      --sidebar-width: 380px;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--sw-bg-dark);
+      background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+      color: var(--sw-text-main);
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: var(--sidebar-width);
+      background-color: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(5px);
+      padding: 25px;
+      border-right: 2px solid var(--sw-border);
+      z-index: 10000;
+      overflow-y: auto;
+    }
+
+    #content {
+      margin-left: var(--sidebar-width);
+      padding: 40px;
+      min-height: 100vh;
+    }
+
+    .raid-header-img {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: contain;
+      background: #000;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      border: 1px solid var(--sw-border);
+    }
+
+    .main-raid-title {
+      font-family: var(--font-titles);
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+      border-left: 5px solid var(--sw-blue-text);
+      padding-left: 15px;
+    }
+
+    .nav-section {
+      margin-bottom: 20px;
+    }
+
+    .nav-title {
+      font-family: var(--font-titles);
+      color: var(--sw-blue-text);
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      border-bottom: 1px solid #222;
+    }
+
+    .nav-item {
+      display: block;
+      padding: 12px 15px;
+      color: #aaa;
+      text-decoration: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .nav-item:hover {
+      background: rgba(0, 162, 255, 0.1);
+      color: #fff;
+    }
+
+    .nav-item.active {
+      background: var(--sw-blue-text);
+      color: #000;
+      font-weight: bold;
+    }
+
+    .sub-item {
+      padding-left: 35px;
+      font-size: 110%;
+    }
+
+    .section-content {
+      display: none;
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    .section-content.active {
+      display: block;
+    }
+
+    .faction-name {
+      font-size: 120%;
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ACCORDIONS */
+    .accordion-item-sw {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--sw-border);
+      border-radius: 8px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .accordion-header-sw {
+      padding: 15px 20px;
+      cursor: pointer;
+      font-family: var(--font-titles);
+      color: var(--sw-blue-text);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.3s;
+      background: rgba(0, 162, 255, 0.05);
+    }
+
+    .accordion-header-sw:hover {
+      background: rgba(0, 162, 255, 0.15);
+    }
+
+    .accordion-content-sw {
+      max-height: 0;
+      overflow: hidden;
+      /* Correction : transition plus rapide et courbe Bézier pour supprimer le délai */
+      transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+      padding: 0 20px;
+    }
+
+    /* État ouvert - Correction du max-height */
+    .accordion-item-sw.active .accordion-content-sw {
+      max-height: 3000px;
+      /* Réduit de 10000 à 2000 pour supprimer le temps mort */
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-top: 1px solid var(--sw-border);
+    }
+
+    /* FACTION GRID - Version Réparée */
+    .faction-card {
+      background: var(--sw-bg-card);
+      border: 1px solid var(--sw-border);
+      border-radius: 10px;
+      padding: 0;
+      text-align: left;
+      cursor: pointer;
+      transition: 0.3s;
+      overflow: hidden;
+    }
+
+    .faction-content-box {
+      max-height: 0;
+      overflow: hidden;
+      /* Correction : transition identique pour la fluidité */
+      transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+      background: #0a0a0a;
+      color: var(--sw-text-main);
+      border-top: 0 solid var(--sw-border);
+    }
+
+    /* État Actif - Correction du max-height */
+    .faction-card.active .faction-content-box {
+      max-height: 3000px;
+      /* Réduit de 10000 à 2000 */
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-top-width: 1px;
+    }
+
+    /* INFO BOX */
+    .info-box {
+      background: var(--sw-bg-card);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--sw-border);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .lang-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .lang-toggle img {
+      cursor: pointer;
+      width: 25px;
+      opacity: 0.4;
+      transition: 0.3s;
+      border: 2px solid transparent;
+      border-radius: 4px;
+    }
+
+    .lang-toggle img.active {
+      opacity: 1;
+      border-color: var(--sw-blue-text);
+    }
+
+    #units-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 15px;
+    }
+
+    .raid-unit-img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 2px solid var(--sw-border);
+      background: #000;
+    }
+
+    @media (max-width: 992px) {
+      #sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+      }
+
+      #content {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="sidebar">
+    <div class="lang-toggle">
+      <img src="https://flagcdn.com/us.svg" alt="EN" id="lang-en" onclick="switchLanguage('en')">
+      <img src="https://flagcdn.com/fr.svg" alt="FR" id="lang-fr" onclick="switchLanguage('fr')">
+    </div>
+
+    <img src="https://e-rimbault.github.io/swgoh-kit/raid-image/raid-dragon.png" class="raid-header-img"
+      alt="Krayt Dragon">
+
+    <div class="nav-section">
+      <div class="nav-title" id="title-resume">Summary</div>
+      <div id="btn-history" class="nav-item active" onclick="showSection('resume', this)">Story & Rules</div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-title" id="title-details">Details</div>
+      <div id="btn-factions" class="nav-item" onclick="showSection('factions', this)">Faction Bonuses</div>
+      <div id="btn-capacities" class="nav-item" onclick="showSection('capacities', this)">Abilities</div>
+      <div id="btn-diff" class="nav-item" onclick="showSection('diff', this)">Difficulty Modifiers</div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-title" id="title-restrict">Restrictions</div>
+      <div id="btn-unites" class="nav-item" onclick="showSection('unites', this)">Eligible Units</div>
+    </div>
+
+    <button class="btn btn-outline-info w-100 mt-4" onclick="window.location.href='raid.html'"
+      id="btn-back">BACK</button>
+  </div>
+
+  <div id="content">
+    <h1 class="main-raid-title" id="raid-main-name">Krayt Dragon Hunt</h1>
+
+    <!-- SECTION RESUME (Story & Rules) -->
+    <div id="section-resume" class="section-content active">
+      <h2 id="h-history">Story & Rules</h2>
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <span id="title-story">STORY</span><span>+</span>
+        </div>
+        <div class="accordion-content-sw" id="text-story">
+          Tusken nomads tell tales to their children of the legendary Krayt Dragon of Tatooine, which swims through the
+          dunes of the desert as if they were water. It's cavernous gullet and acidic venom have been the end of many
+          moisture farmers, Jawas, and Tuskens alike.
+          <br><br><strong>Hero Units:</strong> The Mandalorian (Beskar Armor)
+        </div>
+      </div>
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <span id="title-rules">RULES</span><span>+</span>
+        </div>
+        <div class="accordion-content-sw" id="text-rules">
+          • Time Limit: 2d 23h<br>
+          • Requirements: 5 Stars, Specific Units<br>
+          • Roster Refresh: Never<br>
+          • Launch Cost: 180K<br>
+          • Max Attempts: 5
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION FACTIONS -->
+    <div id="section-factions" class="section-content">
+      <h2 id="h-factions">Faction Bonuses</h2>
+
+      <!-- Texte d'introduction ajouté ici -->
+      <div class="info-box" id="text-factions-intro">Characters can obtain one or more of the following abilities during the raid.</div>
+
+      <div class="faction-grid">
+        <!-- Hero Units -->
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-dragon-krayt/hero-unit.png">
+            <span class="faction-name" id="f-hero">Hero Units</span>
+          </div>
+          <div class="faction-content-box" id="content-f-hero">This character has +100% Max Health and Max Protection. At the start of this character's turn, they dispel all debuffs on themselves and reduce the cooldown of FireBallista and Replant Explosives by 20%. When this character uses Fire Ballista or Replant Explosives, reduce its cooldown by 40%.
+            <br><br>
+            The first time each turn this character attacks out of turn, they have a 75% chance to inflict a stack of Damage Over Time on target enemy for 1 turn. This character has +30% Potency and deals 5% more damage per stack of Momentum.
+            <br><br>
+            This character is immune to Poisoned. Damage this character deals is reduced by 50%. Whenever this character damages an enemy, it doesn't trigger Turn Meter gain, and they have a 75% chance to inflict Tenacity Down
+            for 2 turns.
+            <br><br>
+            These effects don't stack with the same effect from other Faction Bonus abilities.
+          </div>
+        </div>
+
+        <!-- Hutt Cartel -->
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-dragon-krayt/faction-hutt-cartel.png">
+            <span class="faction-name" id="f-hutt">Hutt Cartel</span>
+          </div>
+          <div class="faction-content-box" id="content-f-hutt">Whenever a Hutt Cartel ally damages a Bundle of explosives, it immediately detonates and deals double damage to the Krayt Dragon.
+            <br><br>
+            At the start of this character's turn, reduce the cooldown of Replant Explosives by 20%. When this character uses Replant Explosives, reduce its cooldown by 40%.
+          </div>
+        </div>
+
+        <!-- Jawas -->
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-dragon-krayt/faction-jawa.png">
+            <span class="faction-name" id="f-jawa">Jawas</span>
+          </div>
+          <div class="faction-content-box" id="content-f-jawa">This character has +100% Max Health and Max Protection. At the start of this character's turn, they dispel all debuffs on themselves. Whenever a Jawa ally inflictsa Thermal Detonator on an enemy, damage that enemy receives from Jawas and Thermal Detonators is increased by 9% for each active Jawa (stacking).</div>
+        </div>
+
+        <!-- Mandalorians -->
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-dragon-krayt/faction-mandalorien.png">
+            <span class="faction-name" id="f-mando">Mandalorians</span>
+          </div>
+          <div class="faction-content-box" id="content-f-mando">This character is immune to Poisoned. Damage this character deals is decreased by 50%.
+            <br><br>
+            Whenever this character deals damage, it doesn't trigger Turn Meter gain on enemies, and they have a 75% chance to inflict Tenacity Down for 2 turns on all enemies.
+          </div>
+        </div>
+
+        <!-- Old Republic -->
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-dragon-krayt/faction-old-republic.png">
+            <span class="faction-name" id="f-or">Old Republic</span>
+          </div>
+          <div class="faction-content-box" id="content-f-or">Whenever an enemy is inflicted with a stack of Damage Over Time, Old Republic allies deal 1% more damage until the end of battle (stacking) for each active Old Republic ally. The first time each turn this character attacks out of turn, they have a 75% chance to inflict a stack of Damage Over Time on target enemy for 1 turn.</div>
+        </div>
+
+        <!-- Tuskens -->
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-dragon-krayt/faction-tusken.png">
+            <span class="faction-name" id="f-tusken">Tuskens</span>
+          </div>
+          <div class="faction-content-box" id="content-f-tusken">At the start of this character's turn, reduce the cooldown of Fire Ballista by 20%. When this character uses Fire Ballista, reduce its cooldown by 40%.
+            <br><br>
+            This character has +30% Potency and deals 5% more damage per stack of Momentum.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION DETAILS -->
+    <div id="section-capacities" class="section-content">
+      <h2 id="h-capa">Abilities</h2>
+
+      <!-- Granted Abilities -->
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <span id="capa-granted">Granted Abilities</span><span>+</span>
+        </div>
+        <div class="accordion-content-sw" id="val-capa-granted">
+
+          <!-- Capacité 1 : Fire Ballista -->
+          <div class="faction-card mb-3 shadow-sm">
+            <div class="faction-header">
+              <img src="../raid-image/raid-dragon-krayt/raid-dragon-ballista.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="capa-name-1" style="white-space: nowrap;">Fire Ballista</span>
+            </div>
+            <div class="p-3" id="capa-desc-1" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              Cooldown Speed: 100
+              <br><br>
+              Deal true damage to target enemy 2 times and inflict Daze, Stagger, and Stun for 1 turn 2 times. This
+              attack can't be evaded or resisted.
+              <br><br>
+              If a non-Attacker used this ability, it deals 15% more damage for each stack of Momentum they had.
+            </div>
+          </div>
+
+          <!-- Capacité 2 : Replant Explosives -->
+          <div class="faction-card">
+            <div class="faction-header">
+              <img src="../raid-image/raid-dragon-krayt/raid-dragon-explosives.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="capa-name-2" style="white-space: nowrap;">Replant Explosives</span>
+            </div>
+            <div class="p-3" id="capa-desc-2" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              Cooldown Speed: 100
+              <br><br>
+              Plant 2 Bundles of Explosives around the Krayt Dragon (max 3).
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Krayt Dragon -->
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <div class="d-flex align-items-center gap-3" style="flex: 1; min-width: 0;">
+            <img src="../raid-image/raid-dragon-krayt/raid-dragon-image.png"
+              style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+            <span id="capa-dragon" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Krayt
+              Dragon</span>
+          </div>
+          <span style="flex-shrink: 0;">+</span>
+        </div>
+        <div class="accordion-content-sw" id="val-capa-dragon">
+
+          <!-- Capacité Dragon 1 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-dragon-krayt/raid-dragon-basic.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="dragon-capa-name-1" style="white-space: nowrap;">Crushing Maw</span>
+            </div>
+            <div class="p-3" id="dragon-capa-desc-1"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              Deal Physical damage to target enemy and Daze them for 2 turns. Deal Physical damage to all other enemies.
+              <br><br>
+              <u class="rage">Enraged:</u> Stun target enemy for 2 turns. Daze all enemies for 2 turns.
+            </div>
+          </div>
+
+          <!-- Capacité Dragon 2 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-dragon-krayt/raid-dragon-spe1.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="dragon-capa-name-2" style="white-space: nowrap;">Corrosive Venom Spray</span>
+            </div>
+            <div class="p-3" id="dragon-capa-desc-2"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              Instantly defeat any enemies that are currently Swallowed. Dispel all buffs on all enemies. Deal Special
+              damage to all enemies and inflict Defense Down, Expose, Poisoned, Speed Down, and Vulnerability for 2
+              turns.
+              <br><br>
+              <u class="speciale">Poisoned:</u> -50% Health and Protection recovery; can't recover Health with Health
+              Steal; takes damage each turn equal to 75% of the total Health and Protection recovered since their last
+              turn for each time Health or Protection was recovered since their last turn
+              <br><br>
+              <u class="rage">Enraged:</u> Defense Down, Expose, Poisoned, Speed Down, and Vulnerability can't be
+              dispelled or resisted.
+            </div>
+          </div>
+
+          <!-- Capacité Dragon 3 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-dragon-krayt/raid-dragon-spe2.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="dragon-capa-name-3" style="white-space: nowrap;">Swallow Whole</span>
+            </div>
+            <div class="p-3" id="dragon-capa-desc-3"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              Swallow target enemy and remove their status effects. The Krayt Dragon gains 20 stacks of Defiance. While
+              an enemy is Swallowed, the Krayt Dragon's Speed is reduced by 25%, and its Turn Meter can't be reduced.
+              When Defiance is removed, the Swallowed enemy is returned. If the Swallowed enemy is the last enemy, the
+              battle immediately ends. This ability starts each battle on cooldown with 1 turn remaining.
+              <br><br>
+              <u class="speciale">Swallowed:</u> An enemy has been Swallowed; they will be spit out when all Defiance
+              stacks have been removed, and they will be instantly defeated if Corrosive Venom Spray is used while they
+              are Swallowed
+              <br><br>
+              <u class="rage">Enraged:</u> If this is the first ability used this turn, reset its cooldown..
+            </div>
+          </div>
+
+          <!-- Capacité Dragon 4 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-dragon-krayt/raid-dragon-spe3.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="dragon-capa-name-4" style="white-space: nowrap;">Dune Burrow</span>
+            </div>
+            <div class="p-3" id="dragon-capa-desc-4"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              Gain 20% bonus Protection and the granted ability Violent Eruption until it is used or until this bonus
+              Protection is removed. While the Krayt Dragon has this bonus Protection, it can't lose Defiance, Health,
+              or Turn Meter (excluding from Bundles of Explosives), its Speed is reduced by 25%, and damage it receives
+              from Bundles of Explosives is increased by 400%. This ability starts each battle on cooldown with 2 turns
+              remaining.
+              <br><br>
+              <u class="rage">Enraged:</u> Damage the Krayt Dragon receives from Bundles of Explosives is no longer
+              increased.
+              <br><br>
+              <u class="speciale">Violent Eruption:</u> Deal true damage to all enemies, dealing more damage based on
+              the amount of bonus Protection remaining, and Stun all enemies for 1 turn. Then, the Krayt Dragon loses
+              all bonus Protection. This attack can't be evaded.
+            </div>
+          </div>
+
+          <!-- Capacité Dragon 5 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-dragon-krayt/raid-dragon-unique1.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="dragon-capa-name-5" style="white-space: nowrap;">Apex Predator</span>
+            </div>
+            <div class="p-3" id="dragon-capa-desc-5"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              Damage the Krayt Dragon receives is increased by 75% while it doesn't have bonus Protection. Whenever the
+              Krayt Dragon is damaged while it doesn't have bonus Protection and it doesn't have an enemy Swallowed, it
+              gains 6% Turn Meter.
+              <br><br>
+              Whenever any character takes a turn, the Krayt Dragon gains 1% Enrage. Whenever the Krayt Dragon takes a
+              turn, it gains an additional 4% Enrage and 4 stacks of Defiance. Whenever an enemy removes Turn Meter from
+              the Krayt Dragon, it gains 1% Enrage for each 10% Turn Meter removed. When it reaches 100%, the Krayt
+              Dragon becomes Enraged. The battle immediately ends after the Krayt Dragon has taken 5 turns while Enraged
+              or if all active enemies are Swallowed.
+              <br><br>
+              For each 5,000 points earned this battle after 50,000 points, this unit gains 3% Offense (stacking) until
+              the end of battle. This bonus increases by an additional 3% each time.
+            </div>
+          </div>
+
+          <!-- Capacité Dragon 6 -->
+          <div class="faction-card">
+            <div class="faction-header">
+              <img src="../raid-image/raid-dragon-krayt/raid-dragon-unique2.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="dragon-capa-name-6" style="white-space: nowrap;">Fearsome Defiance</span>
+            </div>
+            <div class="p-3" id="dragon-capa-desc-6"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              When inflicted with the following debuffs, lose stacks of Defiance and remove those debuffs. If no stacks
+              of Defiance are present, this unit is immune to these debuffs.
+              <br><br>
+              <u class="speciale">Defiance:</u> Lose stacks when inflicted with the following debuffs:<br>
+              Stun and Fear: 8 stacks<br>
+              Ability Block: 6 stacks<br>
+              Daze: 5 stacks<br>
+              Blind: 3 stacks<br>
+              Stagger: 2 stacks<br>
+              Tenacity Down: 1 stack
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bundle of Explosives -->
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <div class="d-flex align-items-center gap-3" style="flex: 1; min-width: 0;">
+            <img src="../raid-image/raid-dragon-krayt/raid-dragon-explosives.png"
+              style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+
+            <span id="capa-explosive" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Bundle of
+              Explosives</span>
+          </div>
+          <span style="flex-shrink: 0;">+</span>
+        </div>
+        <div class="accordion-content-sw" id="val-capa-explosive">
+
+          <!-- Capacité Explosifs 1 -->
+          <div class="faction-card">
+            <div class="faction-header">
+              <img src="../raid-image/raid-dragon-krayt/raid-dragon-bundle-unique.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="explosif-capa-name-1" style="white-space: nowrap;">Calculated Impact</span>
+            </div>
+            <div class="p-3" id="explosif-capa-desc-1"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              Detonates after receiving damage 5 times, dealing damage to the Krayt Dragon and other Bundles of
+              Explosives. If the Krayt Dragon has bonus Protection and isn't Enraged, also reduce its Turn Meter by 15%.
+              Immune to all status effects. When this unit is defeated, dispel all debuffs on all enemies.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+    <!-- SECTION DIFFICULTÉ -->
+    <div id="section-diff" class="section-content">
+      <h2 id="h-diff">Difficulty Modifiers</h2>
+      <div id="diff-container">
+
+        <!-- LEVEL 0 -->
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-base">Level 0 (x1 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3">
+              <span id="level-info-base">
+                <strong>Max possible:</strong> 300,000 pts<br>
+                <strong>Requirement:</strong> None
+              </span>
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-base">
+                <strong>Additional Effects:</strong><br>
+                • No Additional Effects.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEVEL 1 -->
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-1">Level 1 (x1.5 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3" id="level-info-1">
+              <strong>Max possible:</strong> 450,000 pts<br>
+              <strong>Requirement:</strong> Tier XII
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);"  id="level-desc-1">
+                <strong>Additional Effects:</strong><br>
+                • The Krayt Dragon has +10% Accuracy, Critical Avoidance, Critical Chance, Critical Damage, Defense, Defense Penetration, Offense, Potency, Speed, and Tenacity. Damage it receives is decreased by 25%..<br>
+                • <u class="speciale">Crushing Maw:</u> Inflict Stun for 1 turn if the enemy was already Dazed, which can't be evaded.<br>
+                • <u class="speciale">Swallow Whole:</u> Gain Critical Immunity and Tenacity Up for 2 turns.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEVEL 2 -->
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-2">Level 2 (x2 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3" id="level-info-2">
+              <strong>Max possible:</strong> 600,000 pts<br>
+              <strong>Requirement:</strong> Relic 1
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-2">
+                <strong">Additional Effects:</strong><br>
+                • The Krayt Dragon has +15% Accuracy, Critical Avoidance, Critical Chance, Critical Damage, Defense, Defense Penetration, Offense, Potency, Speed, and Tenacity. Damage it receives is decreased by 50%.<br>
+                <u class="speciale">Corrosive Venom Spray:</u>  Inflict Blind on all enemies for 2 turns, which can't be evaded.<br>
+                <u class="speciale">Dune Burrow:</u> Dispel all debuffs and gain Offense Up for 2 turns.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEVEL 3 -->
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-3">Level 3 (x3 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3" id="level-info-3">
+              <strong>Max possible:</strong> 900,000 pts<br>
+              <strong>Requirement:</strong> Relic 3
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2); " id="level-desc-3">
+                <strong>Additional Effects:</strong><br>
+                • The Krayt Dragon has +15% Accuracy, Critical Avoidance, Critical Chance, Critical Damage, Defense, Defense Penetration, Offense, Potency, Speed, and Tenacity.<br>
+                • <u class="speciale">Crushing Maw:</u> Deal 150% more damage.<br>
+                • <u class="speciale">Swallow Whole:</u> Generate an additional 16 stacks of Defiance.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEVEL 4 -->
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-4">Level 4 (x4 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3" id="level-info-4">
+              <strong>Max possible:</strong> 1,200,000 pts<br>
+              <strong>Requirement:</strong> Relic 5
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-4">
+                <strong>Additional Effects:</strong><br>
+                • The Krayt Dragon has +15% Accuracy, Critical Avoidance, Critical Chance, Critical Damage, Defense, Defense Penetration, Offense, Potency, Speed, and Tenacity.<br>
+                • <u class="speciale">Corrosive Venom Spray:</u> Inflict Buff Immunity and Offense Down for 2 turns, which can't be evaded.<br>
+                • <u class="speciale">Dune Burrow:</u> Generate an additional 10% bonus Protection.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEVEL 5 -->
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-5">Level 5 (x6 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3" id="level-info-5">
+              <strong>Max possible:</strong> 1,800,000 pts<br>
+              <strong>Requirement:</strong> Relic 7
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-5">
+                <strong>Additional Effects:</strong><br>
+                • The Krayt Dragon has +45% Accuracy, Critical Avoidance, Critical Chance, Critical Damage, Defense, Defense Penetration, Offense, Potency, Speed, and Tenacity.<br>
+                • <u class="speciale">Swallow Whole:</u> Cooldown reduced by 1 when used<br>
+                • <u class="speciale">Dune Burrow:</u> Cooldown reduced by 1 when used<br>
+                • <u class="speciale">Mandalorian:</u> Damage Mandalorians deal is increased by 20%, and damage they receive is decreased by 30%<br>
+                • <u class="speciale">Tusken:</u> Whenever an enemy is inflicted with a stack of Damage Over Time, this character gains 1 stack of Momentum; whenever this character gains a stack of Momentum, they gain 2% Max Health and Max Protection (stacking) until the end of battle and 5% Turn Meter.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEVEL 6 -->
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-6">Level 6 (x9 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3" id="level-info-6">
+              <strong>Max possible:</strong> 2,700,000 pts<br>
+              <strong>Requirement:</strong> Relic 8
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-6">
+                <strong>Additional Effects:</strong><br>
+                • <u class="speciale">Fire Ballista:</u> Cooldown Speed reduced to 0 and deal an additional 6% more damage per stack of Momentum.<br>
+                • <u class="speciale">Replant Explosives:</u> Cooldown Speed reduced to 0.<br>
+                • <u class="speciale">Old Republic:</u> +1% additional damage.<br>
+                • <u class="speciale">Tusken:</u> Deal an additional 2% damage per stack of Momentum.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!--fin section difficultés-->
+
+    <!-- SECTION RESTRICTIONS -->
+    <div id="section-unites" class="section-content">
+      <h2 id="raid-unites">Eligible Units</h2>
+
+      <div class="info-box" id="raid-eligible-desc">Units eligible for this raid:</div>
+
+      <div id="units-gallery"></div>
+    </div>
+
+    <script>
+      let currentLang = sessionStorage.getItem("selectedLanguage") || "en";
+      let allUnits = [];
+      const RAID_TARGET_EN = "krayt dragon hunt";
+      const englishTexts = {};
+
+      const dictFr = {
+        "raid-main-name": "Chasse au Dragon Krayt",
+        "title-resume": "Résumé",
+        "title-details": "Détails",
+        //menu traduction
+        "btn-history": "Histoire & Règles",
+        "btn-factions": "Factions Bonus",
+        "btn-capacities": "Capacités",
+        "btn-diff": "Modificateurs",
+        "btn-unites": "Unités autorisées",
+        "btn-back": "RETOUR",
+
+        //ensemble sommaire, sous-catégorie : story and rules
+        "title-story": "HISTOIRE",
+        "text-story": "Les nomades Tusken raconten à leurs enfants des histoires sur le légendaire dragon Krayt de Tatooine, qui nage dans les dunes du désert comme s'il évoluait dans l'eau. Son gosier caverneux et son venin acide ont causé la mort de nombreux fermiers hydroponiques, Jawas et Tuskens.\n\nUnités héros : le Mandalorien (armure en beskar)",
+
+        "title-rules": "RÈGLES",
+        "text-rules": "• Limite de temps : 2 Jours et 23 heures.\n•Conditions : 5 étoile(s), Unités spécifiques.\n• Actualisation des personnages : Jamais.\n• Coût du lancement : 180 k ticket.\n• Total de tentatives : 5.\n",
+
+        //traduction des titres
+        "h-history": "Histoire & Règles",
+        "h-factions": "Bonus de Faction",
+        "h-capa": "Capacités",
+        "h-diff": "Modificateurs de Difficulté",
+        "h-unites": "Unités autorisées",
+
+        "text-factions-intro": "Les personnages peuvent obtenir l'une ou plusieurs des capacités suivantes lors du raid",
+
+        "f-hero": "Unités Héros",
+        "content-f-hero": "Ce personnage reçoit +100 % de santé maximale et de protection maximale. Au début du tour de ce personnage, il dissipe tous les affaiblissements l'affectant et diminue le délai de Tir de baliste et de Pose d'explosifs de 20 %. Lorsque ce personnage utilise Tir de baliste ou Pose d'explosifs, diminue son délai de 40 %.\n\nA chaque tour, la première fois que ce personnage attaque en dehors de son tour, il a 75 % de chances d'infliger un cumul de dégâts sur la durée sur la cible ennemie pendant 1 tour. Ce personnage reçoit +30 % de pouvoir et inflige 5 % de dégâts supplémentaires par cumul d'élan.\n\nCe personnage est immunisé contre Empoisonnement. Les dégâts infliégés par ce personnage sont réduits de 50 %. Chaque fois que ce personnage inflige des dégâts à un ennemi, il ne déclenche pas de gain de jauge de tour et il a 75 % de chances d'infliger un malus de ténacité pendant 2 tours.\n\nCes effets ne se cumulent pas avec le même effet des capacités venant des bonus de faction.",
+
+        "f-hutt": "Cartel des Hutt",
+        "content-f-hutt": "Lorsqu'un allié du Cartel des hutt inflige des dégâts à un lot d'explosifs, il explose immédiatement et inflige le double de dégâts au dragon krayt.\n\nAu début du tour de ce personnage, le délai de Pose d'explosifs est réduit de 20 %. Lorsque ce personnage utilise Pose d'explosifs, son délai est réduit de 40 %.",
+
+        "f-jawa": "Jawas",
+        "content-f-jawa": "Ce personnage reçoit +100 % de santé et de protection maximales. Au début du tour de ce personnage, il dissipe tous les affaiblissements l'affectant. Chaque fois qu'un allié Jawa utilise Détonateur thermique sur un ennemi, les dégâts que l'ennemi subit des Jawas et des détonateurs thermiques augmentents de 9 % pour chaque Jawa actif (cumulatif).",
+
+        "f-mando": "Mandaloriens",
+        "content-f-mando": "Ce personnage est immunisé contre Empoisonnement. Les dégâts infligés par ce personnage sont réduits de 50 %.\n\nChaque fois que ce personnage inflige des dégâts, il ne déclenche pas le gain de jauge de tour des ennemis, il a 75 % de chances d'infliger un malus de ténacité à tous les ennemis pendant 2 tours.",
+
+        "f-or": "Ancienne République",
+        "content-f-or": "Chaque fois qu'un ennemi subit un cumul de dégâts sur la durée, les alliés de l'Ancienne République infligent 1 % de dégâts supplémentaires jusqu'à la fin de la bataille (cumulatif) pour chaque allié de l'Ancienne République actif. A chaque tour, la première fois que ce personnage attaque en dehors de son tour, il a 75 % de chances d'infliger un cumul de dégâts sur la durée à la cible ennemie pendant 1 tour.",
+
+        "f-tusken": "Tuskens",
+        "content-f-tusken": "Au début du tour de ce personnage, le délai de Tir de baliste est réduit de 20 %. Lorsque ce personnage utilise Tir de baliste, son délai est réduit de 40 %.\n\nCe personnage a +30 % de pouvoir et inflige 5 % de dégâts supplémentaires par cumul d'Élan.",
+
+        //abilities 
+        "capa-granted": "Capacités conférées",
+        "capa-dragon": "Dragon Krayt",
+        "capa-explosive": "lots d'explosifs",
+
+        "capa-name-1": "Tir de baliste",
+        "capa-desc-1": "Vitesse du délai : 100.\n\nInflige des dégâts réels à la cible ennemie 2 fois, ainsi que les effets Confusion, Faux pas et Étourdissement pendant 1 tour, 2 fois (ne peut pas être esquivé ou résisté).\n\nSi un non-attaquant a utilisé cette capacité, elle inflige 15 % de dégâts supplémentaires pour chaque cumul d'Élan dont il disposait.",
+
+        "capa-name-2": "Pose d'explosifs",
+        "capa-desc-2": "Vitesse du délai : 100.\n\nPlace 2 lots d'explosifs autour du dragon krayt (3 maximum).",
+
+        "dragon-capa-name-1":"Mâchoire écrasante",
+        "dragon-capa-desc-1":"Inflige des dégâts physiques à une cible ennemie et lui inflige Confusion pendant 2 tours. Inflige des dégâts physiques à tous les ennemis.\n\n<u class='rage'>Enragé :</u> inflige Étourdissement à la cible ennemie pendant 2 tours. Inflige Confusion à tous les ennemis pendant 2 tours.",
+
+        "dragon-capa-name-2":"Spray de venin corrosif",
+        "dragon-capa-desc-2": "Vainc instantanément tous les ennemis qui sont actuellement Gobés. Dissipe toutes les améliorations dont disposent les ennemis. Inflige des dégâts spéciaux à tous les ennemis, ainsi qu'un malus de défense, Exposition, Empoisonnement, un malus de vitesse et Vulnérabilité pendant 2 tours.\n\n<u class='speciale'>Empoisonnement :</u> -50 % de récupération de santé et de protection ; impossibilité de récupérer de la santé avec Vol de santé ; la cible subit des dégâts à chaque tour à hauteur de 75 % de la santé et de la protection totales récupérées depuis son dernier tour chaque fois que de la santé ou de la protection à été récupéeée depuis son dernier tour.\n\n<u class='rage'>Enragé :</u> malus de défense, Exposition, Empoisonnement, malus de vitesse et Vulnérabilité ne peuvent pas être dissipés ou résistés.",
+        
+        "dragon-capa-name-3":"Gobé tout cru",
+        "dragon-capa-desc-3": "Gobe la cible ennemie et retire ses effets de statuts. Le dragon Krayt obtient 20 cumuls de Défi. Lorsqu'un ennemi est gobé, la vitesse du dragon krayt diminue de 25 % et sa jauge de tour ne peut pas être réduite. Lorsque Défi est retiré, l'ennemi Gobé est rendu. Si l'ennemi Gobé est le dernier ennemi, la bataille prend fin immédiatement. Ceppe capacité commence toutes les batailles avec un délai de 1 tour restant.\n\n<u class='speciale'>Gobé:</u>Un ennemi a été Gobé. Il sera recraché lorsque tous les cumuls de Défi auront été retirés et il sera vaincu instantanément si Spray de venin corrosif est utilisé pendant qu'il est Gobé.\n\n<u class='rage'>Enragé :</u> Si c'est la première capacité utilisé lors de ce tour, réinitialise son délai.",
+
+        "dragon-capa-name-4":"Tunnel dans les dunes",
+        "dragon-capa-desc-4": "Obtient 20 % de protection bonus et la capacité conférée Violente éruption jusqu'à ce qu'elle soit utilisée ou jusqu'à ce que ce bonus de protection soit retiré. Tant que le dragon krayt dispose de ce bonus de protection, il ne peut pas perdre Défi, de la santé ou de la jauge de tour (sauf dégâts subis des lots d'explosifs), sa vitesse diminue de 25 %; et les dégâts qu'il subit des lots d'explosifs augmentent de 400 . A chaque bataille, cette capacité commence avec un délai de 2 tours restants.\n\n<u class='rage'>Enragé :</u> les dégâts que le dragon krayt subit provenant des lots explosifs ne sont plus augmentés.\n\n<u class='speciale'>Violente éruption :</u> inflige des dégâts réels à tous les ennemis, infligeant plus de dégâts en fonction du bonus de protection restant, et inflige Étourdissement à tous les ennemis pendant 1 tour. Ensuite, le dragon krayt perd tout bonus de protection. Cette attaque ne peut pas être esquivée.",
+
+        "dragon-capa-name-5":"Grand prédateur",
+        "dragon-capa-desc-5": "Les dégâts subis par le dragon krayt augmentent de 75 % alors qu'il n'a pas de bonus de protection. Lorsque le dragon krayt subit des dégâts alors qu'il n'a pas de bonus de protection et qu'il n'a pas GObé d'ennemi, il gagne 6 % de jauge de tour.\nLorsqu'un personnage utilise son tour, le dragon krayt gagne 1 % d'effet Enragé. Lorsque le dragon krayt utilise son tour, il obtient 4 % d'effet Enragé et 4 cumuls de Défi supplémentaires. Lorsqu'un ennemi réduit la jauge de tour du dragonk rayt, il obtient 1 % d'effet Enragé pour chaque tranche de 10 % supprimé de la jauge de tour. Lorsqu'il atteint 100 %, le dragon krayt devient enragé. La bataille se termine immédiatement après que le dragon krayt a utilisé 5 tours en étant Enragé ou si tous les ennemis actifs sont Gobés.\nTous les 5 000 points gagnés dans cette btaille, et dès 50 000 points, cette unité obtient 3 % d'attaque (cumulatif) jusqu'à la fin de la bataille. Ce bonus augmente dee 3 % à chaque fois.",
+
+        "dragon-capa-name-6":"Défi redoutable",
+        "dragon-capa-desc-6": "Lorsqu'elle subit les affaiblissements suivants, l'unité perd ses cumuls de Défi et ces affaiblissement sont supprimés. Si elle ne possède aucun cumul de Défi, cette unité est immunisée contre ces affaiblissements.\n\n<u class='speciale'>Défi :</u> perd des cumuls dlors de la réception des affaiblissements suivants :\nÉtourdissement et Peur : 8 cumuls.\nEntrave des capacités : 6 cumuls.\nConfusion : 5 cumuls.\nCécité : 3 cumuls.\nFaus pas : 2 cumuls.\nMalus de ténacité : 1 cumul.",
+
+        "explosif-capa-name-1": "Lots d'expliosifs",
+        "explosif-capa-desc-1": "Détonne après avoir reçu des dégâts 5 fois, infligeant des dégâts au dragon krayt et aux autres lots explosifs. Si le dragon krayt dispose d'un bonus de protection et qu'il n'est pas Enragé, diminue également sa jauge de tour de 15 %. Immunisé contre tous les effets. Lorsque cette unité est vaincue, dissipe tous les affaiblissements affectant les ennemis.",
+
+        //niveau de difficulté du raid
+        "level-title-base": "Niveau 0 (x1 Multiplicateur)",
+        "level-info-base": "<strong>Score Max :</strong> 300 000 pts<br></strong>Conditions :</strong> Aucune",
+        "level-desc-base": "<strong>Effets supplémentaires :</strong><br>• Aucun effet supplémentaire.",
+
+        "level-title-1": "Niveau 1 (x1.5 Multiplicateur)",
+        "level-info-1": "<strong>Score Max :</strong> 450 000 pts<br></strong>Conditions :</strong> Équipement 12",
+        "level-desc-1": "<strong>Effets supplémentaires :</strong>\n\n• Le dragon krayt gagne un bonus de +10 % de précision, d'esquive des critiques, de chances de coup critique, de dégâts critiques, de défense, de pénétration de défense, d'attaque, de pouvoir, de vitesse et de ténacité. Les dégâts qu'il subit sont réduits de 25 %.\n\n• <u class='speciale'>mâchoire écrasante :</u>Inflige Étourdissement pendant 1 tour si l'ennemi souffre déjà de Confusion (ne peut pas être esquivé).\n\n• <u class='speciale'>Gobé tout cru :</u> confère Immunité aux coups critiques et un bonus de ténacité pendant 2 tours.",
+
+        "level-title-2": "Niveau 2 (x2 Multiplicateur)",
+        "level-info-2": "<strong>Score Max :</strong> 600 000 pts<br></strong>Conditions :</strong> Relique 1",
+        "level-desc-2": "<strong>Effets supplémentaires :</strong>\n\n• Le dragon krayt gagne un bonus de +15 % de précision, d'esquive des critiques, de chances de coup critique, de dégâts critiques, de défense, de pénétration de défense, d'attaque, de pouvoir, de vitesse et de ténacité. Les dégât qu'il subit sont réduits de 50 %.\n\n• <u class='speciale'>Spray de venin corrosif :</u> inflige Cécité à tous les ennemis pendant 2 tours (ne peut pas être esquivé).\n\n• <u class='speciale'>Tunnel dans les dunes :</u> dissipe tous les affaiblissements sur le dragon krayt et confère un bonus d'attaque pendant 2 tours.",
+
+        "level-title-3": "Niveau 3 (x3 Multiplicateur)",
+        "level-info-3": "<strong>Score Max :</strong> 900 000 pts<br></strong>Conditions :</strong> Relique 3",
+        "level-desc-3": "<strong>Effets supplémentaires :</strong>\n\n• Le dragon krayt gagne un bonus de +15 % de précision, d'esquive des critiques, de chances de coup critique, de dégâts critiques, de défense, de pénétration de défense, d'attaque, de pouvoir, de vitesse et de ténacité.\n\n• <u class='speciale'>Morsure :</u> inflige 150 % de dégâts supplémentaires.\n\n<u class='speciale'>Gobé tout cru :</u> génère 16 cumuls supplémentaires de Défi.",
+
+        "level-title-4": "Niveau 4 (x4 Multiplicateur)",
+        "level-info-4": "<strong>Score Max :</strong> 1 200 000 pts<br></strong>Conditions :</strong> Relique 5",
+        "level-desc-4": "<strong>Effets supplémentaires :</strong>\n\n• Le dragon krayt gagne un bonus de +15 % de précision, d'esquive des critiques, de chances de coup critique, de dégâts critiques, de défense, de pénétration de défense, d'attaque, de pouvoir, de vitesse et de ténacité.\n\n• <u class='speciale'>Spray de venin corrosif :</u> inflige Immunité aux améliorations et un malus d'attaque pendant 2 tours (ne peut pas être esquivé).\n\n• <u class='speciale'>Tunnel dans les dunes :</u> génère une protection augmentée de 10 %.",
+
+        "level-title-5": "Niveau 5 (x6 Multiplicateur)",
+        "level-info-5": "<strong>Score Max :</strong> 1 800 000 pts<br></strong>Conditions :</strong> Relique 7",
+        "level-desc-5": "<strong>Effets supplémentaires :</strong>\n\n• Le dragon krayt gagne un bonus de +45 % de précision, d'esquive des critiques, de chances de coup critique, de dégâts critiques, de défense, de pénétration de défense, d'attaque, de pouvoir, de vitesse et de ténacité.\n\n• <u class='speciale'>Gobé :</u> délai réduit de 1 lors de son utilisation.\n\n• <u class='speciale'>Tunnel dans les dunes :</u> délai réduit de 1 lors de son utilisation.\n\n• <u class='speciale'>Bonus de factions : Mandaloriens :</u> Les dégâts infligés par les Mandaloriens augmente de 20 % et les dégâts qu'ils subissent sont réduits de 30 %.\n\n• <u class='speciale'>bonus de factions: Tusken :</u> lorsqu'un ennemi subit un cumul de dégâtss sur la durée, ce personnage obtient un cumul d'Élan. Lorsque ce personnage obtient un cumul d'Élan, il gagne 2 % de santé maximale et de protection maximale (cumulatif) jusqu'à la fin de la bataille, ainsi que 5 % de jauge de tour.",
+
+        "level-title-6": "Niveau 6 (x9 Multiplicateur)",
+        "level-info-6": "<strong>Score Max :</strong> 2 700 000 pts<br></strong>Conditions :</strong> Relique 8",
+        "level-desc-6": "<strong>Effets supplémentaires :</strong>\n\n• <u class='speciale'>Tir de baliste :</u> vitesse du délai réduit à 0 et inflige 6 % supplémentaires par cumul d'Élan.\n\n• <u class='speciale'>pose d'explosifs :</u> vitesse du délai réduit à 0.\n\n• <u class='speciale'>bonus de factions: Ancienne République :</u> inflige 1 % de dégâts supplémentaires.\n\n• <u class='speciale'>bonus de factions: Tusken :</u> inflige 2 % de dégâts supplémentaires par cumul d'Élan.",
+
+        "raid-unites": "Unités éligibles",
+        "raid-eligible-desc": "Unités éligibles pour ce raid :",
+      };
+      function toggleAccordion(element) {
+        const parent = element.parentElement;
+        parent.classList.toggle('active');
+        const icon = element.querySelectorAll('span')[1];
+        icon.innerHTML = parent.classList.contains('active') ? '-' : '+';
+      }
+
+      function toggleAccordionById(id) {
+        const el = document.getElementById(id);
+        const isHidden = el.classList.contains('d-none');
+        // On cache toutes les zones de faction avant d'afficher la bonne
+        document.querySelectorAll('#section-factions .info-box').forEach(box => box.classList.add('d-none'));
+        if (isHidden) el.classList.remove('d-none');
+      }
+      function switchLanguage(lang) {
+        currentLang = lang;
+        sessionStorage.setItem("selectedLanguage", lang);
+        updateUI();
+      }
+
+      function updateUI() {
+        const isFr = (currentLang === "fr");
+        const source = isFr ? dictFr : englishTexts;
+
+        for (let id in source) {
+          const el = document.getElementById(id);
+          if (el) {
+            if (isFr) {
+              // Pour le français : on transforme les \n du dictionnaire en <br>
+              el.innerHTML = source[id].replace(/\n/g, '<br>');
+            } else {
+              /* 
+                Pour l'anglais : 
+                1. .trim() enlève les espaces vides au début et à la fin du bloc.
+                2. .replace(/\s+/g, ' ') remplace les retours à la ligne du CODE 
+                    et les doubles espaces par un seul espace propre.
+              */
+              el.innerHTML = source[id].replace(/\s+/g, ' ').trim();
+            }
+          }
+        }
+
+        // Mise à jour de l'état visuel des boutons de langue
+        const btnEn = document.getElementById("lang-en");
+        const btnFr = document.getElementById("lang-fr");
+        
+        if (btnEn) btnEn.classList.toggle("active", currentLang === 'en');
+        if (btnFr) btnFr.classList.toggle("active", currentLang === 'fr');
+
+        renderUnits();
+      }
+
+      function showSection(sectionId, element) {
+        document.querySelectorAll('.section-content').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+        document.getElementById('section-' + sectionId).classList.add('active');
+        element.classList.add('active');
+      }
+
+      function toggleFaction(element) {
+
+        element.classList.toggle('active');
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        // Sauvegarde auto des textes anglais du HTML
+        Object.keys(dictFr).forEach(id => {
+          const el = document.getElementById(id);
+          if (el) englishTexts[id] = el.innerHTML;
+        });
+
+        fetch("https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json")
+          .then(res => res.json())
+          .then(data => {
+            allUnits = data;
+            updateUI();
+          });
+      });
+
+      function renderUnits() {
+        const gallery = document.getElementById("units-gallery");
+        if (!gallery) return;
+
+        gallery.innerHTML = "";
+
+        const filtered = allUnits.filter(u =>
+          u.raids && u.raids.some(r => r.en.toLowerCase() === RAID_TARGET_EN)
+        );
+
+        filtered.forEach(u => {
+          const link = document.createElement("a");
+          link.href = u.page;
+          link.target = "_self";
+
+          const img = document.createElement("img");
+          img.src = u.image;
+          img.className = "raid-unit-img";
+          img.title = u.name[currentLang] || u.name.en;
+          img.loading = "lazy";
+
+          link.appendChild(img);
+          gallery.appendChild(link);
+        });
+      }
+      
+    </script>
+</body>
+
+</html>
