@@ -545,7 +545,7 @@ function submitGuess(unit) {
         yearArrow = " ↓"; 
     }
 
-    if (unit.years_of_apparition === targetUnit.years_of_apparition) foundTraits.year = unit.year;
+    if (unit.years_of_apparition === targetUnit.years_of_apparition) foundTraits.year = unit.years_of_apparition;
 
     updateSummary();
 
