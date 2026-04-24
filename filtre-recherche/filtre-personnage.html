@@ -148,7 +148,7 @@
     </div>
 
     <div class="filter-box">
-      <h5 id="title-alignment">ROLE & ALIGNMENT</h5>
+      <h5 id="title-alignment">ROLE, ALIGNMENT & YEAR</h5>
       <select id="role-filter" class="form-select mb-2 bg-dark text-white border-secondary">
         <option value="">-- all roles --</option>
         <option value="attacker">Attacker / Attaquant</option>
@@ -156,11 +156,14 @@
         <option value="healer">Healer / Soigneur</option>
         <option value="tank">Tank / Tank</option>
       </select>
-      <select id="alignment-filter" class="form-select bg-dark text-white border-secondary">
+      <select id="alignment-filter" class="form-select mb-2 bg-dark text-white border-secondary">
         <option value="">-- all alignments --</option>
         <option value="lightside">Light Side / Côté Lumineux</option>
         <option value="darkside">Dark Side / Côté Obscur</option>
         <option value="neutral">Neutral / Neutre</option>
+      </select>
+      <select id="year-filter" class="form-select bg-dark text-white border-secondary">
+        <option value="">-- all years --</option>
       </select>
     </div>
 
@@ -210,13 +213,13 @@
       });
 
     function initPage() {
-      syncLangUI(); // Synchronise visuellement les drapeaux au chargement
+      syncLangUI();
       updateStaticText();
       generateFactionFilters();
+      generateYearFilters(); // Génère la liste des années
       applyFilters();
     }
 
-    // Gère l'apparence active des drapeaux
     function syncLangUI() {
       document.querySelectorAll(".lang-toggle img").forEach(i => i.classList.remove("active"));
       const activeFlag = document.getElementById("lang-" + currentLang);
@@ -229,7 +232,7 @@
         "filter-title": isFr ? "FILTRE DE PERSONNAGES" : "CHARACTER FILTER",
         "title-search": isFr ? "RECHERCHE & TAGS" : "SEARCH & TAGS",
         "title-factions": "FACTIONS",
-        "title-alignment": isFr ? "RÔLE & ALIGNEMENT" : "ROLE & ALIGNMENT",
+        "title-alignment": isFr ? "RÔLE, ALIGNEMENT & ANNÉE" : "ROLE, ALIGNMENT & YEAR",
         "add-tag-btn": isFr ? "Ajouter" : "Add",
         "reset-filters": isFr ? "⚡ RÉINITIALISER" : "⚡ RESET FILTERS",
         "home-btn": isFr ? "🏠 MENU PRINCIPAL" : "🏠 HOME MENU",
@@ -245,6 +248,7 @@
       document.getElementById("tag-input").placeholder = isFr ? "Ajouter un tag..." : "Add a tag...";
       document.getElementById("role-filter").options[0].text = isFr ? "-- tous les rôles --" : "-- all roles --";
       document.getElementById("alignment-filter").options[0].text = isFr ? "-- tous les alignements --" : "-- all alignments --";
+      document.getElementById("year-filter").options[0].text = isFr ? "-- toutes les années --" : "-- all years --";
     }
 
     function generateFactionFilters() {
@@ -265,6 +269,23 @@
       document.querySelectorAll(".faction-cb").forEach(cb => cb.addEventListener("change", applyFilters));
     }
 
+    // Extraction et création dynamique du filtre par année
+    function generateYearFilters() {
+        const yearSelect = document.getElementById("year-filter");
+        // Récupère toutes les années uniques présentes dans le JSON
+        const years = [...new Set(characters.map(c => c.years_of_apparition))].filter(y => y != null);
+        
+        // Tri décroissant (les plus récents en haut)
+        years.sort((a, b) => b - a);
+
+        const isFr = (currentLang === "fr");
+        let html = `<option value="">${isFr ? "-- toutes les années --" : "-- all years --"}</option>`;
+        years.forEach(y => {
+            html += `<option value="${y}">${y}</option>`;
+        });
+        yearSelect.innerHTML = html;
+    }
+
     function normalizeAlignment(a) {
       if (!a) return "";
       const t = String(a).trim().toLowerCase().replace(/[\s_-]/g, "");
@@ -277,6 +298,7 @@
       const search = document.getElementById("search-bar").value.trim().toLowerCase();
       const role = document.getElementById("role-filter").value.toLowerCase();
       const align = normalizeAlignment(document.getElementById("alignment-filter").value);
+      const selectedYear = document.getElementById("year-filter").value;
       const selectedFactions = Array.from(document.querySelectorAll(".faction-cb:checked")).map(cb => cb.value);
 
       const filtered = characters.filter(c => {
@@ -284,21 +306,23 @@
         const fNames = (c.factions || []).map(f => (f[currentLang] || f.en).toLowerCase());
         const cRole = (c.role?.en || "").toLowerCase();
         const cAlign = normalizeAlignment(c.alignment?.en || "");
+        const cYear = String(c.years_of_apparition || "");
 
         const matchSearch = !search || name.includes(search);
         const matchRole = !role || cRole === role;
         const matchAlign = !align || cAlign === align;
+        const matchYear = !selectedYear || cYear === selectedYear; // Filtre par année
         const matchFactions = selectedFactions.length === 0 || selectedFactions.every(f => fNames.includes(f));
         const matchTags = customTags.length === 0 || customTags.every(tag => 
             name.includes(tag) || fNames.some(fn => fn.includes(tag))
         );
 
-        return matchSearch && matchRole && matchAlign && matchFactions && matchTags;
+        return matchSearch && matchRole && matchAlign && matchYear && matchFactions && matchTags;
       });
 
       filtered.sort((a, b) => (a.base_id || "").localeCompare(b.base_id || ""));
       
-      renderActiveFilters(selectedFactions, role, align, search);
+      renderActiveFilters(selectedFactions, role, align, search, selectedYear);
       renderCharacters(filtered);
     }
 
@@ -320,7 +344,8 @@
                 <p class="mb-1"><span class="unit-label">ID:</span> ${c.id || c.base_id}</p>
                 <p class="mb-1"><span class="unit-label">Role:</span> ${c.role?.[currentLang] || c.role?.en || "---"}</p>
                 <p class="mb-1"><span class="unit-label">${alignLabel}:</span> ${c.alignment?.[currentLang] || c.alignment?.en || "---"}</p>
-                <p class="mb-0"><span class="unit-label">Factions:</span> ${fText}</p>
+                <p class="mb-1"><span class="unit-label">Factions:</span> ${fText}</p>
+                <p class="mb-0"><span class="unit-label">Year:</span> ${c.years_of_apparition || "---"}</p>
               </div>
               <button class="btn btn-primary btn-sm" onclick="window.location.href='${c.page}'">
                 ${isFr ? 'DÉTAILS' : 'DETAILS'}
@@ -331,13 +356,14 @@
       }).join("") : `<p class="w-100 text-center mt-5">${isFr ? "Aucun personnage trouvé" : "No characters found"}</p>`;
     }
 
-    function renderActiveFilters(factions, role, align, search) {
+    function renderActiveFilters(factions, role, align, search, year) {
         const container = document.getElementById("active-filters");
         container.innerHTML = "";
         let items = [...factions];
         if (role) items.push(role);
         if (align) items.push(align);
         if (search) items.push(search);
+        if (year) items.push(year); // Affiche l'année dans les filtres actifs
         customTags.forEach(t => items.push(t));
 
         items.forEach(text => {
@@ -346,11 +372,12 @@
             span.style.cursor = "pointer";
             span.textContent = text + " ✕";
             span.onclick = () => {
-                customTags = customTags.filter(t => t !== text);
-                document.querySelectorAll(".faction-cb").forEach(cb => { if(cb.value === text) cb.checked = false; });
+                if(text === year) document.getElementById("year-filter").value = "";
                 if(text === role) document.getElementById("role-filter").value = "";
                 if(text === align) document.getElementById("alignment-filter").value = "";
                 if(text === search) document.getElementById("search-bar").value = "";
+                customTags = customTags.filter(t => t !== text);
+                document.querySelectorAll(".faction-cb").forEach(cb => { if(cb.value === text) cb.checked = false; });
                 applyFilters();
             };
             container.appendChild(span);
@@ -385,12 +412,14 @@
     document.getElementById("search-bar").oninput = applyFilters;
     document.getElementById("role-filter").onchange = applyFilters;
     document.getElementById("alignment-filter").onchange = applyFilters;
+    document.getElementById("year-filter").onchange = applyFilters; // Event pour l'année
     document.getElementById("mobile-filter-toggle").onclick = () => document.getElementById("sidebar").classList.toggle("open");
     
     document.getElementById("reset-filters").onclick = () => {
         document.getElementById("search-bar").value = "";
         document.getElementById("role-filter").value = "";
         document.getElementById("alignment-filter").value = "";
+        document.getElementById("year-filter").value = ""; // Reset de l'année
         document.querySelectorAll(".faction-cb").forEach(c => c.checked = false);
         customTags = [];
         applyFilters();
