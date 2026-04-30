@@ -1,0 +1,1315 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>SWGOH - Battle For Naboo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    u.speciale {
+      font-weight: bold;
+      color: yellow;
+      text-decoration: none;
+    }
+
+    u.rage {
+      font-weight: bold;
+      color: red;
+      text-decoration: none;
+    }
+
+    :root {
+      --sw-bg-dark: #050505;
+      --sw-bg-card: #121212;
+      --sw-border: #333;
+      --sw-text-main: #e0e0e0;
+      --sw-blue-text: #00a2ff;
+      --font-titles: 'Orbitron', sans-serif;
+      --sidebar-width: 380px;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--sw-bg-dark);
+      background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+      color: var(--sw-text-main);
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: var(--sidebar-width);
+      background-color: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(5px);
+      padding: 25px;
+      border-right: 2px solid var(--sw-border);
+      z-index: 10000;
+      overflow-y: auto;
+    }
+
+    #content {
+      margin-left: var(--sidebar-width);
+      padding: 40px;
+      min-height: 100vh;
+    }
+
+    .raid-header-img {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: contain;
+      background: #000;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      border: 1px solid var(--sw-border);
+    }
+
+    .main-raid-title {
+      font-family: var(--font-titles);
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+      border-left: 5px solid var(--sw-blue-text);
+      padding-left: 15px;
+    }
+
+    .nav-section {
+      margin-bottom: 20px;
+    }
+
+    .nav-title {
+      font-family: var(--font-titles);
+      color: var(--sw-blue-text);
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      border-bottom: 1px solid #222;
+    }
+
+    .nav-item {
+      display: block;
+      padding: 12px 15px;
+      color: #aaa;
+      text-decoration: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .nav-item:hover {
+      background: rgba(0, 162, 255, 0.1);
+      color: #fff;
+    }
+
+    .nav-item.active {
+      background: var(--sw-blue-text);
+      color: #000;
+      font-weight: bold;
+    }
+
+    .sub-item {
+      padding-left: 35px;
+      font-size: 110%;
+    }
+
+    .section-content {
+      display: none;
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    .section-content.active {
+      display: block;
+    }
+
+    .faction-name {
+      font-size: 120%;
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ACCORDIONS */
+    .accordion-item-sw {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--sw-border);
+      border-radius: 8px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .accordion-header-sw {
+      padding: 15px 20px;
+      cursor: pointer;
+      font-family: var(--font-titles);
+      color: var(--sw-blue-text);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.3s;
+      background: rgba(0, 162, 255, 0.05);
+    }
+
+    .accordion-header-sw:hover {
+      background: rgba(0, 162, 255, 0.15);
+    }
+
+    .accordion-content-sw {
+      max-height: 0;
+      overflow: hidden;
+      /* Correction : transition plus rapide et courbe Bézier pour supprimer le délai */
+      transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+      padding: 0 20px;
+    }
+
+    /* État ouvert - Correction du max-height */
+    .accordion-item-sw.active .accordion-content-sw {
+      max-height: 3000px;
+      /* Réduit de 10000 à 2000 pour supprimer le temps mort */
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-top: 1px solid var(--sw-border);
+    }
+
+    /* FACTION GRID - Version Réparée */
+    .faction-card {
+      background: var(--sw-bg-card);
+      border: 1px solid var(--sw-border);
+      border-radius: 10px;
+      padding: 0;
+      text-align: left;
+      cursor: pointer;
+      transition: 0.3s;
+      overflow: hidden;
+    }
+
+    .faction-content-box {
+      max-height: 0;
+      overflow: hidden;
+      /* Correction : transition identique pour la fluidité */
+      transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+      background: #0a0a0a;
+      color: var(--sw-text-main);
+      border-top: 0 solid var(--sw-border);
+    }
+
+    /* État Actif - Correction du max-height */
+    .faction-card.active .faction-content-box {
+      max-height: 3000px;
+      /* Réduit de 10000 à 2000 */
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-top-width: 1px;
+    }
+
+    /* INFO BOX */
+    .info-box {
+      background: var(--sw-bg-card);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--sw-border);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .lang-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .lang-toggle img {
+      cursor: pointer;
+      width: 25px;
+      opacity: 0.4;
+      transition: 0.3s;
+      border: 2px solid transparent;
+      border-radius: 4px;
+    }
+
+    .lang-toggle img.active {
+      opacity: 1;
+      border-color: var(--sw-blue-text);
+    }
+
+    #units-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 15px;
+    }
+
+    .raid-unit-img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 2px solid var(--sw-border);
+      background: #000;
+    }
+
+    @media (max-width: 992px) {
+      #sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+      }
+
+      #content {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="sidebar">
+    <div class="lang-toggle">
+      <img src="https://flagcdn.com/us.svg" alt="EN" id="lang-en" onclick="switchLanguage('en')">
+      <img src="https://flagcdn.com/fr.svg" alt="FR" id="lang-fr" onclick="switchLanguage('fr')">
+    </div>
+
+    <img src="https://e-rimbault.github.io/swgoh-kit/raid-image/raid-naboo.png" class="raid-header-img"
+      alt="raid naboo">
+
+    <div class="nav-section">
+      <div class="nav-title" id="title-resume">Summary</div>
+      <div id="btn-history" class="nav-item active" onclick="showSection('resume', this)">Story & Rules</div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-title" id="title-details">Details</div>
+      <div id="btn-factions" class="nav-item" onclick="showSection('factions', this)">Faction Bonuses</div>
+      <div id="btn-capacities" class="nav-item" onclick="showSection('capacities', this)">Abilities</div>
+      <div id="btn-diff" class="nav-item" onclick="showSection('diff', this)">Difficulty Modifiers</div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-title" id="title-restrict">Restrictions</div>
+      <div id="btn-unites" class="nav-item" onclick="showSection('unites', this)">Eligible Units</div>
+    </div>
+
+    <button class="btn btn-outline-info w-100 mt-4" onclick="window.location.href='raid.html'"
+      id="btn-back">BACK</button>
+  </div>
+
+  <div id="content">
+    <h1 class="main-raid-title" id="raid-main-name">Battle For Naboo</h1>
+
+    <!-- SECTION RESUME (Story & Rules) -->
+    <div id="section-resume" class="section-content active">
+      <h2 id="h-history">Story & Rules</h2>
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <span id="title-story">STORY</span><span>+</span>
+        </div>
+        <div class="accordion-content-sw" id="text-story">
+          The Trade Federation has landed its armies on the peaceful planet of Naboo. Engage their forces both on land and in space as you weather the seemingly endless hordes of droid combatants. Making the correct tactical decisions is key to buying your fighters enough time to destroy the Droid Control Ship and seize victory.
+        </div>
+      </div>
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <span id="title-rules">RULES</span><span>+</span>
+        </div>
+        <div class="accordion-content-sw" id="text-rules">
+          • Time Limit: 2d 23h<br>
+          • Requirements: 5 Stars, Specific Units<br>
+          • Roster Refresh: Never<br>
+          • Launch Cost: 180K<br>
+          • Max Attempts: 5
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION FACTIONS -->
+    <div id="section-factions" class="section-content">
+      <h2 id="h-factions">Faction Bonuses</h2>
+
+      <!-- Texte d'introduction ajouté ici -->
+      <div class="info-box" id="text-factions-intro">Characters can obtain one or more of the following abilities during the raid.</div>
+
+      <div class="faction-grid">
+        <!-- Hero Units -->
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-naboo/faction.png">
+            <span class="faction-name" id="f-gungan">Gungans</span>
+          </div>
+          <div class="faction-content-box" id="content-f-gungan">
+            Shield Generator gains 5 Plasma Shielding. While there is an ally Shield Generator, Phalanx gains Taunt at the end of the turn if he didn't have it for 1 turn. Whenever an allied Shield Generator uses Plasma Pulse:
+            <br><br>
+            - Gungan allies gain Foresight for 1 turn<br>
+            - A random Gungan ally gains a bonus turn<br>
+            - All enemies are inflicted with Plasma Residue for 1 turn, which can't be resisted
+          </div>
+        </div>
+
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-naboo/faction.png">
+            <span class="faction-name" id="f-galactic-republic">Galactic Republic</span>
+          </div>
+          <div class="faction-content-box" id="content-f-galactic-republic">
+            Jedi Healers and Supports gain 50% Max Health and Jedi Healers and Tanks gain 100% Defense and 50% Max Protection. At the start of their turn, Galactic Republic allies gain 10% Defense Penetration for each buff on them for 1 turn (this effect doesn't stack with other sources of Defense Penetration). If the ally in the Leader slot is a Healer:
+            <br><br>
+            - Whenever a Jedi ally recovers Health they also recover 50% Protection<br>
+            - Whenever a Jedi ally is critically hit they gain Critical Hit Immunity and 100 Speed for 1 turn and reduce their cooldowns by 1<br>
+            - While a Jedi ally has Heal Over Time they have +50% Defense<br>
+            - While a Jedi ally has both Heal Over Time and Potency Up they have 40% counter chance and deal bonus True damage to all enemies when using an ability<br>
+            - Whenever an ally Jedi Healer uses a Special ability, dispel all buffs on target enemy
+          </div>
+        </div>
+
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-naboo/faction.png">
+            <span class="faction-name" id="f-separatiste">Separatists</span>
+          </div>
+          <div class="faction-content-box" id="content-f-separatiste">
+            Darth Sidious's Leader ability is active at max rank and also applies to Separatist allies when he is not in the Leader slot. Separatists and Sith allies have +100% Max Health, +25% Accuracy and Offense, +50% Potency, and +20 Speed (tripled for Darth Maul). Whenever a Separatist or Sith ally takes damage they gain 20% Defense (stacking) for 1 turn. Whenever an enemy is defeated by a Separatist or Sith ally, all allies recover 15% Health and Protection. Whenever a Sith ally inflicts a debuff, they also deal 5% Max Health damage to that enemy, which can't be evaded. Whenever a Separatist ally in the Leader slot uses a Special ability all Sith allies are called to assist.
+          </div>
+        </div>
+
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-naboo/jar-jar.png">
+            <span class="faction-name" id="f-jar-jar">Jar Jar Binks</span>
+          </div>
+          <div class="faction-content-box" id="content-f-jar-jar">
+            This character has +25% Max Protection and Offense and +20% Mastery. Whenever this character inflicts a debuff, recover 10% Health and Protection and gain 10% Defense and Offense (stacking) for 1 turn.
+          </div>
+        </div>
+
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-naboo/qui-gon.png">
+            <span class="faction-name" id="f-mqg">Master Qui-Gon</span>
+          </div>
+          <div class="faction-content-box" id="content-f-mqg">
+            This character has +25% Max Protection and Offense and +20% Mastery. Whenever this character inflicts a debuff, recover 10% Health and Protection and gain 10% Defense and Offense (stacking) for 1 turn.
+
+          </div>
+        </div>
+
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-naboo/maul.png">
+            <span class="faction-name" id="f-maul">Darth Maul</span>
+          </div>
+          <div class="faction-content-box" id="content-f-maul">
+            This character has +25% Max Protection and Offense and +20% Mastery. Whenever this character inflicts a debuff, recover 10% Health and Protection and gain 10% Defense and Offense (stacking) for 1 turn.
+          </div>
+        </div>
+
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-naboo/stap.png">
+            <span class="faction-name" id="f-stao">STAP</span>
+          </div>
+          <div class="faction-content-box" id="content-f-stap">
+            This character has +25% Max Protection and Offense and +20% Mastery. Whenever this character inflicts a debuff, recover 10% Health and Protection and gain 10% Defense and Offense (stacking) for 1 turn.
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION DETAILS -->
+    <div id="section-capacities" class="section-content">
+      <h2 id="h-capa">Abilities</h2>
+
+      <!-- Granted Abilities -->
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <span id="capa-granted">Granted Abilities</span><span>+</span>
+        </div>
+        <div class="accordion-content-sw" id="val-capa-granted">
+
+          <!-- Capacité 1 : View Ground Battle -->
+          <div class="faction-card mb-3 shadow-sm">
+            <div class="faction-header">
+              <img src="../raid-image/raid-naboo/raid-space-0.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="capa-name-1" style="white-space: nowrap;">View Ground Battle</span>
+            </div>
+            <div class="p-3" id="capa-desc-1" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                Switch to ground battle.
+                <br><br>
+                <u class="speciale">Note:</u> Using this ability will not affect a character's ability cooldowns but will affect the duration of buffs and debuffs on them
+            </div>
+          </div>
+
+          <!-- Capacité 2 : Twin Blaster Cannons -->
+          <div class="faction-card mb-3 shadow-sm">
+            <div class="faction-header">
+              <img src="../raid-image/raid-naboo/raid-space-1.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="capa-name-2" style="white-space: nowrap;">Twin Blaster Cannons</span>
+            </div>
+            <div class="p-3" id="capa-desc-2" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                Limit one use per battle. Deal True damage to all enemies and all allies gain Massively Overpowered for 1 turn, which can't be copied, dispelled, or prevented. This damage can't be evaded and can't defeat enemies.
+                <br><br>
+                <u class="speciale">Massively Overpowered:</u> The next time this unit uses an ability during their turn they also deal massive damage to target enemy
+            </div>
+          </div>
+
+          <!-- Capacité 3 : Disrupt Communications -->
+          <div class="faction-card mb-3 shadow-sm">
+            <div class="faction-header">
+              <img src="../raid-image/raid-naboo/raid-space-2.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="capa-name-3" style="white-space: nowrap;">Disrupt Communications</span>
+            </div>
+            <div class="p-3" id="capa-desc-3" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                Limit one use per battle. Dispel all buffs on all enemies and inflict them with Daze, Shock, and Tenacity Down for 2 turns, which can't be copied, dispelled, or resisted. Remove the combat modifier from the OOM Command Droid.
+            </div>
+          </div>
+
+          <!-- Capacité 3 : Disrupt Communications -->
+          <div class="faction-card mb-3 shadow-sm">
+            <div class="faction-header">
+              <img src="../raid-image/raid-naboo/raid-space-3.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="capa-name-4" style="white-space: nowrap;">Disrupt Communications</span>
+            </div>
+            <div class="p-3" id="capa-desc-4" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                Limit one use per battle. Dispel all debuffs on all allies and grant them Foresight, High Morale, Potency Up, Protection Up (30%), and Tenacity Up for 2 turns, which can't be copied, dispelled, or prevented.
+                <br><br>
+                <u class="speciale">High Morale:</u> +25% Defense, Health, Offense, and Speed    
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Command Battle Droid -->
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <div class="d-flex align-items-center gap-3" style="flex: 1; min-width: 0;">
+            <img src="../raid-image/raid-naboo/commander-b1.png"
+              style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+            <span id="capa-commander" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Command Battle Droid</span>
+          </div>
+          <span style="flex-shrink: 0;">+</span>
+        </div>
+        <div class="accordion-content-sw" id="val-capa-commander">
+
+          <!-- Capacité commander 1 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-naboo/b1-basic.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="commander-capa-name-1" style="white-space: nowrap;">B1 Barrage</span>
+            </div>
+            <div class="p-3" id="commander-capa-desc-1"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              Deal Physical damage to target enemy. If target was Target Locked, all Droid allies recover 5% Health.
+            </div>
+          </div>
+
+          <!-- Capacité commander 2 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-naboo/special-commander.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="commander-capa-name-2" style="white-space: nowrap;">Energize</span>
+            </div>
+            <div class="p-3" id="commander-capa-desc-2"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              Dispel all debuffs on all allies and grant them Energize, which can't be copied, dispelled, or prevented. If there is only 1 enemy remaining, inflict them with Healing Immunity for 2 turns, which can't be evaded or resisted. This ability starts on cooldown.
+              <br><br>
+              <u class="speciale">Energize:</u> This unit gains Energized at the end of its next turn for 1 turn, which can't be copied
+            </div>
+          </div>
+
+          <!-- Capacité commander 3 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-naboo/roger-roger.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="commander-capa-name-3" style="white-space: nowrap;">Roger Roger</span>
+            </div>
+            <div class="p-3" id="commander-capa-desc-3"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              Whenever this character uses an ability during its turn, call random other ally to assist and grant them 10% Turn Meter.
+            </div>
+          </div>
+
+          <!-- Capacité commander 4 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-naboo/commander-droid-unique.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="commander-capa-name-4" style="white-space: nowrap;">Command Droid</span>
+            </div>
+            <div class="p-3" id="commander-capa-desc-4"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              Whenever this character is summoned, other Trade Federation and Dark Side Droid allies gain Max Protection equal to 10% of its Max Health. All Trade Federation and Dark Side Droid allies have +10% Critical Avoidance. Whenever another ally uses a Special ability, this character is called to assist. Whenever another ally gains Damage Immunity or Energized, they also gain a stack of Charge. Allies are immune to Turn Meter reduction. Jedi enemies ignore 100% less Protection. Summoned enemies take 200% more damage. This character can't be defeated or targeted while allies are present.
+            </div>
+          </div>
+
+          <!-- Capacité commander 5 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-naboo/rage.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="commander-capa-name-5" style="white-space: nowrap;">Enrage</span>
+            </div>
+            <div class="p-3" id="commander-capa-desc-5"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                When this character becomes enraged, they gain 100% Defense, Max Health, Offense, and Max Protection, and 50 Speed. Remove all buffs from all enemies and inflict them with Armor Shred, Buff Immunity, and Healing Immunity for the rest of the encounter. 
+                <br><br>
+                This character becomes enraged when this ability comes off of cooldown, and this cooldown is shared between all allies.
+                <br><br>
+                - <u class="speciale">Enemy Turn:</u> 1%<br>
+                - <u class="speciale">Wave Spawn</u> 3%  
+            </div>
+          </div>          
+        </div>
+      </div>
+
+      <!-- B1 Battle Droid -->
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <div class="d-flex align-items-center gap-3" style="flex: 1; min-width: 0;">
+            <img src="../raid-image/raid-naboo/b1.png"
+              style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+            <span id="capa-b1" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">B1 Battle Droid</span>
+          </div>
+          <span style="flex-shrink: 0;">+</span>
+        </div>
+        <div class="accordion-content-sw" id="val-capa-b1">
+
+          <!-- Capacité b1 1 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-naboo/b1-basic.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="b1-capa-name-1" style="white-space: nowrap;">B1 Barrage</span>
+            </div>
+            <div class="p-3" id="b1-capa-desc-1"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              Deal Physical damage to target enemy. If target was Target Locked, all Droid allies recover 5% Health.
+            </div>
+          </div>
+
+          <!-- Capacité b1 2 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-naboo/b1-spe.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="b1-capa-name-2" style="white-space: nowrap;">Energize</span>
+            </div>
+            <div class="p-3" id="b1-capa-desc-2"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              Deal Physical damage to all enemies and inflict Target Lock for 2 turns on the selected target. Heal self and random other ally for 15% Health and 15% Protection.
+            </div>
+          </div>
+
+          <!-- Capacité b1 3 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-naboo/roger-roger.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="b1-capa-name-3" style="white-space: nowrap;">Roger Roger</span>
+            </div>
+            <div class="p-3" id="b1-capa-desc-3"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              Whenever this character uses an ability during its turn, call random other ally to assist and grant them 10% Turn Meter.
+            </div>
+          </div>
+
+          <!-- Capacité b1 4 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-naboo/rage.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="b1-capa-name-4" style="white-space: nowrap;">Enrage</span>
+            </div>
+            <div class="p-3" id="b1-capa-desc-4"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              When this character becomes enraged, they gain 100% Defense, Max Health, Offense, and Max Protection, and 50 Speed. Remove all buffs from all enemies and inflict them with Armor Shred, Buff Immunity, and Healing Immunity for the rest of the encounter. 
+              <br><br>
+              This character becomes enraged when this ability comes off of cooldown, and this cooldown is shared between all allies.
+              <br><br>
+              - <u class="speciale">Enemy Turn:</u> 1%<br>
+              - <u class="speciale">Wave Spawn</u> 3%
+            </div>
+          </div>  
+        </div>
+      </div>
+
+      <!-- Droideka -->
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <div class="d-flex align-items-center gap-3" style="flex: 1; min-width: 0;">
+            <img src="../raid-image/raid-naboo/droideka.png"
+              style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+            <span id="capa-droideka" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Droideka</span>
+          </div>
+          <span style="flex-shrink: 0;">+</span>
+        </div>
+        <div class="accordion-content-sw" id="val-capa-droideka">
+
+          <!-- Capacité droideka 1 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-naboo/droideka-basic.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="droideka-capa-name-1" style="white-space: nowrap;">Twin Blaster Cannons</span>
+            </div>
+            <div class="p-3" id="droideka-capa-desc-1"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              Deal Physical damage to target enemy. Additionally, if the target has higher Speed than Droideka, deal true damage (ignores Defense but can't critically hit) which scales based on the difference in their Speed.
+            </div>
+          </div>
+
+          <!-- Capacité droideka 2 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-naboo/droideka-special.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="droideka-capa-name-2" style="white-space: nowrap;">Reconstructive Revolution</span>
+            </div>
+            <div class="p-3" id="droideka-capa-desc-2"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              Dispel all debuffs on Droideka and gain Damage Immunity (can't be copied) and Tenacity Up for 2 turns. Then, recover 10% Protection for each stack of Charge.
+            </div>
+          </div>
+
+          <!-- Capacité Deflector Shield Generator 3 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-naboo/droideka-unique.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="droideka-capa-name-3" style="white-space: nowrap;">Deflector Shield Generator</span>
+            </div>
+            <div class="p-3" id="droideka-capa-desc-3"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              Droideka gains 10% Turn Meter and 1 stack of <u class="speciale">Charge</u> for 1 turn whenever an enemy takes a turn. Additionally, Droideka recovers 10% Protection whenever it damages a Target Locked enemy.
+              <br><br>
+              Droideka has +50% Speed and +25% Evasion unless it has Damage Immunity. If Droideka has Damage Immunity, it has -50% Speed and a 35% chance to assist dealing 50% less damage whenever another Separatist ally uses an ability (limit once per turn).
+              <br><br>
+              <u class="speciale">Charge:</u> +5% Offense per stack
+            </div>
+          </div>
+
+          <!-- Capacité droideka 4 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-naboo/rage.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="droideka-capa-name-4" style="white-space: nowrap;">Enrage</span>
+            </div>
+            <div class="p-3" id="droideka-capa-desc-4"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              When this character becomes enraged, they gain 100% Defense, Max Health, Offense, and Max Protection, and 50 Speed. Remove all buffs from all enemies and inflict them with Armor Shred, Buff Immunity, and Healing Immunity for the rest of the encounter. 
+              <br><br>
+              This character becomes enraged when this ability comes off of cooldown, and this cooldown is shared between all allies.
+              <br><br>
+              - <u class="speciale">Enemy Turn:</u> 1%<br>
+              - <u class="speciale">Wave Spawn</u> 3%
+            </div>
+          </div>  
+        </div>
+      </div>
+
+      <!-- STAP -->
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <div class="d-flex align-items-center gap-3" style="flex: 1; min-width: 0;">
+            <img src="../raid-image/raid-naboo/stap.png"
+              style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+            <span id="capa-stap" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">STAP</span>
+          </div>
+          <span style="flex-shrink: 0;">+</span>
+        </div>
+        <div class="accordion-content-sw" id="val-capa-stap">
+
+          <!-- Capacité stap 1 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-naboo/stap-basic.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="stap-capa-name-1" style="white-space: nowrap;">Checkpoint Secure!</span>
+            </div>
+            <div class="p-3" id="stap-capa-desc-1"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              Deal Physical damage to target enemy and inflict Target Lock for 2 turns. If they already had Target Lock, instead inflict <u class="speciale">Pinned</u> for 2 turns which can't be copied, dispelled, or prevented, and this attack can't be evaded.
+              <br><br>
+              <u class="speciale">Pinned:</u> Can't gain bonus Turn Meter and has -25% Speed, doesn't stack with Breach or Speed Down
+            </div>
+          </div>
+
+          <!-- Capacité stap 2 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-naboo/stap-spe1.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="stap-capa-name-2" style="white-space: nowrap;">Die, Jedi Dogs!</span>
+            </div>
+            <div class="p-3" id="stap-capa-desc-2"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              Deal Physical damage to all enemies, which can't be evaded by Jedi. Inflict Provoked on all enemies for 2 turns. Deal damage again to Pinned enemies.
+            </div>
+          </div>
+
+          <!-- Capacité stap 3 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-naboo/stap-spe2.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="stap-capa-name-3" style="white-space: nowrap;">We Need To Recharge!</span>
+            </div>
+            <div class="p-3" id="stap-capa-desc-3"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              Recover 20% Health and Protection and gain 5 stacks of Overcharge (max 5), which can't be copied, dispelled, or prevented. Target other ally attacks, then STAP assists.
+            </div>
+          </div>
+
+          <!-- Capacité stap 4 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-naboo/stap-unique.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="stap-capa-name-4" style="white-space: nowrap;">Single Trooper Aerial Platform</span>
+            </div>
+            <div class="p-3" id="stap-capa-desc-4"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              STAP gains 10 Speed for each stack of Overcharge on them.
+              <br><br>
+              At the start of battle, If all allies are Separatist Droids, whenever an ally inflicts Pinned or Target Lock on an enemy, they also inflict damage equal to 10% of their Max Health damage to that enemy, which can't be evaded.
+              <br><br>
+              Whenever STAP uses an ability other than We Need To Recharge!, they lose a stack of Overcharge.
+              <br><br>
+              Whenever STAP or an allied Separatist Droid Tank takes True damage from an enemy, all Separatist Droid allies lose 15% Turn Meter (limit once per enemy per turn)
+            </div>
+          </div>  
+
+          <!-- Capacité stap 5 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/raid-naboo/rage.png"
+                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="stap-capa-name-5" style="white-space: nowrap;">Enrage</span>
+            </div>
+            <div class="p-3" id="stap-capa-desc-5"
+              style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              When this character becomes enraged, they gain 100% Defense, Max Health, Offense, and Max Protection, and 50 Speed. Remove all buffs from all enemies and inflict them with Armor Shred, Buff Immunity, and Healing Immunity for the rest of the encounter. 
+              <br><br>
+              This character becomes enraged when this ability comes off of cooldown, and this cooldown is shared between all allies.
+              <br><br>
+              - <u class="speciale">Enemy Turn:</u> 1%<br>
+              - <u class="speciale">Wave Spawn</u> 3%
+            </div>
+          </div>  
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION DIFFICULTÉ -->
+    <div id="section-diff" class="section-content">
+      <h2 id="h-diff">Difficulty Modifiers</h2>
+      <div id="diff-container">
+
+        <!-- LEVEL 0 -->
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-base">Level 0 (x1 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3">
+              <span id="level-info-base">
+                <strong>Max possible:</strong> 300,000 pts<br>
+                <strong>Requirement:</strong> None
+              </span>
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-base">
+                <strong>Additional Effects:</strong><br>
+                • Enemies have -90% Health recovery.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEVEL 1 -->
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-1">Level 1 (x1.5 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3" id="level-info-1">
+              <strong>Max possible:</strong> 450,000 pts<br>
+              <strong>Requirement:</strong> Tier XII
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);"  id="level-desc-1">
+                <strong>Additional Effects:</strong><br>
+                • Enemies gain 40% Health recovery (this effect stacks with previous modifiers). Enemies gain 20% Accuracy, Critical Avoidance, Critical Chance, Critical Damage, Defense, Defense Penetration, Offense, Potency, and Tenacity, 10000 Health, and 10 Speed.
+                  <br><br>
+                •  <u class="speciale">Roger Roger</u> (Command Droid): Calls an additional ally to assist.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEVEL 2 -->
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-2">Level 2 (x2 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3" id="level-info-2">
+              <strong>Max possible:</strong> 600,000 pts<br>
+              <strong>Requirement:</strong> Relic 1
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-2">
+                <strong">Additional Effects:</strong><br>
+                • Enemies gain 50% Health recovery (this effect stacks with previous modifiers). Enemies gain 40% Accuracy, Critical Avoidance, Critical Chance, Critical Damage, Defense, Defense Penetration, Offense, Potency, and Tenacity, 20000 Health, and 20 Speed.
+                  <br><br>
+                •  <u class="speciale">Die, Jedi Dogs! (STAP):</u> Inflict a stack of Damage Over Time on all enemies for 2 turns, which can't be evaded or resisted.<br>
+                •  <u class="speciale">Energize (Command Droid):</u> All allies recover 25% Health and Protection and gain Offense Up for 2 turns. Dispel all buffs on all enemies.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEVEL 3 -->
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-3">Level 3 (x3 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3" id="level-info-3">
+              <strong>Max possible:</strong> 900,000 pts<br>
+              <strong>Requirement:</strong> Relic 3
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2); " id="level-desc-3">
+                <strong>Additional Effects:</strong><br>
+                • Enemies gain 60% Accuracy, Critical Avoidance, Critical Chance, Critical Damage, Defense, Defense Penetration, Offense, Potency, and Tenacity, 40000 Health, and 30 Speed.
+                  <br><br>
+                • <u class="speciale">Reconstructive Revolution (Droideka):</u> Recover an additional 10% Health and Protection.<br>
+                •  <u class="speciale">Roger Roger (Command Droid):</u> Calls an additional ally to assist.<br>
+                •  <u class="speciale">Command Droid (Command Droid):</u> Grant an additional stack of Charge whenever an ally gains Damage Immunity or Energized.
+                  <br><br>
+                •  <u class="speciale">Faction Bonus - Galactic Republic:</u> If the ally in the Leader slot is a Healer, Jedi allies gain 50% Defense while they have Heal Over Time.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEVEL 4 -->
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-4">Level 4 (x4 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3" id="level-info-4">
+              <strong>Max possible:</strong> 1,200,000 pts<br>
+              <strong>Requirement:</strong> Relic 5
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-4">
+                <strong>Additional Effects:</strong><br>
+                • Enemies gain 80% Accuracy, Critical Avoidance, Critical Chance, Critical Damage, Defense, Defense Penetration, Offense, Potency, and Tenacity, 60000 Health, and 40 Speed.
+                  <br><br>
+                •  <u class="speciale">B1 Barrage (B1 and Command Droid):</u> If target was Target Locked, all Droid allies recover 5% Protection.
+                  <br><br>
+                •  <u class="speciale">Faction Bonus - Galactic Republic:</u> If the ally in the Leader slot is a Healer, whenever they use a Special ability increase target enemy cooldowns by 1.<br>
+                •  <u class="speciale">Faction Bonus - Gungans:</u> At the start of battle, the Shield Generator gains an additional 10 stacks of Plasma Shielding.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEVEL 5 -->
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-5">Level 5 (x6 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3" id="level-info-5">
+              <strong>Max possible:</strong> 1,800,000 pts<br>
+              <strong>Requirement:</strong> Relic 7
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-5">
+                <strong>Additional Effects:</strong><br>
+              •  Enemies gain 100% Accuracy, Critical Avoidance, Critical Chance, Critical Damage, Defense, Defense Penetration, Offense, Potency, and Tenacity, 80000 Health, and 50 Speed.
+                <br><br>
+              •  <u class="speciale">Faction Bonus - Galactic Republic:</u> Whenever an enemy critically hits a Jedi Tank, the enemy is inflicted with a stack of Damage Over Time and all enemies are inflicted with Tenacity Down for 2 turns, which can't be evaded.
+                <br>
+              •  <u class="speciale">Faction Bonus - Separatists:</u> Whenever they take damage, Separatist and Sith characters gain 20% Defense (stacking) for 1 turn. Whenever a Sith ally inflicts a debuff, deal an additional instance of 10% Max Health damage.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEVEL 6 -->
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-6">Level 6 (x9 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3" id="level-info-6">
+              <strong>Max possible:</strong> 2,700,000 pts<br>
+              <strong>Requirement:</strong> Relic 8
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-6">
+                <strong>Additional Effects:</strong><br>
+              • Enemies gain 120% Accuracy, Critical Avoidance, Critical Chance, Critical Damage, Defense, Defense Penetration, Offense, Potency, and Tenacity, 100000 Health, and 60 Speed.
+                <br><br>
+              •  <u class="speciale">Deflector Shield Generator (Droideka):</u> +15% chance to assist.<br>
+              •  <u class="speciale">Command Droid (Command Droid):</u> Grant an additional stack of Charge whenever an ally gains Damage Immunity or Energized.
+                <br><br>
+              •  <u class="speciale">Faction Bonus - Separatists:</u> +50% Offense and Potency. Whenever the Separatist in the Leader slot uses a Special ability, decrease the enrage timer by 1%.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEVEL 7 -->
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-7">Level 7 (x12 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3" id="level-info-7">
+              <strong>Max possible:</strong> 3,600,000 pts<br>
+              <strong>Requirement:</strong> Relic 9
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-7">
+                <strong>Additional Effects:</strong><br>
+              • Enemies gain 140% Accuracy, Critical Avoidance, Critical Chance, Critical Damage, Defense, Defense Penetration, Offense, Potency, and Tenacity, 120000 Health, and 70 Speed.
+                <br><br>
+              •  <u class="speciale">Twin Blaster Cannons:</u> All allies gain 30% Turn Meter.<br>
+              •  <u class="speciale">Defensive Spiral:</u> All allies recover 50% Health and Protection.
+                <br><br>
+              •  <u class="speciale">Faction Bonus - Galactic Republic:</u> Galactic Republic Attackers gain 25% Offense. +50% Max Health for Jedi Healers and Supports. Whenever a Jedi uses an ability against an enemy with Shatterpoint, all Jedi allies gain Protection Up (30%) for 2 turns. Whenever a Jedi ally attacks out of turn, deal bonus True damage to target enemy. If the ally in the Leader slot is a Healer, Jedi Attackers gain 100% Max Health and Jedi allies gain 100% Offense while they have Heal Over Time.<br>
+              •  <u class="speciale">Faction Bonus - Separatists::</u> +100% Critical Chance for Separatist and Sith allies. All Separatist allies gain Damage Immunity for 1 turn at the start of battle, which can't be dispelled. The first time each Separatist ally is defeated, they revive with 50% Health and Protection. Whenever the Separatist in the Leader slot uses a Special ability, they gain 100% Defense for 1 turn.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div><!--fin section difficultés-->
+
+    <!-- SECTION RESTRICTIONS -->
+    <div id="section-unites" class="section-content">
+      <h2 id="raid-unites">Eligible Units</h2>
+
+      <div class="info-box" id="raid-eligible-desc">Units eligible for this raid:</div>
+
+      <div id="units-gallery"></div>
+    </div>
+
+    <script>
+      let currentLang = sessionStorage.getItem("selectedLanguage") || "en";
+      let allUnits = [];
+      const RAID_TARGET_EN = "battle for naboo";
+      const englishTexts = {};
+
+      const dictFr = {
+        "raid-main-name": "Bataille pour NABOO",
+        "title-resume": "Résumé",
+        "title-details": "Détails",
+        //menu traduction
+        "btn-history": "Histoire & Règles",
+        "btn-factions": "Factions Bonus",
+        "btn-capacities": "Capacités",
+        "btn-diff": "Modificateurs",
+        "btn-unites": "Unités autorisées",
+        "btn-back": "RETOUR",
+
+        //ensemble sommaire, sous-catégorie : story and rules
+        "title-story": "HISTOIRE",
+        "text-story": "La Fédération du Commerce a débarqué ses armées sur la planète pacifique de Naboo. Affrontez leurs forces sur terre et dans l'espace en écrasant des vagues de droïdes qui semblent jamais s'arrêter. Prendre les bonnes décisions tactiques sera crucial pour donner suffisament de temps à vos chasseurs pour détruire le vaisseau de contrôle droïde et vous emparer de la victoire.",
+
+        "title-rules": "RÈGLES",
+        "text-rules": "• Limite de temps : 2 Jours et 23 heures.\n•Conditions : 5 étoile(s), Unités spécifiques.\n• Actualisation des personnages : Jamais.\n• Coût du lancement : 180 k ticket.\n• Total de tentatives : 5.\n",
+
+        //traduction des titres
+        "h-history": "Histoire & Règles",
+        "h-factions": "Bonus de Faction",
+        "h-capa": "Capacités",
+        "h-diff": "Modificateurs de Difficulté",
+        "h-unites": "Unités autorisées",
+
+        "text-factions-intro": "Les personnages peuvent obtenir l'une ou plusieurs des capacités suivantes lors du raid",
+
+        "f-gungan": "Gungans",
+        "content-f-gungan": "Le générateur de bouclier obtient 5 cumus de Bouclier plasma. Tant qu'un générateur de bouclier allié est actif, la Phalange gungan utilise Raillerie à la fin de son tour pendant 1 tour s'il n'ne disposait pas déjà. Chaque fois qu'un générateur de bouclier allié utilise Impulsion plasma :\n\n- Les alliés gungans obtiennent de Prévoyance pendant 1 tour.\n- Un allié gungan aléatoire obtient un tour bonus.\n- Tous les ennemis reçoivent Résidu de plasma pendant 1 tour (ne peut âs être résisté).",
+
+        "f-galactic-republic": "République Galactique",
+        "content-f-galactic-republic": "Les soigneurs et soutiens Jedi gagnent 50 % de leur santé maximale et les soigneurs et les tanks Jedi gagnent 100 % de défense et 50 % de protection maximale Au début de leur tour, les alliés de la République Galactique obtiennent 10 % de pénétration de défense pour chaque amélioration dont ils disposent pendant 1 tour (ces effet ne se cumulent pas avec d'autres sources de pénétration de défense). Si l'allié dans l'emplacement de chef est un soigneur :\n\n- Lorsqu'un allié Jedi récupère de la santé, il récupère également 50 % de protection.\n- Lorsqu'un allié Jedi subit un coup critique, il gagne IMmunité aux coups critique et 100 de vitesse pendant 1 tour et réduit ses délais de 1.\n- Lorsqu'un allié Jedi dispose de soins sur la durée, il reçoit +50 % de défense.\n- Lorsqu'un allié Jedi dispose à la fois de soins sur la durée et d'un bonus de pouvoir, il a 40 % de chances de contre-attaque et inflige des dégâts réels supplémentaires à tous les ennemis lorsqu'il utilise une capacité.\n- Lorsqu'un soigneur Jedi allié utilise une capacité spéciale, dissipe toutes les améliorations de la cible ennemie.",
+
+        "f-separatiste": "Séparatistes",
+        "content-f-separatiste": "La capacité de chef de Dark Sidious est active au rang maximum et s'applique également aux alliés Séparatistes quand il n'est pas dans l'emplacement de chef. Les alliés séparatistes et Sith gagnent 100 % de santé maxiamle, 25 % de précision et d'attaque, 50 % de pouvoir et 20 de vitesse (triplé pour dark maul). Lorsqu'un allié séparatiste ou Sith subit des dégâts, il obtient 20 % de défense (cumulatif) pendant 1 tour. Lorsqu'un ennemi est vaincu par un allié séparatiste ou Sith, tous les alliés récupèrent 15 % de santé et de protection. Lorsqu'un allié Sith inflige un affaiblissement, il inflige également 5 % de dégâts liés à la santé maximale à cet ennemi (ne peut pas être esquivé). Lorsqu'un allié séparatiste dans l'emplacement de chef utilise une capacité spécial, tous les alliés Sith sont invoqués.",
+
+        "f-jar-jar": "Jar Jar Binks",
+        "content-f-jar-jar": "Ce personnage dispose de +25 % de protection maxiamle et d'attaque et +20 % de maîtrise. Lorsque ce personnage inflige un affaiblissement, il récupère 10 % de santé et de protection et obtient 10 % de défense et d'attaque (cumulatif) pendant 1 tour.",
+
+        "f-mqg": "Maître Qui-Gon",
+        "content-f-mqg": "Ce personnage dispose de +25 % de protection maximale et d'attaque et +20 % de maîtrise. Lorsque ce personnage inflige un affaiblissement, il récupère 10 % de santé et de protection 10 % de défense et d'attaque (cumulatif) pendant 1 tour.",
+
+        "f-maul": "Dark Maul",
+        "content-f-maul": "Ce personnage dispose de +25 % de protection maximale et d'attaque et +20 % de maîtrise. Lorsque ce personnage inflige un affaiblissement, il récupère 10 % de santé et de protection et obtient 10 % de défense et d'attaque (cumulatif) pendant 1 tour.",
+
+        "f-stap": "PAIT",
+        "content-f-stap": "Ce personnage dispose de +25 % de protection maximale et d'attaque et +20 % de maîtrise. Lorsque ce personnage inflige un affaiblissement, il récupère 10 % de santé et de protection et obtient 10 % de défense et d'attaque (cumulatif) pendant 1 tour.",
+
+
+        //abilities 
+        "capa-granted": "Capacités conférées",
+        "capa-commander": "Droïde de combat de commandement",
+        "capa-b1": "Droïde de combat B1",
+        "capa-droideka": "Droïdeka",
+        "capa-stap": "PAIT",
+
+        "capa-name-1": "Voir Bataille terrestre",
+        "capa-desc-1": "Passez au combat au sol.\n\n <u class='speciale'>Remarque :</u> L'utilisation de cette capacité n'affctera pas les délais de capacité d'un personnage, mais affectera la durée des améliorations et affaiblissements l'affectant.",
+
+        "capa-name-2": "Double canon blaster",
+        "capa-desc-2": "Limité à une utilisation par bataille. Inflige des dégâts réels à tous les ennemis et tous les alliés obtiennent l'effet Massivement maîtrisé pendant 1 tour (ne peut pas être copié, dissipé ou empêché). Ces dégâts ne peuvent pas vaincre d'ennemi.\n\n<u class='speciale'>Massivement maîtrisé :</u> la prochaine fois que cette unité utilisera une capacité pendant son tour, elle infligera également de lours dégâts à la cible ennemie.",
+
+        "capa-name-3": "Communications perturbées",
+        "capa-desc-3": "limité à une utilisation par bataille. dissipe toutes les améliorations en cours sur tous les ennemis et leur inflie Confusion, Choc et un malus de ténacité pendant 2 tours (ne peut pas être copié, dissipé, ou résisté). Supprime le modificateur de combat du droïde de commandement OOM. ",
+
+        "capa-name-4": "Spirale défensive",
+        "capa-desc-4": "limité à une utilisation par bataille. Dissipe tous les affaiblissement en cours sur les alliés et leur confère Prévoyance, Positivité, un bonus de pouvoir, un bonus de protection (30%) et un bonus de ténacité pendant 2 tours (ne peut pas être copié, dissipé ou empêché).\n\n <u class='speciale'>Positivité :</u> +25 % de défene, de santé, d'attaque et de vitesse.",        
+
+        "commander-capa-name-1": "Barrage de B1",
+        "commander-capa-desc-1": "inflige des dégâts physiques à une cible ennemie. Si la cible était verrouillée, tous les alliés droïdes récupèrent 5 % de santé.",
+
+        "commander-capa-name-2": "Stimulation",
+        "commander-capa-desc-2": "Dissipe tous les affaiblissements en cours sur tous les alliés et leur confère <u class='speciale'>Stimulation</u> (ne peut pas être copié, dissipé ou empêché). S'il ne reste plus qu'un ennemi, il subit Immunité aux soins pendant 2 tours (ne peut pas être esquivé ou résisté). Cette capacité commence avec un délai.\n\n<u class='speciale'>Stimulation :</u> cette unité obtient Stimulation à la fin de son tour suivant pendant 1 tour (ne peut pas être copié). ",
+
+        "commander-capa-name-3": "Cinq sur Cinq",
+        "commander-capa-desc-3": "Lorsque ce personnage utilise une capacité pendant son tour, invoque un allié aléatoire et lui confère 10 % de jauge de tour.",
+
+        "commander-capa-name-4": "Droïde de commandement",
+        "commander-capa-desc-4": "Lorsque ce personnage est invoqué,les autres alliés droïdes de la Fédération du Commerce et du Coté Obscur obtiennent de la protection maximale à hauteur de 10 % de sa santé maximale. Tous les alliés droïdes de la Fédération du Commerce et du Coté Obscur reçoivent 10 % d'esquive des critiques. Lorsqu'un autre allié utilise une capacité spéciale, ce personnage est invoqué. Lorsqu'un autre allié obtient Immunité aux dégâts ou Stimulation, il obtient aussi un cumul de Charge. Les alliés sont immunisés contre les réductions de jauge de tour. Les ennemis Jedi igniren 100 % de protection en moins. Les ennemis invoqués subissent 200 % de dégâts supplémentaires. Ce personnage ne peut pas être vaincu ou pris pour cible tant que des alliés sont présents.",
+
+        "commander-capa-name-5": "Enragé",
+        "commander-capa-desc-5": "Lorsque ce personnage devient Enragé, il obtient 100 % de défense, de santé maximale, d'attaque et de protection maximale et 50 de vitesse. Supprime toutes les améliorations de tous les ennemis et leur inflige Destruction d'armure, Immunité aux améliorations et Immunité aux soins jusqu'à la fin de l'affrontement.\n\n- Ce personnage devient enragé lorsque le délai de cette capacité est écoulé et ce délai est partagé entre tous les alliés.\n\n- <u class='speciale'>Tour ennemi :</u> 1 %\n- <u class='speciale'>Nouvelle vague :</u> 3 %",
+
+        "b1-capa-name-1": "Barrage de B1",
+        "b1-capa-desc-1": "Inflige des dégâts physiques à une cible ennemie. Si la cible était verrouillée, tous les alliés droïdes récupèrent 5 % de santé.",
+
+        "b1-capa-name-2": "Anéantissez-les !",
+        "b1-capa-desc-2": "Inflige des dégâts physiques à tous les ennemis et Verrouillage à la cible ennemie pendant 2 tours. Se soigne et soigne un autre allié aléatoire pour récupérer 15 % de santé et 15 % de protection.",
+
+        "b1-capa-name-3": "Cinq sur Cinq",
+        "b1-capa-desc-3": "Lorsque ce personnage utilise une capacité pendant son tour, invoque un autre allié aléatoire et lui confère 10 % de jauge de tour.",
+
+        "b1-capa-name-4": "Enragé",
+        "b1-capa-desc-4": "Lorsque ce personnage devient Enragé, il obtient 100 % de défense, de santé maximale, d'attaque et de protection maximale et 50 de vitesse. Supprime toutes les améliorations de tous les ennemiset leur inflige Destruction d'armure, Immunité aux améliorations et Immunité aux soins jusqu'à la fin de l'affrontement.\n\nCe personnage devient Enragé lorsque le délai de cette capacité est écoulé et ce délai est partagé entre tous les alliés.\n\n- <u class='speciale'>Tour ennemi :</u> 1 %\n- <u class='speciale'>Nouvelle vague :</u> 3 % ",
+
+        "droideka-capa-name-1" :"Double canon blaster",
+        "droideka-capa-desc-1": "Inflige des dégâts physiques à une cible ennemie. De plus, si la cible dispose d'une vitesse plus élevée que le Droïdeka, inflige des dégâts réels (ignore la défense mais ne peut pas infliger de coup critique), qui sont echelonnés en fonction de la différence entre les deux valeurs de vitesse.",
+
+        "droideka-capa-name-2" :"Révolution reconstructrice",
+        "droideka-capa-desc-2": "Dissipe tous les affaiblissements en cours sur le Droïdeka et confère Immunité aux dégâts (ne peut pas être copié) et un bonus de ténacité pendant 2 tours. Ensuite, récupère 10 % de protection pour chaque cumul de charge. ",
+
+        "droideka-capa-name-3" :"Générateur de bouclier déflecteur",
+        "droideka-capa-desc-3": "La jauge de tour du Droïdeka se remplit de 10 % et il obtient un cumul de <u class='speciale'>Charge</u> pendant 1 tour lorsqu'un ennemi utilise son tour. De plus le Droïdeka récupère 10 % de protection lorsqu'il inflige des dégâts à un ennemi verrouillé.\n\nLe Droïdeka a +50 % de vitesse et +25 % d'esquive, à moins qu'il ne dispose de l'Immunité aux dégâts. Si le Droïdeka dispose de l'Immunité aux dégâts, il a -50 % de vitesse et 35 % de chances de venir en aide à un allié, infligeant 50 % de dégâts en moins lorsqu'un allié séparatiste utilise une capacité (limité à une fois par tour).\n\n<u class='speciale'>Charge :</u> +5 % d'attaque par cumul.",
+
+        "droideka-capa-name-4" :"Enragé",
+        "droideka-capa-desc-4": "Lorsque ce personnage devient Enragé, il obtient 100 % de défense, de santé maximale, d'attaque et de protection maximale et 50 de vitesse. Supprime toutes les améliorations de tous les ennemiset leur inflige Destruction d'armure, Immunité aux améliorations et Immunité aux soins jusqu'à la fin de l'affrontement.\n\nCe personnage devient Enragé lorsque le délai de cette capacité est écoulé et ce délai est partagé entre tous les alliés.\n\n- <u class='speciale'>Tour ennemi :</u> 1 %\n- <u class='speciale'>Nouvelle vague :</u> 3 % ",
+
+        "stap-capa-name-1": "Point de contrôle sécurisé !",
+        "stap-capa-desc-1": "inflige des dégâts physiques à une cible ennemie et inflige Verrouillage à la cible ennemie pendant 2 tours. Si la cible ennemie dispose déjà de Verrouillage, inflige <u class='speciale'>Coincé</u> à la place pendant 2 tours (ne peut pas être copié, dissipé ou empêché) et cette attaque ne peut pas être esquivée.\n\n<u class='speciale'>Coincé :</u> ne peut pas recevoir de jauge de tour bonus et subit -25 % de vitesse. Ne se cumule pas avec Faille ou les malus de vitesse.",
+
+        "stap-capa-name-2": "Mort aux Jedi !",
+        "stap-capa-desc-2": "inflige des dégâts physiques à tous les ennemis (ne peut pas être esquivé par les Jedi). Inflige Provocation à tous les ennemis pendant 2 tours. Inflige des dégâts une nouvelle fois aux ennemis subissant Coincé.",
+
+        "stap-capa-name-3": "On doit recharger !",
+        "stap-capa-desc-3": "Récupère 20 % de santé et de protection, puis obtient 5 cumuls de Surcharge (5 maximum) qui ne peuvent pa être copiés, dissipés ou empechés. La cible eallié attaque puis la PAIT est invoquée",
+
+        "stap-capa-name-4": "Plateforme aérienne individuelle de trooper",
+        "stap-capa-desc-4": "La PAIT obtient 10 de vitesse pour chaue cumul de Surchage dont elle dispose.\n\nAu début de la bataille, si tous les alliés sont des droïdes séparatistes, lorsqu'un allié inflige Coincé ou Verrouillage à un ennemi, il inflige également des dégâts à hauteur de 10 % de sa santé maximale audit ennemi (ne peut pas être esquivé).\n\nLorsque la PAIT utilise une capacité autre que On doit recharger !, elle perd un cumul de Surcharge.\n\nLorsque la PAIT ou un tank droïde séparatiste allié subissent des dégâts réels infligés par un ennemi, tous les droïdes séparatistes alliés perdent 15 % de jauge de tour (limité à une fois par tour).",
+
+        "stap-capa-name-5": "",
+        "stap-capa-desc-5": "Lorsque ce personnage devient Enragé, il obtient 100 % de défense, de santé maximale, d'attaque et de protection maximale et 50 de vitesse. Supprime toutes les améliorations de tous les ennemiset leur inflige Destruction d'armure, Immunité aux améliorations et Immunité aux soins jusqu'à la fin de l'affrontement.\n\nCe personnage devient Enragé lorsque le délai de cette capacité est écoulé et ce délai est partagé entre tous les alliés.\n\n- <u class='speciale'>Tour ennemi :</u> 1 %\n- <u class='speciale'>Nouvelle vague :</u> 3 % ",
+
+
+
+        //niveau de difficulté du raid
+        "level-title-base": "Niveau 0 (x1 Multiplicateur)",
+        "level-info-base": "<strong>Score Max :</strong> 300 000 pts<br></strong>Conditions :</strong> Aucune",
+        "level-desc-base": "<strong>Effets supplémentaires :</strong><br>\n\n• Les ennemis subissent -90 % de récupération de santé.",
+
+        "level-title-1": "Niveau 1 (x1.5 Multiplicateur)",
+        "level-info-1": "<strong>Score Max :</strong> 450 000 pts<br></strong>Conditions :</strong> Équipement 12",
+        "level-desc-1": "<strong>Effets supplémentaires :</strong>\n\n• Les ennemis gagnent 40 % de récupération de santé (cet effet ne se cumule pas avec les modificateurs précédents). Les ennemis gagnent 20 % de précision, d'esquive des critiques, de chances de coup critique, de dégâts critiques, de défense, de pénétration de défense, d'attaque, de pouvoir et de santé, 10 000 points de santé et 10 de vitesse.\n\n• <u class='speciale'>Cinq sur cinq (droïde de commandement):</u> invoque un allié supplémentaire.",
+
+        "level-title-2": "Niveau 2 (x2 Multiplicateur)",
+        "level-info-2": "<strong>Score Max :</strong> 600 000 pts<br></strong>Conditions :</strong> Relique 1",
+        "level-desc-2": "<strong>Effets supplémentaires :</strong>\n\n• Les ennemis gagnents 50 % de récupération de santé (cet effet ne se cumule pas avec les modificateurs précédents). Les ennemis obtiennent 40 % de précision, d'esquive des critiques, de chances de coup critique, de dégâts critiques, de défense, de pénétration de défense, d'attaque, de pouvoir et de ténacité, 20 000 points de santé et 20 de vitesse.\n• <u class='speciale'>Mort aux Jedi ! (PAIT)</u> inflige un cumul de dégâts sur la durée à tous les ennemis pendant 2 tours (ne peut pas être esquivé ou résisté).\n\n• <u class='speciale'>Stimulation (droïde de commandement) :</u> tous les alliés récupèrent 25 % de santé et de protection et gagnent un bonus d'attaque pendant 2 tours. Dissipe toutes les améliorations dont disposent les ennemis.",
+
+        "level-title-3": "Niveau 3 (x3 Multiplicateur)",
+        "level-info-3": "<strong>Score Max :</strong> 900 000 pts<br></strong>Conditions :</strong> Relique 3",
+        "level-desc-3": "<strong>Effets supplémentaires :</strong>\n\n• Les ennemis gagnent 60 % de précision, d'esquive des critiques, de chances de coup critique, de dégâts critiques, de défense, de pénétration de défense, d'attaque, de pouvoir et de ténacité, 40 000 points de santé et 30 de vitesse.\n\n• <u class='speciale'>Révolution reconstructrice (droideka):</u> récupère 10 ù de santé et de protection supplémentaire.\n• <u class='speciale'>Cinq sur Cinq (droiïde de commandement) :</u> invoque un allié supplémentaire.\n• <u class='speciale'>Droïde de commandement (droïde de commandement :</u> confère un cumul de Charge supplémentaire lorsqu'un allié obtient Immunité aux dégâts ou Stimulation.\n\n• <u class='speciale'>Bonus de faction (République Galactique) :</u> si l'allié dans l'emplacement de chef est un soigneur, les alliés bénéficient de 50 % de défense lorsqu'ils disposent de soins sur la durée.",
+
+        "level-title-4": "Niveau 4 (x4 Multiplicateur)",
+        "level-info-4": "<strong>Score Max :</strong> 1 200 000 pts<br></strong>Conditions :</strong> Relique 5",
+        "level-desc-4": "<strong>Effets supplémentaires :</strong>\n\n• Les ennemis gagnent 80 % de précision, d'esquive des critiques, de chances de coup critique, de dégâts critiques, de défense, de pénétration de défense, d'attaque, de pouvoir et de ténacité, 60 000 points de santé et 40 de vitesse.\n\n• <u class='speciale'>Barrage de B1 (B1 et droïde de commandement) :</u> si la cible était verrouillé, tous les droïdes alliés récupèrent 5 % de protection.\n\n• <u class='speciale'>Bonus de faction (République Galactique) :</u> Si l'allié dans l'emplacement de chef est un soigneur, à chaque fois qu'il utilise une capacité spéciale, les délais de la cible ennemie augmentent de 1.\n• <u class='speciale'>Bonus de faction (Gungan) :</u> au début de la bataille, le générateur de bouclier obtient 10 cumuls supplémentaires de Bouclier plasma.", 
+
+        "level-title-5": "Niveau 5 (x6 Multiplicateur)",
+        "level-info-5": "<strong>Score Max :</strong> 1 800 000 pts<br></strong>Conditions :</strong> Relique 7",
+        "level-desc-5": "<strong>Effets supplémentaires :</strong>\n\n• Les ennemis gagnent 100 % de précision, d'esquive des critiques, de chances de coup critique, de dégâts critiques, de défense, de pénétration de défense, d'attaque, de pouvoir et de ténacité, 80 000 points de santé et 50 de vitesse.\n\n• <u class='speciale'>Bonus de factions (République Galactique) :</u> lorsqu'un ennemi inflige un coup critique à un tank Jedi, l'ennemi subit un cumul de dégâts sur la durée et tous les ennemis reçoivent un malus de ténacité pendant 2 tours (ne peut pas être esquivé).\n• <u class='speciale'>Bonus de faction (Séparatistes) :</u> lorsqu'ils subissent des dégâts, les personnages séparatistes et Sith obtiennent 20 % de défense (cumulatif) pendant 1 tour. lorsqu'un allié Sith inflige un affaiblissement, inflige 10 % de dégâts supplémentaires liés à la santé maximale.",
+
+        "level-title-6": "Niveau 6 (x9 Multiplicateur)",
+        "level-info-6": "<strong>Score Max :</strong> 2 700 000 pts<br></strong>Conditions :</strong> Relique 8",
+        "level-desc-6": "<strong>Effets supplémentaires :</strong>\n\n• Les ennemis gagnent 120 % de précision, d'esquive des critiques, de chances de coup critique, de dégâts critiques, de défense, de pénétration de défense, d'attaque, de pouvoir et de ténacité, 100 000 points de santé et 60 de vitesse.\n\n• <u class='speciale'>Générateur de bouclier déflecteur (Droïdeka) :</u> +15 % de chances d'être invoqués.\n• <u class='speciale'>Droïde de commandement (droïde de commandement) :</u> confère un cumul supplémentaire de Charge lorsqu'un allié obtient Immunité aux dégâts ou Stimulation\n\n• <u class='speciale'>Bonus de faction (séparatistes) :</u> +50 % d'attaque et de pouvoir. Lorsque l'unité séparatiste dans l'emplacement de chef utilise une capacité spéciale, diminue le délai d'Enragé de 1 %. ",
+
+        
+        "level-title-7": "Niveau 7 (x12 Multiplicateur)",
+        "level-info-7": "<strong>Score Max :</strong> 3 600 000pts<br></strong>Conditions :</strong> Relique 9",
+        "level-desc-7": "<strong>Effets supplémentaires :</strong>\n\n• Les ennemis gagnent 140 % de précision, d'esquive des critiques, de chances de coup critique, de dégâts critiques, de défense, de pénétration de défense, d'attaque, de pouvoir et de ténacité, 120 000 points de santé et 70 de vitesse.\n\n• <u class='speciale'>Double canon blaster :</u> tous les alliés gagnent un bonus de jauge de tour de 30 %.\n• <u class='speciale'>Spirale défensive :</u> tous les alliés récupèrent 50 % de santé et de protection.\n\n• <u class='speciale'>Bonus de faction (République Galactique) :</u> Les attaquants de la République Galactique obtiennent 25 % d'attaque, +50 % de santé maximale pour les soigneurs et soutiens Jedi. Lorsqu'un Jedi utilise une capacité contre un ennemi diposant de Point de rupture, tous les alliés Jedi gagnent un bonus de protection (30 %) pendant 2 tours. Lorsqu'un allié Jedi attaque en dehors de son tour, inflige des dégâts réels bonus à la cible ennemie. Si l'allié dans l'emplacement de chef est un soigneur, les attaquants Jedi obtiennent 100 % de santé maximale et les alliés Jedi obtiennent 100 % d'attaque tant qu'ils disposent de soins sur la durée.\n• <u class='speciale'>Bonus de factions (Séparatiste) :</u> +100 % de chances de coup critique pour les alliés séparatistes et Sith. Tous les alliés Séparatistes obtiennent Immunité aux dégâts pendant 1 tour au début de la bataille (ne peut pas être dissipé). La première fois que chaque allié séparatiste est vaincu il est ranimé avec 50 % de santé et de protection. Lorsque l'unité séparatiste dans l'emplacement de chef utilise une capacité spéciale, il obtient 100 % de défense pendant 1 tour.",
+
+
+
+        "raid-unites": "Unités éligibles",
+        "raid-eligible-desc": "Unités éligibles pour ce raid :",
+      };
+      function toggleAccordion(element) {
+        const parent = element.parentElement;
+        parent.classList.toggle('active');
+        const icon = element.querySelectorAll('span')[1];
+        icon.innerHTML = parent.classList.contains('active') ? '-' : '+';
+      }
+
+      function toggleAccordionById(id) {
+        const el = document.getElementById(id);
+        const isHidden = el.classList.contains('d-none');
+        // On cache toutes les zones de faction avant d'afficher la bonne
+        document.querySelectorAll('#section-factions .info-box').forEach(box => box.classList.add('d-none'));
+        if (isHidden) el.classList.remove('d-none');
+      }
+      function switchLanguage(lang) {
+        currentLang = lang;
+        sessionStorage.setItem("selectedLanguage", lang);
+        updateUI();
+      }
+
+      function updateUI() {
+        const isFr = (currentLang === "fr");
+        const source = isFr ? dictFr : englishTexts;
+
+        for (let id in source) {
+          const el = document.getElementById(id);
+          if (el) {
+            if (isFr) {
+              // Pour le français : on transforme les \n du dictionnaire en <br>
+              el.innerHTML = source[id].replace(/\n/g, '<br>');
+            } else {
+              /* 
+                Pour l'anglais : 
+                1. .trim() enlève les espaces vides au début et à la fin du bloc.
+                2. .replace(/\s+/g, ' ') remplace les retours à la ligne du CODE 
+                    et les doubles espaces par un seul espace propre.
+              */
+              el.innerHTML = source[id].replace(/\s+/g, ' ').trim();
+            }
+          }
+        }
+
+        // Mise à jour de l'état visuel des boutons de langue
+        const btnEn = document.getElementById("lang-en");
+        const btnFr = document.getElementById("lang-fr");
+        
+        if (btnEn) btnEn.classList.toggle("active", currentLang === 'en');
+        if (btnFr) btnFr.classList.toggle("active", currentLang === 'fr');
+
+        renderUnits();
+      }
+
+      function showSection(sectionId, element) {
+        document.querySelectorAll('.section-content').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+        document.getElementById('section-' + sectionId).classList.add('active');
+        element.classList.add('active');
+      }
+
+      function toggleFaction(element) {
+
+        element.classList.toggle('active');
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        // Sauvegarde auto des textes anglais du HTML
+        Object.keys(dictFr).forEach(id => {
+          const el = document.getElementById(id);
+          if (el) englishTexts[id] = el.innerHTML;
+        });
+
+        fetch("https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json")
+          .then(res => res.json())
+          .then(data => {
+            allUnits = data;
+            updateUI();
+          });
+      });
+
+      function renderUnits() {
+        const gallery = document.getElementById("units-gallery");
+        if (!gallery) return;
+
+        gallery.innerHTML = "";
+
+        const filtered = allUnits.filter(u =>
+          u.raids && u.raids.some(r => r.en.toLowerCase() === RAID_TARGET_EN)
+        );
+
+        filtered.forEach(u => {
+          const link = document.createElement("a");
+          link.href = u.page;
+          link.target = "_self";
+
+          const img = document.createElement("img");
+          img.src = u.image;
+          img.className = "raid-unit-img";
+          img.title = u.name[currentLang] || u.name.en;
+          img.loading = "lazy";
+
+          link.appendChild(img);
+          gallery.appendChild(link);
+        });
+      }
+      
+    </script>
+</body>
+
+</html>

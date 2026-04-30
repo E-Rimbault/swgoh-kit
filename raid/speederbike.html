@@ -1,0 +1,1566 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>SWGOH - Speeder Bike Pursuit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        u.speciale {
+            font-weight: bold;
+            color: yellow;
+            text-decoration: none;
+        }
+
+        u.rage {
+            font-weight: bold;
+            color: red;
+            text-decoration: none;
+        }
+
+        :root {
+            --sw-bg-dark: #050505;
+            --sw-bg-card: #121212;
+            --sw-border: #333;
+            --sw-text-main: #e0e0e0;
+            --sw-blue-text: #00a2ff;
+            --font-titles: 'Orbitron', sans-serif;
+            --sidebar-width: 380px;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--sw-bg-dark);
+            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+            color: var(--sw-text-main);
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: var(--sidebar-width);
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(5px);
+            padding: 25px;
+            border-right: 2px solid var(--sw-border);
+            z-index: 10000;
+            overflow-y: auto;
+        }
+
+        #content {
+            margin-left: var(--sidebar-width);
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        .raid-header-img {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
+            background: #000;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border: 1px solid var(--sw-border);
+        }
+
+        .main-raid-title {
+            font-family: var(--font-titles);
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--sw-blue-text);
+            padding-left: 15px;
+        }
+
+        .nav-section {
+            margin-bottom: 20px;
+        }
+
+        .nav-title {
+            font-family: var(--font-titles);
+            color: var(--sw-blue-text);
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #222;
+        }
+
+        .nav-item {
+            display: block;
+            padding: 12px 15px;
+            color: #aaa;
+            text-decoration: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .nav-item:hover {
+            background: rgba(0, 162, 255, 0.1);
+            color: #fff;
+        }
+
+        .nav-item.active {
+            background: var(--sw-blue-text);
+            color: #000;
+            font-weight: bold;
+        }
+
+        .sub-item {
+            padding-left: 35px;
+            font-size: 110%;
+        }
+
+        .section-content {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .section-content.active {
+            display: block;
+        }
+
+        .faction-name {
+            font-size: 120%;
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ACCORDIONS */
+        .accordion-item-sw {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--sw-border);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .accordion-header-sw {
+            padding: 15px 20px;
+            cursor: pointer;
+            font-family: var(--font-titles);
+            color: var(--sw-blue-text);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+            background: rgba(0, 162, 255, 0.05);
+        }
+
+        .accordion-header-sw:hover {
+            background: rgba(0, 162, 255, 0.15);
+        }
+
+        .accordion-content-sw {
+            max-height: 0;
+            overflow: hidden;
+            /* Correction : transition plus rapide et courbe Bézier pour supprimer le délai */
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+            padding: 0 20px;
+        }
+
+        /* État ouvert - Correction du max-height */
+        .accordion-item-sw.active .accordion-content-sw {
+            max-height: 5000px;
+            /* Réduit de 10000 à 2000 pour supprimer le temps mort */
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border-top: 1px solid var(--sw-border);
+        }
+
+        /* FACTION GRID - Version Réparée */
+        .faction-card {
+            background: var(--sw-bg-card);
+            border: 1px solid var(--sw-border);
+            border-radius: 10px;
+            padding: 0;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.3s;
+            overflow: hidden;
+        }
+
+        .faction-content-box {
+            max-height: 0;
+            overflow: hidden;
+            /* Correction : transition identique pour la fluidité */
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+            background: #0a0a0a;
+            color: var(--sw-text-main);
+            border-top: 0 solid var(--sw-border);
+        }
+
+        /* État Actif - Correction du max-height */
+        .faction-card.active .faction-content-box {
+            max-height: 5000px;
+            /* Réduit de 10000 à 2000 */
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border-top-width: 1px;
+        }
+
+        /* INFO BOX */
+        .info-box {
+            background: var(--sw-bg-card);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--sw-border);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .lang-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .lang-toggle img {
+            cursor: pointer;
+            width: 25px;
+            opacity: 0.4;
+            transition: 0.3s;
+            border: 2px solid transparent;
+            border-radius: 4px;
+        }
+
+        .lang-toggle img.active {
+            opacity: 1;
+            border-color: var(--sw-blue-text);
+        }
+
+        #units-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+        }
+
+        .raid-unit-img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            border-radius: 10px;
+            border: 2px solid var(--sw-border);
+            background: #000;
+        }
+
+        @media (max-width: 992px) {
+            #sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                border-right: none;
+            }
+
+            #content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="sidebar">
+        <div class="lang-toggle">
+            <img src="https://flagcdn.com/us.svg" alt="EN" id="lang-en" onclick="switchLanguage('en')">
+            <img src="https://flagcdn.com/fr.svg" alt="FR" id="lang-fr" onclick="switchLanguage('fr')">
+        </div>
+
+        <img src="https://e-rimbault.github.io/swgoh-kit/raid-image/raid-endor.png" class="raid-header-img"
+            alt="Speeder Byke">
+
+        <div class="nav-section">
+            <div class="nav-title" id="title-resume">Summary</div>
+            <div id="btn-history" class="nav-item active" onclick="showSection('resume', this)">Story & Rules</div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-title" id="title-details">Details</div>
+            <div id="btn-factions" class="nav-item" onclick="showSection('factions', this)">Faction Bonuses</div>
+            <div id="btn-capacities" class="nav-item" onclick="showSection('capacities', this)">Abilities</div>
+            <div id="btn-diff" class="nav-item" onclick="showSection('diff', this)">Difficulty Modifiers</div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-title" id="title-restrict">Restrictions</div>
+            <div id="btn-unites" class="nav-item" onclick="showSection('unites', this)">Eligible Units</div>
+        </div>
+
+        <button class="btn btn-outline-info w-100 mt-4" onclick="window.location.href='raid.html'"
+            id="btn-back">BACK</button>
+    </div>
+
+    <div id="content">
+        <h1 class="main-raid-title" id="raid-main-name">Speeder Bike Pursuit</h1>
+
+        <!-- SECTION RESUME (Story & Rules) -->
+        <div id="section-resume" class="section-content active">
+            <h2 id="h-history">Story & Rules</h2>
+            <div class="accordion-item-sw">
+                <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                    <span id="title-story">STORY</span><span>+</span>
+                </div>
+                <div class="accordion-content-sw" id="text-story">
+                    Two of the Empire's elite Scout Troopers evade their enemies at breakneck speed through the forests
+                    of Endor. They throw caution to the wind as they weather your forces' attempts to damage, distract,
+                    and sideswipe them. The Scout Troopers will attempt to call powerful allies to help shake you off
+                    their tails, so you'll need to jam their comlinks to weaken these reinforcements.
+                </div>
+            </div>
+            <div class="accordion-item-sw">
+                <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                    <span id="title-rules">RULES</span><span>+</span>
+                </div>
+                <div class="accordion-content-sw" id="text-rules">
+                    • Time Limit: 2d 23h<br>
+                    • Requirements: 5 Stars, Specific Units<br>
+                    • Roster Refresh: Never<br>
+                    • Launch Cost: 180K<br>
+                    • Max Attempts: 8
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION FACTIONS -->
+        <div id="section-factions" class="section-content">
+            <h2 id="h-factions">Faction Bonuses</h2>
+
+            <!-- Texte d'introduction ajouté ici -->
+            <div class="info-box" id="text-factions-intro">Characters can obtain one or more of the following abilities
+                during the raid.</div>
+
+            <div class="faction-grid">
+                <!-- Faction Bonus rebels -->
+                <div class="faction-card" onclick="toggleFaction(this)">
+                    <div class="faction-header">
+                        <img style="height: 10%; width: 10%;" src="../raid-image/raid-endor/faction-rebel.png">
+                        <span class="faction-name" id="f-rebel">Rebels</span>
+                    </div>
+                    <div class="faction-content-box" id="content-f-rebel">
+                        When this character uses a Basic ability, they repair stacks of Damage on all allies. Rebel
+                        characters gain a stack of Shield for every stack of Repair above max on self.
+                    </div>
+                </div>
+
+                <!-- Faction Bonus: Imperial -->
+                <div class="faction-card" onclick="toggleFaction(this)">
+                    <div class="faction-header">
+                        <img style="height: 10%; width: 10%;" src="../raid-image/raid-endor/faction-empire.png">
+                        <span class="faction-name" id="f-empire">Imperial</span>
+                    </div>
+                    <div class="faction-content-box" id="content-f-empire">
+                        This character starts the battle with stacks of Jam. When this character uses a Basic ability,
+                        they remove bonus stacks of Damage from target enemy equal to the number of stacks of Evade on
+                        all allies. Then, this character loses all stacks of Evade.
+                    </div>
+                </div>
+
+                <!-- Faction Bonus: Ewok -->
+                <div class="faction-card" onclick="toggleFaction(this)">
+                    <div class="faction-header">
+                        <img style="height: 10%; width: 10%;" src="../raid-image/raid-endor/faction-ewok.png">
+                        <span class="faction-name" id="f-ewok">Ewok</span>
+                    </div>
+                    <div class="faction-content-box" id="content-f-ewok">
+                        When this character uses a Basic ability, they remove bonus stacks of Timber from target enemy
+                        equal to the number of stacks of Jam on all allies. Whenever an enemy is defeated with Timber,
+                        all Ewok allies gain stacks of Jam.
+                    </div>
+                </div>
+
+                <!-- Strengths -->
+                <div class="faction-card" onclick="toggleFaction(this)">
+                    <div class="faction-header">
+                        <img style="height: 10%; width: 10%;" src="../raid-image/raid-endor/force.png">
+                        <span class="faction-name" id="f-force">Strengths</span>
+                    </div>
+                    <div class="faction-content-box" id="content-f-force">This character is immune to Poisoned. Damage
+                        this character deals is decreased by 50%.
+                        <br><br>
+                        Whenever this character deals damage, it doesn't trigger Turn Meter gain on enemies, and they
+                        have a 75% chance to inflict Tenacity Down for 2 turns on all enemies.
+                    </div>
+                </div>
+
+                <!-- Statistical Rework-->
+                <div class="faction-card" onclick="toggleFaction(this)">
+                    <div class="faction-header">
+                        <img style="height: 10%; width: 10%;"
+                            src="../raid-image/raid-endor/stat-rework.png">
+                        <span class="faction-name" id="f-stat">Statistical Rework</span>
+                    </div>
+                    <div class="faction-content-box" id="content-f-stat">
+                        This character will gain additional effects based on their start of combat stat values.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION DETAILS -->
+        <div id="section-capacities" class="section-content">
+            <h2 id="h-capa">Abilities</h2>
+
+            <!-- Granted Abilities -->
+            <div class="accordion-item-sw">
+                <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                    <span id="capa-granted">Granted Abilities</span><span>+</span>
+                </div>
+                <div class="accordion-content-sw" id="val-capa-granted">
+
+                    <!-- Capacité 1 : Statistical Rework -->
+                    <div class="faction-card mb-3 shadow-sm">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/stat-rework.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="capa-name-1" style="white-space: nowrap;">Statistical
+                                Rework</span>
+                        </div>
+                        <div class="p-3" id="capa-desc-1"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Characters will gain additional benefits based on their individual stats at start of battle:
+                            <br><br>
+                            - <u class="speciale">Health:</u> Provides stacks of Shield based on the character's Max
+                            Health (<u class="speciale">Shield:</u> Blocks incoming stacks of Damage)<br><br>
+                            - 0-10,000 Health: Gain 5 stacks of Shield<br>
+                            - Every additional 10,000 Health up to 200,000: Gain 1 stack of Shield<br><br>
+
+                            - <u class="speciale">Protection:</u> Provides stacks of Shield based on the character's Max
+                            Protection (<u class="speciale">Shield:</u> Blocks incoming stacks of Damage)<br><br>
+                            - 0-10,000 Protection: Gain 5 stacks of Shield<br>
+                            - Every additional 10,000 Protection up to 200,000: Gain 1 stack of Shield<br><br>
+
+                            - <u class="speciale">Physical Accuracy:</u> Remove additional stacks of Sideswipe for each
+                            stack of Sideswipe removed with an ability<br><br>
+                            - Below 5%: No effect<br>
+                            - 5%-14.99%: Remove 2 additional stacks of Sideswipe<br>
+                            - 15%-24.99%: Remove 4 additional stacks of Sideswipe<br>
+                            - 25% or higher: Remove 6 additional stacks of Sideswipe<br><br>
+
+                            - <u class="speciale">Physical Critical Avoidance:</u> Remove additional stacks of Timber
+                            when removing Timber with an ability<br><br>
+                            - Below 25%: No effect<br>
+                            - 25%-49.99%: Remove 2 additional stacks of Timber<br>
+                            - 50%-74.99%: Remove 4 additional stacks of Timber<br>
+                            - 75%-99.99%: Remove 6 additional stacks of Timber<br>
+                            - 100% or higher: Remove 8 additional stacks of Timber<br><br>
+
+                            - <u class="speciale">Physical Critical Chance:</u> Chance to reduce a random ally's
+                            cooldowns by 1 at start of turn<br><br>
+                            - 30% or lower: Gain a 10% chance to reduce an ally's cooldowns<br>
+                            - 30.1%-50%: Gain a 15% chance to reduce an ally's cooldowns<br>
+                            - 50.1%-75%: Gain a 20% chance to reduce an ally's cooldowns<br>
+                            - 75.1% or higher: Gain a 25% chance to reduce an ally's cooldowns<br><br>
+
+                            - <u class="speciale">Critical Damage:</u> Gain Turn Meter when this character's cooldowns
+                            are reduced<br><br>
+                            - 179% or lower: No effect<br>
+                            - 180%-199%: Gain 10% Turn Meter<br>
+                            - 200%-219%: Gain 20% Turn Meter<br>
+                            - 220% or higher: Gain a 30% Turn Meter<br><br>
+
+                            - <u class="speciale">Attack Damage:</u> Remove additional stacks of Damage for each stack
+                            of Damage removed with an ability<br><br>
+                            - 3000-5999: Remove 4 additional stacks of Damage<br>
+                            - 6000-9999: Remove 8 additional stacks of Damage<br>
+                            - 10000 or higher: Remove 12 additional stacks of Damage<br><br>
+
+                            - <u class="speciale">Armor:</u> Block stacks of incoming Damage from enemy speeder
+                            bikes<br><br>
+                            - Below 637: No effect<br>
+                            - 637-1486: Block 1 incoming stack of Damage<br>
+                            - 1487 or higher: Block 2 incoming stacks of Damage<br><br>
+
+                            - <u class="speciale">Physical Evasion:</u> Gain additional stacks of Evasion when gaining
+                            Evasion<br><br>
+                            - Below 5%: No effect<br>
+                            - 5%-9.99%: Gain 1 additional stack of Evasion<br>
+                            - 10%-14.99%: Gain 2 additional stacks of Evasion<br>
+                            - 15% or higher: Gain 3 additional stacks of Evasion<br><br>
+
+                            - <u class="speciale">Health Steal:</u> Repair stacks of Damage on self when removing 16 or
+                            more stacks of Damage on an enemy<br><br>
+                            - Below 10%: No effect<br>
+                            - 10%-24%: Repair 1 stack of Damage on self<br>
+                            - 25%-39%: Repair 2 stacks of Damage on self<br>
+                            - 40% or higher: Repair 3 stacks of Damage on self<br><br>
+
+                            - <u class="speciale">Potency:</u> Remove additional stacks of Distract for each stack of
+                            Distract removed by an ability<br><br>
+                            - Below 30%: Remove 2 additional stacks of Distract<br>
+                            - 30%-49%: Remove 4 additional stacks of Distract<br>
+                            - 50%-79%: Remove 6 additional stacks of Distract<br>
+                            - 80% or higher: Remove 8 additional stacks of Distract<br><br>
+
+                            - <u class="speciale">Tenacity:</u> Reduce the cost of successfully evading an incoming
+                            attack<br><br>
+                            - Below 20%: No effect<br>
+                            - 20%-39%: Successfully evading consumes 1 less stack of Evasion<br>
+                            - 40%-59%: Successfully evading consumes 2 less stacks of Evasion<br>
+                            - 60%-79%: Successfully evading consumes 3 less stacks of Evasion<br>
+                            - 80%-99%: Successfully evading consumes 4 less stacks of Evasion<br>
+                            - 100% or higher: Successfully evading consumes 5 less stacks of Evasion
+                        </div>
+                    </div>
+
+                    <!-- Capacité 2 : Ax-20 Blaster Cannon -->
+                    <div class="faction-card mb-3 shadow-sm">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/player-basic.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="capa-name-2" style="white-space: nowrap;">Ax-20 Blaster
+                                Cannon</span>
+                        </div>
+                        <div class="p-3" id="capa-desc-2"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Remove stacks of Damage from target enemy.
+                        </div>
+                    </div>
+
+                    <!-- Capacité 3 : Get Alongside That One -->
+                    <div class="faction-card mb-3 shadow-sm">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/player-special1.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="capa-name-3" style="white-space: nowrap;">Get Alongside That
+                                One</span>
+                        </div>
+                        <div class="p-3" id="capa-desc-3"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Remove stacks of Damage and stacks of Sideswipe from target enemy. Gain a stack of Jam on
+                            self.
+                        </div>
+                    </div>
+
+                    <!-- Capacité 4 : Divert Attention -->
+                    <div class="faction-card mb-3 shadow-sm">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/player-special2.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="capa-name-4" style="white-space: nowrap;">Divert
+                                Attention</span>
+                        </div>
+                        <div class="p-3" id="capa-desc-4"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Remove stacks of Damage and stacks of Distract from all enemies. All allies gain stacks of
+                            Jam.
+                        </div>
+                    </div>
+
+                    <!-- Capacité 5 : Forest Friends -->
+                    <div class="faction-card mb-3 shadow-sm">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/player-special3.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="capa-name-5" style="white-space: nowrap;">Forest
+                                Friends</span>
+                        </div>
+                        <div class="p-3" id="capa-desc-5"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Remove stacks of Damage and stacks of Timber from target enemy. Gain stacks of Evasion and
+                            repair stack of Damage on self.
+                        </div>
+                    </div>
+
+                    <!-- Capacité 6 : Open Fire! -->
+                    <div class="faction-card mb-3 shadow-sm">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/player-special4.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="capa-name-6" style="white-space: nowrap;">Open Fire!</span>
+                        </div>
+                        <div class="p-3" id="capa-desc-6"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Remove stacks of Damage, stacks of Distract, and stacks of Sideswipe from all enemies. Gain
+                            a stack of Evasion, and repair stacks of Damage on self.
+                        </div>
+                    </div>
+
+                    <!-- Capacité 7 : Evasive Maneuvering -->
+                    <div class="faction-card mb-3 shadow-sm">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/player-special5.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="capa-name-7" style="white-space: nowrap;">Evasive
+                                Maneuvering</span>
+                        </div>
+                        <div class="p-3" id="capa-desc-7"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            All allies gain stacks of Evasion, and repair stacks of Damage on self.
+                        </div>
+                    </div>
+
+                    <!-- Capacité 8 : Hasty Repairs -->
+                    <div class="faction-card mb-3 shadow-sm">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/player-special6.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="capa-name-8" style="white-space: nowrap;">Hasty
+                                Repairs</span>
+                        </div>
+                        <div class="p-3" id="capa-desc-8"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            All allies gain stacks of Evasion, and repair stacks of Damage on self.
+                        </div>
+                    </div>
+
+                    <!-- Capacité 9 : Jam Their Comlinks -->
+                    <div class="faction-card mb-3 shadow-sm">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/player-special7.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="capa-name-9" style="white-space: nowrap;">Jam Their
+                                Comlinks</span>
+                        </div>
+                        <div class="p-3" id="capa-desc-9"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Remove stacks of Distract, stacks of Sideswipe, and stack of Timber from all enemies. All
+                            allies gain stacks of Jam.
+                        </div>
+                    </div>
+
+                    <!-- Capacité 10 : It's Going Down -->
+                    <div class="faction-card mb-3 shadow-sm">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/going-down.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="capa-name-10" style="white-space: nowrap;">It's Going
+                                Down</span>
+                        </div>
+                        <div class="p-3" id="capa-desc-10"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Remove max stacks of Timber from all enemies. Gain stacks of Evasion, a stack of Jam, and
+                            repair stacks of Damage on self.
+                        </div>
+                    </div>
+
+                </div> <!-- Fin val-capa-granted -->
+            </div>
+
+            <!-- Scout Trooper Recruit -->
+            <div class="accordion-item-sw">
+                <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                    <div class="d-flex align-items-center gap-3" style="flex: 1; min-width: 0;">
+                        <img src="../raid-image/raid-endor/scout-recruit.png"
+                            style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                        <span id="capa-scout-recruit"
+                            style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Scout Trooper
+                            Recruit</span>
+                    </div>
+                    <span style="flex-shrink: 0;">+</span>
+                </div>
+                <div class="accordion-content-sw" id="val-scout-recruit">
+
+                    <!-- Scout Trooper Recruit -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/ennemi-basic.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="recrue-capa-name-1" style="white-space: nowrap;">Hot
+                                Pursuit</span>
+                        </div>
+                        <div class="p-3" id="recrue-capa-desc-1"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Remove 4 stacks of Damage from target enemy.
+                            <br><br>
+                            <u class="rage">Enraged:</u> Remove 40 stacks of Damage from target enemy.
+                        </div>
+                    </div>
+
+                    <!-- Scout Trooper Recruit -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/repare.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="recrue-capa-name-2" style="white-space: nowrap;">Self
+                                Repair</span>
+                        </div>
+                        <div class="p-3" id="recrue-capa-desc-2"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Repair 4 stacks of Damage on self.
+                            <br><br>
+                            <u class="rage">Enraged:</u> Repair 40 stacks of Damage on self.
+                        </div>
+                    </div>
+
+                    <!-- Scout Trooper Recruit -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/force.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="recrue-capa-name-3"
+                                style="white-space: nowrap;">Strengths</span>
+                        </div>
+                        <div class="p-3" id="recrue-capa-desc-3"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            <u class="rage">Recruit:</u> it takes one of the following to defeat this character:
+                            <br><br>
+                            - 50 stacks of Damage<br>
+                            - 20 stacks of Distract<br>
+                            - 25 stacks of Sideswipe<br>
+                            - 30 stacks of Timber
+                        </div>
+                    </div>
+
+                    <!-- Scout Trooper Recruit -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/rage.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="recrue-capa-name-4"
+                                style="white-space: nowrap;">Enrage</span>
+                        </div>
+                        <div class="p-3" id="recrue-capa-desc-4"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            When this character becomes enraged, gain 50 Speed and remove all stacks of Evasion and Jam
+                            from all enemies. All abilities remove additional stacks of Damage and can't be evaded.
+                            <br><br>
+                            This character becomes enraged when this ability comes off of cooldown. Ally defeats and
+                            enemy turns contribute to the cooldown of this ability, and this cooldown is shared between
+                            all allies.
+                            <br><br>
+                            - <u class="speciale">Recruit Defeat:</u> 4%<br>
+                            - <u class="speciale">Scout Trooper Defeat:</u> 5%<br>
+                            - <u class="speciale">Commander Defeat:</u> 7%<br>
+                            - <u class="speciale">Shadow Defeat:</u> 10%<br>
+                            - <u class="speciale">Player Turn:</u> 0.5%
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scout Trooper -->
+            <div class="accordion-item-sw">
+                <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                    <div class="d-flex align-items-center gap-3" style="flex: 1; min-width: 0;">
+                        <img src="../raid-image/raid-endor/scout-trooper.png"
+                            style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                        <span id="capa-scout-trooper"
+                            style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Scout Trooper</span>
+                    </div>
+                    <span style="flex-shrink: 0;">+</span>
+                </div>
+                <div class="accordion-content-sw" id="val-scout-trooper">
+
+                    <!-- Hot Pursuit -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/ennemi-basic.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="scout-capa-name-1" style="white-space: nowrap;">Hot
+                                Pursuit</span>
+                        </div>
+                        <div class="p-3" id="scout-capa-desc-1"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Remove 4 stacks of Damage from target enemy.
+                            <br><br>
+                            <u class="rage">Enraged:</u> Remove 40 stacks of Damage from target enemy.
+                        </div>
+                    </div>
+
+                    <!-- Self Repair -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/repare.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="scout-capa-name-2" style="white-space: nowrap;">Self
+                                Repair</span>
+                        </div>
+                        <div class="p-3" id="scout-capa-desc-2"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Repair 4 stacks of Damage on self.
+                            <br><br>
+                            <u class="rage">Enraged:</u> Repair 40 stacks of Damage on self.
+                        </div>
+                    </div>
+
+                    <!-- Calculated Grenade Drop -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/ennemi-special2.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="scout-capa-name-3" style="white-space: nowrap;">Calculated
+                                Grenade Drop</span>
+                        </div>
+                        <div class="p-3" id="scout-capa-desc-3"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Remove 4 stacks of Damage from all enemies.
+                            <br><br>
+                            <u class="rage">Enraged:</u> Remove 40 stacks of Damage from all enemies.
+                        </div>
+                    </div>
+
+                    <!-- Strengths -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/force.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="scout-capa-name-4"
+                                style="white-space: nowrap;">Strengths</span>
+                        </div>
+                        <div class="p-3" id="scout-capa-desc-4"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            <u class="rage">Scout Trooper:</u> it takes one of the following to defeat this character:
+                            <br><br>
+                            - 50 stacks of Damage<br>
+                            - 25 stacks of Distract<br>
+                            - 35 stacks of Sideswipe<br>
+                            - 20 stacks of Timber
+                        </div>
+                    </div>
+
+                    <!-- Enrage -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/rage.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="scout-capa-name-5" style="white-space: nowrap;">Enrage</span>
+                        </div>
+                        <div class="p-3" id="scout-capa-desc-5"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            When this character becomes enraged, gain 50 Speed and remove all stacks of Evasion and Jam
+                            from all enemies. All abilities remove additional stacks of Damage and can't be evaded.
+                            <br><br>
+                            This character becomes enraged when this ability comes off of cooldown. Ally defeats and
+                            enemy turns contribute to the cooldown of this ability, and this cooldown is shared between
+                            all allies.
+                            <br><br>
+                            - <u class="speciale">Recruit Defeat:</u> 4%<br>
+                            - <u class="speciale">Scout Trooper Defeat:</u> 5%<br>
+                            - <u class="speciale">Commander Defeat:</u> 7%<br>
+                            - <u class="speciale">Shadow Defeat:</u> 10%<br>
+                            - <u class="speciale">Player Turn:</u> 0.5%
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scout Trooper Commander -->
+            <div class="accordion-item-sw">
+                <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                    <div class="d-flex align-items-center gap-3" style="flex: 1; min-width: 0;">
+                        <img src="../raid-image/raid-endor/scout-commander.png"
+                            style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                        <span id="capa-scout-commander"
+                            style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Scout Trooper
+                            Commander</span>
+                    </div>
+                    <span style="flex-shrink: 0;">+</span>
+                </div>
+                <div class="accordion-content-sw" id="val-scout-commander">
+
+                    <!-- Hot Pursuit -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/ennemi-basic.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="commander-capa-name-1" style="white-space: nowrap;">Hot
+                                Pursuit</span>
+                        </div>
+                        <div class="p-3" id="commander-capa-desc-1"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Remove 4 stacks of Damage from target enemy.
+                            <br><br>
+                            <u class="rage">Enraged:</u> Remove 40 stacks of Damage from target enemy.
+                        </div>
+                    </div>
+
+                    <!-- Self Repair -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/repare.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="commander-capa-name-2" style="white-space: nowrap;">Self
+                                Repair</span>
+                        </div>
+                        <div class="p-3" id="commander-capa-desc-2"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Repair 4 stacks of Damage on self.
+                            <br><br>
+                            <u class="rage">Enraged:</u> Repair 40 stacks of Damage on self.
+                        </div>
+                    </div>
+
+                    <!-- Calculated Grenade Drop -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/ennemi-special2.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="commander-capa-name-3"
+                                style="white-space: nowrap;">Calculated Grenade Drop</span>
+                        </div>
+                        <div class="p-3" id="commander-capa-desc-3"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Remove 4 stacks of Damage from all enemies.
+                            <br><br>
+                            <u class="rage">Enraged:</u> Remove 40 stacks of Damage from all enemies.
+                        </div>
+                    </div>
+
+                    <!-- Branch Barrage -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/ennemi-special3.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="commander-capa-name-4" style="white-space: nowrap;">Branch
+                                Barrage</span>
+                        </div>
+                        <div class="p-3" id="commander-capa-desc-4"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Remove 8 stacks of Damage from target enemy and 4 stacks of Damage from all other
+                            enemies.
+                            <br><br>
+                            <u class="rage">Enraged:</u> Remove max stacks of Damage from target enemy and 40 stacks
+                            of Damage from all other enemies.
+                        </div>
+                    </div>
+
+                    <!-- Strengths -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/force.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="commander-capa-name-5"
+                                style="white-space: nowrap;">Strengths</span>
+                        </div>
+                        <div class="p-3" id="commander-capa-desc-5"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            <u class="rage">Commander:</u> it takes one of the following to defeat this character:
+                            <br><br>
+                            - 80 stacks of Damage<br>
+                            - 45 stacks of Distract<br>
+                            - 30 stacks of Sideswipe<br>
+                            - 30 stacks of Timber
+                        </div>
+                    </div>
+
+                    <!-- Enrage -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/rage.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="commander-capa-name-6"
+                                style="white-space: nowrap;">Enrage</span>
+                        </div>
+                        <div class="p-3" id="commander-capa-desc-6"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            When this character becomes enraged, gain 50 Speed and remove all stacks of Evasion and
+                            Jam from all enemies. All abilities remove additional stacks of Damage and can't be
+                            evaded.
+                            <br><br>
+                            This character becomes enraged when this ability comes off of cooldown. Ally defeats and
+                            enemy turns contribute to the cooldown of this ability, and this cooldown is shared
+                            between all allies.
+                            <br><br>
+                            - <u class="speciale">Recruit Defeat:</u> 4%<br>
+                            - <u class="speciale">Scout Trooper Defeat:</u> 5%<br>
+                            - <u class="speciale">Commander Defeat:</u> 7%<br>
+                            - <u class="speciale">Shadow Defeat:</u> 10%<br>
+                            - <u class="speciale">Player Turn:</u> 0.5%
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Shadow Scout Trooper -->
+            <div class="accordion-item-sw">
+                <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                    <div class="d-flex align-items-center gap-3" style="flex: 1; min-width: 0;">
+                        <img src="../raid-image/raid-endor/shadow-trooper.png"
+                            style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                        <span id="capa-shadow-trooper"
+                            style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Shadow Scout
+                            Trooper</span>
+                    </div>
+                    <span style="flex-shrink: 0;">+</span>
+                </div>
+                <div class="accordion-content-sw" id="val-shadow-trooper">
+
+                    <!-- Hot Pursuit -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/ennemi-basic.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="shadow-capa-name-1" style="white-space: nowrap;">Hot
+                                Pursuit</span>
+                        </div>
+                        <div class="p-3" id="shadow-capa-desc-1"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Remove 4 stacks of Damage from target enemy.
+                            <br><br>
+                            <u class="rage">Enraged:</u> Remove 40 stacks of Damage from target enemy.
+                        </div>
+                    </div>
+
+                    <!-- Self Repair -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/repare.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="shadow-capa-name-2" style="white-space: nowrap;">Self
+                                Repair</span>
+                        </div>
+                        <div class="p-3" id="shadow-capa-desc-2"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Repair 4 stacks of Damage on self.
+                            <br><br>
+                            <u class="rage">Enraged:</u> Repair 40 stacks of Damage on self.
+                        </div>
+                    </div>
+
+                    <!-- Calculated Grenade Drop -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/ennemi-special2.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="shadow-capa-name-3" style="white-space: nowrap;">Calculated
+                                Grenade Drop</span>
+                        </div>
+                        <div class="p-3" id="shadow-capa-desc-3"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Remove 4 stacks of Damage from all enemies.
+                            <br><br>
+                            <u class="rage">Enraged:</u> Remove 40 stacks of Damage from all enemies.
+                        </div>
+                    </div>
+
+                    <!-- Branch Barrage -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/ennemi-special3.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="shadow-capa-name-4" style="white-space: nowrap;">Branch
+                                Barrage</span>
+                        </div>
+                        <div class="p-3" id="shadow-capa-desc-4"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Remove 12 stacks of Damage from target enemy and 6 stacks of Damage from all other
+                            enemies.
+                            <br><br>
+                            <u class="rage">Enraged:</u> Remove max stacks of Damage from target enemy and 40 stacks
+                            of Damage from all other enemies.
+                        </div>
+                    </div>
+
+                    <!-- Strengths -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/force.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="shadow-capa-name-5"
+                                style="white-space: nowrap;">Strengths</span>
+                        </div>
+                        <div class="p-3" id="shadow-capa-desc-5"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            <u class="rage">Shadow:</u> it takes one of the following to defeat this character:
+                            <br><br>
+                            - 100 stacks of Damage<br>
+                            - 40 stacks of Distract<br>
+                            - 45 stacks of Sideswipe<br>
+                            - 40 stacks of Timber
+                        </div>
+                    </div>
+
+                    <!-- Enrage -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-endor/rage.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="shadow-capa-name-6"
+                                style="white-space: nowrap;">Enrage</span>
+                        </div>
+                        <div class="p-3" id="shadow-capa-desc-6"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            When this character becomes enraged, gain 50 Speed and remove all stacks of Evasion and
+                            Jam from all enemies. All abilities remove additional stacks of Damage and can't be
+                            evaded.
+                            <br><br>
+                            This character becomes enraged when this ability comes off of cooldown. Ally defeats and
+                            enemy turns contribute to the cooldown of this ability, and this cooldown is shared
+                            between all allies.
+                            <br><br>
+                            - <u class="speciale">Recruit Defeat:</u> 4%<br>
+                            - <u class="speciale">Scout Trooper Defeat:</u> 5%<br>
+                            - <u class="speciale">Commander Defeat:</u> 7%<br>
+                            - <u class="speciale">Shadow Defeat:</u> 10%<br>
+                            - <u class="speciale">Player Turn:</u> 0.5%
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION DIFFICULTÉ -->
+        <div id="section-diff" class="section-content">
+            <h2 id="h-diff">Difficulty Modifiers</h2>
+            <div id="diff-container">
+
+                <!-- LEVEL 0 -->
+                <div class="accordion-item-sw">
+                    <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                        <span id="level-title-base">Level 0 (x1 Multiplier)</span><span>+</span>
+                    </div>
+                    <div class="accordion-content-sw">
+                        <div class="info-box mb-3">
+                            <span id="level-info-base">
+                                <strong>Max possible:</strong> 300,000 pts<br>
+                                <strong>Requirement:</strong> None
+                            </span>
+                        </div>
+                        <div class="faction-card active">
+                            <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-base">
+                                <strong>Additional Effects:</strong><br>
+                                • No Additional Effects.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEVEL 1 -->
+                <div class="accordion-item-sw">
+                    <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                        <span id="level-title-1">Level 1 (x1.5 Multiplier)</span><span>+</span>
+                    </div>
+                    <div class="accordion-content-sw">
+                        <div class="info-box mb-3" id="level-info-1">
+                            <strong>Max possible:</strong> 450,000 pts<br>
+                            <strong>Requirement:</strong> Tier XII
+                        </div>
+                        <div class="faction-card active">
+                            <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-1">
+                                <strong>Additional Effects:</strong><br>
+                                • Enemies gain 10 Speed and remove an additional 4 stacks of Damage with their Basic ability. The number of stacks required to defeat each enemy is increased by 10%.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEVEL 2 -->
+                <div class="accordion-item-sw">
+                    <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                        <span id="level-title-2">Level 2 (x2 Multiplier)</span><span>+</span>
+                    </div>
+                    <div class="accordion-content-sw">
+                        <div class="info-box mb-3" id="level-info-2">
+                            <strong>Max possible:</strong> 600,000 pts<br>
+                            <strong>Requirement:</strong> Relic 1
+                        </div>
+                        <div class="faction-card active">
+                            <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-2">
+                                <strong">Additional Effects:</strong><br>
+                                    • Enemies gain 15 Speed and remove an additional 4 stacks of Damage with their Basic ability. Every 3 turns an enemy takes, they repair 2 stacks of Damage on themselves. The number of stacks required to defeat each enemy is increased by 25%. These effects do not stack with prior modifiers.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEVEL 3 -->
+                <div class="accordion-item-sw">
+                    <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                        <span id="level-title-3">Level 3 (x3 Multiplier)</span><span>+</span>
+                    </div>
+                    <div class="accordion-content-sw">
+                        <div class="info-box mb-3" id="level-info-3">
+                            <strong>Max possible:</strong> 900,000 pts<br>
+                            <strong>Requirement:</strong> Relic 3
+                        </div>
+                        <div class="faction-card active">
+                            <div class="p-3" style="background: rgba(0,0,0,0.2); " id="level-desc-3">
+                                <strong>Additional Effects:</strong><br>
+                                    • Enemies gain 15 Speed and remove an additional 6 stacks of Damage with their Basic ability. Every 3 turns an enemy takes, they repair 4 stacks of Damage on themselves. The number of stacks required to defeat each enemy is increased by 40%. These effects do not stack with prior modifiers.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEVEL 4 -->
+                <div class="accordion-item-sw">
+                    <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                        <span id="level-title-4">Level 4 (x4 Multiplier)</span><span>+</span>
+                    </div>
+                    <div class="accordion-content-sw">
+                        <div class="info-box mb-3" id="level-info-4">
+                            <strong>Max possible:</strong> 1,200,000 pts<br>
+                            <strong>Requirement:</strong> Relic 5
+                        </div>
+                        <div class="faction-card active">
+                            <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-4">
+                                <strong>Additional Effects:</strong><br>
+                                    • Enemies gain 20 Speed and remove an additional 6 stacks of Damage with their Basic ability. Every 2 turns an enemy takes, they repair 4 stacks of Damage and 2 stacks of Distract on themselves. The number of stacks required to defeat each enemy is increased by 60%. These effects do not stack with prior modifiers. 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEVEL 5 -->
+                <div class="accordion-item-sw">
+                    <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                        <span id="level-title-5">Level 5 (x6 Multiplier)</span><span>+</span>
+                    </div>
+                    <div class="accordion-content-sw">
+                        <div class="info-box mb-3" id="level-info-5">
+                            <strong>Max possible:</strong> 1,800,000 pts<br>
+                            <strong>Requirement:</strong> Relic 7
+                        </div>
+                        <div class="faction-card active">
+                            <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-5">
+                                <strong>Additional Effects:</strong><br>
+                                    • Enemies gain 20 Speed and remove an additional 6 stacks of Damage with their Basic ability. Every 2 turns an enemy takes, they repair 5 stacks of Damage, 2 stacks of Distract, and 2 stacks of Sideswipe on themselves. The number of stacks required to defeat each enemy is increased by 80%. These effects do not stack with prior modifiers.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEVEL 6 -->
+                <div class="accordion-item-sw">
+                    <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                        <span id="level-title-6">Level 6 (x9 Multiplier)</span><span>+</span>
+                    </div>
+                    <div class="accordion-content-sw">
+                        <div class="info-box mb-3" id="level-info-6">
+                            <strong>Max possible:</strong> 2,700,000 pts<br>
+                            <strong>Requirement:</strong> Relic 8
+                        </div>
+                        <div class="faction-card active">
+                            <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-6">
+                                <strong>Additional Effects:</strong><br>
+                                    • Enemies gain 25 Speed and remove an additional 8 stacks of Damage with their Basic ability. Every 2 turns an enemy takes, they repair 5 stacks of Damage, 4 stacks of Distract, and 4 stacks of Sideswipe on themselves. The number of stacks required to defeat each enemy is increased by 100%. These effects do not stack with prior modifiers. 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--fin section difficultés-->
+
+        <!-- SECTION RESTRICTIONS -->
+        <div id="section-unites" class="section-content">
+        <h2 id="raid-unites">Eligible Units</h2>
+
+        <div class="info-box" id="raid-eligible-desc">Units eligible for this raid:</div>
+
+        <div id="units-gallery"></div>
+        </div>
+
+        <script>
+            let currentLang = sessionStorage.getItem("selectedLanguage") || "en";
+            let allUnits = [];
+            const RAID_TARGET_EN = "speeder bike pursuit";
+            const englishTexts = {};
+
+            const dictFr = {
+                "raid-main-name": "Chasse au Dragon Krayt",
+                "title-resume": "Résumé",
+                "title-details": "Détails",
+                //menu traduction
+                "btn-history": "Histoire & Règles",
+                "btn-factions": "Factions Bonus",
+                "btn-capacities": "Capacités",
+                "btn-diff": "Modificateurs",
+                "btn-unites": "Unités autorisées",
+                "btn-back": "RETOUR",
+
+                //ensemble sommaire, sous-catégorie : story and rules
+                "title-story": "HISTOIRE",
+                "text-story": "Deux Scout Troopers d'élite de l'Empire échappent  leurs adversaires à une vitesse fulgurante à travers la forêt d'Endor. Ils font fi de toute prudence en déjouant les tentatives de vos forces, tandis qu'ils œuvrent à leur infliger des dégâts, à les distraire ou à créer des collisions. Les Scout Troopers tenteront d'appeler des alliés puissants pour se débarasser de vous. Vous devez donc brouiller leurs communications pour affaiblir ces renforts.",
+
+                "title-rules": "RÈGLES",
+                "text-rules": "• Limite de temps : 2 Jours et 23 heures.\n• Conditions : 5 étoile(s), Unités spécifiques.\n• Actualisation des personnages : Jamais.\n• Coût du lancement : 180 k ticket.\n• Total de tentatives : 8.\n",
+
+                //traduction des titres
+                "h-history": "Histoire & Règles",
+                "h-factions": "Bonus de Faction",
+                "h-capa": "Capacités",
+                "h-diff": "Modificateurs de Difficulté",
+                "h-unites": "Unités autorisées",
+
+                "text-factions-intro": "Les personnages peuvent obtenir l'une ou plusieurs des capacités suivantes lors du raid",
+
+                "f-rebel": "Rebelles",
+                "content-f-rebel": "Lorsque ce personnage utilise une capacité de base, il répare des cumuls de Dégradation sur tous les alliés. Les personnages Rebelles obtiennent un cumul de Bouclier pour chaque cumul de Réparation au-dessus de leur niveau maximum.",
+
+                "f-empire": "Empire",
+                "content-f-empire": "Ce personnage commence le combat avec des cumuls de Brouillage. Lorsque ce personnage utilise une capacité de base, il supprime des cumuls bonus de Dégradation à la cible ennemie à hauteur du nombre de cumuls d'Esquive sur tous les alliés. Ce personnage perd ensuite tous ses cumuls d'Esquive.",
+
+                "f-ewok": "Ewok",
+                "content-f-ewok": "Lorsque ce personnage utilise une capacité de base, il supprime des cumuls bonus d'Attention ! à la cible ennemie à hauteur du nombre de cumuls de Brouillage sur tous les alliés. Lorsqu'un ennemi est vaincu par Attention !, tous les alliés Ewok gagnent des cumuls de Brouillage",
+
+                "f-force": "Force",
+                "content-f-force": "Il faut 50 cumuls de Dégradation pour vaincre ce personnage.",
+
+                "f-stat": "Remaniement statistique",
+                "content-f-stat": "Ce personnage obtient des effets supplémentaires en fonction de ses statistiques de début de combat",
+                
+                "capa-granted": "Capacités conférées",
+
+                "capa-name-1": "Remaniement statistique",
+                "capa-desc-1": "Les personnages bénéficieront d'effet supplémentaires en fonction de leurs statistiques individuelles au début de la bataille :\n\n- <u class='speciale'>Santé :</u> confère des cumuls de Bouclier en fonction de la santé maximale du personnage (<u class='speciale'>Bouclier :</u> bloque les cumuls de Dégradation imminents).\n\n- 0 à 10 000 points de santé : confère 5 cumuls de Bouclier.\n- Tous les 10 000 points de santé supplémentaires jusqu'à 200 000 : confère 1 cumul de Bouclier.\n\n- <u class='speciale'>Protection :</u> confère des cuuls de Bouclier en fonction de la protection maxiamle du personnage (<u class='speciale'>Bouclier :</u> bloque les cumuls de Dégradation imminents).\n\n- 0 à 10 000 points de protection : confère 5 cumuls de bouclier.\n- Tous les 10 000 points de bonus de protection jusqu'à 200 000 : confère 5 cumuls de bouclier.\n\n- <u class='speciale'>Précision physique :</u> supprime des cumuls supplémentaires de Choc latéral pour chaque cumul de Choc latéral supprimé avec une capacité.\n\n- moins de 5 % : aucun effet.\n- 5 à 14.99 % : supprime 2 cumuls supplémentaires de choc latéral.\n- 15 à 24.99 % : supprime 4 cumuls supplémentaires de choc latéral.\n- 25 % ou plus : supprime 6 cumuls supplémentaires de Choc latéral.\n\n- <u class='speciale'>Esquive des critiques physiques :</u> suppirme des cumuls supplémentaires d'Attention ! pour chaque cumul d'Attention ! supprimé avec une capacité.\n\n- moins de 25 % : aucun effet.\n- 25 à 49.99 % : supprime 2 cumuls d'Attention !.\n- 50 à 74-99 % : supprime 4 cumuls supplémentaires d'Attention !.\n- 75 à 99.99 % : supprime 6 cumuls supplémentaires d'Attention.\n- 100 % ou plus : supprime 8 cumuls supplémentaires d'Attention!.\n\n- <u class='speciale'>Chances de coup critique physique :</u> chances de réduire de 1 les délais d'un allié aléatoire au début du tour.\n\n- 30 % ou moins : confère 10 % de chances de réduire les délais d'un allié.\n- 30.1 à 50 % : confère 15 % de chances de réduire les délais d'un allié.\n- 50.1 à 75 % : confère 20 % de chances de réduire les délais d'un allié.\n- 75.1 % ou plus : confère 25 % de chances de réduire les délais d'un allié.\n\n- <u class='speciale'>Dégâts critiques :</u> confère de la jauge de tour lorsque les délais de ce personnage sont réduits.\n\n- 179 % ou moins : aucun effet.\n- 180 à 199 % : remplit la jauge de tour de 10 %.\n- 200 à 219 % : remplit la jauge de tour de 20 %.\n- 200 % ou plus : remplit la jauge de tour de 30 %.\n\n- <u class='speciale'>Dégârs d'attaque : </u> supprime des cumuls supplémentaires de Dégradation pour chaque cumul de Dégradation supprimé avec une capacité.\n\n- 3 000 à 5 999: supprime 4 cumuls supplémentaires de Dégradation.\n- 6 00 à 9 999 : supprime 8 cumuls supplémentaires de Dégradation.\n- 10 000 ou plus : supprime 12 cumuls supplémentaires de Dégradation.\n\n- <u class='speciale'>Armure :</u> bloque les cumuls de dégâts infligés par les motojets adverses.\n\n- moins de 637 : aucun effet.\n- 637 à 1 486 : bloque 1 cumul de dégâts imminents.\n- 1487 ou plus : bloque 2 cumuls de dégâts imminents.\n\n- <u class='speciale'>Esquive physique :</u> confère des cumuls d'esquive supplémentaires en obtenant de l'esquive.\n\n- moins de 5 % : aucun effet.\n- 5 à 9.99 % : confère 1 cumul supplémentaires d'Esquive.\n- 10 à 14.99 % : confère 2 cumuls supplémentaires d'Esquive.\n- 15 % ou plus : confère 3 cumuls supplémentaires d'Esquive.\n\n- <u class='speciale'>Vol de santé :</u> restaure des cumuls de dégâts sur l'unité en enlevant 16 cumuls ou plus de dégâts sur un ennemi.\n\n- moins de 10 % : aucun effet.\n- 10 à 24 % : restaure 1 cumuls de dégâts sur le personnage.\n- 25 à 39 % : restaure 2 cumuls de dégâts sur le personnage.\n- 40 % ou plus : restaure 3 cumuls de dégâts sur le personnage.\n\n- <u class='speciale'>Pouvoir :</u> supprime des cumuls supplémentaires de Distraction pour chaque cumul de Distraction supprimé avec une capacité.\n\n- moins de 30 ù : aucun effet.\n-30 à 49 % : supprime 4 cumuls supplémentaires de Distraction.\n- 50 à 79 % : supprime 6 cumuls supplémentaires de Distraction.\n- 80 % ou plus : supprime 8 cumuls supplémentaires de Distraction.\n\n- <u class='speciale'>Ténacité :</u> Réduit le coû pour esquiver une attaque imminente.\n\n- moins de 20 % : aucun effet.\n-20 à 39 % : une esquive réussie consomme 1 cumul d'esquive en moins.\n- 40 à 59 % : une esquive réussie consomme 2 cumuls d'Esquive en moins.\n- 60 à 79 % : une esquive réussi consomme 3 cumuls d'Esquive en moins.\n- 80 à 99 % : une esquive réussie consomme 4 cumuls d'Esquive en moins.\n- 100 % ou plus : une esquive réussie consomme 5 cumuls d'Esquive en moins.",
+            
+                "capa-name-2": "Canon blaster Ax-20",
+                "capa-desc-2": "Retire des cumuls de Dégradation à la cible ennemie.",
+
+                "capa-name-3": "Rapprochez-vous de celui-là",
+                "capa-desc-3": "Retire des cumuls de Dégradation et des cumuls de Choc latéral à la cible ennemie. Le personnage gagne un cumul de Brouillage.",
+
+                "capa-name-4": "Détourner l'attention",
+                "capa-desc-4": "Retire des cumuls de Dégradation et des cumuls de Distraction à tous les ennemis. Tous les alliés gagnent des cumuls de Brouillage",
+
+                "capa-name-5": "Amis de la forêt",
+                "capa-desc-5": "Retire des cumuls de Dégradation et des cumuls d'Attention ! à la cible ennemie. Le personnage gagne des cumuls d'Esquive et répare les cumuls de Dégradation sur lui-même.",
+
+                "capa-name-6": "Feu à volonté !",
+                "capa-desc-6": "Retire des cumuls de Dégradation, des cumuls de Distraction et des cumuls de Choc latéral à tous les ennemis. Le personnage obtient un cumul d'Esquive et répare les cumuls de Dégradation sur lui-même.",
+
+                "capa-name-7": "Manœvre d'esquive",
+                "capa-desc-7": "Tous les alliés obtiennent des cumuls d'Esquive et réparent des cumuls de Dégradation sur eux-mêmes.",
+
+                "capa-name-8": "Réparation précipitées",
+                "capa-desc-8": "Tous les alliés obtiennent des cumuls d'Esquive et réparent des cumuls de Dégradation sur eux-mêmes.",
+
+                "capa-name-9": "Brouillez leurs comlinks",
+                "capa-desc-9": "Retire des cumuls de Distraction, des cumuls de Choc latéral et des cumuls d'Attention ! à tous les ennemis. Tous les alliés gagnent des cumuls de Brouillage.",
+
+                "capa-name-10": "Aucune chance",
+                "capa-desc-10": "Retire le maximum de cumuls d'Attention ! pour tous les ennemis. L'unité obtient des cumuls d'Esquive, un cumul de Brouillage et répare des cumuls de Dégradation sur elle-même.",
+            
+                "capa-scout-recruit" : "Recrue Scout Trooper",
+            
+                "recrue-capa-name-1" : "Course poursuite",
+                "recrue-capa-desc-1": "Retire 4 cumuls de Dégradation à la cible ennemie.\n\n<u class='rage'>Enragé :</u> retire 40 cumuls de Dégradation sur la cible ennemie.",
+
+                "recrue-capa-name-2" : "Auto-réparation",
+                "recrue-capa-desc-2": "Répare 4 cumuls de Dégradation sur le personnage.\n\n<u class='rage'>Enragé :</u> répare 40 cumuls de Dégradation sur le personnage",
+
+                "recrue-capa-name-3" : "Forces",
+                "recrue-capa-desc-3": "<u class='rage'>Recrue :</u>\n\n l'un des montants suivants est nécessaire pour vaincre ce personnage :\n\n- 50 cumuls de Dégradation.\n- 20 cumuls de Distraction.\n- 25 cumuls de Choc latéral.\n- 30 cumuls d'Attention!",
+
+                "recrue-capa-name-4": "Enragé",
+                "recrue-capa-desc-4": "Lorsque ce personnage devient enragé, supprime tous les cumuls d'Esquive et de brouillage sur tous les ennemis. Toutes ses capacités retirent des cumuls supplémentaires de Dégradation (ne peut pas être esquivé).\n\nCe personnage devient enragé lorsque cette capacité redeveint disponible après le délai. Les défaites alliés ainsi que les tours adverses réduisent le délai de cette capacité, qui est partagé entre tous les alliés.\n\n- <u class='speciale'>Défaite d'une recrue scout trooper :</u> 4 %.\n- <u class='speciale'>Défaite d'un Scout Trooper :</u> 5 %.\n- <u class='speciale'>Défaite d'un commandant Scout Trooper :</u> 7 %.\n- <u class='speciale'>Défaite d'une ombre Scout Trooper :</u> 10 %.\n- <u class='speciale'>Tour du joueur :</u> 0,5 %.",
+            
+                "capa-scout-trooper": "Scout Trooper",
+
+                "scout-capa-name-1": "Course poursuite",
+                "scout-capa-desc-": "Retire 4 cumuls de Dégradation à la cible ennemie.\n\n<u class='rage'>Enragé :</u> retire 40 cumuls de Dégradation à la cible ennemie.",
+
+                "scout-capa-name-2": "Auto-réparation",
+                "scout-capa-desc-2": "Répare 4 cumuls de Dégradation sur le personnage.\n\n<u class='rage'>Enragé :</u> répare 40 cumuls de Dégradation sur le personnage.",
+
+                "scout-capa-name-3": "Lancer de grenade calculé",
+                "scout-capa-desc-3": "Retire 4 cumuls de Dégradation à tous les ennemis.\n\n<u class='rage'>Enragé :</u> retire 40 cumuls de Dégradation à tous les ennemis.",
+
+                "scout-capa-name-4": "Forces",
+                "scout-capa-desc-4": "<u class='rage'>Scout Trooper :</u>\n\nL'un des montants suivants est nécessaire pour vaincre ce personnage :\n\n- 50 cumuls de Dégradation.\n- 25 cumuls de Dégradation.\n- 35 cumuls de Choc latéral.\n- 20 cumuls d'Attention.",
+            
+                "scout-capa-name-5": "Enragé",
+                "scout-capa-desc-5": "Lorsque ce personnage devient enragé, supprime tous les cumuls d'Esquive et de brouillage sur tous les ennemis. Toutes ses capacités retirent des cumuls supplémentaires de Dégradation (ne peut pas être esquivé).\n\nCe personnage devient enragé lorsque cette capacité redeveint disponible après le délai. Les défaites alliés ainsi que les tours adverses réduisent le délai de cette capacité, qui est partagé entre tous les alliés.\n\n- <u class='speciale'>Défaite d'une recrue scout trooper :</u> 4 %.\n- <u class='speciale'>Défaite d'un Scout Trooper :</u> 5 %.\n- <u class='speciale'>Défaite d'un commandant Scout Trooper :</u> 7 %.\n- <u class='speciale'>Défaite d'une ombre Scout Trooper :</u> 10 %.\n- <u class='speciale'>Tour du joueur :</u> 0,5 %.",
+            
+                "capa-scout-commander": "Commandant Scout Trooper",
+
+                "commander-capa-name-1": "Course poursuite",
+                "commander-capa-desc-1": "Retire 4 cumuls de Dégradation à la cible ennemie.\n\n<u class='rage'>Enragé :</u> retire 40 cumuls de Dégradation à la cible ennemie",
+
+                "commander-capa-name-2": "Auto-réparation",
+                "commander-capa-desc-2": "Répare 4 cumuls de Dégradation sur le personnage.\n\n<u class='rage'>Enragé :</u> répare 40 cumuls de Dégradation sur le personnage.",
+
+                "commander-capa-name-3": "Lancer de grenade calculé",
+                "commander-capa-desc-3": "Retire 4 cumuls de Dégradation à tous les ennemis.\n\n<u class='rage'>Enragé :</u> retire 40 cumuls de Dégradation à tous les ennemis.",
+
+                "commander-capa-name-4": "Barrage de branches",
+                "commander-capa-desc-4": "Retire 12 cumuls de Dégradation à la cible ennemie et 6 cumuls de Dégradation à tous les autres ennemis.\n\n<u class='rage'>Enragé :</u> retire le maximum de cumuls de Dégradation à la cible ennemie et 40 cumuls de Dégradation à tous les autres ennemis.",
+
+                "commander-capa-name-5": "Forces",
+                "commander-capa-desc-5": "<u class='rage'>Commandant :</u>\n\nL'un des montants suivants est nécessaire pour vaincre ce personnage :\n\n- 100 cumuls de Dégradation.\n- 40 cumuls de Distraction.\n- 45 cumuls de Choc latéral.\n- 40 cumuls d'Attention !",
+
+                "commander-capa-name-6": "Enragé",
+                "commander-capa-desc-6": "Lorsque ce personnage devient enragé, supprime tous les cumuls d'Esquive et de brouillage sur tous les ennemis. Toutes ses capacités retirent des cumuls supplémentaires de Dégradation (ne peut pas être esquivé).\n\nCe personnage devient enragé lorsque cette capacité redeveint disponible après le délai. Les défaites alliés ainsi que les tours adverses réduisent le délai de cette capacité, qui est partagé entre tous les alliés.\n\n- <u class='speciale'>Défaite d'une recrue scout trooper :</u> 4 %.\n- <u class='speciale'>Défaite d'un Scout Trooper :</u> 5 %.\n- <u class='speciale'>Défaite d'un commandant Scout Trooper :</u> 7 %.\n- <u class='speciale'>Défaite d'une ombre Scout Trooper :</u> 10 %.\n- <u class='speciale'>Tour du joueur :</u> 0,5 %.",
+
+                "capa-shadow-trooper": "Scout Trooper de l'Ombre",
+
+                "shadow-capa-name-1": "Course poursuite",
+                "shadow-capa-desc-1": "Retire 4 cumuls de Dégradation à la cible ennemie.\n\n<u class='rage'>Enragé :</u> retire 40 cumuls de Dégradation à la cible ennemie",
+
+                "shadow-capa-name-2": "Auto-réparation",
+                "shadow-capa-desc-2": "Répare 4 cumuls de Dégradation sur le personnage.\n\n<u class='rage'>Enragé :</u> répare 40 cumuls de Dégradation sur le personnage.",
+
+                "shadow-capa-name-3": "Lancer de grenade calculé",
+                "shadow-capa-desc-3": "Retire 4 cumuls de Dégradation à tous les ennemis.\n\n<u class='rage'>Enragé :</u> retire 40 cumuls de Dégradation à tous les ennemis.",
+
+                "shadow-capa-name-4": "Barrage de branches",
+                "shadow-capa-desc-4": "Retire 8 cumuls de Dégradation à la cible ennemie et 4 cumuls de Dégradation à tous les autres ennemis.\n\n<u class='rage'>Enragé :</u> retire le maximum de cumuls de Dégradation à la cible ennemie et 40 cumuls de Dégradation à tous les autres ennemis.",
+
+                "shadow-capa-name-5": "Forces",
+                "shadow-capa-desc-5": "<u class='rage'>Commandant :</u>\n\nL'un des montants suivants est nécessaire pour vaincre ce personnage :\n\n- 80 cumuls de Dégradation.\n- 45 cumuls de Distraction.\n- 30 cumuls de Choc latéral.\n- 30 cumuls d'Attention !",
+
+                "shadow-capa-name-6": "Enragé",
+                "shadow-capa-desc-6": "Lorsque ce personnage devient enragé, supprime tous les cumuls d'Esquive et de brouillage sur tous les ennemis. Toutes ses capacités retirent des cumuls supplémentaires de Dégradation (ne peut pas être esquivé).\n\nCe personnage devient enragé lorsque cette capacité redeveint disponible après le délai. Les défaites alliés ainsi que les tours adverses réduisent le délai de cette capacité, qui est partagé entre tous les alliés.\n\n- <u class='speciale'>Défaite d'une recrue scout trooper :</u> 4 %.\n- <u class='speciale'>Défaite d'un Scout Trooper :</u> 5 %.\n- <u class='speciale'>Défaite d'un commandant Scout Trooper :</u> 7 %.\n- <u class='speciale'>Défaite d'une ombre Scout Trooper :</u> 10 %.\n- <u class='speciale'>Tour du joueur :</u> 0,5 %.",
+
+                //modificateur de difficultés
+                "level-title-base": "Niveau 0 (x1 Multiplicateur)",
+                "level-info-base": "<strong>Score Max :</strong> 300 000 pts<br></strong>Conditions :</strong> Aucune",
+                "level-desc-base": "<strong>Effets supplémentaires :</strong><br>• Aucun effet supplémentaire.",
+
+                "level-title-1": "Niveau 1 (x1.5 Multiplicateur)",
+                "level-info-1": "<strong>Score Max :</strong> 450 000 pts<br></strong>Conditions :</strong> Équipement 12",
+                "level-desc-1": "<strong>Effets supplémentaires :</strong>\nLes ennemis gagnent 10 de vitesseet retirent 4 cumuls de Dégradation supplémentaires avec leur capacité de base. Le nombre de cumuls pour vaincre chaque ennemi augmente de 10 %.",
+
+                "level-title-2": "Niveau 2 (x2 Multiplicateur)",
+                "level-info-2": "<strong>Score Max :</strong> 600 000 pts<br></strong>Conditions :</strong> Relique 1",
+                "level-desc-2": "<strong>Effets supplémentaires :</strong>\n\nLes ennemis gagnent 15 de vitesse et retirent 4 cumuls de Dégradation supplémentaire avec leur capacité de base. Tous les 3 tours d'un ennemi, l'unité répare 2 cumuls de Dégradation sur elle-même. Le nombre de cumuls requis pour vaincre chaque ennemie augment de 25 %. Ces effets ne se cumulent pas avec les modificateurs précédents.",
+
+                "level-title-3": "Niveau 3 (x3 Multiplicateur)",
+                "level-info-3": "<strong>Score Max :</strong> 900 000 pts<br></strong>Conditions :</strong> Relique 3",
+                "level-desc-3": "<strong>Effets supplémentaires :</strong>\n\nLes ennemis gagnent 15 de vitesse et retirent 6 cumuls de Dégradation supplémentaire avec leur capacité de base. Tous les 3 tours d'un ennemi, l'unité répare 4 cumuls de Dégradation sur elle-même. Le nombre de cumuls requis pour vaincre chaque ennemie augment de 40 %. Ces effets ne se cumulent pas avec les modificateurs précédents.",
+
+                "level-title-4": "Niveau 4 (x4 Multiplicateur)",
+                "level-info-4": "<strong>Score Max :</strong> 1 200 000 pts<br></strong>Conditions :</strong> Relique 5",
+                "level-desc-4": "<strong>Effets supplémentaires :</strong>\n\nLes ennemis gagnent 20 de vitesse et retirent 6 cumuls de Dégradation supplémentaire avec leur capacité de base. Tous les 2 tours d'un ennemi, l'unité répare 4 cumuls de Dégradation et 2 cumuls de Distraction sur elle-même. Le nombre de cumuls requis pour vaincre chaque ennemie augment de 60 %. Ces effets ne se cumulent pas avec les modificateurs précédents.",
+
+                "level-title-5": "Niveau 5 (x6 Multiplicateur)",
+                "level-info-5": "<strong>Score Max :</strong> 1 800 000 pts<br></strong>Conditions :</strong> Relique 7",
+                "level-desc-5": "<strong>Effets supplémentaires :</strong>\n\nLes ennemis gagnent 20 de vitesse et retirent 6 cumuls de Dégradation supplémentaire avec leur capacité de base. Tous les 2 tours d'un ennemi, l'unité répare 5 cumuls de Dégradation, 2 cumuls de Distraction eet 2 cumuls de Choc latéral sur elle-même. Le nombre de cumuls requis pour vaincre chaque ennemie augment de 80 %. Ces effets ne se cumulent pas avec les modificateurs précédents.",
+
+                "level-title-6": "Niveau 6 (x9 Multiplicateur)",
+                "level-info-6": "<strong>Score Max :</strong> 2 700 000 pts<br></strong>Conditions :</strong> Relique 8",
+                "level-desc-6": "<strong>Effets supplémentaires :</strong>\n\nLes ennemis gagnent 25 de vitesse et retirent 8 cumuls de Dégradation supplémentaire avec leur capacité de base. Tous les 2 tours d'un ennemi, l'unité répare 5 cumuls de Dégradation, 4 cumuls de Distraction et 4 cumuls de choc latéral sur elle-même. Le nombre de cumuls requis pour vaincre chaque ennemie augment de 100 %. Ces effets ne se cumulent pas avec les modificateurs précédents.",
+
+                "raid-unites": "Unités éligibles",
+                "raid-eligible-desc": "Unités éligibles pour ce raid :",
+
+            };
+            function toggleAccordion(element) {
+                const parent = element.parentElement;
+                parent.classList.toggle('active');
+                const icon = element.querySelectorAll('span')[1];
+                icon.innerHTML = parent.classList.contains('active') ? '-' : '+';
+            }
+
+            function toggleAccordionById(id) {
+                const el = document.getElementById(id);
+                const isHidden = el.classList.contains('d-none');
+                // On cache toutes les zones de faction avant d'afficher la bonne
+                document.querySelectorAll('#section-factions .info-box').forEach(box => box.classList.add('d-none'));
+                if (isHidden) el.classList.remove('d-none');
+            }
+            function switchLanguage(lang) {
+                currentLang = lang;
+                sessionStorage.setItem("selectedLanguage", lang);
+                updateUI();
+            }
+
+            function updateUI() {
+                const isFr = (currentLang === "fr");
+                const source = isFr ? dictFr : englishTexts;
+
+                for (let id in source) {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        if (isFr) {
+                            // Pour le français : on transforme les \n du dictionnaire en <br>
+                            el.innerHTML = source[id].replace(/\n/g, '<br>');
+                        } else {
+                            /* 
+                              Pour l'anglais : 
+                              1. .trim() enlève les espaces vides au début et à la fin du bloc.
+                              2. .replace(/\s+/g, ' ') remplace les retours à la ligne du CODE 
+                                  et les doubles espaces par un seul espace propre.
+                            */
+                            el.innerHTML = source[id].replace(/\s+/g, ' ').trim();
+                        }
+                    }
+                }
+
+                // Mise à jour de l'état visuel des boutons de langue
+                const btnEn = document.getElementById("lang-en");
+                const btnFr = document.getElementById("lang-fr");
+
+                if (btnEn) btnEn.classList.toggle("active", currentLang === 'en');
+                if (btnFr) btnFr.classList.toggle("active", currentLang === 'fr');
+
+                renderUnits();
+            }
+
+            function showSection(sectionId, element) {
+                document.querySelectorAll('.section-content').forEach(s => s.classList.remove('active'));
+                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                document.getElementById('section-' + sectionId).classList.add('active');
+                element.classList.add('active');
+            }
+
+            function toggleFaction(element) {
+
+                element.classList.toggle('active');
+            }
+
+            window.addEventListener("DOMContentLoaded", () => {
+                // Sauvegarde auto des textes anglais du HTML
+                Object.keys(dictFr).forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) englishTexts[id] = el.innerHTML;
+                });
+
+                fetch("https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json")
+                    .then(res => res.json())
+                    .then(data => {
+                        allUnits = data;
+                        updateUI();
+                    });
+            });
+
+            function renderUnits() {
+                const gallery = document.getElementById("units-gallery");
+                if (!gallery) return;
+
+                gallery.innerHTML = "";
+
+                const filtered = allUnits.filter(u =>
+                    u.raids && u.raids.some(r => r.en.toLowerCase() === RAID_TARGET_EN)
+                );
+
+                filtered.forEach(u => {
+                    const link = document.createElement("a");
+                    link.href = u.page;
+                    link.target = "_self";
+
+                    const img = document.createElement("img");
+                    img.src = u.image;
+                    img.className = "raid-unit-img";
+                    img.title = u.name[currentLang] || u.name.en;
+                    img.loading = "lazy";
+
+                    link.appendChild(img);
+                    gallery.appendChild(link);
+                });
+            }
+
+        </script>
+</body>
+
+</html>
