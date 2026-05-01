@@ -8,31 +8,90 @@
     <meta name="author" content="Rimbault Enzo">
     <link rel="icon" type="image/png" href="../image-perso/slkr/slkr-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
+    <style>
+        /* Conteneur principal divisé en deux colonnes */
+        .main-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            align-items: flex-start;
+        }
+
+        /* Zone 1 : Le Header (Gauche) */
+        header.perso-container {
+            flex: 1 1 60%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .avatar {
+            width: 100px;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        .unit-image-zone {
+            flex: 1 1 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Centre l'image verticalement si elle est petite */
+            min-width: 300px;    /* Empêche la zone de devenir trop étroite */
+        }
+
+        .unit-image-zone img {
+            width: auto;         /* Laisse la largeur s'adapter proportionnellement */
+            max-width: 100%;     /* Ne dépasse jamais la largeur de la colonne */
+            height: auto;
+            max-height: 500px;   /* TAILLE LIMITE : Ajuste cette valeur selon tes besoins */
+            object-fit: contain; /* Garde les proportions sans déformation */
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .header-top {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
 <body class="simple">
-    <header class="perso" style="display: flex; align-items: center;">
-        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/slkr/slkr-image.png" alt="Supreme Leader Kylo Ren" style="max-width: 100%; max-height: 100%;">
-        </div>
-        <div style="flex: 1; padding-left: 20px;">
-            <!-- Sélecteur de langue -->
-            <div class="language-switcher">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                    id="lang-fr"
-                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
-                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                    id="lang-en"
-                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
-            </div>
+    <div class="main-container">
+        <header class="perso-container" style="background-color: grey;">
+            <div class="header-top">
+                <img src="../image-perso/slkr/slkr-image.png" alt="slkr"
+                    style="width: 150px; height: auto; border-radius: 8px;">
+                <div>
+                    <!-- Sélecteur de langue -->
+                    <div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                            id="lang-fr" style="cursor:pointer; width:32px; height:32px; border-radius:50%;">
 
-            <h1 id="title"><u>Supreme Leader Kylo Ren</u></h1>
+                        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+                            alt="English" id="lang-en"
+                            style="cursor:pointer; width:32px; height:32px; border-radius:50%;">
+                    </div>
+                    <h1 id="title" style="margin: 0;"><u class="name">Supreme Leader Kylo Ren</u></h1>
+                </div>
+            </div>
             <p id="description">
                 Destructive Leader of the First Order who overpowers his enemies with brutal attacks
             </p>
-            <br>
-
-            <nav class="perso" style="font-size: 20px;">
+            <nav class="perso" style="font-size: 18px; display: flex; flex-wrap: wrap; gap: 10px;">
                 <a class="legende" href="../classement-perso/legendes-galactiques.html" id="galactic-legend">Galactic Legend</a>
                 <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
                 <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
@@ -40,11 +99,13 @@
                 <a class="capacite" href="../classement-perso/premier-odre.html" id="first-order">First Order</a>
                 <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Force User</a>
             </nav>
+            <br>
+        </header>
+        <!-- ZONE 2 : DROITE (IMAGE UNITÉ) -->
+        <div class="unit-image-zone">
+            <img src="../image-perso/slkr/Slkr.png" alt="Supreme Leader Kylo Ren">
         </div>
-    </header>
-    <br>
-
-    <img class="first" src="../image-perso/slkr/Slkr.png" alt="Supreme Leader Kylo Ren"><br>
+    </div>
 
     <!-- Capacités -->
 
@@ -57,9 +118,12 @@
             <p class="attaque" id="ulti">
                 Requires at least 60% <u class="ulti">Ultimate Charge</u> to activate
                 <br><br>
-                <u class="ulti">Ultimate Charge:</u> Supreme Leader Kylo Ren gains 2% Ultimate Charge whenever a Dark Side ally deals Physical or Special damage to an enemy, increased to 5% on a critical hit.
+                <u class="ulti">Ultimate Charge:</u> Supreme Leader Kylo Ren gains 2% Ultimate Charge whenever a Dark
+                Side ally deals Physical or Special damage to an enemy, increased to 5% on a critical hit.
                 <br><br>
-                Supreme Leader Kylo Ren dispels all debuffs on himself, enters an aggressive stance, and deals Physical damage to all enemies, which can't be evaded. While in this stance, Kylo is immune to damage and detrimental effects, he can't be defeated, his Siphon is doubled, and his abilities have no cooldowns.
+                Supreme Leader Kylo Ren dispels all debuffs on himself, enters an aggressive stance, and deals Physical
+                damage to all enemies, which can't be evaded. While in this stance, Kylo is immune to damage and
+                detrimental effects, he can't be defeated, his Siphon is doubled, and his abilities have no cooldowns.
                 <br><br>
                 - <u class="ulti">60% Ultimate Charge:</u> Aggressive stance lasts for 1 turn<br>
                 - <u class="ulti">85% Ultimate Charge:</u> Aggressive stance lasts for 2 turns<br>
@@ -75,9 +139,12 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
-                Inflict Buff Immunity for 2 turns on target enemy and deal Physical damage to them twice. If the target was Stunned, deal damage again and gain Advantage for 2 turns. If it's Kylo's turn, he gains 10 <u class="speciale">Siphon</u> until the end of the encounter.
+                Inflict Buff Immunity for 2 turns on target enemy and deal Physical damage to them twice. If the target
+                was Stunned, deal damage again and gain Advantage for 2 turns. If it's Kylo's turn, he gains 10 <u
+                    class="speciale">Siphon</u> until the end of the encounter.
                 <br><br>
-                <u class="speciale">Siphon:</u> This unit will gain 1% of a stat per stack and the target will lose the amount gained
+                <u class="speciale">Siphon:</u> This unit will gain 1% of a stat per stack and the target will lose the
+                amount gained
             </p>
         </div>
     </div>
@@ -89,7 +156,9 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1">
-                Dispel all buffs on all enemies and Stun target enemy for 2 turns, which can't be copied, dispelled, or resisted. Then, deal Physical damage to target enemy and Kylo gains 20 Siphon until the end of the encounter. On a critical hit, Kylo gains 40 Siphon instead. This attack can't be evaded.
+                Dispel all buffs on all enemies and Stun target enemy for 2 turns, which can't be copied, dispelled, or
+                resisted. Then, deal Physical damage to target enemy and Kylo gains 20 Siphon until the end of the
+                encounter. On a critical hit, Kylo gains 40 Siphon instead. This attack can't be evaded.
             </p>
         </div>
     </div>
@@ -101,9 +170,13 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack2">
-                Deal Physical damage to all enemies. Kylo <u class="speciale">Siphons Mastery</u> from target enemy, doubled if they were Stunned, which can't be resisted. Then, dispel all debuffs on all Dark Side allies and grant them Advantage for 2 turns.
+                Deal Physical damage to all enemies. Kylo <u class="speciale">Siphons Mastery</u> from target enemy,
+                doubled if they were Stunned, which can't be resisted. Then, dispel all debuffs on all Dark Side allies
+                and grant them Advantage for 2 turns.
                 <br><br>
-                <u class="special">Siphon Mastery:</u> Gain a percentage of Mastery equal to this unit's Siphon until the end of the encounter and the target loses that much Mastery (stacking, excludes raid bosses and Galactic Legends)
+                <u class="special">Siphon Mastery:</u> Gain a percentage of Mastery equal to this unit's Siphon until
+                the end of the encounter and the target loses that much Mastery (stacking, excludes raid bosses and
+                Galactic Legends)
             </p>
         </div>
     </div>
@@ -115,11 +188,14 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="lead-ability">
-                Dark Side allies have +30 Speed, +40% Mastery, and +50% Critical Damage, and they can't be critically hit while they have Advantage.
+                Dark Side allies have +30 Speed, +40% Mastery, and +50% Critical Damage, and they can't be critically
+                hit while they have Advantage.
                 <br><br>
-                Whenever a Dark Side ally loses Advantage without scoring a critical hit, they gain Advantage for 1 turn at the end of the turn.
+                Whenever a Dark Side ally loses Advantage without scoring a critical hit, they gain Advantage for 1 turn
+                at the end of the turn.
                 <br><br>
-                Whenever a Dark Side ally gains Advantage, if they didn't already have it, they gain a bonus based on their role:<br>
+                Whenever a Dark Side ally gains Advantage, if they didn't already have it, they gain a bonus based on
+                their role:<br>
                 - <strong>Tanks</strong> Taunt for 2 turns<br>
                 - <strong>Attackers</strong> gain Critical Damage Up for 2 turns<br>
                 - <strong>Supports</strong> and <strong>Healers</strong> gain 20% Turn Meter
@@ -134,11 +210,14 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="unique-ability1">
-                Supreme Leader Kylo Ren is immune to Stagger and can't gain taunt effects, and enemies defeated during his turn can't be revived.
+                Supreme Leader Kylo Ren is immune to Stagger and can't gain taunt effects, and enemies defeated during
+                his turn can't be revived.
                 <br><br>
-                Whenever a Dark Side ally loses Turn Meter, they gain 10% of their current Max Health and Max Protection (stacking) until the end of battle.
+                Whenever a Dark Side ally loses Turn Meter, they gain 10% of their current Max Health and Max Protection
+                (stacking) until the end of battle.
                 <br><br>
-                Whenever a Dark Side ally gains bonus Turn Meter, they lose 10% of their current Max Health and Max Protection (stacking) until the end of battle.
+                Whenever a Dark Side ally gains bonus Turn Meter, they lose 10% of their current Max Health and Max
+                Protection (stacking) until the end of battle.
             </p>
         </div>
     </div>
@@ -150,9 +229,11 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="unique-ability2">
-                This unit takes reduced damage from percent Health damage effects and massive damage effects. They take massive damage from destroy effects (excludes raid bosses) and are immune to stun effects.
+                This unit takes reduced damage from percent Health damage effects and massive damage effects. They take
+                massive damage from destroy effects (excludes raid bosses) and are immune to stun effects.
                 <br><br>
-                This unit has +10% Max Health and Max Protection per Relic Amplifier level, and damage they receive is decreased by 30%.
+                This unit has +10% Max Health and Max Protection per Relic Amplifier level, and damage they receive is
+                decreased by 30%.
             </p>
         </div>
     </div>
@@ -166,7 +247,7 @@
             // Dictionnaire français
             const translationsFr = {
                 "big-title": "Suprême Leader Kylo Ren",
-                "title": "<u>Suprême Leader Kylo Ren</u>",
+                "title": "<u class='name'>Suprême Leader Kylo Ren</u>",
                 "description": "Chef destructeur du Premier ordre qui submerge ses ennemis avec des attaques brutales.",
 
                 "ultime-title": "<u>Capacité Ultime: Rage profonde<u>",

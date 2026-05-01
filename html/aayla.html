@@ -2,42 +2,112 @@
 <html lang="en">
 
 <head>
-  <title id="big-title">Aayla Secura</title>
+    <title id="big-title">Aayla Secura</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/aayla/aayla_image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="utf-8">
-  <meta name="author" content="Rimbault Enzo">
+    <style>
+        /* Conteneur principal divisé en deux colonnes */
+        .main-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            align-items: flex-start;
+        }
 
-  <link rel="icon" type="image/png" href="../image-perso/aayla/aayla_image.png">
-  <link rel="stylesheet" href="../style/unit-style.css">
+        /* Zone 1 : Le Header (Gauche) */
+        header.perso-container {
+            flex: 1 1 60%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Zone 2 : L'image de l'unité (Droite) */
+        .unit-image-zone {
+            flex: 1 1 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 300px;
+        }
+
+        .unit-image-zone img {
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 500px; /* Cohérence visuelle avec les autres unités */
+            object-fit: contain;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Adaptabilité Mobile */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .header-top {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
 <body class="simple">
-  <header class="perso" style="display: flex; align-items: center;">
-    <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-      <img src="../image-perso/aayla/aayla_image.png" alt="Aayla Secura" style="max-width: 100%; max-height: 100%;">
-    </div>
-    <div style="flex: 1; padding-left: 20px;">
-      <div class="language-switcher">
-        <img id="lang-fr" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français">
-        <img id="lang-en" src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English">
-      </div>
-      <h1 id="title"><u>Aayla Secura</u></h1>
-      <p id="description">Versatile attacker with high survivability through Dodge, Hitpoints, and self healing.</p>
-      <br>
 
-      <nav class="perso" style="font-size: 20px;">
-        <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
-        <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
-        <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
-        <a class="capacite" href="../classement-perso/république-galactique.html" id="galactic-republic">Galactic Republic</a>
-        <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
-        <a class="capacite" href="../classement-perso/vanguard.html" id="vanguard">Jedi Vanguard</a>
-      </nav>
-    </div>
-  </header><br>
+    <div class="main-container">
+        <!-- ZONE 1 : GAUCHE (INFOS) -->
+        <header class="perso-container" style="background-color: grey;">
+            <div class="header-top">
+                <!-- Avatar unité -->
+                <img src="../image-perso/aayla/aayla_image.png" alt="Aayla Secura" style="width: 150px; height: auto; border-radius: 8px;">
 
-  <img class="first" src="../image-perso/aayla/aayla.png" alt="Aayla"><br>
+                <div>
+                    <!-- Sélecteur de langue -->
+                    <div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                            id="lang-fr" style="cursor:pointer; width:32px; height:32px; border-radius:50%;">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+                            alt="English" id="lang-en"
+                            style="cursor:pointer; width:32px; height:32px; border-radius:50%;">
+                    </div>
+                    <h1 id="title" style="margin: 0;"><u class="name">Aayla Secura</u></h1>
+                </div>
+            </div>
+
+            <p id="description">
+                Versatile attacker with high survivability through Dodge, Hitpoints, and self healing.
+            </p>
+
+            <nav class="perso" style="font-size: 18px; display: flex; flex-wrap: wrap; gap: 10px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html" id="galactic-republic">Galactic Republic</a>
+                <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
+                <a class="capacite" href="../classement-perso/vanguard.html" id="vanguard">Jedi Vanguard</a>
+            </nav>
+            <br>
+        </header>
+
+        <!-- ZONE 2 : DROITE (IMAGE UNITÉ) -->
+        <div class="unit-image-zone">
+            <img src="../image-perso/aayla/aayla.png" alt="Aayla Secura">
+        </div>
+    </div>
 
   <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Inspiring Strike</u></h2>
   <div class="capacity-container">
@@ -113,7 +183,7 @@
     <script>
       const translationsFr = {
         "big-title": "Aayla Secura",
-        "title": "<u>Aayla Secura</u>",
+        "title": "<u class='name'>Aayla Secura</u>",
         "description": "Attaquante polyvalente dotée d'une grande capacité de survie grâce à l'esquive, aux PV et à l'auto-guérison.",
         "lightside": "Côté Lumineux",
         "support": "Soutien",
