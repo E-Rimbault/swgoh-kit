@@ -8,90 +8,31 @@
     <meta name="author" content="Rimbault Enzo">
     <link rel="icon" type="image/png" href="../image-perso/slkr/slkr-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
-    <style>
-        /* Conteneur principal divisé en deux colonnes */
-        .main-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 20px;
-            align-items: flex-start;
-        }
-
-        /* Zone 1 : Le Header (Gauche) */
-        header.perso-container {
-            flex: 1 1 60%;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .header-top {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .avatar {
-            width: 100px;
-            height: auto;
-            border-radius: 8px;
-        }
-        
-        .unit-image-zone {
-            flex: 1 1 30%;
-            display: flex;
-            justify-content: center;
-            align-items: center; /* Centre l'image verticalement si elle est petite */
-            min-width: 300px;    /* Empêche la zone de devenir trop étroite */
-        }
-
-        .unit-image-zone img {
-            width: auto;         /* Laisse la largeur s'adapter proportionnellement */
-            max-width: 100%;     /* Ne dépasse jamais la largeur de la colonne */
-            height: auto;
-            max-height: 500px;   /* TAILLE LIMITE : Ajuste cette valeur selon tes besoins */
-            object-fit: contain; /* Garde les proportions sans déformation */
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        @media (max-width: 768px) {
-            .main-container {
-                flex-direction: column;
-            }
-
-            .header-top {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </style>
 </head>
 
 <body class="simple">
-    <div class="main-container">
-        <header class="perso-container" style="background-color: grey;">
-            <div class="header-top">
-                <img src="../image-perso/slkr/slkr-image.png" alt="slkr"
-                    style="width: 150px; height: auto; border-radius: 8px;">
-                <div>
-                    <!-- Sélecteur de langue -->
-                    <div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                            id="lang-fr" style="cursor:pointer; width:32px; height:32px; border-radius:50%;">
-
-                        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
-                            alt="English" id="lang-en"
-                            style="cursor:pointer; width:32px; height:32px; border-radius:50%;">
-                    </div>
-                    <h1 id="title" style="margin: 0;"><u class="name">Supreme Leader Kylo Ren</u></h1>
-                </div>
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/slkr/slkr-image.png" alt="Supreme Leader Kylo Ren" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
+
+            <h1 id="title"><u>Supreme Leader Kylo Ren</u></h1>
             <p id="description">
                 Destructive Leader of the First Order who overpowers his enemies with brutal attacks
             </p>
-            <nav class="perso" style="font-size: 18px; display: flex; flex-wrap: wrap; gap: 10px;">
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
                 <a class="legende" href="../classement-perso/legendes-galactiques.html" id="galactic-legend">Galactic Legend</a>
                 <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
                 <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
@@ -99,13 +40,11 @@
                 <a class="capacite" href="../classement-perso/premier-odre.html" id="first-order">First Order</a>
                 <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Force User</a>
             </nav>
-            <br>
-        </header>
-        <!-- ZONE 2 : DROITE (IMAGE UNITÉ) -->
-        <div class="unit-image-zone">
-            <img src="../image-perso/slkr/Slkr.png" alt="Supreme Leader Kylo Ren">
         </div>
-    </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/slkr/Slkr.png" alt="Supreme Leader Kylo Ren"><br>
 
     <!-- Capacités -->
 
@@ -247,7 +186,7 @@
             // Dictionnaire français
             const translationsFr = {
                 "big-title": "Suprême Leader Kylo Ren",
-                "title": "<u class='name'>Suprême Leader Kylo Ren</u>",
+                "title": "<u>Suprême Leader Kylo Ren</u>",
                 "description": "Chef destructeur du Premier ordre qui submerge ses ennemis avec des attaques brutales.",
 
                 "ultime-title": "<u>Capacité Ultime: Rage profonde<u>",
