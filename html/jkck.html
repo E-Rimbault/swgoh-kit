@@ -1,197 +1,257 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Chevalier Jedi Cal Kestis</title>
-
+    <title id="big-title">Jedi Knight Cal Kestis</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/jkck/jkck-image.png">
-    <link rel="stylesheet" href="../style/capacite.css">
-    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/jkck/jkck-image.png" alt="Jedi Knight Cal Kestis" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Chevalier Jedi Cal Kestis</u></h1>
-        <p>
-            Utilisant différentes maitrises du sabre laser, le Chevalier Jedi Cal Kestis mêle l'attaque<br>
-            et la défense pour remporter la victoire face à ses adversaires.
-        </p>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/jedi.html">Jedi</a>
-        </nav>
+            <h1 id="title"><u>Jedi Knight Cal Kestis</u></h1>
+            <p id="description">Utilizing different lightsaber masteries, Jedi Knight Cal Kestis weaves between offensive and defensive stances to claim victory over his opponents</p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
+                <a class="capacite" href="../classement-perso/mercenaire.html" id="mercenary">Mercenary</a>
+            </nav>
+
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/jkck/Jkck.png" alt="jkck"><br>
+    <img class="first" src="../image-perso/jkck/Jkck.png" alt="Jedi Knight Cal Kestis"><br>
 
-    <h2 class="titre"><u>attaque basique : Epoque moins civilisée</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Less Civilized Age</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="jkck basique" src="../image-perso/jkck/jkck-basique.png">
+            <img class="attaque" alt="jkck basic" src="../image-perso/jkck/jkck-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie et dissipe toutes ses amélioration.<br>
-                <br>
-                S'il s'agit du tour du Chevalier Jedi Cal Kestis, débloque <u class="speciale">Frappe du tourbillon</u>,<br>
-                <u class="speciale">Parade tournoyante</u> et <u class="speciale">Assaut impétieux</u> pendant 1 tour,<br>
-                le Chevalier Jedi Cal Kestis obtient un tour bonus.<br>
-                <br>
-                Pendant ce tour bonus, le Chevalier Jedi Cal Kestis ignore les effets de raillerie et peut uniquement<br>
-                utiliser Frappe du tourbillon, Parade tournoyante et Assaut impétieux.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and dispel all buffs on them.
+                <br><br>
+                If it is Jedi Knight Cal Kestis' turn:
+                <br><br>
+                Unblock <u class="speciale">Whirlwind Slam</u>, <u class="speciale">Windmill Defense</u>, and <u class="speciale">Impetuous Assault</u> for 1 turn, then Jedi Knight Cal Kestis gains a bonus turn.
+                <br><br>
+                During this bonus turn Jedi Knight Cal Kestis ignores taunt effects and may only use Whirlwind Slam, Windmill Defense, and Impetuous Assault.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Frappe du tourbillon</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Whirlwind Slam</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="jkck" src="../image-perso/jkck/jkck-spe1.png">
+            <img class="attaque" alt="jkck special 1" src="../image-perso/jkck/jkck-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Si le Chevalier Jedi Cal Kestis ne dispose pas de <u class="speciale">Configuration - Double lame</u>, il perd sa<br>
-                configuration et obtient Configuration - Double lame pour le reste de la bataille et gagne 5 cumuls<br>
-                d'Impétuosité (30 maximum) jusqu'à la fin de l'affrontement.<br>
-                <br>
-                Inflige des dégâts physiques et un malus de vitesse à tous les ennemis pendant 2 tours.<br>
-                <br>
-                Si le Chevalier jedi Cal Kestis ne disposait pas de Configuration - Double lame au début de son tour:<br>
-                -inflige Etourdissement à la cible ennemie pendant 1 tour ainsi que Destruction d'armure jusqu'à la fin de l'affrontement.<br>
-                <br>
-                -Tous les alliés obtiennent l'avantage pendant 4 tour.<br>
-                -Inflige Confusion à tous les autres ennemis pendant 2 tours.<br>
-                <br>
-                <u class="speciale">Configuration - Double lame</u>: +50% d'attaque et de ténacité et<br>
-                +2 de vitesse par cumuls d'Impétuosité.<br>
-                <br>
-                <u class="omicron">Dans les batailles de territoire:</u>
-                <br>
-                La fois suivante où le Chevalier Jedi Cal Kestis utilise Parade tournoyante, il récupère 50% de santé<br>
-                et de protection et donne à tous ses alliés un bonus de protection (20%, cumulatif) pendant 2 tours<br>
-                pour chaque utilisation de Frappe du tourbillon.<br>
-                Si le Chevalier Jedi Cal Kestis ne disposait pas de Configuration - Double lame au début de son tour:<br>
-                <br>
-                -Inflige Etourdissement à tous les ennemis pendant 1 tour ainsi que Destruction d'armure jusqu'à la fin de l'affrontement.
+            <p class="attaque" id="special-attack1">          
+                If Jedi Knight Cal Kestis doesn't have <u class="speciale">Configuration - Double-Bladed</u> he loses his Configuration and gains Configuration - Double-Bladed for the rest of battle and 5 stacks of Impetuous (max 30) until the end of the encounter.
+                <br><br>
+                Deal Physical damage and inflict Speed Down for 2 turns on all enemies.
+                <br><br>
+                If Jedi Knight Cal Kestis didn't have Configuration - Double-Bladed at the start of his turn:
+                <br><br>
+                - All allies gain Advantage for 4 turns<br>
+                - Stun target enemy for 1 turn and inflict them with Armor Shred for the rest of encounter<br>
+                - Daze all other enemies for 2 turns
+                <br><br>
+                <u class="speciale">Configuration - Double-Bladed:</u> +50% Offense and Tenacity; +2 Speed per stack of Impetuous
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Battles:</u> The next time Jedi Knight Cal Kestis uses Windmill Defense, he recovers 50% Health and Protection and gives all allies Protection Up (20%, stacking) for 2 turns for each use of Whirlwind Slam since the last use of Windmill Defense.
+                <br><br>
+                If Jedi Knight Cal Kestis did not have Configuration - Double-Bladed at the start of his turn, instead:
+                <br><br>
+                - Stun all enemies for 1 turn and inflict them with Armor Shred for the rest of encounter
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Parade tournoyante</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Windmill Defense</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="jkck spé 2" src="../image-perso/jkck/jkck-spe2.png">
+            <img class="attaque" alt="jkck special 2" src="../image-perso/jkck/jkck-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Si le Chevalier Jedi Cal Kestis ne dispose pas de <u class="speciale">Configuration - Maniement double</u><br>
-                au début de son tour, il perd sa configuration et obtient Configuration - Maniement double pour le reste<br>
-                de la bataille et 5 cumuls d'Impétuosité (30 maximum) jusqu'à la fin de l'affrontement.<br>
-                <br>
-                Dissipe tous les affaiblissements sur tous les alliés et invoque la cible alliée. Le<br>
-                Chevalier Jedi Cal Kestis reçoit un bonus de protection (50%, cumulatif) pendant 4 tours (ne peut pas être copié).<br>
-                <br>
-                Si le Chevalier Jedi Cal Kestis ne disposait pas de Configuration - Maniement double au début de son tour:<br>
-                <br>
-                -Le Chevalier Jedi Cal Kestis gagne risposte pendant 2 tours (ne peut pas être copié, dissipé ou empeché).<br>
-                -Les alliés Jedi obtiennent un bonus de protection (20%, cumulatif) et rétribution pendant 2 tours.<br>
-                -L'allié jedi ciblé obtient un tour bonus.<br>
-                <br>
-                <u class="speciale">Configuration - Maniement double</u>: +100% de chances de contre-attaque et +50%<br>
-                de défense; les ennemis ont -2% d'attaque par cumul d'Impétuosité. Lorsqu'un autre allié attaque en<br>
-                dehors de son tour, ce personnage est invoqué. Limité à une fois par tour.
+            <p class="attaque" id="special-attack2">
+                If Jedi Knight Cal Kestis doesn't have <u class="speciale">Configuration - Dual Wield</u> at the start of the turn, he loses his Configuration and gains Configuration - Dual Wield for the rest of battle and 5 stacks of Impetuous (max 30) until the end of the encounter.
+                <br><br>
+                Dispel all debuffs on all allies and call target other ally to assist. Jedi Knight Cal Kestis gains Protection Up (50%, stacking) for 4 turns which can't be copied.
+                <br><br>
+                If Jedi Knight Cal Kestis didn't have Configuration - Dual Wield at the start of his turn:
+                <br><br>
+                - Jedi Knight Cal Kestis gains Riposte for 2 turns which can't be copied, dispelled, or prevented<br>
+                - Jedi allies gain Protection Up (20%, stacking) and Retribution for 2 turns<br>
+                - Target Jedi ally gains a bonus turn
+                <br><br>
+                <u class="speciale">Configuration - Dual Wield:</u> +100% Counter Chance and +50% Defense; enemies have -2% Offense per stack of Impetuous; when another ally attacks out of turn, this character is called to assist, limit once per turn
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>3eme spéciale: Assaut impétieux</u></h2>
+    <h2 class="titre" id="special-attack3-title"><u>Special Attack : Impetuous Assault</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="jkck spé 3" src="../image-perso/jkck/jkck-spe3.png">
+            <img class="attaque" alt="jkck special 3" src="../image-perso/jkck/jkck-spe3.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Si le Chevalier Jedi Cal Kestisne dispose pas de <u class="speciale">Configuration - Garde croisée</u> au début<br>
-                de son tour, il perd sa configuration et obtient Configuration - Garde croisée pour le reste<br>
-                de la bataille et 5 cumuls d'Impétuosité.<br>
-                <br>
-                La première fois qu'Assaut impétieux est utilisé lors de cet affrontement, la cible ennemie est vaincue instantanément.<br>
-                <br>
-                Inflige des dégâts physiques à la cible ennemie. Inflige Entrave des capacités et Faux pas à la cible ennemie<br>
-                pendant 1 tour et inflige influence de la Force à tous les ennemis pendant 4 tours. Tous les autres alliés<br>
-                obtiennent un bonus de pénétration de défense pendant 2 tours.<br>
-                <br>
-                <u class="speciale">Configuration - Garde croisée</u>: +50% de dégâts critiques et pénétration de défense et<br>
-                -25% de défense et de vitesse, puis inflige 25% de la santé maximale de ce personne en attaque supplémentaire<br>
-                lors d'une attaque.<br>
-                <br>
-                <u class="omicron">Dans les batailles de territoire:</u><br>
-                Assaut impétieux inflige 10% de dégâts supplémentaires en fonction de la santé maximale de la cible par niveau<br>
-                de relique du Chevalier Jedi Cal Kestis. Après avoir utilisé Assaut impétieux, les attaques du Chevalier Jedi<br>
-                Cal Kestis ignorent toute protection et tous ses alliés obtiennent 300% de l'attaque de base du Chevalier<br>
-                Jedi Cal Kestis pour le reste de l'affrontement.
+            <p class="attaque" id="special-attack3">
+                If Jedi Knight Cal Kestis doesn't have <u class="speciale">Configuration - Crossguard</u> at the start of the turn, he loses his Configuration and gains Configuration - Crossguard for the rest of battle and loses 5 stacks of Impetuous.
+                <br><br>
+                The first time Impetuous Assault is used this encounter, instantly defeat target enemy.
+                <br><br>
+                Deal Physical damage to target enemy. Inflict target enemy with Ability Block and Stagger for 1 turn and inflict all enemies with Force Influence for 4 turns. All other allies gain Defense Penetration Up for 2 turns.
+                <br><br>
+                <u class="speciale">Configuration - Crossguard:</u> +50% Critical Damage and Defense Penetration, -25% Defense and Speed; deal an additional 25% of this character's Max Health as damage when attacking
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Battles:</u> Impetuous Assault deals an additional 10% of the target's Maximum Health per Jedi Knight Cal Kestis' Relic Amplifier level. After Impetuous Assault is used, Jedi Knight Cal Kestis' attacks ignore Protection and all allies gain 300% of Jedi Knight Cal Kestis' base Offense for the rest of battle.
+                <br><br>
+                <u class="speciale">This ability can't be used unless Jedi Knight Cal Kestis has 30 stacks of Impetuous.</u>
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>Capacité de chef: Poids de la galaxie</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Weight of the Galaxy</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="jkck lead" src="../image-perso/jkck/jkck-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Les alliés Jedi gagnent +50% de chances de contre-attaque, de défense et d'attaque.<br>
-                <br>
-                <u class="omicron">Dans les batailles de territoire:</u><br>
-                Au début de la bataille, les alliés obtiennent 100% de la santé et protection maximale ainsi que 300%<br>
-                de la défense du Chevalier Jedi Cal Kestis. Au début de chaque affrontement, les alliés gagnent<br>
-                +25% de jauge de tour et Frénésie pendant 2 tours. Les ennemis vaincus ne peuvent pas être <br>
-                ranimés. Les cumuls d'Impétuosité persistent tout au long des affrontements.
+            <p class="attaque" id="lead-ability">
+                Jedi allies gain +50% counter chance, Defense, and Offense.
+                <br><br>
+                <u class="omicron">omicron Boost : While in Territory Battles:</u> At the start of battle, allies gain 100% Max Health and Max Protection and 300% of Jedi Knight Cal Kestis' Defense. At the start of each encounter, allies gain +25% Turn Meter and Frenzy for 2 turns. Defeated enemies can't be revived. Stacks of Impetuous persist across encounters.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: jedi survivant</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Jedi Survivor</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="jkck unique" src="../image-perso/jkck/jkck-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Le Chevalier Jedi Cal Kestis est immunisé contre Entrave des capacités, Peur et Etourdissement.<br>
-                <br>
-                Lorsqu'un autre allié Jedi attaque en dehors de son tour, le Chevalier Jedi Cal Kestis récupère 10% de santé.<br>
-                <br>
-                Tous les alliés Jedi sont immunisés contre les manipulations de delai adverse.<br>
-                <br>
-                Lorsqu'un allié  Jedi subit Peur, il obtient immunité aux dégâts pendant 1 tour et 60% de jauge de tour.<br>
-                <br>
-                Lorsque le Chevalier Jedi Cal Kestis obtient une Configuration, il reçoit 5 cumuls d'<u class="speciale">Impétuosité</u><br>
-                (30 maximum) jusqu'à la fin de l'affrontement.<br>
-                <br>
-                <u class="speciale">Impétuosité</u>: +1% d'attaque, -1% de défense. Les capacités ont des effets supplémentaires.
+            <p class="attaque" id="unique-ability">
+                Jedi Knight Cal Kestis is immune to Ability Block, Fear, and Stun.
+                <br><br>
+                When another Jedi ally attacks out of turn, Jedi Knight Cal Kestis recovers 10% Health.
+                <br><br>
+                All Jedi allies are immune to cooldown manipulation from enemies.
+                <br><br>
+                When a Jedi ally is inflicted with Fear, they gain Damage Immunity for 1 turn and 60% Turn Meter.
+                <br><br>
+                Whenever Jedi Knight Cal Kestis gains a Configuration, he gains 5 stacks of <u class="speciale">Impetuous</u> (max 30) until the end of the encounter.
+                <br><br>
+                <u class="speciale">Impetuous:</u> +1% Offense, -1% Defense; abilities have additional effects
             </p>
         </div>
     </div>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
-    </footer>
 
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Chevalier Jedi Cal Kestis",
+                "title": "<u>Chevalier Jedi Cal Kestis</u>",
+                "description": "utilisant différentes maîtrise du sabre laser, le Chevalier Jedi Cal Kestis mêle l'attaque et la défense pour remporter a victoire face à ses adversaires.",
+
+                "basic-attack-title": "<u>Attaque Basique: Époque moins civilisée </u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et dissipe toutes ses améliorations.\n\nS'il s'agit du tour du Chevalier Jedi Cal Kestis, débloque <u class='speciale'>Frappe du tourbillon, Parade tournoyante</u> et <u class='speciale'>Assaut impétueux</u> pendant 1 tour, puis le Chevalier Jedi Cal Kestis obtient un tour bonus.\n\nPendant ce tour bonus, le Chevalier Jedi Cal Kestis ignore les effets de raillerie et peut uniquement utiliser Frappe du tourbillon, Parade tournoyante et Assaut impétueux.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Frappe du tourbillon</u>",
+                "special-attack1": "Si le Chevalier Jedi Cal Kestis ne dispose pas de <u class='speciale'>Configuration - Double lame</u>, il perd sa Configuration et obtient Configuration - Double lame pour le reste de la bataille et gagne 5 cumuls d'Impétuosité (30 maximum) jusqu'à la fin de l'affrontement.\n\nInflige des dégâts physiques et un malus de vitesse à tous les ennemis pendant 2 tours.\n\nSi le Chevalier Jedi Cal Kestis ne disposait pas de Configuration - Double lame au début de son tour :\n\n- Inflige Étourdissement à la cible ennemie pendant 1 tour ainsi que Destruction d'armure jusqu'à la fin de l'affrontement.\n- Tous les alliés obtiennent l'avantage pendant 4 tours.\n- Inflige Confusion à tous les autres ennemis pendant 2 tours.\n\n<u class='speciale'>Confuguration - Double lame :</u> + 50 % d'attaque et de ténacité et +2 de vitesse par cumul d'Impétuosité.\n\n<u class='omicron'>Amélioration Omicron : Dans les Batailles de territoire :</u> La fois suivante où le Chevalier Jedi Cal Kestis utilise Parade tournoyante, il récupère 50 % de santé et de protection et donne à tous ses alliés un bonus de protection (20 %, cumulatif) pendant 2 tours pour chaque utilisation de Frappe du tourbillon depuis la dernière utilisation de Parade tournoyante.\n\nSi le Chevalier Jedi Cal Kestis ne disposait pas de Configutation - Double lame au début de son tour :\n\n- inflige Étourdissement à tous les ennemis pendant 1 tour ainsi que la Destruction d'armure jusqu'à la fin de l'affrontement. ",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Parade tournoyante</u>",
+                "special-attack2": "Si le Chevalier Jedi Cal Kestis ne dispose pas de <u class='speciale'>Configuration - Maniement double</u> au début du tour, il perd sa configuration et obtient Configuration - Maniement double pour le reste de la bataille et 5 cumuls dImpétuoisité (30 maximum) jusqu'à la fin de l'affrontement.\n\nDissipe tous les affaiblissements en cours sur tous les alliés et invoque la cible alliée. Le Chevalier Jedi Cal Kestis reçoit un bonus de protection (50 %, cumulatif) pendant 4 tours (ne peut pas être copié).\n\nSi le Chevalier Jedi Cal Kestis ne disposait pas de Configuration - Maniement double au début de son tour :\n\n- Chevalier Jedi Cal Kestis gagne Rpioste pendant 2 tours (ne peut pas être copîé, dissipé ou empêché).\n- Les alliés Jedi obtiennent un bonus de protection (20 %, cumulatif) et Rétribution pendant 2 tours.\n- L'allié Jedi ciblé obtient un tour bonus.\n\n<u class='speciale'>Configuration - Maniement double :</u> +100 % de chances de contre-attaque et +50 % de défense ; les ennemis ont -2 % d'attaque par cumul d'Impétuosité. Lorsqu'un autre allié attaque en dehors de son tour, ce personnage est invoqué. Limité à une fois par tour.",
+
+                "special-attack3-title": "<u>Attaque Spéciale : Assaut impétueux</u>",
+                "special-attack3": "Si le Chevalier Jedi Cal Kestis ne dispose pas de <u class='speciale'>Configuration - Garde croisée</u> au début de son tour, il perd sa configuration et obtient Configuration - Garde croisée pour le reste de la bataille et perd 5 cumuls d'dImpétuoisité.\n\nLa première fois qu'Assaut impétieux est utilisé lors de cet affrontement, la cible ennemie est vaincue instantanément.\n\nInflige des dégâts physiques à la cible ennemie. Inflige Entrave des capacités et Faux pas à la cible ennemie pendant 1 tour et inflige Influence de la Force à tous les ennemis pendant 4 tours. Tous les autres alliés obtiennent un bonus de pénétration de défense pendant 2 tours.\n\n<u class='speciale'>Configuation - Garde croisée :</u> 50 % de dégâts critiques et de pénétration de défense et -25 % de défense et de vitesse, puis inflige 25 % de la santé maximale de ce personnage en tant que dégâts supplémentaires lors d'une attaque.\n\n<u class='omicron'>Amélioration Omicron : Dans les Batailles de territoire :</u> Assaut impétieux inflige 10 % de dégâts supplémentaires en fonction de la santé maximale de la cible par niveau d'amplificateur de relique du Chevalier Jedi Cal Kestis. Après avoir utilis Assaut impétieux, les attaques du Chevalier Jedi Cal Kestis ignorent toute protection et tous ses alliés obtiennent 300 % de l'attaque de base du Chevalier Jedi Cal Kestis pour le reste de l'affrontement.\n\n<u class='speciale'>Cette capacité ne peut être utilisée uniquement si le Chevalier Jedi Cal Kestis possède 30 cumuls d'Impétuosité.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Poids de la galaxie</u>",
+                "lead-ability": "Les alliés Jedi gagnent +50 % de chances de contre-attaque, de défense et d'attaque.\n\n<u class='omicron'>Amélioration Omicron : Dans les Batailles de territoire :</u> Au début de la bataille, les alliés obtiennent 100 % de santé et protection maximales ainsi que 300 % de la défense du Chevalier Jedi Cal Kestis. Au début de chaque affrontement, les alliés gagnent +25 % de jauge de tour et de Frénésie pendant 2 tours. Les ennemis vaincus ne peuvent pas être ranimés? Les cumuls d'Impétuosité persistent tout au long des affrontements.",
+
+                "unique-ability-title": "<u>Capacité Unique : Jedi survivant</u>",
+                "unique-ability": "Le Chevalier Jedi Cal Kestis est immunisé contre Entrave des capacités, Peur et Étourdissement.\n\nLorsqu'un autre allié Jedi attaque en dehors de son tour, le Chevalier Jedi Cal Kestis récupère 10 % de santé.\n\nTous les aliés Jedi sont immunisé contre les manipulations de délai adverses.\n\nLorsqu'un allié Jedi subit Peur, il obtient Immunité aux dégâts pendant 1 tour et 60 % de jauge de tour.\n\nLorsque le Chevalier Jedi Cal Kestis obtient une Configuation, il reçoit 5 cumuls d'<u class='spéciale'>Impétuosité</u> (30 maxiumum) jusqu'à la fin de l'affrontement.\n\n<u class='speciale'>Impétuosité :</u> +1 % d'attaque, -1 % de défense. Les capacités ont des effets supplémentaires. ",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+    </footer>
 </body>
-</html>    
+
+</html>

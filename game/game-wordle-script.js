@@ -89,29 +89,30 @@ setInterval(updateTimer, 1000);
 
 // --- LOGIQUE UNITÉ QUOTIDIENNE ---
 function getDailyUnit(units) {
-    const d = new Date();
-    // 1. On garde ta base de date
-    let dateSeed = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
-    
-    // 2. FONCTION DE MÉLANGE (Muranaka Hash simplifiée)
-    // On multiplie par un grand nombre premier pour "éparpiller" les résultats
-    let scrambledSeed = (dateSeed * 15485863) % 999999; 
-    
-    // 3. On utilise cette seed mélangée pour l'index
-    let index = scrambledSeed % units.length;
-    let selected = units[index];
+    if (units.length === 0) return null;
 
-    // --- Garder ta logique anti-doublon existante ---
-    const history = JSON.parse(localStorage.getItem(`history_${currentAllyCode}`) || "[]");
-    const blockedNames = history.map(h => h.name);
-    
-    let safetyBreak = 0;
-    while (blockedNames.includes(getLoc(selected.name)) && safetyBreak < units.length) {
-        index = (index + 7) % units.length; // On saute de 7 en 7 si doublon pour plus d'aléa
-        selected = units[index];
-        safetyBreak++;
+    const startDate = new Date("2024-01-01").getTime();
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+    const diffDays = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+
+    // On utilise le nombre de jours pour déterminer quelle random_value on cherche
+    // Le modulo (%) permet de recommencer au début si on dépasse le nombre total d'unités
+    const targetRandomValue = (diffDays % units.length) + 1;
+
+    console.log("Jour n°:", diffDays, "| Recherche de la random_value:", targetRandomValue);
+
+    // On cherche l'unité qui possède cette random_value précise
+    let unit = units.find(u => u.random_value === targetRandomValue);
+
+    // Sécurité : si pour une raison X ou Y la random_value n'est pas trouvée
+    // (par exemple un trou dans la numérotation), on prend l'unité par index
+    if (!unit) {
+        console.warn("Attention: random_value non trouvée, repli sur l'index.");
+        unit = units[targetRandomValue % units.length];
     }
-    return selected;
+
+    return unit;
 }
 
 function logRotationHistory(units) {
