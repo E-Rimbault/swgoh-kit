@@ -137,74 +137,20 @@ function logRotationHistory(units) {
 // --- GESTION CONNEXION & FIREBASE ---
 async function handleStartClick() {
     const allyInput = document.getElementById("ally-code-input");
-    const passInput = document.getElementById("password-input");
-    
     const code = allyInput.value.trim();
-    const password = passInput.value.trim();
 
-    if (code.length < 3 || password.length < 6) {
-        alert("Ally Code (min 3) and Password (min 6) required");
+    if (code.length < 3) {
+        alert("Ally Code (min 3) required");
         return;
     }
 
     currentAllyCode = code;
-    const fakeEmail = `${code}@swgohwordle.com`;
-    const localKey = `history_${currentAllyCode}`;
-
-    if (window.db && window.fbAuth) {
-        try {
-            let user;
-            try {
-                // 1. Tentative de connexion
-                const res = await window.fbAuth.signInWithEmailAndPassword(window.fbAuth.auth, fakeEmail, password);
-                user = res.user;
-                console.log("🔓 Login réussi");
-            } catch (err) {
-                // 2. Création de compte si inexistant
-                if (err.code === 'auth/user-not-found' || err.code === 'auth/invalid-credential') {
-                    const res = await window.fbAuth.createUserWithEmailAndPassword(window.fbAuth.auth, fakeEmail, password);
-                    user = res.user;
-                    console.log("✨ Compte créé avec succès");
-                } else {
-                    throw err; 
-                }
-            }
-
-            // 3. Récupération et Synchronisation des données Firestore
-            const playerRef = window.fbOps.doc(window.db, "players", user.uid);
-            const playerDoc = await window.fbOps.getDoc(playerRef);
-            
-            if (playerDoc.exists()) {
-                // Priorité aux données du Cloud pour la portabilité
-                const cloudHistory = playerDoc.data().history || [];
-                localStorage.setItem(localKey, JSON.stringify(cloudHistory));
-                console.log("☁️ Historique Cloud synchronisé localement");
-            } else {
-                // Si nouveau compte Cloud, on vérifie s'il y a un historique local à uploader
-                const localHistory = JSON.parse(localStorage.getItem(localKey) || "[]");
-                await window.fbOps.setDoc(playerRef, { 
-                    history: localHistory, 
-                    allyCode: code,
-                    lastUpdate: new Date()
-                });
-                console.log("📤 Historique local sauvegardé sur le Cloud");
-            }
-
-        } catch (e) {
-            console.error("Erreur Auth:", e);
-            if (e.code === 'auth/wrong-password' || e.code === 'auth/invalid-credential') {
-                alert("Mot de passe incorrect pour cet Ally Code.");
-            } else {
-                alert("Erreur : " + e.message);
-            }
-            return;
-        }
-    }
-
-    // Sauvegarde du dernier code utilisé et vérification du statut du jour
     localStorage.setItem("last_ally_code", currentAllyCode);
-    
+
+    // On récupère l'historique local uniquement
+    const localKey = `history_${currentAllyCode}`;
     const history = JSON.parse(localStorage.getItem(localKey) || "[]");
+    
     const today = new Date().toLocaleDateString();
     const alreadyPlayed = history.find(h => h.date === today);
 
@@ -253,11 +199,12 @@ function showHintPopup() {
     if (helpActions) helpActions.innerHTML = "";
 }
 
-async function saveToHistory(unit, count) {
+function saveToHistory(unit, count) {
     const key = `history_${currentAllyCode}`;
     let history = JSON.parse(localStorage.getItem(key) || "[]");
     const today = new Date().toLocaleDateString();
     
+    // Si on n'a pas déjà enregistré le résultat du jour
     if (!history.find(h => h.date === today)) {
         const newEntry = { 
             date: today, 
@@ -266,46 +213,11 @@ async function saveToHistory(unit, count) {
             img: unit.image 
         };
         
-        // Mise à jour locale (conservation des 30 derniers jours)
         history.unshift(newEntry);
-        if (history.length > 30) history.pop();
+        if (history.length > 30) history.pop(); // On garde 30 jours
         
-        // 1. Sauvegarde Locale
         localStorage.setItem(key, JSON.stringify(history));
-
-        // 2. Sauvegarde Cloud Sécurisée
-        // Récupération de l'utilisateur actuellement connecté via Firebase Auth
-        const user = window.fbAuth?.auth?.currentUser;
-
-        if (window.db && window.fbOps && user) {
-            try {
-                // Utilisation de l'UID secret (user.uid) pour identifier le document Firestore
-                const playerRef = window.fbOps.doc(window.db, "players", user.uid);
-                
-                await window.fbOps.updateDoc(playerRef, { 
-                    history: history,
-                    lastAllyCode: currentAllyCode, // Référence optionnelle du code allié
-                    lastUpdate: new Date()
-                });
-                
-                console.log("☁️ Historique sécurisé synchronisé sur Firebase !");
-            } catch (e) {
-                // Si le document n'existe pas encore (erreur 'not-found'), on le crée avec setDoc
-                if (e.code === 'not-found') {
-                    console.log("✨ Création du profil joueur sur le Cloud...");
-                    const playerRef = window.fbOps.doc(window.db, "players", user.uid);
-                    await window.fbOps.setDoc(playerRef, { 
-                        history: history, 
-                        allyCode: currentAllyCode,
-                        lastUpdate: new Date()
-                    });
-                } else {
-                    console.error("Erreur de synchro Cloud :", e);
-                }
-            }
-        } else {
-            console.warn("Cloud non synchronisé : Utilisateur non connecté ou Firebase non initialisé.");
-        }
+        console.log("💾 Score sauvegardé localement pour le code :", currentAllyCode);
     }
 }
 
@@ -334,7 +246,7 @@ function showHistory() {
     const lang = sessionStorage.getItem("selectedLanguage") || "en";
     const t = translations[lang];
     const historyCache = JSON.parse(localStorage.getItem(`history_${currentAllyCode}`) || "[]");
-    const todayStr = new Date().toLocaleDateString(); // On récupère la date du jour
+    const todayStr = new Date().toLocaleDateString(); 
     
     let html = `<div class="modal-content">
         <h2 style="font-size:1.2rem">${t["hist-title"]}</h2>
@@ -344,16 +256,27 @@ function showHistory() {
         const targetDate = new Date();
         targetDate.setDate(targetDate.getDate() - i);
         const dateString = targetDate.toLocaleDateString();
-        const unitAtDate = getDailyUnitForDate(allUnits, targetDate);
+        
+        // On cherche si une entrée existe pour cette date dans le storage
         const userEntry = historyCache.find(h => h.date === dateString);
-
         const isPlayed = !!userEntry;
         const isToday = (dateString === todayStr);
 
-        // --- LOGIQUE ANTI-SPOIL ---
-        // Si c'est aujourd'hui et que ce n'est pas joué, on cache les infos
-        const displayName = (isToday && !isPlayed) ? "???" : getLoc(unitAtDate.name);
-        const displayImg = (isToday && !isPlayed) ? PLACEHOLDER_SVG : unitAtDate.image;
+        // --- LOGIQUE DE RÉCUPÉRATION DES DONNÉES ---
+        // Si joué : on utilise le nom et l'image enregistrés (userEntry)
+        // Si non joué : on calcule l'unité théorique (getDailyUnitForDate)
+        const unitAtDate = isPlayed ? null : getDailyUnitForDate(allUnits, targetDate);
+        
+        let displayName, displayImg;
+
+        if (isPlayed) {
+            displayName = userEntry.name; // Utilise "Seigneur Vador" stocké
+            displayImg = userEntry.img;
+        } else {
+            // Anti-spoil pour l'unité du jour non faite
+            displayName = (isToday) ? "???" : getLoc(unitAtDate.name);
+            displayImg = (isToday) ? PLACEHOLDER_SVG : unitAtDate.image;
+        }
         
         const opacity = isPlayed ? "1" : "0.5";
         const statusText = isPlayed 
@@ -626,7 +549,6 @@ async function handleGiveUp() {
     const lang = sessionStorage.getItem("selectedLanguage") || "en";
     const t = translations[lang];
 
-    // Confirmation avant d'abandonner
     if (!confirm(t["confirm-giveup"])) return;
 
     if (gameMode === "daily") {
@@ -634,64 +556,21 @@ async function handleGiveUp() {
         let history = JSON.parse(localStorage.getItem(key) || "[]");
         const today = new Date().toLocaleDateString();
 
-        // Enregistrement uniquement si la partie du jour n'est pas déjà dans l'historique
         if (!history.find(h => h.date === today)) {
             const entry = {
                 date: today,
                 name: getLoc(targetUnit.name),
-                // Texte d'affichage pour l'historique
                 attempts: lang === "fr" ? "Abandon" : "Gave Up", 
                 img: targetUnit.image
             };
-            
             history.unshift(entry);
-            if (history.length > 30) history.pop();
-            
-            // 1. Mise à jour locale
             localStorage.setItem(key, JSON.stringify(history));
-            
-            // 2. Synchronisation Cloud avec gestion sécurisée de l'UID
-            const user = window.fbAuth?.auth?.currentUser;
-            if (user && window.db && window.fbOps) {
-                try {
-                    const playerRef = window.fbOps.doc(window.db, "players", user.uid);
-                    
-                    // On tente la mise à jour du document existant
-                    await window.fbOps.updateDoc(playerRef, { 
-                        history: history,
-                        lastUpdate: new Date()
-                    });
-                    console.log("☁️ Abandon synchronisé sur le Cloud");
-                } catch(e) {
-                    // Si le document n'existe pas encore (première partie jamais finie)
-                    if (e.code === 'not-found') {
-                        const playerRef = window.fbOps.doc(window.db, "players", user.uid);
-                        await window.fbOps.setDoc(playerRef, { 
-                            history: history, 
-                            allyCode: currentAllyCode,
-                            lastUpdate: new Date()
-                        });
-                        console.log("✨ Document créé lors de l'abandon");
-                    } else {
-                        console.error("Erreur synchro abandon:", e);
-                    }
-                }
-            }
         }
     }
 
     gameOver = true;
-    
-    // Affichage de la modal de fin
     showVictory();
-    
-    // Modification du titre pour indiquer "UNITÉ RÉVÉLÉE" au lieu de "INCROYABLE"
-    setTimeout(() => {
-        const title = modal.querySelector("h2");
-        if (title) title.textContent = t["revealed-title"];
-    }, 10);
 }
-
 function renderGuessRow(data) {
     const row = document.createElement("div");
     row.className = "guess-row";
