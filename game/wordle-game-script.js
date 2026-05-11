@@ -36,7 +36,7 @@ const translations = {
         "rule-fact": "<strong>FACTIONS:</strong> Groups (Empire, Jedi, etc.).",
         "rule-lead": "<strong>LEADER:</strong> Does it have a leader ability?",
         "rule-year": "<strong>YEAR:</strong> Release year of the unit.",
-        "rule-role": "<strong>ROLE:</strong> Combat role (Attacker, Tank, etc.).",
+        "rule-role": "<strong>ROLE:</strong> Combat role (Attacker, Support, Tank or Healer ).",
         "feed-correct": "Correct", "feed-partial": "Partial (Factions)", "feed-wrong": "Incorrect",
         "hist-not-played": "❌ Not played", "hist-pending": "🔒 Pending...",
         "btn-hint": "🔍 HINT", "hint-pop-title": "Matching Units", "hint-back": "BACK",
@@ -53,12 +53,12 @@ const translations = {
         "tag-leader": "Chef", "tag-crew": "membre de l'équipage", "tag-commander": "commandant de la flotte",
         "h-year": "Année d'apparition",
         "rules-title": "COMMENT JOUER", "rules-next": "PROCHAINE UNITÉ DANS :", "rules-prop": "PROPRIÉTÉS", "rules-feed": "FEEDBACK",
-        "rule-align": "<strong>ALIGNEMENT :</strong> Light Side, Dark Side, ou Neutral.",
+        "rule-align": "<strong>ALIGNEMENT :</strong> Coté Lumineux, Coté Obscur ou neutre",
         "rule-ship": "<strong>VAISSEAU :</strong> L'unité possède-t-elle un vaisseau ?",
         "rule-fact": "<strong>FACTIONS :</strong> Groupes d'appartenance (Empire, Jedi, etc.).",
         "rule-lead": "<strong>CHEF :</strong> Possède-t-elle une capacité de chef ?",
         "rule-year": "<strong>ANNÉE :</strong> Année de sortie de l'unité.",
-        "rule-role": "<strong>RÔLE :</strong> Rôle en combat (Attaquant, Tank, etc.).",
+        "rule-role": "<strong>RÔLE :</strong> Rôle en jeu (Attaquant, Soutien, Tank ou Soigneur).",
         "feed-correct": "Correct", "feed-partial": "Partiel (Factions)", "feed-wrong": "Incorrect",
         "hist-not-played": "❌ Non joué", "hist-pending": "🔒 En attente...",
         "btn-hint": "🔍 INDICE", "hint-pop-title": "Unités Correspondantes", "hint-back": "RETOUR",
@@ -166,19 +166,37 @@ function showHintPopup() {
     const lang = sessionStorage.getItem("selectedLanguage") || "en";
     const t = translations[lang];
     
-    // Filtrage des unités qui correspondent à TOUS les indices trouvés
     const filtered = allUnits.filter(u => {
-        const matchAlign = foundTraits.alignment === "?" || getLoc(u.alignment) === foundTraits.alignment;
-        const matchRole = foundTraits.role === "?" || getLoc(u.role) === foundTraits.role;
-        const matchYear = foundTraits.year === "?" || u.year == foundTraits.year;
-        const matchShip = foundTraits.ship === "?" || getYesNo(checkShip(u)) === foundTraits.ship;
-        const matchLeader = foundTraits.leader === "?" || getYesNo(checkLeader(u)) === foundTraits.leader;
+        // 1. Vérification Alignement
+        const matchAlign = foundTraits.alignment === "?" || 
+                           getLoc(u.alignment) === foundTraits.alignment;
+
+        // 2. Vérification Rôle
+        const matchRole = foundTraits.role === "?" || 
+                          getLoc(u.role) === foundTraits.role;
+
+        // 3. Vérification Année (Attention au nom de la propriété dans le JSON)
+        const matchYear = foundTraits.year === "?" || 
+                          u.years_of_apparition == foundTraits.year;
+
+        // 4. Vérification Vaisseau & Leader
+        const matchShip = foundTraits.ship === "?" || 
+                          getYesNo(checkShip(u)) === foundTraits.ship;
+        const matchLeader = foundTraits.leader === "?" || 
+                            getYesNo(checkLeader(u)) === foundTraits.leader;
         
-        const unitFactions = u.factions.map(f => getLoc(f));
-        const matchFactions = Array.from(foundTraits.factions).every(f => unitFactions.includes(f));
+        // 5. Vérification Factions (on vérifie que l'unité possède TOUTES les factions déjà trouvées)
+        const unitFactionsNames = u.factions.map(f => getLoc(f));
+        const matchFactions = Array.from(foundTraits.factions).every(f => unitFactionsNames.includes(f));
 
         return matchAlign && matchRole && matchYear && matchShip && matchLeader && matchFactions;
     });
+
+    // Sécurité : Si aucune unité n'est trouvée (bug de logique), on affiche un message
+    if (filtered.length === 0) {
+        alert("Erreur de filtrage : aucune unité ne correspond aux indices actuels.");
+        return;
+    }
 
     let html = `<div class="modal-content">
         <h2 style="color:#00d4ff">${t["hint-pop-title"]} (${filtered.length})</h2>
@@ -186,7 +204,7 @@ function showHintPopup() {
     
     filtered.forEach(u => {
         html += `<div style="font-size:0.8rem; background:rgba(255,255,255,0.1); padding:5px; border-radius:5px; text-align:center;">
-            <img src="${u.image}" width="30" style="border-radius:50%"><br>${getLoc(u.name)}
+            <img src="${u.image}" width="30" style="border-radius:50%; border: 1px solid #444;"><br>${getLoc(u.name)}
         </div>`;
     });
 
@@ -194,7 +212,6 @@ function showHintPopup() {
     modal.innerHTML = html;
     modal.classList.remove("hidden");
     
-    // On vide le conteneur pour faire disparaître le bouton utilisé
     const helpActions = document.getElementById("help-actions-container");
     if (helpActions) helpActions.innerHTML = "";
 }
