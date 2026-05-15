@@ -91,27 +91,30 @@ setInterval(updateTimer, 1000);
 function getDailyUnit(units) {
     if (units.length === 0) return null;
 
+    // 1. On récupère le nombre de jours depuis la date de référence
     const startDate = new Date("2024-01-01").getTime();
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
     const diffDays = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
 
-    // On utilise le nombre de jours pour déterminer quelle random_value on cherche
-    // Le modulo (%) permet de recommencer au début si on dépasse le nombre total d'unités
-    const targetRandomValue = (diffDays % units.length) + 1;
+    // 2. Création d'une copie de la liste pour ne pas modifier l'originale
+    let shuffledUnits = [...units];
 
-    console.log("Jour n°:", diffDays, "| Recherche de la random_value:", targetRandomValue);
-
-    // On cherche l'unité qui possède cette random_value précise
-    let unit = units.find(u => u.random_value === targetRandomValue);
-
-    // Sécurité : si pour une raison X ou Y la random_value n'est pas trouvée
-    // (par exemple un trou dans la numérotation), on prend l'unité par index
-    if (!unit) {
-        console.warn("Attention: random_value non trouvée, repli sur l'index.");
-        unit = units[targetRandomValue % units.length];
+    // 3. Mélange de Fisher-Yates avec un Seed fixe (le même pour tout le monde)
+    // On n'utilise PAS diffDays ici pour mélanger, mais une valeur fixe ou annuelle 
+    // pour que l'ordre reste le même sur une longue période.
+    let seed = 12345; // Une graine arbitraire fixe
+    for (let i = shuffledUnits.length - 1; i > 0; i--) {
+        seed = (seed * 9301 + 49297) % 233280;
+        const j = Math.floor((seed / 233280) * (i + 1));
+        [shuffledUnits[i], shuffledUnits[j]] = [shuffledUnits[j], shuffledUnits[i]];
     }
 
+    // 4. Sélection de l'unité basée sur le jour actuel
+    // Tant que units.length > 30, une unité ne pourra pas revenir avant 30 jours minimum.
+    const unit = shuffledUnits[diffDays % shuffledUnits.length];
+
+    console.log("Jour n°:", diffDays, "| Unité du jour :", unit.name.en);
     return unit;
 }
 
@@ -317,11 +320,21 @@ function showHistory() {
 }
 
 function getDailyUnitForDate(units, dateObj) {
-    let dateSeed = dateObj.getFullYear() * 10000 + (dateObj.getMonth() + 1) * 100 + dateObj.getDate();
-    // Utiliser EXACTEMENT la même formule de mélange
-    let scrambledSeed = (dateSeed * 15485863) % 999999;
-    let index = scrambledSeed % units.length;
-    return units[index];
+    if (units.length === 0) return null;
+
+    const startDate = new Date("2024-01-01").getTime();
+    const targetDate = new Date(dateObj.getFullYear(), dateObj.getMonth(), dateObj.getDate()).getTime();
+    const diffDays = Math.floor((targetDate - startDate) / (1000 * 60 * 60 * 24));
+
+    let shuffledUnits = [...units];
+    let seed = 12345; 
+    for (let i = shuffledUnits.length - 1; i > 0; i--) {
+        seed = (seed * 9301 + 49297) % 233280;
+        const j = Math.floor((seed / 233280) * (i + 1));
+        [shuffledUnits[i], shuffledUnits[j]] = [shuffledUnits[j], shuffledUnits[i]];
+    }
+
+    return shuffledUnits[diffDays % shuffledUnits.length];
 }
 
 function getLoc(obj) {
