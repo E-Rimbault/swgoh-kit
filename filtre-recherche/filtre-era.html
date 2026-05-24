@@ -422,19 +422,14 @@
       }
     }
 
-    // Fonction d'aide pour nettoyer et normaliser les textes des ères afin de tolérer les fautes de frappe/casse/espaces
     function normalizeEraString(str) {
       if (!str) return "";
       return str
         .toLowerCase()
         .trim()
-        // Remplace les sauts de lignes ou multiples espaces par un espace unique
         .replace(/\s+/g, ' ')
-        // Enlève les articles communs (the, of, de, la, l', d') pour se focaliser sur les mots clés
         .replace(/\b(the|of|de|la|le)\b/g, '')
-        // Enlève les apostrophes et tirets
         .replace(/['’-]/g, '')
-        // Supprime à nouveau les espaces superflus créés par le retrait des mots
         .replace(/\s+/g, '')
         .trim();
     }
@@ -455,7 +450,23 @@
 
       let activeErasCount = 0;
 
-      eras.forEach((era, index) => {
+      // --- SÉCURITÉ & TRI DYNAMIQUE PAR NUMÉRO D'ÈRE CROISSANT (0, 1, 2...) ---
+      const sortedEras = [...eras].sort((a, b) => {
+        const numA = a.numero_ere !== undefined ? parseInt(a.numero_ere) : 0;
+        const numB = b.numero_ere !== undefined ? parseInt(b.numero_ere) : 0;
+        
+        if (numA !== numB) {
+          return numB - numA; // Changement effectué : Tri croissant
+        }
+        
+        // Tri secondaire (alphabétique) si égalité sur le numéro
+        const nameA = (isFr ? (a.name_fr || a.name_en) : (a.name_en || a.name_fr)).toLowerCase();
+        const nameB = (isFr ? (b.name_fr || b.name_en) : (b.name_en || b.name_fr)).toLowerCase();
+        return nameA.localeCompare(nameB);
+      });
+
+      // Remplacement de la boucle sur "eras" par la version triée "sortedEras"
+      sortedEras.forEach((era, index) => {
         const eraName = isFr ? (era.name_fr || era.name_en) : (era.name_en || era.name_fr);
         const eraTargetId = "era-" + (era.name_en ? era.name_en.toLowerCase().replace(/[^a-z0-9]/g, "-") : index);
 
@@ -463,12 +474,10 @@
         let eraUnits = characters.filter(c => {
           if (!c.era) return false;
           
-          // Vérification sur la clé Anglaise normalisée
           if (c.era.en && era.name_en) {
             if (normalizeEraString(c.era.en) === normalizeEraString(era.name_en)) return true;
           }
           
-          // Vérification de secours sur la clé Française normalisée
           if (c.era.fr && era.name_fr) {
             if (normalizeEraString(c.era.fr) === normalizeEraString(era.name_fr)) return true;
           }
