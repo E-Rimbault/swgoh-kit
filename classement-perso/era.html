@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title id="page-title">Era Units</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/unit-style.css">
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; text-align: center; background-color: #f4f6fb; color: #333;}
+        .language-switcher { display: flex; justify-content: flex-end; gap: 10px; margin-bottom: 20px; }
+        .language-switcher img { width: 32px; height: 32px; cursor: pointer; border: 2px solid transparent; border-radius: 50%; }
+        h1 { font-size: 28px; margin-bottom: 5px; color: #111; text-decoration: underline; }
+        .subtitle { font-size: 18px; color: #666; margin-bottom: 30px; }
+        .units-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .unit-card { background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 15px; width: 180px; text-decoration: none; color: inherit; transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; align-items: center; }
+        .unit-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .unit-img { width: 100px; height: 100px; object-fit: contain; margin-bottom: 12px; border-radius: 8px; }
+        .unit-name { font-weight: bold; font-size: 15px; text-align: center; }
+        .unit-role { font-size: 12px; color: #777; margin-top: 5px; text-transform: capitalize; }
+        .btn-back { display: inline-block; margin-bottom: 20px; background: #e9f3ff; color: #2b7cff; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <div class="language-switcher">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" id="lang-fr">
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en">
+    </div>
+
+    <div>
+        <a href="javascript:history.back()" class="btn-back" id="text-back">← Go Back</a>
+    </div>
+
+    <h1 id="era-title">Loading Era...</h1>
+    <p class="subtitle" id="era-subtitle">Discover all units belonging to this timeline</p>
+
+    <div class="units-grid" id="units-container">
+        </div>
+
+    <script>
+        let allUnitsData = [];
+        let targetEraNameEN = "";
+
+        // Textes fixes traduisibles
+        const staticTranslations = {
+            "fr": {
+                "text-back": "← Retour",
+                "era-subtitle": "Découvrez tous les personnages appartenant à cette ère"
+            },
+            "en": {
+                "text-back": "← Go Back",
+                "era-subtitle": "Discover all units belonging to this timeline"
+            }
+        };
+
+        function getParamEraName() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('name') || "";
+        }
+
+        function loadEraPage() {
+            targetEraNameEN = getParamEraName();
+            if (!targetEraNameEN) {
+                document.getElementById('era-title').innerText = "No Era Specified";
+                return;
+            }
+
+            fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                .then(response => response.json())
+                .then(data => {
+                    allUnitsData = data;
+                    renderPage();
+                })
+                .catch(err => {
+                    console.error("Error loading json source:", err);
+                });
+        }
+
+        function renderPage() {
+            const lang = sessionStorage.getItem("selectedLanguage") || "en";
+            const container = document.getElementById('units-container');
+            container.innerHTML = ""; // Vider le container
+
+            // Filtrer les unités appartenant à l'ère ciblée (par comparaison du nom EN)
+            const filteredUnits = allUnitsData.filter(u => u.era && u.era.en.toLowerCase() === targetEraNameEN.toLowerCase());
+
+            // Traduction des textes d'habillage statiques
+            document.getElementById('text-back').innerText = staticTranslations[lang]["text-back"];
+            document.getElementById('era-subtitle').innerText = staticTranslations[lang]["era-subtitle"];
+
+            if (filteredUnits.length > 0) {
+                // Définir le titre principal (récupéré depuis la première unité pour afficher la traduction correspondante)
+                const eraTitleText = lang === "fr" ? filteredUnits[0].era.fr : filteredUnits[0].era.en;
+                document.getElementById('era-title').innerText = eraTitleText;
+                document.getElementById('page-title').innerText = eraTitleText;
+
+                // Génération des fiches
+                filteredUnits.forEach(unit => {
+                    const card = document.createElement('a');
+                    card.className = "unit-card";
+                    
+                    // Si votre JSON contient l'adresse complète dans "page", on l'utilise, sinon on redirige proprement
+                    card.href = unit.page ? unit.page : `#`;
+
+                    // Gestion de la traduction interne de la carte
+                    const uName = lang === "fr" ? unit.name.fr : unit.name.en;
+                    const uRole = lang === "fr" ? unit.role.fr : unit.role.en;
+
+                    card.innerHTML = `
+                        <img src="${unit.image}" class="unit-img" alt="${uName}">
+                        <div class="unit-name">${uName}</div>
+                        <div class="unit-role">${uRole}</div>
+                    `;
+                    container.appendChild(card);
+                });
+            } else {
+                document.getElementById('era-title').innerText = targetEraNameEN;
+                container.innerHTML = `<p style="font-style:italic; color:#888;">No characters found for this era.</p>`;
+            }
+
+            updateFlagActive();
+        }
+
+        function switchLanguageTo(lang) {
+            sessionStorage.setItem("selectedLanguage", lang);
+            renderPage();
+        }
+
+        function updateFlagActive() {
+            const lang = sessionStorage.getItem("selectedLanguage") || "en";
+            document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+            document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+        }
+
+        window.addEventListener("load", () => {
+            loadEraPage();
+            document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+            document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+        });
+    </script>
+</body>
+</html>

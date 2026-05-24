@@ -41,6 +41,7 @@
                 <a class="capacite" href="../classement-perso/mandalorien.html" id="mandalorian">Mandalorian</a>
                 <a class="capacite" href="../classement-perso/spectre.html" id="spectre">Spectre</a>
                 <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="neutral-force-user">Unaligned Force User</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important;" id="unit-era">Loading Era...</a>
             </nav>
         </div>
 
@@ -145,49 +146,89 @@
             };
 
             const originalTexts = {};
+    let eraDataGlobal = null; // ✨ NOUVEAU : Contiendra l'objet de l'ère {en: '...', fr: '...'} reçu du JSON
 
-            function saveOriginalTexts() {
-                for (const id in translationsFr) {
-                    const el = document.getElementById(id);
-                    if (el) originalTexts[id] = el.innerHTML;
-                }
+    function saveOriginalTexts() {
+        for (const id in translationsFr) {
+            const el = document.getElementById(id);
+            if (el) originalTexts[id] = el.innerHTML;
+        }
+    }
+
+    function replaceNewLinesWithBr(text) {
+        return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+    }
+
+    function switchLanguageTo(lang) {
+        sessionStorage.setItem("selectedLanguage", lang);
+
+        if (lang === "fr") {
+            for (const [id, text] of Object.entries(translationsFr)) {
+                const el = document.getElementById(id);
+                if (el) el.innerHTML = replaceNewLinesWithBr(text);
             }
-
-            function replaceNewLinesWithBr(text) {
-                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+        } else {
+            for (const [id, text] of Object.entries(originalTexts)) {
+                const el = document.getElementById(id);
+                if (el) el.innerHTML = text;
             }
+        }
 
-            function switchLanguageTo(lang) {
-                sessionStorage.setItem("selectedLanguage", lang);
+        // ✨ NOUVEAU : Traduction en direct du bouton de l'Ère
+        const eraLink = document.getElementById('unit-era');
+        if (eraLink && eraDataGlobal) {
+            eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+        }
 
-                if (lang === "fr") {
-                    for (const [id, text] of Object.entries(translationsFr)) {
-                        const el = document.getElementById(id);
-                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
-                    }
+        updateFlagActive();
+    }
+
+    function updateFlagActive() {
+        const lang = sessionStorage.getItem("selectedLanguage") || "en";
+        document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+        document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+    }
+
+    // ✨ NOUVEAU : Récupération AJAX de l'ère depuis l'ID de l'URL (?id=padawan sabine wren)
+    function loadUnitEraData() {
+        const params = new URLSearchParams(window.location.search);
+        // Valeur de secours si aucun paramètre ?id= n'est écrit dans l'URL de votre navigateur
+        const unitId = params.get('id') || "padawan sabine wren";
+
+        fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+            .then(response => response.json())
+            .then(data => {
+                const currentUnit = data.find(u => u.id === unitId);
+                const eraLink = document.getElementById('unit-era');
+                
+                if (currentUnit && currentUnit.era) {
+                    // On enregistre les données de l'ère pour le traducteur de langue
+                    eraDataGlobal = currentUnit.era;
+                    
+                    // On configure le lien vers votre nouvelle page era.html avec le nom EN en paramètre
+                    eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                    
+                    // On applique le texte selon la langue sélectionnée en session
+                    const currentLang = sessionStorage.getItem("selectedLanguage") || "en";
+                    eraLink.innerText = currentLang === "fr" ? currentUnit.era.fr : currentUnit.era.en;
                 } else {
-                    for (const [id, text] of Object.entries(originalTexts)) {
-                        const el = document.getElementById(id);
-                        if (el) el.innerHTML = text;
-                    }
+                    eraLink.style.display = 'none'; // Masque le bouton si l'unité n'a pas d'ère définie
                 }
-
-                updateFlagActive();
-            }
-
-            function updateFlagActive() {
-                const lang = sessionStorage.getItem("selectedLanguage") || "en";
-                document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
-                document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
-            }
-
-            window.addEventListener("load", () => {
-                saveOriginalTexts();
-                switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
-                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
-                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            })
+            .catch(err => {
+                console.error("Erreur lors du chargement de l'ère depuis le JSON :", err);
+                document.getElementById('unit-era').style.display = 'none';
             });
-        </script>
+    }
+
+    window.addEventListener("load", () => {
+        saveOriginalTexts();
+        loadUnitEraData(); // ✨ NOUVEAU : Déclenche le chargement de l'ère au chargement de la page
+        switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+        document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+        document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+    });
+</script>
     </footer>
 
 </body>
