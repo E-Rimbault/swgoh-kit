@@ -1,12 +1,15 @@
 <!DOCTYPE HTML>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>SWGOH Database - Character Holocron</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
+    rel="stylesheet">
 
   <style>
     :root {
@@ -31,104 +34,245 @@
       overflow-x: hidden;
     }
 
-    h1, h2, h3, h4, h5, .card-title { font-family: var(--font-titles); letter-spacing: 1px; }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    .card-title {
+      font-family: var(--font-titles);
+      letter-spacing: 1px;
+    }
 
     /* Layout */
     #sidebar {
-      position: fixed; top: 0; left: 0; height: 100vh; width: var(--sidebar-width);
-      background-color: rgba(10, 10, 10, 0.95); backdrop-filter: blur(5px);
-      padding: 25px; overflow-y: auto; border-right: 2px solid var(--sw-border);
-      z-index: 1000; transition: transform 0.3s ease;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: var(--sidebar-width);
+      background-color: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(5px);
+      padding: 25px;
+      overflow-y: auto;
+      border-right: 2px solid var(--sw-border);
+      z-index: 1000;
+      transition: transform 0.3s ease;
     }
 
     #content {
       margin-left: var(--sidebar-width);
-      padding: 30px; min-height: 100vh;
+      padding: 30px;
+      min-height: 100vh;
     }
 
     /* Elements UI */
     .filter-box {
-      background: rgba(255, 255, 255, 0.03); padding: 15px;
-      border-radius: 8px; margin-bottom: 20px; border: 1px solid #222;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border: 1px solid #222;
     }
 
-    .filter-box h5 { font-size: 0.85rem; text-transform: uppercase; color: var(--sw-blue-text); margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 5px;}
+    .filter-box h5 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      color: var(--sw-blue-text);
+      margin-bottom: 15px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 5px;
+    }
 
     .category-grid {
-      display: grid; grid-template-columns: 1fr; gap: 6px;
-      max-height: 200px; overflow-y: auto; padding-right: 5px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+      max-height: 200px;
+      overflow-y: auto;
+      padding-right: 5px;
     }
 
     .category-grid label {
-      display: flex; align-items: center; font-size: 0.85rem;
-      background: #1a1a1a; padding: 6px 10px; border-radius: 4px; cursor: pointer; transition: 0.2s;
+      display: flex;
+      align-items: center;
+      font-size: 0.85rem;
+      background: #1a1a1a;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: 0.2s;
     }
-    .category-grid label:hover { background: #252525; }
 
-    .category-grid input { margin-right: 10px; accent-color: var(--sw-blue-text); }
+    .category-grid label:hover {
+      background: #252525;
+    }
+
+    .category-grid input {
+      margin-right: 10px;
+      accent-color: var(--sw-blue-text);
+    }
 
     /* Cards */
     #results {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
     }
 
     .card {
-      background-color: var(--sw-bg-card); border: 1px solid #222; border-radius: 8px;
-      transition: all 0.3s; height: 100%; display: flex; flex-direction: column;
+      background-color: var(--sw-bg-card);
+      border: 1px solid #222;
+      border-radius: 8px;
+      transition: all 0.3s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
     .card:hover {
-      transform: translateY(-5px); border-color: var(--sw-blue-text);
+      transform: translateY(-5px);
+      border-color: var(--sw-blue-text);
       box-shadow: 0 5px 20px rgba(0, 162, 255, 0.3);
     }
 
     .card-img-container {
-      width: 100%; height: 160px; background: radial-gradient(circle, #2a2a2a 0%, #121212 100%);
-      display: flex; align-items: center; justify-content: center; padding: 10px;
+      width: 100%;
+      height: 160px;
+      background: radial-gradient(circle, #2a2a2a 0%, #121212 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
     }
 
-    .card img { max-width: 80%; max-height: 100%; object-fit: contain; }
+    .card img {
+      max-width: 80%;
+      max-height: 100%;
+      object-fit: contain;
+    }
 
-    .card-body { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; }
+    .card-body {
+      padding: 15px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
 
-    .card-title { font-size: 1rem; color: #fff; margin-bottom: 12px; text-align: center; border-bottom: 1px solid #333; padding-bottom: 8px; }
+    .card-title {
+      font-size: 1rem;
+      color: #fff;
+      margin-bottom: 12px;
+      text-align: center;
+      border-bottom: 1px solid #333;
+      padding-bottom: 8px;
+    }
 
-    .card-text { font-size: 0.82rem; color: var(--sw-text-muted); flex-grow: 1; line-height: 1.4; }
-    
-    .unit-label { color: var(--sw-blue-text); font-weight: bold; font-size: 0.75rem; text-transform: uppercase; }
+    .card-text {
+      font-size: 0.82rem;
+      color: var(--sw-text-muted);
+      flex-grow: 1;
+      line-height: 1.4;
+    }
+
+    .unit-label {
+      color: var(--sw-blue-text);
+      font-weight: bold;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
 
     .btn-primary {
-      background: transparent; border: 1px solid var(--sw-blue-text); color: var(--sw-blue-text);
-      font-family: var(--font-titles); font-size: 0.8rem; margin-top: 15px; width: 100%;
+      background: transparent;
+      border: 1px solid var(--sw-blue-text);
+      color: var(--sw-blue-text);
+      font-family: var(--font-titles);
+      font-size: 0.8rem;
+      margin-top: 15px;
+      width: 100%;
     }
 
-    .btn-primary:hover { background: var(--sw-blue-text); color: #000; box-shadow: 0 0 10px var(--sw-blue-glow); }
+    .btn-primary:hover {
+      background: var(--sw-blue-text);
+      color: #000;
+      box-shadow: 0 0 10px var(--sw-blue-glow);
+    }
 
     /* Langue & Mobile */
-    .lang-toggle { display:flex; justify-content:center; gap:15px; margin-bottom:20px; }
-    .lang-toggle img { cursor:pointer; width:30px; height:30px; border-radius:50%; opacity: 0.4; transition: 0.3s; }
-    .lang-toggle img.active { opacity: 1; border: 2px solid var(--sw-blue-text); }
+    .lang-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .lang-toggle img {
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      opacity: 0.4;
+      transition: 0.3s;
+    }
+
+    .lang-toggle img.active {
+      opacity: 1;
+      border: 2px solid var(--sw-blue-text);
+    }
 
     #scrollTopBtn {
-      position: fixed; bottom: 20px; right: 20px; z-index: 1000; display: none;
-      background: var(--sw-blue-text); color: black; border: none; border-radius: 50%;
-      width: 45px; height: 45px; font-weight: bold; cursor: pointer;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: none;
+      background: var(--sw-blue-text);
+      color: black;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-weight: bold;
+      cursor: pointer;
     }
 
     #mobile-filter-toggle {
-        display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-        z-index: 1001; background: var(--sw-blue-text); color: #000; border: none;
-        padding: 10px 25px; border-radius: 30px; font-weight: bold; font-family: var(--font-titles);
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1001;
+      background: var(--sw-blue-text);
+      color: #000;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-family: var(--font-titles);
     }
 
     @media (max-width: 992px) {
-        #sidebar { left: -100%; width: 320px; }
-        #sidebar.open { transform: translateX(100%); }
-        #content { margin-left: 0; }
-        #mobile-filter-toggle { display: block; }
+      #sidebar {
+        left: -100%;
+        width: 320px;
+      }
+
+      #sidebar.open {
+        transform: translateX(100%);
+      }
+
+      #content {
+        margin-left: 0;
+      }
+
+      #mobile-filter-toggle {
+        display: block;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <button id="mobile-filter-toggle">🔍 FILTERS</button>
@@ -149,42 +293,52 @@
 
     <div class="filter-box">
       <h5 id="title-alignment">ROLE, ALIGNMENT & YEAR</h5>
-      <select id="role-filter" class="form-select mb-2 bg-dark text-white border-secondary">
-        <option value="">-- all roles --</option>
-        <option value="attacker">Attacker / Attaquant</option>
-        <option value="support">Support / Soutien</option>
-        <option value="healer">Healer / Soigneur</option>
-        <option value="tank">Tank / Tank</option>
-      </select>
-      <select id="alignment-filter" class="form-select mb-2 bg-dark text-white border-secondary">
-        <option value="">-- all alignments --</option>
-        <option value="lightside">Light Side / Côté Lumineux</option>
-        <option value="darkside">Dark Side / Côté Obscur</option>
-        <option value="neutral">Neutral / Neutre</option>
-      </select>
-      <select id="year-filter" class="form-select bg-dark text-white border-secondary">
-        <option value="">-- all years --</option>
-      </select>
+
+      <div class="mb-3">
+        <small class="text-muted d-block mb-1" id="sub-role" style=" background-color: white;">Roles</small>
+        <div class="category-grid" id="role-filters-container">
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <small class="text-muted d-block mb-1" id="sub-align" style=" background-color: white;">Alignments</small>
+        <div class="category-grid" id="alignment-filters-container">
+        </div>
+      </div>
+
+      <div class="mb-2">
+        <small class="text-muted d-block mb-1" id="sub-year" style=" background-color: white;">Years</small>
+        <div class="category-grid" id="year-filters-container">
+        </div>
+      </div>
     </div>
 
     <div class="filter-box">
       <h5 id="title-search">SEARCH & TAGS</h5>
-      <input type="text" id="search-bar" class="form-control mb-3 bg-dark text-white border-secondary" placeholder="Search character...">
+      <div class="d-flex align-items-center mb-3 bg-dark p-1 rounded border border-secondary">
+        <input type="text" id="search-bar" class="form-control bg-transparent text-white border-0"
+          placeholder="Search character...">
+        <button id="search-mode-toggle" data-mode="include" class="btn btn-link p-1 text-decoration-none"
+          style="color: var(--sw-blue-text);">
+          <span class="search-mode-icon">👁️</span>
+        </button>
+      </div>
+
       <div class="input-group">
-        <input type="text" id="tag-input" class="form-control bg-dark text-white border-secondary" placeholder="Add tag...">
+        <input type="text" id="tag-input" class="form-control bg-dark text-white border-secondary"
+          placeholder="Add tag...">
         <button id="add-tag-btn" class="btn btn-outline-info">Add</button>
       </div>
-      <datalist id="tag-suggestions"></datalist>
     </div>
-
     <button id="reset-filters" class="btn btn-danger w-100 mb-2">⚡ RESET FILTERS</button>
-    <button id="home-btn" class="btn btn-outline-info w-100" onclick="window.location.href='../index.html'">🏠 HOME</button>
+    <button id="home-btn" class="btn btn-outline-info w-100" onclick="window.location.href='../index.html'">🏠
+      HOME</button>
   </div>
 
   <div id="content">
     <div class="d-flex justify-content-between align-items-center border-bottom border-secondary pb-2 mb-4">
-        <h4 id="results-label" class="m-0">RESULTS</h4>
-        <span id="result-count" class="badge bg-info text-dark">0</span>
+      <h4 id="results-label" class="m-0">RESULTS</h4>
+      <span id="result-count" class="badge bg-info text-dark">0</span>
     </div>
     <div id="active-filters" class="mb-3"></div>
     <div id="results"></div>
@@ -216,7 +370,7 @@
       syncLangUI();
       updateStaticText();
       generateFactionFilters();
-      generateYearFilters(); // Génère la liste des années
+      generateGenericFilters(); // Génère rôles, alignements et années avec le nouveau système
       applyFilters();
     }
 
@@ -236,7 +390,10 @@
         "add-tag-btn": isFr ? "Ajouter" : "Add",
         "reset-filters": isFr ? "⚡ RÉINITIALISER" : "⚡ RESET FILTERS",
         "home-btn": isFr ? "🏠 MENU PRINCIPAL" : "🏠 HOME MENU",
-        "results-label": isFr ? "RÉSULTATS DE L'HOLOCRON" : "Holocron's Result"
+        "results-label": isFr ? "RÉSULTATS DE L'HOLOCRON" : "Holocron's Result",
+        "sub-role": isFr ? "Rôles" : "Roles",
+        "sub-align": isFr ? "Alignements" : "Alignments",
+        "sub-year": isFr ? "Années de sortie" : "Years"
       };
 
       for (let id in elements) {
@@ -246,44 +403,84 @@
 
       document.getElementById("search-bar").placeholder = isFr ? "Rechercher..." : "Search character...";
       document.getElementById("tag-input").placeholder = isFr ? "Ajouter un tag..." : "Add a tag...";
-      document.getElementById("role-filter").options[0].text = isFr ? "-- tous les rôles --" : "-- all roles --";
-      document.getElementById("alignment-filter").options[0].text = isFr ? "-- tous les alignements --" : "-- all alignments --";
-      document.getElementById("year-filter").options[0].text = isFr ? "-- toutes les années --" : "-- all years --";
+    }
+
+    // Fonction d'aide pour créer le HTML standardisé d'un filtre avec œil/interdit
+    function createFilterItemHTML(prefix, value, displayLabel) {
+      return `
+        <div class="${prefix}-item d-flex align-items-center mb-1" style="background: #1a1a1a; padding: 4px 10px; border-radius: 4px;">
+          <input type="checkbox" class="${prefix}-cb me-2" value="${value}">
+          <span class="flex-grow-1" style="font-size: 0.85rem;">${displayLabel}</span>
+          <button class="btn-mode-toggle generic-toggle" data-mode="include" title="Inclure/Exclure" 
+                  style="background:none; border:none; color: var(--sw-blue-text); font-size: 0.9rem; padding: 0 5px;">
+            <span class="mode-icon">👁️</span>
+          </button>
+        </div>
+      `;
+    }
+
+    // Ajoute les écouteurs d'événements "œil / interdit" dynamiques
+    function bindToggleEvents(className) {
+      document.querySelectorAll(`.${className}-item .btn-mode-toggle`).forEach(btn => {
+        btn.addEventListener("click", function () {
+          const icon = this.querySelector(".mode-icon");
+          if (this.dataset.mode === "exclude") {
+            this.dataset.mode = "include";
+            icon.textContent = "👁️";
+            this.style.color = "var(--sw-blue-text)";
+          } else {
+            this.dataset.mode = "exclude";
+            icon.textContent = "🚫";
+            this.style.color = "#ff4444";
+          }
+          const cb = this.parentElement.querySelector(`.${className}-cb`);
+          if (cb.checked) applyFilters();
+        });
+      });
+      document.querySelectorAll(`.${className}-cb`).forEach(cb => cb.addEventListener("change", applyFilters));
     }
 
     function generateFactionFilters() {
       const container = document.getElementById("faction-filters");
       const factionsSet = new Set();
       characters.forEach(c => (c.factions || []).forEach(f => factionsSet.add(f[currentLang] || f.en)));
-      
+
       const sortedFactions = Array.from(factionsSet).sort((a, b) => {
         const pa = factionPriority[a.toLowerCase()] ?? 999;
         const pb = factionPriority[b.toLowerCase()] ?? 999;
         return pa !== pb ? pa - pb : a.localeCompare(b);
       });
 
-      container.innerHTML = sortedFactions.map(f => `
-        <label><input type="checkbox" class="faction-cb" value="${f.toLowerCase()}"> ${f}</label>
-      `).join("");
-
-      document.querySelectorAll(".faction-cb").forEach(cb => cb.addEventListener("change", applyFilters));
+      container.innerHTML = sortedFactions.map(f => createFilterItemHTML('faction', f.toLowerCase(), f)).join("");
+      bindToggleEvents('faction');
     }
 
-    // Extraction et création dynamique du filtre par année
-    function generateYearFilters() {
-        const yearSelect = document.getElementById("year-filter");
-        // Récupère toutes les années uniques présentes dans le JSON
-        const years = [...new Set(characters.map(c => c.years_of_apparition))].filter(y => y != null);
-        
-        // Tri décroissant (les plus récents en haut)
-        years.sort((a, b) => b - a);
+    function generateGenericFilters() {
+      const isFr = (currentLang === "fr");
 
-        const isFr = (currentLang === "fr");
-        let html = `<option value="">${isFr ? "-- toutes les années --" : "-- all years --"}</option>`;
-        years.forEach(y => {
-            html += `<option value="${y}">${y}</option>`;
-        });
-        yearSelect.innerHTML = html;
+      // 1. Rôles définis
+      const rolesData = [
+        { val: "attacker", label: isFr ? "Attaquant" : "Attacker" },
+        { val: "support", label: isFr ? "Soutien" : "Support" },
+        { val: "healer", label: isFr ? "Soigneur" : "Healer" },
+        { val: "tank", label: isFr ? "Tank" : "Tank" }
+      ];
+      document.getElementById("role-filters-container").innerHTML = rolesData.map(r => createFilterItemHTML('role', r.val, r.label)).join("");
+      bindToggleEvents('role');
+
+      // 2. Alignements définis
+      const alignmentsData = [
+        { val: "lightside", label: isFr ? "Côté Lumineux" : "Light Side" },
+        { val: "darkside", label: isFr ? "Côté Obscur" : "Dark Side" },
+        { val: "neutral", label: isFr ? "Neutre" : "Neutral" }
+      ];
+      document.getElementById("alignment-filters-container").innerHTML = alignmentsData.map(a => createFilterItemHTML('align', a.val, a.label)).join("");
+      bindToggleEvents('align');
+
+      // 3. Années dynamiques extraites du JSON
+      const years = [...new Set(characters.map(c => c.years_of_apparition))].filter(y => y != null).sort((a, b) => b - a);
+      document.getElementById("year-filters-container").innerHTML = years.map(y => createFilterItemHTML('year', String(y), String(y))).join("");
+      bindToggleEvents('year');
     }
 
     function normalizeAlignment(a) {
@@ -294,12 +491,30 @@
       return "neutral";
     }
 
+    // Helper pour extraire les filtres actifs d'un groupe donné (Inclusion vs Exclusion)
+    function getActiveFilters(className) {
+      const inclusions = [];
+      const exclusions = [];
+      document.querySelectorAll(`.${className}-cb:checked`).forEach(cb => {
+        const modeBtn = cb.parentElement.querySelector(".btn-mode-toggle");
+        if (modeBtn && modeBtn.dataset.mode === "exclude") {
+          exclusions.push(cb.value);
+        } else {
+          inclusions.push(cb.value);
+        }
+      });
+      return { inclusions, exclusions };
+    }
+
     function applyFilters() {
-      const search = document.getElementById("search-bar").value.trim().toLowerCase();
-      const role = document.getElementById("role-filter").value.toLowerCase();
-      const align = normalizeAlignment(document.getElementById("alignment-filter").value);
-      const selectedYear = document.getElementById("year-filter").value;
-      const selectedFactions = Array.from(document.querySelectorAll(".faction-cb:checked")).map(cb => cb.value);
+      const searchInput = document.getElementById("search-bar").value.trim().toLowerCase();
+      const searchMode = document.getElementById("search-mode-toggle").dataset.mode;
+
+      // Récupération globale des états (Inclusion / Exclusion)
+      const factions = getActiveFilters('faction');
+      const roles = getActiveFilters('role');
+      const alignments = getActiveFilters('align');
+      const years = getActiveFilters('year');
 
       const filtered = characters.filter(c => {
         const name = (c.name[currentLang] || c.name.en).toLowerCase();
@@ -308,21 +523,42 @@
         const cAlign = normalizeAlignment(c.alignment?.en || "");
         const cYear = String(c.years_of_apparition || "");
 
-        const matchSearch = !search || name.includes(search);
-        const matchRole = !role || cRole === role;
-        const matchAlign = !align || cAlign === align;
-        const matchYear = !selectedYear || cYear === selectedYear; // Filtre par année
-        const matchFactions = selectedFactions.length === 0 || selectedFactions.every(f => fNames.includes(f));
-        const matchTags = customTags.length === 0 || customTags.every(tag => 
-            name.includes(tag) || fNames.some(fn => fn.includes(tag))
+        // 1. Logique de Recherche textuelle
+        let matchSearch = true;
+        if (searchInput) {
+          const containsSearch = name.includes(searchInput);
+          matchSearch = (searchMode === "exclude") ? !containsSearch : containsSearch;
+        }
+
+        // 2. Logique des Factions
+        const matchFactionInc = factions.inclusions.every(f => fNames.includes(f));
+        const matchFactionExc = !factions.exclusions.some(f => fNames.includes(f));
+
+        // 3. Logique des Rôles (Si plusieurs cochés en inclusion, le perso doit correspondre à au moins un)
+        const matchRoleInc = roles.inclusions.length === 0 || roles.inclusions.includes(cRole);
+        const matchRoleExc = !roles.exclusions.includes(cRole);
+
+        // 4. Logique des Alignements
+        const matchAlignInc = alignments.inclusions.length === 0 || alignments.inclusions.includes(cAlign);
+        const matchAlignExc = !alignments.exclusions.includes(cAlign);
+
+        // 5. Logique des Années
+        const matchYearInc = years.inclusions.length === 0 || years.inclusions.includes(cYear);
+        const matchYearExc = !years.exclusions.includes(cYear);
+
+        // 6. Logique des Custom Tags
+        const matchTags = customTags.length === 0 || customTags.every(tag =>
+          name.includes(tag) || fNames.some(fn => fn.includes(tag))
         );
 
-        return matchSearch && matchRole && matchAlign && matchYear && matchFactions && matchTags;
+        return matchSearch && matchFactionInc && matchFactionExc &&
+          matchRoleInc && matchRoleExc && matchAlignInc && matchAlignExc &&
+          matchYearInc && matchYearExc && matchTags;
       });
 
       filtered.sort((a, b) => (a.base_id || "").localeCompare(b.base_id || ""));
-      
-      renderActiveFilters(selectedFactions, role, align, search, selectedYear);
+
+      renderActiveFilters(factions, roles, alignments, years, searchInput, searchMode);
       renderCharacters(filtered);
     }
 
@@ -330,11 +566,11 @@
       const isFr = (currentLang === "fr");
       document.getElementById("result-count").textContent = list.length;
       const container = document.getElementById("results");
-      
+
       container.innerHTML = list.length ? list.map(c => {
         const fText = (c.factions || []).map(f => f[currentLang] || f.en).join(", ");
         const alignLabel = isFr ? "Alignement" : "Alignment";
-        
+
         return `
           <div class="card">
             <div class="card-img-container"><img src="${c.image}" alt="${c.name.en}" loading="lazy"></div>
@@ -356,79 +592,118 @@
       }).join("") : `<p class="w-100 text-center mt-5">${isFr ? "Aucun personnage trouvé" : "No characters found"}</p>`;
     }
 
-    function renderActiveFilters(factions, role, align, search, year) {
-        const container = document.getElementById("active-filters");
-        container.innerHTML = "";
-        let items = [...factions];
-        if (role) items.push(role);
-        if (align) items.push(align);
-        if (search) items.push(search);
-        if (year) items.push(year); // Affiche l'année dans les filtres actifs
-        customTags.forEach(t => items.push(t));
+    function renderActiveFilters(factions, roles, alignments, years, search, searchMode) {
+      const container = document.getElementById("active-filters");
+      container.innerHTML = "";
 
-        items.forEach(text => {
-            const span = document.createElement("span");
-            span.className = "badge bg-primary me-2 mb-2 p-2";
-            span.style.cursor = "pointer";
-            span.textContent = text + " ✕";
-            span.onclick = () => {
-                if(text === year) document.getElementById("year-filter").value = "";
-                if(text === role) document.getElementById("role-filter").value = "";
-                if(text === align) document.getElementById("alignment-filter").value = "";
-                if(text === search) document.getElementById("search-bar").value = "";
-                customTags = customTags.filter(t => t !== text);
-                document.querySelectorAll(".faction-cb").forEach(cb => { if(cb.value === text) cb.checked = false; });
-                applyFilters();
-            };
-            container.appendChild(span);
-        });
+      const createBadge = (text, type, value, isExclusion = false) => {
+        const span = document.createElement("span");
+        span.className = isExclusion ? "badge bg-danger me-2 mb-2 p-2" : "badge bg-primary me-2 mb-2 p-2";
+        span.style.cursor = "pointer";
+        span.textContent = (isExclusion ? "NOT " : "") + text + " ✕";
+        span.onclick = () => {
+          if (type === 'search') {
+            document.getElementById("search-bar").value = "";
+          } else {
+            // Décoche la case correspondante grâce à sa classe et sa valeur
+            document.querySelectorAll(`.${type}-cb`).forEach(cb => {
+              if (cb.value === value) cb.checked = false;
+            });
+          }
+          applyFilters();
+        };
+        container.appendChild(span);
+      };
+
+      // Factions
+      factions.inclusions.forEach(f => createBadge(f.toUpperCase(), 'faction', f, false));
+      factions.exclusions.forEach(f => createBadge(f.toUpperCase(), 'faction', f, true));
+
+      // Rôles
+      roles.inclusions.forEach(r => createBadge(r.toUpperCase(), 'role', r, false));
+      roles.exclusions.forEach(r => createBadge(r.toUpperCase(), 'role', r, true));
+
+      // Alignements
+      alignments.inclusions.forEach(a => createBadge(a.toUpperCase(), 'align', a, false));
+      alignments.exclusions.forEach(a => createBadge(a.toUpperCase(), 'align', a, true));
+
+      // Années
+      years.inclusions.forEach(y => createBadge(y, 'year', y, false));
+      years.exclusions.forEach(y => createBadge(y, 'year', y, true));
+
+      // Recherche textuelle
+      if (search) {
+        createBadge(`"${search}"`, 'search', null, searchMode === 'exclude');
+      }
     }
 
-    // --- Events ---
-    document.getElementById("lang-en").onclick = () => { 
-        currentLang = "en"; 
-        updateLangUI("en"); 
-    };
-    document.getElementById("lang-fr").onclick = () => { 
-        currentLang = "fr"; 
-        updateLangUI("fr"); 
+    // --- Gestion interactive du bouton œil sur la barre de recherche ---
+    document.getElementById("search-mode-toggle").onclick = function () {
+      const icon = this.querySelector(".search-mode-icon");
+      if (this.dataset.mode === "exclude") {
+        this.dataset.mode = "include";
+        icon.textContent = "👁️";
+        this.style.color = "var(--sw-blue-text)";
+      } else {
+        this.dataset.mode = "exclude";
+        icon.textContent = "🚫";
+        this.style.color = "#ff4444";
+      }
+      if (document.getElementById("search-bar").value.trim()) applyFilters();
     };
 
+    // --- Events & Triggers ---
+    document.getElementById("lang-en").onclick = () => { currentLang = "en"; updateLangUI("en"); };
+    document.getElementById("lang-fr").onclick = () => { currentLang = "fr"; updateLangUI("fr"); };
+
     function updateLangUI(l) {
-        sessionStorage.setItem("selectedLanguage", l);
-        syncLangUI();
-        initPage();
+      sessionStorage.setItem("selectedLanguage", l);
+      syncLangUI();
+      initPage();
     }
 
     document.getElementById("add-tag-btn").onclick = () => {
-        const val = document.getElementById("tag-input").value.trim().toLowerCase();
-        if(val && !customTags.includes(val)) {
-            customTags.push(val);
-            document.getElementById("tag-input").value = "";
-            applyFilters();
-        }
+      const val = document.getElementById("tag-input").value.trim().toLowerCase();
+      if (val && !customTags.includes(val)) {
+        customTags.push(val);
+        document.getElementById("tag-input").value = "";
+        applyFilters();
+      }
     };
 
     document.getElementById("search-bar").oninput = applyFilters;
-    document.getElementById("role-filter").onchange = applyFilters;
-    document.getElementById("alignment-filter").onchange = applyFilters;
-    document.getElementById("year-filter").onchange = applyFilters; // Event pour l'année
     document.getElementById("mobile-filter-toggle").onclick = () => document.getElementById("sidebar").classList.toggle("open");
-    
+
+    // --- BOUTON RESET FILTERS OPTIMISÉ COMPLET ---
     document.getElementById("reset-filters").onclick = () => {
-        document.getElementById("search-bar").value = "";
-        document.getElementById("role-filter").value = "";
-        document.getElementById("alignment-filter").value = "";
-        document.getElementById("year-filter").value = ""; // Reset de l'année
-        document.querySelectorAll(".faction-cb").forEach(c => c.checked = false);
-        customTags = [];
-        applyFilters();
+      // 1. Reset champ texte
+      document.getElementById("search-bar").value = "";
+
+      // 2. Reset mode bouton recherche
+      const sMode = document.getElementById("search-mode-toggle");
+      sMode.dataset.mode = "include";
+      sMode.querySelector(".search-mode-icon").textContent = "👁️";
+      sMode.style.color = "var(--sw-blue-text)";
+
+      // 3. Décocher toutes les checkboxes du sidebar
+      document.querySelectorAll("#sidebar input[type='checkbox']").forEach(cb => cb.checked = false);
+
+      // 4. Remettre tous les boutons toggle (œil/interdit) en état d'inclusion par défaut
+      document.querySelectorAll(".btn-mode-toggle").forEach(btn => {
+        btn.dataset.mode = "include";
+        const icon = btn.querySelector(".mode-icon");
+        if (icon) icon.textContent = "👁️";
+        btn.style.color = "var(--sw-blue-text)";
+      });
+
+      customTags = [];
+      applyFilters();
     };
 
     const scrollBtn = document.getElementById("scrollTopBtn");
     window.onscroll = () => scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
-    scrollBtn.onclick = () => window.scrollTo({top: 0, behavior: 'smooth'});
-
+    scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
   </script>
 </body>
+
 </html>
