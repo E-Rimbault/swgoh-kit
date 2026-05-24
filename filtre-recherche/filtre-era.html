@@ -351,6 +351,9 @@
     let eras = [];
     let currentLang = sessionStorage.getItem("selectedLanguage") || "en";
 
+    // URL globale pour l'image de remplacement par défaut
+    const defaultUnitImage = "https://e-rimbault.github.io/swgoh-kit/image/logo_star_wars.png";
+
     async function loadJsonData(primaryUrl, localFallbackUrl) {
       try {
         const response = await fetch(primaryUrl);
@@ -511,10 +514,16 @@
             const unitRole = c.role ? (c.role[currentLang] || c.role.en || "---") : "---";
             const unitAlignment = c.alignment ? (c.alignment[currentLang] || c.alignment.en || "---") : "---";
 
+            // Vérification de la validité de l'image spécifiée dans le JSON
+            let finalImage = (c.image || "").trim();
+            if (!finalImage || finalImage === "" || finalImage.endsWith("image-perso/")) {
+              finalImage = defaultUnitImage;
+            }
+
             return `
               <div class="card">
                 <div class="card-img-container">
-                  <img src="${c.image || ''}" alt="${c.name?.en || 'Unit'}" loading="lazy" onerror="this.src='https://via.placeholder.com/150?text=No+Image';">
+                  <img src="${finalImage}" alt="${c.name?.en || 'Unit'}" loading="lazy" onerror="this.src='${defaultUnitImage}';">
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">${unitName}</h5>
