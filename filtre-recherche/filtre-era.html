@@ -351,7 +351,6 @@
     let eras = [];
     let currentLang = sessionStorage.getItem("selectedLanguage") || "en";
 
-    // URL globale pour l'image de remplacement par défaut
     const defaultUnitImage = "https://e-rimbault.github.io/swgoh-kit/image/logo_star_wars.png";
 
     async function loadJsonData(primaryUrl, localFallbackUrl) {
@@ -423,6 +422,23 @@
       }
     }
 
+    // Fonction d'aide pour nettoyer et normaliser les textes des ères afin de tolérer les fautes de frappe/casse/espaces
+    function normalizeEraString(str) {
+      if (!str) return "";
+      return str
+        .toLowerCase()
+        .trim()
+        // Remplace les sauts de lignes ou multiples espaces par un espace unique
+        .replace(/\s+/g, ' ')
+        // Enlève les articles communs (the, of, de, la, l', d') pour se focaliser sur les mots clés
+        .replace(/\b(the|of|de|la|le)\b/g, '')
+        // Enlève les apostrophes et tirets
+        .replace(/['’-]/g, '')
+        // Supprime à nouveau les espaces superflus créés par le retrait des mots
+        .replace(/\s+/g, '')
+        .trim();
+    }
+
     function renderTimeline() {
       const isFr = (currentLang === "fr");
       const container = document.getElementById("eras-container");
@@ -443,10 +459,21 @@
         const eraName = isFr ? (era.name_fr || era.name_en) : (era.name_en || era.name_fr);
         const eraTargetId = "era-" + (era.name_en ? era.name_en.toLowerCase().replace(/[^a-z0-9]/g, "-") : index);
 
-        // 1. Filtrage initial par ère
+        // 1. Filtrage par ère avec tolérance renforcée (Anglais OU Français)
         let eraUnits = characters.filter(c => {
-          if (!c.era || !c.era.en || !era.name_en) return false;
-          return c.era.en.toLowerCase().trim() === era.name_en.toLowerCase().trim();
+          if (!c.era) return false;
+          
+          // Vérification sur la clé Anglaise normalisée
+          if (c.era.en && era.name_en) {
+            if (normalizeEraString(c.era.en) === normalizeEraString(era.name_en)) return true;
+          }
+          
+          // Vérification de secours sur la clé Française normalisée
+          if (c.era.fr && era.name_fr) {
+            if (normalizeEraString(c.era.fr) === normalizeEraString(era.name_fr)) return true;
+          }
+          
+          return false;
         });
 
         // 2. Application du filtre de saisie de recherche (Saisie utilisateur)
@@ -466,21 +493,18 @@
           });
         }
 
-        // Si la recherche filtre tout, on n'affiche pas cette ère
         if (searchQuery !== "" && eraUnits.length === 0) {
           return; 
         }
 
         activeErasCount++;
 
-        // Tri des unités par nom
         eraUnits.sort((a, b) => {
           const nameA = a.name?.[currentLang] || a.name?.en || "";
           const nameB = b.name?.[currentLang] || b.name?.en || "";
           return nameA.localeCompare(nameB);
         });
 
-        // Génération du lien de navigation latérale
         const link = document.createElement("a");
         link.href = `#${eraTargetId}`;
         link.className = "era-link-item text-truncate";
@@ -488,7 +512,6 @@
         link.onclick = () => { document.getElementById("sidebar").classList.remove("open"); }; 
         linksContainer.appendChild(link);
 
-        // Section d'ère
         const section = document.createElement("div");
         section.className = "era-section";
         section.id = eraTargetId;
@@ -514,7 +537,6 @@
             const unitRole = c.role ? (c.role[currentLang] || c.role.en || "---") : "---";
             const unitAlignment = c.alignment ? (c.alignment[currentLang] || c.alignment.en || "---") : "---";
 
-            // Vérification de la validité de l'image spécifiée dans le JSON
             let finalImage = (c.image || "").trim();
             if (!finalImage || finalImage === "" || finalImage.endsWith("image-perso/")) {
               finalImage = defaultUnitImage;
@@ -557,12 +579,10 @@
       }
     }
 
-    // Écouteur d'événement sur le champ de recherche pour actualiser l'UI en temps réel
     document.getElementById("search-input").oninput = () => {
       renderTimeline();
     };
 
-    // --- Switcher de Langues ---
     document.getElementById("lang-en").onclick = () => { currentLang = "en"; updateLangUI("en"); };
     document.getElementById("lang-fr").onclick = () => { currentLang = "fr"; updateLangUI("fr"); };
 
@@ -572,7 +592,6 @@
       initPage();
     }
 
-    // --- UI Mobile & Scroll ---
     document.getElementById("mobile-nav-toggle").onclick = () => document.getElementById("sidebar").classList.toggle("open");
     
     const scrollBtn = document.getElementById("scrollTopBtn");
