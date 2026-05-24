@@ -76,6 +76,25 @@
       padding-bottom: 5px;
     }
 
+    /* Barre de recherche personnalisée */
+    .search-input {
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid var(--sw-border);
+      color: #fff;
+      font-size: 0.9rem;
+      border-radius: 6px;
+      padding: 10px;
+      transition: all 0.3s;
+    }
+
+    .search-input:focus {
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      border-color: var(--sw-blue-text);
+      box-shadow: 0 0 8px var(--sw-blue-glow);
+      outline: none;
+    }
+
     /* Sections des Ères */
     .era-section {
       background: rgba(20, 20, 20, 0.6);
@@ -107,13 +126,6 @@
       color: #fff;
       margin: 0;
       text-shadow: 0 0 10px rgba(0, 162, 255, 0.3);
-    }
-
-    .era-duration {
-      font-size: 0.85rem;
-      color: var(--sw-blue-text);
-      text-transform: uppercase;
-      margin-top: 4px;
     }
 
     /* Grille d'unités */
@@ -202,26 +214,25 @@
       box-shadow: 0 0 10px var(--sw-blue-glow);
     }
 
-    /* Langue & Navigation */
-    .lang-toggle {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 20px;
+    /* Liens rapides */
+    .era-link-item {
+      display: block;
+      background: #1a1a1a;
+      color: var(--sw-text-main);
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: 0.2s;
+      border-left: 3px solid transparent;
     }
 
-    .lang-toggle img {
-      cursor: pointer;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      opacity: 0.4;
-      transition: 0.3s;
-    }
-
-    .lang-toggle img.active {
-      opacity: 1;
-      border: 2px solid var(--sw-blue-text);
+    .era-link-item:hover {
+      background: #252525;
+      color: var(--sw-blue-text);
+      border-left-color: var(--sw-blue-text);
+      padding-left: 16px;
     }
 
     #scrollTopBtn {
@@ -256,25 +267,26 @@
       font-family: var(--font-titles);
     }
 
-    /* Menu de liens rapides vers les ères */
-    .era-link-item {
-      display: block;
-      background: #1a1a1a;
-      color: var(--sw-text-main);
-      padding: 8px 12px;
-      border-radius: 4px;
-      margin-bottom: 6px;
-      text-decoration: none;
-      font-size: 0.85rem;
-      transition: 0.2s;
-      border-left: 3px solid transparent;
+    /* Langue & Navigation */
+    .lang-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
     }
 
-    .era-link-item:hover {
-      background: #252525;
-      color: var(--sw-blue-text);
-      border-left-color: var(--sw-blue-text);
-      padding-left: 16px;
+    .lang-toggle img {
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      opacity: 0.4;
+      transition: 0.3s;
+    }
+
+    .lang-toggle img.active {
+      opacity: 1;
+      border: 2px solid var(--sw-blue-text);
     }
 
     @media (max-width: 992px) {
@@ -311,10 +323,13 @@
       <img src="https://flagcdn.com/fr.svg" alt="Français" id="lang-fr">
     </div>
 
+    <div class="mb-3">
+      <input type="text" id="search-input" class="form-control search-input" placeholder="Search a unit, role...">
+    </div>
+
     <div class="filter-box">
       <h5 id="title-navigation">GALACTIC ERAS</h5>
-      <div id="eras-quick-links" style="max-height: 450px; overflow-y: auto; padding-right: 5px;">
-        </div>
+      <div id="eras-quick-links" style="max-height: 450px; overflow-y: auto; padding-right: 5px;"></div>
     </div>
 
     <button id="home-btn" class="btn btn-outline-info w-100" onclick="window.location.href='../index.html'">🏠 HOME MENU</button>
@@ -336,25 +351,42 @@
     let eras = [];
     let currentLang = sessionStorage.getItem("selectedLanguage") || "en";
 
-    // Adresses des dépôts JSON
-    const baseUrl = "https://e-rimbault.github.io/swgoh-kit/filtre-recherche/";
-    const unitsUrl = baseUrl + "units.json";
-    const erasUrl = baseUrl + "eras.json";
+    async function loadJsonData(primaryUrl, localFallbackUrl) {
+      try {
+        const response = await fetch(primaryUrl);
+        if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+        return await response.json();
+      } catch (error) {
+        console.warn(`Failed loading primary URL (${primaryUrl}), trying fallback:`, error);
+        const fallbackResponse = await fetch(localFallbackUrl);
+        return await fallbackResponse.json();
+      }
+    }
 
-    // 📦 Chargement Parallèle des JSON
-    Promise.all([
-      fetch(unitsUrl).then(res => res.json()).catch(() => fetch("units.json").then(res => res.json())),
-      fetch(erasUrl).then(res => res.json()).catch(() => fetch("eras.json").then(res => res.json()))
-    ])
-    .then(([unitsData, erasData]) => {
-      characters = unitsData;
-      eras = erasData;
-      initPage();
-    })
-    .catch(e => {
-      console.error("Error loading JSON data:", e);
-      document.getElementById("eras-container").innerHTML = "<p class='text-danger text-center'>Error loading Datacron or Holocron records. Please ensure paths are valid.</p>";
-    });
+    async function initDatabase() {
+      const unitsPrimary = "https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json";
+      const erasPrimary = "https://e-rimbault.github.io/swgoh-kit/filtre-recherche/eras.json";
+
+      try {
+        const [unitsData, erasData] = await Promise.all([
+          loadJsonData(unitsPrimary, "units.json"),
+          loadJsonData(erasPrimary, "eras.json")
+        ]);
+
+        characters = unitsData || [];
+        eras = erasData || [];
+        
+        initPage();
+      } catch (criticalError) {
+        console.error("Critical error loading database records:", criticalError);
+        document.getElementById("eras-container").innerHTML = `
+          <div class="text-center text-danger p-4">
+            <h5>⚠️ Datacron Error</h5>
+            <p>Unable to retrieve Holocron data maps. Please check if your JSON structures are correctly placed.</p>
+          </div>
+        `;
+      }
+    }
 
     function initPage() {
       syncLangUI();
@@ -381,82 +413,119 @@
         const el = document.getElementById(id);
         if (el) el.textContent = elements[id];
       }
+
+      const searchInput = document.getElementById("search-input");
+      if (searchInput) {
+        searchInput.placeholder = isFr ? "Rechercher une unité, un rôle..." : "Search a unit, role...";
+      }
     }
 
     function renderTimeline() {
       const isFr = (currentLang === "fr");
       const container = document.getElementById("eras-container");
       const linksContainer = document.getElementById("eras-quick-links");
+      const searchQuery = document.getElementById("search-input").value.toLowerCase().trim();
       
       container.innerHTML = "";
       linksContainer.innerHTML = "";
 
-      if (!eras.length) {
+      if (!eras || !eras.length) {
         container.innerHTML = `<p class="text-center text-muted">${isFr ? "Aucune ère trouvée" : "No eras found"}</p>`;
         return;
       }
 
-      // Trier les ères par ordre d'ID ou chronologique (selon l'organisation dans votre JSON)
-      const sortedEras = [...eras].sort((a, b) => (a.id || 0) - (b.id || 0));
-      document.getElementById("era-count").textContent = `${sortedEras.length} ${isFr ? 'Ères' : 'Eras'}`;
+      let activeErasCount = 0;
 
-      sortedEras.forEach(era => {
-        const eraName = era.name[currentLang] || era.name.en;
-        const eraDuration = era.duration ? (era.duration[currentLang] || era.duration.en) : "";
-        const eraIdAttr = `era-${era.base_id || era.id}`;
+      eras.forEach((era, index) => {
+        const eraName = isFr ? (era.name_fr || era.name_en) : (era.name_en || era.name_fr);
+        const eraTargetId = "era-" + (era.name_en ? era.name_en.toLowerCase().replace(/[^a-z0-9]/g, "-") : index);
 
-        // 1. Ajout du lien rapide dans le menu latéral (Sidebar)
+        // 1. Filtrage initial par ère
+        let eraUnits = characters.filter(c => {
+          if (!c.era || !c.era.en || !era.name_en) return false;
+          return c.era.en.toLowerCase().trim() === era.name_en.toLowerCase().trim();
+        });
+
+        // 2. Application du filtre de saisie de recherche (Saisie utilisateur)
+        if (searchQuery !== "") {
+          eraUnits = eraUnits.filter(c => {
+            const name = (c.name?.[currentLang] || c.name?.en || "").toLowerCase();
+            const id = (c.id || "").toLowerCase();
+            const role = (c.role?.[currentLang] || c.role?.en || "").toLowerCase();
+            const alignment = (c.alignment?.[currentLang] || c.alignment?.en || "").toLowerCase();
+            const factions = (c.factions || []).map(f => (f[currentLang] || f.en || "").toLowerCase()).join(" ");
+
+            return name.includes(searchQuery) || 
+                   id.includes(searchQuery) || 
+                   role.includes(searchQuery) || 
+                   alignment.includes(searchQuery) || 
+                   factions.includes(searchQuery);
+          });
+        }
+
+        // Si la recherche filtre tout, on n'affiche pas cette ère
+        if (searchQuery !== "" && eraUnits.length === 0) {
+          return; 
+        }
+
+        activeErasCount++;
+
+        // Tri des unités par nom
+        eraUnits.sort((a, b) => {
+          const nameA = a.name?.[currentLang] || a.name?.en || "";
+          const nameB = b.name?.[currentLang] || b.name?.en || "";
+          return nameA.localeCompare(nameB);
+        });
+
+        // Génération du lien de navigation latérale
         const link = document.createElement("a");
-        link.href = `#${eraIdAttr}`;
+        link.href = `#${eraTargetId}`;
         link.className = "era-link-item text-truncate";
         link.textContent = eraName;
-        link.onclick = () => { document.getElementById("sidebar").classList.remove("open"); }; // Fermeture mobile automatique
+        link.onclick = () => { document.getElementById("sidebar").classList.remove("open"); }; 
         linksContainer.appendChild(link);
 
-        // 2. Filtrer les personnages appartenant à cette ère
-        // Gère la correspondance via l'id unique de l'ère ou son base_id standardisé
-        const eraUnits = characters.filter(c => {
-          if (!c.era) return false;
-          return c.era.toLowerCase() === (era.base_id || "").toLowerCase() || c.era.toLowerCase() === String(era.id).toLowerCase();
-        }).sort((a, b) => (a.base_id || "").localeCompare(b.base_id || ""));
-
-        // 3. Création de la section de l'Ère
+        // Section d'ère
         const section = document.createElement("div");
         section.className = "era-section";
-        section.id = eraIdAttr;
+        section.id = eraTargetId;
 
-        // Header de l'Ère
         let headerHtml = `
           <div class="era-header">
             ${era.image ? `<img src="${era.image}" alt="${eraName}" onerror="this.style.display='none'">` : ''}
             <div>
               <h3 class="era-header-title">${eraName}</h3>
-              ${eraDuration ? `<div class="era-duration">${eraDuration}</div>` : ''}
             </div>
           </div>
         `;
 
-        // Contenu des personnages
         let unitsHtml = `<div class="units-grid">`;
         if (eraUnits.length > 0) {
           unitsHtml += eraUnits.map(c => {
-            const fText = (c.factions || []).map(f => f[currentLang] || f.en).join(", ");
+            const fText = (c.factions || []).map(f => f ? (f[currentLang] || f.en || "") : "").filter(Boolean).join(", ");
             const alignLabel = isFr ? "Alignement" : "Alignment";
+            const roleLabel = isFr ? "Rôle" : "Role";
+            const yearLabel = isFr ? "Année" : "Year";
+            
+            const unitName = c.name ? (c.name[currentLang] || c.name.en || "---") : "---";
+            const unitRole = c.role ? (c.role[currentLang] || c.role.en || "---") : "---";
+            const unitAlignment = c.alignment ? (c.alignment[currentLang] || c.alignment.en || "---") : "---";
 
             return `
               <div class="card">
                 <div class="card-img-container">
-                  <img src="${c.image}" alt="${c.name.en}" loading="lazy" onerror="this.src='https://via.placeholder.com/150?text=No+Image';">
+                  <img src="${c.image || ''}" alt="${c.name?.en || 'Unit'}" loading="lazy" onerror="this.src='https://via.placeholder.com/150?text=No+Image';">
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title">${c.name[currentLang] || c.name.en}</h5>
+                  <h5 class="card-title">${unitName}</h5>
                   <div class="card-text">
-                    <p class="mb-1"><span class="unit-label">ID:</span> ${c.id || c.base_id}</p>
-                    <p class="mb-1"><span class="unit-label">Role:</span> ${c.role?.[currentLang] || c.role?.en || "---"}</p>
-                    <p class="mb-1"><span class="unit-label">${alignLabel}:</span> ${c.alignment?.[currentLang] || c.alignment?.en || "---"}</p>
-                    <p class="mb-1"><span class="unit-label">Factions:</span> ${fText}</p>
+                    <p class="mb-1"><span class="unit-label">ID:</span> ${c.id || "---"}</p>
+                    <p class="mb-1"><span class="unit-label">${roleLabel}:</span> ${unitRole}</p>
+                    <p class="mb-1"><span class="unit-label">${alignLabel}:</span> ${unitAlignment}</p>
+                    <p class="mb-1"><span class="unit-label">Factions:</span> ${fText || "---"}</p>
+                    <p class="mb-0"><span class="unit-label">${yearLabel}:</span> ${c.years_of_apparition || "---"}</p>
                   </div>
-                  <button class="btn btn-primary btn-sm" onclick="window.location.href='${c.page}'">
+                  <button class="btn btn-primary btn-sm" onclick="window.location.href='${c.page || '#'}'">
                     ${isFr ? 'DÉTAILS' : 'DETAILS'}
                   </button>
                 </div>
@@ -464,14 +533,25 @@
             `;
           }).join("");
         } else {
-          unitsHtml += `<p class="text-muted small w-100 col-span-all p-2">${isFr ? "Aucune unité répertoriée pour cette ère." : "No units logged for this era yet."}</p>`;
+          unitsHtml += `<p class="text-muted small w-100 p-2">${isFr ? "Aucune unité répertoriée pour cette ère." : "No units logged for this era yet."}</p>`;
         }
         unitsHtml += `</div>`;
 
         section.innerHTML = headerHtml + unitsHtml;
         container.appendChild(section);
       });
+
+      document.getElementById("era-count").textContent = `${activeErasCount} ${isFr ? 'Ères' : 'Eras'}`;
+      
+      if (activeErasCount === 0) {
+        container.innerHTML = `<p class="text-center text-muted p-4">${isFr ? "Aucun résultat pour votre recherche." : "No results match your search."}</p>`;
+      }
     }
+
+    // Écouteur d'événement sur le champ de recherche pour actualiser l'UI en temps réel
+    document.getElementById("search-input").oninput = () => {
+      renderTimeline();
+    };
 
     // --- Switcher de Langues ---
     document.getElementById("lang-en").onclick = () => { currentLang = "en"; updateLangUI("en"); };
@@ -489,6 +569,8 @@
     const scrollBtn = document.getElementById("scrollTopBtn");
     window.onscroll = () => scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
     scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    initDatabase();
   </script>
 </body>
 

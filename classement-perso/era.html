@@ -69,6 +69,45 @@
             box-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
         }
 
+        /* Boutons de navigation stylisés */
+        .nav-buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .btn-back, .btn-eras { 
+            display: inline-block; 
+            background: rgba(43, 124, 255, 0.15); 
+            color: #549bff; 
+            padding: 10px 20px; 
+            border-radius: 6px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 13px; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid rgba(43, 124, 255, 0.4);
+            box-shadow: 0 0 10px rgba(43, 124, 255, 0.2);
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .btn-back:hover, .btn-eras:hover { 
+            background: rgba(43, 124, 255, 0.3);
+            color: #fff;
+            border-color: #2b7cff;
+            box-shadow: 0 0 15px rgba(43, 124, 255, 0.6);
+        }
+
+        .btn-back:hover {
+            transform: translateX(-3px);
+        }
+
+        .btn-eras:hover {
+            transform: translateY(-2px);
+        }
+
         /* Titres Lumineux Néon Holocron */
         h1 { 
             font-size: 36px; 
@@ -85,31 +124,6 @@
             margin-bottom: 35px; 
             font-style: italic;
             letter-spacing: 0.5px;
-        }
-
-        /* Bouton Retour stylisé */
-        .btn-back { 
-            display: inline-block; 
-            margin-bottom: 20px; 
-            background: rgba(43, 124, 255, 0.15); 
-            color: #549bff; 
-            padding: 10px 20px; 
-            border-radius: 6px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            font-size: 13px; 
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 1px solid rgba(43, 124, 255, 0.4);
-            box-shadow: 0 0 10px rgba(43, 124, 255, 0.2);
-            transition: all 0.2s ease-in-out;
-        }
-        .btn-back:hover { 
-            background: rgba(43, 124, 255, 0.3);
-            color: #fff;
-            border-color: #2b7cff;
-            box-shadow: 0 0 15px rgba(43, 124, 255, 0.6);
-            transform: translateX(-3px);
         }
 
         /* Grille de fiches personnages */
@@ -192,15 +206,15 @@
             <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en">
         </div>
 
-        <div>
+        <div class="nav-buttons-container">
             <a href="javascript:history.back()" class="btn-back" id="text-back">← Go Back</a>
+            <a href="https://e-rimbault.github.io/swgoh-kit/filtre-recherche/filtre-era.html" class="btn-eras" id="text-eras">🧭 All Eras</a>
         </div>
 
         <h1 id="era-title">Loading Era...</h1>
         <p class="subtitle" id="era-subtitle">Discover all units belonging to this timeline</p>
 
-        <div class="units-grid" id="units-container">
-            </div>
+        <div class="units-grid" id="units-container"></div>
     </div>
 
     <script>
@@ -210,10 +224,12 @@
         const staticTranslations = {
             "fr": {
                 "text-back": "← Retour",
+                "text-eras": "🧭 Toutes les Ères",
                 "era-subtitle": "Découvrez tous les personnages appartenant à cette ère"
             },
             "en": {
                 "text-back": "← Go Back",
+                "text-eras": "🧭 All Eras",
                 "era-subtitle": "Discover all units belonging to this timeline"
             }
         };
@@ -248,7 +264,9 @@
 
             const filteredUnits = allUnitsData.filter(u => u.era && u.era.en.toLowerCase() === targetEraNameEN.toLowerCase());
 
+            // Traduction des éléments statiques de l'interface
             document.getElementById('text-back').innerText = staticTranslations[lang]["text-back"];
+            document.getElementById('text-eras').innerText = staticTranslations[lang]["text-eras"];
             document.getElementById('era-subtitle').innerText = staticTranslations[lang]["era-subtitle"];
 
             if (filteredUnits.length > 0) {
