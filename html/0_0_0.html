@@ -3,112 +3,53 @@
 
 <head>
     <title id="big-title">0-0-0</title>
+
+    <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
+
+    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/0-0-0/0-0-0-image.png">
+
+    <!-- Lien vers la feuille de style -->
     <link rel="stylesheet" href="../style/unit-style.css">
-
-    <style>
-        /* Conteneur principal divisé en deux colonnes */
-        .main-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 20px;
-            align-items: flex-start;
-        }
-
-        /* Zone 1 : Le Header (Gauche) */
-        header.perso-container {
-            flex: 1 1 60%;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .header-top {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        /* Zone 2 : L'image de l'unité (Droite) */
-        .unit-image-zone {
-            flex: 1 1 30%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-width: 300px; /* Assure une visibilité minimum */
-        }
-
-        .unit-image-zone img {
-            width: auto;
-            max-width: 100%;
-            height: auto;
-            max-height: 500px; 
-            object-fit: contain;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Adaptabilité Mobile */
-        @media (max-width: 768px) {
-            .main-container {
-                flex-direction: column;
-            }
-
-            .header-top {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </style>
 </head>
 
 <body class="simple">
 
-    <div class="main-container">
-        <!-- ZONE 1 : GAUCHE (INFOS ET TAGS) -->
-        <header class="perso-container" style="background-color: grey;">
-            <div class="header-top">
-                <!-- Avatar unité -->
-                <img src="../image-perso/0-0-0/0-0-0-image.png" alt="0-0-0" style="width: 150px; height: auto; border-radius: 8px;">
-
-                <div>
-                    <!-- Sélecteur de langue -->
-                    <div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                            id="lang-fr" style="cursor:pointer; width:32px; height:32px; border-radius:50%;">
-                        <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
-                            alt="English" id="lang-en"
-                            style="cursor:pointer; width:32px; height:32px; border-radius:50%;">
-                    </div>
-                    <h1 id="title" style="margin: 0;"><u class="name">0-0-0</u></h1>
-                </div>
+    <!-- Entête de la page -->
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/0-0-0/0-0-0-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <div class="language-switcher">
+                <img id="lang-fr" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg"
+                    alt="Français" style="cursor:pointer; border:2px solid transparent; border-radius:50%;">
+                <img id="lang-en" src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+                    alt="English" style="cursor:pointer; border:2px solid transparent; border-radius:50%;">
             </div>
-
+            <h1 id="title"><u>0-0-0</u></h1>
             <p id="description">
                 A protocol droid specialized in etiquette, customs, translation, and torture.
             </p>
-
-            <nav class="perso" style="font-size: 18px; display: flex; flex-wrap: wrap; gap: 10px;">
-                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
-                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
-                <a class="capacite" href="../classement-perso/droïde.html" id="droid">Droid</a>
-                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
-            </nav>
             <br>
-        </header>
 
-        <!-- ZONE 2 : DROITE (IMAGE PERSONNAGE) -->
-        <div class="unit-image-zone">
-            <img src="../image-perso/0-0-0/0-0-0.png" alt="0-0-0">
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html"
+                    id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/droïde.html" id="droid">Droïd</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important;"
+                    id="unit-era">Loading Era...</a>
+            </nav>
         </div>
-    </div>
+    </header><br>
 
-</body>
-</html>
+    <!-- Image principale du personnage -->
+    <img class="first" src="../image-perso/0-0-0/0-0-0.png" alt="0-0-0"><br>
 
     <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Fatal Shock</u></h2>
     <div class="capacity-container">
@@ -183,7 +124,7 @@
     </div>
 
     <!-- Pied de page -->
-        <footer>
+    <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
 
@@ -191,24 +132,25 @@
         <script>
             // Dictionnaire français
             const translationsFr = {
-                    "big-title": "0-0-0",
-                    "title": "<u class='name'>0-0-0</u>",
-                    "description": "Un droïde de protocole spécialisé dans la bienséance, les coutumes, la traduction et la torture.",
-                    "darkside": "Côté Obscur",
-                    "support": "Soutien",
-                    "droid": "Droïde",
-                    "scoundrel": "Vaurien",
-                    "basic-attack-title": "<u>Attaque Basique : Choc Mortel</u>",
-                    "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie ainsi que Choc pendant 1 tour. Si la cible ennemie n'est pas un droïde et subit déjà Choc, il est étourdie pendant 1 tour. Si cette capacité élimine un ennemi, obtient 1 cumul de Traduction (max 3) pendant 3 tours.",
-                    "special-attack1-title": "<u>1re Spéciale : Spécialiste de la torture (délai : 5)</u>",
-                    "special-attack1": "Inflige des dégâts spéciaux et inflige Torture à la cible ennemie pendant 1 tour (ne peut pas être copié, dissipé, esquivé ou résisté). Si la cible ennemie subit déjà Torture, inflige des dégâts spéciaux à tous les ennemis et confère à tous les alliés du Côté Obscur un cumul de Traduction (max 3) pendant 3 tours.<br><br><u class='omicron'>Amélioration Omicron : En Grandes Arènes 3c3 :</u><br>Torture dure 2 tours. Si BT-1 est un allié actif, BT-1 et 0-0-0 récupèrent 20% de santé et de protection. Si cette capacité élimine un ennemi, tous les alliés du Côté Obscur gagnent 10% d’Attaque (cumulatif), doublé pour les Droïdes du Côté Obscur.",
-                    "unique-ability1-title": "<u>1re Unique : Protocole d’interrogatoire</u>",
-                    "unique-ability1": "Les alliés du Côté Obscur obtiennent 20% de Dégâts critiques aux alliés du Coté Obscur. Chaque fois qu'un allié du Côté Obscur utilise une capacité sur un ennemi qui subit déjà Torture, cet allié obtient 1 cumul de Traduction (max 3) pendant 3 tours. Les alliés du Côté Obscur gagnent 5% de pouvoir pour chaque cumul de Traduction qui leur est infligé (doublé pour les Droïdes).\n\n<u class='speciale'>Traduction :</u>-Les effets bénéfiques sont basés sur le nombre cumulatif de cumuls :\n\n<u class='speciale'>1 cumul :</u> Confère 30 % de santé maximale.\n<u class='speciale'>2 cumuls :</u> confère 15 % de chances de coup critique\n<u class='speciale'>3 cumuls :</u> Si un seul allié qui confère Traduction est présent, diminue les délais de ce personnage de 1 lorsque cet allié utilise sa capacité de base (limité à une fois par tour).",
-                    "unique-ability2-title": "<u>2e Unique : Drain Biologique</u>",
-                    "unique-ability2": "Lorsque 0-0-0 ou BT-1 obtiennent un cumul de Traduction, ils confèrent un cumul de Traduction à l’autre (limité à une fois par tour). Au début du tour de 0-0-0, inflige Verrouillage pendant 1 tour à l'ennemi non-droïde aléatoire qui ne le subit pas déjà. Lorsqu’un ennemi non-droïde est vaincu, l’allié attaquant récupère 30% de Santé et de Protection. Si l’allié attaquant est un Droïde du Côté Obscur, il gagne également un bonus d'attaque pendant 2 tours et 15% de Jauge de tour. Si l'allié attaquant est BT-1, il obtient unb onus d'attaque pendant 2 tours et 30% de Jauge de tour."
-                };
+                "big-title": "0-0-0",
+                "title": "<u>0-0-0</u>",
+                "description": "Un droïde de protocole spécialisé dans la bienséance, les coutumes, la traduction et la torture.",
+                "darkside": "Côté Obscur",
+                "support": "Soutien",
+                "droid": "Droïde",
+                "scoundrel": "Vaurien",
+                "basic-attack-title": "<u>Attaque Basique : Choc Mortel</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie ainsi que Choc pendant 1 tour. Si la cible ennemie n'est pas un droïde et subit déjà Choc, il est étourdie pendant 1 tour. Si cette capacité élimine un ennemi, obtient 1 cumul de Traduction (max 3) pendant 3 tours.",
+                "special-attack1-title": "<u>1re Spéciale : Spécialiste de la torture (délai : 5)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux et inflige Torture à la cible ennemie pendant 1 tour (ne peut pas être copié, dissipé, esquivé ou résisté). Si la cible ennemie subit déjà Torture, inflige des dégâts spéciaux à tous les ennemis et confère à tous les alliés du Côté Obscur un cumul de Traduction (max 3) pendant 3 tours.<br><br><u class='omicron'>Amélioration Omicron : En Grandes Arènes 3c3 :</u><br>Torture dure 2 tours. Si BT-1 est un allié actif, BT-1 et 0-0-0 récupèrent 20% de santé et de protection. Si cette capacité élimine un ennemi, tous les alliés du Côté Obscur gagnent 10% d’Attaque (cumulatif), doublé pour les Droïdes du Côté Obscur.",
+                "unique-ability1-title": "<u>1re Unique : Protocole d’interrogatoire</u>",
+                "unique-ability1": "Les alliés du Côté Obscur obtiennent 20% de Dégâts critiques aux alliés du Coté Obscur. Chaque fois qu'un allié du Côté Obscur utilise une capacité sur un ennemi qui subit déjà Torture, cet allié obtient 1 cumul de Traduction (max 3) pendant 3 tours. Les alliés du Côté Obscur gagnent 5% de pouvoir pour chaque cumul de Traduction qui leur est infligé (doublé pour les Droïdes).\n\n<u class='speciale'>Traduction :</u>-Les effets bénéfiques sont basés sur le nombre cumulatif de cumuls :\n\n<u class='speciale'>1 cumul :</u> Confère 30 % de santé maximale.\n<u class='speciale'>2 cumuls :</u> confère 15 % de chances de coup critique\n<u class='speciale'>3 cumuls :</u> Si un seul allié qui confère Traduction est présent, diminue les délais de ce personnage de 1 lorsque cet allié utilise sa capacité de base (limité à une fois par tour).",
+                "unique-ability2-title": "<u>2e Unique : Drain Biologique</u>",
+                "unique-ability2": "Lorsque 0-0-0 ou BT-1 obtiennent un cumul de Traduction, ils confèrent un cumul de Traduction à l’autre (limité à une fois par tour). Au début du tour de 0-0-0, inflige Verrouillage pendant 1 tour à l'ennemi non-droïde aléatoire qui ne le subit pas déjà. Lorsqu’un ennemi non-droïde est vaincu, l’allié attaquant récupère 30% de Santé et de Protection. Si l’allié attaquant est un Droïde du Côté Obscur, il gagne également un bonus d'attaque pendant 2 tours et 15% de Jauge de tour. Si l'allié attaquant est BT-1, il obtient unb onus d'attaque pendant 2 tours et 30% de Jauge de tour."
+            };
 
             const originalTexts = {};
+            let eraDataGlobal = null; // ✨ NOUVEAU : Contiendra l'objet de l'ère {en: '...', fr: '...'} reçu du JSON
 
             function saveOriginalTexts() {
                 for (const id in translationsFr) {
@@ -229,11 +171,17 @@
                         const el = document.getElementById(id);
                         if (el) el.innerHTML = replaceNewLinesWithBr(text);
                     }
-                } else if (lang === "en") {
+                } else {
                     for (const [id, text] of Object.entries(originalTexts)) {
                         const el = document.getElementById(id);
                         if (el) el.innerHTML = text;
                     }
+                }
+
+                // ✨ NOUVEAU : Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
                 }
 
                 updateFlagActive();
@@ -241,22 +189,51 @@
 
             function updateFlagActive() {
                 const lang = sessionStorage.getItem("selectedLanguage") || "en";
-                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
-                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+                document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
             }
 
-            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                // Valeur de secours si aucun paramètre ?id= n'est écrit dans l'URL de votre navigateur
+                const unitId = params.get('id') || "0-0-0";
+
+                fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+
+                        if (currentUnit && currentUnit.era) {
+                            // On enregistre les données de l'ère pour le traducteur de langue
+                            eraDataGlobal = currentUnit.era;
+
+                            // On configure le lien vers votre nouvelle page era.html avec le nom EN en paramètre
+                            eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+
+                            // On applique le texte selon la langue sélectionnée en session
+                            const currentLang = sessionStorage.getItem("selectedLanguage") || "en";
+                            eraLink.innerText = currentLang === "fr" ? currentUnit.era.fr : currentUnit.era.en;
+                        } else {
+                            eraLink.style.display = 'none'; // Masque le bouton si l'unité n'a pas d'ère définie
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement de l'ère depuis le JSON :", err);
+                        document.getElementById('unit-era').style.display = 'none';
+                    });
+            }
+
             window.addEventListener("load", () => {
                 saveOriginalTexts();
-                const lang = sessionStorage.getItem("selectedLanguage") || "en";
-                switchLanguageTo(lang);
-
-                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
-                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+                loadUnitEraData(); // ✨ NOUVEAU : Déclenche le chargement de l'ère au chargement de la page
+                switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
             });
         </script>
-
     </footer>
+
 </body>
 
 </html>
