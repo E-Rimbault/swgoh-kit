@@ -235,6 +235,15 @@
       padding-left: 16px;
     }
 
+    /* CLASSE DE SURBRILLANCE POUR LE SUIVI DE DÉFILEMENT (Scrollspy) */
+    .era-link-item.active-era {
+      background: rgba(0, 162, 255, 0.15);
+      color: var(--sw-blue-text);
+      border-left-color: var(--sw-blue-text);
+      box-shadow: 0 0 10px rgba(0, 162, 255, 0.2);
+      font-weight: bold;
+    }
+
     #scrollTopBtn {
       position: fixed;
       bottom: 20px;
@@ -450,27 +459,23 @@
 
       let activeErasCount = 0;
 
-      // --- SÉCURITÉ & TRI DYNAMIQUE PAR NUMÉRO D'ÈRE CROISSANT (0, 1, 2...) ---
       const sortedEras = [...eras].sort((a, b) => {
         const numA = a.numero_ere !== undefined ? parseInt(a.numero_ere) : 0;
         const numB = b.numero_ere !== undefined ? parseInt(b.numero_ere) : 0;
         
         if (numA !== numB) {
-          return numB - numA; // Changement effectué : Tri croissant
+          return numB - numA; 
         }
         
-        // Tri secondaire (alphabétique) si égalité sur le numéro
         const nameA = (isFr ? (a.name_fr || a.name_en) : (a.name_en || a.name_fr)).toLowerCase();
         const nameB = (isFr ? (b.name_fr || b.name_en) : (b.name_en || b.name_fr)).toLowerCase();
         return nameA.localeCompare(nameB);
       });
 
-      // Remplacement de la boucle sur "eras" par la version triée "sortedEras"
       sortedEras.forEach((era, index) => {
         const eraName = isFr ? (era.name_fr || era.name_en) : (era.name_en || era.name_fr);
         const eraTargetId = "era-" + (era.name_en ? era.name_en.toLowerCase().replace(/[^a-z0-9]/g, "-") : index);
 
-        // 1. Filtrage par ère avec tolérance renforcée (Anglais OU Français)
         let eraUnits = characters.filter(c => {
           if (!c.era) return false;
           
@@ -485,7 +490,6 @@
           return false;
         });
 
-        // 2. Application du filtre de saisie de recherche (Saisie utilisateur)
         if (searchQuery !== "") {
           eraUnits = eraUnits.filter(c => {
             const name = (c.name?.[currentLang] || c.name?.en || "").toLowerCase();
@@ -514,10 +518,24 @@
           return nameA.localeCompare(nameB);
         });
 
+        // TEXTE DU LIEN DU MENU AVEC COMPTEUR DYNAMIQUE D'UNITÉS
         const link = document.createElement("a");
         link.href = `#${eraTargetId}`;
-        link.className = "era-link-item text-truncate";
-        link.textContent = eraName;
+        link.className = "era-link-item text-truncate d-flex justify-content-between align-items-center";
+        link.setAttribute("data-target", eraTargetId); // Utile pour le système de suivi
+        
+        const labelSpan = document.createElement("span");
+        labelSpan.className = "text-truncate me-2";
+        labelSpan.textContent = eraName;
+        
+        const countBadge = document.createElement("span");
+        countBadge.className = "badge bg-secondary text-light rounded-pill";
+        countBadge.style.fontSize = "0.7rem";
+        countBadge.textContent = eraUnits.length;
+
+        link.appendChild(labelSpan);
+        link.appendChild(countBadge);
+        
         link.onclick = () => { document.getElementById("sidebar").classList.remove("open"); }; 
         linksContainer.appendChild(link);
 
@@ -525,11 +543,13 @@
         section.className = "era-section";
         section.id = eraTargetId;
 
+        // AJOUT DU COMPTEUR AUSSI DANS LE TITRE DE LA SECTION POUR PLUS DE CLARTÉ
         let headerHtml = `
           <div class="era-header">
             ${era.image ? `<img src="${era.image}" alt="${eraName}" onerror="this.style.display='none'">` : ''}
-            <div>
-              <h3 class="era-header-title">${eraName}</h3>
+            <div class="d-flex align-items-center justify-content-between w-100 flex-wrap gap-2">
+              <h3 class="era-header-title m-0">${eraName}</h3>
+              <span class="badge bg-dark border border-secondary text-info fs-6">${eraUnits.length} ${isFr ? 'unité(s)' : 'unit(s)'}</span>
             </div>
           </div>
         `;
@@ -586,6 +606,32 @@
       if (activeErasCount === 0) {
         container.innerHTML = `<p class="text-center text-muted p-4">${isFr ? "Aucun résultat pour votre recherche." : "No results match your search."}</p>`;
       }
+
+      // Lancer le calcul de la surbrillance immédiatement après le rendu de la timeline
+      spyScroll();
+    }
+
+    // FONCTION DE SUIVI DÉNAMIQUE DU DÉFILEMENT (SCROLLSPY)
+    function spyScroll() {
+      const sections = document.querySelectorAll(".era-section");
+      const navLinks = document.querySelectorAll("#eras-quick-links .era-link-item");
+      
+      let currentSectionId = "";
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        // On considère l'ère active si le scroll a dépassé le haut de l'ère (avec une marge de 100px pour le confort visuel)
+        if (window.scrollY >= sectionTop - 100) {
+          currentSectionId = section.id;
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active-era");
+        if (link.getAttribute("data-target") === currentSectionId) {
+          link.classList.add("active-era");
+        }
+      });
     }
 
     document.getElementById("search-input").oninput = () => {
@@ -604,7 +650,13 @@
     document.getElementById("mobile-nav-toggle").onclick = () => document.getElementById("sidebar").classList.toggle("open");
     
     const scrollBtn = document.getElementById("scrollTopBtn");
-    window.onscroll = () => scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    
+    // ÉCOUTEUR UNIQUE DU SCROLL COMPRENANT LE BOUTON RETOUR EN HAUT + LE SCROLLSPY
+    window.onscroll = () => {
+      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+      spyScroll();
+    };
+
     scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
     initDatabase();
