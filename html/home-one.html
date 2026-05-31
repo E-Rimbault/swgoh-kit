@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Home One</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-vaisseaux/home-one/home-one-image.png">
+    <link rel="stylesheet" href="../style/ship-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-vaisseaux/home-one/home-one-image.png" alt="Home One" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Home One</u></h1>
+            <p id="description">
+                Versatile Rebel Capital Ship that uses Advantage and bonus attacks to turn the tide
+            </p>
+            <br>
+
+            <nav class="perso ship-nav">
+                <!-- Partie gauche : catégories -->
+                <div class="nav-left">
+                    <a class="capacite" style="color: blue !important;" href="../vaisseaux/vaisseau-coté-lumineux.html" id="lightside">Light Side</a>
+                    <a class="class" href="../vaisseaux/vaisseau-amiral.html" id="amiral">Capital Ship</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-rebelle.html" id="rebel">Rebel</a>
+                </div>
+
+                <!-- Partie droite : unités associées -->
+                <div class="nav-right">
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href="../html/ackbar.html"><img src="../image-perso/admiral-ackbar/admiral-ackbar-image.png" alt="" class="ship-unit-image"></a>
+                        <span id="unit-ackbar" class="ship-unit-name">Fleet Commander : Admiral Ackbar</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-vaisseaux/home-one/home-one.png" alt="Home One"><br>
+
+    <!-- Capacités du vaisseau -->
+
+    <h2 class="titre" id="crew-ability-title">
+        <u>fleet commander Ability - <strong><u class="speciale">Admiral Ackbar</u></strong> : Band Together</u>
+    </h2>
+
+    <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/home-one/home-one-commander.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/ackbar.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/admiral-ackbar/admiral-ackbar-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability">
+                Whenever an ally attacks out of turn, they have +50% Critical Damage and gain Protection Up (30%) for 2 turns. These bonuses are doubled for Rebel allies.
+                <br><br>
+                If there are no deployed Scoundrel allies and a Rebel B-Wing ally is in Reinforcements, Home One gets a bonus turn at the start of battle with only Call Reinforcement and Mon Cal Cannons available to use, and reduce the cooldown of Call Reinforcement by 1.
+                <br><br>
+                <u class="renfort">Reinforcement Bonus:</u> Reinforcements gain Advantage for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité basique-->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Mon Cal Cannons </u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="home one basic" src="../image-vaisseaux/home-one/home-one-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and call a random ally to Assist.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité spécial-->
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Seize the Advantage (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="home one special 1" src="../image-vaisseaux/home-one/home-one-special1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Dispel all debuffs on target ally. That ally recovers 50% Health and 50% Protection, and all allies gain Advantage for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité spécial-->
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Defiant Volley (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="home one special 2" src="../image-vaisseaux/home-one/home-one-special2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Special damage to all enemies and call two random allies to Assist.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité spécial-->
+    <h2 class="titre" id="special-attack3-title"><u>Special Attack : Master Plan (cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="home one special 3" src="../image-vaisseaux/home-one/home-one-special3.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack3">
+                All allies gain 100% Turn Meter and the <u class="speciale">Master Plan</u> buff for 1 turn, which can't be Prevented or Dispelled. This ability starts on cooldown.
+                <br><br>
+                <u class="speciale">Master Plan:</u> After this ship uses an ability during its turn, their cooldowns are reset and they gain 100% Turn Meter.
+            </p>
+        </div>
+    </div>
+
+
+    <!--Capacité de type renfort-->
+    <h2 class="titre" id="reinforcement-title"><u>Reinforcement Ability: Call Reinforcement (cooldown : 2)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="home one reinforcement" src="../image-vaisseaux/home-one/home-one-reinforcement.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="reinforcement-description">
+                Call one Reinforcement.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            const translationsFr = {
+                "big-title": "Home One",
+                "title": "<u>Home One</u>",
+                "description": "Vaisseau amiral rebelle polyvalent qui utilise l'avantage et les attaques bonus pour inverser le cours de la bataille",
+                "lightside": "Coté Lumineux",
+                "amiral": "Vaisseau amiral",
+                "rebel": "Rebelle",
+                "unit-ackbar": "Commandant de la flotte : Amiral Ackbar",
+
+                "crew-ability-title": "<u>Capacité commandant de la flotte :  - <strong><u class='speciale'>Amiral Ackbar</u></strong> : Rassemblement</u>",
+                "crew-ability": "Lorsqu'un allié attaque hors de son tour, il obtient +50 % de dégâts critiques et un binus de protection (30 %) pendant 2 tours. Ces bonus sont doublés pour les alliés Rebelles.\n\nSi aucun allié Vaurien n'est déployé et qu'un B-wing rebelle allié fait partie des renforts, le Home One obtient un tour bonus au début de la bataille, mais ne peut utiliser qu'Appeler les renforts et Canons Mon Calamari puis le délai d'Appeler les renforts est réduit de 1.\n\n<u class='renfort'>Bonus de renforts :</u> les renforts obtiennent Avantage pendant 1 tour.",
+
+                "basic-attack-title": "<u>Attaque Basique: Canon Mon Calamari</u>",
+                "basic-attack": "inflige des dégâts physiques  à une cible ennemie et invoque un allié aléatoire.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : prendre l'avantage (délai : 3)</u>",
+                "special-attack1": "Dissipe tous les affaiblissements sur la cible alliée. Cet allié récupère 50 % de santé et 50 % de protection. Tous les alliés gagnent l'avantage pendant 2 tours.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Salve provocatrice (délai : 3)</u>",
+                "special-attack2": "Inflige des dégâts spéciaux à tous les ennemis et invoque deux alliés aléatoires.",
+
+                "special-attack3-title": "<u>Attaque Spéciale : Plan de maître (délai : 5)</u>",
+                "special-attack3": "Tous les alliés gagnent 100 % de jauge de tour et l'amélioration <u class='speciale'>Plan de maître</u> pendant 1 tour, ce qui ne peut pas être évité ou dissipé. Cette capacité commence avec un délai.\n\n<u class='speciale'>Plan de maître :</u> lorsque ce vaisseau utilise une capacité durant son tour, ses délais sont réinitialisés et sa jauge de tour se remplit de 100 %.",
+
+                "reinforcement-title": "<u>Capacité de Renfort : Appel de renfort (délai :2)</u>",
+                "reinforcement-description": "Appelez un renfort",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Marrok</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/marrok/marrok-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/marrok/marrok-image.png" alt="Marrok" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Marrok</u></h1>
+            <p id="description">
+                A daunting support who uses Purge to terrorize his enemies
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/inquisitorious.html" id="inquisitorius">Inquisitorius</a>
+                <a class="capacite" href="../classement-perso/mercenaire.html" id="mercenary">Mercenary</a>
+                <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Force User</a>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/marrok/marrok.png" alt="Marrok"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Spinning Slash</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Marrok basic" src="../image-perso/marrok/marrok-basique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to the target enemy. If the enemy had a stack of Purge, inflict Tenacity Down for 1 turn. If it's Marrok's turn, all Mercenary allies gain Defense Up for 1 turn, otherwise inflict 3 stacks of Purge on the target enemy.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Desperate Getaway (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Marrok special" src="../image-perso/marrok/marrok-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to all enemies and deal an additional instance of damage to the target enemy. Expose target enemy for 1 turn.
+                <br><br>
+                If Marrok has 20 or more stacks of Soldier of Fortune, inflict Ability Block on all enemies with Purge for 1 turn.
+                <br><br>
+                Consume all stacks of Purge on the target enemy. If 6 stacks were consumed this way, reset this ability's cooldown.
+                <br><br>
+                For each stack of Purge consumed, grant Advantage to a random Mercenary ally who doesn't have it for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Masked Hunter</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Marrok unique" src="../image-perso/marrok/marrok-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of battle, Marrok gains 30% Max Health and Max Protection, and 50% Potency.
+                <br><br>
+                At the start of his turn, Marrok inflicts Defense Down for 1 turn on a random enemy with Purge, which can't be resisted. Whenever another Mercenary ally uses a Special ability, Marrok will assist.
+                <br><br>
+                Whenever Marrok scores a critical hit, all Mercenary allies gain 5% Offense (stacking, max 100%) until the end of the encounter. Whenever an enemy resists a debuff from a Mercenary ally, all Mercenary allies gain 10% Turn Meter. Whenever another Mercenary ally uses an ability on their turn, inflict a stack of Purge on the target enemy, which can't be resisted. Whenever a Mercenary ally reaches 20% Health for the first time, they gain Damage Immunity for 1 turn.
+                <br><br>
+                While Marrok has 20 or more stacks of Soldier of Fortune, whenever he attacks out of turn, reduce the Offense of the target enemy by 20% until the end of their next turn. If Marrok has 40 or more stacks of Soldier of Fortune, whenever he attacks out of turn, apply additional 3 stacks of Purge on all enemies and using Desperate Getaway will Expose all enemies for 2 turns.
+                <br><br>
+                <u class="omicron">OOmicron Boost : While in Territory Battles:</u> At the start of battle, Marrok gains 2 stacks of Soldier of Fortune for each enemy. If Marrok is present, enemies can't be revived. All Inquisitorious allies are immune to percent based Health damage.
+                <br><br>
+                While an enemy has Purge, they can't recover Health and Protection, and Inquisitorious allies attacks deal additional True damage.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Soldier of Fortune</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Marrok unique" src="../image-perso/marrok/marrok-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                At the start of battle, Marrok gains 1 stack of Soldier of Fortune per Jedi or Light Side Unaligned Force User enemy.
+                <br><br>
+                At start of their turn all Mercenary allies gain 2% Defense Penetration for each stack of Soldier of Fortune they have until the end of their turn.
+                <br><br>
+                Marrok gains a stack of Soldier of Fortune for each stack of Purge inflicted by another Mercenary ally.
+                <br><br>
+                Marrok loses 3 stacks of Soldier of Fortune whenever he uses Desperate Getaway.
+                <br><br>
+                Whenever a Mercenary ally gains a stack of Soldier of Fortune, they recover 5% Health and Protection.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability3-title">Unique Ability : Patience</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Marrok unique" src="../image-perso/marrok/marrok-unique3.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability3">
+                At the start of battle, if all allies (minimum 3) are Inquisitorius, this character gains 20% Max Health, Max Protection, and Potency.
+                <br><br>
+                Dispel debuffs from a random Inquisitorius ally whenever a stack of Purge is consumed or dispelled by any Inquisitorius ally.
+                <br><br>
+                Whenever an enemy damages this character with an attack while attacking out of turn, that enemy gains a stack of Purge (max 6), which can't be evaded or resisted.
+                <br><br>
+                Whenever Purge is consumed or dispelled on an enemy, this character gains 3% Turn Meter.
+            </p>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Marrok",
+                "title": "<u>Marrok</u>",
+                "description": "Un soutien effrayant qui utilise Purge pour terroriser ses enenemis.",
+                "darkside": "Coté Obscur",
+                "support": "Soutien",
+                "inquisitorius": "Inquisitorius",
+                "mercenary": "Mercenaire",
+                "force-user": "Utilisateur de la Force non aligné",
+
+                "basic-attack-title": "<u>Attaque Basique: Taillade tourbillonnante</u>",
+                "basic-attack": "inflige des dégâts spéciaux à la cible ennemie. Si l'ennemi disposait d'un cumul de Purge, inflige un malus de ténacité pendant 1 tour. Si c'est au tour de Marrok, tous les alliés Mercenaires obtiennent un bonus de défense pendant 1 tour. Sinon, inflige  3 cumuls de Purge à la cible ennemie.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Fuite désespérée (délai : 4)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à tous les ennemis et inflige des dégâts supplémentaires à la cible ennemie; Inflige Exposition à la cible ennemie pendant 1 tour.\n\nSi Marrok dispose de 20 cumuls ou plus de Soldat de fortune, inflige Entrave des capacités à tous les ennemis qui disposent de Purge pendant 1 tour.\n\nConsomme tous les cumuls de Purge que subit la cible ennmie. Si 6 cumuls ont été consommés de cette façon, le délai de cette capacité est réinitialisé.\n\nPour chaque cumul de Purge consommé, confère Avantage à un allié Mercenaire aléatoire qui n'en dispose pas déjà pendant 2 tours.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Chasseur masqué</u>",
+                "unique-ability1": "Au début de la bataille, Marrok gagne 30 % de santé maximale et de protection maximale, ainsi que 50 % de pouvoir.\n\nAu début de son tour, Marrok inflige un malus de défense pendant 1 tour à un ennemie aléatoire subissant Purge (ne peut pas être résisté) Chaque fois qu'un autre allié Mercenaire utilise une capacité spéciale, Marrok est invoqué.\n\nChaque fois que Marrok inflige un coup critique, tous les alliés Mercenaires obtiennent 5 % d'attaque (cumulatif, 100 % maximum) jusqu'à la fin de la bataille. Chaque fois qu'un ennemi résisté à un affaiblissement d'un allié Mercenaire, tous les alliés Mercenaires obtiennent 10 % de jauge de tour. Chaque fois u'un autre allié Mercenaire utilise une capacité pendant son tour, inflige un cumul de Purge à la cible ennemie (ne peut pas être résisté). Chaaque fois qu'un allié Mercenaire atteint 20 % de santé pour la première fois, ce dernier obtient Immunité aux dégâts pendant 1 tour.\n\nLorsque Marrok dispose de 20 cumuls ou plus de Soldat de fortune, à chaque fois qu'il attaque en dehors de son tour, il diminue l'attaque de la cible ennemie de 20 % jusqu'à la fin du prochain tour de cet ennemi. Si Marrok dispose de 40 cumuls ou plus de Soldat de fortune, à chaque fois qu'il attaque en dehors de son tour, applique 3 cumuls de Purge supplémentaires à tous les ennemis et Fuite désespérée inflige Exposition à tous les ennemis pendant 2 tours.\n\n<u class='omicron'>Amélioration Omicron : Dans les Batailles de territoire :</u> au début de la bataille, Marrok gagne 2 cumuls de Soldat de fortune par ennemi. Si Marrok est présent, les ennemis ne peuvent pas être ranimés. Tous les alliés de l'Inquisitorius sont immunisés contre les dégâts de pourcentage de santé.\n\nLorsqu'un ennemi dipose de Purge, in ne peut pas récupérer de santé et de protection, et les attaques des alliés de l'Inquisitorius infligent des dégâts réels supplémentaires.  ",
+
+                "unique-ability2-title": "<u>Capacité Unique : Soldat de fortune</u>",
+                "unique-ability2": "Au début de la bataille, Marrok gagne 1 cumul de Soldat de fortune par ennemi Jedi ou utilisateur de la Force non aligné du Coté Lumineux.\n\nAu début de leur tour, tous les alliés Mercenaires gagnent 2 % de pénétration de défense pour chaque cumul de Soldat de fortune dont ils disposent jusqu'à la fin de leur tour.\n\nMarrok gagne un cumul de Soldat de fortune pour chaque cumul de Purge infligé par un autre Mecenaire allié.\n\nMarrok perd 3 cumuls de Soldat de fortune à chaque fois qu'il utilise Fuite désespérée.\n\nLorsue allié Mercenaire obtient un cumul de Soldat de fortune, il récupère 5 % de santé et de protection",
+
+                "unique-ability3-title": "<u>Capacité Unique : Patience</u>",
+                "unique-ability3": "Au début de la bataille, si tous les alliés (3 minimum) sont de l'Inquisitorius, ce personnage obtient 20 % de santé maximale, de protection maximale et de pouvoir.\n\nDissipe les affaiblissements d'un allié de l'Inquistorius aléatoire chaque fois qu'un cumul de Purge est consommé ou dissipé par n'importe quel allié de l'Inquisitorius.\n\nLorsqu'un ennemi inflige des dégâts à ce personnage en dehors de son tour, il obtient un cumul de Purge (maximum 6, il ne peut pas être esquivé ou résisté).\n\nLorsque les cumuls de Purge sont consommés ou dissipés sur un ennemi, ce personnage obtient 3 % de jauge de tour.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+    </footer>
+</body>
+
+</html>

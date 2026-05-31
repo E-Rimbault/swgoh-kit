@@ -1,107 +1,229 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Rey (Pilleuse)</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Rey (Scavenger)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/rey_pilleuse/rey-image.png">
-
-    <!-- Lien vers la feuille de style -->
-    <link rel="stylesheet" href="../style/styles.css">
-    <link rel="stylesheet" href="../style/capacite.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/rey_pilleuse/rey-image.png" alt="Rey (Scavenger)" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>Rey (Pilleuse)</u></h1>
-        <p>
-            Attaquant prenant des risques qui inflige de lours dégâts et dispose de plus de chances d'esquive, mais qui est vulnérable aux affaiblissements.
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: blue;" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/résistance.html">Résistance</a>
-            <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html">Utilisateur de la Force</a>
-        </nav>
+            <h1 id="title"><u>Rey (Scavenger)</u></h1>
+            <p id="description">
+                Risky Attacker that has high damage and evasion, but is vulnerable to debuffs
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/résistance.html" id="resistance">Resistance</a>
+                <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Forc User</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important;" id="unit-era">Loading Era...</a>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/rey-falcon.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/" alt="rey falcon">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: Rey's Millennium Falcon</u>
+                </h2>
+            </section>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/rey_pilleuse/rey-pilleuse.png" alt="Rey"><br>
+    <img class="first" src="../image-perso/rey_pilleuse/rey-pilleuse.png" alt="Rey (Scavenger)"><br>
 
-        <!-- Section pour les différentes attaques spéciales -->
-        <h2 class="titre"><u>attaque basique : Frappe changeante</u></h2>    
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="rey basique" src="../image-perso/rey_pilleuse/rey-basique.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Inflige des dégâts physiques à une cible ennemie avec 40% de chances de prévoyance pendant 2 tours.
-                </p>
-            </div>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Shifting Strike</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Rey (Scavenger) basic" src="../image-perso/rey_pilleuse/rey-basique.png">
         </div>
-
-    
-        <h2 class="titre"><u>1ere spéciale: Influence (délai: 4)</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="rey spé 1" src="../image-perso/rey_pilleuse/rey-spe1.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Inflige des dégâts physiques à une cible ennemie. De plus, Rey gagne un bonus de Prévoyance pendant 2 tours si elle ne dispose pas d'effet<br>
-                    positifs, et un bonus d'attaque pendant 3 tours si elle dispose d'effets positifs.
-                </p>
-            </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 40% chance to gain Foresight for 2 turns.
+            </p>
         </div>
+    </div>
 
-    
-        <h2 class="titre"><u>2eme spéciale: Déluge de coups (délai: 4)</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="rey spé 2" src="../image-perso/rey_pilleuse/rey-spe2.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Inflige des dégâts physiques à une cible ennemie deux fois, avec 55% de chances d'infliger des dégâts une troisième fois. Si Rey dispose d'effets<br>
-                    positifs; elle infligera un tour supplémentaires de dégâts. Le deuxième coup et les suivants infligent moins de dégâts.
-                </p>
-            </div>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Leverage (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Rey (Scavenger) spe 1" src="../image-perso/rey_pilleuse/rey-spe1.png">
         </div>
-
-
-        <h2 class="titre"><u>capacité unique: Frappes ultimes</u></h2>
-        <div class="capacity-container">
-            <div class="left-column">
-                <img class="attaque" alt="rey unique" src="../image-perso/rey_pilleuse/rey-unique.png">
-            </div>
-            <div class="right-column">
-                <p class="attaque">
-                    Tant qu'elle ne souffre pas d'affaiblissements, Rey a un bonus d'attaque de +25% et elle inflige Confusion pendant 2 tours<br>
-                    lorsqu'elle utilise une capacité spéciale. Cet effet ne peut pas être résisté.
-                </p>
-            </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy. In addition, Rey gains Foresight for 2 turns if she doesn't have any positive status effects, and Offense Up for 3 turns if she does.
+            </p>
         </div>
+    </div>
 
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Flurry of Blows (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Rey (Scavenger) spe 2" src="../image-perso/rey_pilleuse/rey-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to target enemy twice, with a 55% chance to deal damage a third time. If Rey has any positive status effects, she will deal damage one additional time. Hits after the first deal reduced damage.
+            </p>
+        </div>
+    </div>
 
-        <footer>
-            <!-- Bouton pour remonter en haut de la page -->
-            <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-    
-            <!-- Script JavaScript pour le bouton -->
-            <script src="../javascript/bouton.js"></script>
-        </footer>
-    </body>
-    </html>    
-    
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Focused Strikes</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Rey (Scavenger) unique" src="../image-perso/rey_pilleuse/rey-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                As long as she has no debuffs, Rey has +25% Offense and inflicts Daze for 2 turns whenever she uses a Special ability. This effect can't be Resisted.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Rey (Pilleuse)",
+                "title": "<u>Rey (Pilleuse</u>",
+                "description": "Attaquant prenant des risques qui inflige de lourds dégâts et dispose de plus de chances d'esquive, mais qui est vulnérable aux affaiblissements.",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "resistance": "Résistance",
+                "force-user": "Utilisateur de la Force non aligné",
+                "crew-members": "Membres d’Équipage",
+
+                "basic-attack-title": "<u>Attaque Basique: Frappe changeante</u>",
+                "basic-attack": "inflige des dégâts physiques à une cible ennemie avec 40 % de chances de Prévoyance pendant 2 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Influence (délai : 4)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie. De plus, Rey gagne un bonus de Prévoyance pendant 2 tourssi elle ne dispose pas d'effets pôsitifs, et un bonus d'attaque pendant 3 tours si elle dispose d'effets positifs.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Déluge de coups (délai : 4)</u>",
+                "special-attack2": "Inflige des dégâts physiques à une cible ennemie deux fois, avec 55 % de chances d'infliger des dégâts une troisième fois. Si Rey dispose d'effets positifs, elle infligera un tour supplémentaire de dégâts. Le deuxième coup et les suivants infligent moins de dégâts.",
+
+                "unique-ability-title": "<u>Capacité Unique : Frappes ciblées </u>",
+                "unique-ability": "Tant qu'elle ne souffre pas d'affaiblissements, Rey a un bonus d'attaque de +25 % et elle inflige la confusion lorsqu'elle utilise une capacité spéciale. Cet effet ne peut pas être résisté.",
+
+                "ship-title": "<u>Vaisseau : Faucon Millenium de Rey</u>",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null; // ✨ NOUVEAU : Contiendra l'objet de l'ère {en: '...', fr: '...'} reçu du JSON
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // ✨ NOUVEAU : Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                // Valeur de secours si aucun paramètre ?id= n'est écrit dans l'URL de votre navigateur
+                const unitId = params.get('id') || "rey (scavenger)";
+
+                fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+
+                        if (currentUnit && currentUnit.era) {
+                            // On enregistre les données de l'ère pour le traducteur de langue
+                            eraDataGlobal = currentUnit.era;
+
+                            // On configure le lien vers votre nouvelle page era.html avec le nom EN en paramètre
+                            eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+
+                            // On applique le texte selon la langue sélectionnée en session
+                            const currentLang = sessionStorage.getItem("selectedLanguage") || "en";
+                            eraLink.innerText = currentLang === "fr" ? currentUnit.era.fr : currentUnit.era.en;
+                        } else {
+                            eraLink.style.display = 'none'; // Masque le bouton si l'unité n'a pas d'ère définie
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement de l'ère depuis le JSON :", err);
+                        document.getElementById('unit-era').style.display = 'none';
+                    });
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                loadUnitEraData(); // ✨ NOUVEAU : Déclenche le chargement de l'ère au chargement de la page
+                switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+        </script>
+    </footer>
+
+</body>
+
+</html>

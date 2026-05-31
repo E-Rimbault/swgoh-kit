@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Plo Koon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/plo-koon/plo-koon-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/plo-koon/plo-koon-image.png" alt="Plo Koon" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Plo Koon</u></h1>
+            <p id="description">
+                Jedi Tank with Clone synergy, reliable enemy Dispel and anti-Stealth
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html" id="republic-galactic">galactic Republic</a>
+                <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
+                <a class="capacite" href="../classement-perso/vanguard.html" id="vangard">Jedi Vanguard</a>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/plo-koon-starfighter.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/plo-koon/plo-koon-image.png" alt="Plo Koon's Jedi Starfighter">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: Plo Koon's Jedi Starfighter</u>
+                </h2>
+            </section>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/plo-koon/plo-koon.png" alt="plo koon"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Quelling Blow</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="plo koon basic" src="../image-perso/plo-koon/plo-koon-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and dispel all buffs on them. If an effect is dispelled, Plo Koon gains Defense Up for 3 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Force Judgment (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="plo koon spe 1" src="../image-perso/plo-koon/plo-koon-special1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to all enemies with a 70% chance to inflict Offense Down for 3 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Take Charge (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="plo koon spe 2" src="../image-perso/plo-koon/plo-koon-special2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                All allies gain Defense Up for 4 turns. Clone and Jedi allies gain 50% Turn Meter and other allies gain half that amount.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Overwatch</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="plo koon lead" src="../image-perso/plo-koon/plo-koon-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Each ally has a 55% chance to remove Stealth from each enemy at the start of their turn. If they dispel any enemies, they gain Offense Up for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Plo Koon",
+                "title": "<u>Plo Koon</u>",
+                "description": "Tank Jedi disposant de synergie avec les clones, ainsi que des effets de dissipation et de l'anti-camouflage.",
+                "lightise": "Coté Lumineux",
+                "tank": "Tank",
+                "leader": "Chef",
+                "republic-galactic": "République Galactique",
+                "jedi": "Jedi",
+                "vanguard": "Avant-garde Jedi",
+
+                "basic-attack-title": "<u>Attaque Basique: Coup étouffant</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et dissipe toutes ses améliorations. Si un effet est dissipé, Plo Koon gagne un bonus de défense pendant 3 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Jugement de Force (délai : 4)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à tous les ennemis avec 70 % de chances d'infliger un malus d'attaque pendant 3 tours.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Prise de commandement (délai : 4)</u>",
+                "special-attack2": "Tous les alliés gagnent un bonus de défense pendant 4 tours. La jauge de tour des clones et Jedi alliés se remplit de 50 % et celles des autres alliés de la moitié de cette valeur.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Veille</u>",
+                "lead-ability": "Au début de son tour, chaque allié a 55 % de chances de percer le camouflage de chaque ennemi. Les alliés gagnent un bonus d'attaque pendant 1 tour s'ils parviennent à percer le camouflage d'un ennemi.",
+
+                "ship-title": "<u>Vaisseau : Chasseur stellaire Jedi de Plo Koon</u>",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+
+    </footer>
+</body>
+
+</html>

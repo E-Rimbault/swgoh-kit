@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Hyena Bomber</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-vaisseaux/hyena/hyena-image.png">
+    <link rel="stylesheet" href="../style/ship-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-vaisseaux/hyena/hyena-image.png" alt="Hyena Bomber" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Hyena Bomber</u></h1>
+            <p id="description">
+                Robust Separatist Tank that inflicts Buzz Droids and protects allies
+            </p>
+            <br>
+
+            <nav class="perso ship-nav">
+                <!-- Partie gauche : catégories -->
+                <div class="nav-left">
+                    <a class="capacite" style="color: red !important;" href="../vaisseaux/vaisseau-coté-obscur.html" id="darkside">Dark Side</a>
+                    <a class="class" href="../vaisseaux/vaisseau-tank.html" id="tank">Tank</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-séparatiste.html" id="separatist">Separatist</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-droïde.html" id="droïd">Droïd</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-vaisseaux/hyena/hyena.png" alt="Hyena Bomber"><br>
+
+    <!-- Capacités du vaisseau -->
+
+    <!--Capacité basique-->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Precision Blast</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Hyena Bomber basic" src="../image-vaisseaux/hyena/hyena-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and dispel all debuffs on the weakest Separatist ally.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité spécial-->
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Synchronized Salvo (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Hyena Bomber special 1" src="../image-vaisseaux/hyena/hyena-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies and inflict 1 Buzz Droid, which can't be resisted. This attack ignores Defense.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité unique-->
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Chatter</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Hyena Bomber unique" src="../image-vaisseaux/hyena/hyena-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Hyena Bomber ignores Taunt, and has +50% Defense for each Separatist ally and +10% Tenacity for each Droid ally.
+                <br><br>
+                It also Taunts for 1 turn whenever an enemy gains a Buzz Droid or an allied Vulture Droid falls below 50% Health.
+                <br><br>
+                Whenever a Separatist ally is Target Locked, they gain Critical Hit Immunity for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité de type renfort-->
+    <h2 class="titre" id="reinforcement-title"><u>Reinforcement Ability: Photoreceptors</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Hyena Bomber reinforcement" src="../image-vaisseaux/hyena/hyena-reinforcement.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="reinforcement-description">
+                <u class='speciale'>Enter Battle :</u> Separatist allies have +25% Accuracy.
+                <br><br>
+                Additionally, they gain Speed Up and Critical Hit Immunity for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            const translationsFr = {
+                "big-title": "Droïde bombardier de classe Hyène",
+                "title": "<u>Droïde bombardier de classe Hyène</u>",
+                "description": "Tank séparatiste robuste qui libère des vibro droïdes et protège ses alliés.",
+                "darkside": "Coté Obscur",
+                "tank": "Tank",
+                "separatist": "Séparatiste",
+                "droïd": "Droïde",
+
+                "basic-attack-title": "<u>Attaque Basique: Explosion de précision</u>",
+                "basic-attack": "inflige des dégâts physiques à une cible ennemie et dissipe tous les affaiblissements affectant l'allié séparatiste le plus faible.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Salve synchronisée (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis et inflige 1 vibro droïde, qui ne peut pas être résisté. Cette attaque ignore la défense.",
+
+                "unique-ability-title": "<u>Capacité Unique : Commérage</u>",
+                "unique-ability": "Le Droïde bombardier de classe Hyène ignore Raillerie, gagne +50 % de défense pour chaque allié séparatiste et +10 % de ténacité pour chaque allié droïde.\n\nIl utilise également Raillerie pendant 1 tour à chaque fois qu'un ennemi gagne un vibro droïde ou qu'un droïde-vautour allié a moins de 50 % de santé.\n\nChaque fois qu'un allié séparatiste est verrouillén il gagne l'Immunité aux coups critiques pendant 2 tours.",
+
+                "reinforcement-title": "<u>Capacité de Renfort : Photorécepteurs</u>",
+                "reinforcement-description": "<u class='speciale'>Rejoindre la Bataille :</u> les alliés séparatistes gagnent +25 % de précision.\n\nDe plus, ils obtiennent un bonus de vitesse et l'Immunité aux coups critiques pendant 2 tours.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+    </footer>
+</body>
+
+</html>

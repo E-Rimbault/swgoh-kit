@@ -33,10 +33,12 @@
             <br>
 
             <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
-                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="suport">Support</a>
                 <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
                 <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="capacite" href="../classement-perso/bsi.html" id="isb">ISB</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important;" id="unit-era">Loading Era...</a>
             </nav>
         </div>
     </header>
@@ -53,19 +55,21 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
-                Deal Special damage to target enemy and inflict Tenacity Down for 3 turns.
+                Deal Special damage to target enemy and inflict Tenacity Down for 3 turns. If the enemy is already Exposed at the start of the turn, Target Lock them for 2 turns.
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Death Trooper Assault (cooldown: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Deployed Garrisons (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Director Krennic special 1" src="../image-perso/krennick/krennick-spe1.png">
+            <img class="attaque" alt="Director Krennic spe1" src="../image-perso/krennick/krennick-spe1.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1">
-                Deal Special damage to all enemies with a 70% chance to inflict Stagger for 2 turns. If any enemies are debuffed, revive Death Trooper with 20% Health for each debuffed enemy. If Death Trooper is present, he is called to Assist.
+                Deal Special damage to all enemies with a 70% chance to Stagger them for 2 turns. Blind all Target Locked or Exposed enemies for 2 turns.
+                <br><br>
+                If any enemies are debuffed, revive Death Trooper with 20% Health for each debuffed enemy. If Death Trooper is present, he is called to assist. Call all other ISB allies that are Rank 2 or above to assist, dealing 50% less damage.
             </p>
         </div>
     </div>
@@ -73,11 +77,19 @@
     <h2 class="titre" id="special-attack2-title"><u>Special Attack : Experimental Weaponry (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Director Krennic special 2" src="../image-perso/krennick/krennick-spe2.png">
+            <img class="attaque" alt="Director Krennic spe2" src="../image-perso/krennick/krennick-spe2.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack2">
-                Deal Special damage to target enemy and inflict a debuff (Attacker: Stun, Healer/Support: Ability Block, Tank: Buff Immunity) for 2 turns. If the target is a Rebel, also inflict Speed Down for 2 turns.
+                Deal Special damage to target enemy and inflict a debuff:
+                <br>
+                <strong>- Attackers:</strong> Stun for 2 turns<br>
+                <strong>- Healers and Supports:</strong> Ability Block for 2 turns<br>
+                <strong>- Tanks:</strong> Buff Immunity for 2 turns
+                <br><br>
+                If the target is a Rebel, also inflict Speed Down for 2 turns.
+                <br><br>
+                If all allies are ISB, Expose and inflict Vulnerable to the target enemy for 2 turns, and Director Krennic gains Speed Up for 2 turns.
             </p>
         </div>
     </div>
@@ -94,16 +106,28 @@
         </div>
     </div>
 
-    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Immeasurable Power</u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : </u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Director Krennic unique" src="../image-perso/krennick/krennick-unique.png">
+            <img class="attaque" alt="Director Krennic unique 1" src="../image-perso/krennick/krennick-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque" id="unique-ability">
-                Director Krennic gains 10% Critical Damage for each debuffed enemy and 10% Critical Damage for each Rebel enemy. If Death Trooper is present he also gains these bonuses.
+            <p class="attaque" id="unique-ability1">
+                Director Krennic gains 10% Critical Damage for each debuffed enemy and 10% Critical Damage for each Rebel enemy. Director Krennic also gains 10% Critical Chance for each ISB ally. If Death Trooper is present he also gains these bonuses.
                 <br><br>
                 <u class="omicron">Omicron Boost : While in Grand Arenas:</u> Krennic gains +30% Defense Penetration, Health, and Offense. If Death Trooper is present he also gains these bonuses. Whenever Krennic attacks, Death Trooper is called to assist and has his cooldowns reduced by 1. While allied Death Trooper is active, both Krennic and Death Trooper ignore Taunt effects.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Chain of Command</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Director Krennic unique 2" src="../image-perso/krennick/krennick-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                If all allies are ISB, Director Krennic starts the encounter at Rank 3 and can't have his Rank decreased. Whenever a Rank 3 ISB ally is defeated, dispel all buffs from all enemies inflicted with Target Lock. If Major Partagaz is the ally in the Leader slot, all chance effects are increased to 100%. If there are 5 ISB allies present at the start of battle, Director Krennic summons a Death Trooper with the ISB tag, and when Director Krennic uses the ability Deployed Garrisons, summon Death Trooper instead of reviving him. Grant Death Trooper Rank 1, which can't be increased.
             </p>
         </div>
     </div>
@@ -118,29 +142,35 @@
             const translationsFr = {
                 "big-title": "Directeur Krennic",
                 "title": "<u>Directeur Krennic</u>",
-                "description": "Impressionnant soutien de l'Empire qui inflige des malus dévastateurs et ralentit les ennemis.",
+                "description": "Impressionnant soutien de l'Empire qui inflige des malus dévastateurs et ralentit les ennemis",
+
                 "darkside": "Coté Obscur",
                 "support": "Soutien",
                 "leader": "Chef",
                 "empire": "Empire",
+                "isb": "B.S.I",
 
-                "basic-attack-title": "<u>Attaque Basique: Tester les défenses</u>",
-                "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie et lui inflige un malus de ténacité pendant 3 tours.",
+                "basic-attack-title": "<u>Attaque Basique: tester les défenses</u>",
+                "basic-attack": "inflige des dégâts spéciaux à une cible ennemie et lui inflige un malus de Ténacité pendant 3 tours. Si l'ennemi est déjà Exposé au début du tour, lui inflige Verrouillage pendant 2 tours.",
 
-                "special-attack1-title": "<u>Attaque Spéciale : Attaque de Death Trooper (délai : 3)</u>",
-                "special-attack1": "Inflige des dégâts spéciaux à tous les ennemis, avec 70 % de chances d'infliger Faux pas pendant 2 tours. Si des ennemis sont affectés par un affaiblissement, réanime le Death Trooper avec 20 % de sa santé pour chaque ennemi subissant un afaiblissement. Le Death Trooper est invoqué s'il est présent.",
+                "special-attack1-title": "<u>Attaque Spéciale : Garnisons déployés (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à tous les ennemis avec 70 % de chances de leur infliger Faux pas pendant 2 tours. Inflige Cécité à tous les ennemis affectés par Verrouillage ou Exposition pendant 2 tours.\n\nSi des ennemis sont affectés par un affaiblissement, rénanime le Death Trooper avec 20 % de santé pour chaque ennemi affaibli. Si le Death Trooper est présent, il est invoqué. Invoque tous les autres alliés du B.S.I. de rang 2 ou supérieur, infligeant 50 % de dégâts en moins. ",
 
                 "special-attack2-title": "<u>Attaque Spéciale : Armement expérimental (délai : 3)</u>",
-                "special-attack2": "Inflige des dégâts spéciaux à une cible ennemie ainsi qu'un affaiblissement (attaquant : étourdissement, soigneur/soutien : entrave des capacités, tank : immunités aux améliorations) pendant 2 tours. Si la cible est un rebelle, inflige également un malus de vitesse pendant 2 tours.",
+                "special-attack2": "Inflige des dégâts spéciaux à la cible ennemie et un affaiblissement :\n<strong>- Attaquants :</strong> Étourdissement pendant 2 tours.\n<strong>- Soigneurs et soutiens :</strong> Entrave des capacité pendant 2 tours.\n<strong>- Tanks :</strong> Immunité aux améliorations pendant 2 tours.\n\nSi la cible est un rebelle, lui inflige également un malus de vitesse pendant 2 tours.\n\nSi tous les alliés sont du B.S.I., expoe la cible ennemie et lui inflige Vulnérabilité pendant 1 tour, et le Directeur Krennic gagne un bonus de vitesse pendant 2 tours.",
 
-                "lead-ability-title": "<u>Capacité de Chef: Directeur de la division de recherche en arme avancées</u>",
-                "lead-ability": "Les alliés de l'Empire gagnent +25 % de chances de coup critique et +25 % de pouvoir. Les ennemis subissant un affaiblissement qui reçoivent un coup critique durant le tour d'un allié de l'Empire voient leurs capacités entravées pendant 1 tour. Cet effet ne peut pas être résisté. Les alliés de l'Empire récupèrent 10 % de protection à chaque coup critique porté.",
+                "lead-ability-title": "<u>Capacité de Chef: Directeur de la division de recherche en armes avancées</u>",
+                "lead-ability": "Les alliés de l'Empire gagnent +25 % de chances de coup critique et +25 % de pouvoir. Les ennemis subissant un affaiblissement qui reçoivent un coup critique durant le tour d'un allié de l'Empire voient leurs capacité entravées pendant 1 tour. Cet effet ne peut pas être résisté. Les alliés de l'Empire récupèrent 10 % de protection à chaque coup criique porté.",
 
-                "unique-ability-title": "<u>Capacité Unique : Puissance incommensurable</u>",
-                "unique-ability": "Le Directeur Krennic gagne +10 % aux dégâts critiques pour chaque ennemi subissant un affaiblissement et +10 % aux dégâts critiques pour chaque ennemi rebelle. Si le Death Trooper est présent, il reçoit aussi ces bonus.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> Krennic obtient +30 % de pénétration de défense, de santé et d'attaque. Si le Death Trooper est présent, il obtient également ces bonus. A chaque fois que Krennic attaque, le Death Trooper est invoqué et ses délais diminuent de 1. Tant que le Death Trooper allié est actif, Krennic et le Death Trooper ignorent tous deux les effets de Raillerie.",
+                "unique-ability1-title": "<u>Capacité Unique : Puissance incommensurable</u>",
+                "unique-ability1": "Le Directeur Krennic obtient 10 % de dégâts critiques par ennemi affaibli et 10 % de dégâts critiques par ennemi rebelle. Le Directeur Krennic gagne également 10 % de chances de coup critique par alliés du B.S.I. Si le Death Trooper est présent, il obtient également ces bonus.\n\n<u class='omicron'>Amélioration Omicron :</u> Krennic obtient +30 % de pénétration de défense, de santé et d'attaque. Si le Death Trooper est présent, il obtient également ces bonus. Chaque fois que Krennic attaque, le Death Trooper est invoqué en renfort et ses délais sont réduits de 1. Tant que le Death Trooper allié est actif, Krennic et le Death Trooper ignorent tous les deux les effets de Raillerie.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Chaîne de commandement.</u>",
+                "unique-ability2": "Si tous les alliés sont du B.S.I., le Directeur Krennic commence l'affrontement au rang 3 et son rang ne peut pas être diminué. Chaque fois qu'un allié du B.S.I. de rang 3 est vaincu, dissipe toutes les améliorations de tous les ennemis affectés par le Verrouillage. Si le Major Partagaz est dans l'emplacement de chef, tous les effets de chances sont augmentés à 100 %. S'il y a 5 alliés B.S.I présent au début de la bataille, le Directeur Krennic invoque un Death Trooper avec l'identifiant B.S.I., et lorsque le Directeur Krennic utilise la capacité Garnisons déployées, invoque le Death Trooper au lieu de le ranimer. Confère au Death Trooper le rang 1 (ne peut pas être augmenté).",
             };
 
             const originalTexts = {};
+            let eraDataGlobal = null; // ✨ NOUVEAU : Contiendra l'objet de l'ère {en: '...', fr: '...'} reçu du JSON
 
             function saveOriginalTexts() {
                 for (const id in translationsFr) {
@@ -161,11 +191,17 @@
                         const el = document.getElementById(id);
                         if (el) el.innerHTML = replaceNewLinesWithBr(text);
                     }
-                } else if (lang === "en") {
+                } else {
                     for (const [id, text] of Object.entries(originalTexts)) {
                         const el = document.getElementById(id);
                         if (el) el.innerHTML = text;
                     }
+                }
+
+                // ✨ NOUVEAU : Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
                 }
 
                 updateFlagActive();
@@ -173,22 +209,51 @@
 
             function updateFlagActive() {
                 const lang = sessionStorage.getItem("selectedLanguage") || "en";
-                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
-                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+                document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
             }
 
-            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                // Valeur de secours si aucun paramètre ?id= n'est écrit dans l'URL de votre navigateur
+                const unitId = params.get('id') || "director krennic";
+
+                fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+
+                        if (currentUnit && currentUnit.era) {
+                            // On enregistre les données de l'ère pour le traducteur de langue
+                            eraDataGlobal = currentUnit.era;
+
+                            // On configure le lien vers votre nouvelle page era.html avec le nom EN en paramètre
+                            eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+
+                            // On applique le texte selon la langue sélectionnée en session
+                            const currentLang = sessionStorage.getItem("selectedLanguage") || "en";
+                            eraLink.innerText = currentLang === "fr" ? currentUnit.era.fr : currentUnit.era.en;
+                        } else {
+                            eraLink.style.display = 'none'; // Masque le bouton si l'unité n'a pas d'ère définie
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement de l'ère depuis le JSON :", err);
+                        document.getElementById('unit-era').style.display = 'none';
+                    });
+            }
+
             window.addEventListener("load", () => {
                 saveOriginalTexts();
-                const lang = sessionStorage.getItem("selectedLanguage") || "en";
-                switchLanguageTo(lang);
-
-                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
-                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+                loadUnitEraData(); // ✨ NOUVEAU : Déclenche le chargement de l'ère au chargement de la page
+                switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
             });
         </script>
-
     </footer>
+
 </body>
 
 </html>

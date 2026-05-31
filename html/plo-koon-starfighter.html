@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Plo Koon's Jedi Starfighter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-vaisseaux/plo-koon/plo-koon-image.png">
+    <link rel="stylesheet" href="../style/ship-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-vaisseaux/plo-koon/plo-koon-image.png" alt="Plo Koon's Jedi Starfighter" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Plo Koon's Jedi Starfighter</u></h1>
+            <p id="description">
+                Versatile Jedi Support with powerful Republic buffs and a targeted ally Taunt
+            </p>
+            <br>
+
+            <nav class="perso ship-nav">
+                <!-- Partie gauche : catégories -->
+                <div class="nav-left">
+                    <a class="capacite" style="color: blue !important;" href="../vaisseaux/vaisseau-coté-lumineux.html" id="lightside">light Side</a>
+                    <a class="class" href="../vaisseaux/vaisseau-soutien.html" id="support">Support</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-république-galactique.html" id="galactique-republic">Galactic Republic</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-jedi.html" id="jedi">Jedi</a>
+                </div>
+
+                <!-- Partie droite : unités associées -->
+                <div class="nav-right">
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href="../html/plo-koon.html"><img src="../image-perso/plo-koon/plo-koon-image.png" alt="Plo Koon" class="ship-unit-image"></a>
+                        <span id="unit-plo-koon" class="ship-unit-name">Plo Koon</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-vaisseaux/plo-koon/plo-koon.png" alt="Plo Koon's Jedi Starfighter"><br>
+
+    <!-- Capacités du vaisseau -->
+
+
+    <!--Capacité basique-->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Coordinated Assault</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Plo Koon's Jedi Starfighter basic" src="../image-vaisseaux/plo-koon/plo-koon-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 70% chance to gain Protection Up (15%) for 2 turns.
+                <br><br>
+                <u class="speciale">Target Lock:</u> Grant another random ally Protection Up (15%) for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="crew-ability-title">
+        <u>Crew Ability - <strong><u class="speciale">Plo Koon</u></strong> : Inspiring Charge (cooldown: 4)</u>
+    </h2>
+
+    <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/plo-koon/plo-koon-spe1.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/plo-koon.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/plo-koon/plo-koon-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability">
+                All allies gain 40% Turn Meter. All Galactic Republic allies gain Health Up and Protection Recharge (45%) for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité spécial-->
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Wings of the Republic (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Plo Koon's Jedi Starfighter special" src="../image-vaisseaux/plo-koon/plo-koon-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Dispel all debuffs on target ally and grant them Taunt and Protection Up (50%) for 2 turns. If target ally is Galactic Republic, grant them Critical Hit Immunity for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité de type renfort-->
+    <h2 class="titre" id="reinforcement-title"><u>Reinforcement Ability: Commander of the 104th Battalion</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Plo Koon's Jedi Starfighter Reinforcement" src="../image-vaisseaux/plo-koon/plo-koon-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="reinforcement-description">
+                <u class='speciale'>Enter Battle :</u> Dispel all debuffs from all allies and they recover 40% Health and 40% Protection.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            const translationsFr = {
+                "big-title": "Chasseur stellaire Jedi de Plo Koon",
+                "title": "<u>Chasseur stellaire Jedi de Plo Koon</u>",
+                "description": "Soutien Jedi polyvalent disposant de puissantes améliorations de la République et de Raillerie pour une cible alliée.",
+                "unit-plo-koon": "Plo Koon",
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "galactic-republic": "République Galactique",
+                "jedi": "Jedi",
+
+                "basic-attack-title": "<u>Attaque Basique: Assaut coordonné</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie, avec 70 % de chances de gagner une hausse de protection (15 %) pendant 2 tours.\n\n<u class='speciale'>Verrouillage :</u> confère à un allié aléatoire une hausse de protection (15 %) pendant 2 tours.",
+
+                "crew-ability-title": "<u>Capacité équipage - <strong><u class='speciale'>Plo Koon</u></strong> : Charge motivante (délai : 4)</u>",
+                "crew-ability": "La jauge de tour de tous les alliés se remplit de 40 %. Tous les alliés de la République Galactique bénéficient d'un bonus de santé et d'un rechargement de la protection (45 %) pendant 2 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Ailes de la République (délai : 3)</u>",
+                "special-attack1": "Dissipe tous les affaiblissements sur une cible alliée et lui confère Raillerie et une hausse de protection (50 %) pendant 2 tours. Si la cible est un allié de la République Galactique, lui confère l'immunité aux coups critiques pendant 2 tours",
+
+                "reinforcement-title": "<u>Capacité de Renfort : Commandant du 104e bataillon</u>",
+                "reinforcement-description": "<u class='speciale'>Rejoindre la Bataille :</u> dissipe tous les affaiblissements que subissent tous les alliés, qui récupèrent 40 % de santé et 40 % de protection.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+    </footer>
+</body>
+
+</html>

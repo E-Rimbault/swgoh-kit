@@ -39,15 +39,13 @@
             <br>
 
             <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html"
-                    id="darkside">Dark Side</a>
+                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
                 <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
                 <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
                 <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
-                <a class="capacite" href="../classement-perso/soldat-de-lempire.html" id="trooper-empire">Imperial
-                    Trooper</a>
-                <a class="capacite" href="../classement-perso/commandant-de-la-flotte.html" id="fleet">Fleet
-                    Commander</a>
+                <a class="capacite" href="../classement-perso/soldat-de-lempire.html" id="trooper-empire">Imperial Trooper</a>
+                <a class="capacite" href="../classement-perso/commandant-de-la-flotte.html" id="fleet">Fleet Commander</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important;" id="unit-era">Loading Era...</a>
             </nav>
         </div>
     </header>
@@ -175,6 +173,7 @@
                 "unique-ability": "L'Amiral Piett a +60% de chances de contre-attaque. La jauge de tour de Piett se remplit de 5% lorsqu'un autre allié de l'Empire subit des dégâts.\n\nChaque fois qu'un allié commence un tour ou attaque en dehors de son tour, tous les alliés de l'Empire, obtiennent un cumul du <u class='speciale'>Piège de l'Empereur</u> jusqu'au début du prochain tour ennemi, du prochain tour d'un allié n'appartenant pas à l'Empire ou de la fin de la bataille. Le piège de l'Empereur ne pas être copié, dissipé ou  empeché.\n\n Si Dark Vador fais partie des alliés : Dark Vador et l'amiral Piett ont +20% de Précision, de pouvoir et de Ténacité.\n\n<u class='speciale'>Piège de l'Empereur :</u> +6% d'Attaque et de pouvoir par cumul."
             };
             const originalTexts = {};
+            let eraDataGlobal = null; // ✨ NOUVEAU : Contiendra l'objet de l'ère {en: '...', fr: '...'} reçu du JSON
 
             function saveOriginalTexts() {
                 for (const id in translationsFr) {
@@ -195,11 +194,17 @@
                         const el = document.getElementById(id);
                         if (el) el.innerHTML = replaceNewLinesWithBr(text);
                     }
-                } else if (lang === "en") {
+                } else {
                     for (const [id, text] of Object.entries(originalTexts)) {
                         const el = document.getElementById(id);
                         if (el) el.innerHTML = text;
                     }
+                }
+
+                // ✨ NOUVEAU : Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
                 }
 
                 updateFlagActive();
@@ -207,24 +212,51 @@
 
             function updateFlagActive() {
                 const lang = sessionStorage.getItem("selectedLanguage") || "en";
-                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
-                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+                document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
             }
 
-            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                // Valeur de secours si aucun paramètre ?id= n'est écrit dans l'URL de votre navigateur
+                const unitId = params.get('id') || "admiral piett";
+
+                fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+
+                        if (currentUnit && currentUnit.era) {
+                            // On enregistre les données de l'ère pour le traducteur de langue
+                            eraDataGlobal = currentUnit.era;
+
+                            // On configure le lien vers votre nouvelle page era.html avec le nom EN en paramètre
+                            eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+
+                            // On applique le texte selon la langue sélectionnée en session
+                            const currentLang = sessionStorage.getItem("selectedLanguage") || "en";
+                            eraLink.innerText = currentLang === "fr" ? currentUnit.era.fr : currentUnit.era.en;
+                        } else {
+                            eraLink.style.display = 'none'; // Masque le bouton si l'unité n'a pas d'ère définie
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement de l'ère depuis le JSON :", err);
+                        document.getElementById('unit-era').style.display = 'none';
+                    });
+            }
+
             window.addEventListener("load", () => {
                 saveOriginalTexts();
-                const lang = sessionStorage.getItem("selectedLanguage") || "en";
-                switchLanguageTo(lang);
-
-                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
-                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+                loadUnitEraData(); // ✨ NOUVEAU : Déclenche le chargement de l'ère au chargement de la page
+                switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
             });
         </script>
-
-                
-
     </footer>
+
 </body>
 
 </html>

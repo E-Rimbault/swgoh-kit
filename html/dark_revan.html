@@ -1,153 +1,278 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Dark Revan</title>
-
+    <title id="big-title">Darth Revan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/dark-revan/dr-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/dark-revan/dr-image.png" alt="Darth Revan" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Dark Revan</u></h1>
-        <p>
-            impitotoyable Seigneur Sith très efficace dans l'élimination des chefs ennemis.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/sith.html">Sith</a>
-            <a class="capacite" href="../classement-perso/empire-sith.html">Empire Sith</a>
-            <a class="capacite" href="../classement-perso/commandant-de-la-flotte.html">Commandant de la flotte</a>
-        </nav>
+            <h1 id="title"><u>Darth Revan</u></h1>
+            <p id="description">
+                Ruthless Sith Lord that is extremely effective at taking down the enemy leader
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/sith.html" id="sith">Sith</a>
+                <a class="capacite" href="../classement-perso/empire-sith.html" id="sith-empire">Sith Empire</a>
+                <a class="capacite" href="../classement-perso/commandant-de-la-flotte.html" id="fleet-commander">Fleet Commander</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important;" id="unit-era">Loading Era...</a>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/leviathan.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/" alt="leviathan">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: Leviathan</u>
+                </h2>
+            </section>
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/dark-revan/Dark-revan.png" alt="Dark Revan"><br>
+    <img class="first" src="../image-perso/dark-revan/Dark-revan.png" alt="darth revan"><br>
 
-    <h2 class="titre"><u>attaque basique : Lacération</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Lacerate</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Dark revan basic" src="../image-perso/dark-revan/dr-basic.png">
+            <img class="attaque" alt="darth revan basic" src="../image-perso/dark-revan/dr-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à une cible ennemie. Inflige l'immunité aux<br>
-                améliorations à la cible et aux chefs ennemi pendant 2 tours. Si la cible<br>
-                est le chef, les délais de Dark Revan sont réduis de 1.
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy. Inflict Buff Immunity on target enemy and enemy leader for 2 turns. If the target is the leader, reduce Darth Revan's cooldowns by 1.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Force Storm (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="darth revan special 1" src="../image-perso/dark-revan/dr-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to all enemies and Shock them for 2 turns. All Sith Empire allies gain 5 stacks of Ferocity for 2 turns. This attack can't be evaded.
+                <br><br>
+                <u class="speciale">Ferocity:</u> -15% Defense and Tenacity per stack, +8% Offense and Potency per stack; can't be copied
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Insanity (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="darth revan special 2" src="../image-perso/dark-revan/dr-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Special damage to target enemy and inflict Fear on them and enemy leader for 1 turn. If the target is the leader, or if the leader is defeated, inflict Fear on all enemies for 1 turn. This Fear can't be copied, dispelled, or resisted and this attack can't be evaded.
+                <br><br>
+                <u class="speciale">Fear:</u> Miss the next turn, can't use abilities, and can't evade. Increase cooldowns by 1 and Fear expires on taking damage from an attack.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Lord of the Sith</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="darth revan lead" src="../image-perso/dark-revan/dr-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Sith Empire allies are immune to Turn Meter reduction while they are debuffed, and gain 10% Critical Chance and 15 Speed for each of their own debuffs. At the start of each Sith Empire ally's turn, they gain 5 stacks of Ferocity for 2 turns.
+                <br><br>
+                If all allies are Sith Empire at the start of battle (excluding summoned allies), Sith Empire allies have +50% Critical Damage.
+                <br><br>
+                At the end of each turn, if an enemy fell below 50% Health during that turn, inflict Deathmark on the enemy leader for 1 turn if Darth Revan is in the leader slot and not the ally slot. This Deathmark can't be copied, dispelled, evaded, or resisted.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Conqueror</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="darth revan unique 1" src="../image-perso/dark-revan/dr-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Darth Revan has +100% Defense Penetration. At the start of each Sith Empire ally's turn, dispel all Foresight on all enemies, which can't be evaded.
+                <br><br>
+                When a Sith Empire ally is inflicted with Ability Block or Stun, they dispel that debuff and gain Ferocity for 2 turns.
+                <br><br>
+                Enemies can't assist or attack again if their attack is targeting Darth Revan.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Villain</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="darth revan unique 2" src="../image-perso/dark-revan/dr-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                When Darth Revan uses an ability during their turn, if the selected target is already inflicted with Deathmark, Fear, or Corrupted Battle Meditation, Darth Revan immediately uses Lacerate.
+                <br><br>
+                When Fear expires on an enemy, they also dispel all buffs on themselves.
+                <br><br>
+                When Darth Revan's Health falls below 50%, it is equalized with the other healthiest ally.
             </p>
         </div>
     </div>
 
 
-    <h2 class="titre"><u>1ere spéciale: Tempête de Force (délai: 3)</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="Dark revan spé 1" src="../image-perso/dark-revan/dr-spe1.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à tous les ennemis et inflige un Choc pendant 2 tours.<br>
-                Tous les alliés Sith de l'Empire gagnent 5 cumuls de férocité pendant 2 tours. Cette<br>
-                attaque ne peut pas être esquivée.<br>
-                <br>
-                <u class="speciale">Férocité:</u> -15% de défense et de ténacité par cumuls, +8% d'attaque et<br>
-                de pouvoir par cumuls. Ne peut pas être copié.
-            </p>
-        </div>
-    </div>
-
-
-    <h2 class="titre"><u>2eme spéciale: Folie (délai: 4)</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="Dark revan spé 2" src="../image-perso/dark-revan/dr-spe2.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à une cible ennemie. Inflige la Peur à la cible ennemie<br>
-                pendant 1 tour. Si la cible est le chef ou si le chef est vaincu, inflige la Peur<br>
-                à tous les ennemis pendant 1 tour. La peur ne peut pas être copié, dissipé ou résisté<br>
-                et cette attaque ne peut pas être esquivée.<br>
-                <br>
-                <u class="speciale">Peur:</u> manque le prochain tour, ne peut pas utiliser ses capacités et ne peut <br>
-                pas equiver. Augmente les délais de 1 et expire lorsque la cible subit des dégâts d'une attaque.
-            </p>
-        </div>
-    </div>
-
-
-    <h2 class="titre"><u>Capacité de chef: Seigneur des sith</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="Dark revan lead" src="../image-perso/dark-revan/dr-lead.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Les alliés de l'empire Sith sont immunisés contre la réduction de jauge de tour lorsqu'il<br>
-                subissent des affaiblissements et gagnent 10% de chances de coup critiques et 15 points de<br>
-                vitesse pour chaque affaiblissements qu'ils subissent. Au début de leur tour, les alliés de<br>
-                l'Empire Sith gagnent 5 cumuls de férocité pendant 2 tour.<br>
-                <br>
-                Si tous les alliés font partie de l'Empire Sith au début du combat (a l'exception des alliés<br>
-                invoqués), les alliés de l'Empire Sith bénéficient d'un bonus de +50% de dégâts critiques.<br>
-                <br>
-                A la fin de chaque tour, si la santé d'un ennemi est devenue inférieur à 50% pendant le tour,<br>
-                inflige la marque de mort au chef ennemi pendant 1 tour si Dark Revan est dans l'emplacement de<br>
-                chef et pas dans l'emplacement d'allié. La marque de mort ne peut pas être copiée, dissipée, esquivée ou résistée.
-            </p>
-        </div>
-    </div>
-
-
-    <h2 class="titre"><u>capacité unique: Conquérant</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="Dark revan unique" src="../image-perso/dark-revan/dr-unique.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Dark Revan a +100% de pénétration de défense. Au début du tour de chaque allié de l'Empire Sith,dissipe<br>
-                la prévoyance sur tous les ennemis, ce qui ne peut pas être esquivé.<br>
-                <br>
-                Lorsqu'un allié de L'Empire Sith subit l'entrave des capacités ou est étourdi, cet affaiblissement est dissipé<br>
-                et il gagne la férocité pendant 2 tours.<br>
-                <br>
-                Les ennemis ne peuvent pas être invoqués ou attaquer à nouveau si leur attaque cible Dark Revan.
-            </p>
-        </div>
-    </div>
-
-
-    <h2 class="titre"><u>capacité unique: Scélérat</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="Dark revan unique 2" src="../image-perso/dark-revan/dr-unique2.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Lorsque Dark Revan utilise une capacité pendant son tour, si la cible choisie subit déjà la marque de mort, la Peur<br>
-                ou la méditation de combat corrompue, Dark Revan utilise immédiatement Lacération.<br>
-                <br>
-                Lorsque la Peur prend fin sur un ennemi, toutes les améliorations de cet ennemi se dissipent.<br>
-                <br>
-                Lorsque la santé de Dark Revan tombe en dessous de 50%, elle s'équilibre avec celle de l'allié<br>
-                qui a la santé la plus élévée.
-            </p>
-        </div>
-    </div>
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Dark Revan",
+                "title": "<u>Dark Revan</u>",
+                "description": "Impitotoyable Seigneur Sith très efficace dans l'élimination des chefs ennemis.",
+
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "sith": "Sith",
+                "sith-empire": "Empire Sith",
+                "fleet-commander": "Commandant de la Flotte",
+
+                "basic-attack-title": "<u>Attaque Basique: Lacération</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie. Inflige l'Immunité aux améliorations à la cible ennemie et au chef ennemi pendant 2 tours. Si la cible est le chef, les délais de Dark Revan sont réduits de 1.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Tempête de Force (délai: 3)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à tous les ennemis et inflige un Choc pendant 2 tours. Tous les alliés Sith de l'Empire gagnent 5 cumuls de férocité pendant 2 tours. Cette attaque ne peut pas être esquivée.\n\n<u class='speciale'>Férocité :</u> -15 % de défense et de ténacité par cumul, +8 % d'attaque et de pouvoir par cumul. Ne peut pa être copié.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Folie (délai: 4)</u>",
+                "special-attack2": "Inflige des dégâts spéciaux à une cible ennemie. Inflige la Peur à la cible ennemie et au chef ennemie pendant 1 tour. Si la cible est le chef ou si le chef est vaincu, inflige la Peur à tous les ennemis pendant 1 tour. La peur ne peut pas être copié, dissipé ou résistée et cette attaque ne peut pas être esquivée.\n\n<u class='speciale'>Peur:</u> manque le prochain tour, ne peut pas utiliser ses capacités et ne peutpas equiver. Augmente les délais de 1 et expire lorsque la cible subit des dégâts d'une attaque.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Seigneur des sith</u>",
+                "lead-ability": "Les alliés de l'empire Sith sont immunisés contre la réduction de jauge de tour lorsqu'il subissent des affaiblissements et gagnent 10% de chances de coup critiques et 15 points de vitesse pour chaque affaiblissements qu'ils subissent. Au début de leur tour, les alliés de l'Empire Sith gagnent 5 cumuls de férocité pendant 2 tour.\n\nSi tous les alliés font partie de l'Empire Sith au début du combat (a l'exception des alliés invoqués), les alliés de l'Empire Sith bénéficient d'un bonus de +50% de dégâts critiques.\n\nA la fin de chaque tour, si la santé d'un ennemi est devenue inférieur à 50% pendant le tour, inflige la marque de mort au chef ennemi pendant 1 tour si Dark Revan est dans l'emplacement de chef et pas dans l'emplacement d'allié. La marque de mort ne peut pas être copiée, dissipée, esquivée ou résistée.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Conquérant</u>",
+                "unique-ability1": "Dark Revan a +100% de pénétration de défense. Au début du tour de chaque allié de l'Empire Sith, dissipe Prévoyance sur tous les ennemis, ce qui ne peut pas être esquivé.\n\nLorsqu'un allié de L'Empire Sith subit l'entrave des capacités ou est étourdi, cet affaiblissement est dissipé et il gagne la férocité pendant 2 tours.\n\nLes ennemis ne peuvent pas être invoqués ou attaquer à nouveau si leur attaque cible Dark Revan.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Scélérat</u>",
+                "unique-ability2": "Lorsque Dark Revan utilise une capacité pendant son tour, si la cible choisie subit déjà la marque de mort, la Peur ou la méditation de combat corrompue, Dark Revan utilise immédiatement Lacération.\n\nLorsque la Peur prend fin sur un ennemi, toutes les améliorations de cet ennemi se dissipent.\n\nLorsque la santé de Dark Revan tombe en dessous de 50%, elle s'équilibre avec celle de l'allié qui a la santé la plus élévée.",
+
+                "ship-title": "<u>Vaisseau : Leviathan</u>",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null; // ✨ NOUVEAU : Contiendra l'objet de l'ère {en: '...', fr: '...'} reçu du JSON
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // ✨ NOUVEAU : Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                // Valeur de secours si aucun paramètre ?id= n'est écrit dans l'URL de votre navigateur
+                const unitId = params.get('id') || "darth revan";
+
+                fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+
+                        if (currentUnit && currentUnit.era) {
+                            // On enregistre les données de l'ère pour le traducteur de langue
+                            eraDataGlobal = currentUnit.era;
+
+                            // On configure le lien vers votre nouvelle page era.html avec le nom EN en paramètre
+                            eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+
+                            // On applique le texte selon la langue sélectionnée en session
+                            const currentLang = sessionStorage.getItem("selectedLanguage") || "en";
+                            eraLink.innerText = currentLang === "fr" ? currentUnit.era.fr : currentUnit.era.en;
+                        } else {
+                            eraLink.style.display = 'none'; // Masque le bouton si l'unité n'a pas d'ère définie
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement de l'ère depuis le JSON :", err);
+                        document.getElementById('unit-era').style.display = 'none';
+                    });
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                loadUnitEraData(); // ✨ NOUVEAU : Déclenche le chargement de l'ère au chargement de la page
+                switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+        </script>
     </footer>
+
 </body>
-</html>    
+
+</html>
