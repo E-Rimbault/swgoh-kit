@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Wat Tambor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/wat-tambor/wat-tambor-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/wat-tambor/wat-tambor-image.png" alt="Wat Tambor" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Wat Tambor</u></h1>
+            <p id="description">
+                Separatist Support who distributes powerful Tech to his allies
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/séparatiste.html" id="separatist">Separatist</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important;" id="unit-era">Loading Era...</a>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/wat-tambor/wat-tambor.png" alt="Wat Tambor"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Binary Basic</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="wat tambor basic" src="../image-perso/wat-tambor/wat-tambor-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                <u class="speciale">During Wat's turn:</u> Dispel debuffs on target ally if any ally has debuffs. Apply Heal Over Time twice on all allies for 2 turns.
+                <br><br>
+                <u class="speciale">Out of turn:</u> Inflict Damage Over Time twice on target enemy for 2 turns and remove 15% Turn Meter. This ability can't be evaded.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Discharge Energy (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="wat tambor spe" src="../image-perso/wat-tambor/wat-tambor-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Revive a random Separatist or Dark Side Droid ally at 100% Health and grant all allies Protection Over Time (30%) for 2 turns. Trigger the healing of all Heal Over Time buffs on allies and the damage of all Damage Over Time debuffs on enemies.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Overseer</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="wat tambor unique" src="../image-perso/wat-tambor/wat-tambor-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of battle, other Separatist and Dark Side Droid allies gain Max Protection equal to 30% of Wat's Max Health. All Separatist and Dark Side Droid allies have +30% Critical Avoidance while they have Heal Over Time.
+                <br><br>
+                Whenever an ally with Tech uses a Special ability, Wat is called to assist. If there are no other allied combatants at the start of a turn, Wat escapes from battle.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Mass Manufacture</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="wat unique 2" src="../image-perso/wat-tambor/wat-tambor-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                At the start of battle, Wat gains a bonus turn and access to the following Tech in the form of abilities. When Wat uses a piece of Tech, the target other ally gains its effects until defeated or the end of battle.
+                <br><br>
+                The cooldown of each piece of Tech is set to max and can't be reduced if all allies have Tech or if it is active on an ally. Tech can't be copied, dispelled, or prevented, and an ally can only have one piece of Tech.
+                <br><br>
+                <u class="speciale">Chiewab Medpac:</u> Recover 5% Health and Protection at the start of every character's turn, and 5% bonus Protection if this character is a Separatist
+                <br><br>
+                <u class="speciale">Baktoid Shield Generator:</u> At the start of turn, recover 30% Protection and dispel own debuffs; Tanks Taunt while they have Protection
+                <br><br>
+                <u class="speciale">BlasTech Weapon Mod:</u> Gain 15% Turn Meter at the start of each enemy's turn; enemies defeated by this character can't be revived
+            </p>
+        </div>
+    </div>
+
+    <!-- Section pour les invocations -->
+    <h2 class="invocation" id="invocation-title1">Chiewab Medpac</h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="wat tambor tech 1" src="../image-perso/wat-tambor/wat-tambor-tech1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="invocation1">
+                Distribute the Chiewab Medpac to target ally.
+                <br><br>
+                <u class="speciale">Chiewab Medpac:</u> Recover 5% Health and Protection at the start of every character's turn, and 5% bonus Protection if this character is a Separatist
+            </p>
+        </div>
+    </div>
+
+    <h2 class="invocation" id="invocation-title2">Baktoid Shield Generator</h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="wat tambor tech 2" src="../image-perso/wat-tambor/wat-tambor-tech2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="invocation2">
+                Distribute the Baktoid Shield Generator to target ally.
+                <br><br>
+                <u class="speciale">Baktoid Shield Generator:</u> At the start of turn, recover 30% Protection and dispel own debuffs; Tanks Taunt while they have Protection
+            </p>
+        </div>
+    </div>
+
+
+    <h2 class="invocation" id="invocation-title3">BlasTech Weapon Mod</h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="wat tambor tech 3" src="../image-perso/wat-tambor/wat-tambor-tech3.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="invocation3">
+                Distribute the BlasTech Weapon Mod to target ally.
+                <br><br>
+                <u class="speciale">BlasTech Weapon Mod:</u> Gain 15% Turn Meter at the start of each enemy's turn; enemies defeated by this character can't be revived
+            </p>
+        </div>
+    </div>
+
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Wat Tambor",
+                "title": "<u>Wat Tambor</u>",
+                "description": "Personnage de soutien séparatiste qui distribue de la technologie de pointe à ses alliés.",
+
+                "darkside": "Coté Obscur",
+                "support": "Soutien",
+                "separatist": "Séparatiste",
+
+                "basic-attack-title": "<u>Attaque Basique: Basa binaire</u>",
+                "basic-attack": "<u class='speciale'>pendant le tour de Wat :</u> Si un allié souffre d'affaiblissements, dissipe tous les affaiblissements en cours sur une cible alliée. Confère des soins sur la durée à tous les alliés pendant 2 tours.\n\n<u class='speciale'>En dehors du tour de Wat :</u> Inflige des dégâts sur la durée deux fois à une cible ennemie pendant 2 tours et réduit sa jauge de tour de 15 %. Cette capacité ne peut pas être esquivée.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Décharge d'énergie (délai : 4)</u>",
+                "special-attack1": "Réanime un Séparatiste ou un droïde du Coté obscur allié aléatoire avec 100 % de santé et confère a protection sur la durée (30 %) à tous les alliés pendant 2 tours. Déclenche toutes les améliorations de soins sur la durée des alliés et tous les affaiblissements de dégâts sur la durée des ennemis.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Superviseur</u>",
+                "unique-ability1": "Au dbut de la bataille, les autres alliés séparatistes et droïdes du Coté Obscur obtiennent de la protection maximale à hauteur de 30 % de la santé maximale de Wat. Tous les alliés séparatistes et droïdes du Coté obscur ont +30 % d'esquive des critiques lorsqu'ils disposent de soins sur la durée.\n\nLorsqu'un allié avec de la technologie utilise une capacité spéciale, Wat est invoqué. S'il n'y a pas d'autres combattants alliés au début d'un tour, Wat fuit la bataille.",
+                
+                "unique-ability2-title": "<u>Capacité Unique : Production de masse</u>",
+                "unique-ability2": "Au début de la bataille, Wat obtient un tour bonus et il accède aux technologies suivantes sous la forme de capacités. Lorsque Wat utilise une technologie, la cible allié obtient ses effets jusqu'à ce qu'il soit vaincu ou jusqu'à la fin de la bataille.\n\nLe délai de chaque technologie est fixé au maximum et ne peut pas être diminué si tous les alliés disposent de technologie, ou si elle est active. La technologie ne peut pas être copiée, dissipée ou évitée, et un allié peut uniquement disposer d'une technologie à la fois.\n\n<u class='speciale'>Médipac Chiewab :</u> Récupère 5 % de santé et de protection au début du tour de chaque personnage, ainsi qu'un bonus de protection de 5 % s'il s'agit d'un Séparatiste.\n\n<u class='speciale'>Générateur de bouclier Baktoid :</u> Au début du tour, récupère 30 % de protection et dissipe ses prores affaiblissements. Les tanks utilissent Raillerie lorsqu'ils disposent de protection.\n\n<u class='speciale'>Module d'arme BlasTech :</u> La jauge de tour se remplit de 15 % au début de chaque tour ennemi. Les ennemis vaincus par ce personnage ne peuvent pas être ranimés.",
+
+                "invocation-title1" : "Médipac Chiewab",
+                "invocation1": "Donne la technlogie Médipac Chiewab à la cible alliée.\n\n<u class='speciale'>Médipac Chiewab :</u> Récupère 5 % de santé et de protection au début du tour de chaque personnage, ainsi qu'un bonus de protection de 5 % s'il s'agit d'un Séparatiste.",
+
+                "invocation-title2" : "Générateur de bouclier Baktoid",
+                "invocation2": "Donne la technlogie Générateur de bouclier Baktoid à la cible alliée.\n\n<u class='speciale'>Générateur de bouclier Baktoid :</u> Au début du tour, récupère 30 % de protection et dissipe ses prores affaiblissements. Les tanks utilissent Raillerie lorsqu'ils disposent de protection.",
+
+                "invocation-title3" : "Module d'arme BlasTech",
+                "invocation3": "Donne la technlogie Module d'arme BlasTech à la cible alliée.\n\n<u class='speciale'>Module d'arme BlasTech :</u> La jauge de tour se remplit de 15 % au début de chaque tour ennemi. Les ennemis vaincus par ce personnage ne peuvent pas être ranimés.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null; // ✨ NOUVEAU : Contiendra l'objet de l'ère {en: '...', fr: '...'} reçu du JSON
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // ✨ NOUVEAU : Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                // Valeur de secours si aucun paramètre ?id= n'est écrit dans l'URL de votre navigateur
+                const unitId = params.get('id') || "wat tambor";
+
+                fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+
+                        if (currentUnit && currentUnit.era) {
+                            // On enregistre les données de l'ère pour le traducteur de langue
+                            eraDataGlobal = currentUnit.era;
+
+                            // On configure le lien vers votre nouvelle page era.html avec le nom EN en paramètre
+                            eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+
+                            // On applique le texte selon la langue sélectionnée en session
+                            const currentLang = sessionStorage.getItem("selectedLanguage") || "en";
+                            eraLink.innerText = currentLang === "fr" ? currentUnit.era.fr : currentUnit.era.en;
+                        } else {
+                            eraLink.style.display = 'none'; // Masque le bouton si l'unité n'a pas d'ère définie
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement de l'ère depuis le JSON :", err);
+                        document.getElementById('unit-era').style.display = 'none';
+                    });
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                loadUnitEraData(); // ✨ NOUVEAU : Déclenche le chargement de l'ère au chargement de la page
+                switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+        </script>
+    </footer>
+
+</body>
+
+</html>

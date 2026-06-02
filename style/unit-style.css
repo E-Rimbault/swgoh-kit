@@ -16,20 +16,20 @@ header.perso {
     color: #fff;
     padding: 20px;
     border-bottom: 2px solid #00d4ff;
-    /* v-- AJOUT : Assure que le header s'agrandit si le contenu grandit --v */
+    /* Assure que le header s'agrandit si le contenu grandit */
     min-height: 180px; 
     box-sizing: border-box;
 }
 
 header.perso > div:first-child {
     position: absolute;
-    top: 20px; /* v-- CHANGEMENT : Aligné sur le padding du header --v */
+    top: 20px; /* Aligné sur le padding du header */
     left: 20px;
     width: auto;
     height: auto;
     transform: scale(1.5);
     transform-origin: top left;
-    padding: 0; /* v-- CHANGEMENT : On passe à 0 pour éviter les doubles marges --v */
+    padding: 0; /* On passe à 0 pour éviter les doubles marges */
     z-index: 10;
 }
 
@@ -40,10 +40,10 @@ header.perso > div:first-child img {
 }
 
 header.perso > div:nth-child(2) {
-    /* v-- CHANGEMENT : On remplace le padding-left fixe par une marge dynamique --v */
+    /* On remplace le padding-left fixe par une marge dynamique */
     margin-left: 290px; 
     padding-left: 0;
-    /* v-- AJOUT : Un petit flexbox interne pour créer un bloc solide --v */
+    /* Un petit flexbox interne pour créer un bloc solide */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -429,6 +429,11 @@ footer {
     header.perso {
         padding: 16px;
         text-align: center;
+        min-height: auto !important; /* Annule la hauteur minimale forcée du PC */
+        display: flex;
+        flex-direction: column; /* Aligne l'ensemble des gros blocs de haut en bas */
+        align-items: center;
+        gap: 15px;
     }
 
     /* =============================
@@ -436,10 +441,13 @@ footer {
     ============================== */
 
     header.perso > div:first-child {
-        position: relative;
-        transform: none;
+        position: relative !important; /* Sort du mode absolu pour reprendre sa place dans le flux vertical */
+        top: auto !important;
+        left: auto !important;
+        transform: none !important; /* Annule le grossissement scale(1.5) qui faisait déborder */
         padding: 0;
-        margin-bottom: 15px;
+        margin-bottom: 5px;
+        width: 100% !important;
 
         display: flex;
         justify-content: center;
@@ -455,7 +463,12 @@ footer {
     ============================== */
 
     header.perso > div:nth-child(2) {
-        padding-left: 0;
+        margin-left: 0 !important; /* Annule les 290px du PC qui comprimaient Sabine sur la droite */
+        padding-left: 0 !important;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     #title {
@@ -467,6 +480,18 @@ footer {
         margin-left: 0;
         font-size: 1.1em;
         color: #e8ecf5;
+    }
+    
+    header.perso h1#title {
+        font-size: 2.2em !important;
+        margin: 5px 0 !important;
+        text-align: center;
+    }
+
+    header.perso p#description {
+        font-size: 1.1em !important;
+        text-align: center;
+        margin: 5px 0 15px 0 !important;
     }
 
     /* =============================
@@ -492,12 +517,23 @@ footer {
         flex-wrap: wrap;
         justify-content: center;
         gap: 8px;
+        width: 100%;
     }
 
     nav.perso a {
-        margin-right: 0;
+        margin-right: 0 !important;
         font-size: 0.9em;
         padding: 6px 12px;
+    }
+    
+    /* =============================
+       SWITCHER DE LANGUE (DRAPEAUX)
+    ============================== */
+    .language-switcher {
+        justify-content: center; /* Centre les drapeaux au milieu de l'écran */
+        width: 100%;
+        margin-bottom: 5px;
+        order: -1; /* Optionnel : Positionne les drapeaux tout en haut du header sur mobile */
     }
 
     /* =============================
