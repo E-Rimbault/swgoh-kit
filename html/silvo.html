@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Captain Silvo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/silvo/silvo-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/silvo/silvo-image.png" alt="Captain Silvo" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Captain Silvo</u></h1>
+            <p id="description">
+                Captain Silvo is a ruthless, Force-sensitive pirate who commands a cunning crew during the New Republic era
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/pirate.html" id="pirate">Pirate</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Force User</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important;" id="unit-era">Loading Era...</a>
+                <a class="raid" href="#" style="background-color: orange; color: white !important;" id="unit-raid">Loading Raid...</a>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/silvo/silvo.png" alt="Captain Silvo"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Zero Patience</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="silvo basic" src="../image-perso/silvo/silvo-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy and inflict them with Evasion Down for 1 turn. If the enemy was Staggered at the start of this ability, Silvo gains Turn Meter equal to the amount removed from the enemy. If the ally in the Leader slot is Pirate King Hondo Ohnaka, all Pirate allies recover 10% Health and Protection.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Open the Vault (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="silvo spé 1" src="../image-perso/silvo/silvo-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to target enemy and Stagger them for 1 turn. Silvo gains Alert for 2 turns and all other Pirate allies gain Speed Up for 1 turn. If Captain Silvo or Pirate King Hondo Ohnaka is the ally in the Leader slot, Attacker Pirate allies gain Frenzy for 2 turns. Additionally, If Pirate King Hondo Ohnaka is the ally in the Leader slot, all Pirate allies gain a stack of Profit.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : The Only Thing That Matters (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="silvo spé 2" src="../image-perso/silvo/silvo-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Remove all Turn Meter from target enemy and all other Pirate allies gain Turn Meter equal to the amount removed. Reduce Max Health of the target enemy by 10% (stacking) and Pirate allies gain 10% Max Health (stacking) for the rest of the encounter.
+                <br><br>
+                Steal all Heal Over Time and Protection Over Time from all enemies, reset their duration, and grant them to all Pirate allies. Whenever Pirate King Hondo Ohnaka is the ally in the Leader slot, inflict all enemies with Health Steal Down for 2 turns. If no buffs were stolen, Pirate allies gain Health Steal Up for 2 turns. This ability can't be evaded or resisted.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Mutiny Then?</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="silvo lead" src="../image-perso/silvo/silvo-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Whenever Pirate allies ends their turn without a stack of Profit, they gain a stack of Ferocity for 1 turn. Pirate allies have +50% Health Steal. While Captain Silvo is active, whenever a Pirate ally starts their turn with more stacks of Profit than Captain Silvo, they recover 25% Health and Protection and gain 50% Offense until the end of their turn. Whenever Captain Silvo assists another Pirate ally, that Pirate Steals a stack of Profit from him. While Silvo has Profit, he has -10% Defense, while he has no Profit he has +10% Evasion.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Well Now It's Mine</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="silvo unique" src="../image-perso/silvo/silvo-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                At the start of Captain Silvo's turn, if Brutus has more stacks of Profit than Silvo, Silvo is inflicted with Evasion Down for 1 turn. While Silvo has Evasion Up or Evasion Down, he has +125% Evasion. While Silvo has Heal Over Time or Protection Over Time, he has +200% Tenacity. While he has Health Steal Up, he has +100% Potency. Whenever a Pirate ally gains a stack of Profit, they recover 10% Health. If they were already at full Health, they recover 10% Protection instead.
+                <br><br>
+                Whenever Pirate King Hondo Ohnaka is the ally in the Leader slot, Pirate allies gain 100% Defense and Defense Penetration and 50 Speed for 3 turns at the start of encounter. Whenever Silvo loses a stack of Profit, he Stealths for 1 turn. If Pirate King Hondo Ohnaka or Maz Kanata is the ally in the Leader slot, the cap for Profit is removed for Captain Silvo.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> Whenever an enemy with bonus Protection, Protection Up, or Shield Up attacks out of turn they lose 10% of their Max Protection. Whenever an enemy gains Protection Up, they are Exposed for 1 turn. Whenever an enemy loses Turn Meter, all Pirate allies recover 25% Health and Protection and gain 1 stack of Profit.
+                <br><br>
+                Whenever Pirate allies gain Protection Up, they also gain 5% Turn Meter. Whenever Pirate King Hondo Ohnaka is the ally in the Leader slot, the first time any Pirate ally is defeated, if they had a stack of Profit they revive with 100% Health and Protection.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Capitaine Silvo",
+                "title": "<u>Capitaine Silvo</u>",
+                "description": "Le Capitaine Silvo est un pirate impitoyable et sensible à la Force qui commande un équipage rusé à l'époque de la Nouvelle République.",
+
+                "darkside": "Coté Obscur",
+                "support": "Soutien",
+                "leader": "Chef",
+                "pirate": "Pirate",
+                "scoundrel": "Vaurien",
+                "force-user": "Utilisateur de la Force non aligné",
+
+                "basic-attack-title": "<u>Attaque Basique: Aucune patiente</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie et lui inflige un malus d'esquive pendant 1 tour. Si l'ennemi souffrait déjà de Faux pas lorsque cette capacité est utilisée, la jauge de tour de Silvo se remplit à hauteur du montant retiré à l'ennemi. Si l'allié dans l'emplacement de chef est le Roi Pirate Hondo Ohnaka, tous les alliés Pirates récupèrent 10 % de santé et de protection.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Ouvre le coffre-fort (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à une cible ennemie et lui inflige Faux pas pendant 1 tour. Silvo obtient En alerte pendant 2 tours et tous les autres alliés pirates obtiennent un bonus de vitesse pendant 1 tour. Si le Capitaine Silvo ou le Roi Pirate Hondo Ohanaka est dans l'emplacement de chef, les alliés Pirates attaquants obtiennent Frénésie pendant 2 tours. De plus, si le Roi Pirate Hondo Ohnaka est l'allié dans l'emplacement de chef, tous les Pirates obtiennent un cumul de Profit.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : La seule chose qui compte (délai : 4)</u>",
+                "special-attack2": "Supprime toute la jauge de tour de la cible ennemie et tous les autres alliés Pirates obtiennent de la jauge de tour à hauteur de la quantité retirée à la cible ennemie. Réduit la santé maximale de la cible ennemie de 10 ù (cumulatif) et les alliés Pirates reçoivent 10 % de santé maximale (cumulatif) pour le reste de l'affrontement.\n\nVole tous les cumuls de soins sur la durée et de protection sur la durée que possèdent tous les ennemis, réinitialise leur durée et les confère à tous les alliés Pirates. Lorsque le Roi Pirate Hondo Ohnaka est l'allié dans l'emplacement de chef, tous les ennemis subissent un malus de vol de santé pendant 2 tours. Si aucune amélioration n'a été volée, les alliés Pirates obtiennent un bonus de vol de santé pendant 2 tours. Cette capacité ne peut pas être esquivée ou résistée.",
+
+                "lead-ability-title": "<u>Capacité de Chef: C'est une mutinerie ?</u>",
+                "lead-ability": "Chaque fois que les alliés Pirates terminent leur tour sans cumul de profit, ils gagnent un cumul de Férocité pendant 1 tour. Les alliés Pirates reçoivent +50 % de vol de santé. Tant que le Capitaine Silvo est actif, si un allié Pirate commence son tour avec plus de cumuls de Profit qie le Capitaine Silvo, cet allié récupère 25 % de santé et de protection, puis gagne 50 % d'attaque jusqu'à la fin de son tour. Chaque foius le Capîtaine Silvo est invoqué par un autre allié Pirate, ce dernier lui vole un cumul de Profit. Tant que Silvo dispose de cumuls de Profit, il subit -10 % de défense, mais lorsqu'il ne dispose d'aucun cumul de Profit, il reçoit +10 % d'esquive.",
+
+                "unique-ability-title": "<u>Capacité Unique : maintenant c'est à moi</u>",
+                "unique-ability": "Au début du tour du Capitaine Silvo, si Brutus dispose de plus de cumuls de Profite que Silvo, ce dernier subit un malus d'esquive pendant 1 tour. Tant que Silvo possède un bonus ou un malus d'esquive, il gagne +125 % d'esquive. Tant que Silvo dispose de soins sur la durée ou de protection sur la durée, il obtient +200 % de ténacité. Tant qu'il dispose d'un bonus de vol de santé, il obtient +100 % d epouvoir. Chaque fois qu'un allié Pirate obtient un cumul de Profit, il récupère 10 % de santé. Si cet allié diposait déjà de toute sa santé, il récupère 10 % de protection à la place.\n\nSi le Roi Pirate Hondo Ohanka est l'allié dans l'emplacement de chef, les Pirates alliés obtiennent 100 % de pénétration de défense ainsi que 50 de vitesse pendant 3 tours au début de l'affrontement. Chaque fois que Silvo perd un cumul de Profit, il utilise Camouflage pendant 1 tour. Si le Roi Pirate Hondo Ohnaka ou Maz Kanata est l'allié dans l'emplacement de chef, la limite de Profit est supprimée pour le Capitaine Silvo.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> lorsqu'un ennemi bénéficiant de protection supplémentaire, d'un bonus de protection ou de derrière le bouclier attaque hors de son tour, il perd 10 % de sa protection maximale. Lorsqu'un ennemi obtient un bonus de protection, il subit Exposition pendant 1 tour. Chaque fois qu'un ennemi perd de la jauge de tour, tous les alliés Pirates récupèrent 25 % de santé et de protection, puis obtiennent 1 cumul de Profit.\n\nlorsque les alliés Pirates obtiennent un bonus de protection, leur jauge de tour se remplit également de 5 %. Lorsque le Roi Pirate Hondo Ohnaka est l'allié dans l'emplacement de chef, la première fois qu'un allié Pirate est vaincu alors qu'ils possédait un cumul de Profit, il est ranimé avec 100 % de santé et de protection.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidDataGlobal = null; // ✨ NOUVEAU : Contiendra l'objet du raid {en: '...', fr: '...'}
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // ✨ NOUVEAU : Traduction en direct du bouton du Raid
+                const raidLink = document.getElementById('unit-raid');
+                if (raidLink && raidDataGlobal) {
+                    raidLink.innerText = lang === "fr" ? raidDataGlobal.fr : raidDataGlobal.en;
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "captain silvo"; //filtre unité ici
+
+                fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidLink = document.getElementById('unit-raid'); // ✨ NOUVEAU
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                const currentLang = sessionStorage.getItem("selectedLanguage") || "en";
+                                eraLink.innerText = currentLang === "fr" ? currentUnit.era.fr : currentUnit.era.en;
+                            } else {
+                                eraLink.style.display = 'none';
+                            }
+
+                            // ✨ NOUVEAU : Gestion du Raid (prend le premier raid du tableau s'il y en a un)
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidDataGlobal = currentUnit.raids[0]; // On récupère le premier raid associé
+
+                                // On envoie le nom EN dans l'url pour la page dynamique raid.html
+                                raidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raidDataGlobal.en)}`;
+
+                                const currentLang = sessionStorage.getItem("selectedLanguage") || "en";
+                                raidLink.innerText = currentLang === "fr" ? raidDataGlobal.fr : raidDataGlobal.en;
+                            } else {
+                                raidLink.style.display = 'none'; // Masque le bouton s'il n'y a pas de raid
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                        document.getElementById('unit-era').style.display = 'none';
+                        document.getElementById('unit-raid').style.display = 'none';
+                    });
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                loadUnitEraData();
+                switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+        </script>
+    </footer>
+
+</body>
+
+</html>

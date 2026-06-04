@@ -13,30 +13,30 @@
     body { background-color: #031952; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     .table-container { background-color: #ffffff; border-radius: 12px; padding: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); overflow-x: auto; }
     .table { margin-bottom: 0; vertical-align: middle; color: #212529; }
-    .unit-link { color: #212529 !important; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 12px; }
+    .unit-link { color: #212529 !important; font-weight: 700; text-decoration: underline; display: flex; align-items: center; gap: 12px; }
     .unit-link:hover { color: #0d6efd !important; }
     .unit-img-table { width: 85px !important; height: 85px !important; object-fit: contain; border-radius: 4px; flex-shrink: 0;}
+    
     .filter-sidebar { background-color: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); }
     .form-label { font-weight: 600; color: #0d6efd; text-transform: uppercase; font-size: 0.8rem; }
-    .role { color: #198754; font-weight: 600; text-decoration: none; }
+    
+    /* Rôle : Vert + Souligné */
+    .role { color: #198754; font-weight: 600; text-decoration: underline; }
+    .role:hover { text-decoration: underline; }
+
+    /* Alignements dynamiques */
     .alignment { font-weight: bold; text-decoration: none; }
-    .alignment.lightside { color: #0d6efd; }
-    .alignment.darkside { color: #dc3545; }
-    .alignment.neutral { color: #6c757d; }
+    .alignment.lightside { color: #0d6efd !important; }
+    .alignment.darkside { color: #dc3545 !important; }
+    .alignment.neutral { color: #6c757d !important; }
+
     .badge-faction { background-color: #495057; color: #fff; padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; margin: 2px; display: inline-block; text-decoration: none; }
     .flag-switcher { display: flex; justify-content: end; gap: 15px; padding: 15px; }
     .flag-switcher img { width: 32px; cursor: pointer; border: 2px solid transparent; border-radius: 4px; transition: 0.2s; }
     .btn-return-container { margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
     
-    .btn-reset {
-      width: 100%;
-      background-color: #6c757d;
-      border: none;
-      font-weight: bold;
-      margin-bottom: 15px;
-      transition: 0.3s;
-    }
-    .btn-reset:hover { background-color: #5a6268; }
+    .btn-reset { width: 100%; background-color: #6c757d; border: none; font-weight: bold; margin-bottom: 15px; }
+    .badge-count { background-color: #0d6efd !important; }
   </style>
 </head>
 
@@ -62,7 +62,7 @@
             <label id="label-role" class="form-label">Rôle</label>
             <select id="roleFilter" class="form-select" onchange="renderUnits()"></select>
           </div>
-          
+
           <div class="mb-3">
             <label id="label-align" class="form-label">Alignement</label>
             <select id="alignFilter" class="form-select" onchange="renderUnits()"></select>
@@ -70,7 +70,7 @@
           
           <div class="mb-4 form-check form-switch">
             <input class="form-check-input" type="checkbox" id="leadCheck" onchange="renderUnits()">
-            <label class="form-check-label" for="leadCheck" id="label-lead">Chef</label>
+            <label class="form-check-label" for="leadCheck" id="label-lead">Chef uniquement</label>
           </div>
 
           <button id="btn-reset" class="btn btn-secondary btn-reset" onclick="resetFilters()">Réinitialiser</button>
@@ -99,16 +99,16 @@
   <script>
     const translations = {
       en: {
-        "page-title": "501st", "filter-title": "Characters with tag: 501st",
-        "sidebar-title": "Filters", "label-search": "Search", "label-role": "Role",
-        "label-align": "Alignment", "label-lead": "Leader only", "opt-all": "All",
+        "page-title": "501st", "filter-title": "Characters: 501st",
+        "sidebar-title": "Filters", "label-search": "Search", 
+        "label-role": "Role", "label-align": "Alignment", "label-lead": "Leader only", "opt-all": "All",
         "txt-return": "Main Menu", "table-head": ["Unit", "Role", "Alignment", "Factions"],
         "count-suffix": "results", "btn-reset": "Reset Filters"
       },
       fr: {
         "page-title": "501E", "filter-title": "Personnages : 501E",
-        "sidebar-title": "Filtres", "label-search": "Recherche", "label-role": "Rôle",
-        "label-align": "Alignement", "label-lead": "Chef uniquement", "opt-all": "Tous",
+        "sidebar-title": "Filtres", "label-search": "Recherche", 
+        "label-role": "Rôle", "label-align": "Alignement", "label-lead": "Chef uniquement", "opt-all": "Tous",
         "txt-return": "Menu Principal", "table-head": ["Unité", "Rôle", "Alignement", "Factions"],
         "count-suffix": "résultats", "btn-reset": "Réinitialiser les filtres"
       }
@@ -133,7 +133,6 @@
     function switchLanguage(lang) {
       const prevRole = document.getElementById("roleFilter").value;
       const prevAlign = document.getElementById("alignFilter").value;
-
       currentLang = lang;
       sessionStorage.setItem("selectedLanguage", lang);
 
@@ -149,7 +148,6 @@
 
       populateFilter("roleFilter", "role");
       populateFilter("alignFilter", "alignment");
-
       if (prevRole) document.getElementById("roleFilter").value = prevRole;
       if (prevAlign) document.getElementById("alignFilter").value = prevAlign;
 
@@ -158,24 +156,20 @@
 
     function populateFilter(elementId, field) {
       const select = document.getElementById(elementId);
-      const uniqueValues = [];
       const seen = new Set();
-
+      const uniqueValues = [];
       allUnits.forEach(u => {
         const valEn = u[field]?.en;
-        const valTranslated = u[field]?.[currentLang] || valEn;
+        const valTrans = u[field]?.[currentLang] || valEn;
         if (valEn && !seen.has(valEn)) {
           seen.add(valEn);
-          uniqueValues.push({ en: valEn, label: valTranslated });
+          uniqueValues.push({ en: valEn, label: valTrans });
         }
       });
-
       uniqueValues.sort((a, b) => a.label.localeCompare(b.label, currentLang));
-
       select.innerHTML = `<option value="all">${translations[currentLang]["opt-all"]}</option>`;
       uniqueValues.forEach(v => {
-        const capitalized = v.label.charAt(0).toUpperCase() + v.label.slice(1).toLowerCase();
-        select.innerHTML += `<option value="${v.en.toLowerCase()}">${capitalized}</option>`;
+        select.innerHTML += `<option value="${v.en.toLowerCase()}">${v.label}</option>`;
       });
     }
 
@@ -189,8 +183,9 @@
 
     function normalize(str) { return str ? str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim() : ''; }
     function findMapping(mapArray, name) { return mapArray.find(m => normalize(m.en) === normalize(name) || normalize(m.fr) === normalize(name)); }
+    
     function getAlignmentClass(alignment) {
-      const val = alignment.toLowerCase();
+      const val = normalize(alignment);
       if (val.includes("light") || val.includes("lumineux")) return "lightside";
       if (val.includes("dark") || val.includes("obscur")) return "darkside";
       return "neutral";
@@ -202,36 +197,33 @@
       const roleVal = document.getElementById("roleFilter").value;
       const alignVal = document.getElementById("alignFilter").value;
       const isLeadOnly = document.getElementById("leadCheck").checked;
-
-      // Tag spécifique pour la page 501
-      const factionTag = (currentLang === "fr") ? "501E" : "501st";
+      const factionTag = (currentLang === "fr") ? "ancienne republique" : "501st";
 
       tbody.innerHTML = "";
 
       let filtered = allUnits.filter(unit => {
         const unitFactions = unit.factions || [];
-        const name = normalize(unit.name?.[currentLang] || unit.name?.en || "");
+        const isMando = unitFactions.some(f => normalize(f.en) === "501st" || normalize(f.fr) === "501E");
         
-        // On vérifie si l'unité appartient à la 501st (indépendamment de la langue stockée)
-        const is501 = unitFactions.some(f => normalize(f.en) === "501st" || normalize(f.fr) === "501e");
+        const name = normalize(unit.name?.[currentLang] || unit.name?.en || "");
         const matchesSearch = name.includes(searchTerm);
         const matchesRole = (roleVal === "all" || normalize(unit.role?.en) === roleVal);
         const matchesAlign = (alignVal === "all" || normalize(unit.alignment?.en) === alignVal);
         const hasLeadTag = unitFactions.some(f => normalize(f.en) === "leader" || normalize(f.fr) === "chef");
         const matchesLead = !isLeadOnly || hasLeadTag;
 
-        return is501 && matchesSearch && matchesRole && matchesAlign && matchesLead;
+        return isMando && matchesSearch && matchesRole && matchesAlign && matchesLead;
       });
 
       filtered.sort((a, b) => (a.name?.[currentLang] || "").localeCompare(b.name?.[currentLang] || "", currentLang));
 
-      document.getElementById("filter-title").innerHTML = `${translations[currentLang]["filter-title"]} <span class="badge bg-primary ms-3">${filtered.length} ${translations[currentLang]["count-suffix"]}</span>`;
+      document.getElementById("filter-title").innerHTML = `${translations[currentLang]["filter-title"]} <span class="badge badge-count ms-3">${filtered.length} ${translations[currentLang]["count-suffix"]}</span>`;
 
       filtered.forEach(unit => {
         const name = unit.name?.[currentLang] || unit.name?.en || "";
         const roleText = unit.role?.[currentLang] || unit.role?.en || "";
         const alignText = unit.alignment?.[currentLang] || unit.alignment?.en || "";
-        const isLead = unit.factions.some(f => normalize(f.en) === "leader" || normalize(f.fr) === "chef");
+        const alignClass = getAlignmentClass(alignText);
 
         const rMap = findMapping(rolesMap, roleText);
         const aMap = findMapping(alignmentsMap, alignText);
@@ -241,10 +233,11 @@
           <td>
             <a href="${unit.page || '#'}" class="unit-link">
               <img src="${unit.image || '../image/default.png'}" class="unit-img-table">
+              <span>${name}</span>
             </a>
           </td>
           <td>${rMap?.url ? `<a href="${rMap.url}" class="role">${roleText}</a>` : `<span class="role opacity-50">${roleText}</span>`}</td>
-          <td>${aMap?.url ? `<a href="${aMap.url}" class="alignment ${getAlignmentClass(alignText)}">${alignText}</a>` : `<span class="${getAlignmentClass(alignText)}">${alignText}</span>`}</td>
+          <td>${aMap?.url ? `<a href="${aMap.url}" class="alignment ${alignClass}">${alignText}</a>` : `<span class="alignment ${alignClass}">${alignText}</span>`}</td>
           <td>${unit.factions.map(f => `<a href="${findMapping(factionsMap, f.en)?.url || '#'}" class="badge-faction">${f[currentLang] || f.en}</a>`).join("")}</td>
         `;
         tbody.appendChild(row);
