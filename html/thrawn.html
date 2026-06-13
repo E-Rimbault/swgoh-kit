@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Grand Admiral Thrawn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/thrawn/thrawn-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/thrawn/thrawn-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Grand Admiral Thrawn</u></h1>
+            <p id="description">
+                Calculating Empire Leader who can halt enemies in their tracks, and grants Empire allies a new Special
+                ability
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="capacite" href="../classement-perso/commandant-de-la-flotte.html" id="fleet-commander">Fleet Commander</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <a class="raid" href="#" style="background-color: orange; color: white !important; display: none;" id="unit-raid"></a>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/chimere.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/" alt="Chimaera">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: Chimaera</u>
+                </h2>
+            </section>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/thrawn/thrawn.png" alt="Grand Admiral Thrawn"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Manipulate</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="thrawn basic" src="../image-perso/thrawn/thrawn-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Characters: Deal Special damage to target enemy, grant them Speed Up for 1 turn, or if they already had
+                Ability Block, inflict Stun for 1 turn instead. When this Speed Up expires, inflict Ability Block for 1
+                turn. These effects can't be Resisted.
+                <br><br>
+                Raid Bosses: Deal Special damage to target enemy and inflict Defense Down for 2 turns, which can't be
+                Resisted.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Fracture (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="thrawn spe 1" src="../image-perso/thrawn/thrawn-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to target enemy 4 times, dispel all buffs on them, remove 50% Turn Meter, and
+                inflict Fracture until the start of Thrawn's next turn or until Thrawn is defeated, which can't be
+                copied or dispelled. This attack can't be evaded or resisted.
+                <br><br>
+                Fracture on characters: Speed set to 0, can't gain buffs, bonus attacks, or bonus Turn Meter.<br>
+                Fracture on raid bosses and Galactic Legends: -50% Speed (doesn't stack with Speed Down), can't gain
+                buffs, and -30% Counter Chance
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Grand Admiral's Command (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="thrawn spe 2" src="../image-perso/thrawn/thrawn-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Swap Turn Meter with target other ally. Dispel all debuffs on Thrawn and that ally, and they recover 40%
+                Protection.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Legendary Strategist</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="thrawn lead" src="../image-perso/thrawn/thrawn-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Empire allies have +15% Max Protection, +25% Offense, and gain 20% Turn Meter whenever they Resist a
+                detrimental effect or suffer a debuff. Whenever an Empire ally gains or loses a status effect, they
+                recover 2% Protection. Empire allies gain a new Special ability, Maneuver: Dispel all debuffs on this
+                character and gain 50% Turn Meter (Cooldown 3).
+            </p>
+        </div>
+    </div>
+
+    <h2 class="invocation" id="invocation-title">Granted ability : Maneuver (cooldown : 3)</h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="thrawn granted" src="../image-perso/thrawn/thrawn-granted.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="invocation">
+                Dispel all debuffs on this character and gain 50% Turn Meter.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Ebb and Flow</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="thrawn unique" src="../image-perso/thrawn/thrawn-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Thrawn has +100% Counter Chance, +100% Tenacity, and -50% Speed while any enemies are Fractured.
+                Whenever another Empire ally uses a Special ability while Thrawn is active, that ally gains 15% Turn
+                Meter and, if any enemies are Fractured, Thrawn and Fractured enemies lose 15% Turn Meter.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Grand Amiral Thrawn",
+                "title": "<u>Grand Amiral Thrawn</u>",
+                "description": "Chef de l'Empire calculateur qui peut figer les ennemis sur place et conférer aux alliés de l'Empire une nouvelle capacité spéciale.",
+
+                "darkside": "Coté Obscur",
+                "support": "Soutien",
+                "leader": "Chef",
+                "empire": "Empire",
+                "fleet-commander": "Commandant de la flotte",
+
+                "basic-attack-title": "<u>Attaque Basique: Manipulation</u>",
+                "basic-attack": "Personnage : inflige des dégâts spéciaux à une cible ennemie et lui confère un bonus de vitesse pendant 1 tour. Si ses capacités sont déjà entravées, étourdit la cible pendant 1 tour. Lorsque ce bonus de vitesse expire, entrave ses capacités pendant 1 tour. ces bonus ne peuvent pas être résistés.\n\nBoss de raid : Inflige des dégâts spéciaux à une cible ennemie et lui inflige un malus de défense pendant 2 tours, qui ne peut pas être résisté.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Fracture (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à une cible ennemie 4 fois, dissipe toutes ses améliorations, réduits sa jauge de tour de 50 %, et inflige Fracture jusqu'au début du prochain tour de Thrawn, ou jusqu'à ce que Thrawn soit vaincu (ne peut pas être copié ou dissipé). Cette attaque ne peut pas être esquivée ou résitée.\n\nFracture sur les personnages : Vitesse à 0, impossible d'obtenir des améliorations, des attaques bonus ou des bonus de jauge de tour.\nBonus sur les boss de raid et les Légendes Galactiques : -50 % de vitesse (ne se cumule pas avec les malus de vitesse), impossible d'obtenir des améliorations, et -30 % de chances de contre-attaque.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Ordre du Grand Amiral (délai : 3)</u>",
+                "special-attack2": "Échange la jauge de tour avec un autre allié. Dissipe tous les affaiblissements en cours sur Thrawn et cet allié, et ils récupèrent 40 % de protection.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Stratèe légendaire</u>",
+                "lead-ability": "Les alliés de l'Empire ont +15 % de protection maximale, +25 % d'attaque, et leur jauge de tour se remplit de 20 % lorsqu'ils résistent à un effet négatif ou qu'ils subissent un affaiblissement. Lorsqu'un allié de l'Empire obtient ou perd un effet, il récupère 2 % de protection. Les alliés de l'Empire obtiennent une nouvelle capacité spéciale, Stratagème : Dissipe tous les affaiblissements en cours sur ce personnage et remplit la jauge de tour de 50 %. (délai : 3)",
+
+                "invocation-title": "Capacité accordée : Stratagème (délai : 3)",
+                "invocation": "Dissipe tous les affaiblissements en cours sur ce personnage et remplit la jauge de tour de 50 %.",
+
+                "unique-ability-title": "<u>Capacité Unique :  Fluctuations</u>",
+                "unique-ability": "Thrawn a +1000 % de chances de contre-attaque, +100 % de ténacité et -50 % de vitesse lorsque des ennemis sont touchés par Fracture. Lorsqu'un autre allié de l'Empire utilise une capacité spéciale pendant que Thrawn est actif, la jauge de tour de cet allié se remplit de 15 %, et si des ennemis sont touchés par Fracture, leur jauge de tour ainsi que celle de Thrawn diminue de 15 %.",
+
+                "ship-title": "<u>Vaisseau : Chimère</u>",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidDataGlobal = null; // ✨ NOUVEAU : Contiendra l'objet du raid {en: '...', fr: '...'}
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // ✨ NOUVEAU : Traduction en direct du bouton du Raid
+                const raidLink = document.getElementById('unit-raid');
+                if (raidLink && raidDataGlobal) {
+                    raidLink.innerText = lang === "fr" ? raidDataGlobal.fr : raidDataGlobal.en;
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "grand admiral thrawn";
+
+                fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidLink = document.getElementById('unit-raid');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                const currentLang = sessionStorage.getItem("selectedLanguage") || "en";
+                                eraLink.innerText = currentLang === "fr" ? currentUnit.era.fr : currentUnit.era.en;
+                                eraLink.style.display = 'inline-block'; // ✨ On l'affiche car il y a des données
+                            }
+
+                            // Gestion du Raid
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidDataGlobal = currentUnit.raids[0];
+                                raidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raidDataGlobal.en)}`;
+                                const currentLang = sessionStorage.getItem("selectedLanguage") || "en";
+                                raidLink.innerText = currentLang === "fr" ? raidDataGlobal.fr : raidDataGlobal.en;
+                                raidLink.style.display = 'inline-block'; // ✨ On l'affiche car il y a des données
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                        // Pas besoin de forcer le 'none' ici, ils le sont déjà par défaut dans le HTML
+                    });
+            }
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                loadUnitEraData();
+                switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+        </script>
+    </footer>
+
+</body>
+
+</html>
