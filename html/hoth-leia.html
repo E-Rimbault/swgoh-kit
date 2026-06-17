@@ -2,18 +2,18 @@
 <html lang="en">
 
 <head>
-    <title id="big-title">Padmé Amidala</title>
+    <title id="big-title">Rebel Officer Leia Organa</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-    <link rel="icon" type="image/png" href="../image-perso/padme-amidala/padme-image.png">
+    <link rel="icon" type="image/png" href="../image-perso/hoth-leia/hoth-leia-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/padme-amidala/padme-image.png" alt="Padmé Amidala" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/hoth-leia/hoth-leia-image.png" alt="Rebel Officer Leia Organa" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
             <!-- Sélecteur de langue -->
@@ -26,17 +26,17 @@
                     style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
 
-            <h1 id="title"><u>Padmé Amidala</u></h1>
+            <h1 id="title"><u>Rebel Officer Leia Organa</u></h1>
             <p id="description">
-                Courageous leader who continuously helps her allies and adapts to any circumstance
+                Tenacious Rebel Attacker that counters debuffs and is more effective against healthy targets
             </p>
             <br>
 
             <nav class="perso" style="font-size: 20px;">
                 <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
-                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
                 <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
-                <a class="capacite" href="../classement-perso/république-galactique.html" id="galactic-republic">Galactic Republic</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
                 <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
                 <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
             </nav>
@@ -44,73 +44,55 @@
     </header>
     <br>
 
-    <img class="first" src="../image-perso/padme-amidala/padmé.png" alt="Padmé Amidala"><br>
+    <img class="first" src="../image-perso/hoth-leia/hoth-leia.png" alt="Rebel Officer Leia Organa"><br>
 
     <!-- Capacités -->
-
-    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Aggressive Negotiations</u></h2>
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Hold Off</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="padme amidala basic" src="../image-perso/padme-amidala/padme-basique.png">
+            <img class="attaque" alt="Rebel Officer Leia Organa basic" src="../image-perso/hoth-leia/hoth-leia-basic.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
-                Deal Physical damage to target enemy, which can't be evaded. All Galactic Republic allies gain Protection Up (10%, does not stack with itself) for 1 turn.
+                Deal Physical damage to target enemy and inflict Buff Immunity for 2 turns. Leia gains 10% Turn Meter, an additional 10% Turn Meter if the target had full Health, and an additional 10% Turn Meter if the target is Empire.
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Cunning Plan (cooldown: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Rebel Barrage (cooldown: 14)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="padme amidala spe 1" src="../image-perso/padme-amidala/padm-spe-1.png">
+            <img class="attaque" alt="Rebel Officer Leia Organa special" src="../image-perso/hoth-leia/hoth-leia-spe1.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1">
-                Dispel all debuffs on Light Side allies, and they recover 50% Health. For each Galactic Republic ally and each debuff dispelled from themselves, Galactic Republic allies gain Protection Up (10%, stacking) for 1 turn.
+                Deal Physical damage 10 times to random enemy targets. Enemies struck more than once suffer Ability Block for 1 turn. This ability's cooldown is reduced by 1 whenever Leia scores a Critical Hit or suffers a debuff. These attacks can't be Countered.
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Graceful Assault (cooldown: 3)</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Battlefront Command</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="padme amidala spe 2" src="../image-perso/padme-amidala/padm-spe-2.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque" id="special-attack2">
-                Deal Physical damage to target enemy and Stun them for 1 turn, which can't be copied or dispelled. Then, call all Light Side allies with Protection Up and Jedi Knight Anakin to assist.
-            </p>
-        </div>
-    </div>
-
-    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Unwavering Courage</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="padme amidala lead" src="../image-perso/padme-amidala/padme-lead.png">
+            <img class="attaque" alt="Rebel Officer Leia Organa lead" src="../image-perso/hoth-leia/hoth-leia-lead.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="lead-ability">
-                Light Side allies have +50% Max Health, and while they have Protection Up they resist all debuffs and can't be critically hit.
+                Rebel allies have +20% Critical Chance and Tenacity. Whenever a Rebel ally takes damage from an Empire enemy they have a 50% chance to gain Foresight for 2 turns. The first time each turn a Rebel ally resists a detrimental effect or suffers a debuff from an enemy, they gain 30% Turn Meter.
                 <br><br>
-                At the start of their turn, Galactic Republic allies dispel Protection Up buffs on themselves and gain 1 stack of <u class="speciale">Courage</u> for each 5% Protection Up dispelled this way. Courage can't be copied, dispelled, or prevented.
-                <br><br>
-                <u class="speciale">Courage:</u> When damaging the target enemy with an ability, for each 5 stacks of Courage, dispel 5 stacks and deal bonus damage equal to 40% of the target's Max Health
-
+                <u class="omicron">Omicron Boost : While in Territory Battles:</u> Rebel allies have +35% Speed. Rebel allies recover 100% Health and Protection at the start of each encounter and whenever another Rebel ally is defeated. Whenever a Rebel ally critically hits an enemy, all Rebel allies gain 5% Turn Meter, doubled if it's their turn. Whenever a Rebel ally is defeated, all Rebel allies gain 100% of that ally's Offense (stacking) until they're defeated.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Always a Choice</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Dauntless</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="padme amidala unique" src="../image-perso/padme-amidala/padme-unique.png">
+            <img class="attaque" alt="Rebel Officer Leia Organa unique" src="../image-perso/hoth-leia/hoth-leia-unique.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="unique-ability">
-                Padmé is immune to Fear. Whenever a Light Side ally loses Protection Up, they recover 5% Health. Allies can't gain or lose bonus Turn Meter.
-                <br><br>
-                Whenever an enemy attacks out of turn against a Galactic Republic ally, that ally gains Protection Up (10%, does not stack with itself) for 1 turn, increased to 40% if Padmé is their leader. This Protection Up can't be prevented or dispelled.
+                Leia has +10% Offense and +40% Tenacity. The first time each turn Leia Resists a detrimental effect or suffers a debuff she gains 15% Turn Meter and gains 35% Offense (stacking) until the end of her next turn.
             </p>
         </div>
     </div>
@@ -123,29 +105,26 @@
         <script>
             // Dictionnaire français
             const translationsFr = {
-                "big-title": "Padmé Amidala",
-                "title": "<u>Padmé Amidala</u>",
-                "description": "Courageuse dirigeante qui aide ses alliés en permanence et s'adapte à toutes les circonstances.",
+                "big-title": "Officier Rebelle Leia Organa",
+                "title": "<u>Officier Rebelle Leia Organa</u>",
+                "description": "Attaquante rebelle tenace qui contre les affaiblissements et élimine les cibles qui disposent d'une santé élevée plus facilement.",
 
                 "lightside": "Coté Lumineux",
-                "support": "Soutien",
+                "attacker": "Attaquant",
                 "leader": "Chef",
-                "galactic-republic": "République Galactique",
+                "rebel": "Rebelle",
 
-                "basic-attack-title": "<u>Attaque Basique: Négociation musclée</u>",
-                "basic-attack": "Inflige des dégâts physiques à une cible ennemie, qui ne peuvent pas être esquivés. Tous les alliés de la République Galactique obtiennent une hausse de protection (10 %, ne se cumule pas) pendant 1 tour.",
+                "basic-attack-title": "<u>Attaque Basique: Repousser</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et inflige l'Immunité aux améliorations pendant 2 tours. La jauge de tour de Leia se remplit de 10 %, de 10 % supplémentaires si la cible ne disposait pas de toute sa santé, et de 10 % supplémentaires si la cible appartient à l'Empire.",
 
-                "special-attack1-title": "<u>Attaque Spéciale : Plan rusé (délai : 3)</u>",
-                "special-attack1": "Dissipe tous les affaiblissements en cours sur les alliés du Côté Lumineux, qui récupèrent 50 % de santé. Les alliés de la République Galactique obtiennent une hausse de protection (10 %, cumulatif) pendant 1 tour pour chaque allié de la République Galactique présent et chacun de leurs affaiblissements dissipés.",
+                "special-attack1-title": "<u>Attaque Spéciale : Barrage rebelle (délai : 14)</u>",
+                "special-attack1": "Inflige des dégâts physiques 10 fois à des cibles ennemies aléatoires. Les capacités des ennemis attaqués plus d'une fois sont entravées pendant 1 tour. Le délai de cette capacité diminue de 1 lorsque Leia inflige un coup critique ou subit un affaiblissement. Ces attaques ne peuvent pas être contrées.",
 
-                "special-attack2-title": "<u>Attaque Spéciale : Assaut gracieux (délai : 3)</u>",
-                "special-attack2": "inflige des dégâts physiques à la cible ennemie et l'étourdit pendant 1 tour (ne peut pas être copié ni dissipé). Ensuite, invoque tous les alliés de Coté Lumineux qui disposent d'une hausse de protection, ainsi que le Chevalier Jedi Anakin.",
+                "lead-ability-title": "<u>Capacité de Chef: Commandante de première ligne</u>",
+                "lead-ability": "Les alliés rebelles ont +20 % de chances de coup critique et de ténacité. Lorsqu'un allié rebelle subit des dégâts infligés par un ennemi de l'Empire, il a 50 % de chances d'obtenir Prévoyance pendant 2 tours. La première fois à chaque tour qu'un allié rebelle résiste à un effet négatif ou subit un affaiblissement d'une unité ennemie, sa jauge de tour se remplit de 30 %.\n\n<u class='omicron'>Amélioration Omicron : Dans les Batailles de territoire :</u> les alliés rebelles ont +35 % de vitesse. Les alliés rebelles récupèrent 100 % de santé et de protection au début de chaque affrontement et lorsqu'un autre allié rebelle est vaincu. Lorsqu'un allié rebelle inflige un coup critique à un ennemi, tous les alliés rebelles obtiennent 5 % de jauge de tour (doublé si c'est pendant leur tour). lorsqu'un allié rebelle est vaincu, tous les alliés rebelles obtiennent 100 % de l'attaque de cet allié (cumulatif) jusqu'à ce qu'ils soient vaincus.",
 
-                "lead-ability-title": "<u>Capacité de Chef: Courage inébranlable</u>",
-                "lead-ability": "Les alliés du Coté Lumineux ont + 50 % de santé maximale, et tant qu'ils disposent d'une hausse de protection ils résistent à tous les affaiblissements et ne peuvent pas subir de coup critique.\n\nAu début de leur tour, les alliés de la République Galactique dissipent leurs améliorations de hausse de protection et obtiennent 1 cumul de <u class='speciale'>Courage</u> à chaque tranche de 5 % de hausse de protection dissipé de cette manière. Le courage ne peut pas être copié, dissipé ou empêché.\n\n<u class='speciale'>Courage :</u> lorsqu'une capacité inflige des dégâts à la cible ennemie, pour chaque 5 cumuls de courage, dissipe 5 cumuls et inflige des dégâts bonus à hauteur de 40 % de la santé maximale de la cible.",
-
-                "unique-ability-title": "<u>Capacité Unique : Toujours le choix</u>",
-                "unique-ability": "Padmé est immunisée contre la peur. Lorsqu'un allié du Coté Lumineux perd sa hausse de protection, il récupère 5 % de santé. Les alliés ne peuvent pas obtenir ou perdre des bonus de jauge de tour.\n\nLorsqu'un ennemi attaque un allié de la République Galactique en dehors de son tour, cet allié obtient une hausse de protection (10 %, ne se cumule pas) pendant 1 tour. Cette hausse de protection ne peut pas être empêchée ou dissipée, et augment à 40 % si Padmé est dans l'emplacement de chef.",
+                "unique-ability-title": "<u>Capacité Unique : Intrépide</u>",
+                "unique-ability": "Leia a +10 % d'attaque et +40 % de ténacité. La premire fois à chaque tour que Leia résiste à un effet négatif ou subit un affaiblissement, sa jauge de tour se remplit de 15 % et elle obtient un bonus d'attaque de 35 % (cumulatif) jusqu'à la fin de son prochain tour.",
             };
 
             const originalTexts = {};
@@ -203,7 +182,7 @@
 
             function loadUnitEraData() {
                 const params = new URLSearchParams(window.location.search);
-                const unitId = params.get('id') || "padmé amidala"; //filtre unité ici
+                const unitId = params.get('id') || "rebel officer leia organa"; //filtre unité ici
 
                 // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
                 return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
