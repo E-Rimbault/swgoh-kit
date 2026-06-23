@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">R5-D4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/r5d4/r5d4-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/r5d4/r5d4-image.png" alt="R5-D4" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>R5-D4</u></h1>
+            <p id="description">
+                Astromech droid who disrupts enemies by sabotaging his bad motivator
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/droïde.html" id="droïd">Droïde</a>
+                <a class="capacite" href="../classement-perso/new-republic.html" id="new-republic">New Republic</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="capacite" href="../classement-perso/combattant-rebelle.html" id="rebel-fighter">Rebel Fighter</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: The Red One</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="r5d4 basic" src="../image-perso/r5d4/r5d4-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict 2 stacks of Damage Over Time for 2 turns.<br>
+                If it's R5-D4's turn, also Expose them for 1 turn.<br>
+                If it's an enemy's turn, also Shock them for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Tactical Support (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="r5d4 spe 1" src="../image-perso/r5d4/r5d4-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Dispel all debuffs on New Republic allies. All allies gain a stack of Retaliate for 1 turn and the following benefits based on their faction and role:
+                <br><br>
+                - <strong>Attackers:</strong> Rebel allies ignore Taunt effects for 1 turn, increased to 2 turns if they are New Republic allies<br>
+                - <strong>Healers and Supports:</strong> New Republic and Rebel allies gain 75% Critical Avoidance for 2 turns<br>
+                - <strong>Tanks:</strong> New Republic allies gain 2 additional stacks of Retaliate for 1 turn and they Taunt for 2 turns
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Bad Motivator (cooldown: 70)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="r5d4 spe 2" src="../image-perso/r5d4/r5d4-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                R5-D4 loses all Protection until the end of the encounter and gains that much Max Health. R5-D4 deals True Damage to all enemies equal to 50% of his Max Health, then he's reduced to 1 Health.
+                <br><br>
+                Increase all enemies' cooldowns by 2. R5-D4 is Stunned for 2 turns, which can't be dispelled. If R5-D4 is defeated during this Stun, he revives with 50% Health.
+                <br><br>
+                This ability starts on cooldown and can't be evaded or resisted.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Built for Adventure</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="r5d4 unique" src="../image-perso/r5d4/r5d4-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                At the start of each encounter, all Rebel allies gain 15% Max Protection until the end of encounter. Whenever R5-D4 takes damage from an enemy while a New Republic ally is Taunting, R5-D4 gains Protection Up (25%, stacking) for 1 turn.
+                <br><br>
+                Whenever a New Republic ally without Deflective Ward critically hits an enemy that is Dazed and Shocked, that ally gains Deflective Ward for 1 turn or until they receive damage. Whenever an enemy recovers Health or Protection, R5-D4 inflicts 2 stacks of Damage Over Time on that enemy for 1 turn at the end of that turn (once per turn).
+                <br><br>
+                Whenever another New Republic ally uses a Special ability, R5-D4 assists. If all allies were New Republic at the start of encounter, R5-D4 is immune to Ability Block and cooldown increase.
+                <br><br>
+                Whenever R5-D4 inflicts a stack of Damage Over Time, reduce the cooldown of Bad Motivator by 1 and if The Mandalorian (Beskar Armor) has Whistling Birds, he gains 1 stack of Whistling Birds (max 20).
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars and all allies are non-Galactic Legend New Republic:</u> At the start of encounter all New Republic allies gain 50% Defense and Tenacity until the end of encounter. The cooldown of Bad Motivator is reduced by 30 at the start of encounter and every time Bad Motivator is used.
+                <br><br>
+                Whenever R5-D4 inflicts a stack of Damage Over Time, all allies gain 10% Max Health (stacking, max 100%). When R5-D4 uses Bad Motivator, all enemies' cooldowns are increased to maximum.
+                <br><br>
+                Whenever Retaliate expires on an ally, trigger all stacks of Damage Over Time on all enemies. Whenever an ally is defeated, the weakest remaining ally gains Damage Immunity for 2 turns.
+                <br><br>
+                The first time any New Republic ally falls below 50% Health, all New Republic allies recover 100% Protection and R5-D4 takes a bonus turn.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "R5-D4",
+                "title": "<u>R5-D4</u>",
+                "description": "Un droïde astromécano qui perturbe les ennemis en sabotant son motivator défectueux.",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "droïd": "Droïde",
+                "new-republic": "Nouvelle République",
+                "rebel": "Rebelle",
+                "rebel-fighter": "Combattant Rebelle",
+
+                "basic-attack-title": "<u>Attaque Basique: Le rouge</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie et 2 cumuls de dégâts sur la durée pendant 2 tours.\nSi c'est le tour de R5-D4, inflige également Exposition pendant 1 tour.\nSi c'est au tour d'un ennemi, inflige également Choc pendant 1 tour.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Soutien tactique (délai : 3)</u>",
+                "special-attack1": "Dissipe tous les affaiblissement en cours sur les alliés de la Nouvelle République. Tous les alliés obtiennent un cumul de Représailles pendant 1 tour et les avantages suivants en fonction de leur faction et de leur rôle :\n\n- <strong>Attaquants :</strong> les alliés rebelles ignorent Raillerie pendant 1 tour, augmente à 2 tours s'ils sont des alliés de la Nouvelle République.\n- <strong>Soigneurs et Soutiens :</strong> les alliés de la Nouvelle République gagnent 75 % d'esquive des critiques pendant 2 tours.\n- <strong>Tanks :</strong> Les alliés de la Nouvelle République gagnent 2 cumuls supplémentaires de Représailles pendant 1 tour et utilisent Raillerie pendant 2 tours.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Motivator Défectueux (délai : 70)</u>",
+                "special-attack2": "R5-D4 perd toute sa protection jusqu'à la fin de l'affrontement et gagne autant de santé maximale. R5-D4 inflige des dégâts réels à tous les ennemis à hauteur de 50 % de sa santé maximale, puis sa santé est réduite à 1.\n\nAugmente les délais de toutes les capacités ennemies de 2. R5-D4 subit Étourdissement pendant 2 tours (ne peut pas être dissipé). Si R5-D4 est vaincu pendant cet Étourdissement, il est ranimé avec 50 % de santé.\n\nCette capacité commence avec un délai et ne peut pas être esquivée ou résistée.",
+
+                "unique-ability-title": "<u>Capacité Unique : Conçu pour l'aventure</u>",
+                "unique-ability": "Au début de chaque affrontement, tous les alliés Rebelles gagnent 15 % de protection maximale jusqu'à la fin de l'affrontement. Chaque fois que R5-D4 subit des dégâts d'un ennemi alors qu'un allié de la Nouvelle République utilise Raillerie, R5-D4 gagne un bonus de protection (25 %, cumulatif) pendant 1 tour.\n\nChaque fois qu'un allié de la Nouvelle République sans Parade déroutante inflige un coup critique à un ennemi subissant Confusion ou Choc, cet allié obtient Parade déroutante pendant 1 tour ou jusqu'à ce qu'il subisse des dégâts. Chaque fois qu'un ennemi récupère de la santé ou de la protection, R5-D4 lui inflige 2 cumuls de dégâts sur la durée pour 1 tour à la fin de ce tour (une fois par tour).\n\nChaque fois qu'un autre allié de la Nouvelle République utilise une capacité spéciale, R5-D4 est invoqué.Si tous les alliés étaient de la Nouvelle République au début d'un affrontement, R5-D4 est immunisé contre Entrave des capacités et les augmentations de délai.\n\nChaque fois que R5-D4 inflige un cumul de dégâts sur la durée, le délai de Motivator défectueux est réduit de 1, et si le Mandalorien (armure en beskar) dispose d'oiseaux siffleurs, il gagne un cumul d'oiseaux siffleurs (20 max).\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire et si tous les alliés sont de la Nouvelle République (hors Légendes Galactiques):</u> Au début de l'affrontement, tous les alliés de la Nouvelle République gagnent 50 % de défense et de ténacité jusqu'à la fin de l'affrontement. Le délai de Motivator défectueux est réduit de 30 au début de l'affrontement et chaque fois que cette capacité est utilisée.\n\nChaque fois que R5-D4 inflige un cumul de dégâts sur la durée, tous les alliés gagnent 10 % de santé maximale (cumulatif, 100 % maximum). Lorsque R5-D4 utilise Motivator défectueux, les délais de tous les ennemis sont augmentés au maximum.\n\nChaque fois que l'effet de Représailles expire sur un allié, déclenche tous les cumuls de dégâts sur la durée sur tous les ennemis. Chaque fois qu'un allié est vaincu, l'allié le plus faible restant gagne Immunité aux dégâts pendant 2 tours.\n\nLa première fois que la santé d'un allié de la nouvelle République est réduite à moins de 50 %, tous les alliés de la Nouvelle République récupèrent 100 % de protection et R5-D4 gagne un tour bonus.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "R5D4"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
