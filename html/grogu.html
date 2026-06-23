@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Grogu & Anzellans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/grogu/grogu-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/grogu/grogu-image.png" alt="Grogu & Anzellans" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Grogu & Anzellans</u></h1>
+            <p id="description">
+                This adventurous group aids their allies through healing and other antics
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soigneur.html" id="healer">healer</a>
+                <a class="capacite" href="../classement-perso/mandalorien.html" id="mandalorian">Mandalorian</a>
+                <a class="capacite" href="../classement-perso/new-republic.html" id="new-republic">new Republic</a>
+                <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Force User</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Good Shot, Baby!</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="grogu basic" src="../image-perso/grogu/grogu-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal 1 True damage to target enemy and inflict 1 stack of Off Balance for 1 turn. During Grogu & Anzellans' turn, inflict 1 stack of Force Influence for 1 turn. During enemy turns, Ability Block them for 1 turn.
+                <br><br>
+                Grogu & Anzellans and a random Support ally gain Tenacity Up for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Tune Up (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="grogu spe 1" src="../image-perso/grogu/grogu-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Equalize all allies' Health, then grant them Defense Up for 2 turns. Attacker and Tank allies gain 1 stack of Endure for 1 turn.
+                <br><br>
+                Mandalorian or New Republic allies recover 30% of their Max Health and gain 2 stacks of Heal Over Time for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Strapped In (cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="grogu spe 2" src="../image-perso/grogu/grogu-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Dispel buffs on all enemies and deal Physical damage to them.
+                <br><br>
+                All allies gain Dramatic Entrance until the end of Grogu & Anzellans' next turn and 3 stacks of Heal Over Time for 2 turns. Other Healer and Support allies Stealth for 1 turn.
+                <br><br>
+                Target New Republic ally gains Retribution for 2 turns and their cooldowns are reduced by 1. Target enemy is inflicted with 1 stack of On the Run and their cooldowns are increased by 1.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Bad Baby!</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="grogu unique 1" src="../image-perso/grogu/grogu-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of battle if all allies are New Republic, allies gain 30% Max Health and Protection and Deflective Ward for 1 turn or until they take damage.
+                <br><br>
+                Whenever an Attacker or Tank ally loses Deflective Ward, Retaliate, Retribution, or a Taunt effect, trigger their stacks of Heal Over Time.
+                <br><br>
+                At the start of each enemy turn, Grogu & Anzellans gains 5% Defense (stacking) until the end of their next turn. Allies ignore Taunt effects during enemy turns.
+                <br><br>
+                If there is an allied New Republic Galactic Legend or there are no other Galactic Legends in the battle, whenever a New Republic ally is Stunned during an enemy turn, dispel it and reduce their cooldowns by 1 and whenever a New Republic ally is Dazed, dispel it and they recover 20% Health.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas if all allies are Mandalorian or New Republic and there is an allied New Republic Galactic Legend or there are no other Galactic Legends in the battle:</u> At the start of battle, allies gain an additional 20% Max Health and Protection and Deflective Ward for 1 turn or until they take damage. Whenever Grogu & Anzellans use a Special Ability they gain Untargetable for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Din Grogu</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="grogu unique 2" src="../image-perso/grogu/grogu-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                At the start of each encounter, if all allies are New Republic, Distract all enemies for 1 turn, which can't be resisted, and whenever an enemy gains Speed Up, Distract them until the start of Grogu & Anzellans' next turn and inflict them with 1 stack of On the Run.
+                <br><br>
+                At the start of each ally's turn, Grogu & Anzellans gains 1 stack of Force Connection (stacking, max 50) for the rest of the encounter. This limit is increased to 100 stacks if any version of The Mandalorian is an ally.
+            </p>
+        </div>
+    </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Grogu et les Anzellans",
+                "title": "<u>Grogu et les Anzellans</u>",
+                "description": "Ce groupe aventureux aide ses alliés grâce aux soins et à d'autres facéties.",
+
+                "lightside": "Coté Lumineux",
+                "healer": "Soigneur",
+                "mandalorian": "Mandalorien",
+                "new-republic": "Nouvelle République",
+                "force-user": "Utilisateur de la Force non aligné",
+
+                "basic-attack-title": "<u>Attaque Basique: Bien joué, bébé !</u>",
+                "basic-attack": "Inflige 1 dégât réel à la cible ennemie et lui inflige un cumul de Déséquilibre pendant 1 tour. Pendant le tour de Grogu et les Anzellans, inflige un cumul d'Influence de la Force pendant 1 tour. Pendant le tour des ennemis, inflige Entrave des capacités pendant 1 tour.\n\nGrogu et les Anzellans, ainsi qu'un allié soutien aléatoire, obtiennent un bonus de ténacité pendant 2 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Mise au points (délai : 3)</u>",
+                "special-attack1": "Équilibre la santé de tous les alliés, puis leur confère un bonus de défense pendant 2 tours. Les attaquants et tanks alliés obtiennent 1 cumul de Résiste pendant 1 tour.\n\nLes alliés Mandaloriens ou de la Nouvelle République récupèrent 30 % de leur santé maximale et obtiennent 2 cumuls de soins sur la durée pendant 2 tours.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Attaché (délai : 5)</u>",
+                "special-attack2": "Dissipe les améliorations de tous les ennemis et leur inflige des dégâts physiques.\n\nTous les alliés obtiennent Entrée dramatique jusqu'à la fin du prochain tour de Grogu et les Anzellans et 3 cumuls de soins sur la durée pendant 2 tours. Les autres soigneurs et soutiens alliés utilisent camouflage pendant 1 tour.\n\nLa cible alliée de la Nouvelle République obtient Rétribution pendant 2 tours et ses délais diminuent de 1.\nL'ennemi ciblé subit 1 cumul d'En cavale et ses délais augmentent de 1.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Méchant Bébé !</u>",
+                "unique-ability1": "Au début de la bataille, si tous les alliés sont de la Nouvelle République, les alliés gagnent 30 % de santé maximale et de protection, ainsi que Parade déroulante pendant 1 tour ou jusqu'à ce qu'ils subissent des dégâts.\n\nChaque fois qu'un attaquant ou un tank allié perd Parade déroulante, Représailles, Rétribution ou un effet de Raillerie, déclenche ses cumuls de soins sur la durée.\n\nAu début de chaque tour ennemi, Grogu et les Anzellans gagnent 5 % de défense (cumulatif) jusqu'à la fin de leur prochain tour. Les alliés ignorent les effets de Raillerie pendant les tours ennemis.\n\nS'il y a une Légende Galactique alliée de la Nouvelle République ou s'il n'y a pas d'autres Légendes Galactiques dans la bataille, chaque fois qu'un autre allié de la Nouvelle République subit Étourdissement pendant un tour ennemi, cet effet est dissipé et ses délais sont réduits de 1, et à chaque fois qu'un allié de la Nouvelle République subit Confusion, cet effet est dissipé et il récupère 20 % de santé.\n\n<u class='omicron'>Dans les Grandes arènes, si tous les alliés sont Mandaloriens ou de la Nouvelle République et qu'il y a une Légende Galactique alliée de la Nouvelle République ou qu'il n'y a pas d'autres Légendes Galactiques dans la bataille :</u> au début de la bataille, les alliés gagnent 20 % de santé maximale et de protection supplémentaires, ainsi que Parade déroutante pendant 1 tour ou jusqu'à ce qu'ils subissent des dégâts. Chaque fois que Grogu et les Anzellans utilisent une capacité spéciale, ils obtiennent Impossible à cibler pendant 1 tour.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Din Grogu</u>",
+                "unique-ability2": "Au début de chaque affrontement, si tous les alliés sont de la République Galactique, inflige Distraction à tous les ennemis pendant 1 tour (ne peut pas petre résisté), et chaque fois qu'un ennemi obtient un bonus de vitesse, lui inflige Distraction jusqu'au début du prochain tour de Grogu et les Anzellans et lui inflige un cumul d'En cavale.\n\nAu début du tour de chaque allié, Grogu et les Anzellans gagnent 1 cumul de connexion avec la Force (cumulatif, 50 max) pour le reste de l'affrontement.\nCette limite est augmentée à 100 si n'importe qu'elle version du Mandalorien est présent.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "GOPHERANTS"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
