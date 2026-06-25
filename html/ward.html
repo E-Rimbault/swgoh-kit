@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Colonel Ward</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/ward/ward-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/ward/ward-image.png" alt="Colonel Ward" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Colonel Ward</u></h1>
+            <p id="description">
+                A seasoned Colonel of the New Republic and former Rebel pilot, Ward supports her allies on the battlefield
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="suport">Support</a>
+                <a class="capacite" href="../classement-perso/new-republic.html" id="new-republic">New Republic</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: A180 Blaster Pistol</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Colonel Ward basic" src="../image-perso/ward/ward-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Evasion Down for 1 turn. If it's Ward's turn, also inflict Defense Down for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : New Republic's Most Wanted (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Colonel Ward spe 1" src="../image-perso/ward/ward-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Dispel all debuffs on target ally. The next time the target ally counterattacks, they inflict Evasion Down on the enemy for 1 turn.
+                <br><br>
+                Dispel Stealth from all enemies. Each enemy that lost Stealth this way is Marked for 2 turns. Inflict all enemies with Critical Damage Down and Expose them for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : X-haul Fly-by (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Colonel Ward spe 2" src="../image-perso/ward/ward-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to all enemies, inflict them with Burning and Healing Immunity for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : New Republic Officer</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Colonel Ward unique" src="../image-perso/ward/ward-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                henever a Support or Healer ally is damaged by an enemy ability while an ally is Taunting, Ward inflicts the enemy with Evasion Down for 1 turn.
+                <br><br>
+                Whenever the enemy dispels Retaliate on any ally, New Republic allies gain 10% Offense (stacking, max 50%) when attacking enemies out of turn. Whenever allies trigger Expose out of turn, they gain Critical Damage Up for 1 turn. Whenever Ward uses X-Haul Fly-by, if any enemies have On the Run, all New Republic allies assist the next time any ally counterattacks.
+                <br><br>
+                If all allies were New Republic at the start of battle: Whenever a Taunting Tank ally is damaged, the enemy that damaged them is Ability Blocked for 1 turn. If there is an allied New Republic Galactic Legend or there are no other Galactic Legends in the battle, whenever a Healer or Support ally is damaged by an enemy ability while an ally is Taunting, increase all cooldowns of the enemy who damaged them by 1 (excluding raid bosses and Galactic Legends) and the enemy gains 1 stack of On the Run.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> At the start of battle, all New Republic allies gain 10% Potency and Tenacity for each New Republic ally until the end of battle.
+                <br><br>
+                If all allies are New Republic at the start of battle, enemies start the battle with 2 stacks of On the Run. If there is an allied New Republic Galactic Legend or there are no other Galactic Legends in the battle, whenever enemies gain a stack of On the Run, Ward inflicts them with an additional stack of On the Run (once per target enemy’s turn). When enemies take damage from On the Run, they are also Exposed for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Colonel Ward",
+                "title": "<u>Colonel Ward</u>",
+                "description": "Colonel chevronée de la Nouvelle République et ancienne pilote Rebelle, Ward soutient ses alliés sur le champ de btaille.",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "new-republic": "Nouvelle République",
+
+                "basic-attack-title": "<u>Attaque Basique: Pistolet blaster A180</u>",
+                "basic-attack": "inflige des dégâts physiques à la cible ennemie et lui inflige un malus d'esquive pendant 1 tour. Si c'est le tour de Ward, inflige également un malus de défense pendant 1 tour.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Les plus recherchés de la Nouvelle République (délai : 3)</u>",
+                "special-attack1": "Dissipe tous les affaiblissements sur la cible alliée. La prochaine fois que la cible allié contre-attaque, elle inflige un malus d'esquive à l'ennemi ciblé pendant 1 tour.\n\nDissipe camouflage de tous les ennemis. Chaque ennemi qui a perdu Camouflage de cette façon subit Marquee pendant 2 tours. Inflige un malus de dégâts critiques et Exposition à tous les ennemis pendant 2 tours.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Survol de X-wing (délai : 4)</u>",
+                "special-attack2": "Inflige des dégâts physiques à tous les ennemis, leur inflige Brûlure et Immunité aux soins pendant 2 tours.",
+
+                "unique-ability-title": "<u>Capacité Unique : Officier de la Nouvelle République</u>",
+                "unique-ability": "chaque fois qu'un soutien ou soigneur allié subit des dégâts d'une capacité ennemie pendant qu'un allié utulise une Raillerie, Ward inflige un malus d'esquive à l'ennemi pendant 1 tour.\n\nChaque fois que l'ennemi dissipe Représailles sur un allié, les alliés de la Nouvelle République gagnent 10 % d'attaque (cumulatif, 50 % max) lorsqu'ils attaquent des ennemis hors de leur tout. Chaque fois que les alliés déclenchent Exposition hors de leur tour, ils obtiennent un bonus de dégâts critiques pendant 1 tour. Chaque fois que Ward utilise survol de X-wing, si un ennemi subit En cavale, tous les alliés de la Nouvelle République sont invoqués la prochaine fois qu'un allié contre-attaque.\n\nSi tous les alliés étaient de la Nouvelle République au début de la bataille : chaque fois qu'un allié tank utilisant Raillerie subit des dégâts, l'ennemi qui l'a attaqué subit entrave des capacités pendant 1 tour. S'il y a une Légende Galactique allié de la Nouvelle République ou s'il n'y a pas d'autres Légendes Galactiques dans la bataille, chaque fois qu'un soigneur ou soutien allié subit des dégâts d'une capacité ennemie pendant qu'un allié utilise Raillerie, augmente tous les délais de l'ennemi qui l'a attaqué de 1 (à l'exception des Boss de raid et les Légendes Galactiques) et l'ennemi obtient 1 cumul d'En cavale.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> au début de la bataille, tous les alliés de la Nouvelle République gagnent 10 % de pouvoir et de ténacité pour chaque allié de la Nouvelle République jusqu'à la fin de la bataille.\n\nSi tous les alliés sont de la Nouvelle République, les ennemis commencent la bataille avec 2 cumuls d'En cavale. S'il y a une Légende Galactique de la Nouvelle République ou s'il n'y a pas d'autres Légendes Galactiques dans la bataille, chaque fois que les ennemis obtiennent un cumul d'En cavale, Ward leur inflige un cumul d'En cavale supplémentaire (une fois par tour de l'ennemi ciblé). Lorsque les ennemis souffrent d'En cavale, ils subissent aussi Exposition pendant 1 tour.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "bishop"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
