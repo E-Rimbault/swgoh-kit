@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Snowtrooper Commander</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/snow-commander/snow-commander-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/snow-commander/snow-commander-image.png" alt="Snowtrooper Commander" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Snowtrooper Commander</u></h1>
+            <p id="description">
+                A frontline enforcer who turns the enemy’s assault into snowballing momentum
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="capacite" href="../classement-perso/vestige-de-l'empire.html" id="remnant">Imperial Remnant</a>
+                <a class="capacite" href="../classement-perso/soldat-de-lempire.html" id="trooper">Imperial Trooper</a> 
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: T-21B Blaster Rifle</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Snowtrooper Commander basic" src="../image-perso/snow-commander/snow-commander-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Vulnerable for 1 turn. If they already have Vulnerable, inflict Offense Down for 2 turns instead. During Snowtrooper Commander's turn, Snowtrooper will assist.
+
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Hunker Down (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Snowtrooper Commander spe 1" src="../image-perso/snow-commander/snow-commander-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Dispel all debuffs on Snowtrooper Commander. Gain 200% Defense and Taunt for 2 turns. All Empire allies gain Defense Up for 2 turns and all Imperial Remnant allies gain Protection Up (50%) for 2 turns. Snowtrooper Commander recovers 30% Health and Protection.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Rifle Butt (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Snowtrooper Commander spe 2" src="../image-perso/snow-commander/snow-commander-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to target enemy and Stun them for 1 turn. Snowtrooper and TIE Fighter Pilot gain Alert and Offense equal to 100% of Snowtrooper Commander's Defense for 1 turn. All Imperial Remnant non-Tank allies Stealth for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Warlord's Enforcer</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Snowtrooper Commander lead" src="../image-perso/snow-commander/snow-commander-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                All Imperial Remnant allies have +100% Max Health and Max Protection. The first time each Imperial Remnant ally falls below 30% Health, they recover 30% Health and Protection and all other Imperial Remnant allies recover 15% Health and Protection, all Imperial Remnant allies gain Defense Up for 2 turns and Snowtrooper Commander Taunts for 2 turns.
+                <br><br>
+                Whenever an Imperial Remnant ally Ability Blocks an enemy, they gain Defense equal to 50% of Snowtrooper Commander's Defense for 1 turn.
+                <br><br>
+                Whenever an enemy attacks out of turn, inflict Speed Down on them for 1 turn and whenever an enemy resists a debuff, inflict Tenacity Down on them for 1 turn.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in 3v3 Grand Arenas, and all allies are Imperial Remnant:</u><br>
+                At the start of battle, Snowtrooper Commander Taunts and all non-Tank allies Stealth for 2 turns, all allies gain Advantage and Defense Up for 2 turns and 100% bonus Protection until the end of battle.
+                <br><br>
+                Whenever an enemy attacks out of turn or resists a debuff, Snowtrooper Commander Taunts, all non-Tank allies Stealth, and all allies gain Alert and Offense Up for 1 turn.
+                <br><br>
+                Whenever Snowtrooper Commander Taunts, all allies gain 10% Offense (stacking, max 150%) until the end of battle. Whenever an ally Stealths, that ally recovers 30% Protection. Stealthed allies have +200% Critical Chance and Critical Damage.
+                <br><br>
+                Whenever Snowtrooper Commander uses Hunker Down while Taunting, dispel all debuffs from all allies. Whenever an ally Ability Blocks an enemy, remove 30% Turn Meter from that enemy and increase their cooldowns by 1
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Whiteout Conditions</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Snowtrooper Commander unique" src="../image-perso/snow-commander/snow-commander-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                While Snowtrooper Commander is Taunting, whenever he is damaged by an enemy, all Imperial Remnant allies gain 10% Defense Penetration (stacking, max 100%) until the end of battle and whenever he is inflicted with a debuff, all other Imperial Remnant allies gain 5% Turn Meter.
+                <br><br>
+                While Snowtrooper Commander is not Taunting, whenever another Imperial Remnant ally is damaged by an enemy, Snowtrooper Commander gains 30% Turn Meter.
+                <br><br>
+                While Snowtrooper Commander has Protection, all Imperial Remnant allies have 100% Critical Avoidance and Tenacity.
+                <br><br>
+                Whenever another Imperial Remnant ally scores more than one Critical Hit on their turn, that ally Stealths for 1 turn and Snowtrooper Commander Taunts for 1 turn, if Snowtrooper Commander was already Taunting, that ally recovers 10% Health and Protection.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Commandant Snowtrooper",
+                "title": "<u>Commandant Snowtrooper</u>",
+                "description": "Un éxécuteur de première ligne qui transforme l'assaut ennemi en un élan grandissant.",
+
+                "darkside": "Coté Obscur",
+                "tank": "Tank",
+                "leader": "Chef",
+                "empire": "Empire",
+                "remnant": "Vestige de l'Empire",
+                "trooper": "Soldat de l'Empire",
+
+                "basic-attack-title": "<u>Attaque Basique: Fusil blaster T-21B</u>",
+                "basic-attack": "inflige des dégâts physiques à la cible ennemie, ainsi que Vulnérabilité pendant 1 tour. Si elle subit déjà Vulnérable, inflige un malus d'attaque pendant 2 tours à la place. Pendant le tour du commandant Snowtrooper, le Snowtrooper est invoqué.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Profil bas (délai : 3)</u>",
+                "special-attack1": "Dissipe tous les affaiblissements sur le commandant Snowtrooper. Obtient 200 % de défense et Raillerie pendant 2 tours. Tous les alliés de l'Empire obtiennent un bonus de défense pendant 2 tours et tous les alliés du Vestige de l'Empire gagnent un bonus de protection (50 %) pendant 2 tours. Le commandant Snowtrooper récupère 30 % de santé et de protection.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Crosse de fusil (délai : 4)</u>",
+                "special-attack2": "Inflige des dégâts physiques à la cible ennemie et lui inflige Étourdissement pendant 1 tour. Le Snowtrooper et le Pilote de Chasseur TIE obtiennent En alerte et une attaque égale à 100 % de la défense du commandant Snowtrooper pendant 1 tour. Tous les alliés du Vestige de l'Empire qui ne sont pas des tanks utilisent Camouflage pendant 2 tours.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Exécuteur du seigneur de guerre</u>",
+                "lead-ability": "Tous les alliés du Vestige de l'Empire ont +100 % de santé maximale et de protection maximale. La première fois que la santé de chaque allié du Vestige de l'Empire est réduite à moins de 30 %, il récupère 30 % de santé et de protection et tous les autres alliés du Vestige de l'Empire récupèrent  15 % de santé et de protection. Tous les alliés du Vestige de l'Empire obtiennent un bonus de défense pendant 2 tours et le commandant Snowtrooper utilise Raillerie pendant 2 tours.\n\nChaque fois qu'un allié du Vestige de l'Empire inflige Entrave des capacités à un ennemi, il gagne une défense égale à 50 % de la défense du commandant Snowtrooper pendant 1 tour.\n\nChaque fois qu'un ennemi attaque hors de son tour, lui inflige un malus de vitesse pendant 1 tour et chaque fois qu'un ennemi résiste à un affaiblissement, lui inflige un malus de ténacité pendant 1 tour.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes en 3c3, si tous les alliés sont du Vestige de l'Empire :</u>\nAu début de la bataille, le commandant Snowtrooper utilise Raillerie et tous les alliés du Vestige de l'Empire qui ne sont pas des tanks utilisent Camouflage pendant 2 tours, tous les alliés obtiennent l'avantage et un bonus de défense pendant 2 tours et un bonus de protection de 100 % jusqu'à la fin de la bataille.\n\nChaque fois qu'un ennemi attaque hors de son tour ou résiste à un affaiblissement, le commandant Snowtrooper utilise Raillerie, tous les alliés du Vestige de l'Empire qui ne sont pas des tanks utilisent Camouflage, et tous les alliés obtiennent en Alerte et un bonus d'attaque pendant 1 tour.\n\nChaque fois que le commandant Snowtrooper obtient Raillerie, tous les alliés gagnent 10 % d'attaque (cmulatif, 150 % maximum) jusqu'à la fin de la bataille. CHaque fois qu'un allié utilise Camouflage, cet allié récupère 30 % de protection. Les alliés camouflés ont +200 % de chances de coup critique et de dégâts critiques.\n\nChaque fois que le commandant Snowtrooper utilise Profil bas pendant qu'il utilise Raillerie, dissipe tous les affaiblissements de tous les alliés. Chaque fois qu'un allié nflige Entrave des capacités à un ennemi, retire 30 % de jauge de tour à cet ennemi et augment ses délai de 1.",
+
+                "unique-ability-title": "<u>Capacité Unique : Conditions de blizzard</u>",
+                "unique-ability": "Tant que le commandant Snowtrooper utilise Raillerie, chaque fois qu'il subit des dégâts d'un ennemi, tous les alliés du Vestige de l'EMpire gagnent 10 % de pénétration de défense (cumulatif, 100 % maximum)jusqu'à la fin de la bataille et chaque fois qu'il subit un affaiblissement, tous les autres alliés du Vestige de l'Empire gagnent 5 % de jauge de tour.\n\nLorsque le commandant Snowtrooper n'utilise pas Raillerie, chaque fois qu'un autre allié du Vestige de l'Empire subit des dégâts d'un ennemi, le commandant Snowtrooper gagne 30 % de jauge de tour.\n\nTant que le commandant Snwotrooper dispose de protection, tous les alliés du Vestige de l'Empire ont 100 % d'esquive des critiques et de ténacité.\n\nchaque fois qu'un autre allié du Vestige de l'Empire inflige plus d'un coup critique pendant son tour, cet allié utilise Camouflage pendant 1 tour et le commandant Snowtrooper utilise Raillerie pendant 1 tour. Si le commandant Snowtrooper utilisait déjà Raillerie, cet allié récupère 10 % de santé et de protection.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "REMNANTSNOWCOMMANDER"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
