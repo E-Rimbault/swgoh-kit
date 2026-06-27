@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Rotta the Hutt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/rotta/rotta-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/rotta/rotta-image.png" alt="Rotta the Hutt" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Rotta the Hutt</u></h1>
+            <p id="description">
+                An arena-forged Attacker who favors the spotlight
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/cartell-des-hutt.html" id="hutt">Hutt Cartel</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Cleave the Unworthy</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="rotta basic" src="../image-perso/rotta/rotta-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy twice and inflict 1 stack of Bleed (max 6), which can't be evaded or resisted, until the end of the encounter, and Healing Immunity and Speed Down for 1 turn. Reduce the target enemy's Defense by 20% (stacking), which can't be resisted, until the end of battle.
+                <br><br>
+                If Rotta the Hutt was the only ally at the start of battle: Reduce the target enemy's Critical Chance by 10% (max 50%), which can't be evaded or resisted, and Rotta gains 20 Speed (max 100) until the end of battle. Rotta recovers 10% Health and Protection.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Knock 'Em Dead (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="rotta spé 1" src="../image-perso/rotta/rotta-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies, dispel all buffs on them, inflict 2 stacks of Bleed (max 6) until the end of the encounter, and Off Balance on them for 2 turns. If all enemies are inflicted with Off Balance, Rotta gains a bonus turn and 40% Offense for 1 turn.
+                <br><br>
+                If Rotta the Hutt had a full squad of Hutt Cartel allies at the start of battle, all other allies assist and Tank allies Taunt for 2 turns, if Rotta is below 50% Health this Taunt can't be dispelled.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas if all allies were Hutt Cartel at the start of battle:</u> This ability can't be evaded or resisted.
+                <br><br>
+                If Rotta was the only ally at the start of battle: He inflicts an additional stack of Bleed (max 6) until the end of the encounter on all enemies, removes 10% Turn Meter from them, reduces the cooldown of Showboat by 1, and he gains 50% Offense for 1 turn instead.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Showboat (cooldown: 6)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="rotta spe 2" src="../image-perso/rotta/rotta-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to all enemies, trigger all stacks of Bleed on them, detonate all Thermal Detonators on them, and Stun them for 1 turn. If Rotta was the only ally at the start of battle: This Stun can't be evaded or resisted.
+                <br><br>
+                If any enemy is defeated by this ability, all Hutt Cartel allies gain 20% Turn Meter.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas if all allies were Hutt Cartel at the start of battle:</u> Tank allies recover 10% Protection for each enemy damaged by this ability and Attacker allies gain 10% Defense Penetration (stacking, max 50%) each time this ability is used.
+                <br><br>
+                If Rotta the Hutt was the only ally at the start of battle: This ability instantly defeats enemies below 40% Health (excludes Galactic Legends and raid bosses) and Rotta recovers 50% Health and Protection for each enemy defeated by this ability.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: A Legacy Reforged</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="rotta lead" src="../image-perso/rotta/rotta-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Hutt Cartel allies gain 50% Accuracy and Critical Avoidance, 200% Defense, 75% Offense, 50 Speed, and 40% Tenacity. Dark Side Hutt Cartel allies and Rotta gain 75% counter chance and 50% Critical Chance. The first time each Hutt Cartel ally falls below 50% Health, they gain Damage Immunity for 1 turn, recover 20% Health and Protection, and ally Tanks Taunt for 2 turns.
+                <br><br>
+                Whenever a Dark Side Hutt Cartel ally or Rotta inflicts a stack of Bleed or a Thermal Detonator on an enemy, they gain 5% Turn Meter and recover 5% Health and Protection.
+                <br><br>
+                If Rotta the Hutt was the only ally at the start of battle: He gains 250% Max Health and Max Protection, 50% Health Steal, 25 Speed, he can't be instantly defeated, and whenever he is Ability Blocked, Blinded, Dazed, Feared, or Stunned he dispels it and inflicts 1 stack of Bleed (max 6) until the end of the encounter and 1 Thermal Detonator on all enemies for 2 turns, which can't be evaded or resisted. If it can't be dispelled, he also gains Damage Immunity for 1 turn, which can't be dispelled.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Pedunkee Mufkin</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="rotta unique" src="../image-perso/rotta/rotta-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Ally Hutt Cartel Tanks Taunt for 2 turns at the start of battle. Whenever Dark Side Support allies attack an enemy, all allies recover 10% Health, Protection, and Turn Meter. Dark Side Hutt Cartel allies and Rotta can ignore Taunt effects during their turn. All Hutt Cartel allies are immune to cooldown increase and Rotta is immune to Thermal Detonators.
+                <br><br>
+                If Rotta the Hutt had a full squad of Hutt Cartel allies at the start of battle, whenever they have Turn Meter removed, Rotta has a 50% chance to gain a bonus turn.
+                <br><br>
+                If Rotta the Hutt was the only ally at the start of battle: Whenever an enemy removes Turn Meter from him, he deals damage to all enemies equal to 10% of their Max Health (this damage can't defeat enemies) and has an additional 30% chance to gain a bonus turn.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas if all allies are Hutt Cartel at the start of battle:</u> All allies gain 50% Max Health. If all of Rotta's other allies are Dark Side, whenever they or Rotta are inflicted with a debuff, they inflict a Thermal Detonator on the enemy that applied it for 2 turns, which can't be evaded or resisted. Whenever Rotta defeats an enemy, the cooldown of Showboat is decreased by 1 and all allies gain bonus Protection (40%, stacking) until the end of the encounter.
+                <br><br>
+                If Rotta was the only ally at the start of battle: He takes reduced damage from percent Health effects and defeated enemies can't be revived.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Large Character</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="rotta unique 2" src="../image-perso/rotta/rotta-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                This character can't be used in the ally slot or with another large character and summons are prevented for allies.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Rotta le Hutt",
+                "title": "<u>Rotta le Hutt</u>",
+                "description": "Un attaquant forgé dans l'arène qui aime être sous les feux de la rampe.",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "hutt": "Cartel des Hutt",
+
+                "basic-attack-title": "<u>Attaque Basique: Fendre les indignes</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie deux fois et lui inflige 1 cumul de Saignement (6 max.) jusqu'à la fin de l'affrontement (ne peut pas être esquivé ou résisté), ainsi qu'Immunité aux soins et un malus de vitesse pendant 1 tour. Réduit la défense de la cible ennemie de 20 % (cumulatif) jusqu'à la fin de la bataille (ne peut pas être résisté).\n\nSi Rotta le Hutt était le seul allié au début de la bataille, réduit les chances de coup critique de l'ennemi de 10 % (50 % max.), ce qui ne peut pas être esquivé ou résisté, et Rotta gagne 20 de vitesse (100 max.) jusqu'à la fin de la bataille. Rotta récupère 10 % de santé et de protection.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Coup de grâce (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis, dissipe toutes leurs améliorations, leur inflige 2 cumuls de Saignement (6 max.) jusqu'à la fin de l'affrontement et Déséquilibre pendant 2 tours. Si tous les ennemis subissent Déséquilibre, Rotta gagne un tour bonus et 40 % d'attaque pendant 1 tour.\n\nSi Rotta le hutt disposait d'une escouade complète d'alliés du Cartel des Hutt au début de la bataille, tous les autres alliés assistent et les tanks alliés utilisent Raillerie pendant 2 tours. Si la santé de Rotta est inférieure à 50 %, cette raillerie ne peut pas être dissipée.\n\n<u class='omicron'>Amélioration Omicron :Dans les Grandes arènes si tous les alliés appartenaient au Cartel des Hutt au début de la bataille :</u> cette capacité ne peut pas être esquivée ou résistée.\n\nSi Rotta était le seul allié au début de la bataille, il inflige un  cumul supplémentaire de Saignement (6 max.) à tous les ennemis jusqu'à la fin de la bataille, leur retire 10 % de jauge de tour, réduit le délai de Pour la galerie de 1, et obtient 50 % d'attaque pendant 1 tour à la place.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Pour la galerie (délai : 6)</u>",
+                "special-attack2": "Inflige des dégâts physiques à tous les ennemis, déclenche tous les cumuls de Saignement qui les affectent, fait détoner tous les détonateurs thermiques sur eux et les étourdit pendant 1 tour. Si Rotta était le seul allié au début de la bataille, cet Étourdissement ne peut pas être esquivé ou résisté.\n\nSi un ennemi est vaincu par cette capacité, la jauge de tour de tous les alliés du Cartel des Hutt se remplit de 20 %.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes si tous les alliés appartenaient au Cartel des Hutt au début de la bataille :</u> les tanks alliés récupèrent 10 % de protection pour chaque ennemi blessé par cette capacité et les attaquants alliés gagnent 10 % de pénétration de défense (cumulatif, 50 % max.) chaque fois que cette capacité est utilisée.\n\nSi Rotta le Hutt était le seul allié au début de la bataille, cette capacité élimine instantanément les ennemis dont la santé est inférieure à 40 % (à l'exception des Légendes Galactiques et des boss de raid) et Rotta récupère 50 % de santé et de protection pour chaque ennemi vaincu par cette capacité.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Un héritage reforgé</u>",
+                "lead-ability": "Les alliés du Cartel des Hutt gagnent 50 % de précision et d'esquive des critiques, 200 % de défense, 75 % d'attaque, 50 de vitesse et 40 % de ténacité. Les alliés du Cartel des Hutt du Coté Obscur et Rotta gagnent 75 % de chances de contre-attaque et 50 % de chances de coup critique. La première fois que la santé de chaque allié du Cartel des Hutt est réduite à moins de 50 %, ils obtiennent Immunité aux dégâts pendant 1 tour, récupèrent 20 % de santé et de protection, et les tanks alliés utilisent Raillerie pendant 2 tours.\n\nChaque fois qu'un allié du Cartel des Hutt du Coté Obscur ou Rotta inflige un cumul de Saignement ou un détonateur thermique à un ennemi, ils gagnent 5 % de jauge de tour et récupèrent 5 % de santé et de protection.\n\nSi Rotta le Hutt était le seul allié au début de la bataille, il gagne 250 % de santé maximale et de protection maximale, 50 % de vol de santé, 25 de vitesse, et ne peut pas être vaincu instantanément, et à chaque fois qu'il subit Entrave des capacité, Cécité, Confusion, Peur ou Étourdissement , il le dissipe et inflige 1 cumul de Saignement (6 max.) jusqu'à la fin de l'affrontement et 1 détonateur thermique à tous les ennemis pendant 2 tours, ce qui ne peut pas être esquivé ou résisté. Si cet effet ne peut pas être dissipé, il obtient également Immunité aux dégâts pendant 1 tour, qui ne peut pas être dissipée.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Pedunkee Mukfin</u>",
+                "unique-ability1": "Les tanks alliés du Cartel des Hutt utilisent Raillerie pendant 2 tours au début de la bataille. Chaque fois que les soutiens alliés du Coté Obscur attaquent un ennemi, tous les alliés récupèrent 10 % de santé, de protection et de jauge de tour. Les alliés du Cartel des Hutt du Coté Obscur et Rotta peuvent ignorer les effets de Raillerie pendant leur tour. Tous les alliés du Cartel des Hutt sont immunisés contre l'augmentation des délais et Rotta est immunisé contre les détonateurs thermiques.\n\nSi Rotta le hutt disposait d'un escouade complète d'alliés du Cartel des Hutt au début de la bataille, chaque fois qu'on leur retire de la jauge de tour, Rotta a 50 % de chances d'obtenir un tour bonus.\n\nSi Rotta le Hutt était le seul allié au début de la bataille, chaque fois qu'un ennemi lui retire de la jauge de tour, il inflige dés dégâts à tous les ennemis égâux à 10 % de leur santé maximale (ces dégâts ne peuvent pas éliminer les ennemis) et dispose de 30 % de chances supplémentaires d'obtenir un tour bonus.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes, si tous les alliés sont du Cartel des Hutt au début de la bataille :</u> tous les alliés gagnent 50 % de santé maximale. Si tous les autres alliés de Rotta sont du Coté Obscur, chaque fois que Rotta ou eux subissent un affaiblissement, ils infligent un détonateur thermique à l'ennemi  qui l'a appaliqué pendant 2 tours (ne peut pas être esquivé ou résisté). Chaque fois que Rotta élimine un ennemi, le délai de Pour la galerie est réduit de 1 et tous les alliés gagnent un bonus de protection (40 %, cumulatif) jusqu'à la fin de l'affrontement.\n\nSi Rotta était le seul allié au début de la bataille, il subit des dégâts réduits des effets de pourcentage de santé et les ennemis vaincus ne peuvent pas être ranimés.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Grand personnage</u>",
+                "unique-ability2": "Ce personnage ne peut pas être utilisé dans l'emplacement d'allié ou avec un autre grand personnage, et les invocations sont empêchées pour les alliés.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "RACCOON"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
