@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Leia (Jedi Training)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/leia-jedi/leia-jedi-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/leia-jedi/leia-jedi-image.png" alt="Leia (Jedi Training)" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Leia (Jedi Training)</u></h1>
+            <p id="description">
+                Force-trained Attacker who empowers Jedi allies
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <!--<img class="first" src="../image-perso/" alt=""><br> -->
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Tactical Strike</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="leia jedi basic" src="../image-perso/leia-jedi/leia-jedi-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy twice.
+                <br><br>
+                If Jedi Master Luke Skywalker is the ally in the Leader slot: if target enemy has Speed equal to or higher than Leia (Jedi Training)'s, she gains Jedi Lessons for 3 turns (max 3 stacks). If target enemy has Speed lower than Leia's, she deals another instance of damage for each time this ability is used in this battle (max 3 instances).
+                <br><br>
+                If it's not her turn, she gains 15% Defense Penetration (stacking) for 1 turn. This attack can't be countered.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Instinct of the Force (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="leia jedi spe 1" src="../image-perso/leia-jedi/leia-jedi-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy twice, dealing 25% bonus damage (max 200%) for each stack of Jedi Lessons gained by Jedi allies in this battle, which can't be evaded. Inflict Off Balance on target enemy for 2 turns, which can't be resisted. Reduce the cooldown of The Final Lesson by 1 for each critical hit scored.
+                <br><br>
+                If Jedi Master Luke Skywalker is the ally in the Leader slot: if target enemy is inflicted by Ability Block, Buff Immunity, or Daze, which can be dispelled, dispel them and inflict Ability Block, Buff Immunity, and Daze on them for 1 turn, which can't be dispelled or resisted. If they are not inflicted by those debuffs, increase target enemy's cooldowns by 2 and Jedi allies gain Foresight for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : The Final Lesson (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="leia jedi spe 2" src="../image-perso/leia-jedi/leia-jedi-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to target enemy. Jedi allies gain 50% Offense for 1 turn.
+                <br><br>
+                Jedi allies' Protection recovery is increased by 10% and all enemies' Protection recovery is reduced by 10% for each time this ability is used until the end of battle.
+                <br><br>
+                If Jedi Master Luke Skywalker is the ally in the Leader slot: he gains 10% Ultimate Charge and an additional 10% Ultimate Charge per stack of Jedi Lessons Leia (Jedi Training) has. Remove 100% Turn Meter from the target enemy, which can't be resisted.
+                <br><br>
+                Deal additional effects based on the target enemy's role:<br>
+                - Attackers: Dispel all buffs on target enemy and inflict Offense Down for 2 turns, which can't be dispelled or resisted.<br>
+                - Healers and Supports: Dispel all debuffs on Leia and inflict Healing Immunity for 2 turns, which can't be dispelled or resisted.<br>
+                - Tanks: Call all other Jedi allies to assist and inflict Defense Down for 2 turns, which can't be dispelled or resisted.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas and if Jedi Master Luke Skywalker is the ally in the Leader slot:</u> Deal an additional instance of damage to all enemies based on Jedi Master Luke Skywalker's Max Protection and dispel all debuffs on Jedi allies.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : The Unchosen Path</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="leia jedi unique 1" src="../image-perso/leia-jedi/leia-jedi-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of battle Leia (Jedi Training) has -50 Speed. Whenever she attacks out of turn, she gains a stack of Force Connection and Jedi Master Luke Skywalker gains 10% Max Protection (stacking, max 100%) until the end of battle. Leia gains 50 Speed whenever she gains a stack of Jedi Lessons (stacking, max 150).
+                <br><br>
+                If Jedi Master Luke Skywalker is the ally in the Leader slot, Leia's attacks critically hit if possible.
+                <br><br>
+                When Jedi Master Luke Skywalker uses Heroic Stand, revive Jedi allies with 100% Health and Protection, grant them Jedi Legacy until the end of battle, and Jedi allies recover 100% Health and Protection.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas and if Jedi Master Luke Skywalker is the ally in the Leader slot:</u> Enemies defeated by Jedi allies can't be revived. Whenever a Jedi ally is Dazed or Stunned, a random Jedi Attacker ally gains a bonus turn. At the end of each ally's turn, if Jedi Master Luke Skywalker has 100% Ultimate charge, he takes a Bonus Turn (once per battle).
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Disciple Of The Force</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="leia jedi unique 2" src="../image-perso/leia-jedi/leia-jedi-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                Leia (Jedi Training) has +100% Defense. If Jedi Master Luke Skywalker is the ally in the Leader slot, Jedi allies have +100% Max Protection until the first time Leia is defeated.
+                <br><br>
+                Whenever a Jedi ally damages an enemy, that ally recovers 10% Protection. At the start of each Jedi ally's turn, Jedi Master Luke Skywalker gains 5% Ultimate charge. Whenever a Jedi ally uses Inherited Teachings for the first time, they gain a bonus turn.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> While Jedi Master Luke Skywalker is Taunting, Jedi allies take reduced damage from Percentage Health damage effects and whenever a non-Tank Jedi ally is damaged twice consecutively, that ally gains Stealth for 1 turn. If Jedi Master Luke Skywalker is the only ally version of Luke present: whenever Jedi Master Luke Skywalker (Heroic) uses They Grow Beyond, he inflicts Protection Disruption on target enemy for 1 turn, which can't be dispelled, evaded, or resisted. Whenever he uses Efflux, he Stuns all enemies for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Leia (entraînement de Jedi)",
+                "title": "<u>Leia (entraînement de Jedi)</u>",
+                "description": "Attaquant formée à la Force qui renforce les alliés Jedi",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "jedi": "Jedi",
+
+                "basic-attack-title": "<u>Attaque Basique: Frappe tactique</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie deux fois.\n\nSi le Maître Jedi Luke Skywalker est l'allié dans l'emplacement de chef : si la cible ennemie a une vitesse égale ou supérieure à celle de Leia (entraînement de Jedi), elle obtient Leçons de Jedi pendant 3 tours (3 cumuls max.). Si la cible ennemie a une vitesse inférieure à celle de Leia, elle inflige une instance supplémentaire de dégâts à chaque fois que cette capacité est utilisée dans cette bataille (3 instances max.).\n\nSi ce n'est pas son tour, elle obtient 15 % de pénétration de défense (cumulatif) pendant 1 tour. Cette attaque ne peut pas être contrée.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : L'instinct de la Force (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie deux fois, infligeant 25 % de dégâts bonus (200 % max) pour chaque cumul de Leçons de Jedi obtenu par les alliés Jedi dans cette bataille (ne peut pas être esquivé). Inflige Déséquilibre à la cible ennemie pendant 2 tours (ne peut pas être résisté). Réduit le délai de La Leçon finale de 1 pour chaque coup critique réussi.\n\nSi le Maître Jedi Luke Skywalker est l'allié dans l'emplacement de chef : si la cible subit Entrave des capacités, Immunité aux améliorations ou Confusion (qui peuvent être dissipés), les dissipe et lui inflige Entrave des capacités, Immunité aux améliorations et Confusion pendant 1 tour (ne peut pas être dissipé ou résisté). Si elle ne subit pas ces affaiblissements, augmente les délais de la cible ennemie de 2 et les alliés Jedi obtiennent Prevoyance pendant 2 tours.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : La Leçon finale (délai : 4)</u>",
+                "special-attack2": "Inflige des dégât physiques  à une cible ennemie. Les alliés Jedi gagnent 50 % d'attaque pendant 1 tour.\n\nLa récupération de protection de tous les alliés Jedi est augmentées de 10 % et celle de tous les ennemis est réduite de 10 % à chaque fois que cette capacité est utilisée jusqu'à la fin de la bataille.\n\nSi le Maître Jedi Luke Skywalker est l'allié dans l'emplacement de chef : il gagne 10 % de charge ultime et 10 % de charge ultime supplémentaire par cumul de de Leçons de Jedi dont dispose Leia (entraînement de Jedi). Supprime 100 % de jauge de tour de la cible ennemie (ne peut pas être résisté.).\n\nInflige des effets supplémentaires en fonction du rôle de l'ennemi cible :\n- Attaquants : dissipe toutes les améliorations sur la cible ennemie et lui inflige un malus d'attaque pendant 2 tours (ne peut pas être dissipé ou résisté).\n- Soigneurs et soutiens : dissipe les affaiblissements sur Leia (Jedi) et leur inflige Immunité aux soins et un malus d vitesse pendant 2 tours (ne peut pas être dissipé ou résisté).\n- Tanks : invoque tous les autres alliés Jedi et inflige un malus de défense à la cible ennemie pendant 2 tours (ne peut pas être dissipé ou résisté).\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes et si le Maître Jedi Luke Skywalker est l'allié dans l'emplacement de chef :</u> inflige une instance supplémentaire de dégâts à tous les ennemis en fonction de la protection maximale du Maître Jedi Luke Skywalker et dissipe tous les affaiblissements sur les alliés Jedi ",
+
+                "unique-ability1-title": "<u>Capacité Unique : La voie non choisie</u>",
+                "unique-ability1": "Au début de la bataille, Leia (entraînement de Jedi) a -50 de vitesse. Chaque fois qu'elle attaque en dehors de son tour, elle gagne un cumul de Connexion avec la Force et le Maitre Jedi Luke Skywalker gagne 10 % de protection maximale (cumulatif, 100 % max.) jusqu'à la fin de la bataille. Leia gagne 50 de vitesse chaque fois qu'elle gagne un cumul de Leçons de Jedi (cumulatif, 150 max).\n\nSi le Maître Jedi Luke Skywalker est l'allié dans l'emplacement de chef, les attaques de Leia infligent des coups critiques si possible.\n\nLorsque le Maître Jedi Luke Skywalker utilise Résistance Héroique, il ranime les alliés Jedi avec 100 % de santé et de protection, leur confère heritage Jedi jusqu'à la fin de la bataille, et les alliés Jedi récupèrent 100 % de santé et de protection.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes et si le Maître Jedi Luke Skywalker est l'allié dans l'emplacement de chef :</u> les ennemis vaincus par des alliés Jedi ne peuvent pas être ranimés. Chaque fois qu'un allié Jedi subi Confusion ou Étourdissement, un allié attaquant Jedi alélatoire obtient un tour bonus. A la fin du tour de chaque allié, si le Maître Jedi Luke Skywalker dispose de 100 % de charge ultime, il obtient un tour bonus (une fois par bataille).",
+
+                "unique-ability2-title": "<u>Capacité Unique : Disciple de la Force</u>",
+                "unique-ability2": "Leia (entraînement de Jedi) a +100 % de défense. Si le Maître Jedi Luke Skywalker est l'allié dans l'emplacement de chef, les alliés Jedi ont +100 % de protection maximale jusqu'à la première défaite de Leia.\n\nLorsqu'un allié Jedi inflige des dégâts à un ennemi, cet allié récupère 10 % de protection. Au début du tour de chaque allié Jedi, le Maître Jedi Luke Skywalker gagne 5 % de charge ultime. Chaque fois qu'un allié utilise Enseignement transmis pour la première fois, il obtient un tour bonus.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> tant que le Maître Jedi Luke Skywalker utilise Raillerie, les alliés Jedi subissent des dégâts réduits des effets de dégâts en pourcentage de santé et chaque fois qu'un allié Jedi qui n'est pas un tank subit des dégâts deux fois consécutivement, cet allié obtient Camouflage pendant 1 tour. Si le Maître Jedi Luke Skywalker est la seule version de Luke présente : chaque fois que le Maître Jedi Luke Skywalker (héroïque) utilise Le socle sur lequel ils croissent, il inflige protection perturbée à la cible ennemie pendant 1 tour (ne peut pas être disipé, esquivé ou résisté). Chaque fois qu'il utilise Afflux, il étourdit tous les ennemis pendant 1 tour.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "LEIAJEDITRAINING"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
