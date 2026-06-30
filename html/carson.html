@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Captain Carson Teva</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/carson/carson-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/carson/carson-image.png" alt="Captain Carson Teva" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Captain Carson Teva</u></h1>
+            <p id="description">
+                Vigilant pilot who inspires allies to strike back with devastating counterattacks
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/constable.html" id="constable">Constable</a>
+                <a class="capacite" href="../classement-perso/new-republic.html" id="new-republic">New Republic</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: On Your Signal</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="carson teva basic" src="../image-perso/carson/carson-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and gain Retribution for 1 turn. During Captain Carson Teva's turn, all other New Republic allies gain Retribution for 1 turn. During enemy turns, attack again (max 2 attacks).
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Keeping the Peace (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="carson teva spe 1" src="../image-perso/carson/carson-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to the target enemy 3 times. Call other target ally to assist.
+                <br><br>
+                Inflict cumulative debuffs based on critical hits scored:
+                <br><br>
+                1+: Offense Down for 1 turn<br>
+                2+: Defense Down for 1 turn<br>
+                3+: Speed Down for 1 turn
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Captain of the Adelphi Rangers</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="carson teva lead" src="../image-perso/carson/carson-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                At the start of battle, New Republic allies gain 50% Accuracy and Critical Damage. If there is an allied New Republic Galactic Legend or there are no other Galactic Legends in the battle, whenever a New Republic ally counterattacks, inflict the target enemy with a stack of On the Run (stacking, max 10).
+                <br><br>
+                Whenever a New Republic ally uses a Special ability, all other New Republic allies gain Retribution for 1 turn. Whenever New Republic ally resists a debuff, they gain 100% Potency for 1 turn.
+                <br><br>
+                Whenever any New Republic ally counterattacks, that ally deals 50% more damage. Whenever another New Republic ally counterattacks, they gain 10% Offense (stacking, max 50%) until the end of encounter and gain Defense Penetration Up for 1 turn. Whenever an ally counterattacks, that enemy is Exposed for 1 turn.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Battles:</u> Rebel allies gain 50% Max Health. If all allies are New Republic, they gain 100% Max Health and Max Protection until the end of battle, and 50% Defense Penetration and Offense for 2 turns; at the start of each encounter, New Republic Tank allies gain Foresight until the end of the encounter; New Republic allies are immune to Daze for 2 turns; whenever an enemy recovers Health or Protection, they are inflicted with Healing Immunity for 2 turns, which can't be resisted; whenever a New Republic ally attacks out of turn, they deal 100% more damage, the attack can't be evaded, inflict the target enemy with a stack of On the Run, and call a random New Republic ally to assist; whenever an enemy gains 5 stacks of On the Run, reset the cooldown of Keeping the Peace;
+                <br><br>
+                The first time each New Republic ally falls below 50% Health, they gain Damage Immunity for 1 turn; whenever a New Republic ally defeats an enemy, inflict Deathmark on the strongest enemy for 2 turns, which can't be resisted, and Expose all other enemies for 2 turns
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Unauthorized Operation</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="carson teva unique" src="../image-perso/carson/carson-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                At the start of each encounter, all New Republic Tank allies gain Retribution for 1 turn, which can't be dispelled. Teva gains 30% Max Health, Max Protection, and Offense. Whenever a New Republic ally is inflicted with a debuff, inflict Critical Chance Down and Potency Down on all enemies that didn't already have it for 1 turn, also inflict Accuracy Down on all Empire enemies that didn't already have it for 1 turn (limit once per turn).
+                <br><br>
+                At the start of each enemy's turn (excluding Galactic Legends), if they have 300 Speed more than Carson Teva, they are inflicted with Speed Down for 1 turn, which can't be resisted. Whenever a New Republic ally gains Advantage, all New Republic allies gain 5% Critical Chance and Critical Damage (stacking, max 100%) until the end of battle.
+                <br><br>
+                Whenever R5-D4 uses a Special ability, reduce the cooldown of Keeping the Peace by 1. Whenever an ally uses a Special ability on an enemy with at least one stack of On the Run, they gain Advantage. If there is an allied New Republic Galactic Legend or there are no other Galactic Legends in the battle, whenever a New Republic ally evades, inflict target enemy with a stack of On the Run (stacking, max 10).
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Capitaine Carson Teva",
+                "title": "<u>Capitaine Carson Teva</u>",
+                "description": "Un pilote vigilant qui inspire les alliés à déclencher de dévastatrices contre-attaques.",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "constable": "Constable",
+                "new-republic": "Nouvelle République",
+                "rebel": "Rebelle",
+
+                "basic-attack-title": "<u>Attaque Basique: A votre signal</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie et obtient Rétribution pendant 1 tour. Pendant le tour du Capitaine Carson Teva, tous les autres alliés de la Nouvelle République obtiennent Rétribution pendant 1 tour. Pendant le tour des ennemis, attaque à nouveau (2 attaques maximum).",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Garantir la paix (délai : 4)</u>",
+                "special-attack1": "Inflige des dégâts physiques 3 fois et invoque la cible alliée.\n\nInflige des affaiblissements cumulatifs en fonction des coups critiques infligés :\n\n1+ : malus de défense pendant 1 tour.\n2+ : également malus d'attaque pendant 1 tour.\n3+ : également malus de vitesse pendant 1 tour.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Capitaine des Rangers d'Adelphi</u>",
+                "lead-ability": "Au début de la bataille, les alliés de la Nouvelle République gagnent 50 % de précision et de dégâts critiques. Si une Légende Galactique alliée de la Nouvelle Républiqe est présente ou s'il n'y a pas d'autres Légendes Galactiques dans la bataille, chaque fois qu'un allié de la Nouvelle République contre-attaque inflige à la cible ennemie un cumul d'En caval (cumulatif, 10 max).\n\nChaque fois qu'un allié de la Nouvelle République utilise une capacité spéciale, tous les autres alliés de la Nouvelle République obtiennent Rétribution pendant 1 tour. Chaque fois qu'un allié de la Nouvelle République résiste à un affaiblissement, il gagne 100 % de pouvoir pendant 1 tour.\n\nChaque fois qu'un allié de la Nouvelle République contre-attaque, cet allié inflige 50 % de dégâts supplémentaires. Chaque fois qu'un autre allié de la Nouvelle République contre-attaque, il obtient 10 % d'attaque (cumulatif, 50 % max.) jusqu'à la fin de l'affrontement et un bonus de pénétration de défense pendant 1 tour. Chaque fois qu'un allié contre-attaque, cet ennemi subit Exposition pendant 1 tour.\n\n<u class='omicron'>Amélioration Omicron : Dans les Batailles de territoire :</u> Les alliés rebelles obtiennent 50 % de santé maximale. Si tous les alliés sont de la Nouvelle République, ils obtiennent 100 % de santé maximale jusqu'à la fin de la bataille, ainsi que 50 % de pénétration de défense et d'attaque pendant 2 tours. Au début de chaque affrontement, les alliés tanks de la Nouvelle République obtiennent Prévoyance jusqu'à la fin de l'affrontement, et les alliés de la Nouvelle République sont immunisés contre Confusion pendant 2 tours. Chaque fois qu'un ennemi récupère de la santé ou de la protection, il subit Immunité aux soins pendant 2 tours (ne peut pas être résisté). Chaque fois qu'un allié de la Nouvelle République attaque en dehors de son tour, cette attaque ne peut pas être esquivée. Inflige 100 % de dégâts supplémentaires, un cumul d'En cavale à la cible ennemie. Lorsqu'un ennemi obtient 5 cumuls d'En cavale, réinitialise le délai de Garantir la paix.\n\nLa première fois que chaque allié de la Nouvelle République tombe en dessous de 50 %, il gagne Immunité aux dégâts pendant 1 tour. Chaque fois qu'un allié de la Nouvelle République élimine un ennemi, inflige Marque de mort à l'ennemi le plus fort pendant 2 tours (ne peut pas être résisté) et inflige Exposition à tous les autres ennemis pendant 2 tours.",
+
+                "unique-ability-title": "<u>Capacité Unique : Opération non autorisée</u>",
+                "unique-ability": "Au début de chaque affrontement, tous les tanks alliés de la Nouvelle République obtiennent Rétribution pendant 1 tour (ne peut pas être dissipé). Teva gagne 30 % de santé maximale, de protection maximale et d'attaque. Lorsqu'un allié de la Nouvelle République subit un affaiblissement inflige un malus de chances de coup critique et un malus de pouvoir à tous les ennemis qui ne l'avaient pas déjà pendant 1 tour, et inflige également un malus de précision à tous les ennemis de l'Empire qui ne l'avaient pas déjà pendant 1 tour (limité à une fois par tour).\n\nAu début du tour de chaque ennemi (à l'exception des Légendes Galactiques), s'il a 300 de vitesse de plus que Carson Teva, il subit un malus de vitesse pendant 1 tour (ne peut pas être résisté). Lorsqu'un allié de la Nouvelle République obtient Avantage, tous les alliés de la Nouvelle République gagnent 5 % de chances de coup critique et de dégâts critiques (cumulatif, 100 %.) jusqu'à la fin de la bataille.\n\nChaque fois que R5-D4 utilise une capacité spéciale, réduit le délai de Garantir la paix de 1. Chaque fois qu'un allié utilise une capacité spéciale sur un ennemiavec au moins un cumul d'En cavale, il obtient Avatage. S'il y a une Légende Galactique alliée de la Nouvelle République ou s'il n'y a pas d'autres Légendes Galactiques dans la bataille, chaque fois qu'un allié de la Nouvelle République esquive, inflige à l'ennemi ciblé un cumul d'En cavale (cumulatif, 10 max.).",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "CARSONTEVA"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
