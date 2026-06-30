@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Zeb Orrelios (New Republic Pilot)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/zeb-pilot/zeb-pilot-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/zeb-pilot/zeb-pilot-image.png" alt="Zeb Orrelios (New Republic Pilot)" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Zeb Orrelios (New Republic Pilot)</u></h1>
+            <p id="description">
+                A veteran warrior that thrives in the thick of combat
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/new-republic.html" id="new-reublic">New Republic</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Suppressive Barrage</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="RANGERZEB basic" src="../image-perso/zeb-pilot/zeb-pilot-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Accuracy Down for 1 turn. If it's Zeb Orrelios (New Republic Pilot)'s turn and the target enemy already has Accuracy Down, Blind them for 1 turn instead.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Devastating Sweep (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="RANGERZEB spe 1" src="../image-perso/zeb-pilot/zeb-pilot-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Dispel all buffs on target enemy and inflict them with Protection Disruption and Vulnerable for 1 turn, which can't be evaded or resisted. Deal Physical damage to all enemies and Provoke them for 2 turns, which can't be dispelled.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Tactical Reversal (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="RANGERZEB spe 2" src="../image-perso/zeb-pilot/zeb-pilot-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to target enemy equal to 25% of their Max Health. Dispel all Taunt effects on all enemies and Zeb Taunts for 2 turns. If any Taunt effect was dispelled, Zeb's Taunt can't be dispelled. If the target ally is New Republic, they gain additional effects based on their role for 1 turn:
+                <br><br>
+                - <strong>Attacker:</strong> All New Republic allies gain Offense Up; enemies are inflicted with Offense Down<br>
+                - <strong>Healer or Support:</strong> All New Republic allies gain Potency Up; enemies are inflicted with Potency Down<br>
+                - <strong>Tank:</strong> All New Republic allies gain Defense Up; enemies are inflicted with Defense Down
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Lasat Enforcer</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="RANGERZEB unique" src="../image-perso/zeb-pilot/zeb-pilot-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Zeb Orrelios (New Republic Pilot) has 35% Evasion and gains 15% Critical Avoidance, and 5% Max Health and Max Protection for each New Republic ally. At the start of each encounter, Zeb Taunts for 2 turns and all New Republic allies gain Protection Up (25%) for the rest of battle, which can't be dispelled or prevented.
+                <br><br>
+                While Taunting, Zeb gains 30% Defense and 25% Tenacity. Each time a New Republic ally evades an attack, they inflict the attacking enemy with Accuracy Down for 1 turn. The first time Zeb Orrelios (New Republic Pilot) drops below 50% Health, he gains 3 stacks of Heal Over Time and Frenzy for 2 turns and all New Republic allies gain 30% Turn Meter.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in 3v3 Grand Arenas:</u> At the start of battle, Zeb Orrelios (New Republic Pilot) has 100% Evasion and he loses 5% each time he evades an attack until it reaches 35%, and all other New Republic allies gain Stealth for 1 turn.
+                <br><br>
+                If the ally in the Leader slot is Captain Carson Teva, and R5-D4 is an ally, Captain Carson Teva ignores Taunt for the rest of battle, and R5-D4's ability Bad Motivator starts off cooldown. While Stealthed, Captain Carson Teva gains 200% Critical Damage and 40% Defense Penetration.
+                <br><br>
+                All other New Republic allies gain 50% Critical Avoidance, Max Health, and Max Protection.
+                <br><br>
+                New Republic allies gain 50% Critical Chance, Critical Damage, and Offense until the end of battle.
+                <br><br>
+                Whenever Taunt is dispelled from Zeb, at the end of the turn, all other New Republic allies Stealth and gain Tenacity Up for 2 turns. Whenever Stealth is dispelled from other New Republic allies, at the end of the turn, they gain Foresight for 1 turn and Zeb Taunts for 1 turn. Whenever a New Republic ally attacks out of turn, they remove 15% Turn Meter from target enemy (excluding Galactic Legends).
+                <br><br>
+                While Zeb Orrelios (New Republic Pilot)'s not Taunting, all other New Republic allies gain 30% Defense and 25% Tenacity. Each time Zeb critically hits an enemy, they are inflicted with 1 stack of Armor Shred (max 5) until the end of battle. Each time a New Republic ally evades an attack, they recover 10% Health and Protection. The first time Zeb Orrelios (New Republic Pilot), Captain Carson Teva, and R5-D4 lose 50% of their Health, they gain Damage Immunity for 1 turn, which can't be dispelled or prevented.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Zed Orrelios (pilote)",
+                "title": "<u>Zed Orrelios (pilote)</u>",
+                "description": "Un guerrier aguerri qui prospère au cœur du combat",
+
+                "lightside": "Coté Lumineux",
+                "tank": "Tank",
+                "new-republic": "Nouvelle République",
+
+                "basic-attack-title": "<u>Attaque Basique: Barrage suppressif</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie et lui inflige un malus de précision pendant 1 tour. Si c'est le tour de Zed Orrelios (Pilote de la Nouvelle République) et la cible ennemie subit déjà un malus de précision, inflige à la place Cécité pendant 1 tour.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Balayge dévastateur (délai : 3)</u>",
+                "special-attack1": "Dissipe toutes les améliorations sur la cible ennemie et lui inflige Protection perturbée et Vulnérable pendant 1 tour (ne peut pas être esquivé ou résisté). Inflige des dégâts physiques à tous les ennemis et leur inflige Provocation pendant 2 tours (ne peut pas être dissipé).",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Renversement tactique (délai : 3)</u>",
+                "special-attack2": "Inflige des dégâts physiques à la cible ennemie à hauteur de 25 % de sa santé maximale. Dissipe tous les effets de Raillerie sur tous les ennemis et Zed utilise Raillerie pendant 2 tours. Si un effet de Raillerie a été dissipé, la Raillerie de Zed ne peut pas être dissipée. Si l'allié ciblé est de la Nouvelle République, il obtient des effets supplémentaires en fonction de son rôle pendant 1 tour :\n\n- <strong>Attaquants :</strong> tous les alliés de la Nouvelle République obtiennent un bonus d'attaque et les ennemis subissent un malus d'attaque.\n- <strong>Soigneur ou Soutien :</strong> tous les alliés de la Nouvelle République obtiennent un bonus de pouvoir et les ennemis subissent un malus de pouvoir\n- <strong>Tank :</strong> tous les alliés de la Nouvelle République obtiennent un bonus de défense et les ennemis subissent un malus de défense.",
+
+                "unique-ability-title": "<u>Capacité Unique : Exécuteur Lasat</u>",
+                "unique-ability": "Zed Orrelios (pilote de la Nouvelle République) dispose de 35 % d'esquive et gagne 15 % d'esquive des critiques, ainsi que 5 % de santé maximale et de protection maximale pour chaque allié de la Nouvelle République. Au début de chaque affrontement, Zed utilise Raillerie pendant 2 tours et tous les alliés de la Nouvelle République obtiennent un bonus de protection (25 %) pour le reste de la bataille, ce qui ne peut pas être dissipé ou empêché.\n\nTant qu'il utilise Raillerie, Zed gagne 30 % de défense et 25 % de ténacité. Chaque fois qu'un allié de la Nouvelle République esquive une attaque, il inflige un malus de précision à l'ennemi pendant 1 tour. La première fois que la santé de Zed Orrelios (pilote de la Nouvelle République) tombe en dessous de 50 %; il obtient 3 cumuls de soins sur la durée et Frénésie pendant 2 tours et tous les alliés de la Nouvelle République gagnent 30 % de jauge de tour.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes en 3c3 :</u> Au début de la bataille, Zed Orrelios (pilote de la Nouvelle République) dispose de 100 % d'esquive et en perd 5 % à chaque fois qu'il esquive une attaque jusqu'à atteindre 35 %, et tous les autres alliés de la Nouvelle République gagnent Camouflage pendant 1 tour.\n\nSi l'allié à l'emplacement de chef est le Capitaine Carson Teva et que R5-D4 est un allié, le Capitaine Carson Teva ignore Raillerie pour le reste de la bataille, et la capacité Motivaotr défectueux de R5-D4 n'a pas de délai. Tant qu'il dispose de Camouflage, le Capitaine Carson Teva gagne 200 % de dégâts critique et 40 % de pénétration de défense.\n\nTous les autres alliés de la Nouvelle République gagnent 50 % d'esquive des critiques, de santé maximale et de protection maximale.\n\nLes alliés de la Nouvelle République obtiennent 50 % de chances de coup critique, de dégâts critiques et d'attaque jusqu'à la fin de la bataille.\n\nChaque fois que Raillerie est dissipée de Zed, à la fin du tour, tous les autres alliés de la Nouvelle République obtiennent Camouflage et un bonus de ténacité pendant 2 tours. Chaque fois que Camouflage est dissipé d'autres alliés de la Nouvelle République, à la fin du tour, ils gagnent Prévoyance pendant 1 tour et Zed utilise Raillerie pendant 1 tour. Chaque fois qu'un allié de la Nouvelle République attaque hors de son tour, il retire 15 % de jauge de tour à l'ennemi ciblé (à l'exclusion des Légendes Galactiques).\n\nTant que Zed Orrelios (pilote de la Nouvelle République) n'utilise pas Raillerie, tous les autres alliés de la Nouvelle République gagnent 30 % de défense et 25 % de ténacité. Chaque fois que Zed inflige un coup critique à un ennemi, celui-ci subit un cumul de Destruction d'armure (max 5) jusqu'à la fin de la bataille. Chaque fois qu'un allié de la Nouvelle République esquive une attaque, il récupère 10 % de santé et de protection. La première fois que Zed Orrelios (pilote de la Nouvelle République), le Capitaine Carson Teva et R5-D4 perdent 50 % de leur santé, ils gagnent Immunité aux dégâts pendant 1 tour ('ce qui ne peut pas être dissipé ou empêché).",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "RANGERZEB"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
