@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Pirate King Hondo Ohnaka</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/roi-hondo/roi-hondo-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/roi-hondo/roi-hondo-image.png" alt="Pirate King Hondo Ohnaka" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Pirate King Hondo Ohnaka</u></h1>
+            <p id="description">
+                A cunning pirate and master manipulator whose silver tongue and shifting loyalties turned chaos into opportunity across every galactic conflict
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="legende" href="../classement-perso/legendes-galactiques.html" id="galactic-legend">Galactic Legend</a>
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/pirate.html" id="pirate">Pirate</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="capacite" href="../classement-perso/contrebandier.html" id="smuggler">Smuggler</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/roi-hondo/roi-hondo.png" alt="Pirate King Hondo Ohnaka"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre"><u id="ultime-title">Ultimate: Mutual Gains (For Me)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="roi hondo ultime" src="../image-perso/roi-hondo/roi-hondo-ulti.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="ulti">
+                Requires 100% <u class="ulti">Ultimate Charge</u> to activate.
+                <br><br>
+                <u class="ulti">Ultimate Charge:</u> Pirate King Hondo Ohnaka gains 1% Ultimate Charge whenever a Pirate ally gains a stack of Profit and 2% Ultimate Charge whenever a Pirate ally uses an ability that Steals buffs.
+                <br><br>
+                All Pirate and Smuggler allies are revived with 100% Health. All enemies lose 25% Turn Meter, doubled for Jedi and Sith, which can't be resisted. Jedi and Sith enemies also have their cooldowns increased by 2. Enemies gain Critical Damage Up, Defense Up, and Offense Up for 2 turns.
+                <br><br>
+                Pirate King Hondo then inflicts <u class="speciale">Tenuous Agreement</u> on all enemies for 2 turns, which can't be copied, dispelled, evaded, or resisted, and grants <u class="speciale">Favorable Terms</u> to all Pirate allies for 2 turns, which can't be copied, dispelled, or prevented.
+                <br><br>
+                <u class="speciale">Tenuous Agreement:</u> +10 Speed; deal 30% less damage to characters with Favorable Terms
+                <br><br>
+                <u class="speciale">Favorable Terms:</u> +20% Critical Chance and Offense; recover 10% Protection at the start of this character's turn; gain a bonus turn and grant allied Pirate King Hondo Ohnaka 2 stacks of Profit when defeating an enemy with Tenuous Agreement
+                <br><br>
+                Whenever an enemy damages a character with Favorable Terms, they are inflicted with one stack of Off Balance for 2 turns, which can't be evaded, and Pirate King Hondo Ohnaka gains 2 stacks of Profit.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Pistol Panache</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="roi hondo basic" src="../image-perso/roi-hondo/roi-hondo-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and gain 1 stack of Profit. If this ability scores a critical hit, all Pirate allies also gain a stack of Profit.
+                <br><br>
+                If it is Pirate King Hondo Ohnaka's turn, call a random Pirate Attacker and a random other Pirate ally to assist dealing 2% more damage for each stack of Profit on all 3 allies and if the target enemy is Jedi or Sith, remove 2% Turn Meter for each buff and debuff on them. If any Turn Meter was removed, Hondo gains 3% Ultimate Charge.
+                <br><br>
+                If Pirate King Hondo had 10 or more stacks of Profit at the start of his turn, this ability is guaranteed to critically hit if able.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Loot First, Ask Later (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="roi hondo spe 1" src="../image-perso/roi-hondo/roi-hondo-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                All Pirate allies gain 10 Mastery (stacking) until the end of the encounter.
+                <br><br>
+                Pirate King Hondo Ohnaka Steals all buffs (excluding taunt effects) from the target enemy, resets their duration, and grants all buffs on himself (excluding Stealth and taunt effects) to all Pirate allies. Then he inflicts the opposite debuff, if any, on the target enemy for 2 turns, dispels any remaining buffs on them, and increases their cooldowns by 1.
+                <br><br>
+                This ability can't be resisted.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Charismatic Captain (cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="roi hondo spe 2" src="../image-perso/roi-hondo/roi-hondo-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Dispel all debuffs from all allies and all Pirate allies recover 30% Health and Protection and gain 25% Turn Meter. If Pirate King Hondo Ohnaka has 10 or more stacks of Profit, consume 10 of them and all Pirate allies instead gain 75% Turn Meter and Speed Up for 2 turns.
+                <br><br>
+                Call all other Pirate allies to assist, and if Hondo consumed stacks of Profit with this ability, call all other Pirate allies to assist again.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Pirate King (Self-Proclaimed)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="roi hondo lead" src="../image-perso/roi-hondo/roi-hondo-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                At the start of battle, all Pirate allies and all Smuggler allies gain 30% Offense and 3% Speed. Pirate allies also gain 35% Defense and 25% Tenacity and are immune to Fear, Healing Immunity, Shock, and Turn Meter removal. If there are no Light Side allies, all Pirates gain <u class="speciale">Lightning Raid</u> for 1 turn, increased to 2 turns if the enemy in the Leader slot is a Jedi.
+                <br><br>
+                Pirate King Hondo Ohnaka gains 2% Ultimate Charge whenever a Pirate ally uses an ability that Steals buffs.
+                <br><br>
+                At the start of Hondo's turn, if there are Sith enemies, Daze them for 2 turns, which can't be dispelled, evaded, or resisted.
+                <br><br>
+                If the enemy in the Leader slot is a Jedi, Pirate allies gain 10% Offense and 4% Speed. Whenever an enemy Jedi attacks out of turn, they take damage equal to 3% of their Max Health and all Pirate allies gain 2% Offense (stacking) for the rest of battle, this damage can't be evaded and can't defeat enemies.
+                <br><br>
+                <u class="speciale">Lightning Raid:</u> Deal 20% more damage and can ignore Taunt
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : It's Not Personal. It's Profitable.</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="roi hondo unique" src="../image-perso/roi-hondo/roi-hondo-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                The maximum cap for Profit is removed for Pirate King Hondo Ohnaka.
+                <br><br>
+                At the start of battle, if Pirate King Hondo Ohnaka is in the Leader slot, all Pirate allies gain 5 stacks of Profit. Hondo gains an additional 2 stacks of Profit for each Relic Amplifier level he has (max 9 levels).
+                <br><br>
+                Whenever an allied Pirate attacks out of turn, they gain a stack of Profit. Whenever Pirate allies are damaged by a Jedi or Sith enemy, they gain a stack of Profit. Whenever Pirate King Hondo Ohnaka uses a Special ability, all Pirate allies gain 2 stacks of Profit.
+                <br><br>
+                While Pirate allies have 15 or more stacks of Profit they receive 10% less damage, and while they have less than 15 stacks of Profit they gain 10% Turn Meter for each turn an enemy takes.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Galactic Legend</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="roi hondo gl" src="../image-perso/roi-hondo/roi-hondo-gl.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                This unit takes reduced damage from percent Health damage effects and massive damage effects. They take massive damage from destroy effects (excludes raid bosses) and are immune to stun effects.
+                <br><br>
+                This unit has +10% Max Health and Max Protection per Relic Amplifier level, and damage they receive is decreased by 30%.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Roi Pirate Hondo ohnaka",
+                "title": "<u>Roi Pirate Hondo ohnaka</u>",
+                "description": "Un pirate rusé et un maître manipulateur dont l'éloquence et les loyautés changeantes ont transformé le chaos en opportunité dans les conflits galactiques.",
+
+                "galactic-legend": "Légende galactique",
+                "darkside": "Coté Obscur",
+                "support": "Soutien",
+                "leader": "Chef",
+                "pirate": "Pirate",
+                "scoundrel": "Vaurien",
+                "smuggler": "Contrebandier",
+
+                "ultime-title": "<u>Capacité Ultime: Gains mutuels (pour moi)<u>",
+                "ulti": "Nécessite 100 % de <u class='ulti'>Charge ultime</u> pour être activée.\n\n<u class='ulti'>Charge ultime :</u> le Roi Pirate Hondo ohnaka gagne 1 % de charge ultime chaque fois qu'un allié Pirate obtient un cumul de Profit et 2 % de charge ultime chaque fois qu'un allié Pirate utilise une capacité qui vole des améliorations.\n\nTous les alliés Pirates et Contrebandiers sont ranimés avec 100 % de santé. La jauge de tour de tous les ennemis est réduite de 25 % (doublé pour les Jedi et les Sith, ne peut pas être résisté). Les délais des ennemis Jedi et Sith augmentent également de 2. Les ennemis obtiennent un bonus de défense et un bonus d'attaque pendant 2 tours.\n\nLe Roi Pirate Hondo ohnaka inflige alors <u class='speciale'>Accord fragile</u> à tous les ennemis pendant 2 tours (ne peut pas être copié, dissipé, esquivé ou résisté) et confère <u class='speciale'>Clauses favorables</u> à tous les alliés Pirates pendant 2 tours (ne peut pas être copié, dissipé ou empêché).\n\n<u class='speciale'>Accord fragile:</u> +10 de vitesse. Inflige 30 % de dégâts en moins aux unités bénéficiant de Clauses favorables.\n\n<u class='speciale'>Clauses favorables :</u> +20 % de chances de coup critique et d'attaque. L'unité récupère 10 % de protection au début de son tour. Obtient un tour bonus et confère au Roi Pirate Hondo ohnaka allié  cumuls de Profit lorsqu'un ennemi disposant d'Accord fragile est vaincu.\n\nLorsqu'un ennemi inflige des dégâts à un personnage disposant de Clauses favorables, il reçoit un cumul de Déséquilibre pendant 2 tours (ne peut pas être esquivé), et le Roi Pirate Hondo ohnaka obtient 2 cumuls de Profit.",
+
+                "basic-attack-title": "<u>Attaque Basique: Panache au pistolet</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie et obtient 1 cumul de Profite. Si cette capacité inflige un coup critique, tous les alliés Pirates gagnent un cumul de Profit.\n\nSi c'est au tour du Roi Pirate Hondo ohnaka, invoque un attaquant Pirate aléatoire et un autre allié Pirate aléatoire qui infligent 2 % de dégâts supplémentaires pour chaque cumul de Profit sur les 3 alliés impliqués. Si la cible ennemie est un Jedi ou un Sith, supprime 2 % de jauge de tour pour chaque amélioration et affaiblissement dont elle dispose. Si de la jauge de tour a été supprimée, Hondo obtient 3 % de charge ultime.\n\nSi le Roi Pirate Hondo ohnaka disposait de 10 cumuls de Profit ou plus au début de son tour, cette capacité inflige un coup critique si possible.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Piller d'abord, demander ensuite (délai : 4)</u>",
+                "special-attack1": "Tous les alliés Pirates gagnent 10 de maîtrise (cumulatif) jusqu'à la fin de l'affrontement.\n\nLe Roi Pirate Hondo ohnaka vole toutes les améliorations (à l'exception des effets de Raillerie) à la cible ennemie, réinitialise leur durée et confère toutes les améliorations (à l'exception des effets de Camouflage et de Raillerie) dont il dispose alors à ses alliés Pirates. Ensuite, il inflige l'affaiblissement opposé (si possible) à la cible ennemie pendant 2 tours, dissipe toutes les améliorations qui lui restaient et augmente ses délais de 1.\n\nCette capacité ne peut pas être résistée.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Capitaine charismatique (délai : 5)</u>",
+                "special-attack2": "Dissipe tous les affaiblissements de tous les alliés, et tous les alliés Pirates récupèrent 30 % de santé et de protection, puis leur jauge de tour se remplit de 25 %. Si le Roi Pirate Hondo ohnaka dispose de 10 cumuls ou plus de Profite, il en consomme 10, et tous les alliés Pirates reçoivent plutôt 75 % de jauge de tour et un bonus de vitesse pendant 2 tours.\n\nInvoque tous les alliés Pirates et si Hondo a consommé des cumuls de Profit avec cette capacité, tous les autres alliés Pirates sont de nouveau invoqués.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Roi Pirate (autoproclamé</u>",
+                "lead-ability": "Au début de la bataille, tous les alliés Pirates et Contrebandiers gagnent 30 % d'attaque et 3 % de vitesse. Les alliés Pirates gagnent également 35 % de défense et 25 % de ténacité. De plus, ils sont immunisés contre Peur, Immunité aux soins, Choc et la suppresion de jauge de tour. Si aucun allié du Coté Lumineux n'est présent, tous les Pirates obtiennent <u class='speciale'>Pillage éclair</u> pendant 1 tour ou 2 tours si l'ennemi dans l'emplacement de chef est un Jedi.\n\nLe Roi Pirate Hondo ohnaka gagne 2 % de charge ultime chaque fois qu'un allié Pirate utilise une capacité qui vole des améliorations.\n\nAu début du tour de Hondo, si des ennemis Sith sont présent, ces derniers subissent Confusion pendant 2 tours (ne peut pas dissipé, esquivé ou résisté).\n\nSi l'ennemi dans l'emplacement de chef est un Jedi, les alliés Pirates gagnent 10 % d'attaque et 4 % de vitesse. Lorsqu'un Jedi ennemi attaque hors de son tour, il subit des dégâts à hauteur de 3 % de sa santé maximale, et tous les alliés Pirates gagnent 2 % d'attaque (cumulatif) pour le reste de l'affrontement. Ces dégâts ne peuvent pas être esquivés et ne peuvent pas éliminer les ennemis.\n\n<u class='speciale'>Pillage éclair :</u> inflige 20 % de dégâts supplémentaires et peut ignorer Raillerie.",
+
+                "unique-ability1-title": "<u>Capacité Unique : C'est pas personnel, c'est rentable</u>",
+                "unique-ability1": "La limite maximum de cumuls de Profit est supprimé pour le Roi Pirate Hondo ohnaka.\n\nAu début de ma bataille, si le Roi Pirate Hondo ohnaka est dans l'emplacement de chef, tous les alliés Pirates obtiennent 5 cumuls de Profite. Hondo obtient 2 cumuls supplémentaires de Profit. Hondo obtient 2 cumuls supplémentaires de Profit pour chaque niveau d'amplificateur de relique dont il dispose (9 niveaux maximum)\n\nLorsqu'un allié Pirate attaque hors de son tour, il obtient un cumul de Profit. Chaque fois que les alliés Pirates subissent des dégâts d'un ennemi Jedi ou Sith, ils obtiennent un cumul de Profit. Chaque fois que le Roi Pirate Hondo ohnaka utilise une capacité spéciale, tous les alliés Pirates obtiennent 2 cumuls de Profit.\n\nTant que les alliés Pirates disposent de 15 cumuls de Profit ou plus, ils subissent 10 % de dégâts en moins. Tant qu'ils ont moins de 15 cumuls de Profit, leur jauge de tour se remplit de 10 % pour chaque tour joué par un ennemi.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Légende Galactique</u>",
+                "unique-ability2": "Cette unité subit des dégâts réduits des effets de pourcentage de santé et des effets de dégâts importants, mais subit de lours dégâts des effets de destruction (exclut les boss de raid) et elle est immunisée contre les effets d'étourdissement.\n\nCette unité a +10 % de santé maximale et de protection maximale par niveau d'amplificateur de relique, et ses dégâts subis sont réduits de 30 %",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "pirate king hondo ohnaka"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>

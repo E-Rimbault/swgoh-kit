@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">B1 Battle Droid</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/b1-battle-droid/b1-battle-droid-imager.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/b1-battle-droid/b1-battle-droid-imager.png" alt="B1 Battle Droid" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>B1 Battle Droid</u></h1>
+            <p id="description">
+                Fragile Separatist Attacker that overwhelms their enemies with numbers
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/droïde.html" id="droïd">Droïd</a>
+                <a class="capacite" href="../classement-perso/séparatiste.html" id="separatist">Separatist</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/b1-battle-droid/b1.png" alt="B1 Battle Droid"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: B1 Barrage</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="b1 basic" src="../image-perso/b1-battle-droid/b1-battle-droid-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. If target was Target Locked, all Droid allies recover 5% of their leader's Max Health and Protection.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Blast Them!</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="b1 spe 1" src="../image-perso/b1-battle-droid/b1-battle-droid-special.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies and inflict Target Lock for 2 turns on the selected target. Gain 1 stack of Droid Battalion for each other Separatist ally. Heal target other Separatist ally for 0.5% Health and 0.5% Protection for each stack of Droid Battalion.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Roger Roger</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="b1 unique 1" src="../image-perso/b1-battle-droid/b1-battle-droid-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                When another Separatist ally uses an ability during their turn, B1 assists dealing 40% less damage (limit once per turn). When another Droid ally uses a Special ability, B1 gains 15% Turn Meter.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Droid Battalion</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="b1 unique 2" src="../image-perso/b1-battle-droid/b1-battle-droid-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                B1 can't score critical hits or be revived. B1 has no Protection, 1 Health, and 100 stacks of Droid Battalion, and can't be defeated or destroyed while they have Droid Battalion. When all stacks of Droid Battalion expire, B1 is immediately destroyed. B1 is immune to Damage Over Time, and their Max Health and Max Protection can't be increased.
+                <br><br>
+                When B1 takes damage, they dispel all debuffs on themselves and lose 8 stacks of Droid Battalion. At the start of B1's turn, they gain 3 stacks of Droid Battalion.
+                <br><br>
+                B1 is immune to damage from Lord of Betrayal in the Sith Triumvirate Raid.
+                <br><br>
+                <u class="speciale">Droid Battalion:</u> Each stack grants B1 +2% Offense and all Separatist allies +0.5% Tenacity and Critical Avoidance
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Droïde de combat B1",
+                "title": "<u>Droïde de combat B1</u>",
+                "description": "Attaquant séparatiste fragile qui surprend son ennemi par le nombre",
+
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "droïd": "Droïde",
+                "separatist": "Séparatiste",
+
+                "basic-attack-title": "<u>Attaque Basique: Barrage de B1</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie. Si la cible était verouillée, tous les alliés droPides récupèrent 5 % de la santé maximale et de la protection de leur chef.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Anéantissez-les !</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis et inflige le verrouillage à une cible ennemie choisie pendant 2 tours. Confère 1 cumul de Bataillon de droïdes pour chaque allié Séparatistes. Soigne un allié Séparatiste à hauteur de 0,5 % de sa santé et de 0,5 % de sa protection pour chaque cumul de Bataillon de droïdes.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Cinq sur cinq</u>",
+                "unique-ability1": "Lorsqu'un allié séparatiste utilise une capacité pendant son tour, B1 est invoqué et inflige 40 % de dégâts en moins, (limité à une fois par tour). Lorsqu'un droïde allié utilise une capacité spéciale, la jauge de tour de B1 se remplit de 15 %.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Bataillon de Droïdes</u>",
+                "unique-ability2": "B1 ne peut pas infliger de coup critique ni être ranimé. B1 n'a pas de protection, possède 1 point de santé et 100 cumuls de Bataillon de droïdes, et ne peut pas être vaincu ou détruit tant qu'il utilise Bataillon de droïdes. lorsque tous les cumuls de Bataillon de droïdes sont épuisés, B1 est immédiatement détruit. B1 est immunisés aux dégâts sur la durée. Sa santé maximale et sa protection maximale ne peuvent pas être augmentées.\n\nLorsque B1 subit des dégâts, il dissipe tous les affaiblissements qui l'affectent et perd 8 cumuls de Bataillon de droïdes. Au début de son tour, B1 obtient 3 cumuls de Bataillon de droïdes.\n\nB1 est immunisé contre les dégâts infligés par le Seigneur de la trahison dans le raid Triumvirat Sith.\n\n<u class='speciale'>Bataillon de droïdes :</u> Chaque cumul confère à B1 +2 % d'attaque et à tous les alliés séparatistes +0,5 % de ténacité et d'esquive des critiques.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "b1 battle droid"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
