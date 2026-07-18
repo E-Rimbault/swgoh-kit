@@ -1,162 +1,271 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Maitre Qui-Gon</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Master Qui-Gon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/maitre-jinn/qui-gon-image.png">
-
-    <!-- Lien vers la feuille de style -->
-    <link rel="stylesheet" href="../style/styles.css">
-    <link rel="stylesheet" href="../style/capacite.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/maitre-jinn//qui-gon-image.png" alt="Master Qui-Gon" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>Maitre Qui-Gon</u></h1>
-        <p>
-            Un soutien audacieux prêt à tenter sa chance afin de sauver et aider ses alliés.
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: blue;" href="../classement-perso/coté-lumineux.html">Coté Lumienux</a>
-            <a class="class" href="../classement-perso/soutien.html">Soutien</a>
-            <a class="capacite" href="../classement-perso/république-galactique.html">République Galactique</a>
-            <a class="capacite" href="../classement-perso/jedi.html">Jedi</a>
-        </nav>
+            <h1 id="title"><u>Master Qui-Gon</u></h1>
+            <p id="description">
+                A bold Support willing to take a chance to save and assist his allies.
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html" id="republic-galactic">Galactic Republic</a>
+                <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/maitre-jinn/Maitre-qui-gon.png" alt="Master Qui-Gon"><br>
+    <img class="first" src="../image-perso/maitre-jinn/Maitre-qui-gon.png" alt="master qui-gon"><br>
 
-    <h2 class="titre"><u>attaque basique : Frappe Ataru</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Ataru Strike</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="maire Qui-Gon basic" src="../image-perso/maitre-jinn/quigon-basic.png">
+            <img class="attaque" alt="qui-gon basic" src="../image-perso/maitre-jinn/quigon-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux et Faille à la cible ennemie pendant 1 tour. Pendant le tour du Maitre Qui-Gon, tous les alliés<br>
-                de la République Galactique disposant de soins sur la durée ou de protection sur la durée obtiennent un bonus de défense pendant 1 tour.<br>
-                Si le Maitre Qui-Gon dispose d'un bonus d'un bonus de précision, tous les alliés de la République Galactique récupèrent 10% de santé et de protection.
+            <p class="attaque" id="basic-attack">
+                Deal Special damage and inflict Breach on target enemy for 1 turn. During Master Qui-Gon's turn, all Galactic Republic allies with Heal Over Time or Protection Over Time gain Defense Up for 1 turn. If Master Qui-Gon has Accuracy Up, all Galactic Republic allies recover 10% Health and Protection.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Ressens, fie-toi à ton instinct (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Feel, Use Your Instincts (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="maitre Qui-Gon spé 1" src="../image-perso/maitre-jinn/quigon-spe1.png">
+            <img class="attaque" alt="qui-gon spe 1" src="../image-perso/maitre-jinn/quigon-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe toutes les améliorations dont bénéficie la cible ennemie. Si cela dissipe une amélioration sur la cible ennemie, elle subit<br>
-                immunité aux améliorations pendant 1 tour et supprime 50% de jauge de tour.<br>
-                <br>
-                Si la Reine Amidala est dans l'emplacement de chef au début de la bataille, le Maitre Qui-Gon inflige Exposition à tous les ennemis pendant<br>
-                2 tours et si un ennemi dispose de Doute, ce dernier subit Étourdissement pendant 1 tour (ne peut pas être résisté).<br>
-                <br>
-                Le Maitre Qui-Gon obtient 100% de défense pendant 2 tours et Méditation de combat Légendaire pendant 1 tour(ne peut pas être copié, dissipé ou empeché).<br>
-                Si aucun allié n'utilise Raillerie, tous les autres alliés de la République Galactique qui ne sont pas des Légendes Galactique obtiennent<br>
-                camouflages pendant 2 tours. Si un allié utilise Raillerie, tous les alliés de la République Galactique qui ne sont pas<br>
-                des Légendaire Galactique obtiennent plutôt un bonus de vitesse pendant 2 tours.<br>
-                <br>
-                Cette capacité ne peut pas être esquivée.
-            </p>
-        </div>
-    </div>
-
-
-    <h2 class="titre"><u>2eme spéciale: Je tiens le Pari (délai: 3)</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="maitre Qui-Gon spé 2" src="../image-perso/maitre-jinn/quigon-spe2.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Lance un cube du destin<br><br>
-                <span style="display: inline; color: red;">Si le résultat est rouge:</span>
+            <p class="attaque" id="special-attack1">
+                Dispel all buffs on target enemy. If target enemy had any buffs dispelled this way, they are inflicted with Buff Immunity for 1 turn, and remove 50% Turn Meter.
                 <br><br>
-                <span class="attaque" style="display: inline; color: white;"> Cette capacité n'a aucun effet</span>
+                If the ally in the Leader slot was Queen Amidala at the start of battle, Master Qui-Gon Exposes all enemies for 2 turns and if an enemy is inflicted with Doubt, Stun them for 1 turn, which can't be resisted.
                 <br><br>
-                <span style="display: inline; color: blue;">Si le résultat est Bleu:</span><br><br>
-                <span class="attaque" style="display: inline; color: white;"> influge des dégâts spéciaux à tous les ennemis à hauteur de 5% de sa santé maximale<br>
-                (+2% par cumul de protection de la Reine). Dissipe tous les affaiblissements subis par les alliés de la République Galactique. Le Maitre Qui-Gon<br>
-                obtient 25% de santé maximale et de protection maximale (cumulatif, 100% maximum) pour le reste de l'affrontement et le Padawan Obi-Wan allié gagne<br>
-                30% d'attaque pendant 2 tours. Si la Reine Amidale est dans l'emplacement de chef et qu'il n'y a aucune Suivante Factice alliée active, elle gagne un<br>
-                bonus de dégâts critique et Prévoyance pendant 2 tours. Si une Suivante Factice allié est active, cette dernière gagne 25% de protection maximale et de<br>
-                protection maximale pour le reste de l'affrontement. Tous les alliés de la République Galactique alliés reçoivent un bonus de ténacité pendant 2 tours et infligent<br>
-                un malus de ténacité à tous les ennemis pendant 2 tours.<br>
-                <br>
-                Le Maitre Qui-Gon influencera le résultat du Cube du Destin.
-                </span>
+                Master Qui-Gon gains 100% Defense for 2 turns and Legendary Battle Meditation for 1 turn, which can't be copied, dispelled, or prevented. If no allies are Taunting, all other non-Galactic Legend Galactic Republic allies Stealth for 2 turns. If an ally is Taunting, all non-Galactic Legend Galactic Republic allies gain Speed Up for 2 turns, instead.
+                <br><br>
+                This ability can't be evaded.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: restez près de moi</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : I'll Take That Bet (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="maitre Qui-Gon unique" src="../image-perso/maitre-jinn/qui-gon-unique.png">
+            <img class="attaque" alt="qui-gon spe 2" src="../image-perso/maitre-jinn/quigon-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Au début de la bataille et à chaque fois que les alliés de la République Galactique subissent Étourdissement, ils reçoivent Immunité aux réductions<br>
-                de jauge de tour et un bonus de défense pendant 1 tour. La première fois que la santé d'un allié de la République Galactique (à l'exception des invocations)<br>
-                tombe en dessous de 50%, et si l'allié dans l'emplacement de chef est de la République Galactique, il joue un tour bonus, dissipe tous les affaiblissements<br>
-                l'affectant et tous les alliés de la République Galactique gagnent 25% de santé maximale jusqu'à la fin de l'affrontement.<br>
-                <br>
-                Lorsque le Maitre Qui-Gon subit un coup critique, tous les alliés de la République Galactique obtiennent un bonus de protection de 30% pendant 2 tours,<br>
-                tous les attaquants de la république Galactique alliés récupèrent 10% de santé, reçoivent Avantage pendant 2 tours et le Padawan Obi-Wan allié<br>
-                gagne un bonus de dégâts critiques pendant 2 tours.<br>
-                <br>
-                Lorsque n'importe quel autre Jedi allié attaque pendant le tour du Maitre Qui-Gon, il est invoqué (une fois par tour). Si la Reine Amidale est dans l'emplacement<br>
-                de chef au début de la bataille, elle gagne 25% de jauge de tour (50% si un Padawan Obi-Wan est actif) et le Maitre Qui-Gon est<br>
-                invoqué à chaque fois qu'elle utilise sa capacité de base.<br>
-                <br>
-                Tant que les ennemis subissent un malus de ténacité, ils disposent de -30% de dégâts critiques et de défense.<br>
-                <br>
-                <u class="omicron">Dans les Guerres de territoire et si tous les alliés sont de la République Galactique, mais pas des Légendes Galactique :</u><br>
-                <br>
-                Au début de l'affrontement, tous les alliés de la République Galactique obtiennent 50% de santé maximale (100% de santé maximale si la Reine<br>
-                Amidale est dans l'emplacement de chef allié) pour le reste de l'affrontement et un bonus de défense pendant 3 tours. Lorsque le Maitre Qui-Gon<br>
-                subit un coup critique, il obtient Prévoyance et 10 de vitesse (cumulatif, 50 maximum) pendant 2 tours. Lorsque le Maitre Qui-Gon est vaincu, tous<br>
-                les alliés reçoivent 50% d'attaque pendant 2 tours et récupèrent 100% de protection.<br>
-                <br>
-                Si l'allié dans l'emplacement de chef est de la République Galactique, le Maitre Qui-Gon gagne 50% de protection supplémentaire pendant 2 tours au début<br>
-                de son tour lorque le chef dispose de moins de 50% de sa santé.<br>
-                <br>
-                Si la reine Amidale est dans l'emplacement de Chef :<br>
-                -Lorsqu'un allié de la République Galactique attaque en dehors de son tour, il inflige 50% de dégâts en plus, supprime 25% de jauge de tour et<br>
-                inflige Entrave des capacités pendant 1 tour à la cible ennemie (ne peut pas être esquivé).<br>
-                -Lorsque le Maitre Qui-Gon obtient Méditation de combat Légendaire, tos les tanks ennemis qui ne sont pas une Légende Galactique subissent<br>
-                immunité aix soins et protection perturbée pendant 1 tour (ne peut pas être dissipé, esquivé ou résisté).
+            <p class="attaque" id="special-attack2">
+                Roll a Chance Cube.
+                <br><br>
+                <u style='color: white; text-decoration: none; background-color : red'>If the result is red:</u> This ability has no effect.
+                <br><br>
+                <u style='color: white; text-decoration: none; background-color : blue'>If the result is blue:</u> Deal Special damage based on 5% of his Max Health (+2% per stack of Queen's Protection) to all enemies. Dispel all debuffs on all Galactic Republic allies. Master Qui-Gon gains 25% Max Health and Max Protection (stacking, max 100%) for rest of the encounter and ally Padawan Obi-Wan gains 30% Offense for 2 turns. If the ally in the Leader slot is Queen Amidala, and there is no active ally Handmaiden Decoy, she gains Critical Damage Up and Foresight for 2 turns. If there is an active ally Handmaiden Decoy, the Decoy gains 25% Max Health and Max Protection for rest of the encounter. All Galactic Republic allies gain Tenacity Up for 2 turns and inflict Tenacity Down on all enemies for 2 turns.
+                <br><br>
+                Master Qui-Gon will influence the outcome of the Chance Cube roll.
             </p>
-        
         </div>
     </div>
-    
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Stay Close to Me</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="qui-gon unique" src="../image-perso/maitre-jinn/qui-gon-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                At the start of battle, and whenever Galactic Republic allies are Stunned, they are immune to Turn Meter Reduction and gain Defense Up for 1 turn. The first time any Galactic Republic ally (excluding summons) falls below 50% Health, if the ally in the Leader slot is Galactic Republic, the Leader takes a bonus turn, dispel all debuffs on the Leader, and all Galactic Republic allies gain 25% Max Health until the end of the encounter.
+                <br><br>
+                Whenever Master Qui-Gon is critically hit, all Galactic Republic allies gain 30% Protection Up for 2 turns, all Galactic Republic Attacker allies recover 10% Health, gain Advantage for 2 turns, and ally Padawan Obi-Wan gains Critical Damage Up for 2 turns.
+                <br><br>
+                Whenever any other Jedi ally attacks during Master Qui-Gon's turn, he assists (once per turn). If the ally in the Leader slot is Queen Amidala at the start of battle, she gains 25% Turn Meter (50% if there is an active ally Padawan Obi-Wan), and Master Qui-Gon assists whenever she uses her Basic ability.
+                <br><br>
+                While enemies are inflicted with Tenacity Down they have -30% Critical Damage and Defense.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars and all allies are non-Galactic Legend Galactic Republic:</u> At the start of the encounter, all allies gain 50% Max Health (100% Max Health if the ally in the Leader slot is Queen Amidala) for the rest of the encounter, and Defense Up for 3 turns. Whenever Master Qui-Gon is critically hit, he gains Foresight and 10 Speed (stacking, max 50) for 2 turns. Whenever Master Qui-Gon is defeated all allies gain 50% Offense for 2 turns and recover 100% Protection.
+                <br><br>
+                If the ally in the Leader slot is Galactic Republic, when they have less than 50% Health, Master Qui-Gon gains 50% bonus Protection for 2 turns at the start of his turn.
+                <br><br>
+                If the ally in the Leader slot is Queen Amidala:<br>
+                - Whenever a Galactic Republic ally attacks out of turn, they deal 50% more damage, remove 25% Turn Meter, and inflict Ability Block for 1 turn which can't be evaded on target enemy.<br>
+                - Whenever Master Qui-Gon gains Legendary Battle Meditation, all non-Galactic Legend tank enemies are inflicted with Healing Immunity and Protection Disruption for 1 turn which can't be dispelled, evaded, or resisted.
+            </p>
+        </div>
+    </div>
+
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Maitre Qui-Gon",
+                "title": "<u>Maitre Qui-Gon</u>",
+                "description": "Un soutien audacieux prêt à tenter sa chance afin de sauver et aider ses alliés",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "republic-galactic": "République Galactique",
+                "jedi": "Jedi",
+
+                "basic-attack-title": "<u>Attaque Basique: Forme Ataru</u>",
+                "basic-attack": "Inflige des dégâts spéciaux et Faille à la cible ennemie pendant 1 tour. Pendant le tour du Maitre Qui-Gon, tous les alliés de la Nouvelle République disposant de soins sur la durée ou de protection sur la durée obtiennent un bonus de défense pendant 1 tour. Si le Maitre Qui-Gon dispose d'un bonus de précision, tous les alliés de la République Galactique récupèrent 10 % de santé et de protection.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Ressens, fie-toi à ton instinct (délai : 3)</u>",
+                "special-attack1": "Dissipe toutes les améliorations dont bénéficie la cible ennemie. Si cela dissipe une amélioration sur la cible ennemie, elle subit Immunité aux améliorations pendant 1 tour et supprime 50 % de jauge de tour.\n\nSi la Reine Amidala est dans l'emplacement de chef au début de la bataille, le Maitre Qui-Gon inflige Exposition à tous les ennemis pendant 2 tours et si un ennemi dispose de Doute, ce dernier subit Étourdissement pendant 1 tour (ne peut pas être résisté).\n\nLe Maitre Qui-Gon obtient 100 % de défense pendant 2 tours et Méditation de combat légendaire pendant 1 tour (ne peut pas être copié, dissipé ou empêché). Si aucun allié n'utilise Raillerie, tous les alliés de la République Galactique qui ne sont pas Légendes Galactiques qui ne sont pas des Légendes Galactiques obtiennent plutôt un bonus de vitesse pendant 2 tours.\n\nCette capacité ne peut pas être esquivée.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Je tiens le pari (délai : 3)</u>",
+                "special-attack2": "Lance un cube du destin.\n\n<u style='color: white; text-decoration: none; background-color : red'>Si le résulat est rouge :</u> cette capacité n'a aucun effet.\n\n<u style='color: white; text-decoration: none; background-color :blue'>Si le résulat est bleu :</u> inflige des dégâts spéciaux à tous les ennemis à hauteur de 5 % de sa santé maximale (+2 % par cumul de Protection de la Reine). Dissipe tous les affaiblissements subis par les alliés de la République Galactique. Le Maître Qui-Gon obtient 25 % de santé maximale et de protection maximale (cumulatif, 100 % maximum) pour le reste de l'affrontement et le Padawan Obi-Wan allié gagne 30 % d'attaque pendant 2 tours. Si la Reine Amidala est dans l'emplacement de chef et qu'il n'y a aucune Suivante factice alliée active, elle gagne un bonus de dégâts critique et Prévoyance pendant 2 tours. Si une Suivante factice alliée est active, cette dernière gagne 25 % de santé maximale et de protection maximale pour le reste de l'affrontement. Tous les alliés de la République Galactique reçoivent un bonus de ténacité pendant 2 tours et infligent un malus de ténacité à tous les ennemis pendant 2 tours.\n\nLe Maître Qui-Gon influencera le résultat du Cube du destin.",
+
+                "unique-ability-title": "<u>Capacité Unique : Restez près de moi</u>",
+                "unique-ability": "Au début de la bataille et à chaque fois que les alliés de la République Galactique subissent Étourdissement, ils reçoivent Immunité aux réductions de jauge de tour et un bonus de défense pendant 1 tour. La première fois que la santé d'un allié de la République Galactique (à l'exception des invocations) tombe en dessous de 50 %, et si l'allié dans l'emplacement de chef est de la République Galactique, il joue un tour bonus, dissipe tous les affaiblissements l'affectant et tous les alliés de la République Galactique gagnent 25 % de santé maximale jusqu'à la fin de l'affrontement.\n\nLorsque le background-color : subit un coup critique, tous les alliés de la République Galactique obtiennent un bonus de protetion de 30 % pendant 2 tours, tous les attaquants de la République Galactique alliés récupèrent 10 % de santé, reçoivent Avantage pendant 2 tours et le Padawan Obi-Wan gagne un bonus de dégâts critiques pendant 2 tours.\n\nLorsque n'importe quel autre Jedi allié attaque pendant le tour du Maitre Qui-Gon, il est invoqué (une fois par tour). Si la Reine Amidala est dans l'emplacement de chef au début de la bataille, elle gagne 25 % de jauge de tour (50 %, si un Padawan Obi-Wan allié est actif) et le Maitre Qui-Gon est invoqué à chaque fois qu'elle utilise sa capacité de base.\n\nTant que les ennemis subissent un malus de ténacité, ils disposent de -30 % de dégâts critiques et de défense.\n\n<u class='omicron'>Amléioration Omicron : Dans les Guerres de territoire et si tous les alliés sont de la République Galactique, mais pas des Légendes Galactiques :</u> au début de l'affrontement tous les alliés obtiennent 50 % de santé maximale (100 % de santé maximale si la Reine Amidala est dans l'emplacement de chef allié) pour le reste de l'affrontement et un bonus de défense pendant 3 tours. Lorsque le Maitre Qui-Gon subit un coup critique, il obtient Prévoyance et 10 de vitesse (cumulatif, 50 maximum) pendant 2 tours. Lorsque le Maitre Qui-Gon est vaincu, tous les alliés reçoivent 50 % d'attaque pendant 2 tours et récupèrent 100 % de protection.\n\nSi l'allié dans l'emplacement de chef est de la République Galactique, e Maitre Qui-Gon gagne 50 % de protection supplémentaire pendant 2 tours au début de son tour lorsque le chef dispose de moins de 50 % de sa santé.\n\nSi la Reine Amidala est dans l'emplacement de chef:\n- Lorsqu'un allié de la République Galactique attaque en dehors de son tour, il inflige 50 % de dégâts en plus, supprime 25 % de jauge de tour et inflige Entrave des capacités pendant 1 tour à la cible ennemie (ne peut pas être esquivé).\n- Lorsque le Maitre Qui-Gon obtient Méditation de combat légendaire, tous les tanks ennemis qui ne sont pas une Légende Galactique subissent Immunité aux soins et Protection perturbée pendant 1 tour (ne peut pas être dissipé, esquivé ou résisté).",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "master qui-gon"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
     </footer>
 </body>
-</html>    
-
-    
-    
+</html>

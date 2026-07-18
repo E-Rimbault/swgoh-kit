@@ -1,119 +1,248 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Chef de la tribu Tusken</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Tusken Chieftain</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/chef_tusken/chef-tusken-image.png">
-
-    <!-- Lien vers la feuille de style -->
-     <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/chef_tusken/chef-tusken-image.png" alt="Tusken Chieftain" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>Chef de la tribu Tusken</u></h1>
-        <p>
-            Un puissant chef triba qui protège ses alliés avec Élan et inflige des dégâts aux ennemis.
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: red;" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-            <a class="class" href="../classement-perso/soutien.html">Soutien</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/tusken.html">tusken</a>
-        </nav>
+            <h1 id="title"><u>Tusken Chieftain</u></h1>
+            <p id="description">
+                A strong tribal leader who protects his allies with Momentum and inflicts foes with damaging effects
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="lead">Leader</a>
+                <a class="capacite" href="../classement-perso/tusken.html" id="tusken">Tusken</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/chef_tusken/Chef-tusken.png" alt="Chef de la tribu tusken"><br>
+    <img class="first" src="../image-perso/chef_tusken/Chef-tusken.png" alt="Tusken Chieftain"><br>
 
-    <h2 class="titre"><u>attaque basique : Danse de cérémonie </u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Ceremonial Dance</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="basique chef tusken" src="../image-perso/chef_tusken/chieftain-basique.png">
+            <img class="attaque" alt="Tusken Chieftain basic" src="../image-perso/chef_tusken/chieftain-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Invoque un autre allié aléatoire, qui inflige 50% de dégâts supplémentaires.<br>
-                Confère aux alliés Tusken 2 cumuls d'Élan pendant 3 tours.
+            <p class="attaque" id="basic-attack">
+                Call a random other ally to assist, dealing 50% more damage. Grant Tusken allies 2 stacks of Momentum for 3 turns.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Marque de respect (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Token of Respect (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="chef tusken spé 1" src="../image-perso/chef_tusken/chieftain-sp.png">
+            <img class="attaque" alt="Tusken Chieftain spe 1" src="../image-perso/chef_tusken/chieftain-sp.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Confère un bonus de protection à tous les alliés Tusken (60%) pendant 2 tours,<br>
-                dissipe tous les affaiblissements qu'ils subissents et réduisent les délais de 1.
+            <p class="attaque" id="special-attack1">
+                Grant all Tusken allies Protection Up (60%) for 2 turns, dispel all debuffs from them, and reduce their cooldowns by 1.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Capacité de chef: peuple Nomade</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Nomadic People</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="chef tusken lead" src="../image-perso/chef_tusken/chieftain-lead.png">
+            <img class="attaque" alt="Tusken Chieftain lead" src="../image-perso/chef_tusken/chieftain-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Lorsqu'un ennemi obtient de la jauge de tour bonus, les alliés Tusken reçoivent un<br>
-                cumul d'Élan pendant 3 tours. A la fin de chaque tour, les alliés Tusken gagnent 20% de<br>
-                défense et de ténacité pour chaque cumul d'Élan qui leur est infligé jusqu'à la fin du tour suivant.<br>
-                <br>
-                Lorsqu'un allié Tusken est ciblé par un ennemi et qu'il dispose d'au moins 10 cumuls d'Élan, supprime<br>
-                tous les cumuls d'Élan, étourdit tous les ennemis attaquants pendant 1 tour (ne peut pas être résisté), et<br>
-                l'allié Tusken ciblé obtient un tour bonus. Pour chaque cumul d'Élan ainsi supprimé, chaque ennemi attaquant<br>
-                a 20% de chances (+5% par niveau d'amplificateur de relique, 50% max.) de subir un cumul de dégâts sur la durée pendant 2 tours.<br>
-                <br>
-                <u class="omicron">Dans les Grandes arènes en 3c3:</u><br>
-                <br>
-                Boba Fett, héritier de Jango, compte comme un allié Tusken, s'il n'y a pas d'autre personnage qui invoque<br>
-                au début de la bataille. La prime de Boba Fett, héritier de Jango est active et il<br>
-                ne peut pas perdre de cumuls d'Élan, sauf à l'expiration. 
+            <p class="attaque" id="lead-ability">
+                Whenever an enemy gains bonus Turn Meter, grant Tusken allies 1 stack of Momentum for 3 turns. At the end of each turn, Tusken allies gain 20% Defense and Tenacity for each stack of Momentum on them until the end of the next turn.
+                <br><br>
+                Whenever a Tusken ally is targeted by an enemy and they have at least 10 stacks of Momentum, remove all stacks of Momentum, Stun all attacking enemies for 1 turn, which can't be resisted, and the targeted Tusken ally takes a bonus turn. For each stack of Momentum removed this way, there is a 20% chance (+5% per Relic Amplifier level, max 50% total) to inflict a stack of Damage Over Time on each attacking enemy for 2 turns.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in 3v3 Grand Arenas:</u> Boba Fett, Scion of Jango counts as a Tusken ally if there is no character that summons at the start of battle. Boba Fett, Scion of Jango's Payout is active and he can't lose Momentum stacks except through expiration.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Droit ancestral</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Ancestral Claim</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="chef tusken unique" src="../image-perso/chef_tusken/chieftain-unique.png">
+            <img class="attaque" alt="Tusken Chieftain unique" src="../image-perso/chef_tusken/chieftain-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Lorsqu'un ennemi récupère de la santé ou de la protection, il obtient 1 cumul de dégâts sur la durée pendant 2 tours.<br>
-                à la fin de ce tour. Lorsqu'un ennemi subit des dégâts d'un effet de dégâts sur la durée, tous les alliés Tusken<br>
-                récupèrent 10% de santé. Les alliés Tusken sont immunisés contre les effets de dégâts sur la durée.
+            <p class="attaque" id="unique-ability">
+                Whenever an enemy recovers Health or Protection, inflict 1 stack of Damage Over Time on them for 2 turns at the end of that turn. Whenever an enemy takes damage from a Damage Over Time effect, Tusken allies recover 10% Health. Tusken allies are immune to Damage Over Time effects.
             </p>
         </div>
     </div>
-
-
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
-    </footer>
 
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Chef de la tribu Tusken",
+                "title": "<u>Chef de la tribu Tusken</u>",
+                "description": "Un puissant chef tribal qui protège ses alliés avec Élan et inflige des dégâts aux ennemis.",
+
+                "darkside": "Coté Obscur",
+                "support": "Soutienn",
+                "lead": "Chef",
+                "tusken": "Tusken",
+
+                "basic-attack-title": "<u>Attaque Basique: Danse de cérémonie</u>",
+                "basic-attack": "Invoque un autre allié aléatoire, qui inflige 50 % de dégâts supplémentaires. Confère aux alliés Tusken 2 cumuls d'Élan pendant 3 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Marque de respect (délai : 3)</u>",
+                "special-attack1": "Confère un bonus de protection à tous les alliés Tusken (60 %) pendant 2 tours, dissipe tous les affaiblissements qu'ils subissent et réduisent les délais de 1.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Peuple nomade</u>",
+                "lead-ability": "Lorsqu'un ennemi obtient de la jauge de tour bonus, les alliés Tusken reçoivent 1 cumul d'Élan pendant 3 tours. A la fin de chaque tour, les alliés Tusken gagnent 20 % de défense et de ténacité pour chaque cumul d'Élan qui leur est infligé jusqu'à la fin du tour suivant.\n\nLorsqu'un allié Tusken est ciblé par un ennemi et qu'il dispose d'au moins 10 cumuls d'Élan, supprime tous les cumuls d'Élan, étourdit tous les ennemis attaquants pendant 1 tour (ne peut pas être résisté), et l'allié Tusken ciblé obtient un tour bonus. Pour chaque cumul d'Élan ainsi supprimé, chaque ennemi attaquant a 20 % de chances (+5 % par niveau d'amplificateur de relique, 50 % max) de subir un cumul de dégâts sur la durée pendant 2 tours.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes en 3c3 :</u> Boba Fett, héritier de Jango, compte comme un allié Tusken s'il n'y a pas d'autres personnage qui invoque au début de la bataille. La prime de Boba Fett, héritier de Jango est active et il ne peut pas perdre de cumuls d'Élan, sauf à l'expiration.",
+
+                "unique-ability-title": "<u>Capacité Unique : Droit ancestral</u>",
+                "unique-ability": "lorsqu'un ennemi récupère de la santé ou de la protection, il obtient 1 cumul de dégâts sur la durée pendant 2 tours à la fin de ce tour. Lorsqu'un ennemi subit des dégâts d'un effet de dégâts sur la durée, tous les alliés Tusken récupèrent 10 % de santé. Les alliés Tusken sont immunisés contre les effets de dégâts sur la durée.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "tusken chieftain"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
 </body>
 </html>
