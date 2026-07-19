@@ -36,125 +36,16 @@
             font-family: Arial, Helvetica, sans-serif;
             color: white;
             text-align: center;
-            background-color: #000000;
-            overflow-x: hidden;
         }
 
-        /* ÉCRAN DE CHARGEMENT INITIAL */
-        #loading-screen {
+        /* Background */
+        .background-image {
             position: fixed;
             inset: 0;
             background-image: url("swgoh-10ans-2025.png");
             background-size: cover;
             background-position: center;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), visibility 1s;
-        }
-
-        /* EFFET HYPERDRIVE (Étoiles étirées en lignes) */
-        .hyperdrive-container {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            background: transparent;
-        }
-
-        .hyperdrive-star {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 2px;
-            height: 2px;
-            background: #ffffff;
-            border-radius: 50%;
-            box-shadow: 0 0 12px #ffffff, 0 0 4px #8ad8ff;
-            opacity: 0;
-            transform-origin: center;
-            animation: hyperdriveEffect 3.2s cubic-bezier(0.4, 0, 1, 1) infinite;
-        }
-
-        /* Décalages temporels et angles pour les lignes hyperdrive */
-        .hyperdrive-star:nth-child(1) { transform: rotate(15deg) translate(0, 0); animation-delay: 0s; }
-        .hyperdrive-star:nth-child(2) { transform: rotate(45deg) translate(0, 0); animation-delay: 0.3s; }
-        .hyperdrive-star:nth-child(3) { transform: rotate(85deg) translate(0, 0); animation-delay: 0.6s; }
-        .hyperdrive-star:nth-child(4) { transform: rotate(120deg) translate(0, 0); animation-delay: 0.1s; }
-        .hyperdrive-star:nth-child(5) { transform: rotate(160deg) translate(0, 0); animation-delay: 0.4s; }
-        .hyperdrive-star:nth-child(6) { transform: rotate(200deg) translate(0, 0); animation-delay: 0.8s; }
-        .hyperdrive-star:nth-child(7) { transform: rotate(240deg) translate(0, 0); animation-delay: 0.2s; }
-        .hyperdrive-star:nth-child(8) { transform: rotate(280deg) translate(0, 0); animation-delay: 0.5s; }
-        .hyperdrive-star:nth-child(9) { transform: rotate(315deg) translate(0, 0); animation-delay: 0.7s; }
-        .hyperdrive-star:nth-child(10) { transform: rotate(345deg) translate(0, 0); animation-delay: 0.9s; }
-
-        @keyframes hyperdriveEffect {
-            0% {
-                transform: rotate(inherit) translate(0, 0) scaleY(1);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.8;
-            }
-            70% {
-                /* Étirement de l'étoile pour faire l'effet laser/vitesse lumière */
-                transform: rotate(inherit) translate(0, -250px) scaleY(35);
-                opacity: 1;
-                width: 3px;
-            }
-            100% {
-                transform: rotate(inherit) translate(0, -600px) scaleY(50);
-                opacity: 0;
-                width: 1px;
-            }
-        }
-
-        .loader-box-minimal {
-            position: relative;
-            z-index: 2;
-            background: rgba(0, 0, 0, 0.75);
-            border: 1px solid rgba(0, 191, 255, 0.3);
-            padding: 20px 40px;
-            border-radius: 30px;
-            backdrop-filter: blur(8px);
-            box-shadow: 0 0 30px rgba(0, 191, 255, 0.2);
-        }
-
-        .loader-title {
-            font-size: 1.1rem;
-            color: #00bfff;
-            font-weight: bold;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin: 0;
-            animation: pulseText 1.5s ease-in-infinite alternate;
-        }
-
-        @keyframes pulseText {
-            0% { opacity: 0.6; text-shadow: 0 0 5px rgba(0,191,255,0.3); }
-            100% { opacity: 1; text-shadow: 0 0 15px rgba(0,191,255,0.9); }
-        }
-
-        /* FOND GÉNÉRAL NOIR ÉTOILÉ POUR L'INDEX */
-        .background-image {
-            position: fixed;
-            inset: 0;
-            background-color: #000000;
-            background-image: 
-                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
-                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px);
-            background-size: 550px 550px, 350px 350px, 250px 250px;
-            background-position: 0 0, 40px 60px, 130px 270px;
             z-index: -1;
-            animation: starScintillation 150s linear infinite;
-        }
-
-        @keyframes starScintillation {
-            from { background-position: 0 0, 40px 60px, 130px 270px; }
-            to { background-position: 550px 1100px, 390px 760px, 130px 870px; }
         }
 
         /* Header */
@@ -163,7 +54,7 @@
             font-weight: bold;
             padding: 40px 10px 10px;
             letter-spacing: 1px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
         }
 
         /* Language switch */
@@ -184,6 +75,58 @@
 
         .language-switcher img:hover {
             transform: scale(1.1);
+        }
+
+        /* Intro Dashboard */
+        .intro-dashboard {
+            background: rgba(10, 18, 30, 0.85);
+            border: 1px solid rgba(0, 191, 255, 0.3);
+            border-radius: 12px;
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 25px;
+            backdrop-filter: blur(8px);
+            box-sizing: border-box;
+        }
+
+        .intro-main-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin: 0 0 5px 0;
+        }
+
+        .intro-subtitle {
+            font-size: 1.2rem;
+            color: #00bfff;
+            margin: 0 0 5px 0;
+            font-weight: bold;
+        }
+
+        .intro-date {
+            font-size: 0.9rem;
+            color: #a1a1aa;
+            margin: 0 0 15px 0;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 15px;
+        }
+
+        .intro-item h4 {
+            margin: 0 0 5px 0;
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+
+        .intro-item p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #a1a1aa;
         }
 
         /* Architecture à 3 Colonnes Principales */
@@ -207,19 +150,19 @@
 
         /* Style des blocs individuels */
         .section-block {
-            background: rgba(5, 10, 18, 0.82);
+            background: rgba(10, 15, 20, 0.8);
             padding: 22px;
             border-radius: 12px;
             backdrop-filter: blur(6px);
-            border: 1px solid rgba(0, 191, 255, 0.18);
+            border: 1px solid rgba(0, 191, 255, 0.15);
             transition: transform .2s, box-shadow .2s, border-color .2s;
             box-sizing: border-box;
         }
 
         .section-block:hover {
             transform: translateY(-3px);
-            border-color: rgba(0, 191, 255, 0.45);
-            box-shadow: 0 4px 18px rgba(0, 191, 255, 0.15);
+            border-color: rgba(0, 191, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 191, 255, 0.12);
         }
 
         .section-block h3 {
@@ -247,7 +190,7 @@
             text-decoration: underline;
         }
 
-        /* Sous-blocs imbriqués */
+        /* Sous-blocs imbriqués (pour character et ship séparés) */
         .sub-block-element {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -405,6 +348,7 @@
             object-fit: contain;
         }
 
+        /* Style spécifique agrandi pour le Raid Vedette */
         .featured-raid-box {
             flex-direction: column;
             gap: 10px;
@@ -423,6 +367,7 @@
             color: #00bfff;
         }
 
+        /* Cadre intégré complet pour afficher toutes les unités sans glissement */
         .current-era-units-box {
             width: 100%;
             display: grid;
@@ -484,37 +429,31 @@
         .date-today { color: #00bfff; font-weight: bold; }
         .date-normal { color: #8ad8ff; }
 
+        /* Responsive Design */
         @media (max-width: 1024px) {
-            .three-column-layout { grid-template-columns: 1fr 1fr; }
+            .three-column-layout {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         @media (max-width: 768px) {
-            .three-column-layout { grid-template-columns: 1fr; padding: 10px 15px; }
-            header { font-size: 1.6rem; padding: 50px 10px 10px; }
-            .language-switcher { top: 10px; right: 10px; }
+            .three-column-layout {
+                grid-template-columns: 1fr;
+                padding: 10px 15px;
+            }
+            header {
+                font-size: 1.6rem;
+                padding: 50px 10px 10px;
+            }
+            .language-switcher {
+                top: 10px;
+                right: 10px;
+            }
         }
     </style>
 </head>
 
 <body>
-
-<div id="loading-screen">
-    <div class="hyperdrive-container">
-        <div class="hyperdrive-star"></div>
-        <div class="hyperdrive-star"></div>
-        <div class="hyperdrive-star"></div>
-        <div class="hyperdrive-star"></div>
-        <div class="hyperdrive-star"></div>
-        <div class="hyperdrive-star"></div>
-        <div class="hyperdrive-star"></div>
-        <div class="hyperdrive-star"></div>
-        <div class="hyperdrive-star"></div>
-        <div class="hyperdrive-star"></div>
-    </div>
-    <div class="loader-box-minimal">
-        <div id="loader-text" class="loader-title">HYPERDRIVE LOADING...</div>
-    </div>
-</div>
 
 <div class="background-image"></div>
 
@@ -527,6 +466,7 @@
 
 <div class="three-column-layout">
 
+    <!-- COLONNE 1 -->
     <div class="main-column">
         <div class="section-block">
             <h3 id="main-assets-title">Character & Ship</h3>
@@ -553,6 +493,7 @@
         </div>
     </div>
 
+    <!-- COLONNE 2 -->
     <div class="main-column">
         <div class="section-block">
             <h3 id="raid-title">Raid</h3>
@@ -579,6 +520,7 @@
         </div>
     </div>
 
+    <!-- COLONNE 3 -->
     <div class="main-column">
         <div class="section-block">
             <h3 id="effect-title">Buff / Debuff</h3>
@@ -595,6 +537,7 @@
             </div>
         </div>
 
+        <!-- Remis en dessous des Latest News -->
         <div class="section-block">
             <h3 id="game-title">Game</h3>
             <a href="game/jeux.html" id="game-link">Game SWGOH Mini-games</a>
@@ -635,8 +578,7 @@ const translations = {
         "no-data": "No assets available",
         "no-news": "No news available",
         "loading": "Loading...",
-        "no-units-era": "No units found for this era.",
-        "loader-text": "HYPERDRIVE JUMP..."
+        "no-units-era": "No units found for this era."
     },
     fr: {
         "title": "Site Web Star Wars : Galaxy of Heroes",
@@ -668,8 +610,7 @@ const translations = {
         "no-data": "Aucun élément disponible",
         "no-news": "Aucune actualité disponible",
         "loading": "Chargement...",
-        "no-units-era": "Aucune unité trouvée pour cette ère.",
-        "loader-text": "SAUT HYPERESPACE..."
+        "no-units-era": "Aucune unité trouvée pour cette ère."
     }
 };
 
@@ -711,51 +652,12 @@ let currentLang = "en";
 window.onload = () => {
     currentLang = sessionStorage.getItem("selectedLanguage") || "en";
     switchLanguage(currentLang);
-    handleLoadingScreen();
+    loadUnitsData();
+    loadShipsData();
+    loadErasData();
+    loadNewsData();
+    renderFeaturedRaid();
 };
-
-function handleLoadingScreen() {
-    const loadingScreen = document.getElementById('loading-screen');
-    const loaderText = document.getElementById('loader-text');
-
-    if (loaderText && translations[currentLang]["loader-text"]) {
-        loaderText.textContent = translations[currentLang]["loader-text"];
-    }
-
-    if (sessionStorage.getItem("indexLoaded") === "true") {
-        loadingScreen.style.display = 'none';
-        fetchDataAndRender();
-    } else {
-        // Démarre le chargement transparent des requêtes de données
-        const dataPromise = fetchDataAndRender();
-
-        // On impose un temps minimum pour l'animation hyperdrive (3.2 secondes)
-        const timeoutPromise = new Promise(resolve => setTimeout(resolve, 3200));
-
-        // Dès que les données ET le timer de 3.2s sont finis, on quitte l'hyperespace
-        Promise.all([dataPromise, timeoutPromise]).then(() => {
-            loadingScreen.style.opacity = '0';
-            setTimeout(() => {
-                loadingScreen.style.display = 'none';
-            }, 1000); // Transition douce de fondu vers la structure finale du site
-            sessionStorage.setItem("indexLoaded", "true");
-        });
-    }
-}
-
-async function fetchDataAndRender() {
-    try {
-        await Promise.all([
-            loadUnitsData(),
-            loadShipsData(),
-            loadErasData(),
-            loadNewsData()
-        ]);
-        renderFeaturedRaid();
-    } catch (err) {
-        console.error("Erreur de chargement des données:", err);
-    }
-}
 
 function switchLanguage(lang) {
     currentLang = lang;
@@ -767,57 +669,82 @@ function switchLanguage(lang) {
         }
     });
 
-    if (globalUnitsData.length > 0) renderRecentUnits(globalUnitsData);
-    if (globalShipsData.length > 0) renderRecentShips(globalShipsData);
-    if (globalErasData.length > 0) renderCurrentEra(globalErasData);
+    if (globalUnitsData.length > 0) {
+        renderRecentUnits(globalUnitsData);
+    }
+    if (globalShipsData.length > 0) {
+        renderRecentShips(globalShipsData);
+    }
+    if (globalErasData.length > 0) {
+        renderCurrentEra(globalErasData);
+    }
+
     renderFeaturedRaid();
 }
 
 function loadUnitsData() {
-    return fetch('filtre-recherche/units.json')
+    fetch('filtre-recherche/units.json')
         .then(response => response.json())
         .then(data => {
             globalUnitsData = data;
             renderRecentUnits(data);
-            if (globalErasData.length > 0) updateEraUnits();
+            if (globalErasData.length > 0) {
+                updateEraUnits();
+            }
         })
-        .catch(error => console.error("Error units.json:", error));
+        .catch(error => {
+            console.error("Erreur units.json:", error);
+            document.getElementById('recentUnitsList').innerHTML = `<div style="font-size:11px;color:#ff4444;">Error</div>`;
+        });
 }
 
 function loadShipsData() {
-    return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/ship.json')
+    fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/ship.json')
         .then(response => response.json())
         .then(data => {
             globalShipsData = data;
             renderRecentShips(data);
         })
-        .catch(error => console.error("Error ship.json:", error));
+        .catch(error => {
+            console.error("Erreur ship.json:", error);
+            document.getElementById('recentShipsList').innerHTML = `<div style="font-size:11px;color:#ff4444;">Error</div>`;
+        });
 }
 
 function loadErasData() {
-    return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/eras.json')
+    fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/eras.json')
         .then(response => response.json())
         .then(data => {
             globalErasData = data;
             renderCurrentEra(data);
         })
-        .catch(error => console.error("Error eras.json:", error));
+        .catch(error => {
+            console.error("Erreur eras.json:", error);
+            document.getElementById('currentEraBox').innerHTML = `<div style="font-size:11px;color:#ff4444;">Error</div>`;
+        });
 }
 
 function loadNewsData() {
-    return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/new.json')
+    fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/new.json')
         .then(response => response.json())
-        .then(data => renderNews(data))
-        .catch(error => console.error("Error new.json:", error));
+        .then(data => {
+            renderNews(data);
+        })
+        .catch(error => {
+            console.error("Erreur new.json:", error);
+            document.getElementById('newsList').innerHTML = `<div style="font-size:11px;color:#ff4444;">Error</div>`;
+        });
 }
 
 function getRelativeDateText(dateString) {
     if (!dateString) return { text: '', cssClass: '' };
+
     const parts = dateString.split('-');
     if (parts.length !== 3) return { text: dateString, cssClass: 'date-normal' };
     
     const releaseDate = new Date(Date.UTC(parts[0], parts[1] - 1, parts[2]));
     const today = new Date();
+    
     today.setHours(0, 0, 0, 0);
     const compareRelease = new Date(parts[0], parts[1] - 1, parts[2]);
     compareRelease.setHours(0, 0, 0, 0);
@@ -828,7 +755,9 @@ function getRelativeDateText(dateString) {
     const options = { day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC' };
     const formattedRawDate = releaseDate.toLocaleDateString(currentLang === 'fr' ? 'fr-FR' : 'en-US', options);
 
-    if (diffDays === 0) return { text: translations[currentLang]['today'], cssClass: 'date-today' };
+    if (diffDays === 0) {
+        return { text: translations[currentLang]['today'], cssClass: 'date-today' };
+    } 
     else if (diffDays > 0 && diffDays <= 7) {
         if (diffDays === 1) return { text: translations[currentLang]['in-day'], cssClass: 'date-future' };
         return { text: translations[currentLang]['in-days'].replace('{n}', diffDays), cssClass: 'date-future' };
@@ -838,123 +767,170 @@ function getRelativeDateText(dateString) {
         if (absDays === 1) return { text: translations[currentLang]['ago-day'], cssClass: 'date-past' };
         return { text: translations[currentLang]['ago-days'].replace('{n}', absDays), cssClass: 'date-past' };
     } 
-    else return { text: formattedRawDate, cssClass: 'date-normal' };
+    else {
+        return { text: formattedRawDate, cssClass: 'date-normal' };
+    }
 }
 
 function renderRecentUnits(units) {
     const listContainer = document.getElementById('recentUnitsList');
     listContainer.innerHTML = '';
-    const validUnits = units.filter(u => u.release_date).sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
+
+    const validUnits = units.filter(u => u.release_date);
+    validUnits.sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
     const top15 = validUnits.slice(0, 15);
 
     if (top15.length === 0) {
         listContainer.innerHTML = `<div style="font-size:12px; color:#aaa; font-style:italic;">${translations[currentLang]['no-data']}</div>`;
         return;
     }
+
     top15.forEach(unit => {
         const name = unit.name[currentLang] || unit.name['en'] || unit.id;
         const dateObj = getRelativeDateText(unit.release_date);
         const img = unit.image && unit.image.trim() !== '' ? unit.image : DEFAULT_IMAGE;
         const targetPage = unit.page && unit.page.trim() !== '' ? unit.page : '#';
 
-        listContainer.insertAdjacentHTML('beforeend', `
-            <a href="${targetPage}" class="recent-unit-item">
+        const itemHtml = `
+            <a href="${targetPage}" class="recent-unit-item" ${targetPage !== '#' ? 'target="_self"' : ''}>
                 <img src="${img}" class="recent-unit-img" alt="${name}" onerror="this.src='${DEFAULT_IMAGE}';">
                 <div class="recent-unit-info">
                     <span class="recent-unit-name">${name}</span>
                     <span class="recent-unit-date ${dateObj.cssClass}">${dateObj.text}</span>
                 </div>
             </a>
-        `);
+        `;
+        listContainer.insertAdjacentHTML('beforeend', itemHtml);
     });
 }
 
 function renderRecentShips(ships) {
     const listContainer = document.getElementById('recentShipsList');
     listContainer.innerHTML = '';
-    const validShips = ships.filter(s => s.release_date).sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
+
+    const validShips = ships.filter(s => s.release_date);
+    validShips.sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
     const top15 = validShips.slice(0, 15);
 
     if (top15.length === 0) {
         listContainer.innerHTML = `<div style="font-size:12px; color:#aaa; font-style:italic;">${translations[currentLang]['no-data']}</div>`;
         return;
     }
+
     top15.forEach(ship => {
         const name = ship.name[currentLang] || ship.name['en'] || ship.id;
         const dateObj = getRelativeDateText(ship.release_date);
         const img = ship.image && ship.image.trim() !== '' ? ship.image : DEFAULT_IMAGE;
         const targetPage = ship.page && ship.page.trim() !== '' ? ship.page : '#';
 
-        listContainer.insertAdjacentHTML('beforeend', `
-            <a href="${targetPage}" class="recent-unit-item">
+        const itemHtml = `
+            <a href="${targetPage}" class="recent-unit-item" ${targetPage !== '#' ? 'target="_self"' : ''}>
                 <img src="${img}" class="recent-unit-img" alt="${name}" onerror="this.src='${DEFAULT_IMAGE}';">
                 <div class="recent-unit-info">
                     <span class="recent-unit-name">${name}</span>
                     <span class="recent-unit-date ${dateObj.cssClass}">${dateObj.text}</span>
                 </div>
             </a>
-        `);
+        `;
+        listContainer.insertAdjacentHTML('beforeend', itemHtml);
     });
 }
 
 function renderNews(newsData) {
     const newsContainer = document.getElementById('newsList');
     newsContainer.innerHTML = '';
+
     if (!newsData || newsData.length === 0) {
         newsContainer.innerHTML = `<div style="font-size:12px; color:#aaa; font-style:italic;">${translations[currentLang]['no-news']}</div>`;
         return;
     }
-    if (newsData[0] && newsData[0].news_date) newsData.sort((a, b) => new Date(b.news_date) - new Date(a.news_date));
-    newsData.slice(0, 10).forEach(news => {
+
+    if (newsData[0] && newsData[0].news_date) {
+        newsData.sort((a, b) => new Date(b.news_date) - new Date(a.news_date));
+    }
+
+    const top10 = newsData.slice(0, 10);
+
+    top10.forEach(news => {
         const title = news.title || 'No Title';
         const link = news.link || '#';
-        const dateObj = getRelativeDateText(news.news_date || '');
-        newsContainer.insertAdjacentHTML('beforeend', `
+        const rawDate = news.news_date ? news.news_date : '';
+        const author = news.author ? news.author : 'Unknown';
+        
+        const dateObj = getRelativeDateText(rawDate);
+        
+        const newsHtml = `
             <div class="news-item">
                 <div class="news-header">
-                    <a href="${link}" target="_blank" class="news-item-title-link">${title} 🔗</a>
+                    <a href="${link}" target="_blank" class="news-item-title-link">
+                        ${title} 🔗
+                    </a>
                     <span class="news-item-date ${dateObj.cssClass}">${dateObj.text}</span>
                 </div>
-                <div class="news-item-desc">by ${news.author || 'Unknown'}</div>
+                <div class="news-item-desc">by ${author}</div>
             </div>
-        `);
+        `;
+        newsContainer.insertAdjacentHTML('beforeend', newsHtml);
     });
 }
 
 function renderCurrentEra(eras) {
     const eraBox = document.getElementById('currentEraBox');
-    if (!eras || eras.length === 0) return;
-    currentEraObject = [...eras].sort((a, b) => parseInt(b.numero_ere) - parseInt(a.numero_ere))[0];
+    if (!eras || eras.length === 0) {
+        eraBox.innerHTML = `...`;
+        return;
+    }
+
+    const sortedEras = [...eras].sort((a, b) => parseInt(b.numero_ere) - parseInt(a.numero_ere));
+    currentEraObject = sortedEras[0];
+
     const eraName = currentEraObject['name_' + currentLang] || currentEraObject['name_en'];
+    const eraImg = currentEraObject['image'] || '';
+
     eraBox.innerHTML = `
-        <img src="${currentEraObject['image'] || ''}" class="current-era-img" alt="${eraName}" onerror="this.style.display='none';">
+        <img src="${eraImg}" class="current-era-img" alt="${eraName}" onerror="this.style.display='none';">
         <span class="current-era-name">${eraName}</span>
     `;
+
     updateEraUnits();
 }
 
 function renderFeaturedRaid() {
     if (!raidsData || raidsData.length === 0) return;
+
     const featuredRaid = raidsData[raidsData.length - 1];
+    
     const container = document.getElementById("featured-raid-container");
-    const raidName = featuredRaid.name[currentLang] || featuredRaid.name["en"];
-    document.getElementById("featured-raid-img").src = featuredRaid.image;
-    const link = document.getElementById("featured-raid-name-link");
-    link.href = featuredRaid.url;
-    link.textContent = raidName;
-    container.style.display = "flex";
+    const raidImg = document.getElementById("featured-raid-img");
+    const raidLink = document.getElementById("featured-raid-name-link");
+
+    if (featuredRaid) {
+        const raidName = featuredRaid.name[currentLang] || featuredRaid.name["en"];
+        
+        raidImg.src = featuredRaid.image;
+        raidImg.alt = raidName;
+        
+        raidLink.href = featuredRaid.url;
+        raidLink.textContent = raidName;
+        
+        container.style.display = "flex";
+    }
 }
 
 function updateEraUnits() {
     if (!currentEraObject || globalUnitsData.length === 0) return;
+
     const unitsBox = document.getElementById('currentEraUnitsBox');
     unitsBox.innerHTML = '';
+
     const eraKeyEn = currentEraObject['name_en'].toLowerCase().trim();
     const eraKeyFr = currentEraObject['name_fr'].toLowerCase().trim();
 
     const filteredUnits = globalUnitsData.filter(unit => {
         if (!unit.era) return false;
-        return (unit.era.en || '').toLowerCase().trim() === eraKeyEn || (unit.era.fr || '').toLowerCase().trim() === eraKeyFr;
+        const unitEraEn = (unit.era.en || '').toLowerCase().trim();
+        const unitEraFr = (unit.era.fr || '').toLowerCase().trim();
+        return unitEraEn === eraKeyEn || unitEraFr === eraKeyFr;
     });
 
     if (filteredUnits.length === 0) {
@@ -962,17 +938,22 @@ function updateEraUnits() {
     } else {
         filteredUnits.forEach(unit => {
             const name = unit.name[currentLang] || unit.name['en'] || unit.id;
-            unitsBox.insertAdjacentHTML('beforeend', `
+            const img = unit.image && unit.image.trim() !== '' ? unit.image : DEFAULT_IMAGE;
+            const targetPage = unit.page && unit.page.trim() !== '' ? unit.page : '#';
+
+            const cardHtml = `
                 <div class="era-unit-card">
-                    <a href="${unit.page || '#'}" class="era-unit-link">
-                        <img src="${unit.image || DEFAULT_IMAGE}" class="era-unit-img" alt="${name}" onerror="this.src='${DEFAULT_IMAGE}';">
+                    <a href="${targetPage}" class="era-unit-link" ${targetPage !== '#' ? 'target="_self"' : ''}>
+                        <img src="${img}" class="era-unit-img" alt="${name}" onerror="this.src='${DEFAULT_IMAGE}';">
                         <span class="era-unit-name">${name}</span>
                     </a>
                 </div>
-            `);
+            `;
+            unitsBox.insertAdjacentHTML('beforeend', cardHtml);
         });
     }
 }
 </script>
+
 </body>
 </html>
