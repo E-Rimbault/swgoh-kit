@@ -597,6 +597,17 @@
       return { inclusions, exclusions };
     }
 
+    // Nouvelle fonction utilitaire pour formater correctement la date release_date locale
+    function formatReleaseDate(dateString) {
+      if (!dateString) return "---";
+      const parts = dateString.split('-');
+      if (parts.length !== 3) return dateString;
+      
+      const releaseDate = new Date(parts[0], parts[1] - 1, parts[2]);
+      const options = { day: '2-digit', month: 'long', year: 'numeric' };
+      return releaseDate.toLocaleDateString(currentLang === 'fr' ? 'fr-FR' : 'en-US', options);
+    }
+
     function applyFilters() {
       const searchInput = document.getElementById("search-bar").value.trim().toLowerCase();
       const searchMode = document.getElementById("search-mode-toggle").dataset.mode;
@@ -663,6 +674,8 @@
       container.innerHTML = list.length ? list.map(c => {
         const fText = (c.factions || []).map(f => f[currentLang] || f.en).join(", ");
         const alignLabel = isFr ? "Alignement" : "Alignment";
+        const releaseLabel = isFr ? "Sortie" : "Released";
+        const formattedDate = formatReleaseDate(c.release_date);
 
         return `
           <div class="card">
@@ -674,7 +687,8 @@
                 <p class="mb-1"><span class="unit-label">Role:</span> ${c.role?.[currentLang] || c.role?.en || "---"}</p>
                 <p class="mb-1"><span class="unit-label">${alignLabel}:</span> ${c.alignment?.[currentLang] || c.alignment?.en || "---"}</p>
                 <p class="mb-1"><span class="unit-label">Factions:</span> ${fText}</p>
-                <p class="mb-0"><span class="unit-label">Year:</span> ${c.years_of_apparition || "---"}</p>
+                <p class="mb-1"><span class="unit-label">Year:</span> ${c.years_of_apparition || "---"}</p>
+                <p class="mb-0"><span class="unit-label">${releaseLabel}:</span> ${formattedDate}</p>
               </div>
               <button class="btn btn-primary btn-sm" onclick="window.location.href='${c.page}'">
                 ${isFr ? 'DÉTAILS' : 'DETAILS'}
