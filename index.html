@@ -77,58 +77,6 @@
             transform: scale(1.1);
         }
 
-        /* Intro Dashboard */
-        .intro-dashboard {
-            background: rgba(10, 18, 30, 0.85);
-            border: 1px solid rgba(0, 191, 255, 0.3);
-            border-radius: 12px;
-            max-width: 1400px;
-            margin: 20px auto;
-            padding: 25px;
-            backdrop-filter: blur(8px);
-            box-sizing: border-box;
-        }
-
-        .intro-main-title {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #ffffff;
-            margin: 0 0 5px 0;
-        }
-
-        .intro-subtitle {
-            font-size: 1.2rem;
-            color: #00bfff;
-            margin: 0 0 5px 0;
-            font-weight: bold;
-        }
-
-        .intro-date {
-            font-size: 0.9rem;
-            color: #a1a1aa;
-            margin: 0 0 15px 0;
-        }
-
-        .intro-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 15px;
-        }
-
-        .intro-item h4 {
-            margin: 0 0 5px 0;
-            font-size: 1.1rem;
-            color: #ffffff;
-        }
-
-        .intro-item p {
-            margin: 0;
-            font-size: 0.85rem;
-            color: #a1a1aa;
-        }
-
         /* Architecture à 3 Colonnes Principales */
         .three-column-layout {
             display: grid;
@@ -148,11 +96,11 @@
             gap: 20px;
         }
 
-        /* Style des blocs individuels */
+        /* Style des blocs individuels (Sous-sections réduites de 5%) */
         .section-block {
             background: rgba(10, 15, 20, 0.8);
-            padding: 22px;
-            border-radius: 12px;
+            padding: 21px;
+            border-radius: 11px;
             backdrop-filter: blur(6px);
             border: 1px solid rgba(0, 191, 255, 0.15);
             transition: transform .2s, box-shadow .2s, border-color .2s;
@@ -167,15 +115,10 @@
 
         .section-block h3 {
             margin-top: 0;
-            margin-bottom: 8px;
-            font-size: 1.25rem;
+            margin-bottom: 11px;
+            font-size: 1.18rem;
             letter-spacing: 0.5px;
             color: #ffffff;
-        }
-
-        .section-block h4.sub-heading {
-            margin: 0 0 12px 0;
-            font-size: 1.05rem;
         }
 
         .section-block a {
@@ -190,244 +133,273 @@
             text-decoration: underline;
         }
 
-        /* Sous-blocs imbriqués (pour character et ship séparés) */
-        .sub-block-element {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 15px;
-            box-sizing: border-box;
+        /* Séparateur en pointillés */
+        .section-divider {
+            border: none;
+            border-top: 1px dashed rgba(255, 255, 255, 0.15);
+            margin: 13px 0 9px 0;
         }
 
-        /* Conteneurs de listes dynamiques */
-        .dynamic-container {
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px dashed rgba(0, 191, 255, 0.2);
+        /* Sous-titre de section */
+        .section-subtitle {
             text-align: left;
-        }
-
-        .dynamic-title {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            font-weight: bold;
             color: #00bfff;
-            margin: 0 0 8px 0;
-            text-transform: uppercase;
             letter-spacing: 0.5px;
+            margin-bottom: 9px;
+            text-transform: uppercase;
         }
 
+        /* --- STYLES DES LISTES DEROULANTES MODULES --- */
         .dynamic-scroll-list {
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            max-height: 230px;
+            gap: 9px;
+            max-height: 250px;
             overflow-y: auto;
-            padding-right: 4px;
+            padding-right: 6px;
         }
 
         .dynamic-scroll-list::-webkit-scrollbar {
             width: 4px;
         }
         .dynamic-scroll-list::-webkit-scrollbar-thumb {
+            background: rgba(0, 191, 255, 0.4);
+            border-radius: 2px;
+        }
+        .dynamic-scroll-list::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Éléments Communs News & Unités */
+        .news-item, .unit-item-link {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 11px 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            text-decoration: none;
+            transition: background .2s, border-color .2s;
+            box-sizing: border-box;
+        }
+
+        .unit-item-link {
+            color: inherit;
+        }
+
+        .unit-item-link:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(0, 191, 255, 0.3);
+        }
+
+        .news-left, .unit-left {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .unit-left-content {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+        .unit-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 6px;
+            object-fit: cover;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .news-item-title-link {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #00bfff;
+            text-decoration: none;
+            transition: color .2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .unit-item-name {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #ffffff;
+            transition: text-decoration .2s;
+        }
+
+        .unit-item-link:hover .unit-item-name {
+            text-decoration: underline;
+        }
+
+        .news-item-title-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .news-item-author {
+            font-size: 0.8rem;
+            color: #a1a1aa;
+        }
+
+        .news-item-date, .unit-item-date {
+            font-size: 0.8rem;
+            color: #8ad8ff;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .date-relative {
+            color: #a1a1aa;
+            font-weight: normal;
+        }
+
+        .main-link-margin {
+            display: inline-block;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        /* --- STYLES COMPACTS MODULE CURRENT ERA --- */
+        .current-era-container {
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 8px;
+            padding: 12px;
+            box-sizing: border-box;
+        }
+
+        .current-era-banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 12px;
+            font-weight: bold;
+            color: #00bfff;
+            font-size: 0.95rem;
+        }
+
+        .current-era-icon {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .current-era-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            max-height: 260px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .current-era-grid::-webkit-scrollbar {
+            width: 4px;
+        }
+        .current-era-grid::-webkit-scrollbar-thumb {
             background: rgba(0, 191, 255, 0.3);
             border-radius: 2px;
         }
 
-        /* Items d'unités ou de vaisseaux */
-        .recent-unit-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 6px;
-            border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            text-decoration: none;
-            transition: background .2s, border-color .2s;
-        }
-        .recent-unit-item:hover {
-            background: rgba(0, 191, 255, 0.05);
-            border-color: rgba(0, 191, 255, 0.3);
-        }
-
-        .recent-unit-img {
-            width: 35px;
-            height: 35px;
-            object-fit: contain;
-            border-radius: 4px;
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        .recent-unit-info {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
-
-        .recent-unit-name {
-            font-size: 0.85rem;
-            font-weight: bold;
-            color: #fff;
-        }
-
-        .recent-unit-date {
-            font-size: 0.75rem;
-            margin-top: 1px;
-        }
-
-        /* Items de News */
-        .news-item {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 10px;
-            border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            text-align: left;
-        }
-
-        .news-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            gap: 10px;
-        }
-
-        .news-item-title-link {
-            font-size: 0.85rem;
-            font-weight: bold;
-            color: #fff;
-            text-decoration: none;
-            transition: color .2s;
-        }
-        .news-item-title-link:hover {
-            color: #00bfff;
-            text-decoration: underline;
-        }
-
-        .news-item-date {
-            font-size: 0.75rem;
-            color: #a1a1aa;
-            white-space: nowrap;
-        }
-
-        .news-item-desc {
-            font-size: 0.75rem;
-            color: #cbd5e1;
-            line-height: 1.3;
-        }
-
-        /* Affichage Ère Actuelle et Raid Vedette */
-        .current-era-container {
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px dashed rgba(0, 191, 255, 0.2);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .current-era-box {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 12px;
-            border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            width: 100%;
-            box-sizing: border-box;
-            justify-content: center;
-        }
-
-        .current-era-img {
-            width: 30px;
-            height: 30px;
-            object-fit: contain;
-        }
-
-        /* Style spécifique agrandi pour le Raid Vedette */
-        .featured-raid-box {
-            flex-direction: column;
-            gap: 10px;
-            padding: 15px;
-        }
-
-        .featured-raid-img-large {
-            width: 110px;
-            height: 110px;
-            object-fit: contain;
-        }
-
-        .current-era-name {
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: #00bfff;
-        }
-
-        /* Cadre intégré complet pour afficher toutes les unités sans glissement */
-        .current-era-units-box {
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-            gap: 8px;
-            padding: 10px;
-            box-sizing: border-box;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 6px;
-            border: 1px solid rgba(0, 191, 255, 0.1);
-        }
-
         .era-unit-card {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 6px;
-            padding: 6px;
+            padding: 10px 6px;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 6px;
-            transition: transform .2s, border-color .2s;
+            text-decoration: none;
+            color: inherit;
+            transition: background .2s, border-color .2s, transform .2s;
         }
 
         .era-unit-card:hover {
-            transform: scale(1.03);
-            border-color: #00bfff;
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(0, 191, 255, 0.3);
+            transform: scale(1.02);
         }
 
-        .era-unit-link {
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            width: 100%;
-        }
-
-        .era-unit-img {
+        .era-unit-avatar {
             width: 40px;
             height: 40px;
-            object-fit: contain;
             border-radius: 4px;
-            background: rgba(0, 0, 0, 0.5);
+            object-fit: cover;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .era-unit-name {
             font-size: 0.75rem;
-            color: #fff;
+            color: #ffffff;
             font-weight: bold;
             line-height: 1.2;
+            text-align: center;
             word-break: break-word;
         }
 
-        /* Couleurs temporelles */
-        .date-future { color: #4ade80; font-weight: bold; }
-        .date-past { color: #a1a1aa; }
-        .date-today { color: #00bfff; font-weight: bold; }
-        .date-normal { color: #8ad8ff; }
+        .era-unit-card:hover .era-unit-name {
+            text-decoration: underline;
+        }
+
+        /* --- STYLES COMPACTS MODULE RAID (CAPTURE ÉCRAN) --- */
+        .featured-raid-container {
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 8px;
+            padding: 16px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .featured-raid-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: transform .2s;
+            width: 100%;
+        }
+
+        .featured-raid-card:hover {
+            transform: scale(1.02);
+        }
+
+        .featured-raid-image {
+            max-width: 65px; /* Taille réduite pour correspondre à l'image */
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .featured-raid-name {
+            font-size: 1.05rem;
+            font-weight: bold;
+            color: #00bfff;
+            transition: text-decoration .2s;
+        }
+
+        .featured-raid-card:hover .featured-raid-name {
+            text-decoration: underline;
+        }
 
         /* Responsive Design */
         @media (max-width: 1024px) {
@@ -466,78 +438,70 @@
 
 <div class="three-column-layout">
 
-    <!-- COLONNE 1 -->
+    <!-- PREMIÈRE GRANDE SECTION -->
     <div class="main-column">
+        <!-- Character -->
         <div class="section-block">
-            <h3 id="main-assets-title">Character & Ship</h3>
-            
-            <div class="sub-block-element">
-                <h4 id="character-title" class="sub-heading">Character</h4>
-                <a href="filtre-recherche/filtre-personnage.html" id="character-link">Character Filter</a>
-                
-                <div class="dynamic-container">
-                    <h4 id="recent-units-title" class="dynamic-title">Latest Units</h4>
-                    <div id="recentUnitsList" class="dynamic-scroll-list"></div>
-                </div>
-            </div>
+            <h3 id="character-title">Character</h3>
+            <a href="filtre-recherche/filtre-personnage.html" id="character-link" class="main-link-margin">Character Filter</a>
+            <hr class="section-divider">
+            <div id="latest-units-subtitle" class="section-subtitle">Latest Units</div>
+            <div id="unitList" class="dynamic-scroll-list"></div>
+        </div>
 
-            <div class="sub-block-element">
-                <h4 id="ship-title" class="sub-heading">Ship</h4>
-                <a href="filtre-recherche/filtre-vaisseaux.html" id="ship-link">Ship Filter</a>
-                
-                <div class="dynamic-container">
-                    <h4 id="recent-ships-title" class="dynamic-title">Latest Ships</h4>
-                    <div id="recentShipsList" class="dynamic-scroll-list"></div>
-                </div>
-            </div>
+        <!-- Ship -->
+        <div class="section-block">
+            <h3 id="ship-title">Ship</h3>
+            <a href="filtre-recherche/filtre-vaisseaux.html" id="ship-link" class="main-link-margin">Ships Filter</a>
+            <hr class="section-divider">
+            <div id="latest-ships-subtitle" class="section-subtitle">Latest Ships</div>
+            <div id="shipList" class="dynamic-scroll-list"></div>
         </div>
     </div>
 
-    <!-- COLONNE 2 -->
+    <!-- DEUXIÈME GRANDE SECTION -->
     <div class="main-column">
+        <!-- Raid -->
         <div class="section-block">
             <h3 id="raid-title">Raid</h3>
-            <a href="raid/raid.html" id="raid-link">Raid Dashboard</a>
-
-            <div id="featured-raid-container" class="current-era-container" style="display: none;">
-                <h4 id="featured-raid-title" class="dynamic-title">Featured Raid</h4>
-                <div class="current-era-box featured-raid-box">
-                    <img id="featured-raid-img" src="" class="featured-raid-img-large" alt="Raid Image">
-                    <a id="featured-raid-name-link" href="#" class="current-era-name" style="font-size: 1rem;">Loading...</a>
-                </div>
+            <a href="raid/raid.html" id="raid-link" class="main-link-margin">Raid Dashboard</a>
+            <hr class="section-divider">
+            <div id="featured-raid-subtitle" class="section-subtitle">Featured Raid</div>
+            
+            <div class="featured-raid-container" id="featuredRaidContainer">
+                <!-- Rempli dynamiquement -->
             </div>
         </div>
 
+        <!-- Era -->
         <div class="section-block">
             <h3 id="era-title">Era</h3>
-            <a href="filtre-recherche/filtre-era.html" id="era-link">Era List</a>
-
+            <a href="filtre-recherche/filtre-era.html" id="era-link" class="main-link-margin">Era List</a>
+            <hr class="section-divider">
+            <div id="current-era-subtitle" class="section-subtitle">Current Era</div>
+            
             <div class="current-era-container">
-                <h4 id="current-era-title" class="dynamic-title">Current Era</h4>
-                <div id="currentEraBox" class="current-era-box"></div>
-                <div id="currentEraUnitsBox" class="current-era-units-box"></div>
+                <div class="current-era-banner" id="currentEraHeader"></div>
+                <div class="current-era-grid" id="currentEraGrid"></div>
             </div>
         </div>
     </div>
 
-    <!-- COLONNE 3 -->
+    <!-- TROISIÈME GRANDE SECTION -->
     <div class="main-column">
+        <!-- Buff / Debuff -->
         <div class="section-block">
             <h3 id="effect-title">Buff / Debuff</h3>
             <a href="filtre-recherche/filtre-effet.html" id="effect-link">Effects Database</a>
         </div>
 
+        <!-- Latest News -->
         <div class="section-block">
             <h3 id="news-section-title">Latest News</h3>
-            <a href="#" id="news-section-link" onclick="event.preventDefault();">View All News</a>
-            
-            <div class="dynamic-container">
-                <h4 id="news-sub-title" class="dynamic-title">Recent Announcements</h4>
-                <div id="newsList" class="dynamic-scroll-list"></div>
-            </div>
+            <div id="newsList" class="dynamic-scroll-list"></div>
         </div>
 
-        <!-- Remis en dessous des Latest News -->
+        <!-- Game -->
         <div class="section-block">
             <h3 id="game-title">Game</h3>
             <a href="game/jeux.html" id="game-link">Game SWGOH Mini-games</a>
@@ -550,113 +514,80 @@
 const translations = {
     en: {
         "title": "Star Wars Galaxy of Heroes Website",
-        "main-assets-title": "Character & Ship",
         "character-title": "Character",
         "character-link": "Character Filter",
+        "latest-units-subtitle": "Latest Units",
         "ship-title": "Ship",
-        "ship-link": "Ship Filter",
+        "ship-link": "Ships Filter",
+        "latest-ships-subtitle": "Latest Ships",
         "era-title": "Era",
         "era-link": "Era List",
+        "current-era-subtitle": "Current Era",
         "effect-title": "Buff / Debuff",
         "effect-link": "Effects Database",
+        "news-section-title": "Latest News",
         "game-title": "Game",
         "game-link": "Game SWGOH Mini-games",
         "raid-title": "Raid",
         "raid-link": "Raid Dashboard",
-        "featured-raid-title": "Featured Raid",
-        "recent-units-title": "Latest Units",
-        "recent-ships-title": "Latest Ships",
-        "current-era-title": "Current Era",
-        "news-section-title": "Latest News",
-        "news-section-link": "View All News",
-        "news-sub-title": "Recent Announcements",
-        "today": "Today",
-        "in-days": "in {n} days",
-        "in-day": "in 1 day",
-        "ago-days": "{n} days ago",
-        "ago-day": "1 day ago",
-        "no-data": "No assets available",
-        "no-news": "No news available",
+        "featured-raid-subtitle": "Featured Raid",
         "loading": "Loading...",
-        "no-units-era": "No units found for this era."
+        "error-news": "Error loading news",
+        "error-units": "Error loading units",
+        "error-ships": "Error loading ships",
+        "error-eras": "Error loading eras",
+        "error-raids": "Error loading raids",
+        "by": "by",
+        "days-ago": "days ago",
+        "in-days": "In {x} days",
+        "today": "Today"
     },
     fr: {
         "title": "Site Web Star Wars : Galaxy of Heroes",
-        "main-assets-title": "Personnages & Vaisseaux",
         "character-title": "Personnages",
         "character-link": "Filtre Personnages",
+        "latest-units-subtitle": "Dernières Unités",
         "ship-title": "Vaisseaux",
         "ship-link": "Filtre Vaisseaux",
+        "latest-ships-subtitle": "Derniers Vaisseaux",
         "era-title": "Ere",
         "era-link": "Liste des Ères",
+        "current-era-subtitle": "Ère Actuelle",
         "effect-title": "Bonus / Malus",
         "effect-link": "Base des Effets",
+        "news-section-title": "Actualités",
         "game-title": "Jeu",
         "game-link": "Mini-jeux SWGOH",
         "raid-title": "Raid",
-        "raid-link": "Tableau de Bord Raid",
-        "featured-raid-title": "Raid Vedette",
-        "recent-units-title": "Dernières Unités",
-        "recent-ships-title": "Derniers Vaisseaux",
-        "current-era-title": "Ère Actuelle",
-        "news-section-title": "Actualités",
-        "news-section-link": "Toutes les actus",
-        "news-sub-title": "Annonces Récentes",
-        "today": "Aujourd'hui",
-        "in-days": "dans {n} jours",
-        "in-day": "dans 1 jour",
-        "ago-days": "il y a {n} jours",
-        "ago-day": "il y a 1 jour",
-        "no-data": "Aucun élément disponible",
-        "no-news": "Aucune actualité disponible",
+        "raid-link": "Tableau de Bord des Raids",
+        "featured-raid-subtitle": "Raid Vedette",
         "loading": "Chargement...",
-        "no-units-era": "Aucune unité trouvée pour cette ère."
+        "error-news": "Erreur lors du chargement des actualités",
+        "error-units": "Erreur lors du chargement des unités",
+        "error-ships": "Erreur lors du chargement des vaisseaux",
+        "error-eras": "Erreur lors du chargement des ères",
+        "error-raids": "Erreur lors du chargement des raids",
+        "by": "par",
+        "days-ago": "il y a {x} jours",
+        "in-days": "Dans {x} jours",
+        "today": "Aujourd'hui"
     }
 };
 
-const DEFAULT_IMAGE = 'https://e-rimbault.github.io/swgoh-kit/image/logo_star_wars.png';
-
-const raidsData = [
-    {
-        id: 1,
-        name: { en: "Krayt Dragon Hunt", fr: "Chasse au Dragon Krayt" },
-        image: "https://e-rimbault.github.io/swgoh-kit/raid-image/raid-dragon.png",
-        url: "raid/krayt.html"
-    },
-    {
-        id: 2,
-        name: { en: "Speeder Bike Pursuit", fr: "Poursuite en Motojet" },
-        image: "https://game-assets.swgoh.gg/textures/tex.guild_events_speederbike.png",
-        url: "raid/speederbike.html"
-    },
-    {
-        id: 3,
-        name: { en: "Battle for Naboo", fr: "Bataille pour Naboo" },
-        image: "https://e-rimbault.github.io/swgoh-kit/raid-image/raid-naboo.png",
-        url: "raid/naboo.html"
-    },
-    {
-        id: 4,
-        name: { en: "Order 66", fr: "Ordre 66" },
-        image: "https://e-rimbault.github.io/swgoh-kit/raid-image/raid-order66.png",
-        url: "raid/order66.html"
-    }
-];
-
+let currentLang = "en";
+let globalNewsData = [];
 let globalUnitsData = [];
 let globalShipsData = [];
 let globalErasData = [];
-let currentEraObject = null;
-let currentLang = "en";
+let globalRaidsData = [];
 
 window.onload = () => {
     currentLang = sessionStorage.getItem("selectedLanguage") || "en";
     switchLanguage(currentLang);
-    loadUnitsData();
-    loadShipsData();
-    loadErasData();
     loadNewsData();
-    renderFeaturedRaid();
+    loadShipsData();
+    loadUnitsData(); 
+    loadRaidsData();
 };
 
 function switchLanguage(lang) {
@@ -664,294 +595,347 @@ function switchLanguage(lang) {
     sessionStorage.setItem("selectedLanguage", lang);
 
     document.querySelectorAll("[id]").forEach(el => {
-        if (translations[lang][el.id]) {
+        if (translations[lang] && translations[lang][el.id]) {
             el.textContent = translations[lang][el.id];
         }
     });
 
-    if (globalUnitsData.length > 0) {
-        renderRecentUnits(globalUnitsData);
-    }
-    if (globalShipsData.length > 0) {
-        renderRecentShips(globalShipsData);
-    }
-    if (globalErasData.length > 0) {
-        renderCurrentEra(globalErasData);
-    }
-
-    renderFeaturedRaid();
+    if (globalNewsData.length > 0) renderNews(globalNewsData);
+    if (globalUnitsData.length > 0) renderUnits(globalUnitsData);
+    if (globalShipsData.length > 0) renderShips(globalShipsData);
+    if (globalErasData.length > 0 && globalUnitsData.length > 0) renderCurrentEra(globalErasData, globalUnitsData);
+    if (globalRaidsData.length > 0) renderFeaturedRaid(globalRaidsData);
 }
 
+function processReleaseDate(dateString) {
+    if (!dateString) return { html: '', isRelative: false };
+    
+    const parts = dateString.trim().split('-');
+    if (parts.length !== 3) return { html: dateString, isRelative: false };
+
+    const today = new Date(2026, 6, 20); 
+    const releaseDate = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+
+    const diffTime = today - releaseDate;
+    const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+
+    if (diffDays >= -7 && diffDays <= 7) {
+        if (diffDays === 0) {
+            return { html: `<span class="date-relative">${translations[currentLang]['today']}</span>`, isRelative: true };
+        } else if (diffDays > 0) {
+            let text = translations[currentLang]['days-ago'].replace('{x}', diffDays);
+            if (currentLang === 'en') text = `${diffDays} days ago`; 
+            return { html: `<span class="date-relative">${text}</span>`, isRelative: true };
+        } else {
+            let text = translations[currentLang]['in-days'].replace('{x}', Math.abs(diffDays));
+            return { html: `<span class="date-relative">${text}</span>`, isRelative: true };
+        }
+    }
+
+    const options = { month: 'long', day: '2-digit', year: 'numeric' };
+    const formattedDate = releaseDate.toLocaleDateString(currentLang === 'fr' ? 'fr-FR' : 'en-US', options);
+    return { html: formattedDate, isRelative: false };
+}
+
+/* --- MODULE PERSONNAGES --- */
 function loadUnitsData() {
-    fetch('filtre-recherche/units.json')
+    const unitContainer = document.getElementById('unitList');
+    if (unitContainer) unitContainer.innerHTML = `<div style="font-size:11px; color:#aaa;">${translations[currentLang]['loading']}</div>`;
+
+    fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
         .then(response => response.json())
         .then(data => {
+            data.sort((a, b) => {
+                const partsA = (a.release_date || "1970-01-01").trim().split('-');
+                const partsB = (b.release_date || "1970-01-01").trim().split('-');
+                const timeA = new Date(parseInt(partsA[0], 10), parseInt(partsA[1], 10) - 1, parseInt(partsA[2], 10)).getTime();
+                const timeB = new Date(parseInt(partsB[0], 10), parseInt(partsB[1], 10) - 1, parseInt(partsB[2], 10)).getTime();
+                return timeB - timeA;
+            });
             globalUnitsData = data;
-            renderRecentUnits(data);
-            if (globalErasData.length > 0) {
-                updateEraUnits();
-            }
+            renderUnits(data);
+            loadErasData();
         })
         .catch(error => {
-            console.error("Erreur units.json:", error);
-            document.getElementById('recentUnitsList').innerHTML = `<div style="font-size:11px;color:#ff4444;">Error</div>`;
+            console.error("Erreur unités:", error);
+            if (unitContainer) unitContainer.innerHTML = `<div style="font-size:11px;color:#ff4444;">${translations[currentLang]['error-units']}</div>`;
         });
 }
 
+function renderUnits(unitsData) {
+    const unitContainer = document.getElementById('unitList');
+    if (!unitContainer) return;
+    unitContainer.innerHTML = '';
+
+    const top15Units = unitsData.slice(0, 15);
+
+    top15Units.forEach(unit => {
+        const name = unit.name[currentLang] || unit.name['en'] || 'Unknown';
+        const pageLink = unit.page || '#';
+        const imgUrl = unit.image || '';
+        const dateObj = processReleaseDate(unit.release_date);
+
+        const unitHtml = `
+            <a href="${pageLink}" class="unit-item-link">
+                <div class="unit-left-content">
+                    <img src="${imgUrl}" class="unit-avatar" alt="${name}" onerror="this.style.display='none';">
+                    <div class="unit-left">
+                        <div class="unit-item-name">${name}</div>
+                        <div class="unit-item-date">${dateObj.html}</div>
+                    </div>
+                </div>
+            </a>
+        `;
+        unitContainer.insertAdjacentHTML('beforeend', unitHtml);
+    });
+}
+
+/* --- MODULE VAISSEAUX --- */
 function loadShipsData() {
+    const shipContainer = document.getElementById('shipList');
+    if (shipContainer) shipContainer.innerHTML = `<div style="font-size:11px; color:#aaa;">${translations[currentLang]['loading']}</div>`;
+
     fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/ship.json')
         .then(response => response.json())
         .then(data => {
+            data.sort((a, b) => {
+                const partsA = (a.release_date || "1970-01-01").trim().split('-');
+                const partsB = (b.release_date || "1970-01-01").trim().split('-');
+                const timeA = new Date(parseInt(partsA[0], 10), parseInt(partsA[1], 10) - 1, parseInt(partsA[2], 10)).getTime();
+                const timeB = new Date(parseInt(partsB[0], 10), parseInt(partsB[1], 10) - 1, parseInt(partsB[2], 10)).getTime();
+                return timeB - timeA;
+            });
             globalShipsData = data;
-            renderRecentShips(data);
+            renderShips(data);
         })
         .catch(error => {
-            console.error("Erreur ship.json:", error);
-            document.getElementById('recentShipsList').innerHTML = `<div style="font-size:11px;color:#ff4444;">Error</div>`;
+            console.error("Erreur vaisseaux:", error);
+            if (shipContainer) shipContainer.innerHTML = `<div style="font-size:11px;color:#ff4444;">${translations[currentLang]['error-ships']}</div>`;
         });
 }
 
+function renderShips(shipsData) {
+    const shipContainer = document.getElementById('shipList');
+    if (!shipContainer) return;
+    shipContainer.innerHTML = '';
+
+    const top15Ships = shipsData.slice(0, 15);
+
+    top15Ships.forEach(ship => {
+        const name = ship.name[currentLang] || ship.name['en'] || 'Unknown';
+        const pageLink = ship.page || '#';
+        const imgUrl = ship.image || '';
+        const dateObj = processReleaseDate(ship.release_date);
+
+        const shipHtml = `
+            <a href="${pageLink}" class="unit-item-link">
+                <div class="unit-left-content">
+                    <img src="${imgUrl}" class="unit-avatar" alt="${name}" onerror="this.style.display='none';">
+                    <div class="unit-left">
+                        <div class="unit-item-name">${name}</div>
+                        <div class="unit-item-date">${dateObj.html}</div>
+                    </div>
+                </div>
+            </a>
+        `;
+        shipContainer.insertAdjacentHTML('beforeend', shipHtml);
+    });
+}
+
+/* --- MODULE RAIDS --- */
+function loadRaidsData() {
+    const raidContainer = document.getElementById('featuredRaidContainer');
+    if (raidContainer) raidContainer.innerHTML = `<div style="font-size:11px; color:#aaa;">${translations[currentLang]['loading']}</div>`;
+
+    // 1. On charge la page HTML des raids
+    fetch('https://e-rimbault.github.io/swgoh-kit/raid/raid.html')
+        .then(response => response.text())
+        .then(htmlText => {
+            // 2. On analyse le HTML reçu
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(htmlText, 'text/html');
+            
+            // 3. On cherche toutes les balises <script> pour trouver celle qui contient vos données de raids
+            const scripts = doc.querySelectorAll('script');
+            let raidsData = null;
+
+            scripts.forEach(script => {
+                const content = script.textContent;
+                // On cherche un indice textuel de votre tableau (ex: "Krayt Dragon Hunt" ou la structure de l'objet)
+                if (content && content.includes('Krayt Dragon Hunt')) {
+                    try {
+                        // Extraction magique : on isole ce qui ressemble à un tableau JSON [ ... ] 
+                        // autour du mot clé trouvé dans le script
+                        const match = content.match(/\[\s*\{\s*id[\s\S]*?\}\s*\]/);
+                        if (match) {
+                            // On nettoie et transforme la chaîne JS en JSON valide
+                            // (remplace les clés sans guillemets par des clés valides si nécessaire)
+                            let jsonString = match[0]
+                                .replace(/([{,]\s*)([a-zA-Z0-9_]+)\s*:/g, '$1"$2":') // ajoute des guillemets aux clés
+                                .replace(/'/g, '"') // remplace les apostrophes par des guillemets
+                                .replace(/,\s*\]/g, ']'); // enlève la virgule traînante s'il y en a une
+
+                            raidsData = JSON.parse(jsonString);
+                        }
+                    } catch (e) {
+                        console.error("Erreur lors de l'extraction des raids du script :", e);
+                    }
+                }
+            });
+
+            // 4. Si on a trouvé les données, on les traite !
+            if (raidsData && raidsData.length > 0) {
+                globalRaidsData = raidsData;
+                renderFeaturedRaid(raidsData);
+            } else {
+                throw new Error("Données de raid introuvables dans le HTML");
+            }
+        })
+        .catch(error => {
+            console.error("Erreur raids:", error);
+            if (raidContainer) raidContainer.innerHTML = `<div style="font-size:11px;color:#ff4444;">${translations[currentLang]['error-raids']}</div>`;
+        });
+}
+
+function renderFeaturedRaid(raidsData) {
+    const raidContainer = document.getElementById('featuredRaidContainer');
+    if (!raidContainer || raidsData.length === 0) return;
+
+    // Tri pour trouver l'id le plus élevé (raid vedette)
+    const sortedRaids = [...raidsData].sort((a, b) => b.id - a.id);
+    const featuredRaid = sortedRaids[0];
+
+    const name = featuredRaid.name[currentLang] || featuredRaid.name['en'] || 'Unknown Raid';
+    const imgUrl = featuredRaid.image || '';
+    const pageUrl = featuredRaid.url ? `https://e-rimbault.github.io/swgoh-kit/raid/${featuredRaid.url}` : '#';
+
+    raidContainer.innerHTML = `
+        <a href="${pageUrl}" class="featured-raid-card">
+            <img src="${imgUrl}" class="featured-raid-image" alt="${name}" onerror="this.style.display='none';">
+            <div class="featured-raid-name">${name}</div>
+        </a>
+    `;
+}
+
+/* --- MODULE ERAS --- */
 function loadErasData() {
+    const headerContainer = document.getElementById('currentEraHeader');
+    if (headerContainer) headerContainer.innerHTML = `<span style="font-size:11px; color:#aaa;">${translations[currentLang]['loading']}</span>`;
+
     fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/eras.json')
         .then(response => response.json())
         .then(data => {
             globalErasData = data;
-            renderCurrentEra(data);
+            renderCurrentEra(data, globalUnitsData);
         })
         .catch(error => {
-            console.error("Erreur eras.json:", error);
-            document.getElementById('currentEraBox').innerHTML = `<div style="font-size:11px;color:#ff4444;">Error</div>`;
+            console.error("Erreur ères:", error);
+            if (headerContainer) {
+                headerContainer.innerHTML = `<span style="color:#ff4444; font-size:11px;">${translations[currentLang]['error-eras']}</span>`;
+            }
         });
 }
 
+function renderCurrentEra(erasData, unitsData) {
+    const headerContainer = document.getElementById('currentEraHeader');
+    const gridContainer = document.getElementById('currentEraGrid');
+    if (!headerContainer || !gridContainer) return;
+
+    const currentEra = erasData.find(e => e.current === true) || erasData.find(e => String(e.name_en).toLowerCase().includes('new republic')) || erasData[0];
+    if (!currentEra) {
+        headerContainer.innerHTML = '';
+        return;
+    }
+
+    const eraName = currentLang === 'fr' ? (currentEra.name_fr || currentEra.name_en) : (currentEra.name_en || currentEra.name_fr);
+    const eraImage = currentEra.image || '';
+
+    headerContainer.innerHTML = `
+        <img src="${eraImage}" class="current-era-icon" alt="" onerror="this.style.display='none';">
+        <span>${eraName}</span>
+    `;
+
+    gridContainer.innerHTML = '';
+    
+    const filteredUnits = unitsData.filter(unit => {
+        if (!unit.era || !unit.era.en || !currentEra.name_en) return false;
+        return unit.era.en.trim().toLowerCase() === currentEra.name_en.trim().toLowerCase();
+    });
+
+    if (filteredUnits.length === 0) {
+        gridContainer.innerHTML = `<div style="grid-column: span 3; font-size:11px; color:#aaa; padding:10px;">No units found</div>`;
+        return;
+    }
+
+    filteredUnits.forEach(unit => {
+        const uName = unit.name[currentLang] || unit.name['en'] || 'Unknown';
+        const uImg = unit.image || '';
+        const uPage = unit.page || '#';
+
+        const cardHtml = `
+            <a href="${uPage}" class="era-unit-card">
+                <img src="${uImg}" class="era-unit-avatar" alt="${uName}" onerror="this.parentNode.style.display='none';">
+                <div class="era-unit-name">${uName}</div>
+            </a>
+        `;
+        gridContainer.insertAdjacentHTML('beforeend', cardHtml);
+    });
+}
+
+/* --- MODULE NEWS --- */
 function loadNewsData() {
+    const newsContainer = document.getElementById('newsList');
+    if(newsContainer) newsContainer.innerHTML = `<div style="font-size:11px; color:#aaa;">${translations[currentLang]['loading']}</div>`;
+
     fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/new.json')
         .then(response => response.json())
         .then(data => {
+            data.sort((a, b) => b.id - a.id);
+            globalNewsData = data;
             renderNews(data);
         })
         .catch(error => {
-            console.error("Erreur new.json:", error);
-            document.getElementById('newsList').innerHTML = `<div style="font-size:11px;color:#ff4444;">Error</div>`;
+            console.error("Erreur news:", error);
+            if(newsContainer) newsContainer.innerHTML = `<div style="font-size:11px;color:#ff4444;">${translations[currentLang]['error-news']}</div>`;
         });
 }
 
-function getRelativeDateText(dateString) {
-    if (!dateString) return { text: '', cssClass: '' };
+function formatNewsDate(dateString) {
+    if (!dateString) return '';
+    const parts = dateString.trim().split('-');
+    if (parts.length !== 3) return dateString;
 
-    const parts = dateString.split('-');
-    if (parts.length !== 3) return { text: dateString, cssClass: 'date-normal' };
-    
-    const releaseDate = new Date(Date.UTC(parts[0], parts[1] - 1, parts[2]));
-    const today = new Date();
-    
-    today.setHours(0, 0, 0, 0);
-    const compareRelease = new Date(parts[0], parts[1] - 1, parts[2]);
-    compareRelease.setHours(0, 0, 0, 0);
-
-    const diffTime = compareRelease.getTime() - today.getTime();
-    const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
-
-    const options = { day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC' };
-    const formattedRawDate = releaseDate.toLocaleDateString(currentLang === 'fr' ? 'fr-FR' : 'en-US', options);
-
-    if (diffDays === 0) {
-        return { text: translations[currentLang]['today'], cssClass: 'date-today' };
-    } 
-    else if (diffDays > 0 && diffDays <= 7) {
-        if (diffDays === 1) return { text: translations[currentLang]['in-day'], cssClass: 'date-future' };
-        return { text: translations[currentLang]['in-days'].replace('{n}', diffDays), cssClass: 'date-future' };
-    } 
-    else if (diffDays < 0 && diffDays >= -7) {
-        const absDays = Math.abs(diffDays);
-        if (absDays === 1) return { text: translations[currentLang]['ago-day'], cssClass: 'date-past' };
-        return { text: translations[currentLang]['ago-days'].replace('{n}', absDays), cssClass: 'date-past' };
-    } 
-    else {
-        return { text: formattedRawDate, cssClass: 'date-normal' };
-    }
-}
-
-function renderRecentUnits(units) {
-    const listContainer = document.getElementById('recentUnitsList');
-    listContainer.innerHTML = '';
-
-    const validUnits = units.filter(u => u.release_date);
-    validUnits.sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
-    const top15 = validUnits.slice(0, 15);
-
-    if (top15.length === 0) {
-        listContainer.innerHTML = `<div style="font-size:12px; color:#aaa; font-style:italic;">${translations[currentLang]['no-data']}</div>`;
-        return;
-    }
-
-    top15.forEach(unit => {
-        const name = unit.name[currentLang] || unit.name['en'] || unit.id;
-        const dateObj = getRelativeDateText(unit.release_date);
-        const img = unit.image && unit.image.trim() !== '' ? unit.image : DEFAULT_IMAGE;
-        const targetPage = unit.page && unit.page.trim() !== '' ? unit.page : '#';
-
-        const itemHtml = `
-            <a href="${targetPage}" class="recent-unit-item" ${targetPage !== '#' ? 'target="_self"' : ''}>
-                <img src="${img}" class="recent-unit-img" alt="${name}" onerror="this.src='${DEFAULT_IMAGE}';">
-                <div class="recent-unit-info">
-                    <span class="recent-unit-name">${name}</span>
-                    <span class="recent-unit-date ${dateObj.cssClass}">${dateObj.text}</span>
-                </div>
-            </a>
-        `;
-        listContainer.insertAdjacentHTML('beforeend', itemHtml);
-    });
-}
-
-function renderRecentShips(ships) {
-    const listContainer = document.getElementById('recentShipsList');
-    listContainer.innerHTML = '';
-
-    const validShips = ships.filter(s => s.release_date);
-    validShips.sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
-    const top15 = validShips.slice(0, 15);
-
-    if (top15.length === 0) {
-        listContainer.innerHTML = `<div style="font-size:12px; color:#aaa; font-style:italic;">${translations[currentLang]['no-data']}</div>`;
-        return;
-    }
-
-    top15.forEach(ship => {
-        const name = ship.name[currentLang] || ship.name['en'] || ship.id;
-        const dateObj = getRelativeDateText(ship.release_date);
-        const img = ship.image && ship.image.trim() !== '' ? ship.image : DEFAULT_IMAGE;
-        const targetPage = ship.page && ship.page.trim() !== '' ? ship.page : '#';
-
-        const itemHtml = `
-            <a href="${targetPage}" class="recent-unit-item" ${targetPage !== '#' ? 'target="_self"' : ''}>
-                <img src="${img}" class="recent-unit-img" alt="${name}" onerror="this.src='${DEFAULT_IMAGE}';">
-                <div class="recent-unit-info">
-                    <span class="recent-unit-name">${name}</span>
-                    <span class="recent-unit-date ${dateObj.cssClass}">${dateObj.text}</span>
-                </div>
-            </a>
-        `;
-        listContainer.insertAdjacentHTML('beforeend', itemHtml);
-    });
+    const dateObj = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+    const options = { month: 'long', day: '2-digit', year: 'numeric' };
+    return dateObj.toLocaleDateString(currentLang === 'fr' ? 'fr-FR' : 'en-US', options);
 }
 
 function renderNews(newsData) {
     const newsContainer = document.getElementById('newsList');
+    if (!newsContainer) return;
     newsContainer.innerHTML = '';
 
-    if (!newsData || newsData.length === 0) {
-        newsContainer.innerHTML = `<div style="font-size:12px; color:#aaa; font-style:italic;">${translations[currentLang]['no-news']}</div>`;
-        return;
-    }
+    const top15News = newsData.slice(0, 15);
 
-    if (newsData[0] && newsData[0].news_date) {
-        newsData.sort((a, b) => new Date(b.news_date) - new Date(a.news_date));
-    }
-
-    const top10 = newsData.slice(0, 10);
-
-    top10.forEach(news => {
+    top15News.forEach(news => {
         const title = news.title || 'No Title';
         const link = news.link || '#';
-        const rawDate = news.news_date ? news.news_date : '';
-        const author = news.author ? news.author : 'Unknown';
-        
-        const dateObj = getRelativeDateText(rawDate);
-        
+        const author = news.author || 'Unknown';
+        const formattedDate = formatNewsDate(news.news_date);
+
         const newsHtml = `
             <div class="news-item">
-                <div class="news-header">
+                <div class="news-left">
                     <a href="${link}" target="_blank" class="news-item-title-link">
                         ${title} 🔗
                     </a>
-                    <span class="news-item-date ${dateObj.cssClass}">${dateObj.text}</span>
+                    <span class="news-item-author">${translations[currentLang]['by']} ${author}</span>
                 </div>
-                <div class="news-item-desc">by ${author}</div>
+                <div class="news-item-date">${formattedDate}</div>
             </div>
         `;
         newsContainer.insertAdjacentHTML('beforeend', newsHtml);
     });
-}
-
-function renderCurrentEra(eras) {
-    const eraBox = document.getElementById('currentEraBox');
-    if (!eras || eras.length === 0) {
-        eraBox.innerHTML = `...`;
-        return;
-    }
-
-    const sortedEras = [...eras].sort((a, b) => parseInt(b.numero_ere) - parseInt(a.numero_ere));
-    currentEraObject = sortedEras[0];
-
-    const eraName = currentEraObject['name_' + currentLang] || currentEraObject['name_en'];
-    const eraImg = currentEraObject['image'] || '';
-
-    eraBox.innerHTML = `
-        <img src="${eraImg}" class="current-era-img" alt="${eraName}" onerror="this.style.display='none';">
-        <span class="current-era-name">${eraName}</span>
-    `;
-
-    updateEraUnits();
-}
-
-function renderFeaturedRaid() {
-    if (!raidsData || raidsData.length === 0) return;
-
-    const featuredRaid = raidsData[raidsData.length - 1];
-    
-    const container = document.getElementById("featured-raid-container");
-    const raidImg = document.getElementById("featured-raid-img");
-    const raidLink = document.getElementById("featured-raid-name-link");
-
-    if (featuredRaid) {
-        const raidName = featuredRaid.name[currentLang] || featuredRaid.name["en"];
-        
-        raidImg.src = featuredRaid.image;
-        raidImg.alt = raidName;
-        
-        raidLink.href = featuredRaid.url;
-        raidLink.textContent = raidName;
-        
-        container.style.display = "flex";
-    }
-}
-
-function updateEraUnits() {
-    if (!currentEraObject || globalUnitsData.length === 0) return;
-
-    const unitsBox = document.getElementById('currentEraUnitsBox');
-    unitsBox.innerHTML = '';
-
-    const eraKeyEn = currentEraObject['name_en'].toLowerCase().trim();
-    const eraKeyFr = currentEraObject['name_fr'].toLowerCase().trim();
-
-    const filteredUnits = globalUnitsData.filter(unit => {
-        if (!unit.era) return false;
-        const unitEraEn = (unit.era.en || '').toLowerCase().trim();
-        const unitEraFr = (unit.era.fr || '').toLowerCase().trim();
-        return unitEraEn === eraKeyEn || unitEraFr === eraKeyFr;
-    });
-
-    if (filteredUnits.length === 0) {
-        unitsBox.innerHTML = `<div style="grid-column: 1/-1; color:#aaa; font-style:italic; font-size:12px; padding:10px;">${translations[currentLang]['no-units-era']}</div>`;
-    } else {
-        filteredUnits.forEach(unit => {
-            const name = unit.name[currentLang] || unit.name['en'] || unit.id;
-            const img = unit.image && unit.image.trim() !== '' ? unit.image : DEFAULT_IMAGE;
-            const targetPage = unit.page && unit.page.trim() !== '' ? unit.page : '#';
-
-            const cardHtml = `
-                <div class="era-unit-card">
-                    <a href="${targetPage}" class="era-unit-link" ${targetPage !== '#' ? 'target="_self"' : ''}>
-                        <img src="${img}" class="era-unit-img" alt="${name}" onerror="this.src='${DEFAULT_IMAGE}';">
-                        <span class="era-unit-name">${name}</span>
-                    </a>
-                </div>
-            `;
-            unitsBox.insertAdjacentHTML('beforeend', cardHtml);
-        });
-    }
 }
 </script>
 
