@@ -96,7 +96,7 @@
             gap: 20px;
         }
 
-        /* Style des blocs individuels (Sous-sections réduites de 5%) */
+        /* Style des blocs individuels */
         .section-block {
             background: rgba(10, 15, 20, 0.8);
             padding: 21px;
@@ -354,7 +354,7 @@
             text-decoration: underline;
         }
 
-        /* --- STYLES COMPACTS MODULE RAID (CAPTURE ÉCRAN) --- */
+        /* --- STYLES COMPACTS MODULE RAID --- */
         .featured-raid-container {
             border: 1px solid rgba(255, 255, 255, 0.05);
             background: rgba(255, 255, 255, 0.01);
@@ -382,7 +382,7 @@
         }
 
         .featured-raid-image {
-            max-width: 65px; /* Taille réduite pour correspondre à l'image */
+            max-width: 65px;
             height: auto;
             border-radius: 6px;
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -613,13 +613,18 @@ function processReleaseDate(dateString) {
     const parts = dateString.trim().split('-');
     if (parts.length !== 3) return { html: dateString, isRelative: false };
 
-    const today = new Date(2026, 6, 20); 
+    // Récupération dynamique de la date du jour sans l'heure
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
     const releaseDate = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
 
+    // Calcul de la différence en jours
     const diffTime = today - releaseDate;
     const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
 
-    if (diffDays >= -7 && diffDays <= 7) {
+    // Plage stricte : entre -6 jours (dans 6 jours) et +6 jours (il y a 6 jours)
+    if (diffDays >= -6 && diffDays <= 6) {
         if (diffDays === 0) {
             return { html: `<span class="date-relative">${translations[currentLang]['today']}</span>`, isRelative: true };
         } else if (diffDays > 0) {
@@ -632,6 +637,7 @@ function processReleaseDate(dateString) {
         }
     }
 
+    // Au-delà de 6 jours (avant ou après), affichage de la date standard
     const options = { month: 'long', day: '2-digit', year: 'numeric' };
     const formattedDate = releaseDate.toLocaleDateString(currentLang === 'fr' ? 'fr-FR' : 'en-US', options);
     return { html: formattedDate, isRelative: false };
@@ -654,7 +660,13 @@ function loadUnitsData() {
             });
             globalUnitsData = data;
             renderUnits(data);
-            loadErasData();
+            
+            // Si les ères ont déjà été chargées, on met à jour le module d'ère
+            if (globalErasData.length > 0) {
+                renderCurrentEra(globalErasData, globalUnitsData);
+            } else {
+                loadErasData();
+            }
         })
         .catch(error => {
             console.error("Erreur unités:", error);
@@ -747,33 +759,25 @@ function loadRaidsData() {
     const raidContainer = document.getElementById('featuredRaidContainer');
     if (raidContainer) raidContainer.innerHTML = `<div style="font-size:11px; color:#aaa;">${translations[currentLang]['loading']}</div>`;
 
-    // 1. On charge la page HTML des raids
     fetch('https://e-rimbault.github.io/swgoh-kit/raid/raid.html')
         .then(response => response.text())
         .then(htmlText => {
-            // 2. On analyse le HTML reçu
             const parser = new DOMParser();
             const doc = parser.parseFromString(htmlText, 'text/html');
             
-            // 3. On cherche toutes les balises <script> pour trouver celle qui contient vos données de raids
             const scripts = doc.querySelectorAll('script');
             let raidsData = null;
 
             scripts.forEach(script => {
                 const content = script.textContent;
-                // On cherche un indice textuel de votre tableau (ex: "Krayt Dragon Hunt" ou la structure de l'objet)
                 if (content && content.includes('Krayt Dragon Hunt')) {
                     try {
-                        // Extraction magique : on isole ce qui ressemble à un tableau JSON [ ... ] 
-                        // autour du mot clé trouvé dans le script
                         const match = content.match(/\[\s*\{\s*id[\s\S]*?\}\s*\]/);
                         if (match) {
-                            // On nettoie et transforme la chaîne JS en JSON valide
-                            // (remplace les clés sans guillemets par des clés valides si nécessaire)
                             let jsonString = match[0]
-                                .replace(/([{,]\s*)([a-zA-Z0-9_]+)\s*:/g, '$1"$2":') // ajoute des guillemets aux clés
-                                .replace(/'/g, '"') // remplace les apostrophes par des guillemets
-                                .replace(/,\s*\]/g, ']'); // enlève la virgule traînante s'il y en a une
+                                .replace(/([{,]\s*)([a-zA-Z0-9_]+)\s*:/g, '$1"$2":')
+                                .replace(/'/g, '"')
+                                .replace(/,\s*\]/g, ']');
 
                             raidsData = JSON.parse(jsonString);
                         }
@@ -783,7 +787,6 @@ function loadRaidsData() {
                 }
             });
 
-            // 4. Si on a trouvé les données, on les traite !
             if (raidsData && raidsData.length > 0) {
                 globalRaidsData = raidsData;
                 renderFeaturedRaid(raidsData);
@@ -801,7 +804,6 @@ function renderFeaturedRaid(raidsData) {
     const raidContainer = document.getElementById('featuredRaidContainer');
     if (!raidContainer || raidsData.length === 0) return;
 
-    // Tri pour trouver l'id le plus élevé (raid vedette)
     const sortedRaids = [...raidsData].sort((a, b) => b.id - a.id);
     const featuredRaid = sortedRaids[0];
 
@@ -818,9 +820,12 @@ function renderFeaturedRaid(raidsData) {
 }
 
 /* --- MODULE ERAS --- */
+
 function loadErasData() {
     const headerContainer = document.getElementById('currentEraHeader');
-    if (headerContainer) headerContainer.innerHTML = `<span style="font-size:11px; color:#aaa;">${translations[currentLang]['loading']}</span>`;
+    if (headerContainer) {
+        headerContainer.innerHTML = `<span style="font-size:11px; color:#aaa;">${translations[currentLang]['loading']}</span>`;
+    }
 
     fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/eras.json')
         .then(response => response.json())
@@ -839,15 +844,25 @@ function loadErasData() {
 function renderCurrentEra(erasData, unitsData) {
     const headerContainer = document.getElementById('currentEraHeader');
     const gridContainer = document.getElementById('currentEraGrid');
-    if (!headerContainer || !gridContainer) return;
+    if (!headerContainer || !gridContainer || !erasData || erasData.length === 0) return;
 
-    const currentEra = erasData.find(e => e.current === true) || erasData.find(e => String(e.name_en).toLowerCase().includes('new republic')) || erasData[0];
+    // 1. Détermination de l'ère actuelle : l'ère avec la valeur numero_ere / id la plus élevée
+    const currentEra = erasData.reduce((maxEra, era) => {
+        const currentNum = Number(era.numero_ere || era.id) || 0;
+        const maxNum = Number(maxEra.numero_ere || maxEra.id) || 0;
+        return currentNum > maxNum ? era : maxEra;
+    }, erasData[0]);
+
     if (!currentEra) {
         headerContainer.innerHTML = '';
         return;
     }
 
-    const eraName = currentLang === 'fr' ? (currentEra.name_fr || currentEra.name_en) : (currentEra.name_en || currentEra.name_fr);
+    // 2. Affichage du Header / Titre de l'ère
+    const eraName = currentLang === 'fr' 
+        ? (currentEra.name_fr || currentEra.name_en) 
+        : (currentEra.name_en || currentEra.name_fr);
+        
     const eraImage = currentEra.image || '';
 
     headerContainer.innerHTML = `
@@ -857,24 +872,66 @@ function renderCurrentEra(erasData, unitsData) {
 
     gridContainer.innerHTML = '';
     
-    const filteredUnits = unitsData.filter(unit => {
-        if (!unit.era || !unit.era.en || !currentEra.name_en) return false;
-        return unit.era.en.trim().toLowerCase() === currentEra.name_en.trim().toLowerCase();
+    // 3. Clés de comparaison pour trouver les unités liées
+    const targetEraEn = (currentEra.name_en || '').trim().toLowerCase();
+    const targetEraFr = (currentEra.name_fr || '').trim().toLowerCase();
+    const targetEraNum = Number(currentEra.numero_ere || currentEra.id);
+
+    // 4. Filtrage des unités correspondant à cette ère
+    const filteredUnits = (unitsData || []).filter(unit => {
+        let unitEraEn = '';
+        let unitEraFr = '';
+
+        if (unit.era && typeof unit.era === 'object') {
+            unitEraEn = unit.era.en || unit.era.name_en || '';
+            unitEraFr = unit.era.fr || unit.era.name_fr || '';
+        } else {
+            unitEraEn = typeof unit.era === 'string' ? unit.era : '';
+            unitEraFr = typeof unit.ere === 'string' ? unit.ere : '';
+        }
+
+        unitEraEn = unitEraEn.trim().toLowerCase();
+        unitEraFr = unitEraFr.trim().toLowerCase();
+
+        const matchEn = targetEraEn !== '' && unitEraEn === targetEraEn;
+        const matchFr = targetEraFr !== '' && unitEraFr === targetEraFr;
+        
+        const unitNum = unit.numero_ere || unit.era_id;
+        const matchNum = unitNum && (Number(unitNum) === targetEraNum);
+
+        return matchEn || matchFr || matchNum;
     });
 
+    // 5. Cas où aucune unité n'est trouvée
     if (filteredUnits.length === 0) {
-        gridContainer.innerHTML = `<div style="grid-column: span 3; font-size:11px; color:#aaa; padding:10px;">No units found</div>`;
+        const noUnitsText = (translations[currentLang] && translations[currentLang]['no-units']) 
+            ? translations[currentLang]['no-units'] 
+            : (currentLang === 'fr' ? 'Aucune unité trouvée' : 'No units found');
+
+        gridContainer.innerHTML = `<div style="grid-column: span 3; font-size:11px; color:#aaa; padding:10px;">${noUnitsText}</div>`;
         return;
     }
 
+    // 6. Injection des cartes d'unités (Nom, Image, et Lien vers la page)
     filteredUnits.forEach(unit => {
-        const uName = unit.name[currentLang] || unit.name['en'] || 'Unknown';
+        let uName = 'Unknown';
+        if (unit.name && typeof unit.name === 'object') {
+            uName = unit.name[currentLang] || unit.name['en'] || unit.name['fr'] || 'Unknown';
+        } else if (typeof unit.name === 'string') {
+            uName = unit.name;
+        }
+
         const uImg = unit.image || '';
-        const uPage = unit.page || '#';
+        
+        // S'assure que le lien pointe vers le dossier filtre-recherche si c'est un lien relatif simple
+        let uPage = unit.page || '#';
+        if (uPage !== '#' && !uPage.startsWith('http') && !uPage.startsWith('/') && !uPage.startsWith('filtre-recherche/')) {
+            uPage = 'filtre-recherche/' + uPage;
+        }
 
         const cardHtml = `
             <a href="${uPage}" class="era-unit-card">
-                <img src="${uImg}" class="era-unit-avatar" alt="${uName}" onerror="this.parentNode.style.display='none';">
+                <img src="${uImg}" class="era-unit-avatar" alt="${uName}" onerror="this.style.display='none';">
                 <div class="era-unit-name">${uName}</div>
             </a>
         `;
