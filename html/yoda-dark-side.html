@@ -2,18 +2,18 @@
 <html lang="en">
 
 <head>
-    <title id="big-title">Mara Jade Skywalker</title>
+    <title id="big-title">Yoda (Dark Side Vision)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-    <link rel="icon" type="image/png" href="../image-perso/mara-jedi/mara-jedi-image.png">
+    <link rel="icon" type="image/png" href="../image-perso/dark-yoda/dark-yoda-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/mara-jedi/mara-jedi-image.png" alt="Mara Jade Skywalker" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/dark-yoda/dark-yoda-image.png" alt="Yoda (Dark Side Vision)" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
             <!-- Sélecteur de langue -->
@@ -26,17 +26,16 @@
                     style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
 
-            <h1 id="title"><u>Mara Jade Skywalker</u></h1>
+            <h1 id="title"><u>Yoda (Dark Side Vision)</u></h1>
             <p id="description">
-                A former Emperor's Hand, who fought her way free from the Empire to become a formidable Jedi of the New Republic
+                A corrupted Force Master, unleashing devastating dark side powers with unmatched speed
             </p>
             <br>
 
             <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
-                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
-                <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
-                <a class="capacite" href="../classement-perso/new-republic.html" id="new-republic">New Republic</a>
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soigneur.html" id="healer">Healer</a>
+                <a class="capacite" href="../classement-perso/sith.html" id="sith">Sith</a>
                 <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
                 <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
             </nav>
@@ -48,64 +47,80 @@
 
     <!-- Capacités -->
 
-    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Two Halves</u></h2>
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Force Fisticuffs</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Mara Jade Skywalker basic" src="../image-perso/mara-jedi/mara-jedi-basic.png">
+            <img class="attaque" alt="Yoda (Dark Side Vision) basic" src="../image-perso/dark-yoda/dark-yoda-basic.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
-                Deal Physical damage to target enemy and gain Protection Up (30%) for 1 turn. This attack deals 50% more damage if Mara Jade Skywalker has Riposte.
-                <br><br>
-                If Jedi Knight Luke Skywalker is the ally in the Leader slot during Mara Jade's turn, he assists dealing 50% more damage and gains 25% Turn Meter.
+                Deal Special damage to target enemy twice and Daze them for 1 turn, and all Sith allies recover 10% Health and Protection. If target enemy is already Dazed and all allies are Sith, Stun them for 1 turn. During Yoda's turn, he gains 10 Siphon until the end of the encounter.
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack1-title"><u>Special Attack : I Always Play Fair (cooldown: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Consume, I Will (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Mara Jade Skywalker special 1" src="../image-perso/mara-jedi/mara-jedi-spe1.png">
+            <img class="attaque" alt="Yoda (Dark Side Vision) special 1" src="../image-perso/dark-yoda/dark-yoda-spe1.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1">
-                Deal Physical damage and inflict Defense Down on all enemies for 2 turns. If enemies already had Defense Down, Stagger them for 2 turns instead. All allies gain Offense Up for 2 turns. Mara Jade Skywalker gains Riposte for 2 turns.
+                Deal Special damage to all enemies and all Sith allies recover 25% Health and Protection. Dispel all debuffs from all other Sith allies and inflict Yoda with them (excluding stackable debuffs). Then, inflict all debuffs on Yoda on the target enemy and dispel all debuffs on Yoda. Yoda Siphons Defense from target enemy.
                 <br><br>
-                If Jedi Knight Luke Skywalker is the ally in the Leader slot, deal an additional instance of True damage to Stunned enemies and if at least one enemy is Stunned, reduce Jedi Knight Luke Skywalker's cooldown of Repulse by 2.
+                <u class="speciale">Siphon Defense:</u> Gain a percentage of Defense equal to this unit's Siphon until the end of the encounter and the target loses that much Defense (stacking, excludes raid bosses and Galactic Legends)
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack2-title"><u>Special Attack : The Last Command (cooldown: 4)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Hear Me, You Will (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Mara Jade Skywalker special 2" src="../image-perso/mara-jedi/mara-jedi-spe2.png">
+            <img class="attaque" alt="Yoda (Dark Side Vision) special 2" src="../image-perso/dark-yoda/dark-yoda-spe2.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack2">
-                Deal Physical damage to target enemy. This ability deals 20% more damage (stacking, max 200%) for each out of turn attack performed by a non-Old Republic Jedi ally until the end of battle. If target enemy has Defense Down, all other allies with Jedi's Will assist.
+                Deal Special damage to all enemies and grant target Sith ally Potency Up for 1 turn, Yoda Stealths for 2 turns, and all allies gain 2 stacks of Heal Over Time and Protection Over Time for 2 turns. If there is more than one ally present at the start of battle, target other Sith ally gains <u class="speciale">Dark Master's Training</u> until the end of battle, which can't be copied, dispelled, or prevented.
                 <br><br>
-                If Jedi Knight Luke Skywalker is the ally in the Leader slot, deal an additional instance of damage which can't be evaded. The first time Mara Jade Skywalker uses this ability in the encounter while Jedi Knight Luke has Jedi's Will, he gains 100% Turn Meter and she takes a bonus turn.
+                If all allies are Sith and the ally in the Leader slot is Gungan, inflict Demoralized on all enemies for 2 turns, which can't be copied, dispelled, evaded, or resisted. Yoda gains 5 Siphon for each ally with Dark Master's Training until the end of the encounter.
+                <br><br>
+                <u class="speciale">Dark Master's Training:</u> -20% Tenacity, +50% Critical Damage, Defense Penetration, and Offense
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u id="unique-ability-title">Unique Ability : A Galactic Union</u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Learn the Darkness, You Will</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Mara Jade Skywalker unique" src="../image-perso/mara-jedi/mara-jedi-unique.png">
+            <img class="attaque" alt="Yoda (Dark Side Vision) unique 1" src="../image-perso/dark-yoda/dark-yoda-unique1.png">
         </div>
         <div class="right-column">
-            <p class="attaque" id="unique-ability">
-                Mara Jade Skywalker has +30% Critical Chance and Critical Damage, and whenever she attacks out of turn, she gains Protection Up (50%) for 2 turns. Whenever a Jedi ally with Resilient Defense uses their Basic ability, Mara Jade assists. At the end of each character's turn in which Mara Jade is not damaged, she gains 5% Offense (stacking, max 25%) and 5% Turn Meter until the end of encounter. Whenever an ally uses Heroes Arise, reset Mara Jade's cooldowns.
+            <p class="attaque" id="unique-ability1">
+                At the start of battle, Yoda gains <u class="speciale">Dark Master's Training</u>. Allies with Dark Master's Training gain the following benefits:
                 <br><br>
-                At the start of battle, if Jedi Knight Luke Skywalker is the ally in the Leader slot: Mara Jade Skywalker gains Jedi's Will until the end of battle, which can't be copied, dispelled, or prevented and they both gain Instant Defeat Immunity, which can't be dispelled, until the end of battle or until Mara Jade Skywalker is defeated. Additionally, whenever she critically hits a Vulnerable enemy, she inflicts Healing Immunity on that enemy for 2 turns, which can't be evaded or resisted.
+                - Whenever they use a Basic ability they dispel all buffs from target enemy<br>
+                - Whenever they use a Special ability they inflict target enemy with Buff Disruption for 1 turn which can't be resisted<br>
+                - At the end of their turn, all Sith allies recover 15% Protection<br>
+                - Have their Health and Protection recovery effects increased by 30%<br>
+                - Take 35% reduced damage from enemy's attacking out of turn and Provoke that enemy for 1 turn
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : You are Weak... POWERLESS</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Yoda (Dark Side Vision) unique 2" src="../image-perso/dark-yoda/dark-yoda-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                Yoda has +30% Defense. If the ally in the Leader slot is a Sith Gungan, all Sith allies have +100% Health Steal and +50% Max Health, and whenever enemies gain bonus Turn Meter, Yoda gains 200 Speed until the start of his next turn.
                 <br><br>
-                <u class="omicron">Omicron Boost : While in Grand Arenas and there are no Galactic Legends:</u>
+                Whenever a Sith ally is inflicted with a debuff, Yoda gains 7% Turn Meter. While an enemy is debuffed, reduce their Health and Protection recovery effects by 30%. At the end of Yoda's turns, all other Sith allies gain 5% of Yoda's Defense (stacking) until the end of the encounter.
                 <br><br>
-                - At the start of battle, Mara Jade Skywalker gains 25% Max Health and the enemy Leader loses 100% Protection and 50% Max Protection. Whenever an enemy is defeated, Mara Jade gains 100% Defense Penetration for 2 turns, doubled if that enemy was any Luke Skywalker.<br>
-                - If Jedi Knight Luke Skywalker is the ally in the Leader slot: Mara Jade is immune to Fear and Stun and ignores Taunt. Additionally, at the start of each encounter, non-Old Republic Jedi allies gain Speed Up for 1 turn and non-Tanks Stealth for 2 turns. Whenever a non-Old Republic Jedi ally is Dazed, they dispel it and gain 15% Turn Meter. The first time Jedi Knight Luke takes a turn, Mara Jade gains a bonus turn.<br>
-                - Whenever an ally uses Heroes Arise, Mara Jade gains 100% Turn Meter.
+                <u class="omicron">Omicron Boost : While in Territory Battles:</u> At the start of battle, all Sith allies gain 200% Max Protection and 80 Speed. Whenever an ally is inflicted with a debuff, all Sith allies gain 5% Defense (stacking, max 150%) for the rest of battle. Whenever another Sith ally gains Dark Master's Training, a random Sith ally who doesn't have it gets it.
+                <br><br>
+                Whenever a Sith ally is Dazed or Stunned they dispel it, reset their cooldowns, and gain a bonus turn. The first time a Sith ally falls below 50% Health, they gain Damage Immunity for 1 turn. Sith allies take reduced damage from Percent Health damage effects. Enemies defeated by Sith allies can't be revived.
             </p>
         </div>
     </div>
@@ -118,14 +133,9 @@
         <script>
             // Dictionnaire français
             const translationsFr = {
-                "big-title": "Mara Jade Skywalker",
-                "title": "<u>Mara Jade Skywalker</u>",
-                "description": "en construction",
-
-                "lightside": "Coté Lumineux",
-                "attacker": "Attaquant",
-                "jedi": "Jedi",
-                "new-republic": "Nouvelle République",
+                "big-title": "",
+                "title": "<u></u>",
+                "description": "",
 
                 "basic-attack-title": "<u>Attaque Basique: en construction</u>",
                 "basic-attack": "en construction",
@@ -136,8 +146,11 @@
                 "special-attack2-title": "<u>Attaque Spéciale : en construction (délai : )</u>",
                 "special-attack2": "en construction",
 
-                "unique-ability-title": "<u>Capacité Unique : en construction </u>",
-                "unique-ability": "en construction",
+                "unique-ability1-title": "<u>Capacité Unique : en construction</u>",
+                "unique-ability1": "en construction",
+
+                "unique-ability2-title": "<u>Capacité Unique : en construction</u>",
+                "unique-ability2": "en construction",
             };
 
             const originalTexts = {};
@@ -195,7 +208,7 @@
 
             function loadUnitEraData() {
                 const params = new URLSearchParams(window.location.search);
-                const unitId = params.get('id') || "MARAJADESKYWALKER"; //filtre unité ici
+                const unitId = params.get('id') || "YODADSV"; //filtre unité ici
 
                 // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
                 return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
