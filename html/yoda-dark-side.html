@@ -133,24 +133,28 @@
         <script>
             // Dictionnaire français
             const translationsFr = {
-                "big-title": "",
-                "title": "<u></u>",
-                "description": "",
+                "big-title": "Yoda (vision du Coté Obscur)",
+                "title": "<u>Yoda (vision du Coté Obscur)</u>",
+                "description": "Un maître de la Force corrompu, déchaînant des pouvoirs dévastateurs du côté obscur avec une vitesse inégalée.",
 
-                "basic-attack-title": "<u>Attaque Basique: en construction</u>",
-                "basic-attack": "en construction",
+                "darkside": "Coté Obscur",
+                "healer": "Soigneur",
+                "sith": "Sith",
 
-                "special-attack1-title": "<u>Attaque Spéciale : en construction (délai : )</u>",
-                "special-attack1": "en construction",
+                "basic-attack-title": "<u>Attaque Basique: Pugilat de la Force</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie deux fois et lui inflige Confusion pendant 1 tour, et tous les alliés Sith récupèrent 10 % de santé et de protection. Si la cible ennemie subit déjà Confusion et que tous les alliés sont Sith, lui infligé également Étourdissement pendant 1 tour. Pendant le tour de Yoda, il gagne 10 cumuls de Siphonnage jusqu'à la fin de l'affrontement.",
 
-                "special-attack2-title": "<u>Attaque Spéciale : en construction (délai : )</u>",
-                "special-attack2": "en construction",
+                "special-attack1-title": "<u>Attaque Spéciale : Consommer, je le ferai  (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à tous les ennemis et tous les alliés Sith récupèrent 25 % de santé et de protection. Dissipe tous les affaiblissements de tous les autres alliés Sith et les infliges à Yoda (hors affaiblissements cumulable). Ensuite, inflige tous les affaiblissements de Yoda à la cible ennemie et dissipe tous les affaiblissements de Yoda. Yoda utilise Siphonnage de défense sur la cible ennemie.\n\n<u class='speciale'>Siphonnage de défense :</u> obtient un pourcentage de défense à hauteur du Siphonnage de cette unité jusqu'à la fin de l'affrontement. La cible ennemie perd la même quantité de défense (cumulatif, à l'exception des boss de raid et des Légendes galactiques).",
 
-                "unique-ability1-title": "<u>Capacité Unique : en construction</u>",
-                "unique-ability1": "en construction",
+                "special-attack2-title": "<u>Attaque Spéciale : M'écouter, vous allez (délai : 4)</u>",
+                "special-attack2": "Inflige des dégâts spéciaux à tous les ennemis et confère un bonus de pouvoir à la cible alliée Sith pendant 1 tour, Yoda utilise Camouflage pendant 2 tours, et tous les alliés obtiennent 2 cumuls de soins sur la durée et de protection sur la durée pendant 2 tours. S'il y a plus d'un allié présent au début de la bataille, la cible allié Sith obtient <u class='speciale'>l'Entraînement du Maître obscur</u> jusqu'à la fin de la bataille (ne peut pas être copié, dissipé ou empeché).\n\nSi tous les alliés sont Sith et que l'allié dans l'emplacement de chef est Gungan, inflige Découragement à tous les ennemis pendant 2 tours (ne peut pas être copié, dissipé, esquivé ou résisté). Yoda gagne 5 cumuls de Siphonnage pour chaque allié disposant de l'Entraînement du Maître obscur jusqu'à la fin de l'affrontement.\n\n<u class='speciale'>Entraînement du Maître obscur :</u>-20 % de ténacité, +50 % de dégâts critique, de pénétration de défense et d'attaque.",
 
-                "unique-ability2-title": "<u>Capacité Unique : en construction</u>",
-                "unique-ability2": "en construction",
+                "unique-ability1-title": "<u>Capacité Unique : Apprendre les ténèbres, vous allez</u>",
+                "unique-ability1": "Au début de la bataille, Yoda obtient l'<u class='speciale'>Entraînement du Maître obscur</u> Les alliés Sith disposant de l'Entaînement du Maître obscur obtiennent les avantages suivants :\n\n- Chaque fois qu'ils utilisent une capacité de base, ils dissipent toutes les améliorations de la cible ennemie\n- Chaque fois qu'ils utilisent une capacité spéciale, ils infligent Améliorations perurbées à la cible ennemie pendant 1 tour (ne peut pas être résisté)\n- A la fin de leur tour, tous les alliés Sith récupèrent 15 % de protection.\n- Leurs effets de récupération de santé et de protection sont augmentés de 30 %.\n- Subissent 35 % de dégâts réduits des ennemis qui attaquent en dehors de leur tour et provoquent cet ennemie pendant 1 tour.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Vous êtes faible... INCAPABLE</u>",
+                "unique-ability2": "Yoda a +30 % de défense. Si l'allié dans l'emplacement de chef est un Gungan Sith, tous les alliés Sith ont +100 % de vol de santé et +50 % de santé maximale, et à chaque fois que les ennemis gagnent un bonus de jauge de tour, Yoda gagne 200 de vitesse jusqu'au début de son prochain tour.\n\nChaque fois qu'un allié Sith subit un affaiblissement, Yoda gagne 7 % de jauge de tour. Tant qu'un ennemi subit un affaiblissement, réduits ses effets de récupération de santé et de protection de 30 %. A la fin des tours de Yoda, tous les autres alliés Sith gagnent 5 % de la défense de Yoda (cumulatif) jusqu'à la fin de l'affrontement.\n\n<u class='omicron'>Amélioration Omicron : Dans les batailles de territoire :</u> au début de la bataille, tous les alliés Sith obtiennent 200 % de protection maximale et 80 de vitesse. Chaque fois qu'un allié Sith subit un affaiblissement, tous les alliés Sith gagnent 5 % de défense (cumulatif, 150 % maximum) pour le reste de la bataille. Chaque fois qu'un autre allié Sith obtient l'Entraînement du Maître obscur, un allié Sith aléatoir qui ne l'a pas l'obtient.\n\nChaque fois qu'un allié Sith subit Confusion ou Étourdissement, il dissipe cet effet, réinitialise ses délais et gagne un tour bonus. La première fois que la santé d'un allié Sith tombe en dessous de 50 %, il obtient Immunité aux dégâts pendant 1 tour. Les alliés Sith subissent des dégâts réduits des effets de dégâts basés sur le pourcentage de santé. Les ennemis vaincus par des alliés Sith ne peuvent pas être ranimés.",
             };
 
             const originalTexts = {};
