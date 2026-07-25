@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">C-3PO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/c-3po/c-3po-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/c-3po/c-3po-image.png" alt="C-3PO" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>C-3PO</u></h1>
+            <p id="description">
+                Evasive support character that Confuses foes and strengthens mixed-faction interplay with Translation.
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/droïde.html" id="droid">Droïd</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html" id="republic-galactic">Galactic Republic</a>
+                <a class="capacite" href="../classement-perso/new-republic.html" id="new-republic">New Republic</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="capacite" href="../classement-perso/résistance.html" id="resistance">Resistance</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/c-3po/c-3po.png" alt="C-3PO"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Baffling Trick</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="C-3PO basic" src="../image-perso/c-3po/c-3po-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                C-3PO inflicts the unique debuff <u class="speciale">Confuse</u> for 3 turns (max 3 stacks, can't be evaded or copied). If target is already <u class="speciale">Confused</u>, duration of their stacks resets to 3 turns. Reduce target's Turn Meter by 6% and 3% more for each stack of <u class="speciale">Translation</u> on C-3PO. (See Protocol Droid for <u class="speciale">Translation</u>.)
+                <br><br>
+                <u class="speciale">Confuse</u> - Detrimental effects build based on the cumulative number of stacks:<br>
+                1: Cannot gain buffs<br>
+                2: Cannot counter, assist, or gain bonus Turn Meter (Raid bosses and Galactic Legends: -30% Counter Chance)<br>
+                3: When this character uses their Basic ability, increase their cooldowns by 1, which can't be resisted (Raid bosses and Galactic Legends: -50% Defense, doesn't stack with Defense Down)
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Oh My Goodness! (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="C-3PO spe" src="../image-perso/c-3po/c-3po-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                C-3PO gains Potency Up and Stealth for 2 turns, then he and target other ally gain <u class="speciale">Translation</u> for 3 turns. C-3PO inflicts <u class="speciale">Confuse</u> twice on target enemy for 3 turns, then calls all other allies with <u class="speciale">Translation</u> to assist, dealing 50% less damage.
+                <br><br>
+                (See Protocol Droid for a description of <u class="speciale">Translation</u>.)
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Protocol Droid</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="C-3PO unique 1" src="../image-perso/c-3po/c-3po-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                C-3PO has +20 Speed. While C-3PO is active, Galactic Republic, Rebel, Resistance, and Ewok allies gain Translation for 3 turns (max 3 stacks) each time they use a Special ability. Translation cannot be copied. If the character already has Translation, the duration for all current stacks on that character resets to 3 turns. If all allies that can apply Translation are defeated, all stacks of Translation expire.
+                <br><br>
+                <u class="speciale">Translation</u> - Beneficial effects build based on the cumulative number of stacks:<br>
+                1: Gain +30% Max Health<br>
+                2: Gain +15% Critical Chance<br>
+                3: If only one ally who grants Translation is present, decrease this character's cooldowns by 1 when that ally uses their Basic ability (limit once per turn)
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Wait for Me!</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt=" C-3PO unique 2" src="../image-perso/c-3po/c-3po-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                C-3PO and R2-D2 have +10% Evasion for each of their own stacks of <u class="speciale">Translation</u>. At the start of encounter, C-3PO and R2-D2 gain <u class="speciale">Translation</u> for 3 turns. When there are no other allied combatants, C-3PO escapes from battle.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability3-title">Unique Ability : Intermediary</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="C-3PO unique 3" src="../image-perso/c-3po/c-3po-unique3.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability3">
+                All allies have +10% Defense Penetration. Each time a Galactic Republic or Ewok ally gains a different, non-unique, non-Protection buff, they gain 15% Protection Up for 2 turns (does not stack with itself). For each stack of <u class="speciale">Translation</u>, Galactic Republic have +10% Defense Penetration, doubled for Ewoks.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability4-title">Unique Ability : Cyborg Relations</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="C-3PO unique 4" src="../image-perso/c-3po/c-3po-unique4.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability4">
+                All allies have +10% Potency. Whenever a Rebel or Ewok ally uses their Basic ability, they inflict Expose on the target enemy for 2 turns which cannot be evaded. For each stack of <u class="speciale">Translation</u>, Rebel allies have +10% Potency, doubled for Ewoks.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability5-title">Unique Ability : Fretful Mediator</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="C-3PO unique 5" src="../image-perso/c-3po/c-3po-unique5.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability5">
+                All allies have +10% Critical Damage. Whenever a Resistance or Ewok ally uses their Special ability, they inflict Offense Down on the target enemy for 2 turns which cannot be evaded. For each stack of <u class="speciale">Translation</u>, Resistance allies have +10% Critical Damage, doubled for Ewoks.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "C-3PO",
+                "title": "<u>C-3PO</u>",
+                "description": "Personnage de soutien évasif qui Déstabilise les ennemis et renforce les alliés de différentes factions avec Traduction.",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "droïd": "Droïde",
+                "new-republic": "Nouvelle République",
+                "republic-galactic": "République Galactique",
+                "rebel": "Rebelle",
+                "resistance": "Résistance",
+
+                "basic-attack-title": "<u>Attaque Basique: Ruse déroutante</u>",
+                "basic-attack": "C-3PO inflige l'affaiblissement unique <u class='speciale'>Déstabilisation</u> pendant 3 tours (max. 3 cumulsn peut pas être esquivé ou copié). Si la cible souffre déjà de <u class='speciale'>Déstabilisation</u>, la durée de ses cumuls est réinitialis à 3 tours. Diminue la jauge de tour de 6 % et 3 % supplémentaires pour chaque cumul de <u class='speciale'>Traduction</u> sur C-3Po (voir Droïde de protocole pour l'amélioration <u class='speciale'>Traduction</u>)\n\n<u class='speciale'>Déstabilisation</u> - les effets négatif sont basés sur le nombre de cumuls :\n1 : impossible d'obtenir des améliorations.\n2 : impossible d'utiliser la contre-attaque, l'assistance ou d'obtenir un bonus de jauge de tour (boss de raid et Légendes galactiques : -30 % de chances de contre-attaque).\n3 : lorsque cette unité utilise sa capacité de base, elle augmente ses délais de 1, ce qui ne peut pas être résisté (boss de raid et Légendes galactiques : -50 % de défense, ne se cumule pas avec un malus de défense).",
+
+                "special-attack1-title": "<u>Attaque Spéciale : oh, juste Ciel ! (délai : 3)</u>",
+                "special-attack1": "C-3Po obtient un bonus de pouvoir et le camouflage pendant 2 tours, puis lui et une autre cible allié obtiennent <u class='speciale'>Traduction</u> pendant 3 tours. C-3Po inflige <u class='speciale'>Déstabilisation</u> deux fois à la cible ennemie pendant 3 tours, puis invoque tous les autres alliés disposant de <u class='speciale'>Traduction</u> et ils infligent 50 % de dégâts en moins.\n\n(Voir Droïde de protocole pour une description de <u class='speciale'>Traduction</u>.)",
+
+                "unique-ability1-title": "<u>Capacité Unique : Droïde de protocole</u>",
+                "unique-ability1": "C-3Po a +20 de vitesse. Tant que C-3PO est actif, les alliés de la République Galactique, de la Résistance, les Rebelles et les Ewoks obtiennent Traduction pendant 3 tours (3 cumuls maximum) à chaque fois qu'ils utilisent une capacité spéciale. TRaduction ne peut pas être copié. Si le personnage dispose déjà de Traduction, la durée de tous ses cumuls se réinitialise à 3 tours. Si tous les alliés qui peuvent conférer Traduction sont vaincus, tous les cumuls de Traduction expirent.\n\n<u class='speciale'>Traduction</u> - les effets positifs sont calculés selon le nombre de cumuls.\n1 : +30 % à la santé maximale.\n2 : +15 % de chances de coup critique.\n3 : Si un seul allié conférant Traduction est présent, diminue les délais de ce personnage de 1 lorsque cet allié utilise sa capacité de base.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Attendez-moi !</u>",
+                "unique-ability2": "C-3Po et R2-D2 ont +10 % d'esquive pour chaque cumul de <u class='speciale'>Traduction</u>. Au début de l'affrontement, C-3Po et R2-D2 obtiennent <u class='speciale'>Traduction</u> pendant 3 tours. Quand il n'y a pas d'autres combattants alliés, C-3PO fuit l'affrontement.",
+
+                "unique-ability3-title": "<u>Capacité Unique : Intermédiaire</u>",
+                "unique-ability3": "Tous les alliés ont +10 % de pénétration de défense. Chaque fois qu'un allié Ewok ou de la République Galactique obtient une amélioration différente , non unique et qui ne concerne pas la protection, il gagne un bonus de protection de 15 % pendant 2 tours (ne se cumule pas). Pour chaque cumul de <u class='speciale'>Traduction</u>, les alliés de la Nouvelle République ont +10 % de pénétration de défense (doublé pour les Ewoks).",
+
+                "unique-ability4-title": "<u>Capacité Unique : Relation cyborg</u>",
+                "unique-ability4": "Tous les alliés ont +10 % de pouvoir. Lorsqu'un allié Rebelle ou Ewok utilise sa capacité de base, il expose la cible ennemie pendant 2 tours (ne peut pas être esquivé). Pour chaque cumul de <u class='speciale'>Traduction</u>, les alliés Rebelles ont +10 % de pouvoir (doublé pour les Ewoks).",
+
+                "unique-ability5-title": "<u>Capacité Unique : Médiateur agité</u>",
+                "unique-ability5": "Tous les alliés ont +10 % de dégâts critiques. Lorsqu'un allié de la Résistance ou Ewok utilise sa capacité spéciale, il inflige un malus d'attaque à la cible ennemie pendant 2 tours (ne peut pas être esquivé). Pour chaque cumul de <u class='speciale'>Traduction</u>, les alliés de la Résistance ont +10 % de dégâts critiques (doublé pour les Ewoks).",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "c-3po"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>

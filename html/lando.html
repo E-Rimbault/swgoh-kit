@@ -2,18 +2,18 @@
 <html lang="en">
 
 <head>
-    <title id="big-title">Admiral Ackbar</title>
+    <title id="big-title">Lando Calrissian</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-    <link rel="icon" type="image/png" href="../image-perso/admiral-ackbar/admiral-ackbar-image.png">
+    <link rel="icon" type="image/png" href="../image-perso/lando/lando-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/admiral-ackbar/admiral-ackbar-image.png" alt="Admiral Ackbar" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/lando/lando-image.png" alt="Lando Calrissian" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
             <!-- Sélecteur de langue -->
@@ -26,85 +26,74 @@
                     style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
 
-            <h1 id="title"><u>Admiral Ackbar</u></h1>
+            <h1 id="title"><u>Lando Calrissian</u></h1>
             <p id="description">
-                Rebel Support that can Dispel debuffs and grant allies extra turns
+                Scoundrel leader with high offense and excellent Critical Hit synergy
             </p>
             <br>
 
             <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color:blue  !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
-                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
                 <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
-                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebelle</a>
-                <a class="capacite" href="../classement-perso/commandant-de-la-flotte.html" id="fleet-commander">Fleet Commander</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="capacite" href="../classement-perso/combattant-rebelle.html" id="rebel-fighter"></a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
                 <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
                 <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
             </nav>
-
-            <!-- lien vers le vaisseaux -->
-            <section class="header-ship">
-                <a href="../html/" class="ship-link">
-                    <img class="ship-image main-image" src="../image-vaisseaux/" alt="Home One">
-                </a>
-                <h2 class="vaisseaux" id="ship-title">
-                    <u>Ship: Home One</u>
-                </h2>
-            </section>
         </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/admiral-ackbar/ackbar.png" alt="Admiral Ackbar"><br>
+    <img class="first" src="../image-perso/lando/lando.png" alt="Lando Calrissian"><br>
 
     <!-- Capacités -->
 
-    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Quick Shot</u></h2>
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Gambler's Shot</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Admiral Ackbar basic" src="../image-perso/admiral-ackbar/admiral-ackbar-basic.png">
+            <img class="attaque" alt="Lando Calrissian basic" src="../image-perso/lando/lando-basic.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
-                Deal Physical damage to target enemy with a 55% chance to gain 45% Turn Meter.
+                Deal Physical damage to target enemy. This attack has high damage variance and an additional 30% chance of scoring a Critical Hit.
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack1-title"><u>Special Attack : It's a Trap! (cooldown: 4)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Double Down (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Admiral Ackbar spe 1" src="../image-perso/admiral-ackbar/admiral-ackbar-spe1.png">
+            <img class="attaque" alt="Lando Calrissian special" src="../image-perso/lando/lando-special.png">
         </div>
         <div class="right-column">
-            <p class="attaque" id="special-attack1">               
-                Dispel all negative status effects from all allies. Each ally recovers 9% of their Max Health for each effect dispelled this way. Admiral Ackbar has a 25% chance to gain 40% Turn Meter.
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies. If this attack scores more than one Critical Hit, its cooldown is reset and it deals 100% more damage on its next use.
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Tactical Genius (cooldown: 3)</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Fast and Loose</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Admiral Ackbar spe 2" src="../image-perso/admiral-ackbar/admiral-ackbar-spe2.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque" id="special-attack2">
-                Ackbar grants each ally the <u class="speciale">Tactical Genius</u> effect. The first ally to use a Special ability while they have this effect gains 100% Turn Meter and recovers 30% of their Max Health. <u class="speciale">Tactical Genius</u> ends whenever any ally triggers this effect or at the end of Ackbar's next turn.
-            </p>
-        </div>
-    </div>
-
-    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Rebel Coordination</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="Admiral Ackbar lead" src="../image-perso/admiral-ackbar/admiral-ackbar-lead.png">
+            <img class="attaque" alt="Lando Calrissian lead" src="../image-perso/lando/lando-lead.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="lead-ability">
-                Rebel allies have +25 Speed and +10% Tenacity. In addition, whenever an ally uses an ability that isn't an attack, they call a random Rebel ally to assist.
-                <br><br>
-                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> At the start of battle, all allies gain Tenacity Up for 2 turns. If all allies are Rebel, whenever an ally's buff expires that ally gains 3% Turn Meter. Whenever an ally uses an ability that isn't an attack, all allies recover 5% Health, and, instead of a random ally, the 2 other weakest allies are called to assist. The allies who assisted have their cooldowns reduced by 1.
+                Scoundrel and Rebel allies gain 15 Speed and 29% Critical Damage.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : High Roller</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Lando Calrissian unique" src="../image-perso/lando/lando-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Lando has +15% Critical Chance, and gains Critical Chance Up for 2 turns when he scores a Critical Hit.
             </p>
         </div>
     </div>
@@ -117,29 +106,28 @@
         <script>
             // Dictionnaire français
             const translationsFr = {
-                "big-title": "Amiral Ackbar",
-                "title": "<u>Amiral Ackbar</u>",
-                "description": "Personnage d'appui rebelle qui peut dissiper tous les affaiblissements et conférer ux alliés des tours supplémentaires.",
+                "big-title": "Lando Calrissian",
+                "title": "<u>Lando Calrissian</u>",
+                "description": "Chef vaurien disposant d'une attaque élevée alimentée par les coups critiques.",
 
                 "lightside": "Coté Lumineux",
-                "support": "Soutien",
+                "attacker": "Attaquant",
                 "leader": "Chef",
                 "rebel": "Rebelle",
-                "fleet-commander": "Commandant de la flotte",
+                "rebel-fighter": "Combattant rebelle",
+                "scoundrel": "Vaurien",
 
-                "basic-attack-title": "<u>Attaque Basique: Tir rapide </u>",
-                "basic-attack": "Inflige des dégâts physiques à une cible ennemie avec 55 % de chances de remplir la jauge de tour de 45 %.",
+                "basic-attack-title": "<u>Attaque Basique: Tir du flambeur</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie. Cette attaque a une amplitude de dégâts élevée et 30 % de chances supplémentaires d'infliger un coup critique.",
 
-                "special-attack1-title": "<u>Attaque Spéciale : c'est un piège ! (délai : 4)</u>",
-                "special-attack1": "Dissipe les effets négatifs de tous les alliés. Chaque allié récupère 9 % de sa santé maximale par effet ainsi dissipé et la jauge de tour de l'Amiral Ackbar a 25 % de chances de se remplir de 40 %.",
+                "special-attack1-title": "<u>Attaque Spéciale : Doubler la mise (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis. Si cette attaque inflige plus d'un coup critique, son délai de rechargement est réinitialisé et elle inflige 100 % de dégâts supplémentaires lors de sa prochaine utilisation.",
 
-                "special-attack2-title": "<u>Attaque Spéciale : Génie tactique (délai : 3)</u>",
-                "special-attack2": "Ackbar confère à chaque allié l'effet <u class='speciale'>Génie tactique</u>. Le premier allié a utilisé une capacité spéciale lorsque cet effet est actif remplit sa jauge de tour de 100 % et récupère 30 % de sa santé maximale. <u class='speciale'>Génie tactique</u> prend fin lorsqu'un allié déclenche cet effet ou à la fin du prochain tour d'Ackbar.",
+                "lead-ability-title": "<u>Capacité de Chef : Rapide et en vrac</u>",
+                "lead-ability": "Les Vauriens et les rebelles alliés gagnent un bonus de vitesse de 15 et un bonus de dégâts critique de 29 %.",
 
-                "lead-ability-title": "<u>Capacité de Chef: Coordination rebelle</u>",
-                "lead-ability": "Les alliés Rebelles ont +25 de vitesse et +10 % de ténacité. De plus, lorsqu'un allié utilise une capacité autre qu'une attaque, il invoque un allié rebelle aléatoire.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes </u> au début de la bataille, tous les alliés obtiennent un bonus de ténacité pendant 2 tours. Si tous les alliés sont rebelles, à chaque fois que l'amélioration d'un allié prend fin, ce dernier obtient 3 % de jauge de tour. Chaque fois qu'un allié utilise une capacité autre qu'une attaque, tous les alliés récupèrent 5 % de santé, et à la place d'un allié aléatoire, les deux alliés les plus faibles sont invoqués. Les délais des alliés invoqués sont réduits de 1.",
-
-                "ship-title": "<u>Vaisseau : Home One</u>",
+                "unique-ability-title": "<u>Capacité Unique : Gros joueur</u>",
+                "unique-ability": "Lando a +15 % de chances d'infliger un coup critique et gagne un bonus de chances de coup critique pendant 2 tours s'il inflige un coup critique.",
             };
 
             const originalTexts = {};
@@ -197,7 +185,7 @@
 
             function loadUnitEraData() {
                 const params = new URLSearchParams(window.location.search);
-                const unitId = params.get('id') || "admiral ackbar"; //filtre unité ici
+                const unitId = params.get('id') || "lando calrissian"; //filtre unité ici
 
                 // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
                 return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
