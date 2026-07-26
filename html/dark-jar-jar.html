@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Darth Jar Jar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/dark-jar-jar/dark-jar-jar-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/dark-jar-jar/dark-jar-jar-image.png" alt="Darth Jar Jar" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Darth Jar Jar</u></h1>
+            <p id="description">
+                A phantom menace (allegedly) manipulating those around him into a false sense of security
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/gungan.html" id="gungan">Gungan</a>
+                <a class="capacite" href="../classement-perso/sith.html" id="sith">Sith</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Mesa Going to Hurt Yousa</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Darth Jar Jar basic" src="../image-perso/dark-jar-jar/dark-jar-jar-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy and Shock them for 1 turn. During his turn, if all allies are Sith, deal additional effects that last for 1 turn:
+                <br><br>
+                - Inflict Tenacity Down on all enemies that don't have it<br>
+                - If any enemy had Damage Immunity, dispel it, and all Sith allies gain Damage Immunity<br>
+                - If the target enemy has 3 or more stacks of Bleed, inflict Deathmark on them
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Yousa People Gonna Die (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Darth Jar Jar special 1" src="../image-perso/dark-jar-jar/dark-jar-jar-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to target enemy and Manipulated enemies are Blinded and gain Speed Up for 1 turn. If there are no Galactic Legend or Sith Empire allies, target enemy becomes <u class="speciale">Manipulated</u> if they didn't already have it and no other enemies have it, which can't be copied, dispelled, or resisted, until the end of the encounter, and they Stealth for 2 turns.
+                <br><br>
+                Darth Jar Jar gains Outmaneuver for 2 turns. Remove Marked from all allies then a random Sith ally gains bonus Protection (50%) until the end of the encounter and is Marked while they have this Protection. When this Marked expires, another random Sith ally is Marked and gains bonus Protection (50%) until the end of the encounter until all other Sith allies have been Marked by this ability.
+                <br><br>
+                <u class="speciale">Manipulated:</u> Abilities gain additional effects
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Letten the Haten Flow (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Darth Jar Jar special 2" src="../image-perso/dark-jar-jar/dark-jar-jar-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Special damage to all enemies and inflict them with Plasma Residue for 2 turns. If there is a shield generator, it takes 15 additional instances of damage. Sith allies gain Defense Up and Foresight for 2 turns.
+                <br><br>
+                Darth Jar Jar <u class="speciale">Siphons Max Protection</u> from all non-Manipulated enemies, which can't be resisted, then all Sith allies gain that amount until the end of the encounter.
+                <br><br>
+                <u class="speciale">Siphon Max Protection:</u> Gain a percentage of Max Protection equal to this unit's Siphon until the end of the encounter and the targets lose that much Max Protection (stacking, excludes raid bosses and Galactic Legends)
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas and there are no Galactic Legend allies:</u> Sith allies gain 5% Offense (stacking) per Siphon stack on Darth Jar Jar until the end of the encounter. Inflict all enemies with Healing Immunity for 1 turn, which can't be resisted. Enemies without Protection can't resist the Plasma Residue and whenever it expires it is reapplied at the end of the turn if Darth Jar Jar is active. If any enemy has Bleed, inflict a stack of Bleed on all enemies that don't have it until the end of the encounter.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Da Force Shall Freein Mesa</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Darth Jar Jar lead" src="../image-perso/dark-jar-jar/dark-jar-jar-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Whenever Darth Jar Jar is Ability Blocked, Dazed, or Stunned, the enemy who inflicted it is inflicted with the same debuff for 1 turn, which can't be dispelled. Sith allies are immune to Investigation.
+                <br><br>
+                At the start of each encounter, Darth Jar Jar Marks himself, which can't be dispelled, until he receives damage. At the start of each enemy's first turn, a random Sith ally gains a bonus turn if they haven't taken a turn yet. Sith allies are immune to cooldown manipulation until they use a Special ability. Darth Jar Jar ignores Taunt effects on his first turn.
+                <br><br>
+                Whenever a Manipulated enemy falls below 100% Health, Sith allies gain a stack of Dark Infusion (stacking, max 3), which can't be dispelled or prevented, until the end of battle. Whenever a Manipulated enemy gains a buff, Darth Jar Jar gains 3 Siphon. Whenever a Manipulated enemy is inflicted with a debuff, the weakest other enemy is Feared for 1 turn if they don't already have it.
+                <br><br>
+                While any Sith ally is Marked, Darth Maul has 100% counter chance and Defense and deals 10% bonus True damage based on his Max Health.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> Whenever a Sith ally is Ability Blocked, Dazed, or Stunned, the enemy who inflicted it is inflicted with the same debuff for 1 turn, which can't be dispelled. While Sith allies are Stunned and are damaged by an attack, deal 100% of the damage received to the attacker as True damage (this damage can't defeat them). Whenever a Sith ally is Feared, at the end of the turn, they deal 1 True damage to themselves (this damage can't defeat them).
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : The Phantom Menace</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Darth Jar Jar unique" src="../image-perso/dark-jar-jar/dark-jar-jar-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                At the start of battle, Darth Jar Jar gains Hatred, which can't be copied, dispelled, or prevented, for the rest of battle. Whenever an enemy takes damage from Bleed, Darth Jar Jar gains Frenzy for 2 turns. Darth Jar Jar gains a bonus turn after the first turn taken by the enemy in the Leader slot in each encounter.
+                <br><br>
+                Whenever a Manipulated enemy starts their turn, they take 50% Max Health damage (this damage can't defeat them), then equalize their Health and Protection with the strongest enemy, and Darth Jar Jar gains a bonus turn.
+                <br><br>
+                Whenever Darth Jar Jar uses every ability, ally Darth Sidious gains <u class="speciale">Emergency Powers</u>, which can't be copied, dispelled, or prevented, if he didn't already have it, for 2 turns. Once this effect has expired, Darth Jar Jar must use every ability again for Darth Sidious to gain Emergency Powers.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas and there are no Galactic Legend allies:</u> All Sith allies gain Hatred, which can't be copied, dispelled, or prevented, for the rest of battle. Whenever a Sith ally is Ability Blocked they gain Massively Overpowered for 1 turn.
+                <br><br>
+                <u class="speciale">Emergency Powers:</u> +200% Defense, Offense, 100% counter chance and +100 Speed; at the start of this unit's turn, all allies recover 100% Health and Protection
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "",
+                "title": "<u></u>",
+                "description": "",
+
+                "basic-attack-title": "<u>Attaque Basique: </u>",
+                "basic-attack": "",
+
+                "special-attack1-title": "<u>Attaque Spéciale : (délai : )</u>",
+                "special-attack1": "",
+
+                "special-attack2-title": "<u>Attaque Spéciale : (délai : )</u>",
+                "special-attack2": "",
+
+                "lead-ability-title": "<u>Capacité de Chef: </u>",
+                "lead-ability": "",
+
+                "unique-ability-title": "<u>Capacité Unique : </u>",
+                "unique-ability": "",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "DARTHJARJAR"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
