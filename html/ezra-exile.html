@@ -37,6 +37,8 @@
                 <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
                 <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
                 <a class="capacite" href="../classement-perso/spectre.html" id="spectre">Spectre</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
             </nav>
         </div>
     </header>
@@ -53,8 +55,7 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
-                Deal Physical damage to target Enemy and inflict Speed Down on them for 3 turns. If this attack scores a critical hit, Ezra Bridger (Exile) and another random ally gains Foresight for 1 turn and target enemy is Staggered for 2 turns.
-            </p>
+                Deal Physical damage to target enemy and inflict Speed Down on them for 3 turns. If all allies are Spectre and this attack scores a critical hit, Ezra Bridger (Exile) and another random ally gain Foresight for 1 turn, and target enemy is Staggered for 2 turns.            </p>
         </div>
     </div>
 
@@ -69,15 +70,15 @@
                 <br><br>
                 Grant all Spectre allies and the target ally Protection Up (50%, stacking) for 2 turns and dispel all debuffs on them. Target other ally attacks and Ezra Bridger (Exile) assists, dealing 40% more damage and both receive bonuses based on their tags:
                 <br><br>
-                <strong>- Jedi:</strong> Tenacity Up for 2 turns<br>
-                <strong>- Unaligned Force User:</strong> Defense Up for 2 turns<br>
-                <strong>- Spectre:</strong> Backup Plan for 2 turns, which can't be copied or dispelled and Riposte for 2 turns
+                - <strong>Jedi:</strong> Tenacity Up for 2 turns<br>
+                - <strong>Unaligned Force User:</strong> Defense Up for 2 turns<br>
+                - <strong>Spectre:</strong> Backup Plan for 2 turns, which can't be copied or dispelled and Riposte for 2 turns
                 <br><br>
                 If the target ally is a Jedi, Light Side Unaligned Force User, or a Spectre, they gain a bonus turn. If the target ally is a Spectre, they also gain 100% Offense on their next turn and will dispel all buffs from the target enemy and Blind the target enemy for 2 turns, which can't be evaded, on their next attack.
                 <br><br>
-                Ezra gains 2 stacks of Resilient Defense for 2 turns (max 4) and 5 stacks of Purrgil Migration for the rest of battle.
+                If all allies are Spectre, Ezra gains 2 stacks of Resilient Defense for 2 turns (max 4) and 5 stacks of Purrgil Migration for the rest of battle.
                 <br><br>
-                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> Ezra gains 25 stacks of Purrgil Migration and all Spectre allies gain Backup Plan for 2 turns, which can't be copied or dispelled.
+                <u class="omicron">omicron Boost : While in Grand Arenas:</u> If all allies are Spectre, Ezra gains 25 stacks of Purrgil Migration and all Spectres gain Backup Plan for 2 turns, which can't be copied or dispelled.
             </p>
         </div>
     </div>
@@ -89,9 +90,11 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack2">
-                Deal Physical damage to target enemy 3 times and inflict Healing Immunity and Offense Down for 2 turns, which can't be resisted. For each critical hit scored, reduce the target enemy's Defense by 30% (stacking) for 1 turn. This attack gains 10% Critical Chance for each Spectre ally. If Ezra scores 3 critical hits, the target enemy is Stunned for 1 turn, which can't be copied, dispelled, or resisted.
+                Deal Physical damage to target enemy 3 times and inflict Healing Immunity and Offense Down for 2 turns, which can't be resisted. If all allies are Spectre, for each critical hit scored, reduce the target enemy's Defense by 30% (stacking) for 1 turn. This attack gains 10% Critical Chance for each Spectre ally. If Ezra scores 3 critical hits, the target enemy is Stunned for 1 turn, which can't be copied, dispelled, or resisted.
                 <br><br>
-                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> For each critical hit scored, deal 20% bonus damage based on the target's Max Health, which can't be evaded, and inflict Buff Immunity, Healing Immunity, and Offense Down for 2 turns, which can't be copied, dispelled, or resisted. Reduce the Cooldown of Daring Advance by 1.
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> If all allies are Spectre, for each critical hit scored, deal 20% bonus damage based on the target's Max Health, which can't be evaded.
+                <br><br>
+                Inflict Buff Immunity, Healing Immunity, and Offense Down to target enemy for 2 turns, which can't be copied, dispelled, or resisted. Reduce the Cooldown of Daring Advance by 1.    
             </p>
         </div>
     </div>
@@ -103,9 +106,9 @@
         </div>
         <div class="right-column">
             <p class="attaque" id="unique-ability1">
-                At the start of battle, all Light Side allies gain Foresight for 2 turns, all Spectre allies gain Tenacity Up for 2 turns, and Ezra is <u class="speciale">Exiled</u> for the rest of battle, which can't be copied, dispelled, or resisted.
+                At the start of battle, all Spectre allies gain Foresight and Tenacity Up for 2 turns, and Ezra Bridger (Exile) is <u class="speciale">Exiled</u> for the rest of battle, which can't be copied, dispelled, or resisted.
                 <br><br>
-                At the start of Ezra's turn, he gains 2 stacks of Resilient Defense (max 4).
+                If all allies are Spectre at the start of battle, at the start of Ezra's turn, he gains 2 stacks of Resilient Defense (max 4).
                 <br><br>
                 The first time each ally is Exiled, they also gain 30% Critical Chance, 60% Defense, and 100% Max Health and Max Protection for the rest of battle.
                 <br><br>
@@ -113,7 +116,7 @@
                 <br><br>
                 The first time Ezra is Exiled, enemies can't assist or attack again if their attack is targeting Ezra. When Ezra loses Exile for the first time, when he performs an ability, call a random ally to assist.
                 <br><br>
-                Allied Spectres have Instant Defeat Immunity while Ezra is active.
+                If all allies are Spectre at the start of battle, all allies have Instant Defeat Immunity while Ezra is active.
                 <br><br>
                 <u class="speciale">Exile:</u> Can't attack, gain buffs, or gain other positive effects during another character's turn; Raid bosses and Galactic Legends instead: any characters who damage them gain Crit Damage Up and Health Steal Up for 1 turn
                 <br><br>
@@ -131,11 +134,11 @@
             <p class="attaque" id="unique-ability2">
                 Ezra has +20% Critical Chance and whenever he is inflicted with a debuff, he recovers 25% Health.
                 <br><br>
-                Light Side allies can't have their cooldowns manipulated by enemies.
+                If all allies are Spectre, all allies can't have their cooldowns manipulated by enemies.
                 <br><br>
-                When Ezra uses an ability, he gains 5 stacks of <u class="speciale">Purrgil Migration</u> (max 50) for the rest of battle. When he deals damage to an enemy, he gains 2 stacks of Purrgil Migration for the rest of battle. If this attack is a critical hit, he instead gains 5 stacks of Purrgil Migration.
+                If all allies are Spectre, whenever Ezra uses an ability, he gains 5 stacks of <u class="speciale">Purrgil Migration</u> (max 50) for the rest of battle. When he deals damage to an enemy, he gains 2 stacks of Purrgil Migration for the rest of battle. If this attack is a critical hit, he instead gains 5 stacks of Purrgil Migration.
                 <br><br>
-                When Ezra reaches 50 stacks of Purrgil Migration, he gains a bonus turn and recovers 100% Max Health and Protection. He ignores Taunt effects for one turn and the next enemy he damages with an ability is inflicted with Exile for the rest of battle, which can't be copied, dispelled, evaded, or resisted and all enemies are inflicted with Ability Block for 1 turn, which can't be copied, dispelled, evaded, or resisted and he loses Exile.
+                When Ezra reaches 50 stacks of Purrgil Migration, he gains a bonus turn and recovers 100% Max Health and Protection. The next enemy he damages with an ability is inflicted with Exile for the rest of battle, which can't be copied, dispelled, evaded, or resisted and all enemies are inflicted with Ability Block for 1 turn, which can't be copied, dispelled, evaded, or resisted and he loses Exile.
                 <br><br>
                 <u class="speciale">Purrgil Migration:</u> +1% Defense and +1% Tenacity
             </p>
@@ -153,29 +156,31 @@
                 "big-title": "Ezra Bridger (exilé)",
                 "title": "<u>Ezra Bridger (exilé)</u>",
                 "description": "Un soutien exilé qui utilise son lien avec la Force pour aider ses alliés.",
+
                 "lightise": "Coté Lumineux",
                 "support": "Soutien",
                 "jedi": "Jedi",
                 "spectre": "Spectre",
 
                 "basic-attack-title": "<u>Attaque Basique: défense du fugitif</u>",
-                "basic-attack": "Inflige des dégâts physiques à une cible ennemie, ainsi qu'un malus de vitesse pendant 3 tours. Si cette attaque inflige un coup critique, Ezra Bridger (exilé) et un autre allié aléatoire obtient Prévoyance pendant 1 tour, puis la cible ennemie subit Faux Pas pendant 2 tours",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie, ainsi qu'un malus de vitesse pendant 3 tours. Si tous les alliés sont Spectre et que cette attaque inflige un coup critique, Ezra Bridger (Exilé) et un autre allié aléatoire obtiennent Prévoyance pendant 1 tour, puis la cible ennemie subit Faux pas pendant 2 tours.",
 
                 "special-attack1-title": "<u>Attaque Spéciale : Héritage de Kanan (délai : 4)</u>",
-                "special-attack1": "Tous les alliés récupèrent 40 % de santé et de protection.\n\nConfère à tous les alliés Spectre et à la cible alliée un bonus de protection (50 %, cumulatif) pendant 2 tour et dissipe tous ses affaiblissements. L'autre allié ciblé attaque et Ezra Bridger (Exilé) est invoqué en infligeant 40 % de dégâts supplémentaires, puis ils reçoivent tous les deux des bonus en fonction de leur identifiant :\n\n<strong>-Jedi :</strong> bonus de ténacité pendant 2 tours.\n<strong>-Utilisateur de la Force non aligné :</strong> bonus de défense pendant 2 tours.\n<strong>-Spectre :</strong> Plan de secours (ne peut pas être copié ou dissipé) et riposte pendant 2 tours.\n\nSi la cible alliée est un Jedi, un utilisateur de la Force non aligné du coté Lumineux ou un Spectre, elle obtient un tour bonus. Si la cible alliée est un Spctre, elle obtient également 100 % d'attaque lors de son prochain tour, dissipe toutes les améliorations en cours sur la cible ennemie et inflige Cécité à la cible ennemie pendant 2 tours lors de sa prochaine attaque (ne peut pas être esquivé).\n\nEzra obtient2 cumuls de Solide défense pendant 2 tours (4 maximum) et 5 cumuls de Migration des purrgils pour le reste de la bataille.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> Ezra obtient 25 cumuls de Migration des purrgils et tous les alliés Spectre obtiennent Plan de secours pendant 2 tours (ne peut pas être copîé ou dissipé). ",
+                "special-attack1": "Tous les alliés récupèrent 40 % de santé et de protection.\n\nConfère à tous les alliés Spectre et à la cible alliée un bonus de protection (50 %, cumulatif) pendant 2 tours et dissipe tous ses affaiblissements. L'autre allié ciblé attaque et Ezra Bridger (Exilé) est invoqué en infligeant 40 % de dégâts supplémentaires, puis ils reçoivent tous les deux des bonus en fonction de leur identifiant :\n\n- <strong>Jedi :</strong> bonus de ténacité pendant 2 tours.\n- <strong>Utilisateur de la Force non aligné :</strong> bonus de défense pendant 2 tours.\n- <strong>Spectre :</strong> Plan de secours (ne peut pas être copié ou dissipé) et Riposte pendant 2 tours.\n\nSi la cible est un Jedi, un utilisateur de la Force non aligné du Coté Lumineux ou un Spectre, elle obtient un tour bonus. Si la cible alliée est un Spectre, elle obtient également 100 % d'attaque lors de son prochain tour, dissipe toutes les améliorations en cours sur la cible ennemie et inflige Cécité à la cible ennemie pendant 2 tours lors de sa prochaine attaque (ne peut pas être esquivé).\n\nSi tous les alliés sont Spectre, Ezra obtient 2 cumuls de Solide défense (maximum 4) et 5 cumuls de Migration des purrgils pour le reste de la bataille.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> Ezra obtient 25 cumuls de Migration des purrgils et tous les alliés Spectre obtiennent Plan de secours pendant 2 tours (ne peut pas être copié ou dissipé).",
 
                 "special-attack2-title": "<u>Attaque Spéciale : Charge audacieuse (délai : 3)</u>",
-                "special-attack2": "Inflige des dégât physiques à une cible ennemie 3 fois ainsi qu'Immunité aux soins et un malus d'attaque pendant 2 tours (ne peut pas être résisté). Pour chaque coup critique infligé, diminue la défense de la cible ennemie de 30 % (cumulatif) pendant 1 tour. Cette attaque confère 10 % de chances de coup critique pour chaque Spectre allié. Si Ezra inflige  coups critiques, la cible ennemie subit Étourdissement pendant 1 tour (ne peut pas être copié, dissipé ou résisté).\n\n<u class='omicron>Amélioration Omicron : Dans les Grandes arènes : pour chaque coup critique infligé, inflige 20 % de dégâts bonus en fonction de la santé maximale de la cible (ne peut pas être esquivé), et inflige Immunité aux améliorations, Immunité aux soins et un malus d'attaque pendant 2 tours (ne peut pas être copié, dissipé ou résisté). Réduit le délai de Charge audacieuse de 1.",
-
+                "special-attack2": "Inflige des dégâts physiques à une cible ennemie 3 fois ainsi qu'Immunité aux soins et un malus d'attaque pendant 2 tours (ne peut pas être résisté). Si tous les alliés sont Spectre, pour chaque coup critique infligé, diminue la défense de la cible ennemie de 30 % (cumulatif) pendant 1 tour. Cette attaque confère 10 % de chances de coup critique pour chaque Spectre allié. Si Ezra inflige 3 coups critiques, la cible ennemie subit Étourdissemnt pendant 1 tour (ne peut pas être copié, dissipé ou résisté).\n\n<u class='omicron'>Omicron Boost : Dans les Grandes arènes :</u> Si tous les alliés sont Spectre, pour chaque coup critique infligé, inflige 20 % de dégâts bonus en fonction de la santé maximale de la cible (ne peut pas être esquivé).\n\nInflige Immunité aux améliorations, Immunité aux soins et un malus d'attaque à la cible ennemie pendant 2 tours (ne peut pas être copié, dissipé ou résisté). Réduit le délai de Charge audacieuse de 1.", 
 
                 "unique-ability1-title": "<u>Capacité Unique : Exil</u>",
-                "unique-ability1": "Au début de la bataille, tous les alliés du Coté Lumineux, obtiennent Prévoyance pendant 2 tours, tous les Spectres alliés obtiennent un bonus de ténacité pendant 2 tours et Ezra obtient <u class='speciale'>Exil</u> pour le reste de la bataille (ne peut pas être copié, dissipé ou résisté).\n\nAu début du tour d'Ezra, il obtient 2 cumuls de Solide défense (4 maximul).\n\nLa première fois que chaque allié obtient Exil, il obtient également 30 % de chances de coup critique, 60 % de défense, 100 % de santé maximale et 100 % de protection maximale pour le reste de la bataille.\n\nLa première fois que chaque allié perd Exil, il obtient 30 % de chances de coup critique, 60 % de dégâts critiques, d'attaque et de pouvoir, et 30 de vitesse.\n\nLa première fois qu'Ezra obtient Exil, les ennemis ne peuvent pas être invoqués ou attaquer à nouveau si leur attaque cible Ezra. Lorsqu'Ezra perd Exil pour la première fois, utiliser une de ses capacités invoque un allié aléatoire.\n\nLes Spectres alliés reçoivent Immunité à la défaite instantanéee tant qu'Ezra est actif.\n\n<u class='speciale'>Exil :</u> impossible d'attaquer, d'obtenir des améliorations ou d'obtenir d'autres effets positifs pendant le tour d'un autre personnage. Boss de raid et Légendes Galactiques : les personnages qui leur infligent des dégâts obtiennent un bonus de dégâts critiques et un bonus de vol de santé pendant 1 tour.\n\n<u class='omicron>Amélioration Omicron : Dans les Grandes arènes :</u> la première fois qu'un Spectre allié obtient et perd Exil, il obtient également 5 % de maïtrise par niveau de relique. La première fois qu'un Spectre allié perd Exil, il obtient 30 de vitesse supplémentaire. Ces bonus persistent après la défaite.",
+                "unique-ability1": "Au début de la bataille, tous les alliés Spectre obtiennent Prévoyance et un bonus de ténacité pendant 2 tours, et Ezra Bridger (Exilé) obtient <u class='speciale'>Exil</u> pour le reste de la bataille (ne peut pas être copié, dissipé ou résité).\n\nSi tous les alliés sont Spectre au début de la bataille, au début du tour d'Ezra, il obtient 2 cumuls de Solide défense (4 maximum).\n\nLa première fois que chaque allié obtient Exil, il gagne également 30 % de chances de coup critique, 60 % de défense, 100 % de santé maximale et de protection maximale pour le reste de la bataille.\n\nLa première fois que chaque allié perd Exil, il obtient 30 % de chances de coup critique, 60 % de dégâts critiques, d'attaque et de pouvoir et 30 de vitesse.\n\nLa première fois qu'Ezra obtient Exil, les ennemis ne peuvent pas être invoqués ou attaquer à nouveau si leur attaque cible Ezra. Lorsqu'Ezra perd Exil pour la première fois, utilise une de ses capacités invoque un allié aléatoire.\n\nSi tous les alliés sont Spectre au début de la bataille, tous les alliés reçoivent Immunité aux défaites instantanées tant qu'Ezra est actif.\n\n<u class='speciale'>Exil :</u> impossible d'attaquer, d'obtenir des améliorations ou obteir d'autres effets positifs pendant le tour d'un autre personnage. Les personnages qui infligent des dégâts aux boss de raid et aux Légendes galactiques obtiennent un bonus de dégâts critiques et un bonus de vol de santé pendant 1 tour.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> la première fois qu'un Spectre allié obtient et perd Exil, il obtient également 5 % de maîtrise par niveau d'amplificateur de relique. La première fois qu'un Spectre allié perd Exil, il obtient 30 de vitesse. Ces bonus persistent après la défaite.",
 
                 "unique-ability2-title": "<u>Capacité Unique : La Force est mon alliée</u>",
-                "unique-ability2": "Ezra obtient +20 % de chances de coup critique, et lorsqu'il subit un affaiblissement, il récupère 25 % de santé.\n\nLes délais des alliés du Coté Lumineux ne peuvent pas être manipulés par les ennemis.\n\nLorsqu'Ezra utilise une capacité, il obtient 5 cumuls de <u class='speciale'>Migration des purrgils</u> (50 maximum) pour le reste de la bataille. Lorsqu'il inflige des dégâts à un enenmi, il obtient 2 cumuls de Migration de purrgils pour le reste de la bataille. Si cette attaque un coup critique, il obtient à la place 5 cumuls de Migration des purrgils.\n\nLorsqu'Ezra atteint 50 cumuls de Migration des purrgils, il obtient un tour bonus et récupère 100 % de santé maximale et de protection. Ezra ignore Raillerie pendant un tour le prochain ennemi auquel il inflige des dégâts avec une capacité subit Exil pour le reste de la bataille (ne peut pas être copié, dissipé, esquivé ou résisté), tous les ennemis subissent Entrave des capacités pendant 1 tour (ne peut pas être copié, dissipé, esquivé ou résisté), et il perd Exil.\n\n<u class='speciale'>Migration des purrgils :</u> +1 % de défense et +1 % de ténacité.",
+                "unique-ability2": "Ezra obtient +20 % de chances de coup critique, et lorsqu'il subit un affaiblissement, il récupère 20 % de santé.\n\nSi tous les alliés sont Spectre, les délais de tous les alliés ne peuvent pas être manipulés par les ennemis.\n\nSi tous les alliés sont Spectre, lorsqu'Ezra utilise une capacité, il obtient 5 cumuls de <u class='speciale'>Migration des purrgils</u> (50 maximum) pour le reste de la bataille Lorsqu'il inflige des dégâts à un ennemi, il obtient 2 cumuls de Migration des purrgils pour le reste de la bataille. Si cette attaque inflige un coup critique, il obtient à la palce 5 cumuls de Migration des purrgils.\n\nQuand Ezra atteint 50 cumuls de Migration des purrgils, il obtient un tour bonus et récupère 100 % de santé maixmale et de protection. Le prochain ennemi auquel il inflige des dégâts avec une capacité subit Exil pour le reste de la bataille (ne peut pas être copié, dissipé, esquivé ou résisté), tous les ennemis subissent Entrave des capacité pendant 1 tour (ne peut pas être copié, dissipé, esquivé ou résisté), et il perd Exil.\n\n<u class='speciale'>Migration des purrgils :</u> +1 % de défense et +1 % de ténacité.",
             };
 
             const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
 
             function saveOriginalTexts() {
                 for (const id in translationsFr) {
@@ -196,34 +201,97 @@
                         const el = document.getElementById(id);
                         if (el) el.innerHTML = replaceNewLinesWithBr(text);
                     }
-                } else if (lang === "en") {
+                } else {
                     for (const [id, text] of Object.entries(originalTexts)) {
                         const el = document.getElementById(id);
                         if (el) el.innerHTML = text;
                     }
                 }
 
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
                 updateFlagActive();
             }
 
             function updateFlagActive() {
                 const lang = sessionStorage.getItem("selectedLanguage") || "en";
-                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
-                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
             }
 
-            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "ezra bridger (exile)"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
             window.addEventListener("load", () => {
-                saveOriginalTexts();
-                const lang = sessionStorage.getItem("selectedLanguage") || "en";
-                switchLanguageTo(lang);
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
 
-                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
-                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
             });
-        </script>
-
+            </script>
     </footer>
 </body>
-
 </html>

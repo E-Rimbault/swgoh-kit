@@ -1,132 +1,268 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<title>Merrin</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="utf-8">
-<meta name="author" content="Rimbault Enzo" >
-
-<link rel="icon" type="image/png" href="../image-perso/merrin/merrin-image.png">
-<link rel="stylesheet" href="../style/styles.css">
-<link rel="stylesheet" href="../style/capacite.css">
+    <title id="big-title">Merrin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/merrin/merrin-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/merrin/merrin-image.png" alt="Merrin" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-<header class="perso">
-    <h1><u>Merrin</u></h1>
-    <p>
-        Une sorcière Soeur de la nuit qui défent ses alliés<br>
-        préventivement et inflige Pestilence aux ennemies.
-    </p>
+            <h1 id="title"><u>Merrin</u></h1>
+            <p id="description">
+                A Nightsister witch who proactively defends her allies and inflicts enemies with Plague
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/soeur-de-la-nuit.html" id="nightsister">Nightsister</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
     <br>
-    <nav class="perso" style="font-size: 20px;">
-        <a class="capacite" style="color:red" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-        <a class="class" href="../classement-perso/soutien.html">Soutien</a>
-        <a class="capacite" href="../classement-perso/soeur-de-la-nuit.html">Soeur de la nuit</a>
-    </nav>
-</header>
 
-<br>
-    <img class="first" src="../image-perso/merrin/Merrin.png" alt="merrin"><br>
+    <img class="first" src="../image-perso/merrin/Merrin.png" alt="Merrin"><br>
 
-    <h2 class="titre"><u>attaque basique : eclair d'ichor</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Ichor Bolt</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="merrin basique" src="../image-perso/merrin/merrin-basique.png">
+            <img class="attaque" alt="Merrin basic" src="../image-perso/merrin/merrin-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégats spéciaux à une cible ennemie et lui inflige 2 cumuls de pestilence pendant 3 tours.
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy and inflict 2 stacks of Plague for 3 turns.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: foulée de l'ombre</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Shadow Stride (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="merrin spé 1" src="../image-perso/merrin/merrin-spe1.png">
+            <img class="attaque" alt="Merrin special 1" src="../image-perso/merrin/merrin-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige 2 cumuls de Pestilence à tous le ennemies pendant 3 tours et toutes les alliées soeurs de la nuit récupèrent 10% de santé et de protection.
-                Merrin dissipe toutes les améliorations et affaiblissement l'affectant et obtient <u class="speciale">Camouflage magique</u>.<br>
-                La prochaine fois qu'un autre allié subit un affaiblissement ou est vaincu, Merrin perd camouflage magique, dissipe tous les<br>
-                affaiblissements sur les alliés et ranime une alliée soeur de la nuit aléatoire avec 50% de santé.<br>
-                <br>
-                <u class="speciale">Camouflage magique:</u>
-                Ne peut pas être pris pour cible,vaincu, subir de dégats ou gagner de jauge de tour. Immunité contre les améliorations<br>
-                et effets de Raillerie.Si aucun allié n'est présent perd camouflage magique.
-            </p>
-        </div>
-    </div>
-
-    
-
-    <h2 class="titre"><u>2eme spéciale: Dathomir sera votre tombe</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="merrinb spé 2" src="../image-perso/merrin/merrin-spe2.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Inflige des dégats spéciaux à une cible ennemie et l'étourdit pendant 1 tour. Si cette attaque élimine un ennemi, inflige 4<br>
-                cumuls de Pestilence à tous les ennnemis pendant 3 tours. dissipe les améliorations de chaque ennemi qui dispose<br>
-                de 2 cumuls ou plus de pestilence.
-            </p>
-        </div>
-    </div>
-
-
-    <h2 class="titre"><u>capacité unique 1 : Dernière des Soeurs de la nuit</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="merrin unique 1" src="../image-perso/merrin/merrin-unique.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                A chaque affrontement, la première fois qu'une alliée Soeur de la nuit est vaincue, Merrin gagne 100% de jauge de tour (ne peut pas être évité).
-                Chaque fois qu'une alliée Soeur de la nuit est vaincue ou ranimée, Merrin obtient 15%(+2% par niveau de relique du personnage vaincu ou ranimé) de
-                jauge de tour ( ne peut pas être évité).<br>
-                <br>
-                Tant que merrin dispose d'alliés, sa vitesse est fixé à 0 et elle est immunisée contre la manipulation de jauge de tour.
-                <br>
-                <br>
-                <u class="omicron">Dans les Grandes Arènes:</u>
+            <p class="attaque" id="special-attack1">
+                Inflict 2 stacks of Plague on all enemies for 3 turns and all Nightsister allies recover 10% Health and Protection. Merrin dispels all buffs and debuffs on herself and gains <u class="speciale">Magick Stealth</u>. The next time another ally is inflicted with a debuff or defeated, Merrin loses Magick Stealth, dispels all debuffs on all allies, and revives a random Nightsister ally with 50% Health.
                 <br><br>
-                Chaque fois qu'une alliée Soeur de la nuit est vaincue ou ranimé, Merrin obtient 100% de jauge de tour (ne peut pas être évité).<br>
-                Au début du tour de Merrin, inflige 1 cumul de Pestilence à tous les ennemis pendant 3 tours.
+                <u class="speciale">Magick Stealth:</u> Can't be targeted, defeated, damaged, or gain Turn Meter; immune to buffs, debuffs, and taunt effects; if no allies are present, lose Magick Stealth
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique 2 : Lien de vengence</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Dathomir Will Be Your Grave (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="merrin unique 2" src="../image-perso/merrin/merrin-unique2.png">
+            <img class="attaque" alt="Merrin special 2" src="../image-perso/merrin/merrin-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Lorsqu'un allié subit un affaiblissement et si Merrin possède 0% de jauge de tour, tous les affaiblissements de cet allié sont<br>
-                dissipé et Merrin gagne 25% de jauge de tour(ne peut pas être évité).Si Merrin a plus de 0% de jauge de tour, elle gagne plutôt 10% de<br>
-                jauge de tour (ne peut pas être évité).<br>
-                <br>
-                Lorsqu'un ennemi subit des dégats, toutes les alliées Soeur de la nuit récupèrent 5% de protection.<br>
-                <br>
-                Chaque fois qu'une alliée Soeur de la nuit est ranimée, tous les alliés obtiennent Immunité à la défaite instantanée pendant 2<br>
-                tours (ne peut pas être copié, dissipé ou évité) et il y a 20% de chance (+10% par niveau d'amplificateur de relique, total maximun<br>
-                de 100%) d'infliger 1 cumul de Pestilence à tous les ennemis pendant 3 tours à la fin du tour.
+            <p class="attaque" id="special-attack2">
+                Deal Special damage to target enemy and Stun them for 1 turn. If this attack defeats an enemy, inflict 4 stacks of Plague on all enemies for 3 turns. Dispel buffs on each enemy with 2 or more stacks of Plague on them.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Last of the Nightsisters</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Merrin unique 1" src="../image-perso/merrin/merrin-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                The first time a Nightsister ally is defeated each encounter, Merrin gains 100% Turn Meter, which can't be prevented. Whenever a Nightsister ally is defeated or revived, Merrin gains 15% (+2% per Relic Amplifier level of the defeated or revived character) Turn Meter, which can't be prevented.
+                <br><br>
+                While Merrin has allies, her Speed is set to 0 and she is immune to Turn Meter manipulation.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas and there are no Galactic Legends:</u> Whenever a Nightsister ally is defeated or revived, Merrin gains 100% Turn Meter, which can't be prevented. At the start of Merrin's turn, inflict all enemies with 1 stack of Plague for 3 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Vengeful Bond</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Merrin unique 2" src="../image-perso/merrin/merrin-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                Whenever an ally is inflicted with a debuff, if Merrin has 0% Turn Meter, dispel all debuffs from that ally and Merrin gains 25% Turn Meter, which can't be prevented. If Merrin has more than 0% Turn Meter, she gains 10% Turn Meter instead, which can't be prevented.
+                <br><br>
+                Whenever an enemy is damaged, all Nightsister allies recover 5% Protection.
+                <br><br>
+                Whenever a Nightsister ally is revived, grant all allies Instant Defeat Immunity for 2 turns, which can't be copied, dispelled, or prevented, and there is a 20% chance (+10% per Relic Amplifier level, max 100% total) to inflict all enemies with 1 stack of Plague for 3 turns at the end of the turn.
             </p>
         </div>
     </div>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Merrin",
+                "title": "<u>Merrin</u>",
+                "description": "Une sorcière Sœur de la nuit qui défend ses alliés préventivement et inflige Pestilence aux ennemis.",
+
+                "darkside": "Coté Obscur",
+                "support": "Soutien",
+                "nightsister": "Sœur de la nuit",
+
+                "basic-attack-title": "<u>Attaque Basique: Éclair d'Ichor</u>",
+                "basic-attack": "Inflieg des dégâts spéciaux à une cible ennemie et lui inflige 2 cumuls de Pestilence pendant 3 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Foulée de l'ombre (délai : 3)</u>",
+                "special-attack1": "Inflige 2 cumuls de Pestilence à tous les ennemis pendant 3 tours et tous les alliés Sœurs de la nuit récupèrent 10 % de santé et de protection. Merrin dissipe toutes les améliorations et affaiblissement l'affectant et obtient <u class='speciale'>Camouflage magique</u>. La prochaine fois qu'un autre allié subit un affaiblissement ou est vaincu, Merrin perd Camouflage magique, dissipe tous les affaiblissements sur les alliés et ranime un allié Sœur de la nuit aléatoir avec 50 % de santé.\n\n<u class='speciale'>Camouflage magique :</u> ne peut pas être pris pour cible, vaincu, subir de dégâts ou gagner de jauge de tour. Immunité contre les améliorations, affaiblissements et effets de Raillerie. Si aucun allié n'est présent, perd Camouflage magique.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Dathomir sera votre tombe (délai : 3)</u>",
+                "special-attack2": "Inflige des dégâts spéciaux à une cible ennemie et l'étourdit pendant 1 tour. Si cette attaque élimine un ennemi, inflige 4 cumuls de Pestilence à tous les ennemis pendant 3 tours. Dissipe les améliorations de chaque ennemi qui dipose de 2 cumuls ou plus de Pestilence.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Dernière des Sœurs de la nuit</u>",
+                "unique-ability1": "A chaque affrontement, la première fois qu'un allié Sœur de la nuit est vaincu, Merrin gagne 100 % de jauge de otur (ne peut pas être évité). Chaque fois qu'un allié Sœur de la nuit est vaincu ou ranimé, Merrin obtient 15 % (+2 % par niveau d'amplificateur de relique du personnage vaincu ou ranimé) de jauge de tour (ne peut pas être évité).\n\nTant que Merrin dispose d'alliés, sa vitesse est fixé à 0 et elle immunisée contre la manipulation de jauge de tour.\n\n<u class=omicron>Amélioration Omicron : Dans les Grandes arène et s'il n'y a pas de Légendes galactiques :</u> chaque fois qu'un allié Sœur de la nuit est vaincu ou ranimé, Merrin obtient 100 % de jauge de tour (ne peut pas être évité). Au début du tour de Merrin, inflige 1 cumul de Pestilence à tous les ennemis pendant 3 tours.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Lien de vengeance</u>",
+                "unique-ability2": "Lorsqu'un allié subit un affaiblissement et si Merrin possède 0 % dde jauge de tour, tous les affaiblissement de cet allié sont dissipés et Merrin gagne 25 % de jauge de tour (ne peut pas être évité). Si Merrin a plus de 0 % de jauge de tour, elle gagne plutôt 10 % de jauge de tour (ne peut pas être évité).\n\nLorsqu'un ennemi subit des dégâts, toutes les alliés Sœurs de la nuit récupèrent 5 % de protection.\n\nChaque fois qu'un allié Sœur de la nuit est ranimé, tous les alliés obtiennent Immunité à la défaite instantanée pendant 2 tours (ne peut pas être copié, dissipé ou évité) et il y a 20 % de chances (+10 % par niveau d'amplificateur de relique, total maximum de 100 %) d'infliger 1 cumul de Pestilence à tous les ennemis pendant 3 tours à la fin du tour.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "merrin"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
     </footer>
 </body>
 </html>

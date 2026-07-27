@@ -33,28 +33,64 @@
     <style>
         body {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            color: white;
+            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+            color: #e0e6ed;
             text-align: center;
+            background-color: #020208;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* Background */
-        .background-image {
+        /* Nouveau Fond Étoilé Espace (Star Wars Theme) */
+        .stars-background {
             position: fixed;
             inset: 0;
-            background-image: url("swgoh-10ans-2025.png");
-            background-size: cover;
-            background-position: center;
             z-index: -1;
+            background: radial-gradient(ellipse at bottom, #0d1d31 0%, #020208 100%);
+            overflow: hidden;
+        }
+
+        .stars-background::before, .stars-background::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 40px 70px, rgba(255,255,255,0.8), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 90px 40px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 160px 120px, #ffe81f, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 230px 190px, rgba(255,255,255,0.9), rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 300px 60px, #4deeea, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 370px 150px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 450px 250px, rgba(255,255,255,0.9), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 520px 80px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 600px 180px, #ffe81f, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 650px 350px;
+            opacity: 0.8;
+            animation: twinkle 8s infinite linear;
+        }
+
+        .stars-background::after {
+            background-size: 900px 500px;
+            opacity: 0.5;
+            animation: twinkle 14s infinite linear reverse;
+        }
+
+        @keyframes twinkle {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-350px); }
         }
 
         /* Header */
         header {
             font-size: 2.2rem;
             font-weight: bold;
-            padding: 40px 10px 10px;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+            padding: 40px 10px 15px;
+            letter-spacing: 2px;
+            color: #ffe81f; /* Jaune Star Wars */
+            text-transform: uppercase;
+            text-shadow: 0 0 12px rgba(255, 232, 31, 0.5), 0 2px 8px rgba(0, 0, 0, 0.9);
         }
 
         /* Language switch */
@@ -70,106 +106,105 @@
             cursor: pointer;
             margin-left: 8px;
             border-radius: 4px;
-            transition: transform .2s;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: transform .2s, border-color .2s;
         }
 
         .language-switcher img:hover {
             transform: scale(1.1);
+            border-color: #ffe81f;
         }
 
-        /* Architecture à 3 Colonnes Principales */
-        .three-column-layout {
-            display: grid;
-            grid-template-columns: 33.33% 33.33% 33.33%;
-            max-width: 1450px;
-            margin: auto;
-            padding: 10px 20px 40px;
+        /* CONTENEUR PRINCIPAL DISPOSÉ EN 3 COLONNES */
+        .main-single-section {
+            max-width: 1400px;
+            margin: 0 auto 50px auto;
+            padding: 25px;
             box-sizing: border-box;
+            background: rgba(6, 11, 25, 0.75);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 16px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(0, 212, 255, 0.05);
+
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 20px;
             align-items: start;
         }
 
-        /* Colonnes indépendantes contenant des blocs */
-        .main-column {
+        /* Conteneur de colonne */
+        .column {
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
 
-        /* Style des blocs individuels */
+        /* Style des blocs individuels / Sous-sections */
         .section-block {
-            background: rgba(10, 15, 20, 0.8);
-            padding: 21px;
-            border-radius: 11px;
-            backdrop-filter: blur(6px);
-            border: 1px solid rgba(0, 191, 255, 0.15);
+            background: rgba(12, 20, 36, 0.85);
+            padding: 22px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
             transition: transform .2s, box-shadow .2s, border-color .2s;
             box-sizing: border-box;
+            text-align: center;
         }
 
         .section-block:hover {
-            transform: translateY(-3px);
-            border-color: rgba(0, 191, 255, 0.4);
-            box-shadow: 0 4px 15px rgba(0, 191, 255, 0.12);
+            border-color: rgba(0, 212, 255, 0.6);
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.2);
         }
 
         .section-block h3 {
             margin-top: 0;
-            margin-bottom: 11px;
-            font-size: 1.18rem;
-            letter-spacing: 0.5px;
-            color: #ffffff;
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+            letter-spacing: 1px;
+            color: #ffe81f; /* Jaune Star Wars pour les titres de sous-sections */
+            text-transform: uppercase;
+            text-shadow: 0 0 8px rgba(255, 232, 31, 0.3);
         }
 
         .section-block a {
-            color: #00bfff;
+            color: #00d4ff;
             text-decoration: none;
             font-weight: bold;
-            transition: color .2s;
+            transition: color .2s, text-shadow .2s;
         }
 
         .section-block a:hover {
             color: #ffffff;
             text-decoration: underline;
+            text-shadow: 0 0 8px rgba(0, 212, 255, 0.8);
         }
 
         /* Séparateur en pointillés */
         .section-divider {
             border: none;
-            border-top: 1px dashed rgba(255, 255, 255, 0.15);
-            margin: 13px 0 9px 0;
+            border-top: 1px dashed rgba(0, 212, 255, 0.3);
+            margin: 14px 0 10px 0;
         }
 
         /* Sous-titre de section */
         .section-subtitle {
             text-align: left;
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             font-weight: bold;
-            color: #00bfff;
-            letter-spacing: 0.5px;
-            margin-bottom: 9px;
+            color: #00d4ff;
+            letter-spacing: 0.8px;
+            margin-bottom: 10px;
             text-transform: uppercase;
         }
 
-        /* --- STYLES DES LISTES DEROULANTES MODULES --- */
+        /* --- STYLES DES LISTES EN DESCENTE CONTINU --- */
         .dynamic-scroll-list {
             display: flex;
             flex-direction: column;
-            gap: 9px;
-            max-height: 250px;
-            overflow-y: auto;
-            padding-right: 6px;
-        }
-
-        .dynamic-scroll-list::-webkit-scrollbar {
-            width: 4px;
-        }
-        .dynamic-scroll-list::-webkit-scrollbar-thumb {
-            background: rgba(0, 191, 255, 0.4);
-            border-radius: 2px;
-        }
-        .dynamic-scroll-list::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.02);
+            gap: 10px;
+            height: auto;
+            max-height: none;
+            overflow: visible;
         }
 
         /* Éléments Communs News & Unités */
@@ -177,7 +212,7 @@
             background: rgba(255, 255, 255, 0.03);
             padding: 11px 15px;
             border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -192,8 +227,8 @@
         }
 
         .unit-item-link:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(0, 191, 255, 0.3);
+            background: rgba(0, 212, 255, 0.08);
+            border-color: rgba(0, 212, 255, 0.4);
         }
 
         .news-left, .unit-left {
@@ -213,13 +248,13 @@
             height: 42px;
             border-radius: 6px;
             object-fit: cover;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
         }
 
         .news-item-title-link {
             font-size: 0.9rem;
             font-weight: bold;
-            color: #00bfff;
+            color: #00d4ff;
             text-decoration: none;
             transition: color .2s;
             display: inline-flex;
@@ -245,18 +280,18 @@
 
         .news-item-author {
             font-size: 0.8rem;
-            color: #a1a1aa;
+            color: #94a3b8;
         }
 
         .news-item-date, .unit-item-date {
             font-size: 0.8rem;
-            color: #8ad8ff;
+            color: #ffe81f;
             font-weight: bold;
             white-space: nowrap;
         }
 
         .date-relative {
-            color: #a1a1aa;
+            color: #94a3b8;
             font-weight: normal;
         }
 
@@ -268,8 +303,8 @@
 
         /* --- STYLES COMPACTS MODULE CURRENT ERA --- */
         .current-era-container {
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            background: rgba(0, 0, 0, 0.2);
             border-radius: 8px;
             padding: 12px;
             box-sizing: border-box;
@@ -280,13 +315,13 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(0, 212, 255, 0.08);
+            border: 1px solid rgba(0, 212, 255, 0.2);
             border-radius: 6px;
             padding: 10px;
             margin-bottom: 12px;
             font-weight: bold;
-            color: #00bfff;
+            color: #ffe81f;
             font-size: 0.95rem;
         }
 
@@ -298,24 +333,14 @@
 
         .current-era-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
             gap: 8px;
-            max-height: 260px;
-            overflow-y: auto;
-            padding-right: 4px;
-        }
-
-        .current-era-grid::-webkit-scrollbar {
-            width: 4px;
-        }
-        .current-era-grid::-webkit-scrollbar-thumb {
-            background: rgba(0, 191, 255, 0.3);
-            border-radius: 2px;
+            padding-right: 0;
         }
 
         .era-unit-card {
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 6px;
             padding: 10px 6px;
             display: flex;
@@ -328,8 +353,8 @@
         }
 
         .era-unit-card:hover {
-            background: rgba(255, 255, 255, 0.07);
-            border-color: rgba(0, 191, 255, 0.3);
+            background: rgba(0, 212, 255, 0.12);
+            border-color: rgba(0, 212, 255, 0.5);
             transform: scale(1.02);
         }
 
@@ -338,7 +363,7 @@
             height: 40px;
             border-radius: 4px;
             object-fit: cover;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .era-unit-name {
@@ -356,8 +381,8 @@
 
         /* --- STYLES COMPACTS MODULE RAID --- */
         .featured-raid-container {
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            background: rgba(0, 0, 0, 0.2);
             border-radius: 8px;
             padding: 16px;
             box-sizing: border-box;
@@ -385,15 +410,15 @@
             max-width: 65px;
             height: auto;
             border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
             object-fit: cover;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
         }
 
         .featured-raid-name {
             font-size: 1.05rem;
             font-weight: bold;
-            color: #00bfff;
+            color: #00d4ff;
             transition: text-decoration .2s;
         }
 
@@ -402,20 +427,15 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 1024px) {
-            .three-column-layout {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .three-column-layout {
+        @media (max-width: 992px) {
+            .main-single-section {
                 grid-template-columns: 1fr;
-                padding: 10px 15px;
+                padding: 15px;
+                margin: 0 10px 30px 10px;
             }
             header {
                 font-size: 1.6rem;
-                padding: 50px 10px 10px;
+                padding: 50px 10px 15px;
             }
             .language-switcher {
                 top: 10px;
@@ -427,7 +447,8 @@
 
 <body>
 
-<div class="background-image"></div>
+<!-- NOUVEAU FOND D'ÉCRAN ESPACE ÉTOILÉ STAR WARS -->
+<div class="stars-background"></div>
 
 <div class="language-switcher">
     <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" onclick="switchLanguage('fr')">
@@ -436,11 +457,11 @@
 
 <header id="title">Star Wars Galaxy of Heroes Website</header>
 
-<div class="three-column-layout">
+<!-- GRANDE SECTION PRINCIPALE À 3 COLONNES -->
+<main class="main-single-section">
 
-    <!-- PREMIÈRE GRANDE SECTION -->
-    <div class="main-column">
-        <!-- Character -->
+    <!-- COLONNE 1 : CHARACTER -->
+    <div class="column">
         <div class="section-block">
             <h3 id="character-title">Character</h3>
             <a href="filtre-recherche/filtre-personnage.html" id="character-link" class="main-link-margin">Character Filter</a>
@@ -448,8 +469,10 @@
             <div id="latest-units-subtitle" class="section-subtitle">Latest Units</div>
             <div id="unitList" class="dynamic-scroll-list"></div>
         </div>
+    </div>
 
-        <!-- Ship -->
+    <!-- COLONNE 2 : SHIP -->
+    <div class="column">
         <div class="section-block">
             <h3 id="ship-title">Ship</h3>
             <a href="filtre-recherche/filtre-vaisseaux.html" id="ship-link" class="main-link-margin">Ships Filter</a>
@@ -459,8 +482,8 @@
         </div>
     </div>
 
-    <!-- DEUXIÈME GRANDE SECTION -->
-    <div class="main-column">
+    <!-- COLONNE 3 : LE RESTE -->
+    <div class="column">
         <!-- Era -->
         <div class="section-block">
             <h3 id="era-title">Era</h3>
@@ -474,6 +497,18 @@
             </div>
         </div>
 
+        <!-- Latest News -->
+        <div class="section-block">
+            <h3 id="news-section-title">Latest News</h3>
+            <div id="newsList" class="dynamic-scroll-list"></div>
+        </div>
+
+        <!-- Buff / Debuff -->
+        <div class="section-block">
+            <h3 id="effect-title">Buff / Debuff</h3>
+            <a href="filtre-recherche/filtre-effet.html" id="effect-link">Effects Database</a>
+        </div>
+
         <!-- Raid -->
         <div class="section-block">
             <h3 id="raid-title">Raid</h3>
@@ -485,21 +520,6 @@
                 <!-- Rempli dynamiquement -->
             </div>
         </div>
-    </div>
-
-    <!-- TROISIÈME GRANDE SECTION -->
-    <div class="main-column">
-        <!-- Buff / Debuff -->
-        <div class="section-block">
-            <h3 id="effect-title">Buff / Debuff</h3>
-            <a href="filtre-recherche/filtre-effet.html" id="effect-link">Effects Database</a>
-        </div>
-
-        <!-- Latest News -->
-        <div class="section-block">
-            <h3 id="news-section-title">Latest News</h3>
-            <div id="newsList" class="dynamic-scroll-list"></div>
-        </div>
 
         <!-- Game -->
         <div class="section-block">
@@ -508,7 +528,7 @@
         </div>
     </div>
 
-</div>
+</main>
 
 <script>
 const translations = {
@@ -613,17 +633,14 @@ function processReleaseDate(dateString) {
     const parts = dateString.trim().split('-');
     if (parts.length !== 3) return { html: dateString, isRelative: false };
 
-    // Récupération dynamique de la date du jour sans l'heure
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
     const releaseDate = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
 
-    // Calcul de la différence en jours
     const diffTime = today - releaseDate;
     const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
 
-    // Plage stricte : entre -6 jours (dans 6 jours) et +6 jours (il y a 6 jours)
     if (diffDays >= -6 && diffDays <= 6) {
         if (diffDays === 0) {
             return { html: `<span class="date-relative">${translations[currentLang]['today']}</span>`, isRelative: true };
@@ -637,7 +654,6 @@ function processReleaseDate(dateString) {
         }
     }
 
-    // Au-delà de 6 jours (avant ou après), affichage de la date standard
     const options = { month: 'long', day: '2-digit', year: 'numeric' };
     const formattedDate = releaseDate.toLocaleDateString(currentLang === 'fr' ? 'fr-FR' : 'en-US', options);
     return { html: formattedDate, isRelative: false };
@@ -661,7 +677,6 @@ function loadUnitsData() {
             globalUnitsData = data;
             renderUnits(data);
             
-            // Si les ères ont déjà été chargées, on met à jour le module d'ère
             if (globalErasData.length > 0) {
                 renderCurrentEra(globalErasData, globalUnitsData);
             } else {
@@ -679,9 +694,9 @@ function renderUnits(unitsData) {
     if (!unitContainer) return;
     unitContainer.innerHTML = '';
 
-    const top15Units = unitsData.slice(0, 15);
+    const top20Units = unitsData.slice(0, 20);
 
-    top15Units.forEach(unit => {
+    top20Units.forEach(unit => {
         const name = unit.name[currentLang] || unit.name['en'] || 'Unknown';
         const pageLink = unit.page || '#';
         const imgUrl = unit.image || '';
@@ -731,9 +746,9 @@ function renderShips(shipsData) {
     if (!shipContainer) return;
     shipContainer.innerHTML = '';
 
-    const top15Ships = shipsData.slice(0, 15);
+    const top20Ships = shipsData.slice(0, 20);
 
-    top15Ships.forEach(ship => {
+    top20Ships.forEach(ship => {
         const name = ship.name[currentLang] || ship.name['en'] || 'Unknown';
         const pageLink = ship.page || '#';
         const imgUrl = ship.image || '';
@@ -820,7 +835,6 @@ function renderFeaturedRaid(raidsData) {
 }
 
 /* --- MODULE ERAS --- */
-
 function loadErasData() {
     const headerContainer = document.getElementById('currentEraHeader');
     if (headerContainer) {
@@ -846,7 +860,6 @@ function renderCurrentEra(erasData, unitsData) {
     const gridContainer = document.getElementById('currentEraGrid');
     if (!headerContainer || !gridContainer || !erasData || erasData.length === 0) return;
 
-    // 1. Détermination de l'ère actuelle : l'ère avec la valeur numero_ere / id la plus élevée
     const currentEra = erasData.reduce((maxEra, era) => {
         const currentNum = Number(era.numero_ere || era.id) || 0;
         const maxNum = Number(maxEra.numero_ere || maxEra.id) || 0;
@@ -858,7 +871,6 @@ function renderCurrentEra(erasData, unitsData) {
         return;
     }
 
-    // 2. Affichage du Header / Titre de l'ère
     const eraName = currentLang === 'fr' 
         ? (currentEra.name_fr || currentEra.name_en) 
         : (currentEra.name_en || currentEra.name_fr);
@@ -872,12 +884,10 @@ function renderCurrentEra(erasData, unitsData) {
 
     gridContainer.innerHTML = '';
     
-    // 3. Clés de comparaison pour trouver les unités liées
     const targetEraEn = (currentEra.name_en || '').trim().toLowerCase();
     const targetEraFr = (currentEra.name_fr || '').trim().toLowerCase();
     const targetEraNum = Number(currentEra.numero_ere || currentEra.id);
 
-    // 4. Filtrage des unités correspondant à cette ère
     const filteredUnits = (unitsData || []).filter(unit => {
         let unitEraEn = '';
         let unitEraFr = '';
@@ -902,17 +912,15 @@ function renderCurrentEra(erasData, unitsData) {
         return matchEn || matchFr || matchNum;
     });
 
-    // 5. Cas où aucune unité n'est trouvée
     if (filteredUnits.length === 0) {
         const noUnitsText = (translations[currentLang] && translations[currentLang]['no-units']) 
             ? translations[currentLang]['no-units'] 
             : (currentLang === 'fr' ? 'Aucune unité trouvée' : 'No units found');
 
-        gridContainer.innerHTML = `<div style="grid-column: span 3; font-size:11px; color:#aaa; padding:10px;">${noUnitsText}</div>`;
+        gridContainer.innerHTML = `<div style="grid-column: 1 / -1; font-size:11px; color:#aaa; padding:10px;">${noUnitsText}</div>`;
         return;
     }
 
-    // 6. Injection des cartes d'unités (Nom, Image, et Lien vers la page)
     filteredUnits.forEach(unit => {
         let uName = 'Unknown';
         if (unit.name && typeof unit.name === 'object') {
@@ -923,7 +931,6 @@ function renderCurrentEra(erasData, unitsData) {
 
         const uImg = unit.image || '';
         
-        // S'assure que le lien pointe vers le dossier filtre-recherche si c'est un lien relatif simple
         let uPage = unit.page || '#';
         if (uPage !== '#' && !uPage.startsWith('http') && !uPage.startsWith('/') && !uPage.startsWith('filtre-recherche/')) {
             uPage = 'filtre-recherche/' + uPage;
@@ -972,9 +979,9 @@ function renderNews(newsData) {
     if (!newsContainer) return;
     newsContainer.innerHTML = '';
 
-    const top15News = newsData.slice(0, 15);
+    const top10news = newsData.slice(0, 10);
 
-    top15News.forEach(news => {
+    top10news.forEach(news => {
         const title = news.title || 'No Title';
         const link = news.link || '#';
         const author = news.author || 'Unknown';
