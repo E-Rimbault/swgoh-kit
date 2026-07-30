@@ -147,24 +147,30 @@
         <script>
             // Dictionnaire français
             const translationsFr = {
-                "big-title": "",
-                "title": "<u></u>",
-                "description": "",
+                "big-title": "Dark Jar Jar",
+                "title": "<u>Dark Jar Jar</u>",
+                "description": "Une menace fantôme qui (soi-disant) manipulerait son entourage en lui inspirant un faux sentiment de sécurité.",
 
-                "basic-attack-title": "<u>Attaque Basique: </u>",
-                "basic-attack": "",
+                "darksid": "Coté Obscur",
+                "support": "Soutien",
+                "leader": "Chef",
+                "gungan": "Gungan",
+                "sith": "Sith",
 
-                "special-attack1-title": "<u>Attaque Spéciale : (délai : )</u>",
-                "special-attack1": "",
+                "basic-attack-title": "<u>Attaque Basique: Missa vous faire mal</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à la cible ennemie et lui inflige choc pendant 1 tour. Pendand son tour, si tous les alliés sont Sith, inflige des effets supplémentaires qui durent 1 tour :\n\n- Inflige un malus de ténacité à tous les ennemis qui n'en disposent pas.\n- Si un ennemi avait Immunité aux dégâts, la dissipe et tous les alliés Sith gagnent Immunité aux dégâts.\n- Si la cible ennemie a 3 cumuls ou plus de Saignement, lui inflige Marque de mort.",
 
-                "special-attack2-title": "<u>Attaque Spéciale : (délai : )</u>",
-                "special-attack2": "",
+                "special-attack1-title": "<u>Attaque Spéciale : Voussa gens vont mourir (délai : 4)</u>",
+                "special-attack1": "Inflige des dégât spéciaux à la cible ennemie et les ennemis subissant Manipulation sont afectés par Cecité et obtiennent un bonus de vitesse pendant 1 tour. S'il n'y a pas de Légendes Galactiques alliés ou des alliés de l'Empire Sith, la cible ennemie subit <u class='speciale'>Manipulation</u> si elle ne subissait pas cet effet et si aucun autre ennemi n'en étaitpas affecté, jusqu'à la fin de l'affrontement (ne peut pas être copié, dissipé ou résisté), et ils utilisent Camouflage pendant 2 tours.\n\nDark Jar Jar obtient Plan déjoués pendant 2 tours. Il dissipé Marque de tous les alliés, puis un allié Sith aléatoire obtient un bonus de protection (50 %) jusqu'à la fin de l'affrontement et subit Marque tant qu'il dispose de cette protection. Lorsque cette Maque expire, un autre allié Sith aléatoire subit Marque et obtient un bonus de protection (50 ) jusqu'à la fin de l'affontement, jsuqu'à ce que tous les alliés Sith aient été Marqués par cette capacité.\n\n<u class='speciale'>Manipulation :</u> les capacités obtiennent des effets supplémentaires.",
 
-                "lead-ability-title": "<u>Capacité de Chef: </u>",
-                "lead-ability": "",
+                "special-attack2-title": "<u>Attaque Spéciale : Que la haine coule en voussa (délai : 4)</u>",
+                "special-attack2": "Inflige des dégât spéciaux à tous les ennemis et leur inflige Résidu de plasma pendant 2 tours. S'il y a un générateur de bouclier, il subit 15 instances de dégâts supplémentaires. Les alliés Sith gagnent un bonus de défense et Prévoyance pendant 2 tours.\n\nDark Jar Jar utilise <u class='speciale'>Siphonnage de la protection maximale</u> de tous les ennemis qui ne sont pas affecté par Manipulation (ne peut pas être résistés), puis tous les alliés Sith gagnent cette quantité jusqu'à la fin de l'affrontement.\n\n<u class='speciale'>Siphonnage de la protection maximale :</u> gagne un pourcentage de protection maximale égal au Siphonnage de cette unité jusqu'à la fin de l'affrontement, et les cibles perdent la même quanté de protection maximale (cumulatif, excclut les boss de raid, et les Légendes Galactiques).\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes et s'il n'y as pas de Légende galactique alliée :</u> les alliés Sith gagnent 5 % d'attaque (cumulatif) par cumul de Siphonnage sur Dark Jar Jar jusqu'à la fin de l'affrontement. Inflige Immunité aux soins à tous les ennemis pendant 1 tours (ne peut pas être résisté). Les ennemis qui ne diposent pas de protection ne peuvent pas résister à résidu de plasma et, chaque fois que cet effet expire, il est réappliqué à la fin du tour si Dark Jar Jar est actif. Si un ennemi subit Saignement, inflige un cumul de Saignement à tous les ennemis qui n'en disposent pas jusqu'à la fin de l'affrontement.",
 
-                "unique-ability-title": "<u>Capacité Unique : </u>",
-                "unique-ability": "",
+                "lead-ability-title": "<u>Capacité de Chef: La Force libérera à missa</u>",
+                "lead-ability": "Chaque fois que Dark Jar Jar subit Entrave des capacités, Confusion ou Étourdissement, l'ennemi qui l'a infligé subit le même affaiblissement pendant 1 tour (ne peut pas être dissipé). Les alliés Sith sont immunisés contre Investigation.\n\nAu début de chaque affrontement, Dark Jar Jar s'inflige Marque (ne peut pas petre dissipé) jusqu'à ce qu'il subisse des dégâts. Au début du premier tour de chaque ennemi , un allié Sith aléatoire obtient un tour bonus s'il n'a pas encore joué. Les alliés Sith sont immunisés contr les manipulations de délais jsqu'à ce qu'ils utilisent une capacité spéciale. Dark Jar Jar ignore les effets de Raillerie lors de son premier tour.\n\nChaque fois que la santé d'un ennemi subissant Manipulation tombe en dessous de 100 %, les alliés Sith obtiennent un cumul d'Obscure infusion (cumulatif, 3 max.) (ne peut pas être dissipé ou empêché) jusqu'à la fin de la bataille. Chaque fois qu'un ennemi subissant Manipulation obtient une amélioration, Dark Jar Jar gagne 3 cumuls de Siphonnage. Chaque fois qu'un ennemi subissant Manipulation est affecté par un affaiblissement, l'ennemi le plus faible subit Peur pendant 1 tour s'il ne l'a pas déjà.\n\nTant qu'un allié Sith subit Marque, Dark Maul a 100 % de chances de contre-attaque et de défense et inflige 10 % de dégâts réels bonus basés sur sa santé maximale.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> chaque fois qu'un allié Sith subit Entrave des capacités, Confusion ou Étourdissement, l'ennemi qui l'a infligé subit le même affaiblissement pendant 1 tour (ne peut pas être dissipé). Tant que les alliés Sith subissent Étourdissement et reçoivent des dégâts d'une attaque, inflige 100 % des dégâts reçus à l'attaquant sous forme de dégâts réels (ces dégâts ne peuvent pas les éliminer). Chaque fois qu'un allié Sith subit Peur, à la fin du tour, il s'inflige 1 dégât réel (ces dégâts ne peuvent pas le vaincre)",
+
+                "unique-ability-title": "<u>Capacité Unique : La menace fantôme</u>",
+                "unique-ability": "Au début de la bataille, Dark Jar Jar obtient Haine pour le reste de la bataille (ne peut pas être copié, dissipé ou empêché). Chaque fois qu'un ennemi subit des dégâts de Saignement, Dark Jar Jar obtient un tour bonus après le permier tour de l'ennemi dans l'emplacement de chef lors de chaque affrontement.\n\nChaque fois qu'un ennemi est affecté par Manipulation commence son tour, il subit 50 % de dégâts de santé maximale (ces dégâts ne peuvent pas l'éliminer), puis sa santé et sa protection s'égalise avec l'ennemi le plus fort, et Dark Jar Jar obtient un tour bonus.\n\nChaque fois que Dark Jar Jar utilise toutes ses capacités, l'allié Dark Sidious obtient <u class='speciale'>Pouvoirs d'urgence</u> s'il ne les avait pas déjà, pendant 2 tours (ne peut pas être copié, dissipé ou empêché). Une fois cet effet expiré, Dark Jar Jar doit utiliser toutes ses capacité à nouveau pour que Dark Sidious obtienne Pouvoirs d'urgence.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes Arènes et s'il n'y a pas de Légende galactique alliée :</u> tous les alliés Sith gagnent Haine (ne peut pas être copié, dissipé ou empêché) pour le reste de la bataille. Chaque fois qu'un allié Sith subit Entrave des capacités, il gagne Massivent maîtrisé pendant 1 tour.\n\n<u class='speciale'>Pouvoirs d'urgence :</u> +200 % de défense, d'attaque, 100 % de chances de contre-attaque et +100 de vitesse. Au début du tour de cette unité, tous les alliés récupèrent 100 % de santé et de protection.",
             };
 
             const originalTexts = {};
