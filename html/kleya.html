@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Kleya Marki</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/kleya/kleya-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/kleya/kleya-image.png" alt="Kleya Marki" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Kleya Marki</u></h1>
+            <p id="description">
+                A tactical intelligence operative and Attacker, unafraid to cross lines to ensure the Rebellion survives
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">rebel</a>
+                <a class="capacite" href="../classement-perso/combattant-rebelle.html" id="rebel-fighter">Rebel Fighter</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/kleya/kleya.png" alt="kleya marki"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: What Revolution Looks Like</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt=" Kleya Marki basic" src="../image-perso/kleya/kleya-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. If Luthen Rael was an ally at the start of battle, this attack can't be evaded. If all allies are Rebel Fighters, this attack will always critically hit if able, and deals +150% Critical Damage against Undermined enemies.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : I Know What I Want (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Kleya Marki special 1" src="../image-perso/kleya/kleya-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                If target enemy is not Undermined, <u class="speciale">Undermine</u> them for 1 turn, which can't be dispelled. Call Luthen Rael and another random Rebel Fighter ally to assist, then Kleya assists. Rebel Fighter allies gain Offense Up for 2 turns at the end of that turn.
+                <br><br>
+                <u class="speciale">Undermine:</u> +25 Speed; -25% Critical Avoidance and Critical Chance; can't gain bonus Turn Meter
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : This Is Do or Die (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Kleya Marki special 2" src="../image-perso/kleya/kleya-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to all enemies and inflict Burning on them for 1 turn. Remove 50% Turn Meter from Undermined enemies and increase their cooldowns by 1. Target ally gains Keen Stratagem until the end of encounter.
+                <br><br>
+                If target ally is Luthen Rael and he has 25% Health or less, defeat him, and he can't be revived. When Luthen is defeated this way, revive all Rebel Fighter allies with 100% Health, grant all Rebel Fighter allies <u class="speciale">Rebel Network</u> until the end of encounter, which can't be copied, dispelled, or prevented, and Ability Block all enemies for 2 turns, which can't be dispelled, evaded, or resisted.
+                <br><br>
+                <u class="speciale">Rebel Network:</u> +30% Critical Chance, +30 Speed, and immune to Healing Immunity; when this character is defeated, revive with 100% Health; whenever this character defeats an enemy, dispel all debuffs on this character, and all allies recover 100% Health and Protection
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : I Don't Have Lately, I Have Always</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Kleya Marki unique" src="../image-perso/kleya/kleya-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Kleya has +30% Critical Chance and +50% Potency. Allies with Keen Stratagem have +25% Accuracy and ignore Taunt.
+                <br><br>
+                Kleya gains 10% Turn Meter whenever a Rebel Fighter ally is damaged (once per turn; 20% if that ally is Luthen Rael). Whenever an Undermined enemy inflicts Kleya with a debuff, she dispels all debuffs on herself and reduces her cooldowns by 1. Whenever Luthen Rael uses a Special ability, inflict the target enemy with Undermine for 1 turn.
+                <br><br>
+                While Luthen Rael is active, Kleya can't be targeted and has +100% Evasion. If Cassian Andor (Undercover) is active and Luthen was not at the start of battle, Kleya gains the same benefits. The first time Luthen Rael's Health is reduced to 25% or less, he gains Damage Immunity for 1 turn and Kleya takes a bonus turn.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in 3v3 Grand Arenas:</u> At the start of battle, if there are no Galactic Legend allies and the ally in the Leader slot is Saw Gerrera or Mon Mothma, Kleya gains bonuses based on the Leader. If the Leader is Saw Gerrera, Kleya gains <u class="speciale">Axis</u>, if the Leader is Mon Mothma, Kleya gains <u class="speciale">Curator</u>, until the end of encounter.
+                <br><br>    
+                If Luthen Rael is an ally, Kleya can't be defeated until his Health is reduced to 25% or less. The first time Luthen Rael's Health is reduced to 25% or less, Kleya resets the cooldown of This Is Do or Die.
+                <br><br>
+                <u class="speciale">Axis:</u> Whenever Kleya uses I Know What I Want, inflict Buff Immunity on target enemy for 1 turn, which can't be dispelled; all allies gain Evasion Up 2 turns.
+                <br><br>
+                <u class="speciale">Curator:</u> Whenever Kleya uses This Is Do or Die, Rally Mon Mothma and all Rebel Fighter allies. All allies gain Critical Damage Up for 2 turns. Mon Mothma and all other Rebel Fighter allies gain 30% Offense (stacking) and are immune to Turn Meter reduction for 2 turns. If an ally already has Keen Stratagem, grant Keen Stratagem to all other Rebel Fighter allies until the end of encounter.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Kleya Marki",
+                "title": "<u>Kleya Marki</u>",
+                "description": "Une agente de renseignement tactique et attaquante, qui n'hésite pas à franchir les lignes pour assurer la survie de la Rébellion.",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "rebel": "Rebelle",
+                "rebel-fighter": "Combattant Rebelle",
+
+                "basic-attack-title": "<u>Attaque Basique: Le véritable visage de la révolution</u>",
+                "basic-attack": "Inflige des dégâts physisques à une cible ennemie. Si Luthen Rael était un allié au début de la bataille, cette attaque ne peut pas être esquivée. Si tous les alliés sont des combattants rebelles, cette attaque infligera toujours un coup critique si possible, et inflige +150 % de dégâts critiques aux ennemis subissant Démoralisation.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Je sais très bien ce que je veux (délai : 4)</u>",
+                "special-attack1": "Si la cible ennemie ne subit pas Démoralisation, inflige <u class='speciale'>Démoralisation</u> pendant 1 tour (ne peut pas être dissipé). Invoque Luthen Rael et un autre allié combattant rebelle aléatoire, puis Kleya assiste. Les alliés combattants rebelles obtiennent un bonus d'attaque pendant 2 tours à la fin de ce tour.\n\n<u class='speciale'>Démoralisation :</u> +25 de vitesse, -25 % d'esquive des critiques et de chances de coup critique. Impossible d'obtenir des bonus de jauge de tour.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : C'est quitte ou double (délai : 4)</u>",
+                "special-attack2": "Inflige des dégâts physiques à tous les ennemis et leur inflige Brûlure pendant 1 tour. Supprime 50 % de jauge de tour des ennemis qui subissent Démoralisation et augment leurs délai de 1. L'allié ciblé obtient Stratagème affûté jusqu'à la fin de l'affrontement.\n\nSi l'allié ciblé est Luthen Rael et qu'il dispose de 25 % de santé ou moins, il est vaincu et ne peut pas être ranimé. Lorsque Luthen est vaincu de cette manière, ranime tous les alliés combattants rebelles avec 100 % de santé et acccorde <u class='speciale'>Réseau Rebelle</u> à tous les alliés combattants rebelles jusqu'à la fin de la bataille (ne peut pas être copié, dissipé ou empêché), et inflige Entrave des capacités à tous les ennemis pendant 2 tours (ne peut pas être dissipé, évité ou résisté).\n\n<u class='speciale'>Réseau Rebelle :</u> +30 % de chances de coup critique, +30 de vitesse, et immunisation contre l'Immunité aux soins. Lorsque ce personnage est vaincu, il est ranimé avec 100 % de santé. Chaque fois que ce personnage élimine un ennemi, dissipe tous les affaiblissements de ce personnagen et tous les alliés récupèrent 100 % de santé et de protection.",
+
+                "unique-ability-title": "<u>Capacité Unique : Pour moi c'et chaque seconde</u>",
+                "unique-ability": "Kleya a +30 % de chances de coup critique et +50 % de pouvoir. Les alliés disposant de Stratagème affûté ont +25 % de précision et ignorent Raillerie.\n\nKleya gagne 10 % de jauge de tour chaque fois qu'un combattant Rebelle allié subit des dégâts (une fois par tour, 20 % si cet allié est Luthen Rael). Chaque fois qu'un ennemi subissant Démoralisation infilige un affaiblissement à Kleya, elle dissipe tous les affaiblissement dont elle dispose et réduit ses délais de 1. Chaque fois que Luthen Rael utilise une capacité spéciale, inflige Démoralisation à la cible ennemie pendant 1 tour.\n\nTant que Luthen Rael est actif, Kleya ne peut pas être prise pour cible et dipose de +100 % d'esquive. Si Cassian Andor (infiltré) est actif et que Luthen n'était pas présent au début de la bataille, Kleya obtient les mêmes avantages. La première fois que la santé de Luthen Rael est réduite à 25 % de santé ou moins, il obtient Immunité aux dégâts pendant 1 tour et Kleya joue un tour bonus.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes en 3c3 :</u> Au début de la bataille, s'il n'y a pas d'alliés Legendes Galactiques et que l'allié dans l'emplacement de chef est Saw Gerrera ou Mon Mothma, kleya gagne des bonus basés sur le chef. Si le chef est Saw Gerrera, Kleya gagne <u class='speciale'>Axe</u>. Si le chef est Mon Mothma, Kleya gagne <u class='speciale'>Conservateur</u> pour le reste de l'affrontement.\n\nSi Luthen Rael est un allié, Kleya ne peut pas être vaincue tant que sa santé n'est pas réduite à 25 % ou moins. La première fois que la santé de Luthen Rael est réduite à 25 % ou moins, Kleya réinitialise le délai de C'est quitte ou double.\n\n<u class='speciale'>Axe :</u> Chaque fois que Kleya utilise sa capacité de base, inflige Immunité aux amélioration et Démoralisation à la cible ennemie pendant 1 tour (ne peut pas être dissipé). Tous les alliés gagnent un bonus d'esquive et un bonus d'attaque pendant 2 tours.\n\n<u class='speciale'>Conservateur :</u> Chaque fois que Kleya utilise C'est quitte ou double, rallie Mon Mothma est tous les combattants rebelles alliés. Tous les alliés gagnent un bonus de dégâts critiques pendant 2 tours. Mon Mothma et tous les autres combattants rebelles alliés gagent 30 % d'attaque (cmulatif) et sont immunisé contre la réduction de jauge de tour. Si un allié a déjà Stratagème affûté, confère Stratagème affûté à tous les autres combattant rebelles alliés jusqu'à la fin de la bataille.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "KLEYA"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
