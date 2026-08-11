@@ -37,26 +37,46 @@
       letter-spacing: 1px;
     }
 
-    /* Layout */
+    /* Layout Desktop */
     #sidebar {
       position: fixed;
       top: 0;
       left: 0;
       height: 100vh;
       width: var(--sidebar-width);
-      background-color: rgba(10, 10, 10, 0.95);
-      backdrop-filter: blur(5px);
+      background-color: rgba(10, 10, 10, 0.98);
+      backdrop-filter: blur(8px);
       padding: 25px;
       overflow-y: auto;
       border-right: 2px solid var(--sw-border);
-      z-index: 1000;
-      transition: transform 0.3s ease;
+      z-index: 1050;
+      transition: transform 0.3s ease-in-out;
     }
 
     #content {
       margin-left: var(--sidebar-width);
       padding: 30px;
       min-height: 100vh;
+    }
+
+    /* Overlay sombre pour mobile */
+    #sidebar-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(3px);
+      z-index: 1040;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    #sidebar-overlay.active {
+      display: block;
+      opacity: 1;
     }
 
     .filter-box {
@@ -76,7 +96,6 @@
       padding-bottom: 5px;
     }
 
-    /* Barre de recherche personnalisée */
     .search-input {
       background: rgba(0, 0, 0, 0.6);
       border: 1px solid var(--sw-border);
@@ -95,7 +114,6 @@
       outline: none;
     }
 
-    /* Sections des Ères */
     .era-section {
       background: rgba(20, 20, 20, 0.6);
       border: 1px solid var(--sw-border);
@@ -128,14 +146,12 @@
       text-shadow: 0 0 10px rgba(0, 162, 255, 0.3);
     }
 
-    /* Grille d'unités */
     .units-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       gap: 20px;
     }
 
-    /* Cartes */
     .card {
       background-color: var(--sw-bg-card);
       border: 1px solid #222;
@@ -214,7 +230,6 @@
       box-shadow: 0 0 10px var(--sw-blue-glow);
     }
 
-    /* Liens rapides */
     .era-link-item {
       display: block;
       background: #1a1a1a;
@@ -235,7 +250,6 @@
       padding-left: 16px;
     }
 
-    /* CLASSE DE SURBRILLANCE POUR LE SUIVI DE DÉFILEMENT (Scrollspy) */
     .era-link-item.active-era {
       background: rgba(0, 162, 255, 0.15);
       color: var(--sw-blue-text);
@@ -258,6 +272,7 @@
       height: 45px;
       font-weight: bold;
       cursor: pointer;
+      box-shadow: 0 0 10px rgba(0, 162, 255, 0.5);
     }
 
     #mobile-nav-toggle {
@@ -266,17 +281,17 @@
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 1001;
+      z-index: 1030;
       background: var(--sw-blue-text);
       color: #000;
       border: none;
-      padding: 10px 25px;
+      padding: 12px 24px;
       border-radius: 30px;
       font-weight: bold;
       font-family: var(--font-titles);
+      box-shadow: 0 4px 15px rgba(0, 162, 255, 0.4);
     }
 
-    /* Langue & Navigation */
     .lang-toggle {
       display: flex;
       justify-content: center;
@@ -298,22 +313,40 @@
       border: 2px solid var(--sw-blue-text);
     }
 
+    /* Adaptabilité Écran Mobile (< 992px) */
     @media (max-width: 992px) {
       #sidebar {
-        left: -100%;
-        width: 320px;
+        transform: translateX(-100%);
+        width: 300px;
+        max-width: 85vw;
+        left: 0;
+        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.8);
       }
 
       #sidebar.open {
-        transform: translateX(100%);
+        transform: translateX(0);
       }
 
       #content {
         margin-left: 0;
+        padding: 15px;
       }
 
       #mobile-nav-toggle {
         display: block;
+      }
+
+      .era-section {
+        padding: 15px;
+      }
+
+      .units-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
+      }
+
+      .card-img-container {
+        height: 110px;
       }
     }
   </style>
@@ -323,6 +356,7 @@
 
   <button id="mobile-nav-toggle">🧭 NAVIGATION</button>
   <button id="scrollTopBtn">↑</button>
+  <div id="sidebar-overlay"></div>
 
   <div id="sidebar">
     <div id="filter-title" style="font-family: var(--font-titles); letter-spacing: 1px; margin-bottom: 15px; text-align: center; color: #fff; font-weight: bold;">ERA HOLOCRON</div>
@@ -518,11 +552,10 @@
           return nameA.localeCompare(nameB);
         });
 
-        // TEXTE DU LIEN DU MENU AVEC COMPTEUR DYNAMIQUE D'UNITÉS
         const link = document.createElement("a");
         link.href = `#${eraTargetId}`;
         link.className = "era-link-item text-truncate d-flex justify-content-between align-items-center";
-        link.setAttribute("data-target", eraTargetId); // Utile pour le système de suivi
+        link.setAttribute("data-target", eraTargetId);
         
         const labelSpan = document.createElement("span");
         labelSpan.className = "text-truncate me-2";
@@ -536,14 +569,13 @@
         link.appendChild(labelSpan);
         link.appendChild(countBadge);
         
-        link.onclick = () => { document.getElementById("sidebar").classList.remove("open"); }; 
+        link.onclick = () => closeSidebar(); 
         linksContainer.appendChild(link);
 
         const section = document.createElement("div");
         section.className = "era-section";
         section.id = eraTargetId;
 
-        // AJOUT DU COMPTEUR AUSSI DANS LE TITRE DE LA SECTION POUR PLUS DE CLARTÉ
         let headerHtml = `
           <div class="era-header">
             ${era.image ? `<img src="${era.image}" alt="${eraName}" onerror="this.style.display='none'">` : ''}
@@ -607,11 +639,9 @@
         container.innerHTML = `<p class="text-center text-muted p-4">${isFr ? "Aucun résultat pour votre recherche." : "No results match your search."}</p>`;
       }
 
-      // Lancer le calcul de la surbrillance immédiatement après le rendu de la timeline
       spyScroll();
     }
 
-    // FONCTION DE SUIVI DÉNAMIQUE DU DÉFILEMENT (SCROLLSPY)
     function spyScroll() {
       const sections = document.querySelectorAll(".era-section");
       const navLinks = document.querySelectorAll("#eras-quick-links .era-link-item");
@@ -620,7 +650,6 @@
       
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        // On considère l'ère active si le scroll a dépassé le haut de l'ère (avec une marge de 100px pour le confort visuel)
         if (window.scrollY >= sectionTop - 100) {
           currentSectionId = section.id;
         }
@@ -647,11 +676,32 @@
       initPage();
     }
 
-    document.getElementById("mobile-nav-toggle").onclick = () => document.getElementById("sidebar").classList.toggle("open");
-    
+    /* Gestion Menu Mobile & Overlay */
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("sidebar-overlay");
+
+    function openSidebar() {
+      sidebar.classList.add("open");
+      overlay.classList.add("active");
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove("open");
+      overlay.classList.remove("active");
+    }
+
+    document.getElementById("mobile-nav-toggle").onclick = () => {
+      if (sidebar.classList.contains("open")) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    };
+
+    overlay.onclick = closeSidebar;
+
     const scrollBtn = document.getElementById("scrollTopBtn");
     
-    // ÉCOUTEUR UNIQUE DU SCROLL COMPRENANT LE BOUTON RETOUR EN HAUT + LE SCROLLSPY
     window.onscroll = () => {
       scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
       spyScroll();
