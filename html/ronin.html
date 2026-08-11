@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">The Ronin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/ronin/ronin-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/ronin/ronin-image.png" alt="The Ronin" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>The Ronin</u></h1>
+            <p id="description">
+                A masterless Sith assassin who grows deadlier with every strike, draining his enemy's power to fuel his own relentless assault
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/sith.html" id="sith">Sith</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+            <br>
+            <section class="header-invocation">
+                <a href="../html/r5-d56.html" class="invocation-link">
+                    <img class="invocation-image main-image" src="../image-perso/ronin/r5-d56-image.png" alt="R5-D56">
+                </a>
+                <h2 class="invocation" id="invocation-title">
+                    <u style="margin-left: 25px;">Invocation: R5-D56</u>
+                </h2>
+            </section>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Wandering Steel Hums</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="The Ronin basic" src="../image-perso/ronin/ronin-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to the target enemy and gain Offense Up for 1 turn. Each time this ability is used, increase the damage of Oaths Buried Beneath Silence by 20% (stacking, max 100%) until the end of battle.
+                <br><br>
+                R5-D56 gains 10% Max Health (stacking, max 100%) until the end of battle. If the target enemy is Shocked and the ally in the Leader slot is a Gungan Sith, this attack is guaranteed to critically hit if able.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Oaths Buried Beneath Silence (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="The Ronin special" src="../image-perso/ronin/ronin-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to the target enemy. If they have Resilient Defense or Taunt, this ability deals 300% more damage and inflicts Armor Shred until the end of the encounter, which can't be evaded or resisted. Inflict 2 stacks of Bleed (max 6) until the end of the encounter, which can't be dispelled or resisted.
+                <br><br>
+                Each time this ability is used, increase the damage of Wandering Steel Hums by 100% (stacking, max 300%) until the end of battle. The Ronin Siphons Critical Damage from the target enemy, which can't be resisted, and R5-D56 gains the same amount.
+                <br><br>
+                <u class="speciale">Siphon Critical Damage:</u> Gain a percentage of Critical Damage equal to this unit's Siphon until the end of the encounter and the target loses that much Critical Damage (stacking, excludes raid bosses and Galactic Legends)
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Mercy Left Behind</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="The Ronin unique" src="../image-perso/ronin/ronin-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of battle, The Ronin gains 10 stacks of <u class="speciale">Boiling Point</u>, which can't be copied or dispelled. At the start of each of his turns, he dispels 1 stack. If there is a Gungan Sith ally in the Leader slot, dispel an additional 5 stacks. If there is a Sith Healer ally, dispel an additional 5 stacks. When Boiling Point expires, summon R5-D56.
+                <br><br>
+                The Ronin has +50% Critical Damage. Whenever a Manipulated enemy begins their turn, The Ronin gains Advantage for 1 turn. At the start of his turn, he gains 25% Critical Damage (stacking) for each enemy with Resilient Defense, Stealth, or Taunt until the end of his turn.
+                <br><br>
+                Whenever The Ronin or R5-D56 scores a critical hit, both gain 3 Siphon until the end of the encounter. When R5-D56 is summoned, The Ronin gains 30% Defense Penetration and Max Health until end of the battle and all Sith allies gain 100% bonus Protection for 1 turn. Whenever an enemy attacks out of turn, The Ronin gains 10% Turn Meter.
+                <br><br>
+                <u class="speciale">Boiling Point:</u> When stacks reach zero, R5-D56 is summoned
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars and all allies are non-Galactic Legend Sith:</u> While R5-D56 is active, The Ronin has 50 Speed. While The Ronin is active, R5-D56 has 50% Offense. Whenever The Ronin attacks the enemy in the Leader slot, he gains Alert and Speed Up for 2 turns. Whenever a Manipulated enemy starts their turn, The Ronin and R5-D56 gain 5 Siphon until the end of the encounter.
+                <br><br>
+                Allies with Emergency Powers gain 50% Defense Penetration. Whenever an enemy with Bleed gains Resilient Defense, Stealth, or Taunt they lose 10% Max Health (stacking) and The Ronin gains 10% Turn Meter.
+            </p>
+        </div>
+    </div>
+
+        <h2 class="titre"><u class="speciale" id="unique-ability2-title">Unique Ability : R5-D56</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="The Ronin invocation" src="../image-perso/ronin/ronin-unique-r5-d56.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                <u class="red">Dark Side</u>, Attacker, Sith, Droid
+                <br><br>
+                <u class="speciale">[Basic] Arc Jab:</u> Deal Physical damage to the target enemy and Shock them for 1 turn. The Ronin gains Protection Up (50%) for 1 turn. If the target enemy has Bleed, this attack deals 100% more damage.
+                <br><br>
+                <u class="speciale">[Special] Guided Payload:</u> Deal Physical damage to all enemies. Deal an additional instance of damage for each enemy (max 6) with Resilient Defense, Stealth, or Taunt. R5-D56 Siphons Critical Chance from the target enemy, which can't be resisted, and The Ronin gains the same amount. The Ronin has +50 Speed for the rest of the encounter. Inflict a stack of Bleed (max 6) until the end of the encounter, which can't be dispelled or resisted if the enemy has Resilient Defense, Stealth, or Taunt.
+                <br><br>
+                <u class="speciale">[Unique] Follow the Blade:</u> R5-D56 gains 20% Max Health and Protection for each Sith ally. Whenever The Ronin starts his turn, R5-D56 gains a bonus turn. On summon, R5-D56 gains Crit Chance Up and Defense Penetration Up for 2 turns.
+                <br><br>
+                Whenever an enemy gains bonus Turn Meter, he gains 1 stack of Boil Over (max 10) which can't be copied, dispelled, or prevented until the end of the encounter. R5-D56 gains 10% Offense per stack of Boil Over. When R5-D56 reaches 10 stacks of Boil Over, The Ronin gains a Bonus turn and dispels all stacks of Boil Over at the start of that turn.
+                <br><br>
+                <u class="speciale">[Unique] Summoned:</u> This unit's stats scale with the summoner's stats. This unit can only be summoned to the ally slot if it's available. This unit can't be summoned in certain raids. This unit can't be revived. If an effect counts defeated units, this unit doesn't count. When there are no other allied combatants, this unit escapes from battle. A unit can't be revived if this summoned unit exists in their slot.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Le Ronin",
+                "title": "<u>Le Ronin</u>",
+                "description": "Un assassin Sith sans maître qui devient plus mortel à chaque frappe, drainant le pouvoir de son ennemi pour alimenter son propre assaut implacable.",
+
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "sith": "Sith",
+
+                "basic-attack-title": "<u>Attaque Basique: Bourdonnements d'acier errant</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et obtient un bonus d'attaque pendant 1 tour. Chaque fois que cette capacité est utilisée, augemente les dégâts de Serments enfouis sous le silence de 20 % (cumulatif, 100 % max.). jusqu'à la fin de la bataille.\n\nR5-D56 obtient 10 % de santé maximale (cumulatif, 100 % max.) jusqu'à la fin de la bataille. Si la cible ennemi subit Choc et l'allié dans l'emplacement de chef est un Gungan Sith, cette attaque infligera un coup critique si possible.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Serments enfouis sous le silence (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à la cible ennemie. Si elle dispose de Solide défense ou de Raillerie, cette capacité inflige 300 % de dégâts supplémentaires et Destruction d'armure jusqu'à la fin de l'affrontement, ce qui ne peut pas être esquivé ou résisté. Inflige 2 cumuls de saignement (6 max.) jusqu'à la fin de l'affrontement (ne peut pas être dissipé ou résisté).\n\nChaque fois que cette capacité est utilisée, augmente les dégâts de Bourdonnement d'acier errant de 100 % (cumulatif, 300 % max.) jusqu'à la fin de la bataille. Le Ronin utilise Siphonnage des dé&gâts critiques de la cible ennemie (ne peut pas êttre résisté), et R5-D56 gagne la même quantité.\n\n<u class='speciale'>Siphonnage des dégâts critiques :</u> obtient un pourcentage de dégâts critiques à hauteur du Siphonnage de cette unité jusqu'à la fin de l'affrontement. La cible ennemie perd la même quantité de dégâts critiques (cumulatif, à l'exception des boss de raid et des Légendes Galactiques).",
+
+                "unique-ability1-title": "<u>Capacité Unique : Miséricorde abandonée</u>",
+                "unique-ability1": "Au début de la bataille, Le Ronin obtient 10 cumuls de <u class='speciale'>Point d'ébullition</u> (ne peut pas être copié ou dissipé). Au début de chacun de ses tours, il dissipé 1 cumul. S'il y a un allié Sith Gungan dans l'emplacement de chef, dissipe 5 cumuls supplémentaires. S'il y a un soigneur Sith allié, dissipe 5 cumuls supplémantaires. Lorsque Point débullition expire, invoque R5-D56..\n\nLe Ronin a +50 % de dégâts critiques. Chaque fois qu'un ennemi subissant Manipulation commence son tour, Le Ronin obtient l'avantage pendant 1 tour. Au début de son tour, il gagne 25 % de dégâts critiques (cumulatif) pour chaque ennemi disposant de Solide défense, Camouflage ou Raillerie jusqu'à la fin de son tour.\n\nChaque fois que le Ronin ou R5-D56 inflige un coup critique, les deux obtiennent 3 cumuls de Siphonnage jusqu'à la fin de l'affrontement. Lorsque R5-D56 est invoqué, Le Ronin gagne 30 % de pénétration de défense et de santé maximale jusqu'à la fin de la bataille et tous les alliés Sith obtiennent 100 % de bonus de protection pendant 1 tour. Chaque fois qu'un ennemi attaque en dehors de son tour, Le Ronin gagne 10 % de jauge de tour.\n\n<u class='speciale'>Point d'ébullition :</u> lorsque les cumuls atteignent zéro, R5-D56 est invoqué.\n\n<u class='omicron'>Amélioration omicron : Dans les Guerres de territoire et si tous les alliés ne sont pas des Légendes Galactiques Sith :</u> tant que R5-D56 est actif, Le Ronin a 50 de vitesse. Tant que Le Ronin est actif, R5-D56 a 50 % d'attaque. Chaque fois que Le Ronin attaque l'ennemi dans l'emplacement de chef, il gagne En aerte et un bonus de vitesse pendant 2 tours. Chaque fois qu'un ennemi subissant Manipulation commence son tour, Le Ronin et R5-D56 obtiennent 5 cumuls de Siphonnage jusqu'à la fin de l'affrontement.\n\nLes alliés avec Pouvoirs d'urgence gagnent 50 % de pénétration de défense. Chaque fois qu'un ennemi subissant Saignement obtient Solide défense, Camouflage ou Raillerie, il perd 10 % de santé maximale (cumulatif) et Le Ronin gagne 10 % de jauge de tour.",
+                
+                "unique-ability2-title": "<u class='speciale'>Capacité Unique : R5-D56</u>",
+                "unique-ability2": "<u class='red'>Coté Obscur</u>, attaquant, Sith, droïde\n\n<u class='speciale'>[Basique] Coup en arc :</u> Inflige des dégâts physiques à la cible ennemie et lui inflige Choc pendant 1 tour. Le Ronin gagne un bonus de protection (50 %) pendant 1 tour. Si la cible ennemi subit Saignement, cette attaque inflige 100 % de dégâts supplémentaires.\n\n<u class='speciale'>[Spéciale] Charge guidée :</u> Inflige des dégâts physiques à tous les ennemis. Inflige une instance de dégâts supplémentaires pour chaque ennemie (6 max.) disposant de Solide Défense, de Camouflage ou de Raillerie. R5-D56 utilise Siphonnage des chances de coup critique sur la cible ennemie, ce qui ne peut pas être résisté, et Le Ronin a +50 de vitesse pour le reste de l'affontement. Inflige 1 cumul de Saignement (6 max.) jusqu'à la fin de l'affrontement, qui ne peut pas être dissipé ou résisté si l'ennemie dispose de Solide Défense, de Camouflage ou de Raillerie.\n\n<u class='speciale'>[Unique] Suivez la lame :</u> R5-D56 gagne 20 % de santé maximale et de protection pour chaque allié Sith. Chaque fois que Le Ronin commece son tour, R5-D56 gagne un tour bonus. Lors de son Invocation, R5-D56 gagne un bonus de chances de coup critique et un bonus de pénétration de défense pendant 2 tours.\n\nChaque fois qu'un ennemi gagne un bonus de jauge de tour, il obtient 1 cumul d'Ébullition (10 max.) (ne peut pas être copié, dissipé ou empêché) jusqu'à la fin de l'affrontement. R5-D56 gagne 10 % d'attaque par cumul d'Ébullition. lorsque R5-D56 atteint 10 cumuls d'Ébullition, Le Ronin gagne un tour bonus et dissipe tous les cumuls d'Ébullition au début de ce tour.\n\n<u class='speciale'>[Unique] Invoqué :</u> Les statistiques de cette unité évolue en fonction de celles de l'Invocateur. Cette unité ne peut être invoquée que sur l'emplacement allié s'il est disponible. Cette unité ne peut être invoquée dans certains raids. Cette unité ne peut pas être ranimée. Si un effet compte les unités vaincues, cette unité n'est pas prise en compte. S'il n'y a pas d'autres combattants alliés, cette unité fuit la bataille. Une unité ne peut pas être ranimée si cette unité invoquée existe dans son emplacement.",
+
+                "invocation-title": "<u style='margin-left: 25px'>Invocation : R5-D56</u> "
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "THERONIN"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
