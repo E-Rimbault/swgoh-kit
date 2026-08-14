@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="utf-8">
   <title>SWGOH Database - Effect Holocron</title>
@@ -56,6 +56,30 @@
     .filter-box h5 { 
         font-size: 0.85rem; text-transform: uppercase; color: var(--sw-blue-text); 
         margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 5px;
+    }
+
+    /* Description de l'effet sélectionné */
+    #effect-detail-card {
+      background: rgba(18, 18, 18, 0.9);
+      border: 1px solid var(--sw-blue-text);
+      box-shadow: 0 0 15px rgba(0, 162, 255, 0.2);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 25px;
+      display: none;
+    }
+
+    #effect-detail-card.debuff-mode {
+      border-color: var(--sw-red-text);
+      box-shadow: 0 0 15px rgba(255, 77, 77, 0.2);
+    }
+
+    .effect-description-text {
+      white-space: pre-line;
+      line-height: 1.5;
+      color: var(--sw-text-main);
+      font-size: 0.95rem;
+      margin-top: 10px;
     }
 
     /* Cards Styling */
@@ -115,8 +139,6 @@
     .effect-item.debuff { background: rgba(255, 77, 77, 0.1); color: var(--sw-red-text); border-color: rgba(255, 77, 77, 0.3); }
     
     .effect-item:hover { background: var(--sw-blue-text); color: #000; }
-
-    .unit-label { color: var(--sw-blue-text); font-weight: bold; font-size: 0.75rem; text-transform: uppercase; }
 
     .btn-primary {
       background: transparent; border: 1px solid var(--sw-blue-text); color: var(--sw-blue-text);
@@ -187,23 +209,42 @@
         <h4 id="results-label" class="m-0">RESULTS</h4>
         <span id="result-count" class="badge bg-info text-dark">0</span>
     </div>
+
+    <!-- Zone de détails de l'effet sélectionné -->
+    <div id="effect-detail-card">
+      <div class="d-flex justify-content-between align-items-center border-bottom border-secondary pb-2">
+        <h3 id="effect-detail-name" class="m-0 text-white"></h3>
+        <span id="effect-detail-type" class="badge"></span>
+      </div>
+      <div id="effect-detail-desc" class="effect-description-text"></div>
+    </div>
+
     <div id="active-filters" class="mb-3"></div>
     <div id="results"></div>
   </div>
 
   <script>
     let characters = [];
-    let currentLang = sessionStorage.getItem("selectedLanguage") || "en";
+    let effectsList = [];
+    let currentLang = sessionStorage.getItem("selectedLanguage") || "fr";
 
-    // Chargement JSON
-    fetch("units.json")
-      .then(res => res.json())
-      .then(data => {
-        characters = data;
-        initPage();
-      }).catch(e => {
-        document.getElementById("results").innerHTML = "<p class='text-danger'>Error loading Holocron data.</p>";
-      });
+    const EFFECTS_URL = "https://e-rimbault.github.io/swgoh-kit/filtre-recherche/effet.json";
+    const UNITS_URL = "https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json";
+
+    // Chargement parallèle des deux fichiers JSON
+    Promise.all([
+      fetch(EFFECTS_URL).then(res => res.json()),
+      fetch(UNITS_URL).then(res => res.json())
+    ])
+    .then(([effectsData, unitsData]) => {
+      effectsList = effectsData;
+      characters = unitsData;
+      initPage();
+    })
+    .catch(e => {
+      console.error(e);
+      document.getElementById("results").innerHTML = "<p class='text-danger'>Erreur de chargement des données de l'Holocron.</p>";
+    });
 
     function initPage() {
       syncLangUI();
@@ -235,47 +276,139 @@
       }
 
       document.getElementById("effect-search").placeholder = isFr ? "Rechercher un effet..." : "Search effect...";
-      document.getElementById("buff-filter").options[0].text = isFr ? "-- tous les bonus --" : "-- all buffs --";
-      document.getElementById("debuff-filter").options[0].text = isFr ? "-- tous les malus --" : "-- all debuffs --";
     }
 
     function generateEffectDropdowns() {
       const buffSelect = document.getElementById("buff-filter");
       const debuffSelect = document.getElementById("debuff-filter");
-      const buffsSet = new Set(), debuffsSet = new Set();
 
-      characters.forEach(c => {
-        (c.effects?.buffs || []).forEach(e => buffsSet.add(e[currentLang] || e.en));
-        (c.effects?.debuffs || []).forEach(e => debuffsSet.add(e[currentLang] || e.en));
+      const isFr = (currentLang === "fr");
+      const sortFn = (a, b) => {
+        const nameA = (isFr ? a['name-fr'] : a['name-en']) || a['name-en'] || '';
+        const nameB = (isFr ? b['name-fr'] : b['name-en']) || b['name-en'] || '';
+        return nameA.localeCompare(nameB, currentLang);
+      };
+
+      const buffs = effectsList.filter(e => e.type === 'buff').sort(sortFn);
+      const debuffs = effectsList.filter(e => e.type === 'debuff').sort(sortFn);
+
+      const buffOptions = buffs.map(e => {
+        const label = (isFr ? e['name-fr'] : e['name-en']) || e['name-en'];
+        return `<option value="${e.id}">${label}</option>`;
+      }).join("");
+
+      const debuffOptions = debuffs.map(e => {
+        const label = (isFr ? e['name-fr'] : e['name-en']) || e['name-en'];
+        return `<option value="${e.id}">${label}</option>`;
+      }).join("");
+
+      buffSelect.innerHTML = `<option value="">-- ${isFr ? 'tous les bonus' : 'all buffs'} --</option>` + buffOptions;
+      debuffSelect.innerHTML = `<option value="">-- ${isFr ? 'tous les malus' : 'all debuffs'} --</option>` + debuffOptions;
+    }
+
+    // Helper pour extraire la chaîne de texte d'un effet
+    function getEffectName(eObj, lang) {
+      if (typeof eObj === 'string') return eObj;
+      if (typeof eObj === 'number') {
+        const found = effectsList.find(x => x.id == eObj);
+        if (found) return (lang === 'fr' ? found['name-fr'] : found['name-en']) || found['name-en'];
+      }
+      if (eObj && typeof eObj === 'object') {
+        return eObj[lang] || eObj['name-' + lang] || eObj.en || eObj['name-en'] || '';
+      }
+      return '';
+    }
+
+    // Vérifie si une unité possède un effet donné
+    function unitHasEffect(unit, effectObj) {
+      const effectId = effectObj.id;
+      const nameEn = (effectObj['name-en'] || '').toLowerCase();
+      const nameFr = (effectObj['name-fr'] || '').toLowerCase();
+
+      const allUnitEffects = [
+        ...(unit.effects?.buffs || []),
+        ...(unit.effects?.debuffs || [])
+      ];
+
+      return allUnitEffects.some(e => {
+        if (typeof e === 'number') return e == effectId;
+        if (typeof e === 'string') {
+          const str = e.toLowerCase();
+          return str === nameEn || str === nameFr || str == effectId;
+        }
+        if (e && typeof e === 'object') {
+          if (e.id && e.id == effectId) return true;
+          const eEn = (e.en || e['name-en'] || '').toLowerCase();
+          const eFr = (e.fr || e['name-fr'] || '').toLowerCase();
+          return (eEn && eEn === nameEn) || (eFr && eFr === nameFr);
+        }
+        return false;
       });
-
-      const sortFn = (a,b) => a.localeCompare(b, currentLang);
-      
-      const buffOptions = Array.from(buffsSet).sort(sortFn).map(b => `<option value="${b.toLowerCase()}">${b}</option>`).join("");
-      const debuffOptions = Array.from(debuffsSet).sort(sortFn).map(d => `<option value="${d.toLowerCase()}">${d}</option>`).join("");
-
-      buffSelect.innerHTML = `<option value="">-- ${currentLang==='fr'?'tous les bonus':'all buffs'} --</option>` + buffOptions;
-      debuffSelect.innerHTML = `<option value="">-- ${currentLang==='fr'?'tous les malus':'all debuffs'} --</option>` + debuffOptions;
     }
 
     function applyFilters() {
-      const selectedBuff = document.getElementById("buff-filter").value;
-      const selectedDebuff = document.getElementById("debuff-filter").value;
+      const selectedBuffId = document.getElementById("buff-filter").value;
+      const selectedDebuffId = document.getElementById("debuff-filter").value;
       const effectSearch = document.getElementById("effect-search").value.trim().toLowerCase();
 
+      // Identification de l'effet sélectionné
+      let selectedEffect = null;
+      if (selectedBuffId) {
+        selectedEffect = effectsList.find(e => e.id == selectedBuffId);
+      } else if (selectedDebuffId) {
+        selectedEffect = effectsList.find(e => e.id == selectedDebuffId);
+      }
+
+      // Mise à jour de la carte de description
+      updateEffectDescriptionCard(selectedEffect);
+
+      // Filtrage des personnages
       const filtered = characters.filter(c => {
-        const buffs = (c.effects?.buffs || []).map(e => (e[currentLang] || e.en).toLowerCase());
-        const debuffs = (c.effects?.debuffs || []).map(e => (e[currentLang] || e.en).toLowerCase());
+        let matchSelectedEffect = true;
+        if (selectedEffect) {
+          matchSelectedEffect = unitHasEffect(c, selectedEffect);
+        }
 
-        const matchBuff = !selectedBuff || buffs.includes(selectedBuff);
-        const matchDebuff = !selectedDebuff || debuffs.includes(selectedDebuff);
-        const matchSearch = !effectSearch || buffs.some(b => b.includes(effectSearch)) || debuffs.some(d => d.includes(effectSearch));
+        let matchSearch = true;
+        if (effectSearch) {
+          const unitBuffs = (c.effects?.buffs || []).map(b => getEffectName(b, currentLang).toLowerCase());
+          const unitDebuffs = (c.effects?.debuffs || []).map(d => getEffectName(d, currentLang).toLowerCase());
+          matchSearch = unitBuffs.some(b => b.includes(effectSearch)) || unitDebuffs.some(d => d.includes(effectSearch));
+        }
 
-        return matchBuff && matchDebuff && matchSearch;
+        return matchSelectedEffect && matchSearch;
       });
 
-      renderActiveFilters(selectedBuff, selectedDebuff, effectSearch);
+      renderActiveFilters(selectedEffect, effectSearch);
       renderCharacters(filtered);
+    }
+
+    function updateEffectDescriptionCard(effect) {
+      const card = document.getElementById("effect-detail-card");
+      if (!effect) {
+        card.style.display = "none";
+        return;
+      }
+
+      const isFr = (currentLang === "fr");
+      const name = (isFr ? effect['name-fr'] : effect['name-en']) || effect['name-en'];
+      const desc = (isFr ? effect['description-fr'] : effect['description-en']) || effect['description-en'] || (isFr ? 'Aucune description disponible.' : 'No description available.');
+
+      document.getElementById("effect-detail-name").textContent = name;
+      
+      const typeBadge = document.getElementById("effect-detail-type");
+      typeBadge.textContent = effect.type.toUpperCase();
+      
+      if (effect.type === 'debuff') {
+        typeBadge.className = "badge bg-danger";
+        card.className = "debuff-mode";
+      } else {
+        typeBadge.className = "badge bg-info text-dark";
+        card.className = "";
+      }
+
+      document.getElementById("effect-detail-desc").textContent = desc;
+      card.style.display = "block";
     }
 
     function renderCharacters(list) {
@@ -284,17 +417,17 @@
       const container = document.getElementById("results");
       
       container.innerHTML = list.length ? list.map(c => {
-        const name = c.name[currentLang] || c.name.en;
+        const name = (typeof c.name === 'object') ? (c.name[currentLang] || c.name.en) : c.name;
         const uniq = 'eff-' + Math.random().toString(36).substr(2, 5);
         
         const buffsHtml = (c.effects?.buffs || []).map(e => {
-            const txt = e[currentLang] || e.en;
-            return `<span class="effect-item buff" onclick="quickFilter('${txt.toLowerCase()}', 'buff')">${txt}</span>`;
+            const txt = getEffectName(e, currentLang);
+            return `<span class="effect-item buff" onclick="quickFilterByName('${txt.replace(/'/g, "\\'")}')">${txt}</span>`;
         }).join("") || `<span class="text-muted small">${isFr?'Aucun':'None'}</span>`;
 
         const debuffsHtml = (c.effects?.debuffs || []).map(e => {
-            const txt = e[currentLang] || e.en;
-            return `<span class="effect-item debuff" onclick="quickFilter('${txt.toLowerCase()}', 'debuff')">${txt}</span>`;
+            const txt = getEffectName(e, currentLang);
+            return `<span class="effect-item debuff" onclick="quickFilterByName('${txt.replace(/'/g, "\\'")}')">${txt}</span>`;
         }).join("") || `<span class="text-muted small">${isFr?'Aucun':'None'}</span>`;
 
         return `
@@ -323,28 +456,50 @@
       }).join("") : `<p class="w-100 text-center mt-5">${isFr ? "Aucune unité trouvée" : "No units found"}</p>`;
     }
 
-    // Gestion accordéons
+    // Accès accordéons
     window.toggleAccordion = (id) => {
         const el = document.getElementById(id);
         const isVisible = el.style.display === "block";
         el.style.display = isVisible ? "none" : "block";
     };
 
-    // Filtre rapide depuis une carte
-    window.quickFilter = (val, type) => {
-        if(type === 'buff') document.getElementById("buff-filter").value = val;
-        else document.getElementById("debuff-filter").value = val;
+    // Sélection rapide d'un effet en le cliquant dans la carte d'une unité
+    window.quickFilterByName = (effectName) => {
+        const nameLower = effectName.toLowerCase();
+        const found = effectsList.find(e => 
+          (e['name-en'] && e['name-en'].toLowerCase() === nameLower) ||
+          (e['name-fr'] && e['name-fr'].toLowerCase() === nameLower)
+        );
+
+        if (found) {
+          if (found.type === 'buff') {
+            document.getElementById("debuff-filter").value = "";
+            document.getElementById("buff-filter").value = found.id;
+          } else {
+            document.getElementById("buff-filter").value = "";
+            document.getElementById("debuff-filter").value = found.id;
+          }
+        } else {
+          document.getElementById("effect-search").value = effectName;
+        }
+
         applyFilters();
         window.scrollTo({top: 0, behavior: 'smooth'});
     };
 
-    function renderActiveFilters(buff, debuff, search) {
+    function renderActiveFilters(selectedEffect, search) {
         const container = document.getElementById("active-filters");
         container.innerHTML = "";
         let items = [];
-        if (buff) items.push({val: buff, type: 'buff'});
-        if (debuff) items.push({val: debuff, type: 'debuff'});
-        if (search) items.push({val: search, type: 'search'});
+
+        if (selectedEffect) {
+          const isFr = (currentLang === "fr");
+          const label = (isFr ? selectedEffect['name-fr'] : selectedEffect['name-en']) || selectedEffect['name-en'];
+          items.push({ val: label, type: 'effect' });
+        }
+        if (search) {
+          items.push({ val: search, type: 'search' });
+        }
 
         items.forEach(item => {
             const span = document.createElement("span");
@@ -352,16 +507,33 @@
             span.style.cursor = "pointer";
             span.textContent = item.val + " ✕";
             span.onclick = () => {
-                if(item.type === 'buff') document.getElementById("buff-filter").value = "";
-                if(item.type === 'debuff') document.getElementById("debuff-filter").value = "";
-                if(item.type === 'search') document.getElementById("effect-search").value = "";
+                if (item.type === 'effect') {
+                  document.getElementById("buff-filter").value = "";
+                  document.getElementById("debuff-filter").value = "";
+                }
+                if (item.type === 'search') {
+                  document.getElementById("effect-search").value = "";
+                }
                 applyFilters();
             };
             container.appendChild(span);
         });
     }
 
-    // --- Events ---
+    // Gestion du changement exclusif entre les listes déroulantes (Buff / Debuff)
+    document.getElementById("buff-filter").onchange = (e) => {
+      if (e.target.value) document.getElementById("debuff-filter").value = "";
+      applyFilters();
+    };
+
+    document.getElementById("debuff-filter").onchange = (e) => {
+      if (e.target.value) document.getElementById("buff-filter").value = "";
+      applyFilters();
+    };
+
+    document.getElementById("effect-search").oninput = applyFilters;
+
+    // Changement de langue
     document.getElementById("lang-en").onclick = () => { currentLang = "en"; updateLangUI("en"); };
     document.getElementById("lang-fr").onclick = () => { currentLang = "fr"; updateLangUI("fr"); };
 
@@ -371,9 +543,7 @@
         initPage();
     }
 
-    document.getElementById("buff-filter").onchange = applyFilters;
-    document.getElementById("debuff-filter").onchange = applyFilters;
-    document.getElementById("effect-search").oninput = applyFilters;
+    // Boutons UI
     document.getElementById("mobile-filter-toggle").onclick = () => document.getElementById("sidebar").classList.toggle("open");
     
     document.getElementById("reset-filters").onclick = () => {
