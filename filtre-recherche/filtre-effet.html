@@ -17,7 +17,8 @@
       --sw-text-muted: #aaaaaa;
       --sw-blue-glow: rgba(0, 115, 255, 0.6);
       --sw-blue-text: #00a2ff;
-      --sw-red-text: #ff4d4d; /* Pour les debuffs */
+      --sw-green-text: #00ff88; /* Vert pour Buffs */
+      --sw-red-text: #ff4d4d;   /* Rouge pour Debuffs */
       --font-titles: 'Orbitron', sans-serif;
       --font-body: 'Roboto', sans-serif;
       --sidebar-width: 380px;
@@ -58,19 +59,22 @@
         margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 5px;
     }
 
-    /* Description de l'effet sélectionné */
+    /* Card Description Effet sélectionné */
     #effect-detail-card {
       background: rgba(18, 18, 18, 0.9);
-      border: 1px solid var(--sw-blue-text);
-      box-shadow: 0 0 15px rgba(0, 162, 255, 0.2);
       border-radius: 8px;
       padding: 20px;
       margin-bottom: 25px;
       display: none;
     }
 
+    #effect-detail-card.buff-mode {
+      border: 1.5px solid var(--sw-green-text);
+      box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+    }
+
     #effect-detail-card.debuff-mode {
-      border-color: var(--sw-red-text);
+      border: 1.5px solid var(--sw-red-text);
       box-shadow: 0 0 15px rgba(255, 77, 77, 0.2);
     }
 
@@ -111,7 +115,7 @@
         border-bottom: 1px solid #333; padding-bottom: 8px; 
     }
 
-    /* Effets (Buffs/Debuffs) dans la carte */
+    /* Effets (Buffs/Debuffs) dans les cartes d'unité */
     .effects-container { margin-top: 10px; }
     
     .accordion-block { margin-bottom: 8px; border: 1px solid #222; border-radius: 4px; overflow: hidden; }
@@ -132,13 +136,23 @@
     .effect-item {
       display: inline-block; padding: 3px 8px; margin: 2px; border-radius: 4px;
       font-size: 0.7rem; cursor: pointer; transition: 0.2s;
-      border: 1px solid transparent;
     }
     
-    .effect-item.buff { background: rgba(0, 162, 255, 0.1); color: var(--sw-blue-text); border-color: rgba(0, 162, 255, 0.3); }
-    .effect-item.debuff { background: rgba(255, 77, 77, 0.1); color: var(--sw-red-text); border-color: rgba(255, 77, 77, 0.3); }
+    /* Contours ajustés : Vert pour Buffs, Rouge pour Debuffs */
+    .effect-item.buff { 
+      background: rgba(0, 255, 136, 0.08); 
+      color: var(--sw-green-text); 
+      border: 1px solid var(--sw-green-text); 
+    }
     
-    .effect-item:hover { background: var(--sw-blue-text); color: #000; }
+    .effect-item.debuff { 
+      background: rgba(255, 77, 77, 0.08); 
+      color: var(--sw-red-text); 
+      border: 1px solid var(--sw-red-text); 
+    }
+    
+    .effect-item.buff:hover { background: var(--sw-green-text); color: #000; }
+    .effect-item.debuff:hover { background: var(--sw-red-text); color: #000; }
 
     .btn-primary {
       background: transparent; border: 1px solid var(--sw-blue-text); color: var(--sw-blue-text);
@@ -185,32 +199,38 @@
       <img src="https://flagcdn.com/fr.svg" alt="Français" id="lang-fr">
     </div>
 
+    <!-- Recherche par Unité -->
     <div class="filter-box">
-      <h5 id="title-buffs">BUFFS & DEBUFFS</h5>
+      <h5 id="title-unit-search">RECHERCHE UNITÉ</h5>
+      <input type="text" id="unit-search" class="form-control bg-dark text-white border-secondary" placeholder="Nom de l'unité...">
+    </div>
+
+    <div class="filter-box">
+      <h5 id="title-buffs">BONUS & MALUS</h5>
       <select id="buff-filter" class="form-select mb-2 bg-dark text-white border-secondary">
-        <option value="">-- all buffs --</option>
+        <option value="">-- tous les bonus --</option>
       </select>
       <select id="debuff-filter" class="form-select mb-2 bg-dark text-white border-secondary">
-        <option value="">-- all debuffs --</option>
+        <option value="">-- tous les malus --</option>
       </select>
     </div>
 
     <div class="filter-box">
-      <h5 id="title-search">SEARCH BY EFFECT</h5>
-      <input type="text" id="effect-search" class="form-control bg-dark text-white border-secondary" placeholder="Search specific effect...">
+      <h5 id="title-search">RECHERCHE PAR EFFET</h5>
+      <input type="text" id="effect-search" class="form-control bg-dark text-white border-secondary" placeholder="Rechercher un effet...">
     </div>
 
-    <button id="reset-filters" class="btn btn-danger w-100 mb-2" style="font-family: var(--font-titles); font-size: 0.8rem;">⚡ RESET FILTERS</button>
-    <button id="home-btn" class="btn btn-outline-info w-100" style="font-family: var(--font-titles); font-size: 0.8rem;" onclick="window.location.href='../index.html'">🏠 HOME</button>
+    <button id="reset-filters" class="btn btn-danger w-100 mb-2" style="font-family: var(--font-titles); font-size: 0.8rem;">⚡ RÉINITIALISER</button>
+    <button id="home-btn" class="btn btn-outline-info w-100" style="font-family: var(--font-titles); font-size: 0.8rem;" onclick="window.location.href='../index.html'">🏠 MENU PRINCIPAL</button>
   </div>
 
   <div id="content">
     <div class="d-flex justify-content-between align-items-center border-bottom border-secondary pb-2 mb-4">
-        <h4 id="results-label" class="m-0">RESULTS</h4>
+        <h4 id="results-label" class="m-0">RÉSULTATS DE L'HOLOCRON</h4>
         <span id="result-count" class="badge bg-info text-dark">0</span>
     </div>
 
-    <!-- Zone de détails de l'effet sélectionné -->
+    <!-- Card de description de l'effet sélectionné -->
     <div id="effect-detail-card">
       <div class="d-flex justify-content-between align-items-center border-bottom border-secondary pb-2">
         <h3 id="effect-detail-name" class="m-0 text-white"></h3>
@@ -231,7 +251,7 @@
     const EFFECTS_URL = "https://e-rimbault.github.io/swgoh-kit/filtre-recherche/effet.json";
     const UNITS_URL = "https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json";
 
-    // Chargement parallèle des deux fichiers JSON
+    // Chargement parallèle des deux JSON
     Promise.all([
       fetch(EFFECTS_URL).then(res => res.json()),
       fetch(UNITS_URL).then(res => res.json())
@@ -243,7 +263,7 @@
     })
     .catch(e => {
       console.error(e);
-      document.getElementById("results").innerHTML = "<p class='text-danger'>Erreur de chargement des données de l'Holocron.</p>";
+      document.getElementById("results").innerHTML = "<p class='text-danger'>Erreur de chargement des données.</p>";
     });
 
     function initPage() {
@@ -263,6 +283,7 @@
       const isFr = (currentLang === "fr");
       const elements = {
         "filter-title": isFr ? "FILTRE DES EFFETS" : "EFFECT FILTER",
+        "title-unit-search": isFr ? "RECHERCHE UNITÉ" : "SEARCH UNIT",
         "title-buffs": isFr ? "BONUS & MALUS" : "BUFFS & DEBUFFS",
         "title-search": isFr ? "RECHERCHE PAR EFFET" : "SEARCH BY EFFECT",
         "reset-filters": isFr ? "⚡ RÉINITIALISER" : "⚡ RESET FILTERS",
@@ -275,6 +296,7 @@
         if (el) el.textContent = elements[id];
       }
 
+      document.getElementById("unit-search").placeholder = isFr ? "Nom de l'unité..." : "Unit name...";
       document.getElementById("effect-search").placeholder = isFr ? "Rechercher un effet..." : "Search effect...";
     }
 
@@ -306,52 +328,75 @@
       debuffSelect.innerHTML = `<option value="">-- ${isFr ? 'tous les malus' : 'all debuffs'} --</option>` + debuffOptions;
     }
 
-    // Helper pour extraire la chaîne de texte d'un effet
-    function getEffectName(eObj, lang) {
-      if (typeof eObj === 'string') return eObj;
-      if (typeof eObj === 'number') {
-        const found = effectsList.find(x => x.id == eObj);
-        if (found) return (lang === 'fr' ? found['name-fr'] : found['name-en']) || found['name-en'];
+    // Résolution d'un effet depuis l'ID ou l'objet vers l'objet global complet de effets.json
+    function resolveEffectObject(eRef) {
+      if (typeof eRef === 'number') {
+        return effectsList.find(x => x.id == eRef) || null;
       }
-      if (eObj && typeof eObj === 'object') {
-        return eObj[lang] || eObj['name-' + lang] || eObj.en || eObj['name-en'] || '';
+      if (typeof eRef === 'string') {
+        const num = parseInt(eRef, 10);
+        if (!isNaN(num)) {
+          const byId = effectsList.find(x => x.id == num);
+          if (byId) return byId;
+        }
+        const strLower = eRef.toLowerCase();
+        return effectsList.find(x => 
+          (x['name-en'] && x['name-en'].toLowerCase() === strLower) ||
+          (x['name-fr'] && x['name-fr'].toLowerCase() === strLower)
+        ) || null;
       }
+      if (eRef && typeof eRef === 'object') {
+        if (eRef.id) return effectsList.find(x => x.id == eRef.id) || eRef;
+        const enVal = (eRef.en || eRef['name-en'] || '').toLowerCase();
+        const frVal = (eRef.fr || eRef['name-fr'] || '').toLowerCase();
+        return effectsList.find(x => 
+          (enVal && x['name-en'] && x['name-en'].toLowerCase() === enVal) ||
+          (frVal && x['name-fr'] && x['name-fr'].toLowerCase() === frVal)
+        ) || eRef;
+      }
+      return null;
+    }
+
+    // Récupération du nom d'affichage
+    function getEffectDisplayName(eRef, lang) {
+      const obj = resolveEffectObject(eRef);
+      if (obj) {
+        return (lang === 'fr' ? obj['name-fr'] : obj['name-en']) || obj['name-en'] || obj['name-fr'] || '';
+      }
+      if (typeof eRef === 'string') return eRef;
+      if (eRef && typeof eRef === 'object') return eRef[lang] || eRef.en || '';
       return '';
     }
 
-    // Vérifie si une unité possède un effet donné
-    function unitHasEffect(unit, effectObj) {
-      const effectId = effectObj.id;
-      const nameEn = (effectObj['name-en'] || '').toLowerCase();
-      const nameFr = (effectObj['name-fr'] || '').toLowerCase();
+    // Vérifie si une unité possède l'effet ciblé
+    function unitHasEffect(unit, targetEffectObj) {
+      const targetId = targetEffectObj.id;
+      const targetEn = (targetEffectObj['name-en'] || '').toLowerCase();
+      const targetFr = (targetEffectObj['name-fr'] || '').toLowerCase();
 
-      const allUnitEffects = [
+      const allEffects = [
         ...(unit.effects?.buffs || []),
         ...(unit.effects?.debuffs || [])
       ];
 
-      return allUnitEffects.some(e => {
-        if (typeof e === 'number') return e == effectId;
-        if (typeof e === 'string') {
-          const str = e.toLowerCase();
-          return str === nameEn || str === nameFr || str == effectId;
-        }
-        if (e && typeof e === 'object') {
-          if (e.id && e.id == effectId) return true;
-          const eEn = (e.en || e['name-en'] || '').toLowerCase();
-          const eFr = (e.fr || e['name-fr'] || '').toLowerCase();
-          return (eEn && eEn === nameEn) || (eFr && eFr === nameFr);
-        }
-        return false;
+      return allEffects.some(eRef => {
+        const resolved = resolveEffectObject(eRef);
+        if (resolved && resolved.id === targetId) return true;
+        
+        const dispName = getEffectDisplayName(eRef, 'en').toLowerCase();
+        const dispNameFr = getEffectDisplayName(eRef, 'fr').toLowerCase();
+
+        return (targetEn && dispName === targetEn) || (targetFr && dispNameFr === targetFr);
       });
     }
 
     function applyFilters() {
+      const unitSearch = document.getElementById("unit-search").value.trim().toLowerCase();
       const selectedBuffId = document.getElementById("buff-filter").value;
       const selectedDebuffId = document.getElementById("debuff-filter").value;
       const effectSearch = document.getElementById("effect-search").value.trim().toLowerCase();
 
-      // Identification de l'effet sélectionné
+      // Sélection d'effet explicite via les dropdowns
       let selectedEffect = null;
       if (selectedBuffId) {
         selectedEffect = effectsList.find(e => e.id == selectedBuffId);
@@ -359,27 +404,42 @@
         selectedEffect = effectsList.find(e => e.id == selectedDebuffId);
       }
 
-      // Mise à jour de la carte de description
+      // Carte de détails de l'effet
       updateEffectDescriptionCard(selectedEffect);
 
-      // Filtrage des personnages
+      // Filtrage des unités
       const filtered = characters.filter(c => {
-        let matchSelectedEffect = true;
+        // 1. Recherche par nom d'unité
+        let matchUnit = true;
+        if (unitSearch) {
+          const nameEn = (typeof c.name === 'object' ? (c.name.en || '') : c.name).toLowerCase();
+          const nameFr = (typeof c.name === 'object' ? (c.name.fr || c.name.en || '') : c.name).toLowerCase();
+          matchUnit = nameEn.includes(unitSearch) || nameFr.includes(unitSearch);
+        }
+
+        // 2. Sélection via dropdown
+        let matchEffect = true;
         if (selectedEffect) {
-          matchSelectedEffect = unitHasEffect(c, selectedEffect);
+          matchEffect = unitHasEffect(c, selectedEffect);
         }
 
-        let matchSearch = true;
+        // 3. Recherche textuelle d'effet
+        let matchEffectText = true;
         if (effectSearch) {
-          const unitBuffs = (c.effects?.buffs || []).map(b => getEffectName(b, currentLang).toLowerCase());
-          const unitDebuffs = (c.effects?.debuffs || []).map(d => getEffectName(d, currentLang).toLowerCase());
-          matchSearch = unitBuffs.some(b => b.includes(effectSearch)) || unitDebuffs.some(d => d.includes(effectSearch));
+          const allEffs = [
+            ...(c.effects?.buffs || []),
+            ...(c.effects?.debuffs || [])
+          ];
+          matchEffectText = allEffs.some(eRef => {
+            const name = getEffectDisplayName(eRef, currentLang).toLowerCase();
+            return name.includes(effectSearch);
+          });
         }
 
-        return matchSelectedEffect && matchSearch;
+        return matchUnit && matchEffect && matchEffectText;
       });
 
-      renderActiveFilters(selectedEffect, effectSearch);
+      renderActiveFilters(selectedEffect, unitSearch, effectSearch);
       renderCharacters(filtered);
     }
 
@@ -403,8 +463,8 @@
         typeBadge.className = "badge bg-danger";
         card.className = "debuff-mode";
       } else {
-        typeBadge.className = "badge bg-info text-dark";
-        card.className = "";
+        typeBadge.className = "badge bg-success";
+        card.className = "buff-mode";
       }
 
       document.getElementById("effect-detail-desc").textContent = desc;
@@ -420,15 +480,34 @@
         const name = (typeof c.name === 'object') ? (c.name[currentLang] || c.name.en) : c.name;
         const uniq = 'eff-' + Math.random().toString(36).substr(2, 5);
         
-        const buffsHtml = (c.effects?.buffs || []).map(e => {
-            const txt = getEffectName(e, currentLang);
-            return `<span class="effect-item buff" onclick="quickFilterByName('${txt.replace(/'/g, "\\'")}')">${txt}</span>`;
-        }).join("") || `<span class="text-muted small">${isFr?'Aucun':'None'}</span>`;
+        // Tri & Répartition exacte Buff / Debuff selon effet.json
+        const unitBuffs = [];
+        const unitDebuffs = [];
 
-        const debuffsHtml = (c.effects?.debuffs || []).map(e => {
-            const txt = getEffectName(e, currentLang);
-            return `<span class="effect-item debuff" onclick="quickFilterByName('${txt.replace(/'/g, "\\'")}')">${txt}</span>`;
-        }).join("") || `<span class="text-muted small">${isFr?'Aucun':'None'}</span>`;
+        const rawList = [
+          ...(c.effects?.buffs || []).map(e => ({ ref: e, forceType: 'buff' })),
+          ...(c.effects?.debuffs || []).map(e => ({ ref: e, forceType: 'debuff' }))
+        ];
+
+        rawList.forEach(item => {
+          const resolved = resolveEffectObject(item.ref);
+          const nameTxt = getEffectDisplayName(item.ref, currentLang);
+          const realType = resolved ? resolved.type : item.forceType;
+
+          if (realType === 'debuff') {
+            unitDebuffs.push({ txt: nameTxt, ref: item.ref });
+          } else {
+            unitBuffs.push({ txt: nameTxt, ref: item.ref });
+          }
+        });
+
+        const buffsHtml = unitBuffs.map(b => 
+            `<span class="effect-item buff" onclick="quickFilterByName('${b.txt.replace(/'/g, "\\'")}')">${b.txt}</span>`
+        ).join("") || `<span class="text-muted small">${isFr?'Aucun':'None'}</span>`;
+
+        const debuffsHtml = unitDebuffs.map(d => 
+            `<span class="effect-item debuff" onclick="quickFilterByName('${d.txt.replace(/'/g, "\\'")}')">${d.txt}</span>`
+        ).join("") || `<span class="text-muted small">${isFr?'Aucun':'None'}</span>`;
 
         return `
           <div class="card">
@@ -456,20 +535,16 @@
       }).join("") : `<p class="w-100 text-center mt-5">${isFr ? "Aucune unité trouvée" : "No units found"}</p>`;
     }
 
-    // Accès accordéons
+    // Accordéons
     window.toggleAccordion = (id) => {
         const el = document.getElementById(id);
         const isVisible = el.style.display === "block";
         el.style.display = isVisible ? "none" : "block";
     };
 
-    // Sélection rapide d'un effet en le cliquant dans la carte d'une unité
+    // Sélection d'un effet en cliquant dessus dans la carte d'une unité
     window.quickFilterByName = (effectName) => {
-        const nameLower = effectName.toLowerCase();
-        const found = effectsList.find(e => 
-          (e['name-en'] && e['name-en'].toLowerCase() === nameLower) ||
-          (e['name-fr'] && e['name-fr'].toLowerCase() === nameLower)
-        );
+        const found = resolveEffectObject(effectName);
 
         if (found) {
           if (found.type === 'buff') {
@@ -487,18 +562,21 @@
         window.scrollTo({top: 0, behavior: 'smooth'});
     };
 
-    function renderActiveFilters(selectedEffect, search) {
+    function renderActiveFilters(selectedEffect, unitSearch, effectSearch) {
         const container = document.getElementById("active-filters");
         container.innerHTML = "";
         let items = [];
 
+        if (unitSearch) {
+          items.push({ val: "Unité: " + unitSearch, type: 'unit' });
+        }
         if (selectedEffect) {
           const isFr = (currentLang === "fr");
           const label = (isFr ? selectedEffect['name-fr'] : selectedEffect['name-en']) || selectedEffect['name-en'];
           items.push({ val: label, type: 'effect' });
         }
-        if (search) {
-          items.push({ val: search, type: 'search' });
+        if (effectSearch) {
+          items.push({ val: "Effet: " + effectSearch, type: 'search' });
         }
 
         items.forEach(item => {
@@ -507,20 +585,22 @@
             span.style.cursor = "pointer";
             span.textContent = item.val + " ✕";
             span.onclick = () => {
+                if (item.type === 'unit') document.getElementById("unit-search").value = "";
                 if (item.type === 'effect') {
                   document.getElementById("buff-filter").value = "";
                   document.getElementById("debuff-filter").value = "";
                 }
-                if (item.type === 'search') {
-                  document.getElementById("effect-search").value = "";
-                }
+                if (item.type === 'search') document.getElementById("effect-search").value = "";
                 applyFilters();
             };
             container.appendChild(span);
         });
     }
 
-    // Gestion du changement exclusif entre les listes déroulantes (Buff / Debuff)
+    // Événements d'entrée
+    document.getElementById("unit-search").oninput = applyFilters;
+    document.getElementById("effect-search").oninput = applyFilters;
+
     document.getElementById("buff-filter").onchange = (e) => {
       if (e.target.value) document.getElementById("debuff-filter").value = "";
       applyFilters();
@@ -531,9 +611,7 @@
       applyFilters();
     };
 
-    document.getElementById("effect-search").oninput = applyFilters;
-
-    // Changement de langue
+    // Langue
     document.getElementById("lang-en").onclick = () => { currentLang = "en"; updateLangUI("en"); };
     document.getElementById("lang-fr").onclick = () => { currentLang = "fr"; updateLangUI("fr"); };
 
@@ -543,10 +621,11 @@
         initPage();
     }
 
-    // Boutons UI
+    // Mobile / Réinitialisation
     document.getElementById("mobile-filter-toggle").onclick = () => document.getElementById("sidebar").classList.toggle("open");
     
     document.getElementById("reset-filters").onclick = () => {
+        document.getElementById("unit-search").value = "";
         document.getElementById("buff-filter").value = "";
         document.getElementById("debuff-filter").value = "";
         document.getElementById("effect-search").value = "";
