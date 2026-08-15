@@ -1,188 +1,329 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Reine Amidala</title>
-
+    <title id="big-title">Queen Amidala</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/queen-amidala/queen-amidala-image.png">
-    <link rel="stylesheet" href="../style/capacite.css">
-    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/queen-amidala/queen-amidala-image.png" alt="Queen Amidala" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Reine Amidala</u></h1>
-        <p>
-            La reine de Naboo ne s'arretera devant rien pour protéger son peuple, et son peuple en fera de même pour la protéger.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: blue;" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/soutien.html">Soutien</a>
-            <a class="capacite" href="../classement-perso/chef.html">chef</a>
-            <a class="capacite" href="../classement-perso/république-galactique.html">république galactique</a>
-        </nav>
+            <h1 id="title"><u>Queen Amidala</u></h1>
+            <p id="description">
+                Queen of Naboo who will stop at nothing to protect her people, and her people will stop at nothing to protect her
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue  !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html" id="galactic-republic">Galactic Republic</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+            <br>
+            <!-- Partie pour les invocations -->
+            <section class="header-invocation">
+                <a href="../html/queen-decoy.html" class="invocation-link">
+                    <img class="invocation-image main-image" src="../image-perso/queen-amidala/queen-invocation.png" alt="Handmaiden Decoy">
+                </a>
+                <h2 class="invocation" id="invocation-title">
+                    <u style="margin-left: 25px;">Invocation: Handmaiden Decoy</u>
+                </h2>
+            </section>
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/queen-amidala/Queen-amidala.png" alt="queen amidala"><br>
+    <img class="first" src="../image-perso/queen-amidala/Queen-amidala.png" alt="Queen Amidala"><br>
 
-    <h2 class="titre"><u>attaque basique : Pistolet blaster lourd S-5</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: S-5 Heavy Blaster Pistol</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="queen basique" src="../image-perso/queen-amidala/queen-basique.png">
+            <img class="attaque" alt="Queen Amidala basic" src="../image-perso/queen-amidala/queen-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques et Exposition à la cible ennemie pendant 2 tours (ne peut pas être esquivé si une Suivante factice allié est active).<br>
-                Tous les alliés de la République Galactique reçoivent 3 cumuls de soin sur la durée et de protection sur la durée pendant 2 tours.<br>
-                <br>
-                Si une Suivante factice alliée est active, les alliés de la République Galactique récupèrent 5% de santé et de protection.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and Expose them for 2 turns, which can't be evaded if there is an active ally Handmaiden Decoy. All Galactic Republic allies gain 3 stacks of Heal Over Time and Protection Over Time for 2 turns.
+                <br><br>
+                If there is an active ally Handmaiden Decoy, Galactic Republic allies recover 5% Health and Protection.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Je suis la reine Amidala (délai: 3)</u></h2>
-        <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="queen spé 1" src="../image-perso/queen-amidala/queen-spe1.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Disippe toutes les améliorations sur tous les ennemis et leur inflige des des dégâts physiques. Tous les alliés obtiennent un bonus de précision pendant 2 tours.<br>
-                <br>
-                Si une Suivante factice alliée est active, la cibele ennemie subit Faux pas pendant 2 tours(ne peut âs être esquivé ou résisté), tous les alliés de la<br>
-                République Galactique reçoivent un bonus de protection sur la durée pendant  tours, et cette attaque ne peut pas être esquivée.<br>
-                <br>
-                <u class="omicron">Dans les Grandes arènes, et s'il n'y a pas de Légende Galactique alliée: </u><br>
-                Cette attaque ignore la protection ennemie et tous les alliés obtiennent un bonus de dégâts critiques ainsi que 4 cumuls de soin sur la durée pendant 2 tours.<br>
-                Tous les ennemis subissent un cumul de dégâts sur la durée pour chaque allié de la République Galactique actif, un malus de vitesse et Vulnérabilié pendant 2 tours.<br>
-                Leurs délais sont augmentés de 1 (ne peut pas être résisté). Si une Suivante factice alliée est active, ces effets ne peuvent pas être esquivés.
-            </p>
-        </div>
-    </div>
-
-
-    <h2 class="titre"><u>2eme spéciale: Blaster ascensionnel (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : I am Queen Amidala (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="quenn spé 2" src="../image-perso/queen-amidala/queen-spe2.png">
+            <img class="attaque" alt="Queen Amidala special 1" src="../image-perso/queen-amidala/queen-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe tous les affaiblissements que subissent tous les alliés. Invoque tous les autres alliés de la République Galactique à l'exception des Légendes Galactiques.<br>
-                Ces derniers et la Reine Amidala récupèrent 20% de santé et de protection. Supprime 50% de jauge de tour sur la cible ennemie (ne peut pas être résisté).<br>
-                <br>
-                Si toues les alliés appartiennent à la République Galactique et qu'il n'y a pas de Légende Galactique ou de vauriens alliés, une Suivante factice alliée est invoquée<br>
-                dans la bataille si l'emplacement d'alliée est disponible.<br>
-                <br>
-                Si une Suivante factice alliée était déjà présente, tous les alliés de la République Galactique gagnent un bonus de défense, de vitesse et de ténacité<br>
-                pendant 2 tours, et les alliés de la République Galactique, à l'exception des Tanks, gagnent Camouflage pendant 2 tours.
+            <p class="attaque" id="special-attack1">
+                Dispel all buffs on all enemies and deal Physical damage to them. All allies gain Accuracy Up for 2 turns.
+                <br><br>
+                If there is an active ally Handmaiden Decoy, Stagger target enemy for 2 turns, which can't be evaded or resisted, all Galactic Republic allies gain Defense Penetration Up, 3 stacks of Heal Over Time and Protection Over Time for 2 turns, and this attack can't be evaded.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas and there are no Galactic Legend allies:</u> This attack ignores enemy Protection and all allies gain Critical Damage Up and 4 stacks of Heal Over Time and Protection Over Time for 2 turns. All enemies are inflicted with a stack of Damage Over Time for each active Galactic Republic ally for 2 turns, which can't be resisted, Speed Down for 2 turns, which can't be resisted, Vulnerable for 2 turns, which can't be copied, dispelled, or resisted, and have their cooldowns increased by 1, which can't be resisted. If there is an active ally Handmaiden Decoy, these effects can't be evaded.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Capacité de chef: Ma place est auprès de mon peuple</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Ascension Gun (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="queen lead" src="../image-perso/queen-amidala/queen-lead.png">
+            <img class="attaque" alt="Queen Amidala special 2" src="../image-perso/queen-amidala/queen-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Tous les alliés reçoivent +20% de défense, ainsi que +15% de santé maxiamle et de protection maximale.<br>
-                <br>
-                Au début de la bataille, si tous les alliés appartiennent à la République Galactique et qu'il n'y a pas de Légende Galactique alliée:<br>
-                -Lorsqu'un ennemi attaque en dehors de son tour, il subit des dégâts sur la durée pendant 1 tour (ne peut pas être esquivée ou résisté)<br>
-                et supprime 10% de jauge de tour pour tous les ennemis (ne peut pas être résisté).<br>
-                <br>
-                -Au début du tour de chaque allié, celui-ci reçoit 3% de dégâts critiques (cumulatif) pour chaque cumul de soins sur la durée dont il dispose,<br>
-                jusqu'à la fin de son tour.<br>
-                <br>
-                -Lorsqu'un ennemi inflige un coup critique à un allié, cet ennemie subit -% de dégâts critiques, de défense et d'attaque (cmulatif, max -50%)<br>
-                jusqu'à la fin de l'affrontement (ne peut pas être résisté).
-                <br>
-                <br>
-                <u class="omicron">Dans les Grandes arènes et s'il n'y a pas de Légende Galactique allié et que tous les alliés appartiennent à la République Galactique:</u><br>
-                Lorsqu'un allié utilise une capacité spéciale, il gagne des bonus en fonction de son rôle:<br>
-                -Attaquants: obtiennent un bonus d'attaque pendant 2 tours et invoquent un autre allié aléatoire, qui inflige 20% de dégâts supplémentaires.<br>
-                <br>
-                -Soigneurs et soutiens: reçoivent un bonus de protection (50%, cumulatif) et un bonus de vitesse pendant 3 tours.<br>
-                <br>
-                -tanks: récupèrent 25% de santé et de protection.
+            <p class="attaque" id="special-attack2">
+                Dispel all debuffs on all allies. Call all other non-Galactic Legend Galactic Republic allies to assist and they and Queen Amidala recover 20% Health and Protection. Remove 50% Turn Meter from target enemy, which can't be resisted.
+                <br><br>
+                If all allies are Galactic Republic and there are no Galactic Legend or Scoundrel allies, summon an ally Handmaiden Decoy to battle if the ally slot is available.
+                <br><br>
+                If an ally Handmaiden Decoy was already present, all Galactic Republic allies gain Defense Up, Speed Up, and Tenacity Up for 2 turns, and Galactic Republic non-Tank allies Stealth for 2 turns.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>capacité unique: Garde du corps fidèle</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: My Place is with My People</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="queen unique" src="../image-perso/queen-amidala/queen-unique.png">
+            <img class="attaque" alt="Queen Amidala lead" src="../image-perso/queen-amidala/queen-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                La Reine Amidala dispose de +20% de santé maximale et de protextion maximale, ainsi que +10% de chances de coup critique et de dégâts critiques.<br>
-                Tous les alliés sont immunisés contre les manipulations de délais.<br>
-                <br>
-                Lorsqu'une Suivante factice est invoquée, elle utilise Raillerie jusqu'à ce qu'elle soit vaincue (ne peut pas être dissipée ou empéché). Elle est<br>
-                immunisée contre toutes les autres amélioration, les affaiblissements, la récupération de soins et de protection et elle ne joue pas de tours.<br>
-                Lorsqu'elle est vaincue par un ennemi, ce dernier subit Doute pendant 2 tours (ne peut pas être esquivé ou résisté) et la Reine Amidala gagne<br>
-                un tour bonus ainsi qu'Immunité aux dégats pendant 2 tours (ne peut pas être copié, dissipé ou empéché).<br>
-                <br>
-                Si une Suivante factice alliée est active:<br>
-                <br>
-                -Lorsque des soins sur la durée ou de la protection sur la durée expirent sur un allié de la République Galactique, ce dernier récupère 5% de santé et de protection.<br>
-                <br>
-                -Lorsque des soins sur la durée ou de la protection sur la durée expirent sur la Reine Amidala, elle gagne 1 cumul de <u class="speciale">Protection de la reine</u><br>
-                (maximum 10, ne peut pas être copié, dissipé ou empeché) jusqu'à la fin de la bataille. Pour chaque cumul de Protection de la reine dont dispose la Reine Amidala,<br>
-                tous les autres alliés de la République Galactique reçoivent le double de ces statistiques. La Suivante factice alliée est immunisée contre ces effets et ils<br>
-                persistent une fois la Suivante factice vaincue, mais sont dissipés lorsque la Reine Amidala est éliminée.<br>
-                <br>
-                <u class="speciale">Protection de la rine:</u>+3% de santé maximale et de protection maximale, +5% de pouvoir et de ténacité,+5 de vitesse (par cumul).<br>
-                <br>
-                <u class="omicron">Dans les Grandes arènes et s'il n'y a pas de Légende Galactique ou de vaurien alliés et que tous les alliés appartiennent à la République Galactique:</u><br>
-                <br>
-                tous les alliés obtiennent 25% de dégats critiques, 40% de maitrise et sont immunisés contre Peur et immunité aux soins. Lorsqu'un allié subit<br>
-                un cumul de dégats sur la durée, il le dissipe et tous les alliés obtiennent un cumul de soin sur la durée et de protection sur la durée pendant 2 tours.<br>
-                Au début de chaque affrontement, une Suivante factice est invoquée. Lorsqu'une Suivante factice alliée subit un coup critique, tous les ennemis reçoivent<br>
-                un malus de pouvoir et de ténacité pendant 2 tours (ne peut pas être esquivée).
+            <p class="attaque" id="lead-ability">
+                All allies have +20% Defense and +15% Max Health and Max Protection.
+                <br><br>
+                At the start of battle, if all allies are Galactic Republic and there are no Galactic Legend allies:
+                <br><br>
+                - Whenever an enemy attacks out of turn, they are inflicted with Damage Over Time for 1 turn, which can't be evaded or resisted and remove 10% Turn Meter from all enemies, which can't be resisted.<br>
+                - At the start of each ally's turn, they gain 3% Critical Damage (stacking) for each stack of Heal Over Time they have and +3% Offense (stacking) for each stack of Protection Over Time they have, until the end of their turn.<br>
+                - Whenever an enemy critically hits an ally, that enemy has -5% Critical Damage, Defense, and Offense (stacking, max -50%), until the end of the encounter, which can't be resisted.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas and if there are no Galactic Legend allies and all allies are Galactic Republic:</u> Whenever an ally uses a Special ability, they gain bonuses based on their role:
+                <br><br>
+                - <strong>Attackers:</strong> Gain Offense Up for 2 turns and call another random ally to assist, dealing 20% more damage<br>
+                - <strong>Healers and Supports:</strong> Gain Protection Up (50%, stacking) and Speed Up for 3 turns<br>
+                - <strong>Tanks:</strong> Recover 25% Health and Protection
             </p>
         </div>
     </div>
 
-
-    <h2 class="invocation">Suivante factice</h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Loyal Bodyguard</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="queen unique invocation" src="../image-perso/queen-amidala/queen-invocation.png">
+            <img class="attaque" alt="Queen Amidala unique" src="../image-perso/queen-amidala/queen-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                coté lumineux, tank, République Galactique<br>
-                <br>
-                <u class="speciale">[basique] Garde du corps:</u> Les alliés de la République Galactique récpèrent 10% de santé et de protection. Confère Avantage<br>
-                pendant 1 tour à un ennemi qui n'en dispose pas déjà (ne peut pas être esquivé ou résisté.)<br>
-                <br>
-                <u class="speciale">[unique] Invocation:</u> Les statistiques de cet unité s'améliorient avec celles de l'invocateur.<br>
-                Cette unité ne peut être invoquée dans l'emplacement d'allié que s'il est disponible. Cette unité ne peut pas être invoqué<br>
-                dans certains raids. Cette unité ne peut pas être ranimée. Si un effet compte les unités vaincues, cette unité ne compte pas.<br>
-                Quand il n'y a pas d'autre combattants alliés, cette unité fuit la bataille. Une unité ne peut pas être ranimé si cette<br>
-                unité invoquée existe dans son emplacement.
+            <p class="attaque" id="unique-ability1">
+                Queen Amidala has +20% Max Health and Max Protection, +10% Critical Chance and Critical Damage, and all allies are immune to cooldown manipulation.
+                <br><br>
+                Whenever an ally Handmaiden Decoy is summoned, she Taunts until she is defeated, which can't be dispelled or prevented. She is immune to all other buffs, debuffs, Healing and Protection recovery, and she doesn't take turns. Whenever she is defeated by an enemy, the enemy who defeated her is inflicted with Doubt for 2 turns, which can't be evaded or resisted, and Queen Amidala gains a bonus turn and Damage Immunity for 2 turns, which can't be copied, dispelled, or prevented.
+                <br><br>
+                If there is an active ally Handmaiden Decoy:
+                <br><br>
+                - Whenever Heal Over Time or Protection Over Time expire on a Galactic Republic ally, they recover 5% Health and Protection.<br>
+                - Whenever Heal Over Time or Protection Over Time expire on Queen Amidala, she gains a stack of <u class="speciale">Queen's Protection</u> (max 10), which can't be copied, dispelled, or prevented, until the end of battle. For each stack of Queen's Protection Queen Amidala has, all other Galactic Republic allies gain double those stats. The allied Handmaiden Decoy is immune to these effects and they persist when the Decoy is defeated, but are dispelled when Queen Amidala is defeated.
+                <br><br>
+                <u class="speciale">Queen's Protection:</u><br>
+                +3% Max Health and Max Protection, +5% Potency and Tenacity, and +5 Speed (per stack)
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas and if there are no Galactic Legend or Scoundrel allies and all allies are Galactic Republic:</u> All allies gain 25% Critical Damage, 40% Mastery, and are immune to Fear and Healing Immunity.
+                Whenever an ally is inflicted with a stack of Damage Over Time, they dispel it and all allies gain a stack of Healing Over Time and Protection Over Time for 2 turns.
+                At the start of each encounter, summon an ally Handmaiden Decoy. Whenever an ally Decoy is critically hit, all enemies are inflicted with Potency Down and Tenacity Down for 2 turns, which can't be evaded.
             </p>
         </div>
     </div>
+
+    <h2 class="titre"><u class="speciale" id="unique-ability2-title">Unique Ability : Handmaiden Decoy</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Queen Amidala unique" src="../image-perso/queen-amidala/queen-invocation.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                <u class="blue">Light Side</u>, Tank, Galactic Republic
+                <br><br>
+                <u class="speciale">[Basic] Bodyguard:</u> Galactic Republic allies recover 10% Health and Protection. Grant Advantage for 1 turn to a random enemy who doesn't already have it, which can't be evaded or resisted.
+                <br><br>
+                <u class="speciale">[Unique] Summoned:</u> This unit's stats scale with the summoner's stats. This unit can only be summoned to the ally slot if it's available. This unit can't be summoned in certain raids. This unit can't be revived. If an effect counts defeated units, this unit doesn't count. When there are no other allied combatants, this unit escapes from battle. A unit can't be revived if this summoned unit exists in their slot.
+            </p>
+        </div>
+    </div>
+
 
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Reine Amidala",
+                "title": "<u>Reine Amidala</u>",
+                "description": "La Reine de Naboo ne s'arrêtera devant rien pour protéger son peuple, et son peuple en fera de même pour la protéger.",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "leader": "Chef",
+                "galactic-republic": "République Galactique",
+
+                "basic-attack-title": "<u>Attaque Basique: Pistolet blaster lourd S-5</u>",
+                "basic-attack": "Inflige des dégâts physiques et Exposition à la cible ennemie pendant 2 tours (ne peut pas être esquivé si une Suivante Factice alliée est active). Tous les alliés de la République Galactique reçoivent 3 cumuls de soins sur la durée et de protection sur la durée pendant 2 tours.\n\nSi une Suivante factice alliée est active, les alliés de la République Galactique récupèrent 5 % de santé et de protection.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Je suis la Reine Amidala (délai : 3)</u>",
+                "special-attack1": "Dissipe toutes les améliorations sur tous les ennemis et inflige des dégâts physiques à tous les ennemis. Tous les alliés obtiennent un bonus de précision pendant 2 tours.\n\nSi une Suivante factice alliée est active, la cible ennemie subie Faux pas pendant 2 tours (ne peut pas être esquivé ou résisté), tous les alliés de la République Galactique reçoivent un bonus de pénétration de défense ainsi que 3 cumuls de soins sur la durée et de protection sur la durée pendant 2 tours, et cette attaque ne peut pas être esquivée.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes, et s'il n'y a pas de Légende galactique alliée :</u> cette attaque ignore la protection ennemie et tous les alliés obtiennent un bonus de dégâts critiques ainsi que 4 cumuls de soins sur la durée et de protection sur la durée pendant 2 tours. Tous les ennemis subissent un cumul de dégâts sur la durée pour chaque allié de la République Galactique actif (ne peut pas être résité), un malus de vitesse (ne peut pas être résisté) et Vulnérabilité pendant 2 tours (ne peut pas être copié, dissipé ou résisté). Leurs délais sont augmentés de 1 (ne peut pas être résisté). Si une Suivante factice alliée est active, ces effets ne peuvent pas être esquivés.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Blaster ascensionnel (délai : 4)</u>",
+                "special-attack2": "Dissipe tous les affaiblissements que subissent tous les alliés. Invoque tous les autres alliés de la République Galactique à l'exception des Légendes Galactiques. Ces derniers et la Reine Amidala récupèrent 20 % de santé et de protection. Supprime 50 % de jauge de tour sur la cible ennemie (ne peut pas être résisté).\n\nSi tous les alliés appartiennent à la République Galactique et qu'il n'y a pas de Légende galactique ou de Vauriens alliés, une Suivante factice alliée est invoquée dans la bataille si l'emplacement d'allié est disponible.\n\nSi une Suivante factice alliée était déjà présente, tous les allié de la République Galactique gagnent un bonus de défense, de vitesse et de ténacité pendant 2 tours, et les alliés de la République Galactique, à l'exception des tanks, gagnent Camouflage pendant 2 tours.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Ma place est auprès de mon peuple</u>",
+                "lead-ability": "Tous les alliés reçoivent +20% de défense, ainsi que +15 % de santé maximale et de protection maximale.\n\nAu début de la bataille, si tous les alliés appartiennent à la République Galactique et qu'il n'y a pas de Légende Galactique alliée:\n\n-Lorsqu'un ennemi attaque en dehors de son tour, il subit des dégâts sur la durée pendant 1 tour (ne peut pas être esquivé ou résisté) et supprime 10% de jauge de tour pour tous les ennemis (ne peut pas être résisté).\n-Au début du tour de chaque allié, celui-ci reçoit 3% de dégâts critiques (cumulatif) pour chaque cumul de soins sur la durée dont il dispose, jusqu'à la fin de son tour.\n-Lorsqu'un ennemi inflige un coup critique à un allié, cet ennemie subit -5 % de dégâts critiques, de défense et d'attaque (cmulatif, max -50%) jusqu'à la fin de l'affrontement (ne peut pas être résisté).\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes et s'il n'y a pas de Légende Galactique allié et que tous les alliés appartiennent à la République Galactique:</u> Lorsqu'un allié utilise une capacité spéciale, il gagne des bonus en fonction de son rôle:\n\n- <strong>Attaquants :</strong> obtiennent un bonus d'attaque pendant 2 tours et invoquent un autre allié aléatoire, qui inflige 20 % de dégâts supplémentaires.\n- <strong>Soigneurs et soutiens :</strong> reçoivent un bonus de protection (50 %, cumulatif) et un bonus de vitesse pendant 3 tours.\n- <strong>Tanks :</strong>récupèrent 25 % de santé et de protection.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Garde du corp fidèle</u>",
+                "unique-ability1": "La Reine Amidala dispose de +20% de santé maximale et de protextion maximale, ainsi que +10% de chances de coup critique et de dégâts critiques. Tous les alliés sont immunisés contre les manipulations de délais.\n\nLorsqu'une Suivante factice est invoquée, elle utilise Raillerie jusqu'à ce qu'elle soit vaincue (ne peut pas être dissipé ou empêché). Elle est immunisée contre toutes les autres améliorations, les affaiblissements, la récupérations de soins et de protection et elle ne joue pas de tour. Lorsqu'elle est vaincue par un ennemi, ce dernier subit Doute pendant 2 tours (ne peut pas être esquivé ou résisté) et la Reine Amidala gagne un tour bonus ainsi qu'Immunité aux dégâts pendant 2 tours (ne peut pas être copié, dissipé ou empêché).\n\nSi une Suivante factice alliée est active :\n\n- Lorsque des soins sur la durée ou de protection sur la durée expirent sur un allié de la République Galactique, ce dernier récupère  % de santé et de protection\n- Lorsque des soins sur la durée ou de la protection sue la durée expirent sur la Reine Amidala, elle gagne un cumul de <u class='speciale'>Protection de la Reine</u> (maximum 10, ne peut pas être copié, dissipé ou empêché) jusqu'à la fin de la bataille. Pour chaque cumul de Protection de la Reine dont dispose la Reine Amidala, tous les autres alliés de la Republique Galactique reçoivent le double de ces statistiques. La Suivante Factice allié est Immunisée contre ces effets et ils persistent une fois la Suivante factice vaincue, mais sont dissipés lorsque la Reine Amidala est éliminée.\n\n<u class='speciale'>Protection de la Reine :</u>\n+3 % de santé maximale et de protection maximale, +5 % de puvoir et de ténacité, +5 de vitesse (par cumul).\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes et s'il n'y a pas de Légende Galactique ou de Vaurien alliés et que tous les alliés appartiennent à la Répiblique Galactique :</u> tous les alliés obtiennent 25 % de dégâts critiques, 40 % de maîtrise et sont immunisés contre Peur et Immunité aux soins. Lorsqu'un allié subit un cumul de dégâts sur la durée, il le dissipe et tous les alliés obtiennent un cumul de soins sur la durée et de protection sur la durée pendant 2 tours.\nAu début de chaque affrontement, une Suivante factice est invoquée.\nLorsqu'une Suivante factice alliée subit un coup critique, tous les ennemis reçoivent un malus de pouvoir et de ténacité pendant 2 tours (ne peut pas être esquivé).",
+
+                "unique-ability2-title": "<u>Capacité Unique : Suivante factice</u>",
+                "unique-ability2": "<u class='blue'>Coté Lumineux</u>, tank, République Galactique\n\n<u class='speciale'>[basique] Garde du corps :</u> les alliés de la République Galactique récupèrent 10 % de santé et de protection. Confère Avantage pendant 1 tour à un ennemi aléatoire qui n'en dispose pas déjà (ne peut pas être esquivé ou résisté).\n\n<u class='speciale'>[Unique] Invocation :</u> Les statistiques de cette unité s'ajustent aux statistiques de l'Invocateur. Cette unité peut uniquement être invoqué dans l'emplacement d'allié si celui-ci est disponible. Cette unité ne peut pas être invoquée dans certains raids. Cette unité ne peut pas être ranimée. Si un effet compte les unités vaincus, cette unité ne compte pas. Lorsqu'il n'y a pas d'autres combattants alliés, cette unité fuit la bataille. Une unité ne peut pas être ranimée si cette unité invoquée se trouve dans son emplacement.",
+
+                "invocation-title": "<u style='margin-left: 25px'>Invocation : Suivante Factice</u> "
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "queen amidala"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
     </footer>
 </body>
-</html>    
+</html>
