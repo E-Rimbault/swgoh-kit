@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Zuckuss</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/Zuckuss/Zuckuss-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/Zuckuss/Zuckuss-image.png" alt="Zuckuss" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Zuckuss</u></h1>
+            <p id="description">
+                A mystic Gand findsman and relentless Bounty Hunter who ensures no target slips through his grasp
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/chasseur-de-primes.html" id="bounty-hunter">Bounty Hunter</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Force User</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/Zuckuss/Zuckuss.png" alt="Zuckuss"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Foreseen Strike</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Zuckuss basic" src="../image-perso/Zuckuss/zuckuss-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. Recover 10% Protection.
+                <br><br>
+                If Zuckuss had Foresight, attack again.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Ensnaring Shot (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Zuckuss special 1" src="../image-perso/Zuckuss/Zuckuss-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to the target enemy, then Stun them and inflict Accuracy Down on them for 2 turns which can't be evaded.
+                <br><br>
+                If target enemy was already Stunned, Zuckuss gains Protection Up (40%) for 2 turns and target enemy loses 15% Turn Meter.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Augury of Protectiony (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Zuckuss special 2" src="../image-perso/Zuckuss/Zuckuss-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Zuckuss dispels all debuffs on himself and Taunts for 2 turns. Bounty Hunter allies gain Foresight for 2 turns. Zuckuss gains 2 stacks of Force Connection for 3 turns, which can't be copied, dispelled, or prevented.
+                <br><br>
+                Zuckuss recovers 30% Protection.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Rite of Pursuit</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Zuckuss lead" src="../image-perso/Zuckuss/Zuckuss-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Bounty Hunter allies have +80% Max Protection.
+                <br><br>
+                Whenever a debuffed enemy ends their turn, Bounty Hunter allies recover 10% Protection, doubled for Zuckuss. Whenever an enemy with Foresight evades, Zuckuss gains 10% Turn Meter and other Bounty Hunter allies gain 5% Turn Meter.
+                <br><br>
+                While Zuckuss is the only Tank ally, whenever a Dark Side Bounty Hunter ally with Foresight uses a Special ability, all other Dark Side Bounty Hunter allies with Foresight assist.
+                <br><br>
+                When Zuckuss is in the Leader slot, and not the ally slot, the following Contract is active:
+                <br><br>
+                <u class="speciale">Contract:</u> While buffed with Foresight, deal damage with an attack to enemies 20 times. (Only Bounty Hunter allies can contribute to the Contract.)
+                <br><br>
+                <u class="speciale">Reward:</u> All Bounty Hunter allies have their payouts activated. All Bounty Hunter allies gain 25 Speed, 30% Offense, and non-Tank Bounty Hunter allies Stealth for 3 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Findsman's Intuition</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Zuckuss unique" src="../image-perso/Zuckuss/Zuckuss-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                If all allies were Bounty Hunters at the start of battle: At the start of each encounter Taunt for 2 turns.
+                <br><br>    
+                Zuckuss has +50% Defense. Whenever a Bounty Hunter ally with Foresight evades, Zuckuss gains 10% Turn Meter and 2 stacks of Force Connection (stacking), which can't be copied, dispelled, or prevented for 3 turns.
+                <br><br>
+                While Zuckuss has Force Connection, he has +50% Defense and recovers 15% Protection at the start of his turn.
+                <br><br>
+                At start of the battle, if 4-LOM is an ally, Zuckuss gains 30% Potency and Tenacity.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> Zuckuss gains 100% Max Protection until the first time he is defeated and Bounty Hunter's Resolve.
+                <br><br>
+                If all allies were non-Galactic Legend Bounty Hunters at the start of battle: Whenever Taunt is dispelled, Zuckuss Taunts for 1 turn.
+                <br><br>
+                Whenever Bounty Hunter allies are Dazed, they dispel it and gain Speed Up for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="prime"><u class="prime" id="prime-title">Zuckuss's Payout</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Zuckuss prime" src="../image-perso/Zuckuss/zuckuss-payout.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="prime">
+                Whenever Zuckuss receives Rewards from a Contract, he also gains the following Payout. (Contracts are granted by certain Bounty Hunter Leader abilities.)
+                <br><br>
+                <u class="speciale">Payout:</u> Taunt for 2 turns which can't be dispelled and all Bounty Hunter allies gain Foresight for 2 turns and 15% Turn Meter. Zuckuss gains 200% Critical Avoidance until the end of battle.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Zuckuss",
+                "title": "<u>Zuckuss</u>",
+                "description": "Un traqueur Gand mystique et un chasseur de primes implacable qui s'assure qu'aucune cible ne lui échappe.",
+
+                "darkside": "Coté Obscur",
+                "tank": "Tank",
+                "leader": "Chef",
+                "bounty-hunter": "Chasseur de primes",
+                "scoundrel": "Vaurien",
+                "force-user": "Utilisateur de la Force non aligné",
+
+                "basic-attack-title": "<u>Attaque Basique: Frappe anticipée</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à la cible ennemie. Récupère 10 % de protection.\n\nSi Zuckuss disposait de Prévoyance, il attaque de nouveau",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Tir piégant (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à la cible ennemie, puis lui inflige Éourdissement et un malus de précision pendant 2 tours (ne peut pas être esquivé).\n\nSi la cible ennemie subissait déjà Étourdissement, Zuckuss obtient un bonus de protection (40 %) pendant 2 tours et la cible ennemie perd 15 % de jauge de tour.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Présage protecteur (délai : 4)</u>",
+                "special-attack2": "Zuckuss dissipe tous les affaiblissement qu'il subit et utilise Raillerie pendant 2 tours. Les alliés Chasseurs de primes obtiennent Prévoyance pendant 2 tours. Zuckuss obtient 2 cumuls de Connexion avec la Force pendant 3 tours (ne peut pas être copié, dissipé ou empêché).\n\nZuckuss récupère 30 % de protection.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Rituel de poursuite</u>",
+                "lead-ability": "Les Chasseurs de primes alliés reçoivent +80 % de protection maximale.\n\nChaque fois qu'un ennemi subissant un affaiblissement termine son tour, les Chasseurs de primes alliés récupèrent 10 % de protection (doublé pour Zuckuss). Lorsqu'un ennemi disposant de Prévoyance esquive, Zuckuss gagne 10 % de jauge de tour et les autres alliés Chasseurs de primes alliés gagnent 5 % de jauge de tour.\n\nLorsque Zuckuss est le seul Tank allié, à chaque fois qu'un Chasseur de primes du Coté Obscur allié disposant de Prévoyance utilise une capacité spéciale, tous les autres Chasseurs de primes du Coté Obscur alliés disposant de Prévoyance sont invoqués.\n\nLorsque Zuckuss est placé dans l'emplacement de chef, et non dans un emplacement d'allié, le contrat suivant est actif :\n\n<u class='speciale'>Contrat :</u> lorsque vous disposez de Prévoyance, infligez des dégâts à des ennemis avec une attaque 20 fois (seuls les Chasseurs de primes alliés peuvent participer au contrat).\n\n<u class='speciale'>Récompense :</u> la prime de tous les Chasseurs de primes alliés est activée. Tous les Chasseurs de primes obtiennent 25 de vitesse, 30 % d'attaque et les Chasseurs de primes non-tank utilisent Camouflage pendant 3 tours.",
+
+                "unique-ability-title": "<u>Capacité Unique : intuition du traqueur</u>",
+                "unique-ability": "Si tous les alliés étaient des Chasseurs de primes au début de la bataille : au début de chaque affrontement, Zuckuss utilise Raillerie pendant 2 tours.\n\nZuckuss reçoit +50 % de défense. Chaque fois qu'un Chasseur de primes allié qui dispose de Prévoyance esquive, Zuckuss gagne 10 % de jauge de tour et 2 cumuls de Connexion avec la Force (cumulatif, ne peut pas être copié, dissipé ou évité) pendant 3 tours.\n\nLorsque Zuckuss dispose de Connexion avec la Fore, il a +50 % de défense et récupère 15 % de protection au début de son tour.\n\nAu début de la bataille, si 4-LOM fait partie des alliés, Zuckuss obtient 30 % de pouvoir et de ténacité.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> Zuckuss obtient 100 % de protection maximale jusqu'à ce qu'il soit vaincu pour la première fois ainsi que Détermination du Chasseur de primes.\n\nSi tous les alliés sont des Chasseurs de primes, mais pas des Légendes galactiques, au début de la bataille : chaque fois que Raillerie est dissipée, Zuckuss utilise Raillerie pendant 1 tour.\n\nChaque fois que les Chasseurs de primes allié subissent Confusion, ils la dissipent et gagnent un bonus de vitesse pendant 2 tours.",
+
+                "prime-title": "Prime de Zuckuss",
+                "prime": "Chaque fois que Zuckuss reçoit les récompenses d'un contrat, il obtient également la prime suivante (les contrats sont conférés par certaines capacités de chef des Chasseurs de primes).\n\n<u class='speciale'>Prime :</u> utilise Raillerie pendant 2 tours (ne peut pas être dissipé), et tous les alliés Chasseurs de primes obtiennent Prévoyance pendant 2 tours et 15 % de jauge de tour. Zuckuss reçoit 200 % d'esquive des critiques jusqu'à la fin de la bataille.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "zuckuss"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
