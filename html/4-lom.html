@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">4-LOM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/4-lom/4-lom-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/4-lom/4-lom-image.png" alt="4-LOM" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>4-LOM</u></h1>
+            <p id="description">
+                A former protocol droid whose logic circuits made him a cold, calculating Bounty Hunter
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/chasseur-de-primes.html" id="bounty-hunter">Bounty Hunter</a>
+                <a class="capacite" href="../classement-perso/droïde.html" id="droïd">Droïd</a>
+                <a class="capacite" href="../classement-perso/vanguard.html" id="scoundrel">Scoundrel</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/4-lom/4-lom.png" alt="4-LOM"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Destructive Rotation</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="4-LOM basic" src="../image-perso/4-lom/4-lom-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy four times and inflict them with Defense Down for 1 turn.
+                <br><br>
+                During 4-LOM's turn, Dark Side Bounty Hunter Attackers Stealth for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Relative Mercy (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="4-LOM special 1" src="../image-perso/4-lom/4-lom-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Dispel buffs and deal Special damage to target enemy and Shock them for 2 turns, which can't be evaded. If target enemy was Stunned, inflict Vulnerable on all enemies for 2 turns.
+                <br><br>
+                Enemies with 3 stacks of Corrupted Translation are inflicted with Ability Block for 1 turn, which can't be evaded or resisted.
+                <br><br>
+                Call all other non-Galactic Legend Dark Side Bounty Hunter allies to assist, if they were Support, they assist again.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : TRANSLATION: Destroy (cooldown: 6)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="4-LOM special 2" src="../image-perso/4-lom/4-lom-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Dispel all debuffs on Bounty Hunter allies and they recover 30% Health and Protection.
+                <br><br>
+                Inflict all enemies with a stack of <u class="speciale">Corrupted Translation</u> for 3 turns, which can't be copied, evaded, or resisted.
+                <br><br>
+                <u class="speciale">Corrupted Translation:</u> Negative effects based on the cumulative number of stacks:
+                <br><br>
+                1+: Receive True damage whenever they deal a critical hit (this damage can't defeat this character)
+                <br><br>
+                2+: Whenever this character starts their turn, the enemy team gains 10% Turn Meter
+                <br><br>
+                3+: -30% Max Health (Galactic Legends and raid bosses: -30% Tenacity)
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Cold Calculations</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="4-LOM lead" src="../image-perso/4-lom/4-lom-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Bounty Hunter allies have +50% Potency and Tenacity.
+                <br><br>
+                Whenever a Bounty Hunter ally inflicts a debuff, they recover 5% Health. Whenever an enemy critically hits a Bounty Hunter ally, that ally recovers 10% Health and Protection.
+                <br><br>
+                If there are no enemy Galactic Legends: Whenever an enemy gains bonus Turn Meter, Bounty Hunter allies gain 10% Offense and Potency (max 80%), and 5 Speed (max 40) until the end of each encounter.
+                <br><br>
+                When 4-LOM is in the Leader slot, and not the ally slot, the following Contract is active:
+                <br><br>
+                <u class="speciale">Contract:</u> Deal damage with an attack to enemies with Corrupted Translation 20 times. Enemies must be debuffed with Corrupted Translation before the start of an attack to count progress. (Only Bounty Hunter allies can contribute to the Contract)
+                <br><br>
+                <u class="speciale">Reward:</u> All Bounty Hunter allies have their payouts activated, and have their cooldowns reset and gain 50% Potency until the end of battle.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Override Programming</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="4-LOM unique" src="../image-perso/4-lom/4-lom-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                4-LOM has +30% Potency. If there are no Galactic Legends at the start of battle, whenever another Bounty Hunter ally attacks out of turn, 4-LOM assists (once per turn). Whenever 4-LOM attacks an enemy with Accuracy Down, he reduces his cooldowns by 1.
+                <br><br>
+                At the start of battle, if Zuckuss is an ally, all non-Galactic Legend Bounty Hunter allies gain 30% Max Health and Max Protection.
+                <br><br>
+                Whenever an enemy with Corrupted Translation has their Turn Meter manipulated, 4-LOM gains 25% Turn Meter (once per turn). Whenever an enemy with 3 stacks of Corrupted Translation ends their turn, 4-LOM gains 50% Turn Meter.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Battles:</u> At the start of battle, Bounty Hunter allies gain 100% Offense and Max Health. Whenever an enemy with 3 stacks of Corrupted Translation ends their turn, 4-LOM gains an additional 50% Turn Meter.
+                <br><br>
+                If there were no Galactic Legend allies at the start of battle: Whenever a Bounty Hunter ally starts their turn, they gain bonus Protection (50%, stacking) for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="prime"><u class="prime" id="prime-title">4-LOM's Payout</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="4-LOM prime" src="../image-perso/4-lom/4-lom-contract.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="prime">
+                Whenever 4-LOM receives Rewards from a Contract, he also gains the following Payout. (Contracts are granted by certain Bounty Hunter Leader abilities)
+                <br><br>
+                <u class="speciale">Payout:</u> 4-LOM gains 100% Potency until the end of battle. Whenever 4-LOM uses <u class="speciale">TRANSLATION: Destroy</u>, he inflicts an additional 2 stacks of Corrupted Translation for 3 turns.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "4-LOM",
+                "title": "<u>4-LOM</u>",
+                "description": "Un ancien droïde de protocole dont les circuits logiques ont fait de lui un chasseur de primes froid et calculateur",
+
+                "darkside": "Coté Obscur",
+                "support": "Soutien",
+                "leader": "Chef",
+                "bounty-hunter": "Chasseur de primes",
+                "droïd": "Droïde",
+                "scoundrel": "Vaurien",
+
+                "basic-attack-title": "<u>Attaque Basique: Rotation destructrice</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie quatre fois, ainsi qu'un malus de défense pendant 1 tour.\n\nPendant le tour de 4-LOM, les attaquants Chasseurs de primes du Côté Obscur utilisent Camouflage pendant 2 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Clémence relative (délai : 4)</u>",
+                "special-attack1": "Dissipe les améliorations et inflige des dégâts spéciaux à la cible ennemie, puis Choc pendant 2 tours (ne peut pas être esquivé). Si la cible ennemie subissait Étourdissement, inflige Vulnérabilité à tous les ennemis pendant 2 tours.\n\nLes ennemis ayant 3 cumuls de Traduction corrompue subissent Entrave des capacité pendant 1 tour (ne peut pas être esquivé ou résisté).\n\nInvoque tous les autres Chasseurs de primes du Côté Obscur (à l'exception des Légendes Galactiques). Les soutiens invoqués le sont une seconde fois.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : TRADUCTION : détruire (délai : 6)</u>",
+                "special-attack2": "Dissipe tous les affaiblissements en cours sur les Chasseurs de primes alliés, qui récupèrent 30 % de santé et de protection.\n\nInflige un cumul de <u class='speciale'>Traduction corrompue</u> à tous les ennemis pendant 3 tours (ne peut pas êtr copié, esquivé ou résisté).\n\n<u class='speciale'>Traduction corrompue :</u> application d'effets négatifs basés sur le nombre total de cumuls :\n\n1 et plus : reçoit des dégâts réels chaque fois que l'unité inflige un coup critique (ces dégâts ne peuvent pas éliminer ce personnage).\n\n2 et plus : lorsque ce personnage commence son tour, la jauge de tour de l'équipe ennemie se remplit immédiatement de 10 %.\n\n3 et plus : -30 % de santé maximale (Légende galactique et boss de raid : -30 % de ténacité).",
+
+                "lead-ability-title": "<u>Capacité de Chef: Calculs froids</u>",
+                "lead-ability": "Les Chasseurs de primes alliés reçoivent +50 % de pouvoir et de ténacité.\n\nLorsqu'un Chasseur de primes allié inflige un affaiblissement, il récupère 5 % de santé. Chaque fois qu'un ennemi inflige un coup critique à un Chasseur de primes allié, ce dernier récupère 10 % de santé et de protection.\n\nSi aucune Légende galactique n'est présente : chaque fois qu'un ennemi obtient de la jauge de tour supplémentaire, les Chasseur de primes alliés obtiennent 10 % d'attaque et de pouvoir (80 % maximum) ainsi que 5 de vitesse (40 maximum) jusqu'à la fin de l'affrontement.\n\nLorsque 4-LOM est placé dans l'emplacement de chef, et non dans l'emplacement d'allié, le contrat suivant est actif :\n\n<u class='speciale'>Contract :</u> infligez 20 fois des dégâts aux ennemis disposant de Traduction corrompue. Les ennemi doivent subir Traduction corrompue avant le début de l'attaque pour qu'elle soit prise en compte (seuls les Chasseurs de primes alliés peuvent participer au contrat).\n\n<u class='speciale'>Récompense :</u> la prime de tous les Chasseurs de primes alliés est activée, et ils obtiennent 50 % de pouvoir jusqu'à la fin de la bataille.",
+
+                "unique-ability-title": "<u>Capacité Unique : Forcer la programmation</u>",
+                "unique-ability": "4-LOM reçoit +30 % de pouvoir. S'il n'y a pas de Légendes galactiques au début de la bataille, chaque fois qu'un Chasseur de primes attaque hors de son tour, 4-LOM est invoqué (une fois par tour). Chaque fois que 4-LOM attaque un ennemi disposant d'un malus de précision, il réduit ses délais de 1.\n\nAu début de la bataille, si Zuckuss fait partie des alliés, tous les alliés Chasseurs de primes qui ne sont pas des Légendes Galactiques obtiennent 30 % de santé maximale et de protection maximale.\n\n Chaque fois qu'un ennemi avec Traduction corrompe voit sa jauge de tour manipulée, 4-LOM gagne 25 % de jauge de tour (une fois par tour). Chaque fois qu'un ennemi avec 3 cumuls de Traduction corrompue termine son tour, 4-LOM gagne 50 % de jauge de tour.\n\n<u class='omicron'>Amélioration omicron : Dans les Batailles de territoire :</u> Au début de la bataille, les alliés Chasseurs de primes gagnent 100 % d'attaque et de santé maximale. Chaque fois qu'un ennemi avec 3 cumuls de Traduction corrompue termine son tour, 4-LOM gagne 50 % de jauge de tour supplémentaire.\n\nSi aucune Légende galactique alliée n'est présente au début de la bataille : chaque fois qu'un allié Chasseur de primes commence son tour, il gagne un bonus de protection (50 %, cumulatif) pendant 2 tours.",
+
+                "prime-title": "Prime de 4-LOM",
+                "prime": "Chaque fois que 4-LOM reçoit des récompenses pour un contrat rempli, il bénéficie également de la prime suivante (les contrats sont conférés par certaines capacités de chef des Chasseurs de primes).\n\n<u class='speciale'>Prime :</u> 4-Lom gagne +100 % de pouvoirs jusqu'à la fin de la bataille. Chaque fois que 4-LOM utilise <u class='speciale'>TRADUCTION : détruire</u>, il inflige 2 cumuls supplémentaires de Traduction corrompue pendant 3 tours.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "4-lom"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
