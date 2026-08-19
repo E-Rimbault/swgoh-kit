@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Asajj Ventress (Dark Disciple)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/asajj-ventress-disciple/asajj-ventress-disciple-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/asajj-ventress-disciple/asajj-ventress-disciple-image.png" alt="Asajj Ventress (Dark Disciple)" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Asajj Ventress (Dark Disciple)</u></h1>
+            <p id="description">
+                Once a Sith apprentice, now the master of her own path, Asajj Ventress channels her past as a Disciple into ruthless precision with every strike a lesson, every victory a chapter in her legend
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/chasseur-de-primes.html" id="hunter">Bounty Hunter</a>
+                <a class="capacite" href="../classement-perso/soeur-de-la-nuit.html" id="sister">Nightsister</a>
+                <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Force User</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/asajj-ventress-disciple/asajj-ventress-disciple.png" alt="Asajj Ventress (Dark Disciple)"><br>
+
+    <!-- Capacités -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Swift Strikes</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Asajj Ventress (Dark Disciple) basic" src="../image-perso/asajj-ventress-disciple/asajj-ventress-disciple-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. If that enemy was debuffed, attack again.
+                <br><br>
+                During Asajj Ventress (Dark Disciple)'s turn, gain 7% Turn Meter and inflict Tenacity Down on target enemy for 1 turn. Otherwise, gain 12% Turn Meter and Retaliate for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Come Back to Me (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Asajj Ventress (Dark Disciple) special 1" src="../image-perso/asajj-ventress-disciple/asajj-ventress-disciple-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies, grant target ally Potency Up for 1 turn, and inflict Armor Shred on the target enemy until the end of the encounter. Asajj Ventress (Dark Disciple) and target Bounty Hunter ally gain Defense Penetration Up for 2 turns. The first time this ability is used on a non-Galactic Legend Bounty Hunter ally, grant them Disciple until the end of battle.
+                <br><br>
+                Ventress gains Retribution for 2 turns.
+                <br><br>
+                <u class="speciale">Disciple:</u> +15 Speed and immune to Ability Block
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Know Your Place (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Asajj Ventress (Dark Disciple) special 2" src="../image-perso/asajj-ventress-disciple/asajj-ventress-disciple-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to target enemy, inflict Vulnerable on them for 2 turns, and Stun them for 1 turn. If there is an active ally with Disciple, Stun them for 2 turns instead.
+                <br><br>
+                Dispel all debuffs on Asajj Ventress (Dark Disciple) and all allies with Disciple and they gain 10% Critical Damage (stacking, max 100%) until the end of encounter for each debuff dispelled this way.
+                <br><br>
+                Call all other allies with Disciple to assist.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Selfless Act</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Asajj Ventress (Dark Disciple) lead" src="../image-perso/asajj-ventress-disciple/asajj-ventress-disciple-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                At the start of battle, all Bounty Hunter allies gain Critical Chance Up and Offense Up for 2 turns.
+                <br><br>
+                If all allies are Bounty Hunters: Whenever an enemy begins their turn with more than 5 debuffs, they are Dazed for 2 turns.
+                <br><br>
+                When Asajj Ventress (Dark Disciple) is in the Leader slot, and not the ally slot, the following Contract is active:
+                <br><br>
+                <u class="speciale">Contract:</u> While there is an active ally with Disciple, attack out of turn 10 times. (Only Bounty Hunter allies can contribute to the Contract)
+                <br><br>
+                <u class="speciale">Reward:</u> All Bounty Hunter allies have +50% Defense Penetration until the end of encounter. Whenever a Bounty Hunter ally revives, they gain Damage Immunity for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Train Under Me</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Asajj Ventress (Dark Disciple) unique" src="../image-perso/asajj-ventress-disciple/asajj-ventress-disciple-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Asajj Ventress (Dark Disciple) has +75% Max Health and Max Protection and 20% Offense. At the start of battle, if the ally in the Leader slot is Boba Fett, Scion of Jango and there are no Tank allies, Bounty Hunter allies gain bonus Protection (300%) until the end of the encounter. Whenever an ally with Disciple is damaged, Ventress gains 10% Offense (stacking, max 50%) until the next time she uses her Basic ability on her turn.
+                <br><br>
+                Whenever Ventress starts her turn, allies with Disciple gain 10% Turn Meter. Whenever an ally with Disciple starts their turn, inflict Evasion Down on all enemies for 1 turn, which can't be resisted, and Ventress gains 10% Turn Meter.
+                <br><br>
+                Whenever an ally with Disciple uses a Special ability, inflict the target enemy with Protection Disruption for 1 turn, which can’t be evaded, and Ventress assists. Whenever an ally with Disciple uses their Special ability, on their turn, 4 turns in a row, they gain 100% Offense until the end of the encounter and their next ability on their turn inflicts Vulnerable to target enemy, which can’t be dispelled, evaded, or resisted until the end of the encounter.
+                <br><br>
+                Whenever Ventress uses an ability on her turn, allies with Disciple assist.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> All Bounty Hunter allies gain 50% Max Health and Potency. All other non-Galactic Legend and non-Tank Bounty Hunter allies gain Disciple until the end of battle. Whenever Ventress or allies with Disciple are Dazed, they dispel it and gain 50% Turn Meter.
+                <br><br>
+                Whenever Ventress gains bonus Turn Meter, she gains 5% Offense (stacking, max 150%) until the end of the encounter. Ventress and all allies with Disciple are immune to Turn Meter reduction. Whenever enemies attack out of turn, allies with Disciple and Ventress recover 5% Health and Protection
+            </p>
+        </div>
+    </div>
+
+    <h2 class="prime"><u class="prime" id="prime-title">Asajj Ventress (Dark Disciple)'s Payout</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Asajj Ventress (Dark Disciple) prime" src="../image-perso/asajj-ventress-disciple/asajj-ventress-disciple-contract.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="prime">
+                When Asajj Ventress (Dark Disciple) receives a Reward from a Contract, she also gains the following Payout. (Contracts are granted by certain Bounty Hunter Leader abilities.)
+                <br><br>
+                <u class="speciale">Asajj Ventress (Dark Disciple)'s Payout:</u> Ventress gains 100% Critical Damage. If an ally with Disciple has a stack of Momentum, grant 10 stacks of Momentum to that ally until the end of the encounter. All allies with Disciple gain 100% Turn Meter.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Asajj Ventress (disciple obscur)",
+                "title": "<u>Asajj Ventress (disciple obscur)</u>",
+                "description": "Autrefois apprentie Sith, elle est aujourd'hui maîtresse de sa propre voie. Asajj Ventress canalise son passé de disciple en une précision impitoyable, chaque frappe étant une leçon, chaque victoire écrivant un chapitre de sa légende.",
+
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "hunter": "Chasseur de primes",
+                "sister": "Sœur de la nuit",
+                "force-user": "utilisateur de la Force non aligné",
+
+                "basic-attack-title": "<u>Attaque Basique: Frappe foudroyante</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie. Si l'ennemi subit un affaiblissement, attaque de nouveau.\n\nPendant le tour d'Asajj Ventress (disciple obscur), elle gagne 7 % de jauge de tour et inflige un malus de ténacité à la cible ennemie pendant 1 tour. Sinon, elle gagne 12 % de jauge de tour et Représailles pendant 1 tour.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Reviens-moi (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâtys physiques à tous les ennemis, confère un bonus de pouvoir à la cible alliée pendant 1 tour et inflige Destruction d'armure à la cible ennemie jusqu'à la fin de l'affrontement. Asajj Ventress (disciple obscur) et le Chasseur de primes allié ciblé obtiennent un bonus de pénétration de défense pendant 2 tours. La première fois que cette capacité est utilisée sur un allié Chasseur de primes qui n'est pas une Légende galactique, ce dernier reçoit Disciple jusqu'à la fin de la bataille.\n\nVentress obtient Rétribution pendant 2 tours.\n\n<u class='speciale'>Disciple :</u> +15 de vitesse et ne peut pas subir Entrave des capacités.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Reste à ta place (délai : 3)</u>",
+                "special-attack2": "Inflige des dégâts physiques à la cible ennemie, puis Vulnérabilité pendant 2 tours et Étourdissement pendant 1 tour. Si un allié actif disposant de Disciple est présent, la cible subit Étourdissement pendant 2 tours à la place.\n\nDissipe tous les affaiblissements que subissent Asajj Ventress (disciple obscur) et tous les alliés disposant de Disciple, puis ils gagnent 10 % de dégâts critiques (cumulatif, maximum 100 %) jusqu'à la fin de l'affrontement pour chaque affaiblissement qui a été dissipé de cette manière.\n\Invoque tous les alliés disposant de Disciple.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Abnégation</u>",
+                "lead-ability": "Au début de la bataille, tous les Chasseurs de primes alliés obtiennentn un bonus de chances de coup critique et un bonus d'attaque pendant 2 tours.\n\nSi tous les alliés sont des CHasseurs de primes : lorsqu'un ennemi commence son tour avec plus de 5 affaiblissements, il subit Confusion pendant 2 tours.\n\nLorsqu'Asajj Ventress (disciple obscur) est dans l'emplacement de chef, et non dans un emplacement d'allié, le contrat ci-dessous est actif :\n\n<u class='speciale'>Contrat :</u> tant qu'un allié disposant de Disciple est actif, il attaque 10 fois en dehors de son tour (seuls les Chasseurs de primes alliés peuvent participer au contrat).\n\n<u class='speciale'>Récompense :</u> tous les Chasseurs de primes alliés reçoivent +50 % de pénétration de défense jusqu'à la fin de l'affrontement. Chaque fois qu'un Chasseur de primes allié est ranimé, il gagne Immunité aux dégâts pendant 1 tour.",
+
+                "unique-ability-title": "<u>Capacité Unique : Entraîne-toi sous mes ordres</u>",
+                "unique-ability": "Asajj Ventress (disciple obscur) reçoit +75 % de santé maximale et de protection maximale, ainsi que 20 % d'attaque. Au début de la bataille, si l'allié dans l'emplacement de chef est Boba Fett, Héritier de Jango et qu'aucun Tank n'est présent parmi les alliés, les Chasseurs de primes alliés obtiennent 300 % de protection supplémentaire jusqu'à la fin de l'affrontement. Lorsqu'un allié disposant de Disciple subit des dégâts, Ventress obtient 10 % d'attaque (cumulatif, maximum 50 %) jusqu'à ce qu'elle utilise sa capacité de base lors de son tour.\n\nLorsque Ventress commence son tour, les alliés qui disposent de Disciple gagnent 10 % de jauge de tour. Chaque fois qu'un allié possèdant Disciple commence son tour, inflige un malus d'esquive à tous les ennemis pendant 1 tour (ne peut pas être résisté) et Ventress gagne 10 % de jauge de tour.\n\nLorsqu'un allié avec Disciple utilise une capacité spéciale, inflige Protection perturbée à la cible ennemie pendant 1 tour (ne peut pas être esquivé) et Ventress est invoquée. Chaque fois qu'un allié disposant de Disciple utilise la même capacité spéciale 4 tours d'affilée, il obtient 100 % d'attaque jusqu'à la fin de l'affrontement et la prochaine capacité qu'il utilise pendant son tour inflige Vulnérabilité à la cible ennemie (ne peut pas être dissipé, esquivé ou résisté) jusqu'à la fin de l'affrontement.\n\nChaque fois que Ventress utilise une capacité pendant son tour, ses alliés disposant de Disciple sont invoqués.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> tous les Chasseurs de primes alliés gagnent 50 % de santé maximale et de pouvoir. Tous les Chasseurs de primes alliés qui ne sont ni des tanks ni des Légendes galactiques obtiennent Disciple jusqu'à la fin de la bataille. Chaque fois que Ventress ou ses alliés disposant de Disciple subissent Confusion, ils dissipent cet effet et leur juage de tour se remplit de 50 %.\n\nChaque fois que Ventress obtient de la jauge de tour supplémentaire, elle gagne 5 % (cumulatif, maximum 150 %) jusqu' la fin de l'affrontement. Ventress et tous les alliés disposant de Disciple sont immunisés contre les effets de réduction de jauge de tour. Chaque fois que les ennemis attaquent hors de leur tour, les alliés disposant de Disciple et Ventress récupèrent 5 % de santé et de protection.",
+
+                "prime-title": "Prime d'Asajj Ventress (disciple obscur)",
+                "prime": "Chaque fois qu'Asajj Ventress (disciple obscur) reçoit des récompenses pour un contrat rempli, elle bénéficie également de la prime suivante. (Les contrats sont conférés par certaines capacités de chef des Chasseurs de primes).\n\n<u class='speciale'>¨Prime d'Asajj Ventress (disciple obscur) :</u> Ventress obtient 100 % de dgâts critiques. Si un allié disposant de Discipe a un cumul d'Élan, confère 10 cumuls d'Élan à cet allié jusqu'à la fin de l'affrontement Tous les alliés disposant de Disciple obtiennent 100 % de jauge de tour.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "ASAJJDARKDISCIPLE"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
