@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Bossk</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/bossk/bossk-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/bossk/bossk-image.png" alt="Bossk" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Bossk</u></h1>
+            <p id="description">
+                Bounty Hunter Tank that constantly regenerates Health and Protection
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/chasseur-de-primes.html" id="hunter">Bounty Hunter</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/hound-tooth.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/" alt="Hound's Tooth">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: Hound's Tooth</u>
+                </h2>
+            </section>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/bossk/bossk.png" alt="Bossk"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Prey On The Weak</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Bossk basic" src="../image-perso/bossk/bossk-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. If the target is the weakest enemy, this attack deals double damage and is guaranteed to Critically Hit.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Hunting Party (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Bossk special 1" src="../image-perso/bossk/bossk-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and Stun them for 1 turn. Call all other Bounty Hunter allies to Assist, dealing 60% less damage. If the target is the weakest enemy, reduce all assisting Bounty Hunter allies' cooldowns by 1.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Predator Instincts (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Bossk special 2" src="../image-perso/bossk/bossk-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Bossk dispels all debuffs on himself, recovers 50% Health, then gains Frenzy and Taunt for 3 turns. All Bounty Hunter allies gain Offense Up for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: On The Hunt</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Bossk lead" src="../image-perso/bossk/bossk-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                All Bounty Hunters gain +50% Max Protection and +50% Tenacity. All Bounty Hunter allies gain +100% Defense while at full Health. Whenever an enemy suffers a debuff or Resists, all Bounty Hunter allies recover 5% Health and Protection. When Bossk is in the Leader slot, and not the Ally slot, the following Contract is active:
+                <br><br>
+                <u class="speciale">Contract:</u> Deal damage to the weakest enemy 10 times. (Only Bounty Hunter allies can contribute to the Contract.)
+                <br><br>
+                <u class="speciale">Reward:</u> All Bounty Hunter allies gain +50 Speed for the rest of battle and their Payouts are activated.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Trandoshan Rage</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Bossk unique" src="../image-perso/bossk/bossk-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Bossk has +50% Defense and +50% Max Health while he has Taunt and gains +50% Offense and +50% Health Steal while attacking buffed enemies. When Bossk loses Taunt, he gains Taunt for 1 turn if the weakest enemy has Protection.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="prime"><u class="prime" id="prime-title">Bossk's Payout</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Bossk prime" src="../image-perso/bossk/bossk-contrat.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="prime">
+                Whenever Bossk receives Rewards from a Contract, he also gains the following Payout. (Contracts are granted by certain Bounty Hunter Leader Abilities.)
+                <br><br>
+                <u class="speciale">Payout:</u> Bossk Recovers 5% Health and Protection at the start of his turn, and half that much whenever another Bounty Hunter ally starts their turn.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Bossk",
+                "title": "<u>Bossk</u>",
+                "description": "Tank chasseur de primes qui régénère constamment sa santé et sa protection",
+
+                "darkside": "Coté Obscur",
+                "tank": "Tank",
+                "leader": "Chef",
+                "hunter": "Chasseur de primes",
+                "scoundrel": "Vaurien",
+                "crew-members": "Membres d’Équipage",
+                
+                "basic-attack-title": "<u>Attaque Basique: S'attaquer aux plus faibles</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie. Cette attaque infligera un coup critique et le double de dégâts à la cible s'il s'agit de l'ennemi le plus faible.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Partie de chasse (délai : 4)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie et l'étourdit pendant 1 tour. Invoque tous les Chasseurs de primes alliés, qui infligent 60 % de dégâts en moins. Si la cible est l'ennemi le plus faible, diminue le délai de tous les Chasseurs de primes alliés invoqués de 1.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Instinct de prédateur (délai : 4)</u>",
+                "special-attack2": "Bossk dissipe tous les affaiblissement qui l'affectentn récupère 50 % de santé puis utilise la frénésie et Raillerie pendant 3 tours. Tous les Chasseurs de primes alliés gagnent un bonus d'attaque pendant 2 tours.",
+
+                "lead-ability-title": "<u>Capacité de Chef: En chasse</u>",
+                "lead-ability": "Tous les Chasseurs de primes gagnent un bonus de protection maximum de +50 % et un bonus de ténacité de +50 %. Tous les Chasseurs de primes alliés gagnent un bonus de défense de +100 % lorsqu'ils disposent de toute leur santé. Lorsqu'un ennemi subit un affaiblissement ou résisté, tous les Chasseurs de primes alliés récupèrent 5 % de santé et de protection. Lorsque Bossk est placé dans l'emplacement de chef et non dans l'emplacement d'allié, le contrat suivant est actif :\n\n<u class='speciale'>Contrat :</u> infliger 10 fois des dégâts à l'ennemi ayant la santé la plus faible (Seuls les Chasseurs de primes alliés peuvent participer au contrat.)\n\n<u class='speciale'>Récompense :</u> tous les Chasseurs de primes alliés gagnent un bonus de vitesse de +50 pendant le reste de l'affrontement et leur prime est activée.",
+
+                "unique-ability-title": "<u>Capacité Unique : Rage trandoshanne</u>",
+                "unique-ability": "Bossk gagne un bonus de défense de +50 % et un bonus de santé maximale de +50 % pendant Raillerie. Il gagne un bonus d'attaque de +50 % et un bonus de vol de santé de +50 % lorsqu'il attaque un ennemi disposant d'une amélioration. Lorsque Bossk perd Raillerie, il gagne Raillerie pendant 1 tour si l'ennemi le plus faible a de la protection.",
+
+                "prime-title": "Prime de Bossk",
+                "prime": "A chaque fois que Bossk reçoit des récompenses pour un contrat rempli, il bénéficie également de la prime suivante. (Les contrats sont conférés par certaines capacité de chef des Chasseurs de primes).\n\n<u class='speciale'>Prime :</u> Bossk récupère 5 % de santé et de protection au début du tour d'un autre Chasseur de primes allié.",
+
+                "ship-title": "<u>Vaisseau : Dent du molosse</u>",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "bossk"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
