@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">General Syndulla</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/general-syndulla/general-syndulla-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/general-syndulla/general-syndulla-image.png" alt="General Syndulla" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>General Syndulla</u></h1>
+            <p id="description">
+                A fearless leader who uses Perfect Defense to empower her allies in preserving the freedom of the galaxy.
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/new-republic.html" id="new-republic">New Republic</a>
+                <a class="capacite" href="../classement-perso/spectre.html" id="spectre">Spectre</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/general-syndulla/general-syndulla.png" alt="General Syndulla"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Blurrg-1120 Holdout Blaster</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="General Syndulla basic" src="../image-perso/general-syndulla/general-syndulla-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. If the enemy is buffed, call another random Spectre ally to assist and dispel all buffs on target enemy. On Hera's turn, call a random Light Side Droid to assist, dealing 5% more damage for each active Spectre ally.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Pulling Rank (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="General Syndulla special 1" src="../image-perso/general-syndulla/general-syndulla-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Dispel all debuffs on target Spectre ally and they gain Defense Up and Tenacity Up for 2 turns. Target ally gains 10% Offense and 10 Speed for 1 turn and an additional 10% Offense and 10 Speed for each debuff dispelled this way, then inflict Blind on target enemy at the end of their next turn for 2 turns.
+                <br><br>
+                Spectre allies who have Defense Up and Tenacity Up, dispel them and gain Perfect Defense for 2 turns if they don't already have it, which can't be copied.
+                <br><br>
+                <u class="speciale">Perfect Defense:</u> +200% Defense; resist detrimental effects; immune to Defense Up and Tenacity Up
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : I'm Not Just Going to Sit Around (cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="General Syndulla special 2" src="../image-perso/general-syndulla/general-syndulla-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal True damage to all enemies. Remove 50% Turn Meter from all enemies with 50% or more Turn Meter. Dispel Fracture from all enemies and then inflict target enemy with Fracture until each other enemy has taken 1 turn or they are defeated, which can't be dispelled, evaded, or resisted. If target enemy has no other active ally, inflict Fracture until General Syndulla takes her next turn.
+                <br><br>
+                The strongest ally Tank Taunts and gains Protection Up (50%) for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: New Republic General</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="General Syndulla lead" src="../image-perso/general-syndulla/general-syndulla-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                At the start of battle, Spectre allies and Garazeb "Zeb" Orrelios gain 50% Max Health and Max Protection, and 150 Speed for 1 turn. On their turn, Spectre allies can ignore Taunt to target an enemy with Exile or Fracture. At the start of each Spectre ally's and Zeb's turn, they gain Offense equal to 50% of their Defense until the end of their turn.
+                <br><br>
+                Enemies with Exile and Off Balance deal 20% less damage.
+                <br><br>
+                If the enemy with Fracture is defeated, remove 100% Turn Meter from all enemies, which can't be evaded or resisted.
+                <br><br>
+                Whenever a Spectre ally deals multiple instances of damage on their turn, they inflict 6 stacks of Damage Over Time to the target enemy for 1 turn.
+                <br><br>
+                The first time a Spectre ally's or Zeb's Health is reduced to 30%, they recover 50% Health and Protection. The first time a Spectre ally's or Zeb's Health reaches 1%, they dispel all debuffs on themselves, gain Damage Immunity for 1 turn, take a bonus turn and gain 100% Offense on their next turn. If an enemy is defeated in this turn, that ally recovers 50% Health and Protection. Otherwise that ally is defeated.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Unauthorized Mission</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="General Syndulla unique" src="../image-perso/general-syndulla/general-syndulla-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                At the start of each Spectre ally's turn, they gain 40% Defense Penetration if they have Exile or Perfect Defense, until end of their turn. Whenever a Spectre ally with Perfect Defense uses a Special ability, they deal True damage to all enemies, which can't be evaded.
+                <br><br>
+                While a Spectre ally or Garazeb "Zeb" Orrelios is Taunting, all the other non Taunting Spectre allies and Zeb have +25% Defense.
+                <br><br>
+                Whenever a buff is dispelled from an enemy, Spectre allies and Zeb gain 15% Turn Meter.
+                <br><br>
+                Whenever enemy units have their Turn Meter manipulated, a random Spectre ally gains Defense Up and Tenacity Up for 1 turn.
+                <br><br>
+                Whenever Perfect Defense expires on a Spectre ally, they gain benefits based on their role:
+                <br><br>
+                - <strong>Attackers :</strong> Critical Damage Up for 2 turns<br>
+                - <strong>Tanks :</strong> Protection Up (50%) for 2 turns<br>
+                - <strong>Healers and Supports :</strong> Speed Up for 2 turns
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> Spectre allies and Zeb have +100% counter chance and Potency.
+                <br><br>
+                Whenever a Spectre ally or Zeb recovers Health, other Spectre allies and Zeb recover half of that amount at the end of that turn. Whenever a Spectre ally or Zeb attacks out of turn, they remove 15% Turn Meter from target enemy (excluding Galactic Legends). The first time a Spectre ally or Zeb loses all their Protection, they recover 50% Protection. Whenever a Spectre ally or Zeb is Stunned, they dispel it and inflict Buff Immunity and Healing Immunity for 1 turn on all enemies.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Général Syndulla",
+                "title": "<u>Général Syndulla</u>",
+                "description": "Un leader intrépide qui utilise Défense parfaite pour renforcer ses alliés dans la préservation de la liberté de la galaxie.",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "leader": "Chef",
+                "new-republic": "Nouvelle République",
+                "spectre": "Spectre",
+
+                "basic-attack-title": "<u>Attaque Basique: Blaster Blurrg-1120</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie. Si la cible dispose d'améliorations, onvoque un allié Spectre aléatoire et dissipe toutes les améliorations de la cible ennemie. Au tour d'Héra, invoque un droïde du Coté Lumineux aléatoire, infligeant 5 % de dégâts supplémentaires pour chaque allié Spectre actif.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Abus de pouvoir (délai : 3)</u>",
+                "special-attack1": "Dissipe tous les affaiblissements affectant l'allié Spectre ciblé, et lui confère un bonus de défense et un bonus de ténacité pendant 2 tours. L'allié ciblé obtient 10 % d'attaque et 10 de vitesse pendant 1 tour, ainsi qu'un bonus supplémentaire de 10 % d'attaque et 10 de vitesse pour chaque affaiblissement dissipé de cette façon, puis inflige Cécité à la cible ennemie à la fin de son prochain tour pendant 2 tours.\n\nLes alliés Spectre qui disposent d'un bonus de défense et d'un bonus de ténacité les dissipent et obtiennent Défense parfaite pendant 2 tours s'ils ne l'on pas déjà (ne peut pas être copiée).\n\n<u class='speciale'>Défense parfaite :</u> +200 % de défense, résistance aux effets néfastes et immunité contre le bonus de défense et de ténacité.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Je ne peux pas rester les bras croisés (délai : 5)</u>",
+                "special-attack2": "Inflige des dégâts réels à tous les ennemis. Réduit de 50 % la jauge de tour de tous les ennemis ayant au moins 50 % de jauge de tour. Dissipe Fracture sur tous les ennemis, puis inflige Fracture à la cible ennemie jusqu'à ce que chaque autre ennemi ait pris un tour ou soit vaincu (ne peut pas être dissipé, esquivé ou résisté). Si la cible ennemie n'a pas d'autres allié actif, inflige Fracture jusqu'au prochain tour du Général Syndulla.\n\nLe tank allié le plus fort utilise Raillerie et obtient un bonus de défense de 50 % pendant 2 tours.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Nouveau Général de la République</u>",
+                "lead-ability": "Au début de la bataille, les alliés Spectre et Garazed \"Zed\" orrelios gagnent 50 % de santé maximale et de protection maximale, et 150 de vitesse pendant 1 tour. Lors de leur tour, les alliés Spectre peuvent ignorer Raillerie pour cibler un ennemi avec Exil ou fracture. Au début du tour de chaque allié Spectre et de Zed, ils gagnent un bonus d'attaque égal à 50 % de leur défense jusqu'à la fin de leur tour.\n\nLes ennemis avec Exil et Déséquilibre infligent 20 % de dégâts en moins.\n\nSi l'ennemi avec Fracture est vaincu, retire 100 % de jauge de tour à tous les ennemis (ne peut pas être esquivé ou résisté).\n\nLorsqu'un allié Spectre inflige plusieurs instance de dégâts lors de son tour, il inflige 6 cumuls de dégâts sur la durée à la cible ennemie pendant 1 tour.\n\nLa première fois que la santé d'un allié Spectre ou Zed est réduite à 30 %, ils récupèrent 50 % de santé et de protection. La première fois que la santé d'un allié Spectre ou Zed atteint 1 %, ils dissipent tous les malus sur eux-mêmes, obtiennent Immunité aux dégâts pendant 1 tour, reçoivent un tour bonus et gagnent +100 % d'attaque lors du prochain tour. Si un ennemi est vaincu durant ce tour, cet allié récupère +50 % en santé et en protection. Sinon, cet allié est vaincu.",
+
+                "unique-ability-title": "<u>Capacité Unique : Mission non autorisée</u>",
+                "unique-ability": "Au début de chaque tour d'un allié Spectre, il obtient 40 % de pénétration de défense s'il a Exil ou Défense parfaite, jusqu'à la fin de son tour. Lorsqu'un allié Spectre avec Défense parfaite utilise une capacité spéciale, il inflige des dégâts réels à tous les ennemis (ne peut pas être esquivé).\n\nTant qu'un allié Spectre ou Garaed \"Zed\"Orrelios utilise Raillerie, tous les autres alliés Spectre qui n'utilisent pas Raillerie gagnent +25 % de défense.\n\nlorsqu'une amélioration ennemie est dissipée, les alliés Spectre et Zed obtiennent 15 % de jauge de tour.\n\nLorsque la jauge de tour des unités ennemies est manipulée, un allié Spectre aléatoire oobtien un bonus de défense et de ténacité pendant 1 tour.\n\nLorsque Défense parfaite expire sur un allié Spectre, il obtient des avantages en fonction de son rôle :\n\n- <strong>Attaquant :</strong> bonus de dégâts critiques pendant 2 tours.\n- <strong>Tanks :</strong> bonus de protection (50 %) pendant 2 tours.\n- <strong>Soigneurs et soutiens :</strong> bonus de vitesse pendant 2 tours.\n\n<u class='omicron'>Amélioration Omicron : Dans les guerres de territoire :</u> les alliés Spectre et Zed ont +100 % de chances de contre-attaque et de pouvoir.\n\nLorsqu'un allié Spectre ou Zed récupère de la santé, les autres alliés Spectre et Zed récupèrent la moitié du montant à la fin du tour. Lorsqu'un allié Spectre ou Zed attaque en dehors de son tour, il retire 15 % de jauge de tour à la cible ennemie (à l'excepetion des Légendes Galactiques). la première fois qu'un allié Spectre ou Zed perd toute sa protection, il récupère 50 % de protection. Lorsqu'un allié Spectre ou Zed est étourdi, l'étourdissement est dissipé et il inflige Immunité aux améliorations et Immunité aux soins pendant 1 tour à tous les ennemis.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "general syndulla"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
