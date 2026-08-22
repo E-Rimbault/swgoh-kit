@@ -1,137 +1,284 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Jyn Erso</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Jyn Erso</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/jyn/jyn-image.png">
-
-    <!-- Lien vers la feuille de style -->
-    <link rel="stylesheet" href="../style/styles.css">
-    <link rel="stylesheet" href="../style/capacite.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/jyn/jyn-image.png" alt="Jyn Erso" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>Jyn Erso</u></h1>
-        <p>
-            Chef Rebelle offensive qui gagne l'avantage, étourdit les ennemis,<br>
-            ranime les alliés Rebelles et leur confère un bonus de pouvoir.
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: blue;" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/rebelle.html">Rebelle</a>
-            <a class="capacite" href="../classement-perso/combattant-rebelle.html">Combattant Rebelle</a>
-            <a class="capacite" href="../classement-perso/rogue-one.html">Rogue One</a>
-        </nav>
+            <h1 id="title"><u>Jyn Erso</u></h1>
+            <p id="description">
+                Offensive Rebel Leader who gains Advantage, Stuns enemies, revives Rebel allies and grants them Potency Up
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="capacite" href="../classement-perso/combattant-rebelle.html" id="fighter">Rebel Fighter</a>
+                <a class="capacite" href="../classement-perso/rogue-one.html" id="rogue-one">Rogue One</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/cassian-u-wing.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/" alt="Cassian's U-wing">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: Cassian's U-wing</u>
+                </h2>
+            </section>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/jyn/Jyn.png" alt="Jyn erso"><br>
+    <img class="first" src="../image-perso/jyn/Jyn.png" alt="Jyn Erso"><br>
 
-    <h2 class="titre"><u>attaque basique : Àl'attaque</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Press the Attack</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Jyn basique" src="../image-perso/jyn/jyn-basic.png">
+            <img class="attaque" alt="Jyn Erso basic" src="../image-perso/jyn/jyn-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie avec 70% de chances de gagner l'avantage pendant 2 tours.
-            </p>
-        
-        </div>
-    </div>
-
-    <h2 class="titre"><u>1ere spéciale: Contre-attaque Rebelle (délai: 4)</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="Jyn spé 1" src="../image-perso/jyn/jyn-spe1.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à tous les ennemis et remplit la jauge de tour de la cible alliée de 100%. En cas de coup<br>
-                critique réussi, ranime un allié Rebelle aléatoire avec 20% de santé maximale pour chaque coup critique infligé. 
-            </p>
-        
-        </div>
-    </div>
-
-    <h2 class="titre"><u>2eme spéciale: Frappe à la matraque (délai: 3)</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="Jyn spé2" src="../image-perso/jyn/jyn-spe2.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie et vide sa jauge de tour. Jyn remplit<br>
-                sa jauge de tour à hauteur du montant supprimé. En cas de coup critique, étourdit la cible.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 70% chance to gain Advantage for 2 turns.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Capacité de chef: Dans la mélée</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Rebel Counterattack (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Jyn lead" src="../image-perso/jyn/jean-lead.png">
+            <img class="attaque" alt="Jyn Erso special 1" src="../image-perso/jyn/jyn-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Les alliés Rebelles ont un bonus de pouvoir de +35% et ils récupèrent 5% de protection lorsqu'ils gagnent<br>
-                une amélioration. Les ennemis sous l'emprise d'affaiblissements pendant le tour des alliés Rebelles ont<br>
-                également 50% de chances d'être exposés pendant 2 tours. Cette Exposition ne peut pas être résistée.
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies and grant target other ally 100% Turn Meter and Advantage for 2 turns. If any Critical Hits are scored, revive a random Rebel ally with 20% Max Health for each Critical Hit scored.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Détermination farouche </u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Truncheon Strike (cooldown: 2)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="jyn unique" src="../image-perso/jyn/jyn_unique.png">
+            <img class="attaque" alt="Jyn Erso special 2" src="../image-perso/jyn/jyn-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Les alliés de Rogue One ne peuvent pas subir l'immunité aux améliorations. Jyn est immunisée contre<br>
-                l'étourdissement et obtient 10% de pouvoir à chaque fois qu'elle inflige un coup critique à un ennemi.<br>
-                <br>
-                <u class="omicron">Dans les Guerres de territoires:</u><br>
-                <br>
-                Les alliés de Rogue One obtiennent 30% de santé maximale et de pouvoir, ainsi que 20 de vitesse.<br>
-                Lorsque l'amélioration d'un allié de Rogue One prend fin pendant le tour d'un ennemi, Jyn obtien<br>
-                10% de jauge de tour. Si tous les alliés au début de la bataille font partie de Rogue One à chaque<br>
-                fois que Jyn inflige un coup critique à un ennemi, tous les alliés récupèrent 10% de santé et<br>
-                obtiennent un bonus supplémentaires en fonction de leur role:<br>
-                <br>
-                -Attaquant: confère un bonus de dégâts critiques et un bonus d'attaque pendant 2 tours.<br>
-                <br>
-                -Tank: confère l'immunité aux coups critiques et la raillerie pendant 2 tours.<br>
-                <br>
-                -Soutien ou soigneur:confère un bonus d'esquive et un bonus de vitesse pendant 2 tours.
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to target enemy and remove all Turn Meter. Jyn gains that much Turn Meter. On a Critical Hit, Stun the target for 1 turn.
             </p>
         </div>
     </div>
 
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Into the Fray</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Jyn Erso lead" src="../image-perso/jyn/jyn-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Rebel allies have +35% Potency and recover 5% Protection whenever they gain a buff. Enemies that suffer debuffs during Rebel allies' turns have a 50% chance to also become Exposed for 2 turns. This Expose can't be Resisted.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Fierce Determination</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Jyn Erso unique" src="../image-perso/jyn/jyn_unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                Rogue One allies are immune to Buff Immunity. Jyn is immune to Stun and gains 10% Potency each time she critically hits an enemy.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> Rogue One allies gain 30% Max Health and Potency and 20 Speed. Whenever a Rogue One ally's buff expires during an enemy's turn, Jyn gains 10% Turn Meter. If all allies are Rogue One at the start of battle, whenever Jyn critically hits an enemy, all allies recover 10% Health and gain an additional bonus depending on their role
+                <br><br>
+                - <strong>Attacker</strong> Gain Critical Damage Up and Offense Up for 2 turns<br>
+                - <strong>Tank</strong> Gain Critical Hit Immunity and Taunt for 2 turns<br>
+                - <strong>Support or Healer</strong> Gain Evasion Up and Speed Up for 2 turns
+            </p>
+        </div>
+    </div>
 
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Jyn Erso",
+                "title": "<u>Jyn Erso</u>",
+                "description": "Chef rebelle offensive qui gagne l'avantage, étourdit les ennemis, ranime les alliés rebelles et leur confère un bonus de pouvoir.",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "rebel": "Rebelle",
+                "fighter": "Combattant Rebelle",
+                "rogue-one": "Rogue One",
+                "crew-members": "Membres d’Équipage",
+
+                "basic-attack-title": "<u>Attaque Basique: A l'attaque</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie avec 70 % de chances de gagner l'avantage pendant 2 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Contre-attaque rebelle (délai : 4)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemi, remplit la jauge de tour de la cible alliée de 100 % et lui donne l'avantage pendant 2 tours. En cas de coup critique réussi, ranime un allié aléatoire avec 20 % de santé maximale pour chaque coup critique infligé.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Frappe à la matraque (délai : 2)</u>",
+                "special-attack2": "Inflige des dégâts physiques à une cible ennemie et vide sa jauge de tour. Jyn remplit sa jauge de tour à hauteur du montant supprimé. En cas de coup critique, étourdit la cible pendant 1 tour.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Dans la mêlée</u>",
+                "lead-ability": "Les alliés Rebelles ont un bonus de pouvoir de +35 % et ils récupèrent 5 % de protection lorsqu'ils gagnent une amélioration. Les ennemis sous l'emprise d'affaiblissement pendant le tour des alliés rebelles ont également 50 % de chances d'être exposés pendant 2 tours. Cette exposition ne peut pas être résistée.",
+
+                "unique-ability-title": "<u>Capacité Unique : Détermination farouche</u>",
+                "unique-ability": "Les alliés de Rogue One ne peuvent pas subir l'Immunité aux améliorations. Jyn est immunisée contre l'étourdissement et obtient 10 % de pouvoir à chaque fois qu'elle inflige un coup critique à un ennemi.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> Les alliés de Rogue One obtiennent 30 % de santé maximale et de pouvoir, ainsi que 20 de vitesse. Lorsque l'amélioration d'un allié de Rogue One prend fin pendant le tour d'un ennemi, Jyn obtient 10 % de jauge de tour. Si tous les alliés au ébut de bataille font partie de Rogue One, à chaque fois que Jyn inflige un coup critique à un ennemi, tous les allié récupèrent 10 % de santé et obtiennent un bonus supplémentaire en fonction de leur rôle :\n\n- <strong>Attaquant :</strong> Confère un bonus de dégâts critiques et un bonus d'attaque pendant 2 tours.\n- <strong>Tank :</strong> Confère l'immunité aux coups critiques et Raillerie pendant 2 tours.\n- <strong>Soutien ou Soigneur :</strong> Confère un bonus d'esquive et un bonus de vitesse pendant 2 tours.",
+
+                "ship-title": "<u>Vaisseau : U-wing de Cassian</u>",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "jyn erso"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
     </footer>
 </body>
 </html>
