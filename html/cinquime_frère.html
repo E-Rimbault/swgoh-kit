@@ -1,146 +1,298 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>cinquième frère</title>
-
+    <title id="big-title">Fifth Brother</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/5th-brother/5th-brother-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
+</head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/5th-brother/5th-brother-image.png" alt="Fifth Brother" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Cinquième Frère</u></h1>
-        <p>
-            Un puissant Inquisiteur spécialisé dans le soutien pour la purge de tous les<br>
-            Jedi, qui inflige des affaiblissements dévastateurs.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color:red" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-            <a class="class" href="../classement-perso/soutien.html">Soutien</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/empire.html">Empire</a>
-            <a class="capacite" href="../classement-perso/inquisitorious.html">Inquisitorius</a>
-            <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html">Utilisateur de la Force non aligné</a>
-            <a class="pilote" href="../classement-perso/membres-équipages.html">Membres Equipages</a>
-        </nav>
+            <h1 id="title"><u>Fifth Brother</u></h1>
+            <p id="description">
+                A powerful Inquisitor that specializes in supporting the purge of all Jedi by applying devastating debuffs.
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="capacite" href="../classement-perso/inquisitorious.html" id="inquisitorius">Inquisitorius</a>
+                <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Force User</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/scythe.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/" alt="Scythe">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: Scythe</u>
+                </h2>
+            </section>
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/5th-brother/5th-brother.png" alt="5th Frère"><br>
+    <img class="first" src="../image-perso/5th-brother/5th-brother.png" alt="Fifth Brother"><br>
 
-    <h2 class="titre"><u>attaque basique : Seul contre tous</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: I Shall Go Alone</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="5th basic" src="../image-perso/5th-brother/5th-basic.png">
+            <img class="attaque" alt="Fifth Brother Basic" src="../image-perso/5th-brother/5th-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à une cible ennemie. Si l'ennemie souffre d'un affaiblissement, inflige un cumule de Purge (6 max). Si<br>
-                l'ennemi est un Jedi, inflige un autre cumul de Purge. Inflige un malus de ténacité pendant 2 tours. Impossible de résister à ces affaiblissements.
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy. If the enemy is debuffed, inflict a stack of Purge (max 6). If the enemy is a Jedi, inflict another stack of Purge. Inflict Tenacity Down for 2 turns. These debuffs can’t be resisted.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>1ere spéciale: Sa mort m'appartient (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : The Kill is Mine (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="5th spé 1" src="../image-perso/5th-brother/5th-sp1.png">
+            <img class="attaque" alt="Fifth Brother special 1" src="../image-perso/5th-brother/5th-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe toutes les améliorations, inflige un malus de défense pendant 2 tours, puis inflige des dégâts spéciaux  à tous les ennemis.<br>
-                inflige un cumum de Purge (6 max) à tous les ennemis (ne peut pas être equivé). Si la cible ennemie souffre déjà de Purge, expose la<br>
-                cible pendant 2 tours. Tous les alliés obtiennent un bonus de pouvoir pendant 2 tours. Impossible de résister à ces affaiblissements.
+            <p class="attaque" id="special-attack1">
+                Dispel all buffs and inflict Defense Down for 2 turns, then deal Special damage to all enemies. Inflict a stack of Purge (max 6) on all enemies, which can't be evaded. If the target already had Purge inflict Expose for 2 turns. Grant all allies Potency Up for 2 turns. These debuffs can’t be resisted.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>2eme spéciale: Dans les ténèbres (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Shrouded in Darkness (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="5th spé 2" src="../image-perso/5th-brother/5th-sp-2.png">
+            <img class="attaque" alt="Fifth Brother special 2" src="../image-perso/5th-brother/5th-spe-2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à une cible ennemie, ainsi que Vulnérabilité pendant 2 tours (ne peut pas être résisté).<br>
-                pour chaque cumuls de Purge sur la cible, tous les alliés obtiennent une hausse de protection de 10% (cumulatif) pendant<br>
-                2 tours. Si la cible dispose d'au moins 3 cumuls de Purge, elle obtient l'immunité aux dégâts pendant 1 tour, étourdit<br>
-                la cible pendant 1 tour et si l'ennemi est un Jedi, inflige la Peur à tous les ennemis non Jedi pendant 1 tour<br>
-                (ne peut pas être copié, Dissipé, equivé, ou résisté).
+            <p class="attaque" id="special-attack2">
+                Deal Special damage to target enemy and inflict Vulnerable for 2 turns. For each stack of Purge on the target, all Inquisitorius allies gain 10% Protection Up (stacking) for 2 turns. If the target has at least 3 stacks of Purge, gain Damage Immunity for 1 turn, Stun the target for 1 turn, and if enemy was a Jedi, inflict Fear on all non-Jedi enemies for 1 turn, which can't be copied, dispelled, evaded, or resisted.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>Capacité de chef: Sentir la proie</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: I Sense Those We Seek</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="5th lead" src="../image-perso/5th-brother/5th-sp-2.png">
+            <img class="attaque" alt="Fifth Brother lead" src="../image-perso/5th-brother/5th-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Les alliés de l'Empire obtiennent 5% de défense et de santé maximale. Les alliés de L'Inquisitorius obtiennent 30% de défense<br>
-                et de santé maximale supplémentaire. Si le chef ennemi est un Jedi, inflige un cumul de Purge au chef et à tous les ennemis non<br>
-                Jedi au début de la bataille (cumulatif, 6 max, ne peut pas être résisté). Chaque fois qu'un cumul de Purge est consommé ou dissipé<br>
-                sur un ennemi qui n'est pas Jedi ( l'eception des Legendes Galactiques), il perd 3% de vitesse (cumulatif, 18% maximum), pour le reste<br>
-                de l'affrontement. Lorsqu'un allié de L'Inquisitorius utilise une capacité spéciale, un cumul de Purge est appliqué sur la cible<br>
-                ennemie (ne peut pas être equivé ou résisté).<br>
-                <br>
-                <u class="omicron">Dans les Guerres de territoires:</u><br>
-                <br>
-                Si le chef ennemi est un Jedi ( l'exception des Légendes Galactiques), les capacités de chef Jedi qui conférent un bonus de vitesse<br>
-                de vitesse aux alliés non Jedi retirent 70 de vitesse, et lorsqu'un ennemi non Jedi obtient la rétribution, cela dissipe la rétribution<br>
-                et expose la cible pendant 2 tours (ne peut pas être résisté). Lorsqu'un ennemi obtient un bonus de jauge de tour, les alliés de L'Inquisitorius<br>
-                obtiennent 15% de jauge de tour (limité à une fois par tour). 
+            <p class="attaque" id="lead-ability">
+                Empire allies gain 5% Defense and Max Health. Inquisitorius allies gain an additional 30% Defense and Max Health. If the enemy leader is a Jedi, inflict a stack of Purge on the leader and all non-Jedi enemies at the start of battle (stacking, max 6), which can't be resisted, and whenever Purge is consumed or dispelled on non-Jedi enemies (excluding Galactic Legends) they lose 3% Speed (stacking, max 18%) for the rest of the encounter. Whenever an ally Inquisitor uses a Special ability, apply a stack of Purge on target enemy, which can't be evaded or resisted.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> If the enemy Leader is a Jedi (excluding Galactic Legends), Jedi Leader abilities that grant bonus Speed to non-Jedi allies additionally remove 70 Speed, and whenever a non-Jedi enemy gains Retribution, dispel Retribution and instead inflict Expose for 2 turns, which can't be resisted. Whenever an enemy gains bonus Turn Meter, Inquisitorius allies gain 15% Turn Meter (limit once per turn).
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>capacité unique 1: Une nouvelle cible</u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : A New Target</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="5th unique" src="../image-perso/5th-brother/5th-unique.png">
+            <img class="attaque" alt="Fifth Brother unique 1" src="../image-perso/5th-brother/5th-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Au début de la bataille, si tous les alliés sont de L'Inquisitorious, le Cinquième Frère a +10% de chances de contre-attaque.<br>
-                il récupère 5% de santé et de protection à chaque fois qu'un ennemi attaque en dehors de son tours. Si le chef ennemi est un Jedi,<br>
-                lorsqu'un ennemi non Jedi obtient un bonus de jauge de tour, il subit aussi <u class="speciale">Provocation</u> pendant 1 tour (ne peut pas être esquivé ou résisté).<br>
-                Lorsqu'un Jedi utilise une capacité de base pendant son tour, il subit Faille à la fin de son tour pendant 2 tours.<br>
-                <br>
-                <u class="speciale">Provocation:</u> +100% de chances de contre-attaque. Ce personnage inflige 90% de dégâts en moins lorsqu'il<br>
-                attaque en dehors de son tour. Lorsque ce personnage attaque en dehors de son tour, il subit des dégâts à hauteur de 20% de sa<br>
-                santé maximale. Ces dégâts ne peuvent pas éliminer ce personnage.    
+            <p class="attaque" id="unique-ability1">
+                At the start of the battle, if all allies are Inquisitorius, Fifth Brother has +100% counter chance. Fifth Brother recovers 5% Health and Protection whenever an enemy attacks out of turn. If the enemy leader is a Jedi, whenever a non-Jedi enemy gains bonus Turn Meter, they also gain <u class="speciale">Provoked</u> for 1 turn, which can't be evaded or resisted. Whenever a Jedi uses a Basic ability during their turn, they are inflicted with Breach at the end of their turn for 2 turns.
+                <br><br>
+                <u class="speciale">Provoked:</u> +100% counter chance; this character deals 90% less damage when attacking out of turn; whenever this character attacks out of turn, they take damage equal to 20% of their Max Health; this damage can't defeat this character
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>capacité unique 2: Patience</u></h2>
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Patience</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="5th unique patiente" src="../image-perso/5th-brother/5th-patience.png">
+            <img class="attaque" alt="Fifth Brother unique 2" src="../image-perso/5th-brother/5th-patience.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Au début de l'affrontement, si tous les allié (au moins 3) appartiennent à l'Inquisitorious, ce personnage obtient<br>
-                20% de santé maximale, de protection maximale et de pouvoir. Inflige à tous les ennemis un cumul de Purge au début<br>
-                de l'affrontement (ne peut pas être esquivé ou résisté). A chaque fois qu'un ennemi inflige des dégâts à ce personnage<br>
-                en attaquant en dehors de son tour, l'ennemi subit un cumul de Purge (6 maximum, ne peut pas être esquivé ou résisté).<br>
-                Lorsque les cumuls de Purge sont consommés ou Dissipés sur un ennemi, la jauge de tour de ce personnage se remplit de 3%.
+            <p class="attaque" id="unique-ability2">
+                At the start of battle, if all allies (minimum 3) are Inquisitorius, this character gains 20% Max Health, Max Protection, and Potency. Whenever this character uses a Special ability, dispel Stun on all allies. Whenever an enemy damages this character with an attack while attacking out of turn, that enemy gains a stack of Purge (max 6), which can't be evaded or resisted. Whenever Purge is consumed or dispelled, this character gains 3% Turn Meter.
             </p>
         </div>
     </div>
+
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
-    </footer>
 
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Cinquième Frère",
+                "title": "<u>Cinquième Frère</u>",
+                "description": "Un puissant Inquisiteur spécialisé dans le soutien our la purge de tous les Jedi, qui inflige des affailbissements dévastateurs.",
+
+                "darkside": "Coté Obscur",
+                "support": "Soutien",
+                "leader": "Chef",
+                "empire": "Empire",
+                "inquisitorius": "Inquisitorius",
+                "force-user": "Utilisateur de la Force non aligné",
+                "crew-members": "Membres d’Équipage",
+
+                "basic-attack-title": "<u>Attaque Basique: Seuls contre tous</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie. Si l'ennemi subit un affaiblissement, inflige un cumul de Purge (6 max.). Si l'ennemi est un Jedi, inflige un autre cumul de Purge. Inflige un malus de ténacité pendant 2 tours. Impossible de résister à ces affaiblissements.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Sa mort m'appartient (délai : 3)</u>",
+                "special-attack1": "Dissipe toutes les améliorations, inflige un malus de défense pendant 2 tours, puis inflige des dégâts spéciaux à tous les ennemis. Inflige un cumul de Purge (6 max.) à tous les ennemis (ne peut pas être esquivé). Si la cible souffre déjà de Purge, expose la cible pendant 2 tours. Tous les alliés obtiennent un bonus de pouvoir pendant 2 tours. Impossible de résister à ces affaiblissements.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Dans les ténèbres (délai : 4)</u>",
+                "special-attack2": "Inflige des dégâts spéciaux à une cible ennemie, ainsi que Vulnérabilité pendant 2 tours (ne peut pas être résisté). Pour chaque cumul de Purge sur la cible, tous les alliés de l'Inquisitorius obtiennent une hausse de protection de 10 % (cumulatif) pendant 2 tours. Si la cible dispose d'au moins 3 cumuls de Purge, elle obtient l'Immunité aux dégâts pendant 1 tour, étourdit la cible pendant 1 tour et si l'ennemi est un Jedi, inflige la peur à tous les ennemis non Jedi pendant 1 tour (ne peut pas être copié, dissipé, esquivé ou résisté).",
+
+                "lead-ability-title": "<u>Capacité de Chef: Sentir la proie</u>",
+                "lead-ability": "Les alliés de l'Empire obtiennent 5 % de défense et de santé maximale. Les alliés de l'Inquisitorius obtiennent 30 % de défense et de santé maximale supplémentaires. Si le chef ennemi est un Jedi, inflige un cumul de Purge au chef et à tous les ennemis non Jedi au début de la bataille (cumulatif, 6 max., ne peut pas être résisté). Chaque fois qu'un cumul de Purge est consommé ou dissipé sur un ennemi qui n'est pas Jedi (à l'exception des Légendes galactiques), il perd 3 % de vitesse (cumulatif, 18 % maximum) pour le reste de l'affrontement. Lorsqu'un allié de l'Inquisitorius utilise une capacité spéciale, un cumul de Purge est appliqué sur la cible ennemie (ne peut pas être esquivé ou résisté).\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> Si le chef ennei est un Jedi (à l'exception des Légendes galactiques), les capacités de chef Jedi qui confèrent un bonus de vitesse aux alliés non Jedi retirent 70 de vitesse, et lorsqu'un ennemi non Jedi obtient la Rétribution, cela dissipe la rétribution et expose la cible pendant 2 tours (ne peut pas être résisté). Lorsqu'un ennemi obtient un bonus de jauge de tour, les alliés de l'Inquisitorius obtiennent 15 % de jauge de tour (limité à une fois par tour).",
+
+                "unique-ability1-title": "<u>Capacité Unique : Une nouvelle cible</u>",
+                "unique-ability1": "Au début de la bataille, si tous les alliés sont de l'Inquisitorius, le Cinquième Frère a +100 % de chances de contre-attaque. Il récupère 5 % de santé et de protection chaque fois qu'un ennemi attaque en dehors de son tour. Si le chef ennemi est un Jedi, lorsqu'un ennemi non Jedi obtient un bonus de jauge de tour, il subit <u class='speciale'>Provocation</u> pendant 1 tour (ne êit âs être esquivé ou résisté). Lorsqu'un Jedi utilise une capacité de base pendant son tour, il subit Faille à la fin de son tour pendant 2 tours.\n\n<u class='speciale'>provocation :</u> +100 % de chances de contre-attaque. Ce personnage inflige 90 % de dégâts en moins lorsqu'il attaque en dehors de son tour. Lorsque ce personnage attaque en dehors de son tour, il subit des dégâts à hauteur de 20 % de sa santé maxiamle. Ces dégâts ne peuvent pas éliminer ce personnage.",
+
+                "unique-ability2-title": "patience",
+                "unique-ability2": "Si tous les alliés (3 minimum) sont de l'Inquisitorius, ce personnage obtient 20 % de santé maximum, de protoection maximum et de pouvoir. Chaque fois que ce personnage utilise une capacité spéciale, dissipe l'étourdissement sur tous les alliés. Lorsqu'un ennemi attaque ce personnage en dehors de son tour, il obtient un cumul de Purge (6 max., ne peut pas être esquivé ou résisté). Lorsque les cumuls de Purge sont consommés ou dissipés sur un ennemi, ce personnage obtient 3 % de jauge de tour.",
+
+                "ship-title": "<u>Vaisseau : Scythe</u>",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "fifth brother"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
 </body>
-</html>    
+</html>
