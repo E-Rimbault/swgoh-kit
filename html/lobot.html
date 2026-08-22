@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Lobot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/lobot/lobot-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/lobot/lobot-image.png" alt="Lobot" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Lobot</u></h1>
+            <p id="description">
+                Rebel Support that can reliably inflict Defense Down, clear allied debuffs, and speed up allied Droids
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/constable.html" id="constable">Constable</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/lobot/lobot.png" alt="Lobot"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Calculated Aggression</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Lobot basic" src="../image-perso/lobot/lobot-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Defense Down for 2 turns. If they are Target Locked, Lobot gains Foresight for 1 turn. If the ally in the Leader slot is a Light Side Droid, all Light Side Droid allies gain Defense Up for 1 turn and, if the enemy already had Defense Down, inflict them with Target Lock for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Optimize (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Lobot special 1" src="../image-perso/lobot/lobot-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Dispel all debuffs from all allies. For each debuff dispelled this way, all allies recover 7% Health. Lobot gains 8% Turn Meter for each active Droid ally and other Droid allies gain half that amount.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Lobot-tech Headgear</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Lobot leader" src="../image-perso/lobot/lobot-lead+unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Droid allies gain 10% Potency and 25 Speed.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Parallel Processing</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Lobot unique 1" src="../image-perso/lobot/lobot-lead+unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Lobot gains 5.5% Speed and 5.5% Tenacity for each active Droid ally. Whenever a Light Side Droid ally without Foresight gains Foresight, a random Light Side Droid ally without Foresight gains Foresight for 1 turn (limit once per turn). Whenever a Light Side Droid ally has a debuff dispelled on them, they gain 5.5% Critical Damage and 5.5% Potency (stacking) for each debuff dispelled for 2 turns.
+                <br><br>
+                Whenever a Light Side Droid ally with less than 100% Turn Meter gains bonus Turn Meter, Lobot gains Speed Up for 1 turn. Whenever Lobot uses a Basic ability while he has Speed Up, he has +55% Critical Chance and removes 5.5% Turn Meter from target enemy.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Cloud Computing</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Lobot unique 2" src="../image-perso/lobot/lobot-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                If the ally in the Leader slot is a Light Side Droid Leader, Lobot gains the Droid tag for the rest of the battle and Droid allies gain 10% Potency and 25 Speed. Whenever a Light Side Droid ally is inflicted with a debuff, inflict Target Lock on the enemy that inflicted the debuff for 1 turn, which can't be resisted.
+                <br><br>
+                While Light Side Droid allies have Foresight, they have +50% Critical Chance and whenever they use a Basic ability, inflict Speed Down on the target enemy for 1 turn. Whenever another Light Side Droid ally uses a Basic ability against a Target Locked enemy they deal 35% more damage, and Lobot assists.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Lobot",
+                "title": "<u>Lobot</u>",
+                "description": "Personnage d'appui rebelle qui inflige des malus de défense, dissipe les affaiblissements sur les alliés et augmente la vitesse des droïdes alliés.",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "leader": "Chef",
+                "constable": "Constable",
+                "rebel": "Rebelle",
+                
+                "basic-attack-title": "<u>Attaque Basique: Agressivité calculée</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie et lui inflige un malus de défense pendant 2 tours. Si Lobot subit Verrouillage, il obtient Prévoyance pendant 1 tour. Si l'allié dans l'emplacement de chef est un droïde du Coté Lumineux, tous les droïdes du Coté Lumineux obtiennent un bonus de défense pendant 1 tour et, si l'ennemi subit déjà un malus de défense, inflige Verouillage pendant 2 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Optimisation (délai : 3)</u>",
+                "special-attack1": "Dissipe tous les affaiblissements sur les alliés. Pour chaque affaiblissement dissipé de cette manière, tous les alliés récupèrent 7 % de santé. Lobot gagne 8 % de jauge de tour pour chaque allié droïde actif et les autres alliés droïdes reçoivent la moitié de cette valeur.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Équipement Lobot-tech</u>",
+                "lead-ability": "Les droïdes alliés gagnent 10 % de pouvoir et 25 de vitesse.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Traitement parallèle</u>",
+                "unique-ability1": "Lobot gagne 5,5 % de vitesse et 5,5 % de ténacité pour chaque droïde allié actif. Lorsqu'un droïde allié du Coté Lumineux qui ne dispose pas de Prévoyance l'obtient, un autre droïde allié du Coté Lumineux aléatoire qui n'en dispose pas non plus gagne Prévoyance pendant 1 tour (limité à une fois par tour). Lorsqu'un droïde allié du Coté Lumineux voit un de ses affaiblissements être dissipé, il gagne un bonus de dégâts critiques de 5,5 % et un bonus de pouvoir de 5,5 % (cumulatif) pendant 2 tour pour chaque affaiblissement dissipé.\n\nLorsqu'un droïde allié du Coté Lumineux possédans moins de 100 % de jauge de tour obtient un bonus de jauge de tour, Lobot obtient un bonus de vitesse pendant 1 tour. Lorsque Lobot utilise une capacité de base tandis qu'il dispose d'un bonus de vitesse, il gagne un bonus de chances de coup critique de +55 % et réduit de 5,5 % la jauge de tour de la cible ennemie.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Intelligence collective</u>",
+                "unique-ability2": "Si l'allié dans l'emplacement de chef est un droïde du Coté Lumineux, Lobot obtient l'identifiant droïde pendant le reste de la bataille et les droïdes alliés gagnent 10 % de pouvoir et 25 de vitesse. Lorsqu'un droïde allié du Coté Lumineux subit un affaiblissement, inflige Verrouillage à l'ennemi qui a appliqué l'affaiblissement pendant 1 tour (ne peut pas être résisté).\n\nLorsque les droïdes alliés du Coté Lumineux disposent de Prévoyance, ils reçoivent +50 % de chances de coup critique et chaque fois qu'ils utilisent une capacité de base, ils infligent un malus de vitesse à la cible ennemie pendant 1 tour. Lorsqu'un autre droïde allié du Coté Lumineux utilise une capacité de base contre un ennemi subissant Verrouillage, il inflige 35 % de dégâts supplémentaires et Lobot est invoqué.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "lobot"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
