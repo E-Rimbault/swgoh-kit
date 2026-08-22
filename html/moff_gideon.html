@@ -1,147 +1,289 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Moff Gideon</title>
-
+    <title id="big-title">Moff Gideon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/moff-gideon/moff-gideon-image.png">
-    <link rel="stylesheet" href="../style/capacite.css">
-    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/moff-gideon/moff-gideon-image.png" alt="Moff Gideon" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Moff Gideon</u></h1>
-        <p>
-            Chef de l'Empire qui peut mener une escouade d'assaut au combat<br>
-            et punir ses ennemis avec l'identifint "Chef".
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a style="color: red;" class="capacite" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-            <a class="class" href="../classement-perso/soutien.html">Soutien</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/empire.html">Empire</a>
-            <a class="capacite" href="../classement-perso/soldat-de-lempire.html">Soldat de l'Empire</a>
-            <a class="capacite" href="../classement-perso/vestige-de-l'empire.html">Vestige de l'Empire</a>
-        </nav>
+            <h1 id="title"><u>Moff Gideon</u></h1>
+            <p id="description">
+                Empire Leader that can lead a fireteam into battle and punish enemies with the Leader tag
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="capacite" href="../classement-perso/vestige-de-l'empire.html" id="remnant">Imperial Remnant</a>
+                <a class="capacite" href="../classement-perso/soldat-de-lempire.html" id="trooper">Imperial Trooper</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
     </header>
     <br>
 
     <img class="first" src="../image-perso/moff-gideon/Moff-gideon.png" alt="Moff Gideon"><br>
 
-    <h2 class="titre"><u>attaque basique : Tir perturbateur</u></h2>    
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: </u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Gideon basique" src="../image-perso/moff-gideon/gideon-basic.png">
+            <img class="attaque" alt="Moff Gideon basic" src="../image-perso/moff-gideon/gideon-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie et confère un cumul de <u class="speciale">Perspicacité</u> (ne peut pas<br>
-                être copié, dissipé ou évité). Si Moff Gideon dispose d'au moins 4 cumuls de Perspicacité,<br>
-                il obtient la capacité spéciale Rafale submersive. Les cumuls de Perspicacité durent jusqu'à la<br>
-                fin de l'affrontement.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and gain 1 stack of <u class="speciale">Insight</u>, which can't be copied, dispelled, or prevented. If Moff Gideon has at least 4 stacks of Insight, he gains the Special ability Subversive Volley. Insight stacks last until the end of the encounter.
+                <br><br>
+                <u class="speciale">Subversive Volley:</u> Deal Physical damage to all enemies and Daze them for 2 turns. This Daze can't be resisted by enemies with the Leader tag. Moff Gideon loses all stacks of Insight and this ability is removed.
             </p>
         </div>
     </div>
 
-    <h2 class="invocation">Rafale submersive</h2>
+    <h2 class="invocation" id="invocation-title">Granted Ability : Subversive Volley</h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="gideon accorde" src="../image-perso/moff-gideon/gideon-accorde.png">
+            <img class="attaque" alt="Moff Gideon granted" src="../image-perso/moff-gideon/gideon-accorde.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à tous les ennemis et les rends confus pendant 2 tours. Les ennemis<br>
-                avec l'identifiant "Chef" ne peuvent pas résister à cette confusion. Moff Gideon perd tous<br>
-                ses cumuls de Perspicacité et cette capacité est supprimée.
+            <p class="attaque" id="invocation">
+                Deal Physical damage to all enemies and Daze them for 2 turns. This Daze can't be resisted by enemies with the Leader tag. Moff Gideon loses all stacks of Insight and this ability is removed.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Fente au sabre noir (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Darksaber Lunge (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Gideon spé 1" src="../image-perso/moff-gideon/gideon-spe1.png">
+            <img class="attaque" alt="Moff Gideon special 1" src="../image-perso/moff-gideon/gideon-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts à la cible ennemie et lui inflige la destruction d'armure pendant le reste de la bataille.
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and inflict Armor Shred for the rest of the battle.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>2eme spéciale: Maitriser la situation (délai: 6)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Control the Situation (cooldown: 6)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Gideon spe 2" src="../image-perso/moff-gideon/gideon-spe2.png">
+            <img class="attaque" alt="Moff Gideon special 2" src="../image-perso/moff-gideon/gideon-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Invoque tous les soldats de l'Empire alliés, qui infligent 30% de dégâts en moins. Toutes les unités<br>
-                perdent 100% de jauge de tour (ne peut pas être résisté). La jauge de tour des unités alliés se remplit<br>
-                de 25%. Les tanks alliés utilisent la Raillerie pendant 2 tours. Les attaquants alliés obtiennent 50%<br>
-                d'attaques et les soutiens alliés obtiennent 100% de hausse de protection.
+            <p class="attaque" id="special-attack2">
+                Call all Imperial Trooper allies to assist, dealing 30% less damage. All units lose 100% Turn Meter, which can't be resisted. Allies gain 25% Turn Meter. Tank allies Taunt for 2 turns, Attacker allies gain 50% Offense for 2 turns, and Support allies gain 100% Protection Up.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Capacité de chef: Déploiement tactique</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Tactical Deployment</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Gideon lead" src="../image-perso/moff-gideon/gideon-lead.png">
+            <img class="attaque" alt="Moff Gideon leader" src="../image-perso/moff-gideon/gideon-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Les alliés du Coté Obscur ont +30% de santé maximale et de protection maximale, et les soldats de l'empire ont +15% d'attaque.<br>
-                <br>
-                Au début de la bataille, si tous les alliés sont des soldats de l'empire et que Moff Gideon a<br>
-                exactement un tank allié, deux attaquants alliés et un soutien allié supplémentaire ( à l'exception<br>
-                des Légendes Galactiques ou Grandes arène 3c3, si tous les alliés sont des soldats de l'empire<br>
-                et que Moff Gideon proppose une composition d'équipe qui n'inclue pas plus d'un tank deux <br>
-                attaquants et/ou un soutien supplémentaires alliés, alors les conditions de cette capacités seront atteintes):<br>
-                <br>
-                -A chaque fois qu'un ennemi avec l'identifiant "Chef" utilise une capacité, les soldats de l'empire<br>
-                obtiennent 10% d'attaque (cumulatif) jusqu'à la fin de l'affrontement.<br>
-                <br>
-                -Chaque fois qu'un ennemi avec l'identifiant "Chef" utilise un tour, Moff Gideon obtient 1 cumul de Perspicacité.<br>
-                <br>
-                -Les soldats de l'Empire alliés obtiennent +25% d'attaque et sont ranimés avec 50% de santé et de protection<br>
-                la première fois qu'ils sont vaincus lors de chaque affrontement.
+            <p class="attaque" id="lead-ability">
+                Dark Side allies have +30% Max Health and Max Protection, and Imperial Trooper allies have +15% Offense.
+                <br><br>
+                At the start of battle, if all allies are Imperial Troopers and Moff Gideon has exactly one Tank ally, two Attacker allies, and one additional Support ally, excluding summoned allies (in 3v3 Grand Arenas, if all allies are Imperial Troopers and Moff Gideon has any combination where the team includes no more than one Tank, two Attackers, and/or an additional Support ally the conditions of this ability will be met):
+                <br><br>
+                - Whenever an enemy with the Leader tag uses an ability, Imperial Trooper allies gain 10% Offense (stacking) until the end of the encounter<br>
+                - Whenever an enemy with the Leader tag takes a turn, Moff Gideon gains 1 stack of Insight<br>
+                - Imperial Trooper allies have an additional +25% Offense and revive with 50% Health and Protection the first time they are defeated each encounter
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>capacité unique: Connaitre son adversaire</u></h2>
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Know Your Adversaries</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="gideon unique" src="../image-perso/moff-gideon/gideon-unique.png">
+            <img class="attaque" alt="Moff Gideon unique" src="../image-perso/moff-gideon/gideon-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Lors de chaque affrontement, au début du premier tour de Moff Gideon, il inflige <u class="speciale">Démoralisé</u><br>
-                à tous les ennemis (sauf aux boss de raid et aux Légendes Galactiques) jusqu'à ce qu'ils soient vaincus,<br>
-                que l'affrontement se termine ou que Moff Gideon soit vaincu. Démoralisé ne peut pas être copié, dissipé ou résisté.<br>
-                <br>
-                <u class="speciale">Démoralisé: </u>-50% d'attaque, -25% de chances de coup critique, -25% de dégâts critiques.<br>
-                Ne se cumule pas avec d'autres affaiblissements.
+            <p class="attaque" id="unique-ability">
+                At the start of Moff Gideon's first turn of each encounter, he inflicts <u class="speciale">Demoralized</u> on all enemies (excludes raid bosses and Galactic Legends) until they are defeated, Moff Gideon is defeated, or the end of the encounter. Demoralized can't be copied, dispelled, or resisted.
+                <br><br>
+                <u class="speciale">Demoralized:</u> -50% Offense, -25% Critical Chance, -25% Critical Damage; this does not stack with other debuffs
             </p>
         </div>
     </div>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-    
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Moff Gideon",
+                "title": "<u>Moff Gideon</u>",
+                "description": "Chef de l'Empire qui peut mener une escouade d'assaut au combat et punir ses ennemis avec l'identifiant \"Chef\"",
+
+                "darkside": "Coté Obscur",
+                "support": "Soutien",
+                "leader": "Chef",
+                "empire": "Empire",
+                "remnant": "Vestige de l'Empire",
+                "trooper": "Soldat de l'Empire",
+
+                "basic-attack-title": "<u>Attaque Basique: Tir perturbateur</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et confère un cumul de <u class='speciale'>Perspicacité</u> (ne peut pas être copié, dissipé oué vité). Si Moff Gideon dispose d'au moins 4 cumuls de Perspicacité, il obtient la capacité spéciale Rafale subversive. Les cumuls de Perspicacité durent jusqu'à la fin de l'affrontement.\n\n<u class='speciale'>Rafale subversive :</u> Inflige des dégâts physiques à tous les ennemis et les rends confus pendant 2 tours. Les ennemis avec l'identifiant \"Chef\" ne peuvent pas résister à cette confusion. Moff Gideon perd tous ses cumuls de Perspicacité et cette capacité est supprimée.",
+
+                "invocation-title": "Capacité accordée : Rafale subversive",
+                "invocation": "Inflige des dégâts physiques à tous les ennemis et les rends confus pendant 2 tours. Les ennemis avec l'identifiant \"Chef\" ne peuvent pas résister à cette confusion. Moff Gideon perd tous ses cumuls de Perspicacité et cette capacité est supprimée.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Fente au sabre noir (délai : 4)</u>",
+                "special-attack1": "Inflige des dégâts physiques à la cible ennemie et lui inflige la Destruction d'armure pendant le reste de la bataille.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Maîtriser la situation (délai : 6)</u>",
+                "special-attack2": "Invoque tous les soldats de l'Empire alliés, qui infligent 30 % de dégâts en moins. Toutes les unités perdent 100 % de jauge de tour (ne peut pas être résisté). La jauge de tour des unités alliés se remplit de 25 %. Les tanks alliés utilisent Raillerie pendant 2 tours, les attaquants alliés obtiennent 50 % d'attaque pendant 2 tours, et les soutiens alliés obtiennent 100 % de hausse de protection.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Deploiement tactique</u>",
+                "lead-ability": "Les alliés du Côté Obscur ont +30 % de santé maximale et de protection maximale, et les soldats de l'Empire alliés ont +15 % d'attaque.\n\nAu début de la bataille, si tous les alliés sont des soldats de l'Empire et que Moff Gideon a exactement un tank allié, deux attaquants alliés et un soutien allié supplémentaires à l'exception des alliés invoqués (dans les Grandes arènes en 3c3, si tous les alliés sont des soldats de l'Empire et que Moff Gideon propose une composition d'équipe qui n'inclue pas plus d'un tank, deux attaquants et/ou un soutien supplémentaires alliés, alors les conditions de cette capacité sont atteintes) :\n\n- Chaque fois qu'un ennemi avec l'identifiant \"Chef\" utilise une capacité, les soldats de l'Empire alliés obtiennent 10 % d'attaque (cumulatif) jusquà la fin de l'affrontement.\n- Chaque fois qu'un ennemi avec l'identifiant \"Chef\" utilise un tour, Moff Gideon obtient un cumul de Perspicacité.\n- Les Soldats de l'Empire alliés obtiennent +25 % d'attaque et sont ranimés avec 50 % de santé et de protection la première fois qu'ils sont vaincus lors de chaque affrontement.",
+
+                "unique-ability-title": "<u>Capacité Unique : Connaître son adversaire</u>",
+                "unique-ability": "Lors de chaque affrontement, au début du premier tour de Moff Gideon, il inflige <u class='speciale'>Découragement</u> à tous les ennemis (sauf aux boss de raid et aux Légendes galactiques) jusq'à ce qu'ils soient vaincus, que l'affrontement se termine ou que Moff Gideon soit vaincu. Découragement ne peut pas être copié, dissipé ou résisté.\n\n<u class='speciale'>Découragement :</u> -50 % d'attaque, -25 % de chances de coup critique, -25 % de dégâts critiques. Ne se cumule pas avec d'autres affaiblissements.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "moff gideon"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
     </footer>
-    
-    
 </body>
-</html>    
+</html>
