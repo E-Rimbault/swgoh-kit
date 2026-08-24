@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Amilyn Holdo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/amilyn-holdo/amilyn-holdo-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/amilyn-holdo/amilyn-holdo-image.png" alt="Amilyn Holdo" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Amilyn Holdo</u></h1>
+            <p id="description">
+                Seasoned Resistance Tank with powerful ally support and enemy debuffs
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/résistance.html" id="resistance">Resistance</a>
+                <a class="capacite" href="../classement-perso/commandant-de-la-flotte.html" id="flotte">Fleet Commander</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/" alt="Raddus">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: Raddus</u>
+                </h2>
+            </section>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/amilyn-holdo/amilyn-holdo.png" alt="Amilyn Holdo"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Measured Shot</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Amilyn Holdo basic" src="../image-perso/amilyn-holdo/amilyn-holdo-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and the least healthy other Resistance ally gains Foresight for 2 turns. When this Foresight expires, that ally Recovers 10% Health.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Bunker Buster (cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Amilyn Holdo special 1" src="../image-perso/amilyn-holdo/amilyn-holdo-special1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to all enemies and inflict Daze for 2 turns. Inflict Defense Down and Evasion Down on the primary target for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Reprieve (cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Amilyn Holdo special 2" src="../image-perso/amilyn-holdo/amilyn-holdo-special2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Dispel all debuffs on target other ally, they Recover 40% Health and 20% Protection.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Quiet Confidence</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Amilyn Holdo unique" src="../image-perso/amilyn-holdo/amilyn-holdo-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                When another Resistance ally loses Foresight, Amilyn Holdo gains Taunt for 1 turn and Recovers 10% Health. While Amilyn Holdo doesn't have Taunt, she has +50 Speed and all other Resistance allies have +20% Critical Avoidance.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Amilyn Holdo",
+                "title": "<u>Amilyn Holdo</u>",
+                "description": "Tank de la Résistance expérimentée qui dispose d'un fort soutien allié et de puissants affaiblissements ennemis",
+
+                "lightside": "Coté Lumineux",
+                "tank": "Tank",
+                "resistance": "Résistance",
+                "flotte": "Commandant de la Flotte",
+
+                "basic-attack-title": "<u>Attaque Basique: Tir calculé</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie. L'allié de la Résistance avec la santé la plus basse obtient Prévoyance pendant 2 tours. Lorsque Prévoyance prend fin, cet allié récupère 10 % de santé.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Destruction totale (délai : 5)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à tous les ennemis et inflige la confusion pendant 2 tours. Inflige un malus d'esquive à la cible principale pendant 2 tours.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : répit (délai : 5)</u>",
+                "special-attack2": "Dissipe tous les affaiblissements en cours sur la cible alliée, qui récupère 40 % de santé et 20 % de protection.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Témérité discrète</u>",
+                "unique-ability1": "Lorsqu'un autre allié de la Résistance perd Prévoyance, Amilyn Holdo utilise Raillerie pendant 1 tour et récupère 10 % de santé. Tant qu'Amilyn Holdo n'utilise pas Raillerie, elle dispose de +50 de vitesse, et tous les autres alliés de la Résistance ont +20 % d'esquive des critiques.",
+
+                "ship-title": "<u>Vaisseau : Raddus</u>",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "amilyn holdo"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
