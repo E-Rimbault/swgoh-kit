@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Rose Tico</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/rose-tico/rose-tico-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/rose-tico/rose-tico-image.png" alt="Rose Tico" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Rose Tico</u></h1>
+            <p id="description">
+                A brave Resistance Attacker who can Stun and grant allies buffs.
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/résistance.html" id="resistance">Resistance</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/mg-100-sf-17.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/" alt="MG-100 StarFortress SF-17">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: MG-100 StarFortress SF-17</u>
+                </h2>
+            </section>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/rose-tico/rose-tico.png" alt="Rose Tico"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Courageous Shot</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Rose Tico basic" src="../image-perso/rose-tico/rose-tico-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and grant Tenacity Up for 2 turns to a random Resistance ally who doesn't have it. 50% chance to attack again (once per turn).
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Dauntless Bravery (cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Rose Tico special 1" src="../image-perso/rose-tico/rose-tico-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Resistance allies gain Defense Up for 2 turns. Rose Tico gains 10% Turn Meter for each Resistance ally and each First Order enemy. Remove 8% Turn Meter for each Resistance ally from target enemy. This attack cannot be evaded.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Shock Prod Strike (cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Rose Tico special 2" src="../image-perso/rose-tico/rose-tico-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Special damage to target enemy and inflict Stun for 1 turn. When this Stun expires, the target is Dazed for 2 turns, which can't be Evaded or Resisted.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Valiant Spirit</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Rose Tico unique" src="../image-perso/rose-tico/rose-tico-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Rose Tico has +10% Offense for each Exposed enemy. When another Resistance ally scores a Critical Hit, Rose Tico gains 10% Turn Meter.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> All other Resistance allies also gain 10% Offense for each Exposed enemy, and they gain 5% Turn Meter whenever a Resistance ally scores a critical hit.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Rose Tico",
+                "title": "<u>Rose Tico</u>",
+                "description": "Courageuse attaquante de la Résistance, qui peut utiliser l'étourdissement et conférer des améliorations à ses alliés.",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "resistance": "Résistance",
+                "crew-members": "Membres d’Équipage",
+
+                "basic-attack-title": "<u>Attaque Basique: Tir vaillant</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie, et confère un bonus de ténacité pendant 2 tours à un allié de la Résistance aléatoire qui n'en dispose pas. 50 % de chances d'attaquer à nouveau (une fois par tour).",
+
+                "special-attack1-title": "<u>Attaque Spéciale : bravoure et détermination (délai : 5)</u>",
+                "special-attack1": "Les alliés de la Résistance obtiennent un bonus de défense pendant 2 tours. La jauge de tour de Rose Tico se remplit de 10 % par allié de la Résistance et par ennemi du Premier Ordre présent. Réduit la jauge de tour de la cible ennemie de 8 % pour chaque allié de la Résistance présent. Cette attaque ne peut pas être esquivée.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Matraque électrique (délai : 5)</u>",
+                "special-attack2": "Inflige des dégâts spéciaux à une cible ennemie et l'étourdit pendant 1 tour. Lorsque l'étourdissement prend fin, la cible souffre de confusion pendant 2 tours. Cet effet ne peut pas être esquivé ou résisté.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Esprit vaillant</u>",
+                "unique-ability1": "Rose Tico obtient +10 % d'attaque pour chaque ennemi exposé. Lorsqu'un autre allié de la Résistance inflige un coup critique, la jauge de tour de Rose Tico se remplit de 10 %.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> Tous les autres alliés de la Résistance obtiennent également 10 % d'attaque pour chaque ennemi exposé, et ils obtiennent 5 % de jauge de tour à chaque fois qu'un allié de la Résistance inflige un coup critique.",
+
+                "ship-title": "<u>Vaisseau : Forteresse Stellaire MG-100 SF-17</u>",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || ""; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
