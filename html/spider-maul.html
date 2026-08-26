@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Maul (Hate-Fueled)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" style="background-color: black;" href="../image-perso/spider-maul/spider-maul-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img style="background-color: black;" src="../image-perso/spider-maul/spider-maul-image.png" alt="Maul (Hate-Fueled)" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Maul (Hate-Fueled)</u></h1>
+            <p id="description">
+                An unhinged Attacker driven by hatred and held together by rage and scrap metal
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Force User</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/spider-maul/maul-hated.png" alt="Maul (Hate-Fueled)"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Fractured Fury</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Maul (Hate-Fueled) basic" src="../image-perso/spider-maul/spider-maul-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict a stack of Bleed (max 6), which can't be dispelled or resisted, until the end of encounter.
+                <br><br>
+                Gain a stack of Edge of Madness (max 100 stacks) until the end of the encounter, which can't be copied, dispelled, or prevented.
+                <br><br>
+                Once per encounter, during his turn, Maul inflicts Fracture on target enemy until each of his allies has taken a turn or until he is defeated, which can't be copied, dispelled, evaded, or resisted.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Relentless Malice (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Maul (Hate-Fueled) special 1" src="../image-perso/spider-maul/spider-maul-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy four times and inflict a stack of Bleed (max 6), which can't be dispelled or resisted, until the end of encounter. If the target already has max stacks of Bleed, trigger their damage.
+                <br><br>
+                If Maul has 30 or more stacks of Edge of Madness, reduce the cooldown of Howl of the Broken by 1.
+                <br><br>
+                If Maul has 60 or more stacks of Edge of Madness, he deals an additional instance of True damage to target enemy equal to 30% of his Max Health.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> Deal Physical damage an additional four times.
+                <br><br>
+                Inflict an additional 5 stacks of Bleed (max 6), which can't be dispelled or resisted, until the end of encounter.
+                <br><br>
+                If he has 30 or more stacks of Edge of Madness, reset the cooldown of Howl of the Broken instead.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Howl of the Broken (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Maul (Hate-Fueled) special 2" src="../image-perso/spider-maul/spider-maul-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage, Daze, and inflict Healing Immunity for 2 turns on all enemies.
+                <br><br>
+                Call all Dark Side Attacker allies to assist.
+                <br><br>
+                Maul gains Critical Damage Up and Offense Up for 2 turns. If he has 50 or more stacks of Edge of Madness, inflict Fear on all enemies for 1 turn, which can't be copied, dispelled, or resisted.
+                <br><br>
+                Remove 60% Turn Meter from all enemies and all Dark Side Attacker allies gain 60% Turn Meter.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> If target enemy is inflicted with Bleed, inflict a stack of Bleed (max 6), which can't be dispelled or resisted, on all enemies until the end of encounter.
+                <br><br>
+                Increase the cooldowns of target enemy by 1, which can't be resisted.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Hatred Sustains</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Maul (Hate-Fueled) unique 1" src="../image-perso/spider-maul/spider-maul-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Whenever Maul takes damage, he gains 3 stacks of Edge of Madness (max 100) until the end of the encounter, which can't be copied, dispelled, or prevented, and he has a 5% chance to gain 75% Turn Meter.
+                <br><br>
+                Maul can't be instantly defeated.
+                <br><br>
+                While Maul is at certain Health thresholds, he gains cumulative effects:
+                - <u class="speciale">Web of Descent I (75% Health or less):</u> +50% Offense; can't recover Health above 75%<br>
+                - <u class="speciale">Web of Descent II (50% Health or less):</u> +25 Speed; when he takes damage, he instead has a 10% chance to gain 75% Turn Meter; can't recover Health above 50%<br>
+                - <u class="speciale">Web of Descent III (25% Health or less):</u> +2,200% Defense and 100% Offense; when Maul hits this threshold, he gains bonus Protection (100%) for 2 turns and takes a bonus turn; can't recover Health above 25%
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> At the start of battle, Maul gains 30% Max Health and Offense, and 100 stacks of Edge of Madness (max 100) until the end of the encounter, which can't be copied, dispelled, or prevented.
+                <br><br>
+                Whenever Maul is damaged, he instead has a 25% chance to gain 100% Turn Meter.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Always Remember, I am Fear</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Maul (Hate-Fueled) unique 2" src="../image-perso/spider-maul/spider-maul-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                At the start of battle, Maul gains 25% Max Health for each other Dark Side ally and 25% Offense for each other non-Dark Side ally, Hatred and 5 stacks of Anguish until the end of battle, which can't be copied, dispelled, or prevented. He loses all Protection and gains that much Max Health, and he takes reduced damage from percent Health damage effects. If there is an enemy Kenobi, Maul gains 20 stacks of Edge of Madness (stacking, max 100) until the end of the encounter.
+                <br><br>
+                During Maul's first turn each encounter, he ignores taunt effects.
+                <br><br>
+                Maul's attacks can't be evaded or countered and he is immune to Ability Block, Fear, and Redeemed.
+                <br><br>
+                If there were no allied Galactic Legends at the start of battle, until the first time Maul is defeated: Enemies defeated by Dark Side allies can't be revived. If there is at least one other active ally, at the start of each character's turn, Mark the healthiest Unaligned Force User ally, which can't be dispelled or resisted, and they gain bonus Protection (30%) until the end of that turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability3-title">Unique Ability : Large Character</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Maul (Hate-Fueled) unique 3" src="../image-perso/spider-maul/spider-maul-unique3.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability3">
+                This character can't be used in the ally slot or with another large character and summons are prevented for allies.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Maul (rempli de haine)",
+                "title": "<u>Maul (rempli de haine)</u>",
+                "description": "Un attaquant déchaîné, animé par la haine, maintenu par la rage et la ferraille.",
+
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "force-user": "Utilisateur de la Force non aligné",
+
+                "basic-attack-title": "<u>Attaque Basique: Fureur de la fracture</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie et inflige un cumul de Saignement (max. 6), qui ne peut pas être dissipé ou résisté, jusqu'à la fin de l'affrontement.\n\nGagne un cumul de Folie rampante (100 cumuls max.) jusqu'à la fin de l'affrontement, qui ne peut pas être copié, dissipé ou évite.\n\nUne fois par affrontement, pendant son tour, Maul inflige Fracture à la cible ennemie jusqu'à ce que chacun de ses alliés ait joué un tour ou jusq'à ce qu'il soit vaincu, ce qui ne peut pas être copié, dissipé, squivé ou résisté.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Malveillance implacable (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à la cible ennemie et inflige un cumul de Saignement (6 max.) (ne peut pas être dissipé ou résisté) jusqu'à la fin de l'affrontement. Si la cible a déjà le nombre maximum de cumuls de Saignement, déclenche leurs dégâts.\n\nSi Maul dispose de 30 cumuls de Folie rampante ou  plus, le délai de Hurlement des brisés est réduit de 1.\n\nSi Maul dispose de 60 cumuls de FOlie rampante ou plus, il inflige une instance supplémentaire de dégâts réels à la cible ennemie à hauteur de 30 % de sa santé maximale.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire : Inflige des dégâts physiques quatre fois supplémentaires.\n\nInflige 5 cumuls supplémentaires de Saignement (6 max.) à tous les ennemis jusqu'à la fin de l'affrontement (ne peut pas être dissipé ou résisté).\n\nS'il dispose de 30 cumuls de Folie rampante ou plus, réinitialise le délai de Hurelemnt des brisés à la place.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Hurlement des brisés (délai : 4)</u>",
+                "special-attack2": "Inflige des dégâts physiques, Confusion, et Immunité aux soins pendant 2 tours à tous les ennemis.\n\nInvoque tous les attaquants du Coté Obscur alliés.\n\nMaul obtient un bonus de dégâts critiques et un bonus d'attaque pendant 2 tours. S'il dispose de 50 cumuls de Folie rampante ou plus, inflige Peur à tous les ennemis pendant 1 tour (ne peut pas être copié, dissipé ou résisté).\n\nSupprime 60 % de jauge de tour de tous les ennemis et tous les attaquants du Coté Obscur alliés gagnent 60 % de jauge de tour.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> Si la cible ennemi subit Saignement, inflige un cumul de Saignement (6 max.) à tous les ennemis jusqu'à la fin de l'affrontement (ne peut pas être dissipé ou résisté).\n\nAugmente les délais de la cible ennemie de 1 (ne peut pas être résisté).",
+
+                "unique-ability1-title": "<u>Capacité Unique : Haine persistante</u>",
+                "unique-ability1": "Chaque fois que Maul subit des dégâts, il gagne 3 cumuls de Folie rampante (100 max.) jusqu'à la fin de l'affrontement (ne peut pas être copié, dissipé ou évité), et il a 5 % de chances de gagner 75 % de jauge de tour.\n\nMaul ne peut pas être vaincu instantanément.\n\nTant que Maul est à certains seuils de santé, il obtient des effets cumulatifs :\n- <u class='speciale'>Toile de descente I (75 % de santé ou moins :</u> +50 % d'attaque ; ne peut pas récupérer de santé au dela de 75 %.\n- <u class='speciale'>Toile de descente II (50 % de santé ou moins) :</u> +25 de vitesse. Lorsqu'il subit des dégâts, il a plutôt 10 % de chances de gagner 75 % de jauge de tpir ; ne peut pas récupérer de santé au-delà de 50 %.\n- <u class='speciale'>Toile de descente III (25 % de santé ou moins) :</u> +2 200 % de défense et 100 % d'attaque. Lorsque Maul atteint ce seuil, il gagne un bonus de protection (100 %) pendant 2 tours et prend un tour bonus ; ne peut pas récupérer de santé au-dela de 25 %.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> au début de la bataille, Maul gagne 30 % de santé maximale et d'attaque, et 100 cumuls de Folie rampante (100 max.) jusqu'à la fin de l'affrontement (ne peut ps être copié, dissipé ou évité).\n\nChaque fois que Maul subit des dégâts, il a plutôt 25 % de chances de gagner 100 % de jauge de tour.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Je me souviens encore que je fais peur</u>",
+                "unique-ability2": "Au début de la bataille, Maul gagne 25 % de santé maximale pour chaque autre allié du Coté Obscur et 25 % d'attaque pour chaque autre allié non du Coté Obscur, Haine et 5 cumuls d'Angoisse jusqu'à la fin de la bataille (ne peut pas être copié, dissipé ou évité). Il perd toute sa protection et gagne la même quantité de santé maximale, et il subit des dégâts réduits des effets de dégâts de pourcentage de santé. Si un Kenobi ennemi est présent, Maul gagne 20 cumuls de Folie rampante (cumulatif, 100 max.) jusqu'à la fin de l'affrontement.\n\nPendant le premier tour de Maul de chaque affrontement, il ignore les effets de Raillerie.\n\nLes attaques de Maul ne peuvent pas être esquivées ou contrées et il est immunisé contre Entrave des capacités, Peur et Rédemption.\n\nSi aucune Légende galactique n'est présente au début de la bataille, les ennemis vaincus par des alliés du Coté Obscur ne peuvent pas être ranimés jusqu'à la première défaite de Maul. S'il y a au moins un autre allié actif, au début du tour de chaque unité, il marque l'utilisateur de la Force non aligné le plus sain (ne peut pas être dissipé ou résisté), et obtient un bonus de protection (30 %) jusqu'à la fin de ce tour.",
+
+                "unique-ability3-title": "<u>Capacité Unique : Grand personnage</u>",
+                "unique-ability3": "Ce personnage ne peut pas être utilisé dans l'emplacement d'allié ou avec un autre grand personnage, et les invocations sont empêchées pour les alliés.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "MAULHATEFUELED"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
