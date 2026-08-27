@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Enfys Nest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/enfys-nest/enfys-nest-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/enfys-nest/enfys-nest-image.png" alt="Enfys Nest" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Enfys Nest</u></h1>
+            <p id="description">
+                Powerhouse attacker that stacks Protection when attacked, then dismantles enemy defenses with Dispels and Turn Meter manipulation
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/pirate.html" id="pirate">Pirate</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="capacite" href="../classement-perso/contrebandier.html" id="smuggler">Smuggler</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/enfys-nest/enfys-nest.png" alt="Enfys Nest"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Cut Through</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Enfys Nest basic" src="../image-perso/enfys-nest/enfys-nest-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and Expose them for 1 turn. If the target had any defensive buffs, Dispel them. This attack can't be evaded.
+                <br><br>
+                (Defensive buffs include Defense, Evasion, Health, Protection, and Tenacity Up, as well as Crit Immunity, Damage Immunity, Foresight, Heal Over Time, Stealth, and Taunt.)
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Sudden Impact (cooldown: )</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Enfys Nest special 1" src="../image-perso/enfys-nest/enfys-nest-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy, inflict Buff Immunity for 3 turns and Stun them for 1 turn. If that target had any Protection, this attack deals 50% more damage. If target enemy was inflicted with Buff Immunity, this attack ignores Armor.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Kinetite Charge (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Enfys Nest special 2" src="../image-perso/enfys-nest/enfys-nest-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to all enemies, Daze them for 2 turns, remove 20% Turn Meter from each enemy that had full Health, and gain 40% Turn Meter for each enemy with less than full Health. This attack can't be Countered or Evaded.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Fighting Instinct</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Enfys Nest unique" src="../image-perso/enfys-nest/enfys-nest-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Nest has +80% Counter Chance and ignores Taunt during her turn.
+                <br><br>
+                Whenever Nest is damaged by an attack, she gains +30% Critical Chance and 40% Bonus Protection (stacking). This Bonus Protection increases by an additional 40% each time. Both bonuses expire and reset at the end of her next turn.
+                <br><br>
+                Whenever an enemy loses a buff or debuff, Nest gains +2% Critical Damage and Health Steal (stacking) until the end of the encounter.
+                <br><br>
+                Nest can't gain more than 5 stacks of Profit.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Enfys Nest",
+                "title": "<u>Enfys Nest</u>",
+                "description": "Puissante combattante qui cumule les protections lorsqu'elle est attaquée, puis annihile les défenses adverses en les dissipants et en manipulant la jauge de tour.",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "pirate": "Pirate",
+                "smuggler": "Contrebandier",
+                "scoundrel": "Vaurien",
+
+                "basic-attack-title": "<u>Attaque Basique: Taillade cruelle</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie et Exposition pendant 1 tour. Dissipe ses améliorations défensives si elle en dispose. Cette attaque ne peut pas être esquivée.\n\n(Les améliorations défensives incluent les bonus de défense, d'esquive, de santé, de protection et de ténacité, mais également Immunité aux dégâts, Prévoyance, les soins sur la durée, Camouflage et Raillerie).",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Impact fulgurant (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie, inflige Immunité aux améliorations pendant 3 tours et inflige Étourdissement pendant 1 tour. Si la cible dispose de protection, cette attaque inflige 50 % de dégâts supplémentaires. Si la cible ennemie subissait Immunité aux améliorations, cette attaque ignore l'armure.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Décharge de kinétite (délai : 4)</u>",
+                "special-attack2": "Inflige des dégâts à tous les ennemis, les rends confus pendant 2 tours, réduit de 20 % la jauge de tour des ennemis qui disposait de toute leur santé et remplit de 40 % la jauge de tour de Nest pour chaque ennemi qui ne dispose pas de toute sa santé. Cette attaque ne peut pas être contrée ou esquivée.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Instinct de combat</u>",
+                "unique-ability1": "Nest a 80 % de chances de contre-attaque et ignore Raillerie pendant son tour.\n\nLorsque Nest subit des dégâts aprs une attaque, elle obtient un bonus de chances de coup critique de 30 % et un bonus de protection de 40 % (cumulables). Ce bonus de protection augement de 40 % supplémentaires à chaque fois. Les deux bonus expirent et sont réinitialisés à la fin de son prochain tour.\n\nLorsqu'un ennemi perd une amélioration ou un affaiblissement, Nest obtient des bonus de dégâts critique et de vol de santé de 2 % (cumulables) jusqu'à la fin de l'affrontement.\n\nNest ne peut pas gagner plus de 5 cumuls de Profit.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "enfys nest"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
