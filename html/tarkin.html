@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Grand Moff Tarkin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/tarkin/tarkin-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/tarkin/tarkin-image.png" alt="Grand Moff Tarkin" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Grand Moff Tarkin</u></h1>
+            <p id="description">
+                Offensive Empire Support with crushing AoE debuffs
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="capacite" href="../classement-perso/commandant-de-la-flotte.html" id="fleet-commander">Fleet Commander</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/executrix.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/" alt="Executrix">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: Executrix</u>
+                </h2>
+            </section>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/tarkin/tarkin.png" alt="Grand Moff Tarkin"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Grand Moff's Attack</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Grand Moff Tarkin basic" src="../image-perso/tarkin/tarkin-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy. This attack deals 10% more damage for each active ally, and an additional 10% damage each active Dark Side Clone Trooper ally.
+                <br><br>
+                Tarkin gains 100% Potency (stacking) until the next time Ultimate Firepower is used.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Ultimate Firepower (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Grand Moff Tarkin special 1" src="../image-perso/tarkin/tarkin-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to all enemies and remove 50% of their Turn Meter. This attack deals more damage equal to double Tarkin's Potency percentage.
+                <br><br>
+                If all other allies are Dark Side Clone Troopers, deal an additional instance of damage equal to double Tarkin's Potency percentage.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Intimidation Tactics (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Grand Moff Tarkin special 2" src="../image-perso/tarkin/tarkin-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Gain Potency Up for 3 turns. Empire allies gain Tactical Supremacy for 2 turns, which can’t be copied. Inflict Critical Chance Down and Offense Down for 3 turns on all enemies. Rebel enemies can't resist these debuffs. Gain 15% Turn Meter for each debuffed enemy.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Tighten the Grip</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Grand Moff Tarkin leader" src="../image-perso/tarkin/tarkin-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Empire allies have +30% Max Health and Max Protection and +30 Speed.
+                <br><br>
+                Inflict Defense Down and Expose for 2 turns on enemies that fall below 100% Health during Empire allies' turn, which can’t be resisted.
+                <br><br>
+                <u class="omicron">omicron Boost : While in 3v3 Grand Arenas and if all other allies are Dark Side Clone Troopers:</u> At the start of the encounter, allied Dark Side Clone Trooper Supports Stealth for 2 turns, Dark Side Clone Trooper Tanks gain Protection Up (50%) for 2 turns, which can't be dispelled, and Scorch gains 5 stacks of Bulwark.
+                <br><br>
+                Whenever a Dark Side Clone Trooper ally uses a Special ability, Tarkin assists.
+                <br><br>
+                Whenever an enemy evades or resists a debuff from a Dark Side Clone Trooper ally, Tarkin gains 5% Turn Meter and recovers 10% Health.
+                <br><br>
+                Whenever Intimidation Tactics is used, dispel buffs on all enemies and Daze them for 2 turns.
+                <br><br>
+                Whenever Ultimate Firepower is used, inflict Fear on all enemies for 1 turn, which can't be copied, dispelled, or resisted.
+                <br><br>
+                Enemies can't be revived.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Callous Conviction</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Grand Moff Tarkin unique" src="../image-perso/tarkin/tarkin-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of battle, Grand Moff Tarkin gains 50% Potency (stacking) for each other Empire ally.
+                <br><br>
+                Tarkin gains Defense equal to his Potency and 20% Potency (stacking) for each debuffed enemy.
+                <br><br>
+                At the start of each encounter, Tarkin gains Protection Up (50%) for 2 turns.
+                <br><br>
+                The first time Tarkin falls below 50% Health, he gains bonus Protection (50%) for 3 turns.
+                <br><br>
+                Whenever an Empire ally inflicts a debuff, Tarkin recovers 5% Health and Protection
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Grand Moff Tarkin",
+                "title": "<u>Grand Moff Tarkin</u>",
+                "description": "Personnage de soutien offensif de l'Empire aux affaiblissements de zone dévastateurs.",
+
+                "darkside": "Coté Obscur",
+                "support": "Soutien",
+                "leader": "Chef",
+                "empire": "Empire",
+                "fleet-commander": "Commandant de la flotte",
+
+                "basic-attack-title": "<u>Attaque Basique: Attaque de Grand Moff</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à la cible ennemie. Cette attaque inflige 10 % de dégâts supplémentaires pour chaque allié actif et 10 % de dégâts en plus pour chaque Soldat clone du Côté Obscur allié actif.\n\nTarkin obtient 100 % de pouvoir (cumulatif) jusqu'à la prochaine utilisation de Puissance de feu ultime.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Puissance de feu ultime (délai : 4)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à tous les ennemis et réduit leur jauge de tour de 50 %. Cette attaque inflige des dégâts supplémentaires égaux au double du pouvoir de Tarkin.\n\nSi tous les alliés sont des Soldats clone du Côté obscur, inflige une instance supplémentaire de dégâts égaux au double du pouvoir de Tarkin.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Techniques d'intimidation (délai : 3)</u>",
+                "special-attack2": "Obtient un bonus de pouvoir pendant 3 tours. Les alliés de l'Empire gagnent Suprématie tactique pendant 2 tours (ne peut pas être copié). Inflige un malus de chances de coup critique et un malus d'attaque pendant 3 tours à tous les ennemis. Les ennemis Rebelles ne peuvent pas résister à ces affaiblissement. Obtient 15 % de jauge de tour pour chaque ennemi subissant un affaiblissement.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Resserrer l'étau</u>",
+                "lead-ability": "Les alliés de l'Empire gagnent 30 % de santé maximale, de protection maximale et 30 de vitesse.\n\nInflige un malus de défense et exposition pendant 2 tours aux ennemis dont la santé passe en dessous de 100 % pendant le tour des alliés de l'Empire (ne peut pas être résisté).\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes en 3c3 et si tous les autres alliés sont des Soldats clones du Côté Obscur :</u> au début de l'affrontemnt, les Soldats clones soutien du Côté Obscur alliés utilisent Camouflage pendant 2 tours, les Soldats clones tanks du Côté Obscur alliés obtiennent un bonus de protection (50 %) pendant 2 tours (ne peut pas être dissipé) et Scorch obtient 5 cumuls de Rempart.\n\nLorsqu'un Soldat clone du Côté Obscur allié utilise une capacité spéciale, Tarkin est invoqué.\n\nLorqu'un ennemi esquive ou résiste à un affaiblissement d'un Soldat clone du Côté Obscur allié, Tarkin gagne 5 % de jauge de tour et récupère 10 % de santé.\n\nLorsque techniques d'intimidation est utilisée, dissipe les améliorations de tous les ennemis et leur inflige Confusion pendant 2 tours.\n\nlorsque Puissance de feu ultime est utilisée, inflige Peur à tous les ennemis pendant 1 tour (ne peut pas être copié, dissipé ou résisté).\n\nLes ennemis ne peuvent pas petre ranimés.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Résolution implacable</u>",
+                "unique-ability1": "Au début de la bataille, le Grand Moff Tarkin obtient 50 % de pouvoir (cumulatif) pour chaque autre allié de l'Empire présent.\n\nLe Grand Moff Tarkin obtient de la défense égale à son pouvoir et 20 % de pouvoir (cumulatif) pour chaque ennemi subissant un affaiblissement.\n\nAu début de chaque affrontement, Tarkin gagne un bonus de protection (50 %) pendant 2 tours.\n\nLa première fois que la santé de Tarkin passe en dessous de 50 %, il obtient de la protection supplémentaire (50 %) pendant 3 tours.\n\nChaque fois qu'un allié de l'Empire inflige un affaiblissement, Tarkin récupère 5 % de santé et de protection.",
+
+                "ship-title": "<u>Vaisseau : Executrix</u>",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "grand moff tarkin"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
