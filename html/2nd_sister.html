@@ -1,149 +1,301 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title></title>
-
+    <title id="big-title">Second Sister</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/2nc-sister/2nd-sister-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/2nc-sister/2nd-sister-image.png" alt="Second Sister" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Deuxième soeur</u></h1>
-        <p>
-            Attaquante inquisitrice impitoyable spécialisée dans l'élimination des Jedi.
-        </p><br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color:red" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-            <a class="class" href="../classement-perso/attaquant.html">attaquant</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/empire.html">Empire</a>
-            <a class="capacite" href="../classement-perso/inquisitorious.html">Inquisitorius</a>
-            <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html">Utilisateur de la Force non aligné</a>
-            <a class="pilote" href="../classement-perso/membres-équipages.html">Membres Equipages</a>
-        </nav>
+            <h1 id="title"><u>Second Sister</u></h1>
+            <p id="description"></p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="capacite" href="../classement-perso/inquisitorious.html" id="inquisitorius">Inquisitorius</a>
+                <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Force User</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/interceptor-tie.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/" alt="TIE/IN Interceptor Prototype">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: TIE/IN Interceptor Prototype</u>
+                </h2>
+            </section>
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/2nc-sister/2nd-sister.png" alt="2nd sister"><br>
+    <img class="first" src="../image-perso/2nc-sister/2nd-sister.png" alt="Second Sister"><br>
 
-    <h2 class="titre"><u>attaque basique : La peur te submerge</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: So Much Fear</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Deuxième soeur basique" src="../image-perso/2nc-sister/2nd-basique.png">
+            <img class="attaque" alt="Second Sister basic" src="../image-perso/2nc-sister/2nd-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à une cible ennemie et inflige 1 cumul de <u class="speciale">Purge</u> (cumulatif, 6 maximum)<br>
-                si la cible ennemie est Jedi (ne peut pas être résisté). De plus, cette attaque a 30% de chances d'infliger<br>
-                1 cumul de Purge à la cible ennemie (ne peut pas être résisté).<br>
-                <br>
-                <u class="speciale">Purge</u>: augmente les effets des ennemis qui utilisent Purge.<br>
-                Purge dure jusqu'à la fin de l'affrontement (ne peut pas être copié, esquivé ou évité). 
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy and inflict 1 stack of <u class="speciale">Purge</u> (stacking, max 6) if target enemy is a Jedi, which can't be resisted. Additionally, this attack has a 30% chance to inflict 1 stack of Purge to target enemy, which can't be resisted.
+
+                <u class="speciale">Purge:</u> Increased effects from enemies that utilize Purge; Purge lasts until the end of the encounter and can't be copied, evaded, or prevented
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Tu veux en finir ?(délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Shall I End This? (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Deuxième soeur spé 1" src="../image-perso/2nc-sister/2nd-spe1.png">
+            <img class="attaque" alt="Second Sister special 1" src="../image-perso/2nc-sister/2nd-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                inflige des dégâts spéciaux une cible ennemie. Cette capacité a +150% de pénétration de défense. Si la cible souffre<br>
-                de Purge, cette capacité a +100% de chances de coup critique et +50% de dégats critiques.
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to target enemy. This ability has +150% Defense Penetration. If target enemy is inflicted with Purge, this ability has +100% Critical Chance and +50% Critical Damage.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Tu ne pourras pas toujours fuir (délai: 5)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Can't Run Forever (cooldown: 5)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Deuxième soeur spé 2" src="../image-perso/2nc-sister/2nd-spe2.png">
+            <img class="attaque" alt="Second Sister special 2" src="../image-perso/2nc-sister/2nd-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Consomme jusqu'à 5 cumuls de Purge. Si des cumuls de Purge ont été consommés, confère à la Deuxième Soeur un bonus de <br>
-                dégats critiques pendant 2 tours et cette capacité a 50% de chances d'infliger l'étourdissement pendant 1 tour.<br>
-                Si 5 cumuls de Purge ont été consommés, la cible ennemie est étourdie pendant 1 tour (ne peut pas être résisté).<br>
-                Pour chaque cumul de Purge consommé, réduit la jauge de tour de l'ennemie de 20%, et la jauge de tour de la Deuxième<br>
-                Soeur se remplit de 10% (ne peut pas être esquivé). Inflige des dégâts spéciaux à la cible ennemie.
+            <p class="attaque" id="special-attack2">
+                Consume up to 5 stacks of Purge. If any stacks of Purge were consumed, Second Sister gains 140% Critical Damage for 2 turns and this ability has a 50% chance to Stun for 1 turn. If 5 stacks of Purge were consumed, Stun target enemy for 1 turn, which cannot be resisted. For each stack of Purge consumed, remove 20% Turn Meter from target enemy and Second Sister gains 10% Turn Meter, which can't be evaded. Deal Special damage to target enemy.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Capacité de chef: Ils ne triompheront jamais</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: They Will Never Be Victorious</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Deuxième soeur lead" src="../image-perso/2nc-sister/2nd-lead.png">
+            <img class="attaque" alt="Second Sister leader" src="../image-perso/2nc-sister/2nd-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Au début de la bataille, les alliés de l'empire obtiennent 5% d'attaque et les alliés de l'Inquisitorius obtiennent<br>
-                30% d'attaque supplémentaire. Les autres alliés de l'Inquisitorius ont 30% de chances d'infliger un cumul de Purge<br>
-                lorsqu'ils utilisent une capacité de base (ne peut pas être copié ou résisté). Lorsqu'un allié est marqué, marque <br>
-                tous les autres alliés (à l'exception des alliés camouflés) qui ne le sont pas déjà pendant 2 tours (ne peut pas être<br>
-                copié, dissipé ou évité).<br>
-                <br>
-                <u class="omicron">Dans les Guerres de territoire :</u><br>
-                Les ennemis commecent la bataille avec deux cumuls de Purge. Les ennemis Jedi ne peuvent pas récupérer de santé <br>
-                ou de santé avec les capacités uniques des Jedi (à l'exception des Légendes Galactiques).
+            <p class="attaque" id="lead-ability">
+                At the start of battle, Empire allies gain 5% Offense and Inquisitorius allies gain an additional 30% Offense. Other Inquisitorius allies have a 30% chance to inflict a stack of Purge when using a Basic ability, which can't be copied or resisted. Whenever an ally is Marked, Mark all other allies (excluding Stealthed allies) who don't have it for 2 turns, which can't be copied, dispelled, or prevented.
+                <br><br>
+                <u class="omicron">omicron Boost : While in Territory Wars:</u> Enemies start the battle with two stacks of Purge. Jedi enemies can't recover Health or Protection from Jedi Unique abilities (excludes Galactic Legends).
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique 1: Personne n'est irremplaçable</u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Everyone is Expendable</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Deuxième soeur unique" src="../image-perso/2nc-sister/2nd-unique.png">
+            <img class="attaque" alt="Second Sister unique" src="../image-perso/2nc-sister/2nd-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                La Deuxième Soeur obtient +50% de dégâts critiques. Ses capacités spéciales ne peuvent pas être esquivée lorsqu'elle<br>
-                attaque un ennemi avec un cumul de Purge. Lorsqu'un ennemi ou un allié de l'Empire est vaincu, la Deuxième Soeur obtient<br>
-                des bonus jusqu'à la fin de l'affrontement.<br>
-                <br>
-                Premier ennemi ou allié de l'empire : +35 de vitesse.<br>
-                <br>
-                Deuxième ennemi ou allié de l'empire : +100% de pénétration de défense.<br>
-                <br>
-                Troisième ennemi ou allié de l'empire : +50% de dégâts critiques.
+            <p class="attaque" id="unique-ability1">
+                Second Sister gains +50% Critical Damage. Her Special abilities can't be evaded when attacking an enemy with one or more stacks of Purge. Whenever an enemy or Empire ally is defeated, Second Sister gains bonuses for the rest of the encounter.
+                <br><br>
+                First enemy or Empire ally: +35 Speed
+                <br><br>
+                Second enemy or Empire ally: +100% Defense Penetration
+                <br><br>
+                Third enemy or Empire ally: +50% Critical Damage
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique 2: Patience</u></h2>
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Patience</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Deuxième soeur unique patience" src="../image-perso/2nc-sister/2nd-patience.png">
+            <img class="attaque" alt="Second Sister unique 2" src="../image-perso/2nc-sister/2nd-patience.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Au début de l'affrontement, si tous les allié (au moins 3) appartiennent à l'Inquisitorious, ce personnage obtient<br>
-                20% de santé maximale, de protection maximale et de pouvoir. Inflige à tous les ennemis un cumul de Purge au début<br>
-                de l'affrontement (ne peut pas être esquivé ou résisté). A chaque fois qu'un ennemi inflige des dégâts à ce personnage<br>
-                en attaquant en dehors de son tour, l'ennemi subit un cumul de Purge (6 maximum, ne peut pas être esquivé ou résisté).<br>
-                Lorsque les cumuls de Purge sont consommés ou Dissipés sur un ennemi, la jauge de tour de ce personnage se remplit de 3%.
+            <p class="attaque" id="unique-ability2">
+                At the start of battle, if all allies (minimum 3) are Inquisitorius, this character gains 20% Max Health, Max Protection, and Potency. While an ally is Marked, they have +35% Defense. Whenever an enemy damages this character with an attack while attacking out of turn, that enemy gains a stack of Purge (max 6), which can't be evaded or resisted. Whenever Purge is consumed or dispelled on an enemy, this character gains 3% Turn Meter.
             </p>
         </div>
     </div>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
-    </footer> 
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Deuxième Sœur",
+                "title": "<u>Deuxième Sœur</u>",
+                "description": "Attaquante Inquisitrice impitoyable spécialisée dans l'élimination des Jedi.",
+
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "empire": "Empire",
+                "inquisitorius": "Inquisitorius",
+                "force-user": "Utilisateur de la Force non aligné",
+                "crew-members": "Membres d’Équipage",
+
+                "basic-attack-title": "<u>Attaque Basique: La peur te submerge</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie et inflige 1 cumul de <u class='speciale'>Purge</u> (cumulatif, maximum 6) si la cible ennemie est Jedi (ne peut pas être résisté). De plus, cette attaque a 30 % de chances d'infliger 1 cumul de Purge à la cible ennemie (ne peut pas être résisté).\n\n<u class='speciale'>Purge :</u> augmente les effets des ennemis qui utilisent Purge. Purge dure jusqu'à la fin de l'affrontement (ne peut pas être copié, esquivé ou évité).",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Tu veux en finir ? (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à une cible ennemie. Cette capacité a +150 % de pénétration de défense. Si la cible ennemie souffre de Purge, cette capacité a +100 % de chances de coup critique et +50 % de dégâts critiques.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Tu ne pourras pas toujours fuir (délai : 5)</u>",
+                "special-attack2": "Consomme jusqu'à 5 cumuls de Purge. Si des cumuls de Purge ont été consommés, la Deuxième Sœur gagne 140 % de dégâts critiques pendant 2 tours et cette capacité a 50 % de chances d'infliger Étourdissement pendant 1 tour. Si 5 cumuls de Purge ont été consommés, la cible ennemie est étourdit pendant 1 tour (ne peut pas être résisté). Pour chaque cumul de Purge consommé, réduit la jauge de tour de la cible ennemie de 20 % et ja jauge de tour de la Deuxième Sœur se remplit de 10 % (ne peut pas être esquivé). Inflige des dégâts spéciaux à la cible ennemie.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Ils ne triompheront jamais</u>",
+                "lead-ability": "Au début de la bataille, les alliés de l'Empire obtiennent 5 % d'attaque et les alliés de l'Inquisitorius obtiennent 30 % d'attaque supplémentaire. Les autres alliés de l'Inquisitorius ont 30 % de chances d'infliger un cumul de Purge lorsqu'ils utilisent une capacité de base (ne peut pas être copié ou résisté). Lorsqu'un allié subit Marque, inflige Marque à tous les autres alliés (à l'exception des alliés camouflés) qui ne sont pas déjà pendant 2 tours (ne peut pas être copié, dissipé ou évité).\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> Les ennemis commencent la bataille avec deux cumuls de Purge. Les ennemis Jedi ne peuvent pas récupérer de santé ou de protection avec les capacités uniques des Jedi (à l'exception des Légendes galactiques).",
+
+                "unique-ability1-title": "<u>Capacité Unique : Personne n'est irremplaçable</u>",
+                "unique-ability1": "La Deuxième Sœur obtient +50 % de dégâts critiques. Ses capacités spéciales ne peuvent pas être esquivées lorsqu'elle attaque un ennemi avec un ou plusieurs cumuls de Purge. Lorsqu'un ennemi ou un allié de l'Empire est vaincu, la Deuxième Sœur obtient des bonus jusqu'à la fin de l'affrontement.\n\nPremier ennemi ou allié de l'Empire : +35 de vitesse.\n\nDeuxième ennemi ou allié de l'Empire : +100 % de pénétration de défense.\n\nTroisième ennemi ou allié de l'Empire : +50 % de dégâts critiques.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Patience</u>",
+                "unique-ability2": "Si tous les alliés (3 minimum) sont de l'Inquisitorius, ce personnage obtient 20 % de santé maximum, de protection maximum et de pouvoir. Tant qu'un allié subit Marque, ce dernier obtient +35 % de défense. Lorsqu'un ennemi attaque ce personnage en dehors de son tour, il obtient un cumul de Purge (6 max., ne peut peut pas être esquivé ou résisté). Lorsque les cumuls de Purge sont consommés ou dissipés sur un ennemi, ce personnage obtient 3 % de jauge de tour.",
+
+                "ship-title": "<u>Vaisseau : prototype d'intercepteur TIE/IN</u>",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "second sister"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
 </body>
-</html>    
+</html>
