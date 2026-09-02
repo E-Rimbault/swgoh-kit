@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Vane</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/vane/vane-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/vane/vane-image.png" alt="Vane" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Vane</u></h1>
+            <p id="description">
+                A bold and fierce Pirate Tank who thrives in chaos and never backs down from a fight
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/pirate.html" id="pirate">Pirate</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/vane/vane.png" alt="Vane"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: We Just Want the Credits</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Vane basic" src="../image-perso/vane/vane-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Offense Down for 1 turn. For each stack of Profit on him, Vane gains 20% Defense (stacking) for 1 turn. On his turn, if he has at least 5 stacks of Profit, Daze the target enemy for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Put it Down, Little One (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Vane special 1" src="../image-perso/vane/vane-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                If Vane's Health percentage is equal to or greater than the target enemy, Stun them for 1 turn and gain a stack of Profit (max 5). If Vane's Health percentage is lower, recover 25% Health, and gain Evasion Up for 1 turn. Deal Physical damage to target enemy. If Vane has 10+ stacks of Profit and the target enemy has Taunt, Vane consumes 10 stacks, Steals Taunt from target enemy with refreshed duration, and gains 5 stacks of Bulwark for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : It Must Be Fake (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Vane special 2" src="../image-perso/vane/vane-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Vane dispels all debuffs on all other Pirate allies and is inflicted with the same debuffs (excluding Purge). If Defense Down, Evasion Down, or Tenacity Down were dispelled, all other Pirate allies gain the opposite buff for 1 turn. Vane gains 10% Max Health per debuff on him for the rest of the encounter (stacking, max 100% Health).
+                <br><br>
+                If the allied Leader is Pirate King Hondo Ohnaka, the max Health stacking is doubled to 200%. If no debuffs were dispelled, Vane Taunts and gains Protection Up (50%, stacking) for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Myth of the Outer Rim</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="vane unique" src="../image-perso/vane/vane-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Whenever another Pirate ally gains a stack of Profit, Vane Taunts for 1 turn. At the start of battle, if all allies are Pirates, Vane gains 50% Max Health and Max Protection. Whenever another Pirate ally takes damage while he is Taunting, Vane equalizes his Health and Protection with the weakest ally at the end of the turn and gains 2 stacks of Bulwark for 1 turn, and if the allied Leader is Pirate King Hondo Ohnaka, he gains 3 stacks of Bulwark instead. Whenever another Pirate ally scores a critical hit while Vane is Taunting, he recovers 10% Health and Protection. If Vane has less than 50% Health, he recovers 25% Health and Protection instead. Vane has +20% Critical Avoidance per debuff on him. Whenever Vane has a debuff dispelled on him, he gains Protection Up (10%, stacking) for the rest of the encounter.
+                <br><br>
+                At the start of the encounter, if the allied Leader is Pirate King Hondo Ohnaka, Vane takes reduced damage from Percent Health damage effects, gains Protection Up (100%) and Taunts for 2 turns, which can't be dispelled, and Pirate allies gain Offense Up for 3 turns. The first time Pirate King Hondo Ohnaka's health falls below 25%, dispel all debuffs on him, and equalize Health and Protection with him, then Vane recovers 50% Health and Protection. If Pirate King Hondo Ohnaka or Maz Kanata is the ally in the Leader slot, the cap for Profit is removed for Vane.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Battles:</u> At the start of battle, Pirate allies gain 100% Max Health and Max Protection and 2 stacks of Profit. If the allied Leader is Pirate King Hondo Ohnaka, Vane gains double that amount. Whenever Vane's Health falls below 25% for the first time, he recovers 50% Health, gains 100% Protection, and Taunts for 3 turns. If he is already Taunting, he also dispels all the debuffs on himself. At the start of his turn, if Vane has at least 5 stacks of Profit, inflict Potency Down and Tenacity Down on all enemies for 2 turns, which can't be resisted.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Vane",
+                "title": "<u>Vane</u>",
+                "description": "Un tank pirate audacieux et féroce qui prospère dans le chaos et ne recule jamais devant un combat",
+
+                "darkside": "Coté Obscur",
+                "tank": "Tank",
+                "pirate": "Pirate",
+                "scoundrel": "Vaurien",
+
+                "basic-attack-title": "<u>Attaque Basique: On veut juste les crédits</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie et lui inflige un malus d'attaque pendant 1 tour. Pour chaque cumul de Profit dont il dispose, Vane obtient 20 % de défense (cumulatif) pendant 1 tour. Lors de son tour, s'il dispose d'au moins 5 cumuls de Profit, inflige Confusion à la cible ennemie pendant 1 tour.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Pose ça, petite (délai : 3)</u>",
+                "special-attack1": "Si le pourcentage de santé de Vane est égal ou supérieur de la cible ennemie, il lui inflige Étourdissement pendant 1 tour et il obtient un cumul de Profit (5 maximum). Si le pourcentage de santé de Vane est inférieur, il récupère 25 % de santé et obtient un bonus d'esquive pendant 1 tour. Inflige des dégâts physiques à la cible ennemie. Si Vane dispose de 10 cumuls de Profit ou plus et que la cible ennemie utilise Raillerie, Vane consomme 10 cumuls, vole Raillerie à la cible ennemie, réinitialise sa durée et obtient 5 cumuls de Rempart pendant 2 tours.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : ça doit être faux (délai : 4)</u>",
+                "special-attack2": "Vane dissipe tous les affaiblissements que subissent tous les autres alliés pirates et subit les mêmes affaiblissements (à l'exception de Purge). Si un malus de défense, un malus d'esquive ou un malus de ténacité à été dissipé, tous les autres pirates alliés obtiennent l'amélioration opposée pendant 1 tour. Vane obtient 10 % de santé maximale par affaiblissement dont il souffre pour le reste de l'affrontement (cumulatif, maximum 100 % de santé).\n\nSi le chef allié est le Roi Pirate Hondo Ohnaka, la limite maximale du bonus de santé est doublée à 200 %. Si aucun affaiblissement n'a été dissipé, Vane utilise Raillerie et obtient un bonus de protection (50 %, cumulatif) pendant 2 tours.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Mythe de la bordure Extérieure</u>",
+                "unique-ability1": "Chaque fois qu'un autre allié Pirate gagne un cumul de Profit, Vane utilise Raillerie pendant 1 tour. Au début de la bataille, si tous les alliés sont des Pirates , Vane obtient 50 % de santé maximale et de protection Maximale. Lorsqu'un autre allié Pirate subit des dégâts alors qu'il utilise Raillerie, Vane équilibre sa santé et sa protection avec l'allié le plus faible à la fin du tour et obtient 2 cumuls de Rempart pendant 1 tour mais si le chef allié est le Roi Pirate Hondo Ohnaka, il gagne alors 3 cumuls de Rempart. Chaque fois qu'un autre allié Pirate inflige un coup critique pendant que Vane utilise Raillerie, il récupère 10 % de santé et de protection. Si Vane dispoosait de moins de 50 % de santé, il récupère alors 25 % de santé et de protection. Vane dispose de + 20 % d'esquive des critiques par affaiblissements qu'il subit. Chaque fois qu'un des affaiblissement que subissait Vane est dissipé, il obtient un bonus de protection (10 %, cumulatif) pour le reste de l'affrontement.\n\nAu début de l'affrontement, si le chef allié est le Roi Pirate Hondo Ohnaka, Vane subit des dégâts réduits des effets de dégâts de pourcentage de santé, obtient un bonus de protection (100 %) et utilis Raillerie pendant 2 tours (ne peut pas être dissippé), et les alliés Pirates obtiennent un bonus d'attaque pendant 3 tours. La première fois que la santé du Roi Pirate Hondo Ohanaka tombe en dessous de 25 %, dissipe tous les affaiblissements l'affectant et équilibre sa santé et sa protection avec lui, puis Vane récupère 50 % de santé et de protection. Si le Roi Pirate Hondo Ohnaka ou Maz Kanata est l'allié dans l'emplacement de chef, la limite de Profit est supprimée pour Vane.\n\n<u class='omicron'>Amélioration Omicron : Dans les batailles de Territoire :</u> au début de la bataille, les alliés Pirate obtiennent 100 % de santé maximale et de protection maximale, ainsi que 2 cumuls de Profit. Si le chef allié est le Roi Pirate Hondo Ohnaka, vane obtient le double de cette valeur. Chaque fois que la santé de Vane tombe en dessous de 25 % pour la première fois, il récupère 50 % de santé et gagne 100 % de protection, puis utilise Raillerie pendant 3 tours. S'il utilise déjà Raillerie, il dissipe également tous les affaiblissements qu'il subit. Au début de son tour, si Vane dispose d'au moins 5 cumuls de Profit, inflige un malus de pouvoir et un malus de ténacité à tous les ennemis pendant 2 tours, ce qui ne peut pas être résisté.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "vane"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
