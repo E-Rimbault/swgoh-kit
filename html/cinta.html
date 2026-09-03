@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Cinta Kaz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/cinta/cinta-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/cinta/cinta-image.png" alt="Cinta Kaz" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Cinta Kaz</u></h1>
+            <p id="description">
+                A cold and fearless assassin, highly skilled at breaching enemy defenses
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">rebel</a>
+                <a class="capacite" href="../classement-perso/combattant-rebelle.html" id="rebel-fighter">Rebel Fighter</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/cinta/cinta.png" alt="Cinta Kaz"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Blaster Burn</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Cinta Kaz basic" src="../image-perso/cinta/cinta-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Defense Down for 1 turn. If they are Undermined, this Defense Down can't be dispelled.
+                <br><br>
+                Cinta Stealths for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Fight To The Death (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Cinta Kaz special" src="../image-perso/cinta/cinta-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy. Cinta Stealths for 2 turns.
+                <br><br>
+                Inflict Breach on target enemy for 1 turn. If they are Breached by this ability, Ability Block them for 1 turn. If they are Ability Blocked by this ability, Deathmark them for 1 turn, which can't be dispelled.
+                <br><br>
+                This ability can't be resisted by Undermined enemies.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Blooded, Fearless Warrior</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Cinta Kaz unique" src="../image-perso/cinta/cinta-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Whenever a Rebel Fighter ally uses a Special ability against an Undermined enemy, Cinta assists.
+                <br><br>
+                Whenever Cinta uses an ability while Stealthed on her turn, Expose the target enemy for 2 turns. Whenever Cinta attacks out of turn while Stealthed, her attacks have +100% Critical Chance, and 50% Critical Damage and Defense Penetration.
+                <br><br>
+                Whenever a Rebel Fighter ally is damaged by an Undermined enemy, reduce the cooldown of Fight To The Death by 1 (once per turn). Whenever an Undermined enemy inflicts a debuff on a Rebel Fighter ally, Cinta gains Speed Up for 1 turn.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> At the start of battle, Cinta Stealths for 1 turn.
+                <br><br>
+                Cinta has +100% Defense and Max Health. Whenever enemies damage Cinta while she is Stealthed, they are Undermined for 1 turn. If they are already Undermined, inflict Healing Immunity for 1 turn, which can't be dispelled or resisted.
+                <br><br>
+                Rebel Fighter allies have +100% Defense Penetration while attacking enemies affected by Cinta's debuffs from Fight To The Death.
+                <br><br>
+                Whenever a Deathmarked enemy is defeated, all Rebel Fighter allies recover 100% Health and Protection, gain 10 Speed (stacking, max 50), and Cinta gains 100% Critical Damage for the rest of the battle.
+                <br><br>
+                Rebel Fighter allies gain 10% Offense (stacking) for each Undermined enemy. If all enemies are Undermined, Rebel Fighter allies are immune to Instant Defeat and Max Health reduction effects.
+                <br><br>
+                Whenever an enemy uses a Special ability, Cinta gains 15% Turn Meter, doubled if that enemy is Undermined.
+                <br><br>
+                Whenever a Rebel Fighter ally loses VIP, dispel all debuffs from all Rebel Fighter allies and grant all Rebel Fighter allies 25% Turn Meter.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : You're The Only Reason I'm Here</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Cinta Kaz unique 2" src="../image-perso/cinta/cinta-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                Whenever Cinta damages an enemy, Cinta and Vel recover 5% Health and Protection, doubled if the enemy is Undermined, and Vel gains a stack of Resilient Defense (max 8) for 2 turns.
+                <br><br>
+                If Vel is active, whenever Cinta has her Stealth dispelled, Cinta Stealths and gains 100% Offense for 1 turn.
+                <br><br>
+                Cinta gains 10% Turn Meter (once per turn) whenever a Rebel Fighter ally is damaged by a debuffed enemy, and an additional 10% Turn Meter if that ally is Vel.
+                <br><br>
+                Whenever a Rebel Fighter ally damages a debuffed enemy out of turn, Cinta dispels all debuffs on herself. If that enemy is Undermined, dispel all debuffs on Vel.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Cinta Kaz",
+                "title": "<u>Cinta Kaz</u>",
+                "description": "Une assassin droide et intrèpide, très habile pour trouver les failles et percer les défenses ennemies.",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "rebel": "Rebelle",
+                "rebel-fighter": "Combattant Rebelle",
+
+                "basic-attack-title": "<u>Attaque Basique: Brûlure de blaster</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie et lui inflige un malus de défense pendant 1 tour. Si elle subit Démoralisation, ce malus de défense ne peut pas être dissipé.\n\nCinta utilise Camouflage pendant 1 tour.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Combat à mort (délai : 4)</u>",
+                "special-attack1": "Inflige des dégâts physiques à la cible ennemie. Cinta utilise Camouflage pendant 2 tours.\n\nInflige Faille à la cible ennemie pendant 1 tour. Si cette capacité lui inflige Faille, entrave ses capacités pendant 1 tour. Si cette capacité entrave ses capacités, lui inflige Marque de mort pendant 1 tour (ne peut pas être dissipé). Cette capacité ne peut pas être résistée par les ennemis qui subissent Démoralisation.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Guerrière aguerrie et intrépide</u>",
+                "unique-ability1": "Chaque fois qu'un allié combattant rebelle utilise une capacité spéciale contre un ennemi qui subit Démoralisation, Cinta l'assiste.\n\nChaque fois que Cinta utilise une capacité en étant Camouflée pendant son tour tour, inflige Exposition à la cible ennemie pendant 2 tours. Chaque fois que Cinta attaque en dehors de son tour en étant camouflée, ses attaques ont +100 % de chances de coup critique et 50 % de dégâts critiques et pénétration de défense.\n\nChaque fois qu'un allié combattant rebelle subit des dégâts d'un ennemi qui subit Démoralisation, réduit le délai de Combat à mort de 1 (une fois par tour). Chaque fois qu'un ennemi subissant Démoralisation inflige un affaiblissement à un allié combattant rebelle, Cinta obtient un bonus de vitesse pendant 1 tour.\n\n<u class='omicron'>Amélioration Omicron :Dans les Guerres de territoire :</u> Au début de la bataille, Cinta se camoufle pendant 1 tour.\n\nCinta a +100 % de défense et de santé maximale. Chaque fois que les ennemis infligent des dégâts à Cinta pendant qu'elle est camouflée, ils subissent Démoralisation pendant 1 tour. S'ils subissent déjà Démoralisation, inflige Immunité aux soins pendant 1 tour (ne peut pas être dissipé ou résisté).\n\nLes alliés combattant rebelles ont +100 % de pénétration de défense lorsqu'ils attaquent des ennemis affectés par les affaiblissements de Cinta de Combat à mort.\n\nChaque fois qu'un ennemi subissant Marque de mort est éliminé, tous les alliés combattant rebelles récupèrent 100 % de santé et de protection, obtiennent 10 de vitesse (cumulatif, 50 maximum), et Conta obtient 100 % de dégâts critiques pour le reste de la bataille.\n\nLes alliés combattants rebelles obtiennent 10 % d'attaque (cumulatif) pour chaque ennemi qui subit Démoralisation. Si tous les ennemis subissent Démoralisation, les alliés combattants rebelles reçoivent Immunité à la défaite instantanée et contre les effets de réduction de la santé maximale.\n\nChaque fois qu'un ennemi utilise une capacité spéciale, Cinta utilise une capacité spéciale, Conta obtient 15 % de jauge de tour, doublé si cet ennemi subit Démoralisation.\n\nChaque fois qu'un allié combattant rebelle perd VIP, dissipe tous les affaiblissements de tous les alliés combattants rebelles et confère à tous les alliés combattants rebelles 25 % de jauge de tour.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Sant toi, je refusais</u>",
+                "unique-ability2": "Chaque fois que Cinta inflige des dégâts à un ennemi, Cinta et Vel récupèrent 5 % de santé et de protection, doublé si l'ennemi subit Démoralisation, et Vel obtient un cumul de Solide défense (8 maximum) pendant 2 tours.\n\nSi Vel est active, chaque fois que le Camouflage de Conta est dissipé, Cinta se camoufle et obtient 100 % d'attaque pendant 1 tour.\n\nCinta gagne 10 % de jauge de tour (une fois par tour) chaque fois qu'un allié Combattant rebelle subit des dégâts d'un ennemi affaibli, et 10 % de jauge de tour supplémentaires si cet allié est Vel.\n\nChaque fois qu'un allié Combattant rebelle inflige des dégâts à un ennemi affaibli en dehors de son tour, Cinta dissipe tous les affaiblissements dont elle dispose. Si cet ennemi subit Démoralisation, dissipe tous les affaiblissements de Vel.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "CINTA"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
