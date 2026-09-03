@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Wrecker (Mercenary)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/wrecker-s3/wrecker-s3-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/wrecker-s3/wrecker-s3-image.png" alt="Wrecker (Mercenary)" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Wrecker (Mercenary)</u></h1>
+            <p id="description">
+                A stalwart Tank whose loyalty to his allies is equal only to his love of explosives
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/bad-batch.html" id="bad-batch">Bad Batch</a>
+                <a class="capacite" href="../classement-perso/mercenaire.html" id="mercenary">Mercenary</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/wrecker-s3/wrecker-s3.png" alt="Wrecker (Mercenary)"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Haymaker</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Wrecker (Mercenary) basic" src="../image-perso/wrecker-s3/wrecker-s3-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Dispel all buffs on target enemy and deal Physical damage to them twice.
+                <br><br>
+                During Wrecker's turn, remove 5% Turn Meter for each buff dispelled from the target enemy. All other Bad Batch allies gain 10% Turn Meter.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Colossal Smash (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Wrecker (Mercenary) special 1" src="../image-perso/wrecker-s3/wrecker-s3-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and inflict Disarm for 2 turns or until Wrecker (Mercenary) is defeated and remove it from all other enemies, which can't be copied, dispelled, or resisted. If the target enemy was already Disarmed, this ability deals 50% more damage (excluding raid bosses and Galactic Legends).
+                <br><br>
+                If Wrecker has more than 30 stacks of Soldier of Fortune, he and the weakest other Bad Batch ally gain 50% Turn Meter.
+                <br><br>
+                Taunt for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Improvised Weapon (cooldown: 6)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Wrecker (Mercenary) special 2" src="../image-perso/wrecker-s3/wrecker-s3-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to all enemies and Stagger them for 2 turns. Dispel all debuffs on Bad Batch allies. If Defense Down, Speed Down, or Tenacity Down were dispelled on a Bad Batch ally, they gain the opposite version of that debuff for 2 turns.
+                <br><br>
+                Each time this ability is used, Wrecker (Mercenary) gains 25% Defense, Max Health, and Max Protection (stacking, max 100%) until the end of battle.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : You Gotta Be in Front To Win</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Wrecker (Mercenary) unique 1" src="../image-perso/wrecker-s3/wrecker-s3-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Bad Batch allies gain 75% Tenacity. At the start of each encounter, Wrecker Taunts for 2 turns.
+                <br><br>
+                Whenever an enemy attacks out of turn, Bad Batch allies recover 5% Health and Protection.
+                <br><br>
+                Whenever Bad Batch allies are inflicted with Healing Immunity, they dispel it, recover 25% Health and Protection, and gain Defense Up for 2 turns. Whenever an enemy gains 50% or more bonus Turn Meter before a Bad Batch ally takes a turn, all Bad Batch allies gain 15% Turn Meter.
+                <br><br>
+                When another Bad Batch ally is inflicted with Captive, the cooldown of Improvised Weapon is reset and Wrecker gains Taunt for 2 turns, which can't be copied, dispelled, or prevented. While another Bad Batch ally is inflicted with Captive, Wrecker has +25% Max Health and Protection.
+                <br><br>
+                <u class="omicron">omicron Boost : While in Territory Battles:</u> Bad Batch allies gain 100% Max Health and Max Protection and 50% Offense.
+                <br><br>
+                At the start of each encounter, Wrecker gains 100% Defense (stacking) until the end of the battle, which persists through defeat. Whenever an enemy takes a turn, Bad Batch allies gain 5% Turn Meter.
+                <br><br>
+                If a Bad Batch ally is defeated after Captive has already been used while Wrecker is active, they revive with 100% Health and Protection and Stealth for 2 turns, this effect can only occur once per character.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Soldier of Fortune</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Wrecker (Mercenary) unique 2" src="../image-perso/wrecker-s3/wrecker-s3-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                At the start of battle, Wrecker (Mercenary) gains 1 stack of Soldier of Fortune for each Relic Amplifier level he has.
+                <br><br>
+                Whenever a Bad Batch or Mercenary ally is critically hit, Wrecker gains 3 stacks of Soldier of Fortune. Whenever Wrecker is inflicted with a debuff, he loses 5 stacks of Soldier of Fortune.
+                <br><br>
+                At the start of their turn all Mercenary allies gain 5% Defense (stacking) and 1% Tenacity (stacking) for each stack of Soldier of Fortune they have until the start of their next turn.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Wrecker (Mercenaire)",
+                "title": "<u>Wrecker (Mercenaire)</u>",
+                "description": "Un tank robuste dont la loyauté envers ses alliés n'a d'égal que son amour pour les explosifs",
+
+                "lightside": "Coté Lumineux",
+                "tank": "Tank",
+                "bad-batch": "Bad Batch",
+                "mercenary": "Mercenaire",
+
+                "basic-attack-title": "<u>Attaque Basique: Coup de poing fracassant</u>",
+                "basic-attack": "Dissipe toutes les améliorations sur la cible ennemie et lui inflige des dégâts physiques deux fois.\n\nPendant le tour de Wrecker, réduit la jauge de tour de 5 % pour chaque améliorations dissipée par la cible ennemie. La jauge de tour de tous les alliés du Bad Batch se remplit de 10 %.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Frappe colossale (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie et inflige Désarmement pendant 2 tours ou jusqu'à ce que Wrecker (Mercenaire) soit vaincu et le retire de tous les autres ennemis (ne peut pas être copié, dissipé ou résisté). Si la cible ennemie subissait déjà Désarmement, cette attaque inflige 50 % de dégâts supplémentaires (exclut les boss de raid et les Légendes galactiques).\n\nSi Wrecker (Mercenaire) dispose de plus de 30 cumuls de Soldats de fortune, sa jauge de tour et celle de l'autre allié du Bad Batch le plus faible se remplissent de 50 %.\n\nUtilise Raillerie pendant 2 tours.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Arme improvisée (délai : 6)</u>",
+                "special-attack2": "Inflige des dégâts physiques à tous les ennemis, puis leur confère Faux pas pendant 2 tours. Dissipe tous les affaiblissements que subissent les alliés du Bad Batch. Si un malus de défense, un malus de vitesse ou un malus de ténacité a été dissipé, tous les alliés du Bad Batch obtiennent la version opposée de cet affaiblissement pendant 2 tours.\n\nChaque fois que cette capacité est utilisée, Wrecker (Mercenaire) obtient 25 % de défense, de santé maximale et de protection maximale (cumulatif, maximum 100 %) jusqu'à la fin de la bataille.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Il faut être devant pour gagner</u>",
+                "unique-ability1": "Les alliés du Bad Batch gagnent 75 % de ténacité. Au début de chaque affrontement, Wrecker utilise Raillerie pendant 2 tours.\n\nChaque fois qu'un ennemi attaque hors de son tour, les alliés du Bad Batch récupère 5 % de santé et de protection.\n\nLorsque les alliés du Bad Batch subissent Immunité aux soins, ils dissipent cet affaiblissement, récupèrent 25 % de santé et de protection et reçoivent un bonus de défense pendant 2 tours. Chaque fois qu'un ennemi gagne 50 % ou plus de jauge de tour supplémentaires avant qu'un allié du Bad Batch joue un tour, tous les alliés du Bad Batch reçoivent 15 % de jauge de tour.\n\nLorsqu'un autre allié du Bad Batch subit Captivité, le délai d'Arme improvisée est réinitialisé et Wrecker (Mercenaire) utilise Raillerie pendant 2 tours (ne peut pas être copié, dissié ou empêché). Tant qu'un autre allié du Bad Batch subit Captivité, Wrecker dispose de +25 % de santé maximale et de protection.\n\n<u class='omicron'>Amélioration Omicron : Dans les Batailles de territoire :</u> les alliés du Bad Batch gagnent 100 % de santé maximale et de protection maximale, ainsi que 50 % d'attaque.\n\nAu début de chaque affrontement, Wrecker gagne 100 % de défense (cumulatif) jusqu'à la fin de la bataille (persiste au-delà de l'élimation). Chaque fois qu'un ennemi joue un tour, les alliés du Bad Batch gagnent 5 % de jauge de tour.\n\nSi un allié du Bad Batch est vaincu après que Captivité ait déjà été utilisée alors que Wrecker (Mercenaire) st actif, cet allié est ranimé avec 100 % de santé et de protection, puis utilise Camouflage pendant 2 tours. Cet effet ne peut se produite qu'une seule fois par personnage.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Soldat de fortune</u>",
+                "unique-ability2": "Au début de la bataille, Wrecker (Mercenaire) gagne 1 cumul de Soldat de fortune pour chaque niveau d'amplificateur de relique dont il dispose.\n\nChaque fois qu'un allié du Bad Batch ou Mercenaire est touché par un coup critique, Wrecker (Mercenaire) gagne 3 cumuls de Soldat de fortune. Lorsque Wrecker (Mercenaire) subit un affaiblissement, il perd 5 cumuls de Soldat de fortune.\n\nAu début de leur tour, tous les alliés Mercenaires gagnent 5 % de défense, (cumulatif) et 1 % de ténacité (cumulatif) pour chaque cumul de Soldat de fortune dont ils disposet et ce, jusqu'au début leur prochain tour.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "wrecker (mercenary)"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
