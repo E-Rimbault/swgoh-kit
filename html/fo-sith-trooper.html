@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Sith Trooper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/sith-trooper-fo/sith-trooper-fo-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/sith-trooper-fo/sith-trooper-fo-image.png" alt="Sith Trooper" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Sith Trooper</u></h1>
+            <p id="description">
+                Elite trooper with powerful First Order and Sith synergy and high damage potential.
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/premier-odre.html" id="first-order">First Order</a>
+                <a class="capacite" href="../classement-perso/sith.html" id="sith">Sith</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/tie-dagger.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/" alt="TIE Dagger">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: TIE Dagger</u>
+                </h2>
+            </section>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/sith-trooper-fo/sith-trooper-fo.png" alt="Sith Trooper"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Sith Strike</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Sith Trooper basic" src="../image-perso/sith-trooper-fo/sith-trooper-fo-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. If this attack is a critical hit, Sith Trooper gains Critical Hit Immunity for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Vengeant Blast (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Sith Trooper special 1" src="../image-perso/sith-trooper-fo/sith-trooper-fo-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies. This attack deals 50% more damage for each currently defeated First Order or Sith ally.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Sith Trooper special 2" src="../image-perso/sith-trooper-fo/sith-trooper-fo-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Dispel all debuffs on all First Order and Sith allies and grant them Advantage for 2 turns. If Sith Trooper already had Advantage, he is called to assist.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : </u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Sith Trooper unique" src="../image-perso/sith-trooper-fo/sith-trooper-fo-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of battle, Sith Trooper gains Advantage for 2 turns if the Leader is First Order or Sith. While Sith Trooper has Advantage, he has +50% Critical Damage.
+                <br><br>
+                Whenever another First Order or Sith ally scores a critical hit or Stuns an enemy, Sith Trooper is called to assist (limit once per turn).
+                <br><br>
+                Whenever another First Order or Sith ally is defeated, the cooldown of Vengeant Blast is reset, then Sith Trooper gains Advantage for 1 turn and takes a bonus turn.
+            </p>
+        </div>
+    </div>
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Soldat Sith",
+                "title": "<u>Soldat Sith</u>",
+                "description": "Soldat d'émite qui dispose d'une puissante synergie avec les Sith et le Premier Ordre et d'un potentiel de dégâts élevé.",
+
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "first-order": "Premier Ordre",
+                "sith": "Sith",
+                "crew-members": "Membres d’Équipage",
+
+                "basic-attack-title": "<u>Attaque Basique: Frappe Sith</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie. Si cette attaque inflige un coup critique, le Soldat Sith obtient l'immunité aux coups critiques pendant 2 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Déflagration vengeresse (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts à tous les ennemis. Cette attaque inflige 50 % de dégâts supplémentaires pour chaque allié du Premier Ordre ou Sith vaincu",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Résurgence de pouvoir (délai : 3)</u>",
+                "special-attack2": "Dissipe tous les affaiblissements en cours sur les alliés du Premier Ordre et Sith, et leur confère l'avantage pendant 2 tours. Si le Soldat Sith dispose déjà de l'avantage, il est invoqué.",
+
+                "unique-ability1-title": "<u>Capacité Unique : héritage de l'Empereur</u>",
+                "unique-ability1": "Au début de la bataille, le Soldat Sith obtient l'avntage pendant 2 tours si le chef fait partie du Premier Ordre ou des Sith. Tant que le soldat Sith dispose de l'avantage, il inflige +50 % de dégâts critiques.\n\nLorsqu'un autre allié du Premier Ordre ou Sith inflige un coup critique ou étourdit un ennemi, le soldat Sith est invoqué (limité à une fois par tour).\n\nLorsqu'un autre allié du Premier Ordre ou Sith est vaincu, le délai de déflagration vengeresse est réinitialisé, puis le soldat Sith obtient l'avantage pendant 1 tour et utilise un tour bonus.",
+
+                "ship-title": "<u>Vaisseau : TIE Dagger</u>",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "sith trooper"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
