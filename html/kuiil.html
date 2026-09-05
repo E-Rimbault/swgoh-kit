@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">kuiil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/kuiil/kuiil-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/kuiil/kuiil-image.png" alt="kuiil" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>kuiil</u></h1>
+            <p id="description">
+                A supportive mechanic who aids Droids and Scoundrels.
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/kuiil/kuiil.png" alt="kuiil"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Engineer's Gambit</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="kuiil basic" src="../image-perso/kuiil/kuiil-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy and inflict Burning for 3 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Voltaic Shot (cooldown: 2)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="kuiil special 1" src="../image-perso/kuiil/kuiil-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to target enemy, Stun them for 1 turn, and inflict Shock and Speed Down for 3 turns. If the target already had Burning, inflict Expose for 2 turns. If the target already had Shock, inflict Shock for 3 turns on the weakest enemy that didn't already have it.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : I Have Spoken (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="kuiil special 2" src="../image-perso/kuiil/kuiil-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                All allies recover Health equal to 20% of Kuiil's Max Health and Protection equal to 20% of Kuiil's Max Protection, doubled for Droid and Scoundrel allies. Scoundrel allies gain 25% Turn Meter. Scoundrel and Light Side Droid allies gain <u class="speciale">Mechanic's Savvy</u> for 2 turns, which can't be copied.
+                <br><br>
+                <u class="orange">Mechanic's Savvy provides different bonuses based on the ally's faction:</u>
+                <br><br>
+                - <strong>Droids:</strong> +40% Offense; when defeated, revive with 80% Health and Protection<br>
+                - <strong>Scoundrels:</strong> +20% Critical Chance, +40% Critical Damage and Defense Penetration
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Frontier Wisdom</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="kuiil unique" src="../image-perso/kuiil/kuiil-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of battle, other Droid and Scoundrel allies gain 40% of Kuiil's Max Health, Offense, and Potency, and they gain 40% of Kuiil's Max Protection until the first time he is defeated.
+                <br><br>
+                Kuiil and Droid allies recover 20% Protection whenever an enemy is inflicted with Shock.
+                <br><br>
+                While IG-11 is an ally: Kuiil and IG-11 have +10% Health Steal and +30% Potency. Kuiil can't be critically hit or Stunned, and whenever IG-11 is critically hit he recovers 20% Protection.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "kuiil",
+                "title": "<u>kuiil</u>",
+                "description": "Un mécanicien de soutien qui aide les droïdes et les vauriens",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "scoundrel": "Vaurien",
+
+                "basic-attack-title": "<u>Attaque Basique: Tactique de l'ingénieur</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie et lui inflige Brûlure pendant 3 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Tir voltaïque (délai : 2)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à une cible ennemie et l'étourdit pendant 1 tour et lui inflige le Choc et un malus de vitesse pendant 3 tours. Si la cible avait déjà une Brûlure, elle est exposée pendant 2 tours. Si la cible avait déjà subit Choc, inflige CHoc pendant 3 tours à l'ennemi le plus faible qui n'en disposait pas déjà.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : J'ai parlé (délai : 4)</u>",
+                "special-attack2": "Tous les alliés récupèrent de la santé à hauteur de 20 % de la santé maximale de kuiil, et de la protection à hauteur de 20 % de la protection maximale de kuiil (doublés pour les droïdes et les Vauriens alliés). La jauge de tour des Vauriens alliés se remplit de 25 %. Les Vauriens et les droïdes du Côté Lumineux alliés obtiennent <u class='speciale'>Expert en mécanique</u> pendant 2 tours (ne peut pas être copié).\n\n<u class='orange'>Expert en mécanique cconfère différents bonus en fonction de la faction de l'allié :</u>\n\n- <strong>Droïdes :</strong> +40 % d'attaque. Une fois vaincus, ils sont ranimés avec 80 % de santé et de protection.\n- <strong>Droïdes :</strong> +20 % de chances de coup critique, +40 % de dégâts critiques et de pénétration de défense.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Sagesse sauvage</u>",
+                "unique-ability1": "Au début de la bataille, tous les autres droïdes et Vauriens alliés obtiennent 40 % de la santé maximale, de l'attaque et du pouvoir de Kuiil, jusqu'à ce que Kuiil soit vaincu pour la première fois, ils obtiennent aussi 40 % de sa protection maximale.\n\nKuiil et les droïdes alliés récupèrent 20 % de protection chaque fois qu'un ennemi subit un Choc.\n\nTant qu'IG-11 est un allié : Kuiil et IG-11 ont +10 % de vol de santé et +30 % de pouvoir. Kuiil ne peut pas subir de coup critique ou être étourdi, et lorsqu'IG-11 subit un coup critique, il récupère 20 % de protection.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "kuiil"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
