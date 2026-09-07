@@ -1,195 +1,327 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Grand Inquisiteur</title>
-
+    <title id="big-title">Grand Inquisitor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/gi/grand-inquisitor-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/gi/grand-inquisitor-image.png" alt="Grand Inquisitor" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Grand Inquisiteur</u></h1>
-        <p>
-            Maitre calculateur et implacable de l'inquisitorious,<br>
-            spécialisé dans l'affrontement contre les Jedi.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color:red" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/empire.html">Empire</a>
-            <a class="capacite" href="../classement-perso/inquisitorious.html">Inquisitorius</a>
-            <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html">utilisateur-de-la-force-non-aligné</a>
-            <a class="pilote" href="../classement-perso/membres-équipages.html">Membres Equipages</a>
-        </nav>
+            <h1 id="title"><u>Grand Inquisitor</u></h1>
+            <p id="description">
+                The calculating and relentless master of the Inquisitorius who specializes in dealing with Jedi
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="capacite" href="../classement-perso/inquisitorious.html" id="inquisitorius">Inquisitorius</a>
+                <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Force User</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/scythe.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/" alt="Scythe">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: Scythe</u>
+                </h2>
+            </section>
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/gi/gi-image.png" alt="Grand Inquisiteur"><br>
+    <img class="first" src="../image-perso/gi/gi-image.png" alt="Grand Inquisitor"><br>
 
-    <h2 class="titre"><u>attaque basique : La douleur peut briser n'importe qui</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Pain Can Break Anyone</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="GI basic" src="../image-perso/gi/gi-basic.png">
-        </div>
-        <p class="attaque">
-            Inflige des dégâts physiques à une cible ennemie. Si tous les alliés appartiennent à l'inquisitorious,<br>
-            inflige un cumul de purge (6 maximum) qui ne peut pas être résisté. Réduit les dégâts critiques infligé<br>
-            par la cible ennemie de 15% (cumulable) pendant 2 tours par attaque. Pendant le tour du Grand Inquisiteur:<br>
-            <br>
-            <u class="speciale">Si l'ennemie souffre d'au moins 3 cumuls de purge au début du tour:</u><br>
-            attaque une deuxième fois, infligeant toujours un coup critique si possible.
-        </p>
-        </div>
-    </div>
-
-
-    <h2 class="titre"><u>1ere spéciale: Vous avez raison d'avoir peur (délai: 4)</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="Gi spé 1" src="../image-perso/gi/gi-spe1.png">
+            <img class="attaque" alt="Grand Inquisitor basic" src="../image-perso/gi/gi-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe tous les affaiblissements en cour sur les alliés de l'inquisitorious puis équilibre leurs pourcentages<br>
-                de santé et de protection. Inflige des dégâts à tous les ennemis et inflige l'entrave des capacités et Vulnérable<br>
-                pendant 1 tour à tous les ennemis subissant Purge (ne peut pas être résisté). Pour chaque ennemi souffrant de Purge,<br>
-                les alliés récupèrent 4% de santé. Les alliés de l'inquisitorious obtiennent un bonus de dégâts critiques pendant 2 tours.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. If all allies are Inquisitorius, inflict a stack of Purge (max 6), which can't be resisted. Reduce the target enemy's Critical Damage by 15% (stacking) for 2 turns per attack, which can't be resisted. On Grand Inquisitor's turn:
+                <br><br>
+                - <u class="speciale">If the enemy has at least 3 stacks of Purge at the start of turn:</u> Attack a second time always scoring a critical hit if able.
+                <br><br>
+                - <u class="speciale">If the enemy has 6 stacks of Purge at the start of turn:</u> Attack a third time dealing true damage instead, which can't be evaded.
+
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Prêt à mourir ? (délai: 6)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : You're Right to be Afraid (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Gi spé 2" src="../image-perso/gi/gi-sp2.png">
+            <img class="attaque" alt="Grand Inquisitor special 1" src="../image-perso/gi/gi-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Réduit la jauge de tour de 100% de la cible ennemie(ne peut pas être résisté) et inflige des dégâts physiques.<br>
-                Ensuite, inflige <u class="speciale">Torture</u> pendant 1 tour (ne peut pas être copié, Dissipé, esquivé ou résisté).<br>
-                Confère des améliorations pendant 2 tours en fonction du nombre de cumuls de Purge sur la cible ennemie.<br>
-                <br>
-                <u class="speciale">-1 cumuls ou +:</u> Le Grand Inquisiteur obtient un bonus d'attaque pendant 2 tours.<br>
-                <br>
-                <u class="speciale">-2 cumuls ou +:</u> Le Grand Inquisiteur obtient un bonus de vitesse pendant 2 tours.<br>
-                <br>
-                <u class="speciale">-3 cumuls ou +:</u> Le Grand Inquisiteur obtient un bonus de ténacité pendant 2 tours.<br>
-                <br>
-                <u class="speciale">-4 cumuls ou +:</u> Les alliés de l'Inquisitorious obtiennent un bonus d'attaque pendant 2 tours.<br>
-                <br>
-                <u class="speciale">-5 cumuls ou +:</u> Les alliés de l'Inquisitorious obtiennent un bonus de vitesse pendant 2 tours.<br>
-                <br>
-                <u class="speciale">-6 cumuls ou +:</u> Les alliés de l'Inquisitorious obtiennent un bonus de ténacité pendant 2 tours.<br>
-                <br>
-                <br>
-                <u class="speciale">Torture</u> dégâts bonus à hauteur de 10% de la santé maximale de ce personnage lorsqu'il subit une<br>
-                attaque. Diminue la défense de 10% (cumulable, 50% maximum) pendant le reste de l'affrontement lorsqu'il subit<br>
-                une attaque. Ne peut pas obtenir de bonus de jauge de tour.<br>
-                <br>
-                <u class="omicron">Pendant les guerres de territoires:</u><br>
-                <br>
-                La première fois que tous les ennemis atteignent 6 cumuls de Purge, le délai de cette capacité est réinitialisé si cette<br>
-                n'a pas été utilisé pour vaincre un ennemi. Si la cible ennemie dispose de 6 cumuls de Purge et n'est pas un Jedi,<br>
-                inflige l'immunité aux améliorations pendant 1 tour (ne peut pas être Dissipé, esquivé ou résisté). Si la cible<br>
-                ennemie dispose de 6 cumuls de Purge et est un Jedi, elle est immédiatement vaincue. Les ennemis Jedi vaincus<br>
-                de cette manière ne peuvent pas être ranimés.
+            <p class="attaque" id="special-attack1">
+                Dispel all debuffs on Inquisitorius allies and then equalize their current Health and Protection percentages. Deal Physical damage to all enemies and inflict Ability Block and Vulnerable for 1 turn to all enemies with Purge, which can't be resisted. For each enemy with Purge, Inquisitorius allies recover 4% Health. Inquisitorius allies gain Critical Damage Up for 2 turns.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Capacité de chef: Maitre de l'Inquisitorious</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Ready to Die ? (cooldown: 6)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Gi lead" src="../image-perso/gi/gi-lead.png">
+            <img class="attaque" alt="Grand Inquisitor special 2" src="../image-perso/gi/gi-sp2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Les alliés de l'Empire obtiennent 20% de santé maximale et de protection maximale, et 10 de vitesse.<br>
-                Si tous les alliés au début de l'affrontement appartiennent à l'Inquisitorious, ils obtiennent 46% de<br>
-                santé maximale et de protection maximale supplémentaires, et 15 de vitess; ils sont également immunisés<br>
-                contre l'entrave des capacités. Le Grand Inquisiteur obtient également un bonus de pénétration de défense<br>
-                et un bonus d'attaque pendant 2 tours (ne peut pas être Dissipé ou évité).<br>
-                <br>
-                De plus, si tous les alliés au début de la bataille appartiennent à l'Inquisitorious, à chaque fois que Purge<br>
-                est infligé, les alliés de l'Inquisitorious obtiennent des avantages en fonction de leur rôle pendant le reste<br>
-                de l'affrontement (cumulable, 200% maximum):<br>
-                -Attaquants: +2% de dégâts critiques.<br>
-                -Soigneurs et Soutiens: +2% de pouvoir.<br>
-                -Tanks: +2% de défense<br>
-                <br>
-                Si le chef ennemi est un Jedi; les alliés de l'Inquisitorious commence la bataille avec des améliorations en fonction de leur rôle pendant 1 tour:<br>
-                -Attaquants: avantage<br>
-                -Soigneurs et Soutiens: prévoyance<br>
-                -Tanks: raillerie<br>
-                <br>
-                <u class="omicron">Pendant les Guerres de territoire:</u><br>
-                <br>
-                Lorsque le Grand Inquisiteur est actif, à chaque fois qu'un ennemi perd Purge, elle sera regagnée à la fin du tour.<br>
-                Pendant leur tour, les alliés de l'Inquisitorious peuvent ignorer la raillerie pour cibler un ennemi avec 6 cumuls de Purge.
+            <p class="attaque" id="special-attack2">
+                Remove 100% Turn Meter from the target enemy, which can't be resisted, and deal Physical damage. Then inflict <u class="speciale">Torture</u> for 1 turn, which can't be copied, dispelled, evaded, or resisted. Gain buffs for 2 turns based on the number of stacks of Purge on the target enemy.
+                <br><br>
+                - <u class="speciale">1+ Stack:</u> Grand Inquisitor gains Offense Up for 2 turns<br>
+                - <u class="speciale">2+ Stacks:</u> Grand Inquisitor gains Speed Up for 2 turns<br>
+                - <u class="speciale">3+ Stacks:</u> Grand Inquisitor gains Tenacity Up for 2 turns<br>
+                - <u class="speciale">4+ Stacks:</u> Inquisitorius allies gain Offense Up for 2 turns<br>
+                - <u class="speciale">5+ Stacks:</u> Inquisitorius allies gain Speed Up for 2 turns<br>
+                - <u class="speciale">6 Stacks:</u> Inquisitorius allies gain Tenacity Up for 2 turns
+                <br><br>
+                <u class="speciale">Torture:</u> Take bonus damage equal to 10% of this character's Max Health when damaged by an attack; reduce Defense by 10% (stacking, max 50%) for the rest of the encounter when damaged by an attack; can't gain bonus Turn Meter
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> The first time all enemies reach 6 stacks of Purge, this ability's cooldown is reset if this ability has not defeated an enemy. If the target enemy has 6 stacks of Purge and is not Jedi, inflict Buff Immunity for 1 turn, which can't be dispelled, evaded, prevented, or resisted. If the target enemy has 6 stacks of Purge and is Jedi, instantly defeat them. Jedi enemies defeated this way can't be revived.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique 1: La compassion laisse des traces</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Master Inquisitorius</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Gi unique" src="../image-perso/gi/gi-unique.png">
+            <img class="attaque" alt="Grand Inquisitor lead" src="../image-perso/gi/gi-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Pour chaque allié de l'Inquisitorious, les ennemis subissant Purge ont -10% de défense et -5 de vitesse.<br>
-                <br>
-                Si un ennemi esquive l'attaque d'un allié de l'Inquisitorious, tous les autres ennemis subissent des dégâts<br>
-                réels et Dissipent leur prévoyance.<br>
-                <br>
-                La première fois que chaque ennemi atteint 6 cumuls de Purge, le Grand Inquisiteur obtient un tour bonus,<br>
-                10% d'esquive des critiques, de vol de santé, d'attaque et 5 de vitesse jusqu'à la fin de l'affrontement<br>
-                (cumulable, 6 maximum). Ces bonus sont doublés si l'ennemi est un Jedi.<br>
-                <br>
-                <u class="omicron">Pendant les Guerres de territoire:</u><br>
-                <br>
-                A chaque fois que les ennemis Jedi subissant Purge obtiennent un bonus de protection, ils subissent des dégâts<br>
-                à hauteur de 25% de leur santé maximale à la fin de ce tour. Ces dégâts ne peuvent pas éliminer les ennemis. Si un<br>
-                ennemi qui subit 6 cumuls de Purge réduit le Grand Inquisiteur à 1% de santé, celui ci récupère 100% de santé et de<br>
-                protection (limité à une fois par ennemi).    
+            <p class="attaque" id="lead-ability">
+                Empire allies gain 20% Max Health and Max Protection and 10 Speed. If all allies are Inquisitorius at the start of battle, they gain an additional 46% Max Health and Max Protection and 15 Speed, and they are immune to Ability Block. Also, Grand Inquisitor gains Defense Penetration Up and Offense Up for 2 turns, which can't be dispelled or prevented.
+                <br><br>
+                Additionally, if all allies are Inquisitorius at the start of battle, whenever Purge is inflicted, Inquisitorius allies gain benefits based on their role for the rest of the encounter (stacking, max 200%):<br>
+                - Attackers: +2% Critical Damage<br>
+                - Healers and Supports: +2% Potency<br>
+                - Tanks: +2% Defense
+                <br><br>
+                If the enemy Leader is Jedi, Inquisitorius allies start the battle with buffs based on their role for 1 turn:<br>
+                - Attackers: Advantage<br>
+                - Healers and Supports: Foresight<br>
+                - Tanks: Taunt
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> While Grand Inquisitor is active, whenever an enemy loses Purge, they regain it at the end of the turn. On their turn, Inquisitorius allies can ignore Taunt to target an enemy with 6 stacks of Purge.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique 2: Patience </u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : </u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Gi patience" src="../image-perso/gi/gi-patience.png">
+            <img class="attaque" alt="Grand Inquisitor unique 1" src="../image-perso/gi/gi-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque"> 
-                Au début de l'affrontement, si tous les allié (au moins 3) appartiennent à l'Inquisitorious, ce personnage obtient<br>
-                20% de santé maximale, de protection maximale et de pouvoir. Inflige à tous les ennemis un cumul de Purge au début<br>
-                de l'affrontement (ne peut pas être esquivé ou résisté). A chaque fois qu'un ennemi inflige des dégâts à ce personnage<br>
-                en attaquant en dehors de son tour, l'ennemi subit un cumul de Purge (6 maximum, ne peut pas être esquivé ou résisté).<br>
-                Lorsque les cumuls de Purge sont consommés ou Dissipés sur un ennemi, la jauge de tour de ce personnage se remplit de 3%.
+            <p class="attaque" id="unique-ability1">
+                For each Inquisitorius ally, enemies with Purge have -10% Defense and -5 Speed.
+                <br><br>
+                If an enemy evades an Inquisitorius ally's attack, all other enemies take true damage and dispel Foresight from themselves.
+                <br><br>
+                The first time each enemy reaches 6 stacks of Purge, Grand Inquisitor takes a bonus turn and gains 10% Critical Avoidance, Health Steal, and Offense and 5 Speed until the end of the encounter (stacking, max 6). These bonuses are doubled if the enemy is Jedi.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> Whenever Jedi enemies with Purge gain Protection Up, they take damage equal to 25% of their Max Health at the end of that turn. This damage can't defeat enemies. If an enemy with 6 stacks of Purge were to reduce Grand Inquisitor to 1% Health, he recovers 100% Health and Protection (limit once per enemy).
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Patience</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Grand Inquisitor patience" src="../image-perso/gi/gi-patience.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                At the start of battle, if all allies (minimum 3) are Inquisitorius, this character gains 20% Max Health, Max Protection, and Potency. Inflict all enemies with a stack of Purge at the start of the encounter, which can't be evaded or resisted. Whenever an enemy damages this character with an attack while attacking out of turn, that enemy gains a stack of Purge (max 6), which can't be evaded or resisted. Whenever Purge is consumed or dispelled on an enemy, this character gains 3% Turn Meter.
             </p>
         </div>
     </div>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Grand Inquisiteur",
+                "title": "<u>Grand Inquisiteur</u>",
+                "description": "Maître calculateur et implacable de l'Inquisitorius, spécialisé dans l'affrontement contre les Jedi.",
+
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "empire": "Empire",
+                "inquisitorius": "Inquisitorius",
+                "force-user": "Utilisateur de la Force non aligné",
+                "crew-members": "Membres d’Équipage",
+
+                "basic-attack-title": "<u>Attaque Basique: La douleur peut briser n'importe qui</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie. Si tous les alliés appartiennent à l'Inquisitorius, inflige un cumul de Purge (6 maximum) qui ne peut pas être résisté. Réduit les dégâts critiques infligés par la cible ennemie de 15 % (cumulable) pendant 2 tours par attaque. Pendant le tour du Grand Inquisiteur :\n\n- <u class='speciale'>Si l'ennemi souffre d'au moins 3 cumuls de Purge au début du tour :</u> attaque une deuxième fois, infligeant toujours un coup critique si possible.\n\n- <u class='speciale'>Si l'ennemi souffre de 6 cumuls de Purge au début du tour :</u> attaque une trosième, infligeant des dégâts réels à la place (ne peut pas être esquivé).",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Vous avez raison d'avoir peur (délai : 4)</u>",
+                "special-attack1": "Dissipe tous les affaiblissements en cours sur les alliés de l'Inquisitorius puis équilibre leurs pourcentages de santé et de protection. Inflige des dégâts physiques à tous les ennemis et inflige l'Entrave des capacités et Vulnérable pendant 1 tour à tous les ennemis subissant Purge (ne peut pas être résisté). Pour chaque ennemi souffrant de Purge, les alliés de l'Inquisitorius récupèrent 4 % de santé. Les alliés de l'Inquisitorius obtiennent un bonus de dégâts critiques pendant 2 tours.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Prêt à mourir ? (délai : 6)</u>",
+                "special-attack2": "Réduit la jauge de tour de 100 % de la cible ennemie (ne peut pas être résisté) et inflige des dégâts physiques. Ensuite, inflige <u class='speciale'>Torture</u> pendant 1 tour (ne peut pas être copié, dissipé, esquivé ou résisté). Confère des améliorations pendant 2 tours en fonction du nombre de cumuls de Purge sur la cible ennemie.\n\n- <u class='speciale'>1 cumul ou plus :</u> le Grand Inquisiteur obtient un bonus d'attaque pendant 2 tours.\n- <u class='speciale'>2 cumuls ou plus :</u> le Grand Inquisiteur obtient un bonus de vitesse pendant 2 tours.\n- <u class='speciale'>3 cumuls ou plus :</u> le Grand Inquisiteur obtient un bonus de ténacité pendant 2 tours.\n- <u class='speciale'>4 cumuls ou plus :</u> les alliés de l'Inquisitorius obtiennent un bonus d'attaque pendant 2 tours.\n- <u class='speciale'>5 cumuls ou plus :</u> les alliés de l'Inquisitorius obtiennent un bonus de vitesse pendant 2 tours.\n- <u class='speciale'>6 cumuls ou plus :</u> les alliés de l'Inquisitorius obtiennent un bonus de ténacité pendant 2 tours.\n\n<u class='speciale'>Torture :</u> dégâts bonus  hauteur de 10 % de la santé maximale de ce personnage lorsqu'il subit une attaque. Diminue la défense de 10 % (cumulable, 50 % maximum) pendant le reste de l'affrontement lorsqu'il subit une attaque. Ne peut pas obtenir de bonus de jauge de tour.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> la première fois que tous les ennemis atteignent 6 cumuls de Purge, le délais de cette capacité est réinitialisé si cette capacité n'a pas été utilisé pour vaincre un ennemi. Si la cible ennemie dispose de 6 cumuls de Purge et n'est pas un Jedi, inflige l'Immunité aux améliorations pendant 1 tour (ne peut pas être dissipé, esquivé, évité ou résisté). Si la cible enneie dispose de 6 cumuls de Purge et est un Jedi, elle est immédiatement vaincue. Les ennemis Jedi vaincus de cette façon ne peuvent pas être ranimés.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Maître de l'Inquisitorius</u>",
+                "lead-ability": "Les alliés de l'Empire obtiennent 20 % de santé maximale et de protection maximale, et 10 de vitesse. Si tous les alliés au début de l'affrontement appartiennent à l'Inquisitorius, ils obtiennent 46 % de santé maximaleet de protection maximale supplémentaire, et 15 de vitesse ; ils sont également immunisé contre l'Entrave des capacités. Le Grand Inquisiter obtient également un bonus de pénétration de défense et un bonus d'attaque pendant 2 tours (ne peut pas être dissipé ou empêché).\n\nDe plus, si tous les alliés au début de la bataille appartiennent à l'Inquisitorius, à chaque fois que Purge est infligée, les alliés de l'Inquisitorius obtiennent des avantage en fonction de leur röle pendant le reste de l'affrontement (cumulable, 200 % maximum) :\n- Attaquants : +2 % de dégâts critiques\n- Soigneurs et soutiens : +2 % de pouvoir\n- Tanks : +2 % de défense\n\nSi le chef ennemi est un Jedi, les alliés de l'Inquisitorius commencent la bataille avec des améliorations en fonction de leur rôle pendant 1 tour :\n- Attaquants : avantage\n- Soigneurs et soutiens : Prévoyance\n- Tanks : Raillerie\n\n<u class='omicron'>Amélioration Omicron : Pendant les Guerres de territoire :</u> lorsque le Grand Inquisiteur est actif, à chaque fois qu'un ennemi perd Purge, elle sera regagnée à la fin du tour. Pendant leur tour, les alliés de l'Inquisitorius peuvent ignorer Raillerie pour cibler un ennemi avec 6 cumuls de Purge.",
+
+                "unique-ability1-title": "<u>Capacité Unique : La compassion laisse des traces</u>",
+                "unique-ability1": "Pour chaque allié de l'Inquisitorius, les ennemis subissant Purge ont -10 % de défense et -5 de vitesse.\n\nSi un ennemi esquive l'attaque d'un allié de l'Inquisitorius, tous les autres ennemis subissent des dégâts réels et dissipent Prévoyance.\n\nLa première fois que chaque ennemi atteint 6 cumuls de Purge, le Grand Inquisiteur obtient un tour bonus, 10 % d'esquive des critiques, de vol de santé, d'attaque, et 5 de vitesse jusqu'à la fin de l'affrontement (cumulable, 6 maximum). Ces bonus sont doublés si l'ennemi est un Jedi.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> à chaqe fois que les ennemis Jedi subissant Purge obtiennent un bonus de protection, ils subissent des dégâts à hauteur de 25 % de leur santé maximale à la fin de ce tour. Ces dégâts ne peuvent pas éliminer les ennemis. Si un ennemi qui subit 6 cumuls de Purge réduit le Grand Inquisiteur à 1 % de santé, celui-ci récupère 100 % de santé et de protection (limité à une fois par ennemi).",
+
+                "unique-ability2-title": "<u>Capacité Unique : Patience</u>",
+                "unique-ability2": "Au début de l'affrontement, si tous les alliés (au moins 3) appartiennent à l'Inquisitorius, ce personnage obtient 20 % de santé maximale, de protection maximale et de pouvoir. Inflige à tous les ennemis un cumul de Purge au début de l'affrontement (ne peut pas être esquivé ou résisté). A chaque fois qu'un ennemi inflige des dégâts à ce personnage en l'attaquant en dehors de son tour, l'ennemi subit un cumul de Purge (6 maximum, ne peut pas être esquivé ou résisté). Lorsque les cumuls de Purge sont consommés ou dissipé sur un ennemi, la jauge de tour de ce personnage se remplit de 3 %.",
+
+                "ship-title": "<u>Vaisseau : Scythe</u>",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "grand inquisitor"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
     </footer>
-    
 </body>
 </html>
