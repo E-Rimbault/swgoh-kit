@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">The Stranger</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/stranger/stranger-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/stranger/stranger-image.png" alt="The Stranger" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>The Stranger</u></h1>
+            <p id="description">
+                The Stranger is undeterred in using any technique, even forbidden, to defeat his foes
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/sith.html" id="sith">Sith</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/stranger/stranger.png" alt="The Stranger"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Peace is a Lie</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="The Stranger basic" src="../image-perso/stranger/stranger-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and dispel all debuffs on The Stranger. During his turn, gain 50 Speed the first time this ability is used and 1 Speed (+1 per Relic Amplifier level; max 10) each subsequent use (stacking, max 50 triggers) for the rest of battle, and Alert for 1 turn, which can't be copied.
+                <br><br>
+                During his turn, if The Stranger has 250 Speed more than the target enemy, instantly defeat the target enemy (once per battle), which can't be evaded.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : An Acolyte Kills the Dream (cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="The Stranger special 1" src="../image-perso/stranger/stranger-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and The Stranger gains Perfect Defense for 1 turn, which can't be copied, dispelled, or prevented. Call all Dark Side Unaligned Force User Acolyte allies to assist. Gain 50% Max Health the first time this ability is used and 5% Max Health each subsequent use (stacking) for the rest of battle.
+                <br><br>
+                Inflict all enemies with Tenacity Down for 2 turns and all enemies with less than full Health are Exposed for 1 turn.
+                <br><br>
+                If there is only 1 enemy remaining, the Dark Side Unaligned Force User Acolytes instantly defeat target enemy on assist (once per battle), which can't be evaded.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas and if all allies are Acolyte:</u> If all enemies have fallen below 100% Health at least once this encounter, The Stranger gains Massively Overpowered for 1 turn, which can't be copied, dispelled, or prevented. If this ability defeats an enemy, revive all Acolyte allies, then all Acolyte allies recover full Health and Protection.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Was That Its Name? (cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="The Stranger special 2" src="../image-perso/stranger/stranger-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to target enemy and The Stranger gains Retribution for 1 turn, which can't be dispelled or prevented. Stun the target enemy for 1 turn and if all allies are Acolyte, Stun the weakest enemy for 1 turn, which can't be evaded or resisted. Gain 50% Defense Penetration the first time this ability is used and 5% Defense Penetration each subsequent use (stacking) for the rest of battle.
+                <br><br>
+                This attack ignores Protection. All other Acolyte allies gain 10% Turn Meter.
+                <br><br>
+                If this ability is used a third time against the same opponent this encounter then instantly defeat the target enemy (once per battle), which can't be evaded. If this ability instantly defeats an enemy, all enemies are Demoralized for 2 turns, which can't be copied, dispelled, evaded, or resisted.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: I Want a Pupil</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="The Stranger lead" src="../image-perso/stranger/stranger-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                All allies gain 50% Accuracy. Whenever an enemy attacks out of turn reduce the cooldown of <u class="speciale">Was That Its Name?</u> by 1 (2 if the enemy was a Jedi).
+                <br><br>
+                At the start of battle, if there are no Galactic Legend allies and The Stranger has exactly one Jedi, one Light Side Unaligned Force User, and two Dark Side Unaligned Force user allies, all allies gain the Acolyte tag and the following effects are active:
+                <br><br>
+                - Whenever an ally attacks out of turn reduce the cooldown on <u class="speciale">An Acolyte Kills the Dream</u> by 1<br>
+                - Whenever an ally has a buff dispelled, the enemy that dispelled it can't recover Health or Protection for 1 turn<br>
+                - At the start of each turn, allies have 100% Critical Chance while they have Protection, otherwise they have 100% Defense<br>
+                - Whenever a Dark Side ally is inflicted with a debuff, The Stranger and Light Side allies gain 10% Turn Meter (once per turn)<br>
+                - Whenever a Light Side ally is critically hit, Dark Side allies gain 10% Turn Meter (once per turn)<br>
+                - Whenever an ally assists, dispel all debuffs on the ally they are assisting<br>
+                - Whenever an ally counterattacks, inflict the target enemy with Defense Down for 1 turn (once per turn)
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> Whenever an Acolyte ally counterattacks, inflict the target enemy with Armor Shred for the rest of the encounter instead (once per turn). Whenever an enemy is Fractured, all enemies lose 100% Turn Meter, which can't be resisted.
+                <br><br>
+                Whenever an Acolyte ally takes damage on consecutive turns they gain a bonus turn. Whenever this bonus turn occurs that ally can't gain another bonus turn this way until taking damage from an enemy on consecutive turns again. Enemies deal 35% less damage when attacking an Acolyte from an assist.
+                <br><br>
+                In 3v3 Grand Arenas, if the team includes two Dark Side Unaligned Force users this will fulfill the conditions for the Acolyte tag
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : You Might Call Me...Sith</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="The Stranger unique" src="../image-perso/stranger/stranger-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                The Stranger has +35% Offense. The first time each enemy damages The Stranger (excluding summoned units), he gains 100% Turn Meter. Whenever The Stranger uses an ability he deals bonus True damage to target enemy equal to 10% of his Max Health if he has taken a turn before his enemies, which can't be evaded. This bonus damage value is reset on each enemy whenever they start their turn.
+                <br><br>
+                Whenever The Stranger uses a Special ability he calls himself to assist and gains <u class="speciale">Cortosis Armor</u>, which can't be copied, for 1 turn or until he is damaged by an enemy ability. While The Stranger has Cortosis Armor he is immune to Turn Meter reduction.
+                <br><br>
+                <u class="speciale">Cortosis Armor:</u> If this character is damaged by an enemy ability while they have this effect, the enemy who damaged them loses all of their Protection and 25% Speed for 1 turn
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> Whenever an enemy attacks The Stranger from an assist, The Stranger gains a bonus turn. At the start of the encounter, The Stranger can't have his Speed reduced below his base Speed for the rest of battle. The first time The Stranger is reduced to 25% Health he equalizes his Health and Protection with the strongest enemy.
+                <br><br>
+                Whenever The Stranger uses an ability he deals bonus True damage to target enemy equal to 10% of his Max Health for each turn he has taken before his enemies (stacking), which can't be evaded. This bonus damage value is reset on each enemy whenever they start their turn.
+            </p>
+        </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "L'Inconnu",
+                "title": "<u>L'Inconnu</u>",
+                "description": "L'Inconnu n'hésite pas à utiliser n'importe qu'elle technique, même interdite, pour vaincre ses ennemis.",
+
+                "": "",
+
+                "basic-attack-title": "<u>Attaque Basique: La paix est un mensonge</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie et dissipe tous les affaiblissements de L'Inconnu. Pendant son tour, obtient 50 de vitesse la première fois que cette capacité est utilisée et 1 de vitesse (+1 par niveau d'emplificateur de relique, 10 maximum) à chaque utilisation ultérieure (cumulatif, se déclenche 50 fois maximum) pour le reste de la bataille et En alerte pendant 1 tour (ne peut pas être copié).\n\nPendant son tour, si L'Inconnu dispose de plus de 250 de vitesse de plus que la cible ennemie, elle est instantanément vaincue (une fois par bataille, ne peut pas être esquivé).",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Un Acolyte tue le rêve (délai : 5)</u>",
+                "special-attack1": "Inflige des dégâts physiques à la cible ennemie, et L'Inconnu gagne Défense parfaite pendant 1 tour (ne peut pas être copié, dissipé ou empêché). Invoque tous les alliés Acolytes Utilisateurs de la Force non alignés du Côté Obscur. Obtient 50 % de santé maximale la première fois que cette capacité est utilisée et 5 % de santé maximale à chaque utilisation ultérieur (cumulatif) pour le reste de la bataille.\n\nInflige un malus de ténacité à tous les ennemis pendant 2 tours, et tous les ennemis ne disposant pas de toute leur santé subissent Exposition pendant 1 tour.\n\nS'il ne reste qu'un ennemi, les Acolytes Utilisateurs de la Force non alignés du Côté Obscur, élimine instantanément la cible ennemie lorsqu'ils sont invoqués (une fois par bataille, ne peut pas être esquivé).\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes et si tous les alliés sont des Acolytes :</u> si la santé de tous les ennemis est passé en dessous de 100 % au moins une fois lors de cet affrontement, L'Inconnu obtient Massivement maîtrisé pendant 1 tour (ne peut pas être copié, dissipé ou empêché). Si cette capacité élimine un ennemi, tous les alliés Acolytes sont ranimés, puis tous les alliés Acolytes récupèrent toute leur santé et leur protection.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : C'était son nom, ça ? (délai : 5)</u>",
+                "special-attack2": "Inflige des dégâts physiques à la cible ennemie, et L'Inconnu gagne Rétribution pendant 1 tour (ne peut pas être dissipé ou empêché). Inflige Étourdissement à la cible ennemie pendant 1 tour et si tous les alliés sont des Acolytes, l'ennemi le plus faible subit Étourdissement pendant 1 tour (ne peut pas être esquivé ou résisté). Gagne 50 % de pénétration de défense pour le reste de la bataille la première fois que cette capacité est utilisée et 5 % de pénétration de défense à chaque utilisation ultérieur (cumulatif) pour le reste de la bataille.\n\nCette attaque ignore la protection. Tous les autres alliés Acolytes reçoivent 10 % de jauge de tour.\n\nSi cette capacité est utilisée une troisième fois contre le même adversaire lors de cet affrontement, élimine instantanément la cible ennemie (une fois par bataille, ne peut pas être esquivé). Si cette capacité élimine instantanément un ennemi, tous les sennemis subissent Découragement pendant 2 tours (ne peut pas être copié, dissipé, esquivé ou résisté).",
+
+                "lead-ability-title": "<u>Capacité de Chef: Je veux un élève</u>",
+                "lead-ability": "Tous les alliés obtiennent 50 % de précision. Chaque fois qu'un ennemi attaque hors de son tour, réduit le délai de <u class='speciale'>C'était son nom, ça ?</u> de 1 (2 si l'ennemi était un Jedi).\n\nAu début de la bataille, si aucune Légende galactique allié n'est présente et que L'Inconnu a pour allié exactement un Jedi, un Utilisateur de la Force non aligné du Côté Lumineux et deux Utilisateurs de la Force non alignés du Côté Obscur, tous les alliés obtiennent l'identifiant Acolyte et les effets suivants sont actifs :\n\n- Chaque fois qu'un allié attaque hors de son tour, le délai de <u class='speciale'>Un Acolyte tue le rêve</u> est réduit de 1\n- Chaque fois qu'une amélioration est dissipé sur un allié, l'ennemi qui l'a dissipée ne peut pas récupérer de santé ou de protection pendant 1 tour.\n- Au début de chaque tour, les alliés obtiennent 100 % de chances de coup critique lorsqu'ils disposent de protection. Sinon, ils reçoivent 100 % de défense.\n- Chaque fois qu'un allié du Côté Obscur subit un affaiblissement, la jauge de tour des alliés du Côté Lumineux et de L'Inconnu se remplit de 10 % (une fois par tour)\n- Chaque fois qu'un allié du Côté Lumineux subit un coup critique, la jauge de tour des alliés du Côté Obscur se remplit de 10 % (une fois par tour)\n- Chaque fois qu'un allié est invoqué, tous les affaiblissements que subit cet allié sont dissipés.\n- Lorsqu'un allié contre-attaque, l'ennemi subit un malus de défense pendant 1 tour (une fois par tour).\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> Chaque fois qu'un Acolyte allié contre-attaque, la cible ennemie subit Destruction d'armure pour le reste de l'affrontement à la place (une fois par tour). Lorsqu'un ennemi subit Fracture, tous les ennemis perdent 100 % de jauge de tour (ne peut pas être résisté).\n\nChaque fois qu'un Acolyte allié subit des dégâts lors de touts consécutifs, il obtient un tour bonus. Chaque fois que ce tour bonus a lieu, l'allié en question ne peut pas obtenir de tour bonus de cette manière jusqu'à ce qu'il subisse de nouveau des dégâts d'un ennemi lors de tours consécutifs. Les ennemis infligent 35 % de dégâts en moins lorsqu'ils attaquent un Acolyte lors d'une invocation.\n\nDans les Grandees arènes en 3c3, si l'équipe comprend deux Utilisateurs de la Force non alignés du Côté Obscur, les conditions requises pour obtenir l'identifiant Acolyte sont remplies.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Vous pouvez m'appeler... Sith</u>",
+                "unique-ability1": "L'Inconnu dispose de +35 % d'attaque. La première fois que chaque ennemi inflige des dégâts à L'Inconnu (à l'exception des unités invoqués), il obtient 100 % de jauge de tour. Lorsque L'Inconnu utilise une capacité, in inflige des dégâts réels supplémentaires à hauteur de 10 % de sa santé maximale à la cible ennemie s'il a utilisé un tour avant ses ennemis (ne peut pas être esquivé). Cette valeur de dégâts bonus est réinitialisé pour chaque ennemi au début de leur tour.\n\nLorsque L'Inconnu utilise une capacité spéciale, il s'invoque et obtient <u class='speciale'>Armure de cortose</u> (ne peut pas être copié) pendant 1 tour ou jusqu'à ce qu'il subisse des dégâts de capacités ennemis. Tant que L'Inconnu dispose d'Armure de cortose, il est immunisé contre les réductions de jauge de tour.\n\n<u class='speciale'>Armure de cortose :</u> si ce personnage subit des dégâts de capacités ennemis, alors qu'il bénéficie de cet effet, l'ennem qui l'a attaqué perd toute sa protection et 25 % de vitesse pendant 1 tour.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> Chaque fois qu'un ennemi attaque L'Inconnu pendant une invocation, L'Inconnu obtient un tour bonus. Au début de l'affrontement, la vitesse de L'Inconnu ne peut descendre en dessous de sa vitesse de base à la fin de l'affrontemennt. La première fois que la santé de L'Inconnu est réduite à 25 %, il équilibre sa santé et sa protection avec l'ennemi le plus puissant.\n\nLorsque L'Inconnu utilise une capacité, il inflige des dégâts réels supplémentaires à la cible ennemie  hauteur de 10 % de sa santé maximale pour chaque tour qu'il a utilisé avant ses ennemis (cumulatif, ne peut pas être esquivé). Cette valeur de dégâts supplémentaires est réinitialisé pour chaque ennemi au début de leur tour.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "the stranger"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
+
+
