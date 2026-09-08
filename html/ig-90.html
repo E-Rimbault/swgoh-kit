@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">IG-90</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/ig-90/ig-90-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/ig-90/ig-90-image.png" alt="IG-90" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>IG-90</u></h1>
+            <p id="description">
+                IG-90 was an assassin droid who was hired by Darth Vader to find Doctor Aphra, Dead or Alive
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/chasseur-de-primes.html" id="bounty-hunter">Bounty Hunter</a>
+                <a class="capacite" href="../classement-perso/droïde.html" id="droïd">Droïd</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="smuggler">Smuggler</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/ig-90/ig-90.png" alt="IG-90"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: STATEMENT: Point Delivered</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="IG-90 basic" src="../image-perso/ig-90/ig-90-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage twice to target enemy and inflict them with Defense Down for 1 turn. If the ally in the Leader slot is Doctor Aphra, grant and trigger 2 stacks of Heal Over Time to all allies, and inflict and trigger 2 stacks of Damage Over Time on the target enemy for 1 turn. If there is an active Hacked Commando Droid, it Taunts for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Devastating Barrage (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="IG-90 special" src="../image-perso/ig-90/ig-90-special.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies and trigger all stacks of Damage Over Time on all enemies and Mark the target enemy for 2 turns, which can't be evaded or resisted. If the ally in the Leader slot is Doctor Aphra, call all other Dark Side Droid allies to assist and all allies recover 20% Health and Protection, and they gain Offense Up for 2 turns. IG-90 gains 40% Defense and Hacked Commando Droid Taunts for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Calculated Suppression</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="IG-90 lead" src="../image-perso/ig-90/ig-90-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                At the start of battle, all Dark Side Droids and Dark Side Bounty Hunter allies gain 30% Critical Chance and Critical Damage. All Scoundrel allies gain 20% Offense and 20% Tenacity until the end of battle. When IG-90 is in the Leader slot, and not the Ally slot, the following Contract is active:
+                <br><br>
+                <u class="speciale">Contract:</u> Inflict 20 debuffs on enemies. (Only Bounty Hunter allies can contribute to the Contract.)
+                <br><br>
+                <u class="speciale">Reward:</u> For the rest of the battle, all Bounty Hunter allies have their Payouts activated and gain the following: while a Bounty Hunter ally is attacking, they have +5% Offense and deal bonus True damage.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : QUERY: Dead or Alive?</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="IG-90 unique" src="../image-perso/ig-90/ig-90-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of battle, IG-90 has +100% counter chance and all Dark Side Droids have +50% Critical Avoidance. Whenever IG-90 is damaged, he inflicts Speed Down on a random enemy for 1 turn, and all Scoundrel allies recover 5% Health and Protection. At the start of each encounter, if Doctor Aphra has less than 50 stacks of Siphon, she gains 200% Defense. Whenever IG-90 recovers Health, inflict 3 stacks of Damage Over Time on the healthiest enemy for 1 turn (limit once per turn). Whenever the Hacked Commando Droid Taunts, he gains 100% bonus Protection until Taunt expires. If the ally in the Leader slot is Doctor Aphra;<br>
+                - At the start of battle, all allies gain 100% bonus Protection and Doctor Aphra Stealths for 2 turns<br>
+                - Whenever an ally critically hits an enemy, they gain Speed Up for 2 turns<br>
+                - Whenever IG-90 resists a debuff, Aphra gains 5 stacks of Siphon
+                <br><br>
+                Whenever a Marked enemy is damaged, all Scoundrel allies and Hacked Commando Droid gain 5% Offense (stacking, max 80%) and they recover 5% Health.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> Whenever IG-90 uses a Special ability and Doctor Aphra has 200 or more stacks of Siphon, IG-90 and Doctor Aphra recover 40% Health and Protection and gain 30% Offense (stacking) until the end of encounter.<br>
+                Whenever an enemy is defeated, the weakest ally gains Damage Immunity for 1 turn. Whenever IG-90 is defeated, refresh the cooldown of Doctor Aphra's abilities by 1.<br>
+                Whenever an ally critically hits an enemy, dispel all buffs on the target enemy. At the start of battle, Scoundrel allies gain Critical Chance Up and Critical Damage Up for 2 turns and Bounty Hunter allies gain Speed Up and Accuracy Up for 2 turns. Whenever Doctor Aphra has more than 50 stacks of Siphon, all allies ignore Taunt effects.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="prime"><u class="prime" id="prime-title">IG-90's Payout</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="IG-90 prime" src="../image-perso/ig-90/ig-90-contrat.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="prime">
+                Whenever IG-90 receives Rewards from a Contract or another Scoundrel ally in the Leader slots gains 50 Siphon he also gains the following Payout.
+                <br><br>
+                <u class="speciale">Payout:</u> At the start of his turn, IG-90 and Hacked Commando Droid gain 40% Defense and the Hacked Commando Droid Taunts for 2 turns then grants 50 Siphon to Doctor Aphra, until the end of encounter. Bounty Hunter allies have 50% Potency and 30% Offense.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "IG-90",
+                "title": "<u>IG-90</u>",
+                "description": "IG-90 était un droïde assassin engagé par Dark vador pour trouver le Docteur Aphra, morte ou vive.",
+
+                "darkside": "Coté Obscur",
+                "support": "Soutien",
+                "leader": "Chef",
+                "bounty-hunter": "Chasseur de primes",
+                "droïd": "Droïde",
+                "smuggler": "Vaurien",
+
+                "basic-attack-title": "<u>Attaque Basique: VALIDATION : Leçon donnée</u>",
+                "basic-attack": "Inflige des dégâts physiques deux fois et un malus de défense pendant 1 tour à la cible ennemie. Si l'allié dans l'emplacement de chef est le Docteur Aphra, confère et déclenche 2 cumuls de soins sur la durée à tous les alliés, puis infliche et déclenche 2 cumuls de dégâts sur la durée à la cible ennemie pendant 1 tour. Si un Droïde commando piraté est actif, il utilise Raillerie pendant 1 tour.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Barrage dévastateur (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis et déclenche tous les cumuls de dégâts sur la durée dont disposent tous les ennemis, puis inflige Marque à la cible ennemie pendant 2 tours (ne peut pas être esquivé ou résisté). Si l'allié dans l'emplacement de chef est le Docteur Aphra, tous les droïdes alliés du Côté Obscur sont invoqués et tous les alliés récupèrent 20 % de santé et de protection ainsi qu'un bonus d'attaque pendant 2 tours. IG-90 obtient 40 % de défense et le Droïde commando piraté utilise Raillerie pendant 2 tours.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Suppression calculé</u>",
+                "lead-ability": "Au début de la bataille, tous les alliés Droïdes et Chasseurs de primes du Côté Obscur gagnent 30 % de chances de coup critique et de dégâts critiques. Tous les alliés Vauriens gagnent 20 % d'attaque et 20 % de ténacité jusqu'à la fin de la bataille Lorsqu'IG-90 est dans l'emplacement de chef, et non dans un emplacement d'allié, le contrat suivant est actif.\n\n<u class='speciale'>Contrat :</u> infliger 20 affaiblissements aux ennemis (seuls les alliés Chasseurs de primes peuvent participer au contrat).\n\n<u class='speciale'>Récompense :</u> pour le reste de la bataille, la prime de tous les alliés Chasseurs de primes est activée et ils bénéficient de ceci : lorsqu'un allié Chasseur de primes attaque, il reçoit +5 % d'attaque et inflige des dégâts réels supplémentaires.",
+
+                "unique-ability1-title": "<u>Capacité Unique : REQUÊTE : mort ou vif ?</u>",
+                "unique-ability1": "Au début de la bataille, IG-90 dispose de +100 % de chances de contre-attaque et tous les droïdes du Côté Obscur reçoivent +50 % d'esquive des critiques. Chaque fois qu'IG-90 subit des dégâts, il inflige un malus de vitesse aléatoire pendant 1 tour, et tous les Vauriens alliés récupèrent 5 % de santé et de protection. Au début de chaque affrontement, si le Docteur Aphra dispose de moins de 50 cumuls de Siphonnage, elle obtient 200 % de défense. Chaque fois qu'IG-90 récupère de la santé, inflige 3 cumuls de dégâts sur la durée pendant 1 tour à l'ennemi disposant du plus de santé (limité à une fois par tour). Chaque fois que le Droïde commando piraté utilise Raillerie, il obtient 100 % de protection supplémentaire jusqu'à ce que Raillerie expire. Si l'allié dans l'emplacement de chef est le Docteur Aphra :\n- Au début de la bataille, tous les alliés reçoivent 100 % de protection supplémentaire et le Docteur Aphra utilise Camouflage pendant 2 tours.\n- Chaque fois qu'un allié inflige un coup critique à un ennemi, il gagne un bonus de vitesse pendant 2 tours.\n- Chaque fois qu'IG-90 résiste à un affaiblissement, Aphra obtient 5 cumuls de Siphonnage.\n\nChaque fois qu'un ennemi souffrant de Marque subit des dégâts, tous les alliés Vauriens et le Droïde commando piraté gagnent 5 % d'attaque (cumulatif, maximum 80 %) et récupèrent 5 % de santé.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> chaque fois qu'IG-90 utilise une capacité spéciale et que le Docteur Aphra dispose de 200 cumuls ou plus de Siphonnage, IG-90 et le Docteur Aphra récupèrent 40 % de santé et de protection, et obtiennent 30 % d'attaque (cumulatif) jkusqu'à la fin de l'affrontement.\n\nlorsqu'un ennemi est vaincu, l'allié le plus faible obtient Immunité aux dégâts pendant 1 tour. Chaque fois qu'IG-90 est vaincu, le délais des capacités du Docteur Aphra est réduit de 1.\nChaque fois qu'un allié inflige un coup critique à un ennemi, dissipe toutes les améliorations dont la cible ennemie dispose. Au début de la bataille, tous les Vauriens alliés obtiennent un bonus de chances de coup critique et un bonus de dégâts critiques pendant 2 tours et les Chasseurs de primes alliés obtiennent un bonus de vitesse ainsi qu'un bonus de précision pendant 2 tours. Lorsque le Docteur Aphra possède plus de 50 cumuls de Siphonnage, tous les alliés ignorent les effets de Raillerie.",
+
+                "prime-title": "Prime de IG-90",
+                "prime": "Chaque fois qu'IG-90 reçoit une récompense d'un contrat ou qu'un autre allié Vaurien dans l'emplacement de chef obtient 50 cumuls de Siphonnage, il obtient également la prime suivante.\n\n<u class='speciale'>Prime :</u> Au début de leur tour, IG-90 et le Droïde commando piraté obtiennent 40 % de défense, le Droïde commando piraté utilise Raillerie pendant 2 tours, puis le Docteur Aphra reçoit 50 cumuls de Siphonnage jusqu'à la fin de l'affrontement. Les chasseurs de primes alliés gagnent 50 % de pouvoir et 30 % d'attaque.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "IG90"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
