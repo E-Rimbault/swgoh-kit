@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Disguised Clone Trooper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/disguised-clone/disguised-clone-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/disguised-clone/disguised-clone-image.png" alt="Disguised Clone Trooper" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Disguised Clone Trooper</u></h1>
+            <p id="description">
+                A Dark Side Clone Trooper who uses Stealth to ambush unsuspecting Jedi
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/soldat-clone.html" id="clone">Clone Trooper</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/disguised-clone/disguised-clone.png" alt="Disguised Clone Trooper"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Covert Assault</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Disguised Clone Trooper basic" src="../image-perso/disguised-clone/disguised-clone-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy. If Disguised Clone Trooper had Ruse, Stun them for 1 turn, which can't be evaded or resisted.
+                <br><br>
+                If target enemy was already Stunned or Ability Blocked and all allies are Lord Vader, Grand Moff Tarkin, and/or Dark Side Clone Troopers, dispel all buffs on them and inflict Order 66 for 2 turns, which can't be copied, dispelled, evaded, or resisted.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Well-Executed Ambush (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Disguised Clone Trooper special" src="../image-perso/disguised-clone/disguised-clone-special.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to all enemies and deal 10% more damage for each stack of Damage Over Time on them, 20% if Disguised Clone Trooper had Ruse (stacking, max 200%). All Dark Side Clone Trooper allies gain Advantage for 2 turns.
+                <br><br>
+                If the target enemy was:
+                <br><br>
+                <u class="speciale">- Light Side:</u> Inflict them with Healing Immunity for 2 turns. If Disguised Clone Trooper had Ruse, Healing Immunity can't be dispelled or resisted and inflict them with a stack of Damage Over Time for 2 turns.
+                <br><br>
+                <u class="speciale">- Galactic Republic:</u> Reduce their Speed by 15 for 2 turns. If Disguised Clone Trooper had Ruse, reduce their Speed by another 15 and inflict them with a stack of Damage Over Time for 2 turns.
+                <br><br>
+                <u class="speciale">- Jedi:</u> Inflict them with Offense Down for 2 turns. If Disguised Clone Trooper had Ruse, Offense Down can't be dispelled or resisted, and inflict them with a stack of Damage Over Time for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Clever Ruse</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Disguised Clone Trooper unique 1" src="../image-perso/disguised-clone/disguised-clone-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of each of Disguised Clone Trooper's turns, if he was Stealthed, he recovers 15% Health and Protection, and gains <u class="speciale">Ruse</u> until the end of that turn. When Disguised Clone Trooper attacks, he loses Stealth.
+                <br><br>
+                At the start of each enemy's turn, if Disguised Clone Trooper had Stealth, all other Dark Side Clone Trooper allies gain Retribution, until the end of that enemy's turn. If that enemy was a Jedi, Disguised Clone Trooper gains Tenacity Up until the end of that enemy's turn, which can't be copied, dispelled, or prevented.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> Ruse no longer expires until the end of battle. If an enemy inflicted with Order 66 is defeated, ally Lord Vader and Dark Side Clone Troopers take a bonus turn.
+                <br><br>
+                <u class="speciale">Ruse:</u> This effect triggers additional effects in abilities. <u class="speciale">Ruse</u> is removed at the end of the turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Decoy Squad Five</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Disguised Clone Trooper unique 2" src="../image-perso/disguised-clone/disguised-clone-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                At the start of encounter, Disguised Clone Trooper gains 30% Offense and if there was a Galactic Republic enemy, he Stealths for 2 turns. At the end of each of his turns, if Disguised Clone Trooper didn't have Ruse, he Stealths for 3 turns. If the target enemy had Order 66, Disguised Clone Trooper deals Massive damage when attacking. If the target enemy was Jedi or Light Side Unaligned Force User, he deals an additional instance of Massive damage per Relic Amplifier level.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Soldat clone déguisé",
+                "title": "<u>Soldat clone déguisé</u>",
+                "description": "Un soldat clone du Côté Obscur qui utilise le camouflage pour prendre en embuscade des Jedi peu méfiants.",
+
+                "darkside": "Coté Obscur",
+                "support": "Soutien",
+                "clone": "Soldat Clone",
+                "empire": "Empire",
+
+                "basic-attack-title": "<u>Attaque Basique: Assaut sous couverture</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie. Si le Soldat clone déguisé disposait de stratagème, il lui inflige Étourdissement pendant 1 tour (ne peut pas être esquivé ou résisté).\n\nSi la cible ennemie subissait déjà Étourdissement ou Entrave des capacités et que tous les alliés sont Seigneur Vador, le Grand Moff Tarkin et/ou des soldats clones du Côté Obscur, toutes les améliorations dont elle dispose sont dissipées et elle subit Ordre 66 pendant 2 tours (ne peut pas être copié, dissipé, esquivé ou résisté).",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Embuscade bien éxécutée (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à tous les ennemis et inflige 10 % de dégâts supplémentaires pour chaque cumul de dégâts sur la durée que subissent les ennemis, augmenté à 20 % si le Soldat clone déguisé dispose de Stratagème (cumulatif, 200 % maximum). Tous les soldats clones alliés du Côté Obscur obtiennent Avantage pendant 2 tours.\n\nSi la cible ennemie était :\n\n<u class='speciale'>- Du Côté Lumineux :</u> lui inflige Immunité aux soins pendant 2 tours. Si le Soldat clone déguisé disposait de Stratagème, l'Immunité aux soins ne peut pas être dissipée ou résistée et inflige un cumul de dégâts sur la durée pendant 2 tours.\n\n<u class='speciale'>- De la République Galactique :</u> réduit sa vitesse de 15 pendant 2 tours. Si le Soldat clone déguisé disposait de Stratagème, réduit sa vitesse de 15 points supplémentaires, et la cible ennemie subit un cumul de dégâts sur la durée pendant 2 tours.\n\n<u class='speciale'>- Jedi :</u> inflige un malus d'atatque pendant 2 tours. Si le Soldat clone déguisé disposait de Stratagème, le malus d'attaque ne peut pas être dissipé ou résisté, et la cible subit un cumul de dégâtss sur la durée pendant  tours.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Stratagème intelligent</u>",
+                "unique-ability1": "Au début de chacun des tours du Soldat clone déguisé, il récupère 15 % de santé et de protection et obtient <u class='speciale'>Stratagème</u> jusqu'à la fin du tour s'il utilisait Camouflage. Lorsque le Soldat clone déguisé attaque, il perd Camouflage.\n\nAu début du tour de chaque ennemi, si le Soldat clone déguisé utilisait Camouflage, tous les autres Soldats clones du Côté Obscur obtiennent Rétribution jusqu'à la fin du tour de l'ennemi en question. Si cet ennemi était un Jedi, le Soldat clone déguisé reçoit un bonus de ténacité jusqu'à la fin du tour de cet ennemi (ne peut pas être copié, dissipé ou empêché).\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> <u class='speciale'>Stratagème</u> n'expire pas avant la fin de la bataille. Si un ennemi subissant Ordre 66 est vaincu, alors le Seigneur Vador et les soldats clone du Côté Obscur jouent un tour bonus.\n\n\<u class='speciale'>Stratagème :</u> cet effet déclenche des effets supplémentaires à l'utilisation des capacités. <u class='speciale'>Stratagème</u> est supprimé à la fin du tour.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Escouade 5 d'infiltration</u>",
+                "unique-ability2": "Au début de chaque affrontement, le Soldat clone déguisé obtient 30 % d'attaque et si un ennemi de la République Galactique était présent, il utilise Camouflage pendant 2 tours. A la fin de chacun de ses tours, si le Soldat clone déguisé ne disposait pas de Stratagème, il utilise Camouflage pendant 3 tours. Si la cible ennemie subissait Ordre 66, le Soldat Clone déguisé inflige de lourds dégâts quand il attaque. Si la cible ennemie était un Jedi ou un Utilisateur de la Force non aligné du Côté Lumineux, il inflige une instance supplémentaire de lourds dégâts pour chaque niveau d'amplificateur de relique dont il dispose.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "disguised clone trooper"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
