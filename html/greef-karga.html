@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Greef Karga</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/karga/karga-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/karga/karga-image.png" alt="Greef Karga" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Greef Karga</u></h1>
+            <p id="description">
+                Bounty Hunter Support that provides recovery and assist calls
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/chasseur-de-primes.html" id="bounty-hunter">Bounty Hunter</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/karga/karga.png" alt="Greef Karga"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Dual Shot</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Greef Karga basic" src="../image-perso/karga/karga-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy twice and inflict Daze for 2 turns. All allies with Payouts active recover 5% Health and Protection.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Bring Them in Cold (cooldown: 6)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Greef Karga special 1" src="../image-perso/karga/karga-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Dispel all buffs on target enemy, which can't be evaded. Then call all other Bounty Hunter allies to assist. Allies with Payouts active deal 30% more damage. If the enemy is defeated by this ability, Bounty Hunter allies gain Offense Up, Defense Penetration Up, Critical Damage Up, Critical Chance Up, and Health Steal Up for 3 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Sweeten the Deal (cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Greef Karga special 2" src="../image-perso/karga/karga-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Dispel all debuffs on Bounty Hunter allies. All Bounty Hunter allies gain Retribution for 2 turns and recover 25% Health and Protection, doubled if they have a Payout active. Allies with Payouts active gain Tenacity Up for 2 turns and 50% Turn Meter.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Loyalty Pays</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Greef Karga leader" src="../image-perso/karga/karga-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Allied Bounty Hunters gain 30% Max Protection. Whenever an allied Bounty Hunter gains a buff, they recover 5% Protection. When Greef is in the Leader slot, and not the Ally slot, the following Contract is active:
+                <br><br>
+                <u class="speciale">Contract:</u> Attack out of turn 20 times. (Only Bounty Hunter allies can contribute to the Contract.)
+                <br><br>
+                <u class="speciale">Reward:</u> All Bounty Hunter allies have their Payouts activated and gain 20% Critical Chance and Offense.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Boss of the Guild</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Greef Karga unique" src="../image-perso/karga/karga-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of encounter, Greef gains Stealth for 2 turns. Each time any Bounty Hunter earns their Payout, allied Bounty Hunters' cooldowns are reduced by 1 and Greef also gains the following bonuses: 10% Counter Chance, Critical Avoidance, and Max Health (stacking).
+            </p>
+        </div>
+    </div>
+
+    <h2 class="prime"><u class="prime" id="prime-title">Greef Karga's Payout</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Greef Karga prime" src="../image-perso/karga/karga-contrat.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="prime">
+                Whenever Greef receives Rewards from a Contract, he also gains the following Payout. (Contracts are granted by certain Bounty Hunter Leader Abilities.)
+                <br><br>
+                <u class="speciale">Payout:</u> Greef dispels all debuffs on Bounty Hunter allies and he recovers 100% Health and Protection. Greef gains Stealth for 1 turn at the end of each of his turns. Whenever Greef becomes inflicted with a debuff, his cooldowns are reduced by 1.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Greef Karga",
+                "title": "<u>Greef Karga</u>",
+                "description": "Chasseur de primes en soutien qui confère des récupérations et invoque des alliés.",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "leader": "Chef",
+                "bounty-hunter": "Chasseur de primes",
+                "scoundrel": "Vaurien",
+
+                "basic-attack-title": "<u>Attaque Basique: Tir double</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie deux fois, ainsi que la confusion pendant 2 tours. Tous les alliés disposant d'une prime active récupèrent 5 % de santé et de protection.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Refroidis (délai : 6)</u>",
+                "special-attack1": "Dissipe toutes les améliorations sur la cible ennemie (ne peut pas être esquivé). Ensuite, invoque tous les autres Chasseurs de primes alliés. Les alliés disposant d'une prime active infligent 30 % de dégâts supplémentaires. Si l'ennemi est vaincu par cette capacité, les Chasseurs de primes alliés obtiennent un bonus d'attaque, de pénétration de défense, de dégâts critiques, de chances de coup critique et de vol de santé pendant 3 tours.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Offre améliorée (délai : 5)</u>",
+                "special-attack2": "Dissipe tous les affaiblissements des Chasseurs de primes alliés. Tous les CHasseurs de primes alliés obtiennent la Rétribution pendant 2 tours et récupèrent 25 % de santé et de protection (doublé s'ils disposent d'un prime active). La jauge de tour des alliés qui disposent d'un prime active se remplit de 50 % et ils obtiennent un bonus de ténacité pendant 2 tours.",
+
+                "lead-ability-title": "<u>Capacité de Chef: La loyauté, ça paie</u>",
+                "lead-ability": "Les Chasseurs de primes alliés obtiennent 30 % de protection maximale. Lorsqu'un Chasseur de prime allié obtient une amélioration, il récupère 5 % de protection. Lorsque Greef est dans l'emplacement de chef (et non dans l'emplacement d'allié), le contrat suivant est actif :\n\n<u class='speciale'>Contrat :</u> attaquer 20 dois en dehors de son tour (seuls les Chasseurs de primes alliés peuvent participer au contrat).\n\n<u class='speciale'>Récompense :</u> la prime de tous les Chasseurs de primes est activée, et ils obtiennent 20 % de chances de coup critique et d'attaque",
+
+                "unique-ability1-title": "<u>Capacité Unique : Chef de la guilde</u>",
+                "unique-ability1": "Au début de l'affrontement, Greef obtient le camouflage pendant 2 tours. Chaque fois qu'un Chasseur de primes gagne sa prime, le délai des Chasseurs de primes alliés est réduit de 1 et Greef obtient également les bonus suivants : 10 % de chances de contre-attaque, d'esquive des critiques et de santé maximale (cumulatif).",
+
+                "prime-title": "Prime de Greef Karga",
+                "prime": "Lorsque Greef reçoit les récompenses d'un contrat, il obtient également la prime suivante (les contrats sont conférés par certaines capacités de chef des Chasseurs de primes).\n\n<u class='speciale'>Prime :</u> Greef dissipe tous les affaiblissements affectant les Chasseurs de primes alliés et ils récupèrent 100 % de santé et de protection. IL obtient le camouflage pendant 1 tour à la fin de chacun de ses tours. A chaque fois que Greef subit un affaiblissement, ses délais sont réduits de 1.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "greef karga"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
