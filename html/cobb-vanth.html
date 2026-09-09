@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Cobb Vanth</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/cobb-vanth/cobb-vanth-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/cobb-vanth/cobb-vanth-image.png" alt="Cobb Vanth" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Cobb Vanth</u></h1>
+            <p id="description">
+                The Marshal of Mos Pelgo brings justice to those who harm all he has sworn to protect
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/constable.html" id="constable">Constable</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/cobb-vanth/cobb-vanth.png" alt="Cobb Vanth"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Think It Through</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Cobb Vanth basic" src="../image-perso/cobb-vanth/cobb-vanth-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and gain Tenacity Up for 1 turn.
+                <br><br>
+                If the target enemy was Dark Side, they are inflicted with Offense Down and Constable allies gain Offense Up for 1 turn.
+                <br><br>
+                If the target enemy was Light Side, they are inflicted with Defense Down and Constable allies gain Defense Penetration Up for 1 turn.
+                <br><br>
+                If the target enemy was Outlaw, dispel all buffs on them and inflict Buff Immunity for 1 turn, which can't be resisted, and dispel all debuffs on all Constable allies.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Justified (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Cobb Vanth special 1" src="../image-perso/cobb-vanth/cobb-vanth-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies and grant a bonus turn to another random Constable ally. Allies that have been damaged since their last turn gain Retribution for 2 turns, otherwise they gain Alert for 2 turns. Enemies that damaged Constable allies since Cobb's last turn are Ability Blocked for 1 turn, otherwise they are Vulnerable for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : High Noons (cooldown: 12)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Cobb Vanth special 2" src="../image-perso/cobb-vanth/cobb-vanth-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to target enemy increased by 50% per other active Constable ally. If this attack is the first time this ability has been used against the enemy they lose 50 Speed and are Distracted until the end of encounter, which can't be dispelled or resisted, and can't deal damage to another Constable ally until damaging Cobb.
+                <br><br>
+                If all allies are Constable, Jawa, or Tusken, they gain buffs until the end of encounter that can't be dispelled or prevented for each unique enemy attacked by this ability:
+                <br><br>
+                <u class="speciale">- 1+:</u> Defense Up<br>
+                <u class="speciale">- 2+:</u> Speed Up<br>
+                <u class="speciale">- 3+: Execution</u>
+                <br><br>
+                This ability can't be evaded.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Battles:</u> Dispel all debuffs on all allies and they gain 10% Max Health (stacking) for the rest of the battle. Constable allies recover 25% Health and Protection and gain 25% Turn Meter. If the target enemy is Outlaw, call all Constable allies to assist. Constable allies take reduced damage from Percent Health damage effects until the end of encounter. Reduce this ability's cooldown by 6. If this ability defeats an enemy, revive all allies.
+                <br><br>
+                <u class="speciale">Execution:</u> Whenever this character uses a Special ability, instantly defeat the target enemy then remove this buff from all allies
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: They Look to Me to Protect Them</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Cobb Vanth leader" src="../image-perso/cobb-vanth/cobb-vanth-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                At the start of battle, Constable allies gain 25% Defense, Max Health, and Offense, and 25 Speed (tripled if they are Supports). At the start of the encounter, enemy Hutt Cartel, Pirates, Scoundrels, and Smugglers gain the Outlaw tag. Whenever Outlaw enemies gain bonus Turn Meter they can't gain it again for 1 turn.
+                <br><br>
+                Constable Support allies at the start of battle:<br>
+                - Reset the cooldowns of their Special abilities whenever they use a Basic ability on their turn<br>
+                - Whenever they use a Special ability, all allies gain 10% Turn Meter and Constable allies gain 5% Max Health (stacking) until the end of encounter<br>
+                - Whenever they debuff an enemy, at the end of the turn, they also Expose the enemy, which can’t be resisted, until the end of encounter<br>
+                - Whenever they deal damage, deal an additional instance of True damage<br>
+                - Chance effects are increased to 100% at their max rank<br>
+                - Can't be defeated while Cobb is active and gain Stealth for 2 turns whenever they reach 1% Health
+                <br><br>
+                Cobb, Jawas, and Tuskens start the encounter with bonus Protection (75%, stacking) for the rest of the encounter per Constable ally. Whenever an ally Jawa or Tusken applies at least 5 buffs to allies (1 if it is Taunt) or inflicts at least 5 debuffs on enemies (1 debuff if that enemy is Outlaw) that ally gains the Granted ability, <u class="speciale">Deputize</u>.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> If there are at least 3 Constable allies, Jawas start the battle with Deputize. Whenever a Thermal Detonator deals damage to an enemy, Constable allies also recover 10% Protection. Whenever any enemy gains bonus Turn Meter they can't gain it again for 1 turn. Whenever Cobb uses a Special ability, Jawa Tanks Taunt and gain 100% Defense for 2 turns. Stealthed enemies have -100% Accuracy. If there is a Jawa ally at the start of battle, allies are immune to Thermal Detonators.
+                <br><br>
+                (See the ability Deputize for a description of <u class="speciale">Deputize</u>.)
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : The Marshal</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Cobb Vanth unique 1" src="../image-perso/cobb-vanth/cobb-vanth-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Cobb has +10 Speed per active Constable ally. At the start of battle, if there is a Jawa ally, Cobb gains Bounty Hunter's Resolve until the end of encounter. If there is a Tusken ally, Cobb is immune to Damage Over Time.
+                <br><br>
+                Whenever a Constable ally is damaged by an enemy, that enemy is inflicted with Burning for 1 turn, which can't be resisted, and can't recover Health or Protection while Burning. Jawas and Tuskens gain 25% Turn Meter whenever another Constable ally uses a Special ability.
+                <br><br>
+                Dark Side enemies have -100% Critical Damage. Dark Side enemies lose 50 Speed for 1 turn whenever they are critically hit by a Constable ally. Light Side enemies have -100% Tenacity. Light Side enemies dispel their buffs whenever they critically hit a Constable ally.
+                <br><br>
+                Constable allies can ignore Taunt effects to target Outlaw enemies and can't have their Turn Meter reduced by Light Side enemies or cooldowns increased by Dark Side enemies on their respective enemy turns.
+                <br><br>
+                All Constable allies recover Health and Protection equal to the damage enemies have taken during Cobb's turn. Whenever an enemy starts their turn, reduce the cooldown of High Noons by 1 (2 if the enemy is Outlaw). Distracted Outlaw enemies can't assist.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars and if there are no Galactic Legend allies:</u> If there are at least 3 Constable allies and Cobb is the ally in the Leader slot, Tuskens start the battle with Deputize. Tuskens no longer consume Momentum from Deputize whenever they use an ability with more than 10 stacks. If there is a Tusken ally, Stunned enemies can't gain bonus Turn Meter. All Distracted enemies can't assist. At the start of their turn, Constable allies can ignore Taunt effects if they have at least 10 stacks of Momentum.
+                <br><br>
+                Whenever Tusken allies use Deputize, revive Cobb and Tusken allies with 100% Health. Tusken allies are immune to Damage Over Time. Whenever Tusken allies use a Special ability, Cobb gains Protection Up (100%) for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Deputize</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Cobb Vanth unique 2" src="../image-perso/cobb-vanth/cobb-vanth-mandater.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                <u class="speciale">Deputize (Jawa):</u> Recover 100% Health and Protection. Gain 25% Defense, Max Health, and Offense, 25 Speed, and the Constable tag for the rest of battle. Inflict a Thermal Detonator on all enemies for 2 turns.
+                <br><br>
+                At the start of a Constable ally's turn, if there is an active Jawa ally, inflict a Thermal Detonator on all enemies for 2 turns. Whenever a Thermal Detonator deals damage to an enemy, Constable allies recover 10% Health and gain 100% Offense for 1 turn. Enemies with a Thermal Detonator deal 25% less damage.
+                <br><br>
+                Limit one use per battle.
+                <br><br>
+                <u class="speciale">Deputize (Tusken):</u> Recover 100% Health and Protection. Gain 25% Defense, Max Health, and Offense and 25 Speed, and the Constable tag for the rest of battle. The strongest enemy without Ambushed is Ambushed for the rest of the encounter, which can't be dispelled, evaded, or resisted.
+                <br><br>
+                All Constable allies gain 10 Momentum for 3 turns. Whenever a Constable ally is targeted by an enemy and they have at least 10 stacks of Momentum, consume all stacks of Momentum and Stun all attacking enemies for 1 turn, which can't be resisted.
+                <br><br>
+                Whenever Constable allies use an ability while they have at least 10 stacks of Momentum, deal bonus True damage equal to 25% of the target enemy's Max Health, then consume all stacks of Momentum. Constable allies gain 5 Momentum for 3 turns at the end of their turn if there is an active Tusken ally.
+                <br><br>
+                Limit one use per battle.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Cobb Vanth",
+                "title": "<u>Cobb Vanth</u>",
+                "description": "Le maréchal de Mol Pelgo rend justice à ce qu'il a juré de protéger.",
+
+                "": "",
+
+                "basic-attack-title": "<u>Attaque Basique: Réfléchir à deux fois</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie et obtient un bonus de ténacité pendant 1 tour.\n\nSi la cible ennemie était du Côté Obscur, elle subit un malus d'attaque et les alliés Constables obtiennent un bonus d'attaque pendant 1 tour.\n\nSi la cible était du Côté Lumineux, elle subit un malus de défense et les alliés Constables obtiennent un bonus de pénétration de défense pendant 1 tour.\n\nSi la cible ennemie était Hors-la-loi, dissipe toutes les améliorations dont elle dispose et inflige Immunité aux améliorations pendant 1 tour (ne peut pas être résisté), et dissipe tous les affaiblissements en cours sur tous les alliés Constables.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Justifié (délai : 4)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis et Octroie un tour bonus à un autre allié Constable aléatoire. Les alliés qui ont subit des dégâts depuis leur dernier tour obtiennent Rétribution pendant 2 tours, sinon ils obtiennent En alerte pendant 2 tours. Les ennemis qui ont infligés des dégâts aux alliés Contables depuis le dernier tour de Cobb subissent Entrave des capacités pendant 1 tour, sinon ils subissent Vulnérable pendant 1 tour.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Douze coup de midi (délai : 12)</u>",
+                "special-attack2": "Inflige des dégâts physiques à la cible ennemie augmentés de 50 % par allié Constable actif; Si cette attque est la première fois que cette capacité a été utilisée contre l'ennemi, il perd 50 de vitesse et subit Distraction jusqu'à la fin de l'affrontement (ne peut pas être dissipé ou résisté), et ne peut pas infliger des dégâts à un autre allié Constable avant d'infliger des dégâts à Cobb.\n\nSi tous les alliés sont Constables, Jawas ou Tuskens, ils obtiennent des améliorations jusqu'à la fin de l'affrontement (ne peut pas être dissipées ou empêchées) pour chaque ennemi unique attaqué par cette capacité :\n\n<u class='speciale'>- 1 ou + :</u> bonus de défense\n<u class='speciale'>- 2 ou + :</u> bonus de vitesse\n<u class='speciale'>- 3 ou + : Execution</u>\n\nCette capacité ne peut pas être esquivée.\n\n<u class='omicron'>Amélioration Omicron : Dans les Batailles de territoire :</u> dissipe tous les affaiblissements de tous les alliés et ils gagnent 10 % de santé maximale (cumulatif) pour le reste de la bataille. Les alliés Constables récupèrent 25 % de santé et de protection et obtiennent 25 % de jauge de tour. Si la cible ennemie est un Hors-la-loi, invoque tous les alliés Constables. Les alliés Constables subissent des dégâts réduits des effets de pourcentage de santé jusqu'à la fin de l'affrontement. Réduit le délai de cette capacité de 6. Si cette capacité élimine un ennemi, ranime tous les alliés.\n\n<u class='speciale'>Exécution :</u> Lorsque ce personnage utilise une capacité spéciale, élimine instantanément la cible ennemie puis supprime cette amélioration de tous les alliés.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Leur protection repose sur moi</u>",
+                "lead-ability": "Au début de la bataille, les alliés Constables gagnent 25 % de défense, de santé maximale et d'attaque et 25 de vitesse (triplé s'ils sont des soutiens). Au début de l'affrontement, les ennemis du Cartel des Hutt, les Pirates, les Vauriens et les Contrebandiers obtiennent l'identifiant \"Hors-la-loi\". Chaque fois que les ennemis Hors-la-loi gagnent de la jauge de tour bonus, ils ne peuvent plus en gagner pendant 1 tour.\n\nLes alliés de type soutien au début de la bataille :\n- Réinitialise les délais de leurs capacités spéciales chaque fois qu'il utilisent une capacité de base pendant leur tour.\n- Chaque fois qu'ils utilisent une capacité spéciale, tous les alliés gagnent 10 % de jauge de tour et les alliés Constable gagnent 5 % de santé maximale (cumulatif) jusqu'à la fin de l'affrontement.\n- Chaque fois qu'ils infligent un affaiblissement à un ennemi, infligent un cumul d'Exposition (ne peut pas être résisté) jusqu'à la fin de l'affrontement à la fin du tour.\n- Chaque fois qu'ils infligent des dégâts, infligent une instance supplémentaires de dégâts réels.\n- Les effets de chances sont augmentés à 100 % a leur rang maximum.\n- Ne peuvent pas être vaincu tant que Cobb est actif et utilisent Camouflage pendant 2 tours chaque fois qu'ils atteignent 1 % de santé.\n\nCobb, les Jawas et les Tuskens commencent l'affrontement avec un bonus de protection (75 %, cumulatif) jusqu'à la fin de l'affrontement par allié Constable. Chaque fois qu'un allié Jawa ou Tusken applique au moins 5 amméliorations à des alliés (1 si c'est Raillerie) ou infligent au moins 5 affaiblissements à des ennemis (1 affaiblissement si cet ennemi est Hors-la-loi), cet allié obtient la capacité conférée, <u class='speciale'>Mandater</u>.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> S'il y a au moins 3 alliés Constables, les Jawas commencent la bataille avec Mandater. Chaque fois qu'un détonateur thermique inflige des dégâts à un ennemi, les alliés Constables récupèrent également 10 % de protection. Chaque fois qu'un ennemi gagne de la jauge de tour bonus, il ne peut plus en gagner pendant 1 tour. Chaque fois que Cobb utilise une capacité spéciale, les Tanks Jawas utilisent Raillerie et gagnent 100 % de défense pendant 2 tours. Les ennemis cammouflés ont -100 % de précision. S'il y a un allié Jawa présent au début de la bataille, les alliés sont immunisés contre détonateur thermiques.\n\n(Consultez la capacité Mandater pour une description de <u class='speciale'>Mandater</u>).",
+
+                "unique-ability1-title": "<u>Capacité Unique : Le maréchal</u>",
+                "unique-ability1": "Cobb a +10 de vitesse par allié Constable actif. Au début de la bataille, s'il y a un allié Jawa, Cobb obtient Détermination du Chasseur de primes jusqu'à la fin de l'affontement. S'il y a un allié Tusken, Cobb est immunisé contre les dégâtss sur la durée.\n\nChaque fois qu'un allié Constable subit des dégâts d'un ennemi, cet ennemi subit Brûlure pendant 1 tour (ne peut pas être résisté) et ne peut pas récupérer de santé ou de protection tant qu'il subit Brûlure. Les Jawas et les Tuskens gagnent 25 % de jauge de tour chaque fois qu'un autre allié Constable utilise une capacité spéciale.\n\nLes ennemis du Côté Obscur ont -100 % de dégâts critiques. Les ennemis du Côté Obscur perdent 50 de vitesse pendant 1 tour chaque fois qu'ils subissent un coup critique d'un allié Constable. Les ennemis du Côté Lumineux ont -100 % de ténacité. Les ennemis du Côté Lumineux dissipent leurs améliorations chaque fois qu'ils infligent un coup critique à un allié Constable.\n\nLes alliés Constable peuvent ignorer les effets de Raillerie pour cibler les ennemis Hors-la-loi et leur jauge de tour ne peut pas être réduite par les ennemis du Côté Lumineux ni leurs délais augmentés par les ennemis du Côté Obscur pendant les tours de leurs ennemis respectifs.\n\nTous les alliés Constables écupèrent de la santé et de la protection égales aux dégâts que les ennemis ont subis pendant le tour de Cobb. Chaque fois qu'un ennemi commence son tour, réduit le délai de Douze coup de midi de 1 (2 s'il s'agit d'un ennemi Hors-la-loi). Les ennemis Hors-la-loi subissant Distraction ne peuvent pas être invoqués.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire et sans allié Légende galactique :</u> S'il y a au moins 3 alliés Constables et que Cobb est l'allié dans l'emplacement de chef, les Tuskens commencent la bataille avec Mandater. Les Tuskens ne pedent pas Élan à cause de Mandater s'il utilisent une capacité spéciale avec plus de 10 cumuls ou plus. S'il y a un allié Tusken, les ennemis Étourdis ne peuvent pas obtenir de bonus de jauge de tour. Tous les ennemis qui subissent Distraction ne peuvent pas être invoqués. Au début de leur tour, les alliés Constables peuvent ignorer les effets de Raillerie s'ils ont au moins 10 cumuls d'Élan. Chaque fois que les alliés Tusken utilisent Mandater, ils raniment Cobb et les alliés Tusken avec 100 % de santé. Les alliés Tusken sont immunisés contre les dégâts sur la durée. Chaque fois que les alliés Tusken utilisent une capacité spéciale, Cobb obtient un bonus de protection (100 %) pendant 1 tour.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Mandater</u>",
+                "unique-ability2": "<u class='speciale'>Mandater (Jawa) :</u> Récupère 100 % de santé et de protection. Gagne 25 % de défense, de santé maximale et d'attaque, 25 de vitesse, et l'identifiant Constable pour le reste de la bataille. Inflige un détonateur thermique à tous les ennemis pendant 2 tours.\n\nAu début du tour d'un allié Constable, s'il y a un allié Jawa actif, inflige un détonateur thermique à tous les ennemis pendant 2 tours. Chaque fois qu'un détonateur thermique inflige des dégâts à un ennemi, les alliés Constables récupèrent 10 % de santé et gagnent 100 % d'attaque pendant 1 tour. Les ennemis ayant un détonateur thermique infligent 25 % de dégâts en moins.\n\nLimité à une utilisation par bataille.\n\n<u class='speciale'>Mandater (Tusken) :</u> Récupère 100 % de santé et de protection. Gagne 25 % de défense, de santé maximale et d'attaque et 25 de vitesse, et l'identifiant Constable pour le reste de la bataille. L'ennemi le plus puissant subit Embuscade pour le reste de l'affrontement (ne peut pas être dissipé, esquivé ou résisté).\n\nTous les alliés Constable gagnent 10 cumuls d'Élan pendant 3 tours. Chaque fois qu'un allié Constable est pris pour cible par un ennemi et qu'il dispose d'au moins 10 cumuls d'É, consomme yous ses cumuls d'Élan et étourdit tous les ennemis attaquants pendant 1 tour (ne peut pas être résisté).\n\nChaque fois que les alliés Constables utilisent une capacité alors qu'ils dispsnent d'au moins 10 cumuls d'Élan, ils infligent des dégâts réels bonus égaux à 25 % de la santé maximale de l'ennemi ciblé, puis consomment tous les cumuls d'Éan. Les alliés Constable gagnent 5 cumuls d'Élan pendant 3 tours s'il y a un allié Tusken actif.\n\nLimité à une utilisation par bataille.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "COBBVANTH"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
