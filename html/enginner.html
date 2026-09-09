@@ -3,56 +3,54 @@
 
 <head>
     <title id="big-title">Jawa Engineer</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/enginner/engineer-image.png">
-
-    <!-- Lien vers la feuille de style -->
-     <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
-
-    <!-- Entête de la page -->
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/enginner/engineer-image.png" alt="" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/enginner/engineer-image.png" alt="Jawa Engineer" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
             <div class="language-switcher">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
-                    onclick="switchLanguage('fr')">
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
                 <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
-                    onclick="switchLanguage('en')">
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
-            <h1 id="title"><u>Jawa Enginner</u></h1>
+
+            <h1 id="title"><u>Jawa Engineer</u></h1>
             <p id="description">
                 High-speed Jawa Healer with a Critical Chance buff and both Jawa and Droid synergy
             </p>
             <br>
 
             <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color:blue" href="../classement-perso/coté-lumineux.html"
-                    id="lightside">Light Side</a>
-                <a class="class" href="../classement-perso/soigneur.html" id="heal">Healer</a>
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soigneur.html" id="healer">Healer</a>
                 <a class="capacite" href="../classement-perso/jawa.html" id="jawa">Jawa</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
             </nav>
         </div>
     </header>
+    <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/enginner/ingenieur_jawa.jpg" alt="Engineer jawa"><br>
+    <img class="first" src="../image-perso/enginner/ingenieur_jawa.jpg" alt="Jawa Engineer"><br>
 
-    <!-- Section pour les différentes attaques spéciales -->
+    <!-- Capacités -->
+
     <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Miniaturized Detonator</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Engineer basic" src="../image-perso/enginner/engineer-basique.png">
+            <img class="attaque" alt="Jawa Engineer basic" src="../image-perso/enginner/engineer-basique.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
@@ -61,10 +59,10 @@
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack1-title"><u>1st Special: Patch Up (cooldown: 4)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Patch Up (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Engineer spe 1" src="../image-perso/enginner/enginner-spe1.png">
+            <img class="attaque" alt="Jawa Engineer special 1" src="../image-perso/enginner/enginner-spe1.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1">
@@ -73,10 +71,10 @@
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack2-title"><u>2nd Special: Recalibrate (cooldown: 5)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Recalibrate (cooldown: 5)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Engineer spe 2" src="../image-perso/enginner/engineer-spe2.png">
+            <img class="attaque" alt="Jawa Engineer special 2" src="../image-perso/enginner/engineer-spe2.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack2">
@@ -85,78 +83,161 @@
         </div>
     </div>
 
-    <h2 class="titre" id="unique-ability-title"><u>Unique Ability: Crunch Time</u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Crunch Time</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Engineer unique" src="../image-perso/enginner/enginner-unique.png">
+            <img class="attaque" alt="Jawa Engineer unique" src="../image-perso/enginner/enginner-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque" id="unique-ability">
+            <p class="attaque" id="unique-ability1">
                 Jawa Engineer has +10 Speed for each Jawa or Droid ally.
             </p>
         </div>
     </div>
 
-
-    <!-- Pied de page -->
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
-        <script>
-            const translations = {
-                en: {
-                    "big-title": "Jawa Engineer",
-                    "title": "<u>Jawa Engineer</u>",
-                    "description": "High-speed Jawa Healer with a Critical Chance buff and both Jawa and Droid synergy",
-                    "lightside": "Light Side",
-                    "heal": "Healer",
-                    "jawa": "Jawa",
-                    "basic-attack-title" : "<u>Basic Attack: Miniaturized Detonator</u>",
-                    "basic-attack" : "Apply a Detonator to target enemy that detonates after 1 turn, dealing damage.",
-                    "special-attack1-title" : "<u>1st Special: Patch Up (cooldown: 4)</u>",
-                    "special-attack" : "Jawa Engineer revives a random Droid ally at 1% Health, and then all allies recover 30% of their Max Health.",
-                    "special-attack2-title" : "<u>2nd Special: Recalibrate (cooldown: 5)</u>",
-                    "special-attack2" : "All allies gain Critical Chance Up for 2 turns. Jawa and Droid allies also gain 45% Turn Meter.",
-                    "unique-ability-title" : "<u>Unique Ability: Crunch Time</u>",
-                    "unique-ability" : "Jawa Engineer has +10 Speed for each Jawa or Droid ally."
 
-                },
-                fr: {
-                    "big-title": "Ingénieur Jawa",
-                    "title": "<u>Ingénieur Jawa</u>",
-                    "description": "Soigneur Jawa rapide avec un bonus de chances de coup critique, alimenté par les jawas et les Droïdes",
-                    "lightside": "Coté Lumineux",
-                    "heal": "Soigneur",
-                    "jawa": "Jawa",
-                    "basic-attack-title" : "<u>Attaque Basique : Dénotateur Miniature</u>",
-                    "basic-attack" : "Applique un dénotateur sur une cible ennemie. Après un tour, le détonateur explose en infligeant des dégâts.",
-                    "special-attack1-title" : "<u>1ere Spéciale : Remontant (délai : 4)</u>",
-                    "special-attack1" : "L'ingénieur Jawa réanime un Droïde allié aléatoire qui possède 1% de santé, puis tous les alliés sont soignés à hauteur de 30% de leur santé maximale",
-                    "special-attack2-title" : "<u>2eme Spéciale : Recalibrage (délai : 5)",
-                    "special-attack2" : "Tous les alliés gagnent un bonus de chances de coup critiques pendant 2 tours. De plus, la jauge de tour des Jawas et Droïdes alliés se remplit de 45%.",
-                    "unique-ability-title" : "<u>Capacité Unique : Monument Décisif</u>",
-                    "unique-ability" : "L'ingénieur Jawa gagne un bonus de vitesse de +10 pour chaque Jawa ou Droïde allié."
-                }
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Ingénieur Jawa",
+                "title": "<u>Ingénieur Jawa</u>",
+                "description": "Soigneur Jawa rapide avec un bonus de chances de coup critique, alimenté par les Jawa et les droïdes",
+
+                "lightside": "Coté Lumineux",
+                "healer": "Soigneur",
+                "jawa": "jawa",
+
+                "basic-attack-title": "<u>Attaque Basique: Détonateur Miniature</u>",
+                "basic-attack": "Applique un détonateur sur une cible ennemie. Après 1 tour, le détonateur explose en infligeant des dégâts.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Remontant (délai : 4)</u>",
+                "special-attack1": "L'ingénieur Jawa réanime un droïde allié aléatoire qui possède 1 % de santé, puis tous les alliés sont soignés à hauteur de 30 % de leur santé maximale.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Recalibrage (délai : 5)</u>",
+                "special-attack2": "Tous les alliés gagnent un bonus de chances de coup critique pendant 2 tours. De plus, la jauge de tour des Jawas et droïdes se remplit de 45 %.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Moment Décisif</u>",
+                "unique-ability1": "L'ingénieur Jawa gagne un bonus ded vitesse de +10 pour chaque Jawa ou droïde allié.",
             };
 
-            function replaceNewLinesWithBr(text) {
-                return text.replace(/\n\n/g, '<br><br>');
-            }
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
 
-            function switchLanguage(lang) {
-                for (const [key, text] of Object.entries(translations[lang])) {
-                    const element = document.getElementById(key);
-                    if (element) {
-                        // Convert \n\n to <br><br> before injecting
-                        element.innerHTML = replaceNewLinesWithBr(text);
-                    }
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
                 }
             }
 
-            window.onload = () => switchLanguage('en');
-        </script>
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
 
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "jawa enginner"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
     </footer>
 </body>
-
 </html>
