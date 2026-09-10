@@ -1,110 +1,247 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Héros de la Résistance Poe</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Resistance Hero Poe</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
-    <link rel="icon" type="image/png" href="../image-perso/h-poe/poe-image.png">
-
-    <!-- Lien vers la feuille de style -->
-     <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="icon" type="image/png" href="../image-perso/hero-poe/poe-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/hero-poe/poe-image.png" alt="Resistance Hero Poe" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>héros de la Résistance Poe</u></h1>
-        <p>
-            Attaquant offensif qui domine ses ennemis grâce à ses effets affaiblissants.
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: blue;" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/résistance.html">Résistance</a>
-        </nav>
+            <h1 id="title"><u>Resistance Hero Poe</u></h1>
+            <p id="description">
+                Offensive Attacker who overpowers his enemies with debilitating effects
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/résistance.html" id="resistance">Resistance</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/h-poe/hero-poe.png" alt="héro poe basique"><br>
+    <img class="first" src="../image-perso/hero-poe/hero-poe.png" alt="Resistance Hero Poe"><br>
 
-    <h2 class="titre"><u>attaque basique: Tir de recul</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Flinching Shot</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="héro poe" src="../image-perso/h-poe/h-poe-basique.png">
+            <img class="attaque" alt="Resistance Hero Poe basic" src="../image-perso/hero-poe/h-poe-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à la cible ennemie. Si le Héros de la Résistance Poe est inspiré,<br>
-                la cible ennemie devient <u class="speciale">Vulnérable</u> pendant 1 tour.<br>
-                <br>
-                <u class="speciale">Vulnérable:</u> Subit un coup critique si possible
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy. If Resistance Hero Poe is Inspired, the target enemy becomes <u class="speciale">Vulnerable</u> for 1 turn.
+                <br><br>
+                <u class="speciale">Vulnerable:</u> Will be critically hit if able
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Assaut optique (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Optic Onslaught (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="héro spé 1" src="../image-perso/h-poe/h-poe-sp-1.png">
+            <img class="attaque" alt="Resistance Hero Poe special 1" src="../image-perso/hero-poe/h-poe-sp-1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à une cible, ainsi que la confusion et Faux-pas pendant 2 tours. Si le <br>
-                Héros de la Résistance Poe est inspiré, il inflige également 3 affaiblissants de dégâts sur la durée pendant 1 tour.
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to target enemy and inflict Daze and Stagger for 2 turns. If Resistance Hero Poe is Inspired he also inflicts 3 Damage Over Time debuffs for 1 turn.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Bravade au blaster (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Blaster Bravado (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Héro spé 2" src="../image-perso/h-poe/h-poe-sp-2.png">
+            <img class="attaque" alt="Resistance Hero Poe special 2" src="../image-perso/hero-poe/h-poe-sp-2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à une cible ennemie et l'étourdit pendant 2 tours.<br>
-                Si le Héros de la Résistance Poe est inspiré, il dissipe toutes les améliorations<br>
-                pendant 2 tours. Cette capacité ne peut pas être esquivée.
+            <p class="attaque" id="special-attack2">
+                Deal Special damage to target enemy and Stun them for 2 turns. If Resistance Hero Poe is Inspired, dispel all buffs on them and inflict Buff Immunity for 2 turns. This ability can't be evaded.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Lueur de la Résistance</u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Spark of Resistance</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="héro poe unique" src="../image-perso/h-poe/h-poe-unique.png">
+            <img class="attaque" alt="Resistance Hero Poe unique" src="../image-perso/hero-poe/h-poe-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Si tous les alliés du Héros de la Résistance Poe appartient au Coté Lumineux, les ennemis perdent 5%<br>
-                de protection lorsqu'un de leurs affaiblissants est dissipé. Lorsque les alliés inspirés infligent<br>
-                également des dégâts à hauteur de 10% de la santé maximale de la cible (ne peut pas être esquivé).<br>
-                Si un ennemi inflige un coup critique à un allié inspiré, toutes les améliorations en cours<br>
-                sur cet ennemi sont dissipés à la fin du tour.
+            <p class="attaque" id="unique-ability1">
+                If all of Resistance Hero Poe's allies are Light Side, enemies lose 5% Protection whenever they lose a debuff. When Inspired allies deal damage to an enemy with an ability, they also deal bonus damage equal to 10% of the target's Max Health, which can't be evaded. If an enemy critically hits an Inspired ally, all buffs are dispelled from that enemy at the end of the turn.
+                <br><br>
+                If Resistance Hero Poe is Inspired when he uses a Special ability during his turn, he can Inspire another target Resistance ally.
             </p>
         </div>
     </div>
-
 
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Hero de la Résistance Poe",
+                "title": "<u>Hero de la Résistance Poe</u>",
+                "description": "Attaquant offensif qui domine ses ennemis grâce a ses effets affaiblissants.",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "resistance": "Résistance",
+
+                "basic-attack-title": "<u>Attaque Basique: Tir de recul</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à la cible ennemie. Si le Hero de la Résistance Poe est inspiré, la cible ennemie devient <u class='speciale'>Vulnérable</u> pendant 1 tour.\n\n<u class='speciale'>Vulnérable :</u> Subit un coup critique si possible.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Assaut optique (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à une cible ennemie, ainsi que la confusion et faux pas pendant 2 tours. Si le héros de la Résistance Poe est inspiré, il inflige également 3 affaiblissements de dégâts sur la durée pendant 1 tour.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Bravade au blaster (délai : 3)</u>",
+                "special-attack2": "Inflige des dégâts spéciaux à une cible ennemie et l'étourdit pendant 2 tours. Si le Hero de la Résistance Poe est inspiré, il dissipe toutes les améliorations de la cible ennemie et inflige l'Immunité aux améliorations pendant 2 tours. Cette capacité ne peut pas être esquivée.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Lueur de la Résistance.</u>",
+                "unique-ability1": "Si tous les alliés du Hero de la Résistance Poe appartiennent au Coté Lumineux, les ennemis perdent 5 % de protection lorsqu'un de leurs affaiblissements est dissipé. Lorsque les alliés inspirés infligent des dégâts à un ennemi avec une capacité, ils infligent également des dégâts bonus à hauteur de 10 % de la santé maximale de la cible (ne peut pas être esquivé). Si un ennemi inflige un coup critique à un allié inspiré, toutes les améliorations en cours sur cete ennemi sont dissipées à la fin du tour.\n\nSi le Hero de la Résistance Poe est inspiré lorsqu'il utilisent une capacité spéciale pendant son tour, il peut inspirer une autre cible alliée de la Résistance.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "resistance hero poe"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
     </footer>
 </body>
-</html>    
+</html>
