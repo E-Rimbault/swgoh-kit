@@ -1,116 +1,252 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Héros de la Résistance Finn</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Resistance Hero Finn</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/hero-finn/finn-image.png">
-
-    <!-- Lien vers la feuille de style -->
-     <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/hero-finn/finn-image.png" alt="Resistance Hero Finn" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>Heros de la Résistance Finn</u></h1>
-        <p>
-            Attaquant de soutien inspiré qui donne des ailes à ses alliés sur le champ de bataille
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: blue;" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/résistance.html">résistance</a>
-        </nav>
+            <h1 id="title"><u>Resistance Hero Finn</u></h1>
+            <p id="description">
+                Supportive Attacker whose inspiration empowers his allies on the battlefield
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/résistance.html" id="resistance">Resistance</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/hero-finn/hero-finn.png" alt="Héro finn"><br>
+    <img class="first" src="../image-perso/hero-finn/hero-finn.png" alt="Resistance Hero Finn"><br>
 
-    <h2 class="titre"><u>attaque basique: tir réparateur</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Mending Fire</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="héro finn basique" src="../image-perso/hero-finn/h-finn-basique.png">
+            <img class="attaque" alt="Resistance Hero Finn basic" src="../image-perso/hero-finn/h-finn-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à la cible ennemie. L'allié de la Résistance le plus faible récupère 10% de santé <br>
-                et de protection. Si le Héros de la Résistance Finn n'est pas inspiré, réduit le délai de la Force d'esprit de 1.
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy, and the weakest Resistance ally recovers 10% Health and Protection. If Resistance Hero Finn is not Inspired, reduce the cooldown of Strength of Will by 1.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Force d'esprit (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Strength of Will (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="héro finn spé 1" src="../image-perso/hero-finn/h-finn-sp-1.png">
+            <img class="attaque" alt="Resistance Hero Finn special 1" src="../image-perso/hero-finn/h-finn-sp-1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Le Héros de la Résistance Finn est <u class="speciale">isnpiré</u> et inflige des dégâts spéciaux deux fois à la cible<br>
-                ennemie, qui ne peut pas les esquiver. Échange la jauge de tour avec un autre allié de la Résistance, et si<br>
-                la cible est le Héros de la Résistance Poe, il est également inspiré. cette attaque bénéficie d'une pénétration<br>
-                supplémentaire de +10% et de +5% de dégâts critiques supplémentaires pour chaque allié inspiré.<br>
-                <br>
-                <u class="speciale">Inspiré:</u> Les personnages de la Résistance gagnent des bonus lorsqu'ils<br>
-                sont inspirés. Cet effet expire après avoir subi 3 coups critiques.
+            <p class="attaque" id="special-attack1">
+                Resistance Hero Finn becomes <u class="speciale">Inspired</u>, and then deals Special damage twice to target enemy, which can't be evaded. Swap Turn Meter with another Resistance ally, and if the target is Resistance Hero Poe he also becomes Inspired. This attack has +10% Defense Penetration and +5% Critical Damage for each Inspired ally.
+                <br><br>
+                <u class="speciale">Inspired:</u> Resistance characters gain bonuses when they are Inspired; this effect expires after receiving 3 critical hits
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Appel de ralliement (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Rallying Call (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Héro finn spé 2" src="../image-perso/hero-finn/h-finn-sp-2.png">
+            <img class="attaque" alt="Resistance Hero Finn special 2" src="../image-perso/hero-finn/h-finn-sp-2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe les affaiblissements de tous les alliés de la Résistance, inflige des dégâts spéciaux<br>
-                à tous les ennemis et <u style="color: orangered;">rallie</u> tous les alliés de la résistance.<br><br>
-        
-                <u style="color: orangered;">Les personnages ralliés agissent en fonction de leur rôle:</u><br><br>
-                -les Tanks utilisent la raillerie et bénéficient de l'immunité aux coups critiques pendant 2 tours<br>
-                <br>
-                -Les Attaquants apportent leur aide.<br>
-                <br>
-                -Les Soigneurs et les soutiens restaurent 15% de santé et de protection à tous les alliés.
+            <p class="attaque" id="special-attack2">
+                Dispel debuffs from all allies, deal Special damage to all enemies, and Rally all Resistance allies.
+                <br><br>
+                Rallied characters act based on their role:<br>
+                - <strong>Tanks</strong> Taunt and gain Critical Hit Immunity for 2 turns<br>
+                - <strong>Attackers</strong> assist<br>
+                - <strong>Healers and Supports</strong> restore 15% Health and Protection to all allies
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Lueur de la résistance</u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Spark of Resistance</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="héro finn unique" src="../image-perso/hero-finn/h-finn-unique.png">
+            <img class="attaque" alt="Resistance Hero Finn unique" src="../image-perso/hero-finn/h-finn-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Tous les alliés de la Résistance ont +100% de chances de contre-attaque, +50% de défense et +50%<br>
-                de ténacité pendant que le Héros de la Résistance Finn est inspiré.<br>
-                <br>
-                De plus, lorsque le Héros de la résistance Finn est inspiré, quand un allié n'est pas en mesure<br>
-                d'utiliser une capacité pendant son tour, il récupère 40% de santé et de protection et gagne 40% de jauge de tour.
+            <p class="attaque" id="unique-ability1">
+                All Resistance allies have +100% counter chance, +50% Defense, and +50% Tenacity while Resistance Hero Finn is Inspired.
+                <br><br>
+                Additionally, while Resistance Hero Finn is Inspired, when an ally is prevented from using an ability during their turn, they recover 40% Health and Protection and gain 40% Turn Meter.
             </p>
         </div>
     </div>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Héros de la Résistance Finn",
+                "title": "<u>Héros de la Résistance Finn</u>",
+                "description": "Attaquan de soutien inspiré qui donne des ailes à ses alliés sur le champ de bataille.",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "resistance": "Résistance",
+
+                "basic-attack-title": "<u>Attaque Basique: Tir réparateur</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à la cible ennemie. L'allié de la Résistance le plus faible récupère 10 % de santé et de protection. Si le Héros de la Résistance Finn n'est pas inspiré, réduit le délai de la force d'esprit de 1.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Force d'esprit (délai : 4)</u>",
+                "special-attack1": "Le Héros de la Résistance Finn est <u class='speciale'>inspiré</u> et inflige des dégâts spéciaux deux fois à la cible ennemie, qui ne peut pas les esquiver. Échange la jauge de tour avec un autre allié de la Résistance, et si la cible est le héro de la Résistance Poe, il est également inspiré. Cette attaque bénéficie d'une pénétration de défense supplémentaire de +10 % et de +5 % de dégâts critiques supplémentaires pour chaque allié inspiré.\n\n<u class='speciale'>Inspiré :</u> les bonus de la Résistance gagnent des bonus lorsqu'ils sont inspirés. Cet effet expire après avoir subi 3 coups critiques.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Appel de ralliement (délai : 4)</u>",
+                "special-attack2": "Dissipe les affaiblissements de tous les alliés, inflige des dégâts spéciaux à tous les ennemis et <u class='orange'>rallie</u> tous les alliés de la Résistance.\n\n<u class='orange'>Les personnages ralliés agissent en fonction de leur Rôle :</u>\n-les <strong>tanks</strong> utilisent Raillerie et bénéficient de l'immunité aux coups critiques pendant 2 tours.\nLes <strong>attaquants</strong> apportent leur aide.\nLes <strong>soigneurs et les soutiens</strong> restaurent 15 % de santé et de protection à tous les alliés.",
+
+                "unique-ability1-title": "<u>Capacité Unique : lueur de la Résistance</u>",
+                "unique-ability1": "Tous les alliés de la Résistance ont +100 % de chances de contre-attaque, +50 % de défense et +50 % de la ténacité pendant que le Héros de la Résistance Finn est inspiré.\n\nDe plus, lorsque le Héros de la Résistance Finn est onspiré, quand un allié n'est pas en mesure d'utiliser une capacité pendant son tour, il récupère 40 % de santé et de protection et gagne 40 % de jauge de tour.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "resistance hero finn"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
     </footer>
 </body>
-</html>    
+</html>
