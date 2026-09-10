@@ -1,239 +1,382 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Jabba le Hutt</title>
-
+    <title id="big-title">Jabba the Hutt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/jabba/jabba-image.png">
-    <link rel="stylesheet" href="../style/capacite.css">
-    <link rel="stylesheet" href="../style/styles.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/jabba/jabba-image.png" alt="Jabba the Hutt" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Jabba le Hutt</u></h1>
-        <p>
-            Un seigneur du crime impitoyable qui excerce son influence sur d'autres pour<br>
-            controler le flux de la bataille afin de soutenir sa pègre criminelle<br>
-            et les éxécuteurs du Cartel des Hutt.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color:gold" href="../classement-perso/legendes-galactiques.html">Légende Galactique</a>
-            <a class="capacite" style="color:red" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-            <a class="class" href="../classement-perso/soutien.html">Soutien</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/chasseur-de-primes.html">Chasseur de primes</a>
-            <a class="capacite" href="../classement-perso/cartell-des-hutt.html">Cartel des Hutt</a>
-            <a class="capacite" href="../classement-perso/contrebandier.html">Contrebandier</a>
-        </nav>
+            <h1 id="title"><u>Jabba the Hutt</u></h1>
+            <p id="description">
+                A ruthless crime boss who exerts his influence on others to control the flow of battle to support his criminal underworld and Hutt Cartel enforcers
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="legende" href="../classement-perso/legendes-galactiques.html" id="galactic-legend">Galactic Legend</a>
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/chasseur-de-primes.html" id="bounty-hunter">Bounty Hunter</a>
+                <a class="capacite" href="../classement-perso/cartell-des-hutt.html" id="hutt">Hutt Cartel</a>
+                <a class="capacite" href="../classement-perso/contrebandier.html" id="smuggler">Smuggler</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
     </header>
     <br>
-    
-    <img class="first" src="../image-perso/jabba/Jabba.png" alt="Jabba"><br>
 
-    <h2 class="titre"><u>attaque basique : Commerce illicite</u></h2>
+    <img class="first" src="../image-perso/jabba/Jabba.png" alt="Jabba the Hutt"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre"><u id="ultime-title">Ultimate: There Will Be No Bargain</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Jabba basic" src="../image-perso/jabba/jabba-basic.png">
+            <img class="attaque" alt="Jabba the Hutt" src="../image-perso/jabba/jaba-ulti.png">
         </div>
         <div class="right-column">
-            <p class="attaque"> 
-                Invoque l'autre allié du Cartel des Hutt le plus faible, qui inflige 10% de dégâts supplémentaires pour chaque<br>
-                allié actif du Cartel des Hutt. Les chasseurs de prime et les contrebandiers alliés obtiennent une hausse de<br>
-                protection (10%) pendant 2 tours.<br>
-                <br>
-                Pendant le tour de Jabba, il inflige la cécité à la cible ennemie, obtient 6% de charge ultime et l'allié du<br>
-                Cartel des Hutt le plus faible récupère 30% de protection. Les alliés du Cartel des Hutt obtiennent un bonus<br>
-                de protection (30%) pendant 2 tours.
-            </p>
-        
-        </div>
-    </div>
-
-    <h2 class="titre"><u>1ere spéciale: Seigneur du crime (délai: 4)</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="Jabba spé 1" src="../image-perso/jabba/jabba-spe1.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Dissipe les affaiblissements affectant les alliés et inflige un malus de vitesse pendant 2 tours sur les ennemis.<br>
-                Les autres alliés chasseur de primes, contrebandiers, et ceux du Cartel des Hutt obtiennent <u class="speciale">Muscles à gages</u><br>
-                pendant 2 tours (ne peut pas être copié).<br>
-                <br>
-                <u class="speciale">Muscles à gages:</u> +30% de ténacité. Immunité contre la Confusion et la Peur. 
+            <p class="attaque" id="ulti">
+                Requires 100% <u class="ulti">Ultimate Charge</u> to activate.
+                <br><br>
+                <u class="ulti">Ultimate Charge:</u> Jabba the Hutt gains 3% Ultimate Charge whenever an ally with My Kind of Scum starts their turn or uses a Special ability. If an ally with My Kind of Scum defeats an enemy, or Jabba uses his Basic ability during his turn, he gains 6% Ultimate Charge.
+                <br><br>
+                Jabba the Hutt instantly defeats target enemy (excluding raid bosses and Galactic Legends). Enemies defeated by this ability can't be revived.
+                <br><br>
+                Bounty Hunter, Hutt Cartel, and Smuggler allies recover 100% Health and Protection. Hutt Cartel allies gain 50% Turn Meter.
+                <br><br>
+                There Will Be No Bargain on Galactic Legends: Dispel buffs, inflict Armor Shred until the end of the encounter, deal true damage to target enemy, and Stun other enemies for 1 turn, which can't be resisted.
+                <br><br>
+                There Will Be No Bargain on raid bosses: Deal true damage to target enemy equal to 30% of Jabba's Max Health 5 times and Stun all other enemies for 1 turn, which can't be resisted.
+                <br><br>
+                This ability can't be countered or evaded.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>2eme spéciale: La revanche de Crumb (délai: 3)</u></h2>
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Illicit Business</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Jabba spé 2" src="../image-perso/jabba/jabba-spe2.png">
+            <img class="attaque" alt="Jabba the Hutt basic" src="../image-perso/jabba/jabba-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe toutes les améliorations, inflige des dégâts spéciaux et l'immunité aux améliorations à la cible ennemie pendant 2 tours (ne peut pas être Dissipé).<br>
-                <br>
-                Inflige un détonateur thermique sur tous les ennemis pendant 2 tours. Inflige un détonateur thermique supplémentaire à tous les ennemis<br>
-                pendant 2 tours pour tous les 20% de charge ultime dont dispose Jabba le Hutt. Lorsqu'un détonateur thermique provenant de cette capacité<br>
-                expire, tous les alliés chasseurs de prime, du Cartel des Hutt, et contrebandiers obtiennent 2% de maitrise jusqu'à la fin de l'affrontement.<br>
-                (Cette capacité ne peut pas être résisté).
+            <p class="attaque" id="basic-attack">
+                Call the other weakest Hutt Cartel ally to assist, dealing 10% more damage for each active Hutt Cartel ally. Bounty Hunter and Smuggler allies gain Protection Up (10%) for 2 turns.
+                <br><br>
+                During Jabba's turn, he inflicts Blind on target enemy, gains 6% Ultimate Charge, and the weakest Hutt Cartel ally recovers 30% Protection. Hutt Cartel allies gain Protection Up (30%) for 2 turns.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Ultime: Il n'y aura pas de marché</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Crime Lord (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Jabba ulti" src="../image-perso/jabba/jaba-ulti.png">
+            <img class="attaque" alt="Jabba the Hutt special 1" src="../image-perso/jabba/jabba-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Vous devez avoir 100% de <u class="ulti">Charge ultime</u> pour l'activer.<br>
-                <br>
-                <u class="ulti">Charge ultime:</u> Jabba le Hutt gagne un bonus de charge ultime de 3% lorsq'un allié possédant Mon<br>
-                Genre de Vaurien commence son tour ou utilise une capacité spéciale. Si un allié avec Mon genre de Vaurien élimine un<br>
-                ennemi ou que Jabba utilise sa capacité de base pendant son tour, il obtient 6% de charge ultime.<br>
-                <br>
-                Jabba le Hutt élimine instantanément les cibles ennemis (à l'exception des boss de raid et des Légendes Galactiques).<br>
-                les ennemis vaincus par cette capcité ne peuvent pas être ranimés.<br>
-                <br>
-                Les alliés Chasseurs de primes, contrebandiers et ceux du Cartel des Hutt récupèrent 100% de protection.<br>
-                Les alliés appartenant au Cartel des Hutt obtiennent 50% de jauge de tour.<br>
-                <br>
-                Il n'y aura pas de marché (sur les Légendes Galactiques):<br>
-                dissipe les améliorations, inflige de la destruction d'armure jusqu'à la fin de l'affrontement, inflige<br>
-                des dégâts réels à la cible ennemie, et étourdit les autres ennemis pendant 1 tour (ne peut pas être résistés).<br>
-                <br>
-                Il n'y aura pas de marché (sur les boss de raid):<br>
-                inflige des dégâts réels à la cible ennemie à hauteur de 30% de la santé maximale de Jabba 5 fois et étourdit<br>
-                tous les autres ennemis pendant 1 tour (ne peut pas être résisté).<br>
-                <br>
-                Cette capacité ne peut pas être contrée ou esquivée.
+            <p class="attaque" id="special-attack1">
+                Dispel all debuffs on allies and inflict Speed Down for 2 turns on all enemies. Other Bounty Hunter, Hutt Cartel, and Smuggler allies gain <u class="speciale">Hired Muscle</u> for 2 turns, which can't be copied.
+                <br><br>
+                <u class="speciale">Hired Muscle:</u> +30% Tenacity; immune to Daze and Fear
+                <br><br>
+                Hired Muscle provides different benefits based on a character's role:
+                <br><br>
+                - <strong>Attackers:</strong> Once per turn, when another ally uses an ability, assist dealing 70% less damage<br>
+                - <strong>Tanks:</strong> Immune to critical hits<br>
+                - <strong>Healers and Supports:</strong> On attack, allies recover 10% Health and Protection
+                <br><br>
+                When Hired Muscle expires, it provides different benefits based on a character's faction:
+                <br><br>
+                - <strong>Bounty Hunter:</strong> Gain Defense Penetration Up for 2 turns<br>
+                - <strong>Smuggler:</strong> Gain Speed Up for 2 turns<br>
+                - <strong>Hutt Cartel:</strong> Gain Advantage for 2 turns
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>Capacité de chef: Sa haute Exaltation</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Crumb's Revenge (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Jabba lead" src="../image-perso/jabba/jabba-lead.png">
+            <img class="attaque" alt="Jabba the Hutt special 2" src="../image-perso/jabba/jabba-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Les alliés chasseurs de primes, contrebandiers ou du Cartel des Hutt reçoivent +30 de vitesse, +30% de maitrise<br>
-                et +30% de santé maximale. Les dégâts subis par les alliés du Cartel des Hutt sont réduis de 30%.<br>
-                <br>
-                Au début de la bataille, les autres alliés du Cartel des Hutt obtiennent un cumul de Mon genre de Vaurien<br>
-                pour chaque Chasseur de primes, contrebandier et allié du Cartel des Hutt jusqu'à la fin de la bataille<br>
-                (ne peut pas être copié, Dissipé ou évité). Jabba le Hutt est immunisé contre les effets de raillerie et ne<br>
-                peut pas être pris pour cible pendant les tours ennemis lorsqu'un allié qui dispose de Mon genre de Vaurien est présent.<br>
-                <br>
-                Jabba le Hutt gagne 3% de charge ultime lorsqu'un allié avec Mon genre de Vaurien commence son tour ou utilise<br>
-                une capacité spéciale. Si un allié possédant Mon genre de Vaurien élimine un ennemi, Jabba le Hutt obtient 6% de charge ultime.<br>
-                <br>
-                Lorsque les ennemis reçoivent un détonateur thermique, leurs effets de régénération de santé et de protection sont réduis de 50%.<br>
-                <br>
-                Au début de chaque affrontement, à l'exception du premier, les alliés chasseur de primes, contrebandiers et ceux appartenant au<br>
-                Cartel des Hutt obtiennent un bonus de dégâts critiques, l'immunité aux dégâts et un bonus d'attaque pendant 2 tours (ne peut pas être<br>
-                copié, dissipé ou empeché).<br>
-                <br>
-                Lorsque Jabba le Hutt est dans l'emplacement de chef le contrat suivant est actif:<br>
-                <br>
-                <u class="speciale">Contrat :</u>lorsque vous disposez d'améliorations, grâce à Mon genre de Vaurien, infligez des dégâts avec une attaque<br>
-                à des ennemis possédant Détonateur thermique 20 fois. Les ennemis doivent être affaiblis avec un détonateur thermique avant le début de l'attaque<br>
-                pour compter dans la progression (seuls les chasseurs de primes, les contrebandiers et ceux appartenant aux Cartel des Hutt peuvent contribuer au contrat.)<br>
-                Pendant les raids, ce contrat est rempli directement au début de l'affrontement.<br>
-                <br>
-                <u class="speciale">Récompense:</u> tous les Chasseurs de primes alliés voient leurs primes activéses et tous les alliés Chasseurs de primes, contrebandiers<br>
-                et ceux du Cartel des Hutt gagnent 25% de pénétration de défense, de pouvoir et d'attaque. Les alliés avec Mon genre de Vaurien obtiennent 55% de maitrise<br>
-                pour chaque cumul et récupèrent 20% de protection au début de leur tour.
+            <p class="attaque" id="special-attack2">
+                Dispel all buffs, deal Special damage, and inflict Buff Immunity on target enemy for 2 turns, which can't be dispelled.
+                <br><br>
+                Inflict a Thermal Detonator on all enemies for 2 turns. Inflict an additional Thermal Detonator on all enemies for 2 turns for every 20% Ultimate Charge Jabba the Hutt has. Whenever a Thermal Detonator from this ability expires, all Bounty Hunter, Hutt Cartel, and Smuggler allies gain 2% Mastery until the end of the encounter. This ability can't be resisted.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>capacité unique : L'illustre </u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: His High Exaltedness</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Jabba unique" src="../image-perso/jabba/jabba-unique.png">
+            <img class="attaque" alt="Jabba the Hutt lead" src="../image-perso/jabba/jabba-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Au début de chaque affrontement, les délais des alliés du Cartel des Hutt sont réinitialisés. Les chasseurs de primes, le Cartel des Hutt, les contrebandiers sont<br>
-                ranimés et récupèrent 60% de santé et de protection.<br>
-                <br>
-                Jabba le Hutt ignore les effets de raillerie pendant son tour, il dissipe le camouflage de tous les ennemis. Lorsqu'un allié du Cartel des Hutt est étourdi, il est<br>
-                dissipé et gagne bonus d'attaque pendant 2 tours.<br>
-                <br>
-                Si Jabba le Hutt n'est pas dans l'emplacement de chef allié, les alliés ne peuvent pas obtenir de bonus de jauge de tour.<br>
-                <br>
-                Si Jabba le Hutt est dans l'emplacement de chef allié, à chaque fois qu'un ennemi avec moins de 100% de jauge de tour obtient<br>
-                des bonus de jauge de tour, tous les alliés du Cartel des Hutt obtiennent 7% de jauge de tour(limité à une fois par tour).<br>
-                Lorsqu'un allié du Cartel des Hutt perd jauge de tour, il obtient un bonus de protection (20%, cumuatif) jusqu'au début de son prochain tour.
+            <p class="attaque" id="lead-ability">
+                Bounty Hunter, Hutt Cartel, and Smuggler allies have +30 Speed, +30% Mastery, and +30% Max Health. Damage Hutt Cartel allies receive is decreased by 30%
+                <br><br>
+                At the start of battle, other Hutt Cartel allies gain a stack of My Kind of Scum for each Bounty Hunter, Hutt Cartel, and Smuggler ally until the end of the battle, which can't be copied, dispelled, or prevented. Jabba the Hutt is immune to taunt effects and can't be targeted during enemy turns while an ally with My Kind of Scum is present.
+                <br><br>
+                Jabba the Hutt gains 3% Ultimate Charge whenever an ally with My Kind of Scum starts their turn or uses a Special ability. If an ally with My Kind of Scum defeats an enemy, Jabba the Hutt gains 6% Ultimate Charge.
+                <br><br>
+                While enemies are inflicted with Thermal Detonator, their Health and Protection recovery effects are reduced by 50%.
+                <br><br>
+                At the start of each encounter after the first, Bounty Hunter, Hutt Cartel, and Smuggler allies gain Critical Damage Up, Damage Immunity, and Offense Up for 2 turns, which can't be copied, dispelled, or prevented.
+                <br><br>
+                When Jabba the Hutt is in the Leader slot, the following Contract is active:
+                <br><br>
+                <u class="speciale">Contract:</u> While buffed with My Kind of Scum, deal damage with an attack to enemies with Thermal Detonators 20 times. Enemies must be debuffed with Thermal Detonators before the start of an attack to count progress. (Only Bounty Hunter, Hutt Cartel, and Smuggler allies can contribute to the Contract.)
+                <br><br>
+                During raids, this contract is fulfilled immediately at the start of battle.
+                <br><br>
+                <u class="speciale">Reward:</u> All Bounty Hunter allies have their payouts activated, and all Bounty Hunter, Hutt Cartel, and Smuggler allies gain 25% Defense Penetration, Offense, and Potency. Allies with My Kind of Scum have +55% Mastery for each stack and recover 20% Protection at the start of their turn.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>capacité unique : Grand Perso</u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : The Illustrious</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="jabba unique 2" src="../image-perso/jabba/jabba-unique2.png">
+            <img class="attaque" alt="Jabba the Hutt unique" src="../image-perso/jabba/jabba-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Ce personnage ne peut pas être utilisé dans l'emplacement<br>
-                d'allié, et, les invocations sont impossibles pour les alliés.
+            <p class="attaque" id="unique-ability1">
+                At the start of each encounter, Hutt Cartel allies have their cooldowns reset. Bounty Hunter, Hutt Cartel, and Smuggler allies are revived and recover 60% Health and Protection.
+                <br><br>
+                Jabba the Hutt ignores Taunt effects during his turn. At the start of his turn, he dispels Stealth from all enemies. Whenever a Hutt Cartel ally is Stunned, it is dispelled and they gain Offense Up for 2 turns.
+                <br><br>
+                If Jabba the Hutt is not in the allied Leader slot, allies can't gain bonus Turn Meter.
+                <br><br>
+                If Jabba the Hutt is in the allied Leader slot, whenever an enemy with less than 100% Turn Meter gains bonus Turn Meter, Hutt Cartel allies gain 7% Turn Meter (limit once per turn). Whenever a Hutt Cartel ally loses Turn Meter, they gain Bonus Protection (20%, stacking) until the start of their next turn.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>capacité unique : Légende galactique</u></h2>
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Large Character</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Jaba Légende Galactique" src="../image-perso/jabba/jabba-gl.png">
+            <img class="attaque" alt="Jabba the Hutt unique" src="../image-perso/jabba/jabba-unique2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Cette unité subit des dégâts réduits des effets de dégâts de pourcentage de santé et des effets de dégâts<br>
-                important, mais subit de lourds dégâts des effets de destruction (exclut les boss de raid) et elle est immunisée<br>
-                contre les effets d'étourdissement.<br>
-                <br>
-                Cette unité a +10% de santé maximale et de protection maximale par niveau d'amplification de reliques<br>
-                et ses dégâts subis sont réduis de 30%.
+            <p class="attaque" id="unique-ability2">
+                This character can't be used in the ally slot or with another large character and summons are prevented for allies.
             </p>
         </div>
     </div>
 
-
-    <h2 class="prime"><u>capacité unique : Prime de Jabba le Hutt </u></h2>
+    <h2 class="titre"><u id="unique-ability3-title">Unique Ability : Galactic Legend</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Jabba prime" src="../image-perso/jabba/jabba-prime.png">
+            <img class="attaque" alt="Jabba the Hutt unique" src="../image-perso/jabba/jabba-gl.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                A chaque fois que Jabba le Hutt reçoit des récompenses pour un contrat rempli, il bénéficie également de la prime suivant.<br>
-                (Les contrats sont conférés par certaines capacités de chef des chasseurs de primes.)<br>
-                <br>
-                <u class="speciale">Prime:</u> Jabba le Hutt obtient 40% de maitrise et tous ses gains de charge ultime<br>
-                sont doublés pour le reste de l'affrontement.
+            <p class="attaque" id="unique-ability3">
+                This unit takes reduced damage from percent Health damage effects and massive damage effects. They take massive damage from destroy effects (excludes raid bosses) and are immune to stun effects.
+                <br><br>
+                This unit has +10% Max Health and Max Protection per Relic Amplifier level, and damage they receive is decreased by 30%.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="prime"><u class="prime" id="prime-title">Jabba the Hutt's Payout</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Jabba the Hutt prime" src="../image-perso/jabba/jabba-prime.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="prime">
+                Whenever Jabba the Hutt receives Rewards from a Contract, he also gains the following Payout. (Contracts are granted by certain Bounty Hunter Leader abilities.)
+                <br><br>
+                <u class="speciale">Payout:</u> Jabba the Hutt gains 40% Mastery and all his Ultimate Charge gains are doubled for the rest of the battle.
             </p>
         </div>
     </div>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
-    </footer>
 
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Jabba le Hutt",
+                "title": "<u>Jabba le Hutt</u>",
+                "description": "Un seigneur du crime impitoyable qui exerce son influence sur d'autres pour contrôler le flux de la bataille afin de soutenir sa pègre criminelle et les exécuteurs du Cartel des Hutt.",
+
+                "galactic-legend": "Légendes Galactiques",
+                "darkside": "Coté Obscur",
+                "support": "Soutien",
+                "leader": "Chef",
+                "bounty-hunter": "Chasseur de primes",
+                "hutt": "Cartel des Hutt",
+                "smuggler": "Contrebandier",
+
+                "ultime-title": "<u>Capacité Ultime: Il n'y aura pas de marché<u>",
+                "ulti": "Vous devez avoir 100 % de <u class='ulti'>charge ultime</u> pour l'activer.\n\n<u class='ulti'>Charge ultime :</u> Jabba le Hutt gagne un bonus de charge ultime de 3 % lorsqu'un allié possédant Mon genre de Vaurien commence son tour ou utilise une capacité spéciale. Si un allié avec Mon genre de Vaurien élimine un ennemi ou que Jabba utilise sa capacité de base pendant son tour, il obtient 6 % de charge ultime\n\nJabba le Hutt élimine instantanément les cibles ennemis ( l'exception des Boss de raid et des Légendes galactiques). Les ennemis vaincus par cette capacité ne peuvent pas être ranimés.\n\nLes alliés Chasseurs de primes, Contrebandiers et ceux du Cartel des Hutt récupèrent 100 % de santé et de protection. Les alliés du Cartel des Hutt obtiennent 50 % de jauge de tour.\n\nIl n'y aura pas de marché (sur les Légendes galactiques) : dissipe les améliorations, inflige la Destruction d'armure jusqu'à la fin de l'affrontement, inflige des dégâts réels à la cible ennemie, et étourdit les autres ennemis pendant 1 tour (ne peut pas être résisté).\n\nIl n'y aura pas de marché (sur les boss de raid) : inflgie des dégâts réels à la cible ennemie à hauteur de 30 % de la santé maximale de Jabba 5 fois et étourdit tous les autres ennemis pendant 1 tour (ne peut pas être résisté).\n\nCette capacité ne peut pas être contrée ou esquivée.",
+
+                "basic-attack-title": "<u>Attaque Basique: Commerce illicite </u>",
+                "basic-attack": "Invoque l'autre allié du Cartel des Hutt le plus faible, qui inflige 10 % de dégâts supplémentaires pour chaque allié actif du Cartel des Hutt. Les Chasseurs de primes et les Contrebandiers alliés obtiennent une hausse de protection (10 %) pendant 2 tours.\n\nPendant le tour de Jabba, il inflige la Cécité à la cible ennemie, obtient 6 % de charge ultime et l'allié du Cartel des Hutt le plus faible récupère 30 % de protection. Les alliés du Cartel des Hutt obtiennent un bonus de protection (30 %) pendant 2 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Seigneur du crime (délai : 4)</u>",
+                "special-attack1": "Dissipe les affaiblissements et inflige un malus de vitesse pendant 2 tours sur les ennemis. Les autres alliés Chasseurs de primes, Contrebandiers, et ceux du Cartel des Hutt obtiennent <u class='speciale'>Muscles à gages</u> pendant 2 tours (ne peut pas être copîé).\n\n<u class='speciale'>Muscles à gages :</u> +30 % de ténacité. Immunité contre la confusion et la peur.\n\nMuscles à gages confères des avantages différents selon le rôle du personnage :\n\n- <strong>Attaquants :</strong> une fois par tour, lorsqu'un autre allié utilise une capacité, aide son allié en infligeant 70 % de dégâts en moins.\n- <strong>Tanks :</strong> immunité aux coups critiques.\n- <strong>Soigneurs et soutiens :</strong> en attaque, les alliés récupèrent 10 % de santé et de protection.\n\nLorsque Muscles à gages prend fin, confère différents avantages en fonction de la faction du personnage :\n\n- <strong>Chasseurs de primes :</strong> obtient un bonus de pénétration de défense pendant 2 tours.\n- <strong>Contrebandier :</strong> obtient un bonus de vitesse pendant 2 tours.\n- <strong>Cartel des Hutts :</strong> obtient un avantage pendant 2 tours.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : La revanche de Crumb (délai : 3)</u>",
+                "special-attack2": "Dissipe toutes les améliorations, inflige des dégâts spéciaux et l'immunité aux améliorations à la cible ennemie pendant  tours (ne peut pas être dissipé).\n\nInflige un détonateur thermique sur tous les ennemis pendant 2 tours. Inflige un détonateur thermique supplémentaire à tous les ennemis pendant 2 tours pour tous les 20 % de charge ultime dont dispose Jabba le Hutt. Lorsqu'un détonateur thermique provenant de cette capacité expire, tous les alliés Chasseurs de primes, du Cartel des Hutt, et Contrebandiers, obtiennent 2 % de maîtrise juisqu'à la fin de l'affrontement. (Cette capacité ne peut pas être résistée).",
+
+                "lead-ability-title": "<u>Capacité de Chef: Sa haute Exaltation</u>",
+                "lead-ability": "Les alliés Chasseurs de primes, Contrebandiers ou du Cartel des Hutt reçoivent +30 de vitesse, +30 % de maîtrise et +30 % de santé maximale. Les dégâts subis par les alliés du Cartel des Hutt sont réduits de 30 %.\n\nAu début de la bataille, les autres alliés du Cartel des Hutt obtiennent un cumul de Mon genre de Vaurien pour chaque Chasseur de primes, Contrebandier et allié du Cartel des Hutt jusqu'à la fin de la bataille (ne peut pas être copié, dissipé ou évité). Jabba le Hutt est immunisé contre les effets de Raillerie et ne peut pas être pris pour cible pendant les tours ennemis lorsqu'un allié qui dispose de Mon genre de Vaurien est présent.\n\nJabba le Hutt gagne 3 % de charge ultime lorsqu'un allié avec Mon genre de Vaurien commence son tour ou utilise une capacité spéciale. Si un allié possédant Mon genre de Vaurien élimine un ennemi, Jabba le Hutt obtient 6 % de charge ultime.\n\nLorsque les ennelis reçoivent un détonateur thermique, leurs effets de régénération de santé et de protection sont réduits de 50 %.\n\nAu début de chaque affrontement, à l'exception du premier, les alliés Chasseurs de primes, Contrebandiers et ceux appartenant au Cartel des Hutt obtiennent un bonus de dégâts critiques, l'immunité aux dégâts et un bonus d'attaque pendant 2 tours (ne peut pas être copié, dissipé ou empêché).\n\nLorsque Jabba le Hutt est dans l'emplacement de chef, le contrat suivant est actif :\n\n<u class='speciale'>Contrat :</u> en disposant d'améliorations grâce à Mon genre de Vaurien, infliger des dégâts avec une attaque à des ennemis possédant des détonateur thermiques 20 fois. Les ennemis doivent être affaiblis avec un détonateur thermique avant le début de l'attaque pour compter dans la progression (seuls les Chasseurs de primes, les Contrebandiers et ceux appartenant au Cartel des Hutt peuvent contribuer au contrat). Pendant les raids, ce contrat est rempli directement au début de l'affrontement.\n\n<u class='speciale'>Récompense :</u> tous les Chasseurs de primes alliés voient leurs primes activées et tous les alliés Chasseurs de primes, Contrebandiers ou ceux du Cartel des Hutt gagnent 25 % de pénétration de défense, de pouvoir et d'attaque. Les alliés avec Mon genre de Vaurien obtiennent +55 % de maîtrise pour chaque cumul et récupèrent 20 % de protection au début de leur tour.",
+
+                "unique-ability1-title": "<u>Capacité Unique :L'illustre </u>",
+                "unique-ability1": "Au début de chaque affrontement, les délais des alliés du Cartel des Hutt sont réinitialisés. Les Chasseurs de primes, le Cartel des Hutt et les contrebandiers sont ranimés et récupèrent 60 % de santé et de protection.\n\nJabba le Hutt ignore les effts de Raillerie pendant son tour. Au début de son tour, il dissipe le camouflage de tous les ennemis. Lorsqu'un allié du cartel Hutt est étourdi, il est dissipé et gagne un bonus d'attaque pendant 2 tours.\n\nSi Jabba le Hutt n'est pas dans l'emplacement de chef allié, les alliés ne peuvent pas obtenir de bonus de jauge de tour.\n\nSi Jabba le Hutt est dans l'emplacement de chef allié, à chaque fois qu'un ennemi avec moins de 100 % de jauge de tour obtient des bonus de jauge de tour, les alliés du Cartel des Hutt obtiennent 7 % de jauge de tour (limité à une fois par tour). Lorsqu'un allié du Cartel des Hutt perde de la jauge de tour, il obtient un bonus de protection (20 %, cumulatif) jusqu'au début de son prochain tour.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Grand personnage</u>",
+                "unique-ability2": "Ce personnage ne peut pas être utilisé dans l'emplacement d'allié ou avec un autre grand personnage, et les invocations sont empêchées pour les alliés.",
+
+                "unique-ability3-title": "<u>Capacité Unique : Légende galactique</u>",
+                "unique-ability3": "Cette unité subit des dégâts réduits des effets de pourcentage de santé et des effets de dégâts importants, mais subit de lourds dégâts des effets de destruction (exclut les boss de raid) et elle est immunisée contre les effets d'étourdissement.\n\nCette unité a +10 % de santé maximale et de protection maximale par niveau d'amplificateur de relique, et ses dégâts subis sont réduits de 30 %.",
+
+                "prime-title": "Prime de Jabba le Hutt",
+                "prime": "A chaque fois que Jabba le Hutt reçoit des récoompenses pour un contrat rempli, il bénéficie également de la prime suivante. (Les contrats sont conférés par certaines capacités de chef des Chasseurs de primes.)\n\n<u class='speciale'>Prime :</u> Jabba le Hutt obtient 40 % de maîtrise et tous ses gains de charge ultime sont doublés pendant le reste de la bataille.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "jabba the hutt"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
 </body>
 </html>
