@@ -1,123 +1,250 @@
-<!DOCTYPE html
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Juhani</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Juhani</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/juhani/juhani-image.png">
-
-    <!-- Lien vers la feuille de style -->
-    <link rel="stylesheet" href="../style/styles.css">
-    <link rel="stylesheet" href="../style/capacite.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/juhani/juhani-image.png" alt="Juhani" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>Juhani</u></h1>
-        <p> 
-            Tank Jedi qui dissipe les affaiblissements des alliés de l'Ancienne République<br>
-            et devient plus dangereuse lorsque sa santé diminue.
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a style="color: blue;" class="capacite" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/tank.html">Tank</a>
-            <a class="capacite" href="../classement-perso/jedi.html">Jedi</a>
-            <a class="capacite" href="../classement-perso/ancienne-république.html">Ancienne République</a>
-        </nav>
+            <h1 id="title"><u>Juhani</u></h1>
+            <p id="description">
+                Unique Jedi Tank who dispels debuffs from Old Republic allies and becomes more dangerous below full Health
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
+                <a class="capacite" href="../classement-perso/ancienne-république.html" id="old-republic">Old Republic</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/juhani/juhani.png" alt="juhani first"><br>
+    <img class="first" src="../image-perso/juhani/juhani.png" alt="Juhani"><br>
 
-    <!-- Section pour les différentes attaques spéciales -->
-    <h2 class="titre"><u>attaque basique : Frappe Furieuse</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Raging Strike</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="juhani basique" src="../image-perso/juhani/juhani-basic.png">
+            <img class="attaque" alt="Juhani basic" src="../image-perso/juhani/juhani-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie. Cette attaque inflige 10% de dégâts<br>
-                supplémentaires pour chaque ennemi subissant un affaiblissement.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. This attack deals 10% more damage for each debuffed enemy.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>1ere spéciale: Esbroufe (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Boastful Provocation (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="juhani spé 1" src="../image-perso/juhani/juhani-spe1.png">
+            <img class="attaque" alt="Juhani special 1" src="../image-perso/juhani/juhani-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe tous les affaiblissements es alliés de l'Ancienne République et Jedi.<br>
-                Ensuite, Juhani utilise la Raillerie pendant 4 tours et étourdit la cible<br>
-                ennemie pendant 1 tour. Cet effet, ne peut pas être esquivé.
+            <p class="attaque" id="special-attack1">
+                Dispel all debuffs on Jedi and Old Republic allies. Then, Juhani gains Taunt for 4 turns and Stuns the target enemy for 1 turn, which can't be evaded.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>2eme spéciale: Raclée repentie (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Remorseful Thrash (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="juhani spé 2" src="../image-perso/juhani/juhani-spe2.png">
+            <img class="attaque" alt="Juhani special 2" src="../image-perso/juhani/juhani-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à tous les ennemis. Pour chaque coup critique, Juhani récupère 10%<br>
-                de santé et de protection. Si Juhani est camouflée pendant l'utilisation de cette capacité,<br>
-                inflige Faux-Pas à chaque ennemie pendant 2 tours.
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to all enemies. For each Critical Hit, Juhani recovers 10% Health and Protection. If Juhani is Stealthed when this ability is used, Stagger each enemy for 2 turns.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>capacité unique: Résistance Cathar</u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Cathar Resilience</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="juhani unique" src="../image-perso/juhani/juhani-unique.png">
+            <img class="attaque" alt="Juhani unique" src="../image-perso/juhani/juhani-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Juhani récupère 20% de sa santé au début de chacun de ses tours. Lorsqu'elle utilise la raillerie,<br>
-                Juhani a +35% de chances de contre-attaque.<br>
-                <br>
-                Lorsque la santé de Juhani passe en dessous de 100%, elle récupère 5% de protection pour chaque allié<br>
-                de l'Ancienne République ou Jedi actif? Ensuite, elle obtient un bonus de vol de santé, un bonus d'attaque,<br>
-                et le camouflage pendant 2 tours. Si Juhani utilise la Raillerie dans ce cas, la Raillerie est dissipée.<br>
-                <br>
-                <u class="omicron">Dans les Guerres de territoire :</u><br>
-                <br>
-                Au début de la bataille, Juhani utilise la Raillerie pendant 2 tours. Ensuite, Juhani, un utilisateur de la Force<br>
-                non aligné du Coté Obscur allié aléatoire (à l'exception des unités de l'Empire, du Premier Ordre ou les Légendes<br>
-                Galactiques) et un utilisateur de la Force non aligné du Coté Lumineux allié aléatoire (à l'exception des Légendes<br>
-                Galactiques) obtiennent <u class="speciale">Rédemption</u> jusqu'à ce que Juhani soit vaincue (ne peut pas être copié, dissipé ou évité).<br>
-                <br>
-                <u class="speciale">Rédemption :</u> +35 de vitesse. Lorsqu'un allié avec Rédemption utilise une capacité pendant<br>
-                son tour, tous les autres alliés avec Rédemption sont invoqués. Lorsqu'un allié avec Rédemption obtient une amélioration,<br>
-                dissipe tous les affaiblissements sur les alliés avec Rédemption. Lorsqu'un allié avec Rédemption subit des dégâts d'un<br>
-                ennemi, tous les alliés avec Rédemption obtiennent 15% de jauge de tour. Lorsqu'un allié avec Rédemption subit un<br>
-                affaiblissement, tous les alliés avec Rédemption récupèrent 15% de protection.
+            <p class="attaque" id="unique-ability1">
+                Juhani recovers 20% of her Health at the beginning of each of her turns. While Taunting, Juhani has +35% counter chance.
+                <br><br>
+                When Juhani falls below 100% Health, she recovers 5% Protection for each active Jedi or Old Republic ally, then gains Health Steal Up, Offense Up, and Stealth for 2 turns. If Juhani had Taunt when this condition was met, dispel Taunt.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> At the start of battle, Juhani Taunts for 2 turns. Then Juhani, a random Dark Side Unaligned Force User ally (excluding Empire, First Order, and Galactic Legends), and a random Light Side Unaligned Force User ally (excluding Galactic Legends) gain <u class="speciale">Redeemed</u> until Juhani is defeated, which can't be copied, dispelled, or prevented.
+                <br><br>
+                <u class="speciale">Redeemed:</u> +35 Speed; whenever an ally with Redeemed uses an ability during their turn, all other allies with Redeemed assist; whenever an ally with Redeemed gains a buff, dispel all debuffs on allies with Redeemed; whenever an ally with Redeemed is damaged by an enemy, all allies with Redeemed gain 15% Turn Meter; whenever an ally with Redeemed is inflicted with a debuff, all allies with Redeemed recover 15% Protection
             </p>
         </div>
     </div>
 
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Juhani",
+                "title": "<u>Juhani</u>",
+                "description": "Tank Jedi unique qui dissipe les affaiblissements des alliés de l'Ancienne République et devient plus dangereuse lorsque sa santé diminue.",
+
+                "lightside": "Coté Lumineux",
+                "tank": "Tank",
+                "jedi": "Jedi",
+                "old-republic": "Ancienne République",
+
+                "basic-attack-title": "<u>Attaque Basique: Frappe furieuse</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie. Cette attaque inflige 10 % de dégâts supplémentaire pour chaque ennemi subissant un affaiblissement.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Esbroufe (délai : 4)</u>",
+                "special-attack1": "Dissipe tous les affaiblissements des alliés de l'Ancienne République et Jedi. Ensuite, Juhani utilise Raillerie pendant 4 tours et étourdit la cible ennemie pendant 1 tour. Cet effet ne peut pas être esquivé.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Raclée repentie (délai : 3)</u>",
+                "special-attack2": "Inflige des dégâts physiques à tous les ennemis. Pour chaque coup critique, Juhani récupère 10 % de santé et de protection. Si Juhani est camouflée pendant l'utilisation de cette capacité, inflige faux pas à chaque ennemi pendant 2 tours.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Résistance Cathar</u>",
+                "unique-ability1": "Juhani récupère 20 % de sa santé au début de chaqun de ses tours. Lorsqu'elle utilise Raillerie, Juhani a +35 % de chances de contre-attaque.\n\nLorsque la santé de Juhani passe en dessous de 100 %, elle récupère 5 % de protection pour chaque allié de l'Ancienne République ou Jedi actif. Ensuite, elle obtient un bonus de vol de santé, un bonus d'attaque et le camouflage pendant 2 tours. Si Juhani utilise Raillerie dans ce cas, Raillerie est dissipée.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> Au début de la bataille, Juhani utilise Raillerie pendant 2 tours. Ensuite, Juhani, un utilisateur de la Force non aligné du Côté Obscur allié aléatoire (à l'exception des unités de l'Empire, du Premier Ordre ou les Légendes galactiques) et un utilisateur de la Force non aligné du Côté Lumineux allié aléatoire (à l'exception des Légendes galactiques) obtiennent <u class='speciale'>Rédemption</u> jusqu'à ce que Juhani soit vaincue (ne peut pas être copié, dissipé ou évité).\n\n<u class='speciale'>Rédemption :</u> +35 de vitesse. Lorsqu'un allié avec Rédemption utilise une capacité pendant son tour, tous les autres alliés avec Rédemption sont invoqués. Lorsqu'un allié avec Rédemption obtient une amélioration dissipe tous les affaiblissements sur les alliés avec Rédemption. Lorsqu'un allié avec Rédemption subit des dégâts d'un ennemi, tous les alliés avec Rédemption obtiennent 15 % de jauge de tour. Lorsqu'un allié avec Rédeption subit un affaiblissement, tous les alliés avec Rédemption récupèrent 15 % de protection.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "juhani"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
     </footer>
 </body>
 </html>
