@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Embo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/embo-clone-wars/embo-clone-wars-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/embo-clone-wars/embo-clone-wars-image.png" alt="Embo" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Embo</u></h1>
+            <p id="description">
+                Deadly Bounty Hunter Attacker that consumes his Protection to boost his damage
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/chasseur-de-primes.html" id="hunter">Bounty Hunter</a>
+                <a class="capacite" href="../classement-perso/cartell-des-hutt.html" id="hutt">Hutt Cartel</a>
+                <a class="capacite" href="../classement-perso/mercenaire.html" id="mercenary">Mercenary</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/embo-clone-wars/embo.png" alt="Embo"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Dismantling Shot</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Embo basic" src="../image-perso/embo-clone-wars/embo-clone-wars-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Dispel all buffs and deal Physical damage to target enemy.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Kyuzo War Helmet (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Embo spéciale 1" src="../image-perso/embo-clone-wars/embo-clone-wars-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy. This attack deals bonus damage equal to 35% of Embo's Max Protection. Then, Embo loses 50% Protection.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: The Quiet Assassin</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Embo lead" src="../image-perso/embo-clone-wars/embo-clone-wars-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                All Bounty Hunters gain +50% Counter Chance and +50% Health Steal. When a Bounty Hunter ally scores a Critical Hit during their turn, they gain Offense Up for 1 turn. When Embo is in the Leader slot, and not the Ally slot, the following Contract is active:
+                <br><br>
+                <u class="speciale">Contract:</u> Damage an enemy without buffs 15 times (Only Bounty Hunter allies can contribute to the Contract.)
+                <br><br>
+                <u class="speciale">Reward:</u> All Bounty Hunter allies gain +50% Offense. When a Bounty Hunter ally uses a basic ability, they deal bonus damage equal to 7% of the target's Max Protection.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Way of the Kyuzo</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Embo unique" src="../image-perso/embo-clone-wars/embo-clone-wars-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Embo can't be critically hit. While Embo has Protection he gains +30% Offense, while Embo has no Protection he gains +30% Critical Chance. When Embo receives damage from an enemy's attack, if he has no Protection, he gains Foresight for 2 turns.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> Bounty Hunter allies gain +40% Max Protection. At the end of Embo's turn, Bounty Hunter allies recover Protection equal to 25% of Embo's Max Protection, doubled for Embo. While Embo has Protection, all Bounty Hunter allies gain +30% Defense and 5% Turn Meter when a Bounty Hunter ally receives damage while debuffed.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="prime"><u class="prime" id="prime-title">Embo's Payout</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Embo prime" src="../image-perso/embo-clone-wars/embo-clone-wars-contrat.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="prime">
+                Whenever Embo receives Rewards from a Contract, he also gains the following Payout. (Contracts are granted by certain Bounty Hunter Leader Abilities.)
+                <br><br>
+                <u class="speciale">Payout:</u> Embo takes a bonus turn after scoring a Critical Hit. Embo can't take consecutive bonus turns. Embo gains a new Special ability "Elusive Strikes".
+                <br><br>
+                <u class="speciale">Elusive Strikes:</u> Deal Physical damage and recover Protection equal to the damage dealt. This attack ignores Protection.
+            </p>
+        </div>
+    </div>
+
+    <!-- Section pour les invocations -->
+    <h2 class="invocation" id="invocation-title">Elusive Strikes (cooldown : 4)</h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Embo granted" src="../image-perso/embo-clone-wars/embo-clone-wars-granted.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="invocation">
+                Deal Physical damage and recover Protection equal to the damage dealt. This attack ignores Protection.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Embo",
+                "title": "<u>Embo</u>",
+                "description": "Redoutable chasseur de primes attaquant qui sacrifie sa protection pour améliorer ses dégâts.",
+
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "hunter": "Chasseur de primes",
+                "Hutt": "Cartel des Hutt",
+                "mercenary": "Mercenaire",
+                "scoundrel": "Vaurien",
+
+                "basic-attack-title": "<u>Attaque Basique: tir renversant</u>",
+                "basic-attack": "Dissipe toutes les améliorations et inflige des dégâts physiques à une cible ennemie.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Casque de guerre Kyuzo (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie. Cette attaque inflige des dégâts supplémentaire ) hauteur de 35 % de la protection maximum d'Embo. Embo perd ensuite 50 % de protection.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Le tueur silencieux</u>",
+                "lead-ability": "Tous les Chasseurs de primes bénéficient d'un bonus de chance de contre-attaque de +50 % et de vol de santé de +50 %. Lorsqu'un Chasseur de prime allié inflige un coup critique pendant son tour, confère un bonus d'attaque pendant 1 tour. Lorsque Embo est dans l'emplacement de chef, et non dans l'emplacement d'allié, le contrat suivant est actif :\n\n<u class='speciale'>Contrat :</u> infliger des dégâts à un ennemi ne disposant pas d'amélioration 15 fois (Seuls les Chasseurs de primes alliés peuvent participer au contrat).\n\n<u class='speciale'>Récompense :</u> Tous les Chasseurs de primes alliés gagnent un bonus d'attaque de +50 %. Lorrsqu'un Chasseur de primes allié utilise une capacité de base, il inflige des dégâts supplémentaires à hauteur de 7 % de la protection maximum de la cible.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Tradition Kyuzo</u>",
+                "unique-ability1": "Embo ne peut pas subir de coup critique. Lorsqu'Embo dispose de protection, il obtient +30 % d'attaque. S'il ne dispose pas de protection, il obtient +25 % de chances de coup critique. Lorsqu'Embo subit des dégâts, il obtient Prévoyance pendant 2 tours s'il ne dispose pas de protection.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> Les Chasseurs de primes alliés obtiennent +40 % de protection maximale. A la fin du tour d'Embo, les Chasseurs de primes alliés récupèrent de la protection à hauteur de 25 % de la protection maximale d'Embo (doublée pour Embo). Lorsqu'Embo dispose de la protection, tous les Chasseurs de primes alliés obtiennent +30 % de défense et 5 % de jauge de tour chaque fois qu'un Chasseur de primes allié subissant un affaiblissement subit des dégâts.",
+
+                "prime-title": "Prime d'Embo",
+                "prime": "A chaque fois qu'Embo reçoit des récompenses pour un contrat rempli, il bénéficie également de la prime suivante (Les contrats sont conférés par certaines capacités de chef des Chasseurs de primes).\n\n<u class='speciale'>Prime d'Embo :</u> Embo dispose d'un tour bonus après avoir inflgié un coup critique. Les tours bonus d'Embo ne sont pas cumulables. Embo bénéficie également d'un nouvelle capacité spéciale : \"Frappe insaisissable\".\n\n<u class='speciale'>Frappe insaisissable :</u> Inflige des dégâts physiques et permet de récupérer de la protection à hauteur des dégâts infligés. Cette attaque ignore la protection.",
+
+                "invocation-title": "Frappe insaisissable (délai : 4)",
+                "invocation": "Inflige des dégâts physiques et permet de récupérer de la protection à hauteur des dégâts infligés. Cette attaque ignore la protection.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "embo"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
