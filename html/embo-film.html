@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Embo & Keibu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/embo-film/embo-film-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/embo-film/embo-film-image.png" alt="Embo & Keibu" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Embo & Keibu</u></h1>
+            <p id="description">
+                Elusive bounty hunter whose bond with his anooba makes them deadly in tandem
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/chasseur-de-primes.html" id="hunter">Bounty Hunter</a>
+                <a class="capacite" href="../classement-perso/cartell-des-hutt.html" id="hutt">Hutt Cartel</a>
+                <a class="capacite" href="../classement-perso/mercenaire.html" id="mercenary">Mercenary</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Anooba Ambush</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Embo & Keibu basic" src="../image-perso/embo-film/embo-film-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage and inflict 2 stacks of Bleed (max 6) on target enemy until end of the encounter, which can't be resisted. If the enemy did not have any buffs, remove 20% Turn Meter from them and Embo & Keibu gain that much.
+                <br><br>
+                If all allies are Bounty Hunter Mercenaries: Dispel debuffs from all allies and on Embo & Keibu's turn, if target enemy is inflicted with Bleed, a random other Attacker ally gains a bonus turn
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Kyuzo Hat Trick (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Embo & Keibu special 1" src="../image-perso/embo-film/embo-film-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy 3 times. If this attack is evaded, target enemy loses 20% Health (excluding Galactic Legends and Raid Bosses). If the target enemy is a Tank, this ability has +200% Health Steal. Otherwise, it has +100% Defense Penetration. Bounty Hunter Mercenary allies gain 50% Offense (stacking) for 2 turns.
+                <br><br>
+                If target enemy had no buffs, a random Bounty Hunter Mercenary Support ally gains a bonus turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Flush Out the Quarry (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Embo & Keibu special 2" src="../image-perso/embo-film/embo-film-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Dispel all buffs on target enemy and deal Physical damage to them. Embo & Keibu gain Critical Damage Up for 2 turns.
+                <br><br>
+                If there is an active Embo & Keibu's Captive or Tortured enemy, a random Bounty Hunter Mercenary Tank ally gains a bonus turn.
+                <br><br>
+                If all allies are Bounty Hunter Mercenaries:
+                <br><br>
+                - Inflict Captive on target enemy (excluding Galactic Legends) until the start of Embo & Keibu's next turn, which can't be dispelled, evaded, or resisted<br>
+                - Inflict a stack of <u class="speciale">Ambush</u> on the strongest enemy if they don't already have Ambush or Ambushed until the start of Embo & Keibu's next turn, which can't be dispelled, evaded, or resisted.
+                <br><br>
+                <u class="speciale">Ambush:</u> -50 Speed (max -50); gain an additional stack upon receiving damage; at 6 stacks, lose all stacks of Ambush and gain Ambushed until the end of the encounter
+                <br><br>
+                <u class="speciale">Ambushed:</u> -50 Speed (max -50); Protection is disabled, immune to Protection Up and bonus Protection, this effect persists through defeat
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Battles:</u> Bounty Hunter Mercenary allies take reduced damage from Percentage Health damage effects and gain 30% Max Protection (stacking) until end of battle and recover 75% Health and Protection.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Business Is Business</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Embo & Keibu lead" src="../image-perso/embo-film/embo-film-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Bounty Hunter Mercenary allies have +100% Defense Penetration and Max Health. If 3 enemies take consecutive turns before any ally has taken a turn, a random other Bounty Hunter Mercenary non-Tank ally gains a bonus turn. After every 2 bonus turns gained by other allies, Embo & Keibu gain a bonus turn.
+                <br><br>
+                Whenever a Bounty Hunter Mercenary ally takes a bonus turn, their cooldowns are reduced by 1 and whenever they use an ability on that turn, they Stun the target enemy for 1 turn and they deal an additional instance of damage to target enemy for each bonus turn that ally has gained (max 4), which can't be evaded.
+                <br><br>
+                While an enemy is inflicted with Embo & Keibu's Captive, Bounty Hunter Mercenary allies gain Ransom until end of battle whenever the following happens, which can't be copied, dispelled, or prevented:
+                <br><br>
+                - Gain 2 stacks whenever an enemy gains a dispellable buff<br>
+                - Gain 2 stacks whenever an enemy dispels a debuff<br>
+                - Gain 1 stack whenever an enemy attacks out of turn
+                <br><br>
+                Whenever Embo & Keibu inflict Captive, if they gain 30 stacks of Ransom before their next turn: At the start of their turn, Embo & Keibu remove their Captive from all enemies and the enemy who had Captive is Exposed for 1 turn. Otherwise, the Captive enemy is inflicted with Torture for the rest of the encounter, which can't be dispelled, evaded, or resisted.
+                <br><br>
+                Tortured enemies are immune to Captive.
+                <br><br>
+                When Embo & Keibu are in the Leader slot and not the ally slot, the following Contract is active:
+                <br><br>
+                <u class="speciale">Contract:</u> Deal damage to enemies while buffed 20 times.
+                <br><br>
+                <u class="speciale">Reward:</u> Embo & Keibu gain the Granted Ability <u class="speciale">Smoke and Shadow</u>.
+                <br><br>
+                <u class="speciale">Smoke and Shadow:</u> Stealth for 1 turn. While this Stealth is active, Embo & Keibu and the weakest Bounty Hunter Mercenary non-Tank ally recover 15% Health and Protection at the start of each enemy's turn. When this Stealth expires, reduce the Offense of all enemies who damaged Bounty Hunter Mercenary allies by 30% for 2 turns.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenes :</u> Bounty Hunter Mercenary allies gain 200 Speed for 1 turn and Bounty Hunter's Resolve until the end of battle.
+            </p>
+        </div>
+    </div>
+
+    <!-- Section pour les invocations -->
+    <h2 class="invocation" id="invocation-title">Smoke and Shadow (cooldown : 3)</h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Embo & Keibu granted" src="../image-perso/embo-film/embo-film-granted.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="invocation">
+                Stealth for 1 turn. While this Stealth is active, Embo & Keibu and the weakest Bounty Hunter Mercenary non-Tank ally recover 15% Health and Protection at the start of each enemy's turn. When this Stealth expires, reduce the Offense of all enemies who damaged Bounty Hunter Mercenary allies by 30% for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="prime"><u class="prime" id="prime-title">Embo & Keibu's Payout</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Embo & Keibu prime" src="../image-perso/embo-film/embo-film-contrat.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="prime">
+                When Embo & Keibu receive a Reward from a Contract, they also gain the following Payout. (Contracts are granted by certain Bounty Hunter Leader abilities.)
+                <br><br>
+                <u class="speciale">Embo & Keibu's Payout:</u> Bounty Hunter Mercenary allies gain 50% Critical Damage until the end of battle. Embo & Keibu gain 10 Speed (stacking, max 100) whenever they resist a debuff until the end of battle.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Soldier of Fortune</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Embo & Keibu unique" src="../image-perso/embo-film/embo-film-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of battle, Embo & Keibu gain 2 stacks of Soldier of Fortune per Relic Amplifier level they have.
+                <br><br>
+                Whenever a buff is dispelled on an enemy, Embo & Keibu gain 7 stacks of Soldier of Fortune.
+                <br><br>
+                At the start of each Bounty Hunter Mercenary ally's turn, they have +2% Offense for each Soldier of Fortune stack on Embo & Keibu until the end of that turn.
+                <br><br>
+                Whenever Embo & Keibu receive damage from an enemy, if they have more than 10 stacks of Soldier of Fortune, they lose 10 stacks of Soldier of Fortune, the weakest Bounty Hunter Mercenary non-Tank ally recovers 20% Protection, and Embo & Keibu gain 50% Critical Damage (stacking) for 2 turns.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> When a Bounty Hunter Mercenary ally receives damage for the first time, they gain Damage Immunity for 2 turns, which can't be dispelled or prevented and Embo & Keibu gain 25 stacks of Soldier of Fortune.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Large Character</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Embo & Keibu unique" src="../image-perso/embo-film/embo-film-unique3.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                This character can't be used in the ally slot or with another large character and summons are prevented for allies.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Embo et Keibu",
+                "title": "<u>Embo et Keibu</u>",
+                "description": "Chasseur de prime insaisissable dont le lien avec son anooba les rends meurtriers en tandem",
+
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "hunter": "Chasseur de primes",
+                "Hutt": "Cartel des Hutt",
+                "mercenary": "Mercenaire",
+                "scoundrel": "Vaurien",
+
+                "basic-attack-title": "<u>Attaque Basique: Embuscade d'Anooba</u>",
+                "basic-attack": "Inflige des dégâts physiques et inflige 2 cumuls de Saignement (6 max.) à la cible ennemie jusqu'à la fin de l'affrontement (ne peut pas âtre résisté). Si l'ennemi  ne dispose d'aucune amélioration, lui retire 20 % de jauge de tour et Embo et Keibu gagnent le même montant.\n\nSi tous les alliés sont des Chasseurs de primes mercenaires : dissipe les affaiblissements de tous les alliés et, pendant le tour d'Embo et Keibu, si la cible ennemie subit Saignement, un autre attaquant allié aléatoire obtient un tour bonus.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Coup du chapeau Kyuzo (délai : 4)</u>",
+                "special-attack1": "Inflige des dégâts physiques à la cible ennemie 3 fois. Si cette attaque est esquivée, la cible ennemie perd 20 % de santé (à l'exception des Légendes galactiques et des boss de raid). Si la cible ennemie est un Tank, cette capacité a +200 % de vol de santé. Sinon, elle a +100 % de pénétration de défense. Les alliés Chasseurs de primes mercenaires gagnent 50 % d'attaque (cumulatif) pendant 2 tours.\n\nSi la cible ennemie n'avait aucune amélioration, un soutien allié Chasseur de primes mercenaires aléatoire obtient un tour bonus.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Débusquer la proie (délai : 4)</u>",
+                "special-attack2": "Dissipe toutes les améliorations de la cible ennemie et lui inflige des dégâts physiques. Embo et Keibu obtiennent un bonus de dégâts critiques pendant 2 tours.\n\nS'il y a un ennemi actif d'Embo et Keibu qui subit Captivité ou Torture, un allié chasseur de primes mercenaires tank aléatoire gagne un tour bonus.\n\nSi tous les alliés sont des chasseurs de primes mercenaires :\n\n-inflige Captivité à la cible ennemie (à l'exception des Légendes galactiques) jusqu'au début du prochain tour d'Embo et Keibu (ne peut pas être dissipé, esquivé ou résisté).\n- Inflige un cumul d'<u class='speciale'>Embuscade</u> à l'ennemi le plus puissant s'il ne subit pas dégà Embuscade ou Guet-apens jusqu'au début du prochain tour d'Embo et Keibu (ne peut pas être dissipé, esquivé ou résisté).\n\n<u class='speciale'>Embuscade :</u> -50 de vitesse (max -50). Gagne un cumul supplémenaire en cas de dégâts subits. A 6 cumuls, perd tous les cumuls d'Embuscade et obtient Guet-apens jusqu'à la fin de l'affrontement.\n\n<u class='speciale'>Geut-apens :</u> -50 de vitesse (max -50). La protection est désactivée, immunité contre les bonus de protection et la protection supplémentaire, cet effet persiste après la défaite.\n\n<u class='omicron'>Amélioration Omicron : Dans les Batailles de territoire :</u> Les alliés chasseurs de primes mercenaires subissent des dégâts réduits des effets de dégâts en pourcentage de santé et gagnent 30 % de protection maximale (cumulatif) jusqu'à la fin de la bataille, et récupèrent 75 % de santé et de protection.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Les affaires sont les affaires.</u>",
+                "lead-ability": "Les alliés Chasseurs de primes mercenaires ont +100 % de pénétration de défense et de santé maximale. Si 3 ennemis jouent des tours consécutifs avant qu'un allié n'est joué son tour, un autre allié chasseur de primes mercenaire qui n'est pas un tank allié aléatoire obtient un tour bonus. Chaque fois que 2 tour bonus sont obtenues par d'autres alliés, Embo et Keibu obtiennentn un tour bonus.\n\nChaque fois qu'un allié Chasseur de primes mercenaire obtient un tour bonus, ses délais sont réduits de 1 et chaque fois qu'il utilise une capacité pendant ce tour, il inflige Étourdissement à la cible ennemie pendant 1 tour et il inflige des dégâts supplémentaires à la cible ennemie pour chaque tour bonus que cet allié a obtenue (4 max) ne peut pas être esquivé.\n\nTant qu'un ennemi est sous Captivité, les alliés chasseurs de primes mercenaires gagnent rançon jusqu'à la fin de la bataille lorsque les évènements suivants se produisent (ne peut pas être copié, dissipé ou évité) :\n\n- Obtient 2 cumuls chaque fois qu'un ennemi obtient une amélioration dissipable.\n- Obtient 2 cumuls chaque fois qu'un ennemi dissipe un affaiblissement.\n- Obtient 1 cumul chaque fois qu'un ennemi attaque en dehors de son tour.\n\nChaque fois qu'Embo et Keibu infligent Captivité, s'ils gagnent 30 cumuls de Rançon avant leur prochain tour : au début de leur tour, Embo et Keibu retirent Captivité de tous les ennemis et l'ennemi qui était sous Captivité subit Exposition pendant 1 tour. Sinon, l'ennemi sous Captivité subit Torture pour le reste de l'affrontement (ne peut pas être dissipé, esquivé ou résisté).\n\nLes ennemis sous Torture sont immunisés contre Captivité.\n\nLorsqu'Embo et Keibu sont dans l'emplacement de chef et non dans l'emplacement d'allié, le contrat suivant est actif :\n\n<u class='speciale'>Contrat :</u> infligez des dégâts aux ennemis sous amélioration 20 fois.\n\n<u class='speciale'>Récompense :</u> Embo et Keibu obtiennent la capacité conférée <u class='speciale'>Fumée et ombre</u>.\n\n<u class='speciale'>Fumée et ombre :</u> gagne Camouflage pendant 1 tour. Tant que ce camouflage est actif, Embo et Keibu et l'allié chasseur de primes mercenaire le plus faible qui n'est pas un tank récupèrent 10 % de santé et de protection au début du tour de chaque ennemi. Lorsque ce camouflage expire, réduit l'attaque de 30 % pendant 2 tours.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> Les alliés Chasseurs de primes mercenaires gagnent 200 de vitesse pendant 1 tour et Détermination du chasseur de primes jusqu'à la fin de la bataille.",
+
+                "invocation-title" : "Fumée et ombre (délai : 3)",
+                "invocation" : "Gagne Camouflage pendant 1 tour. Tant que ce camouflage est actif, Embo et Keibu et l'allié chasseur de primes mercenaire le plus faible qui n'est pas un tank récupèrent 10 % de santé et de protection au début du tour de chaque ennemi. Lorsque ce camouflage expire, réduit l'attaque de 30 % pendant 2 tours.",
+
+                "prime-title": "Prime d'Embo et Keibu",
+                "prime": "Lorsqu'Embo et Keibu reçoivent une récompense d'un contrat, elle vient avec la prime suivante. (Les contrats sont conférés par certaines capacités de chef des Chasseurs de primes).\n\n<u class='speciale'>Prime d'Embo et Keibu :</u> les alliés Chasseurs de primes mercenaires gagnent 50 % de dégâts critiques jusqu'à la fin de la bataille. Embo et Keibu gagnent 10 de vitesse (cumulatif, 100 max.) chaque fois qu'ils résistent à un affaiblissement jusqu'à la fin de la bataille.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Soldat de fortune</u>",
+                "unique-ability1": "Au début de la bataille, Embo et Keibu gagnent 2 cumuls de Soldat de fortune par niveau d'amplificateur de relique qu'ils possèdent.\n\nChaque fois qu'une amélioration est dissipée sur un ennemi, Embo et Keibu gagnent 7 cumuls de Soldat de fortune.\n\nAu début du toir de chaque allié Chasseur de primes mercenaire, il dispose de +2 % d'attaque par cumul de Soldat de fortune sur Embo et Keibu jusqu'à la fin de ce tour.\n\nChaque fois qu'un allié chasseur de primes mercenaire subissent des dégâts d'un ennemi, s'ils ont plus de 10 cumuls de Soldat de fortune, l'allié chasseur de primes mercenaire non-Tank le plus faible récupère 20 % de protection et gagne 50 % de dégâts critiques (cumulatif) pendant 2 tours.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> Lorsqu'un allié chasseur de primes mercenaire subit des dégâts, il gagne Immunité aux dégâts pendant 2 tours (ne peut pas être dissipé ou évité) et Embo et Keibu gagnent 25 cumuls de Soldat de fortune.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Grand personnage</u>",
+                "unique-ability2": "Ce personage ne peut pas être utilisé dans l'emplacement d'allié ou avec un autre grand personnage, et les invocations sont empêchées pour les alliés.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || ""; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
