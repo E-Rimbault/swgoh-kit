@@ -1,0 +1,1431 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- A MODIFIER: Titre de la page dans l'onglet du navigateur -->
+    <title>SWGOH - Order 66</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+       1. STYLES GÉNÉRIQUES & VARIABLES (A CONSERVER SANS MODIFICATION)
+       ========================================================================== */
+        u.speciale {
+            font-weight: bold;
+            color: yellow;
+            text-decoration: none;
+        }
+
+        u.rage {
+            font-weight: bold;
+            color: red;
+            text-decoration: none;
+        }
+
+        :root {
+            --sw-bg-dark: #050505;
+            --sw-bg-card: #121212;
+            --sw-border: #333;
+            --sw-text-main: #e0e0e0;
+            --sw-blue-text: #00a2ff;
+            --font-titles: 'Orbitron', sans-serif;
+            --sidebar-width: 380px;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--sw-bg-dark);
+            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+            color: var(--sw-text-main);
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: var(--sidebar-width);
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(5px);
+            padding: 25px;
+            border-right: 2px solid var(--sw-border);
+            z-index: 10000;
+            overflow-y: auto;
+        }
+
+        #content {
+            margin-left: var(--sidebar-width);
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        .raid-header-img {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
+            background: #000;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border: 1px solid var(--sw-border);
+        }
+
+        .main-raid-title {
+            font-family: var(--font-titles);
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--sw-blue-text);
+            padding-left: 15px;
+        }
+
+        .nav-section {
+            margin-bottom: 20px;
+        }
+
+        .nav-title {
+            font-family: var(--font-titles);
+            color: var(--sw-blue-text);
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #222;
+        }
+
+        .nav-item {
+            display: block;
+            padding: 12px 15px;
+            color: #aaa;
+            text-decoration: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .nav-item:hover {
+            background: rgba(0, 162, 255, 0.1);
+            color: #fff;
+        }
+
+        .nav-item.active {
+            background: var(--sw-blue-text);
+            color: #000;
+            font-weight: bold;
+        }
+
+        .section-content {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .section-content.active {
+            display: block;
+        }
+
+        .faction-name {
+            font-size: 120%;
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ACCORDIONS */
+        .accordion-item-sw {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--sw-border);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .accordion-header-sw {
+            padding: 15px 20px;
+            cursor: pointer;
+            font-family: var(--font-titles);
+            color: var(--sw-blue-text);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+            background: rgba(0, 162, 255, 0.05);
+        }
+
+        .accordion-header-sw:hover {
+            background: rgba(0, 162, 255, 0.15);
+        }
+
+        .accordion-content-sw {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+            padding: 0 20px;
+        }
+
+        .accordion-item-sw.active .accordion-content-sw {
+            max-height: 3000px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border-top: 1px solid var(--sw-border);
+        }
+
+        /* FACTION CARDS */
+        .faction-card {
+            background: var(--sw-bg-card);
+            border: 1px solid var(--sw-border);
+            border-radius: 10px;
+            padding: 0;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.3s;
+            overflow: hidden;
+        }
+
+        .faction-content-box {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+            background: #0a0a0a;
+            color: var(--sw-text-main);
+            border-top: 0 solid var(--sw-border);
+        }
+
+        .faction-card.active .faction-content-box {
+            max-height: 3000px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border-top-width: 1px;
+        }
+
+        .info-box {
+            background: var(--sw-bg-card);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--sw-border);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .lang-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .lang-toggle img {
+            cursor: pointer;
+            width: 25px;
+            opacity: 0.4;
+            transition: 0.3s;
+            border: 2px solid transparent;
+            border-radius: 4px;
+        }
+
+        .lang-toggle img.active {
+            opacity: 1;
+            border-color: var(--sw-blue-text);
+        }
+
+        #units-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+        }
+
+        .raid-unit-img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            border-radius: 10px;
+            border: 2px solid var(--sw-border);
+            background: #000;
+        }
+
+        @media (max-width: 992px) {
+            #sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                border-right: none;
+            }
+
+            #content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==========================================================================
+     BARRE LATÉRALE (SIDEBAR)
+     ========================================================================== -->
+    <div id="sidebar">
+        <!-- Sélecteur de langue (À CONSERVER) -->
+        <div class="lang-toggle">
+            <img src="https://flagcdn.com/us.svg" alt="EN" id="lang-en" onclick="switchLanguage('en')">
+            <img src="https://flagcdn.com/fr.svg" alt="FR" id="lang-fr" onclick="switchLanguage('fr')">
+        </div>
+
+        <!-- A MODIFIER: Image d'en-tête du Raid -->
+        <img src="../raid-image/raid-order66.png" class="raid-header-img" alt="Odrer 66">
+
+        <!-- Navigation (À CONSERVER) -->
+        <div class="nav-section">
+            <div class="nav-title" id="title-resume">Summary</div>
+            <div id="btn-history" class="nav-item active" onclick="showSection('resume', this)">Story & Rules</div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-title" id="title-details">Details</div>
+            <div id="btn-factions" class="nav-item" onclick="showSection('factions', this)">Faction Bonuses</div>
+            <div id="btn-capacities" class="nav-item" onclick="showSection('capacities', this)">Abilities</div>
+            <div id="btn-diff" class="nav-item" onclick="showSection('diff', this)">Difficulty Modifiers</div>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-title" id="title-restrict">Restrictions</div>
+            <div id="btn-unites" class="nav-item" onclick="showSection('unites', this)">Eligible Units</div>
+        </div>
+
+        <button class="btn btn-outline-info w-100 mt-4" onclick="window.location.href='raid.html'"
+            id="btn-back">BACK</button>
+    </div>
+    <div id="content">
+        <!-- A MODIFIER: Nom du Raid par défaut (Anglais) -->
+        <h1 class="main-raid-title" id="raid-main-name">Order 66</h1>
+
+        <!-- ----------------------------------------------------------------------
+         1. SECTION RESUME (Histoire & Règles)
+         ---------------------------------------------------------------------- -->
+        <div id="section-resume" class="section-content active">
+            <h2 id="h-history">Story & Rules</h2>
+
+            <!-- Accordéon Histoire -->
+            <div class="accordion-item-sw">
+                <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                    <span id="title-story">STORY</span><span>+</span>
+                </div>
+                <!-- A MODIFIER: Texte de l'histoire en Anglais -->
+                <div class="accordion-content-sw" id="text-story">
+                    Operation Knightfall has commenced and Lord Vader has begun his extermination of the Jedi. Fight
+                    through the Dark Side Clone Troopers blocking your path. Attempt to interrupt his onslaught before
+                    Order 66 is completed.
+                </div>
+            </div>
+
+            <!-- Accordéon Règles -->
+            <div class="accordion-item-sw">
+                <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                    <span id="title-rules">RULES</span><span>+</span>
+                </div>
+                <!-- A MODIFIER: Règles du raid en Anglais -->
+                <div class="accordion-content-sw" id="text-rules">
+                    • Time Limit: 2d 23h<br>
+                    • Requirements: 5 Stars, Specific Units<br>
+                    • Roster Refresh: Never<br>
+                    • Launch Cost: 180K<br>
+                    • Max Attempts: 5
+                </div>
+            </div>
+        </div>
+
+        <!-- ----------------------------------------------------------------------
+         2. SECTION FACTIONS (Bonus de Faction)
+         ---------------------------------------------------------------------- -->
+        <div id="section-factions" class="section-content">
+            <h2 id="h-factions">Faction Bonuses</h2>
+            <div class="info-box" id="text-factions-intro">Characters can obtain one or more of the following abilities
+                during the raid.</div>
+
+            <div class="faction-grid">
+                <!-- A MODIFIER / DUPLIQUER : Carte Faction (Répéter autant de fois qu'il y a de factions) -->
+                <div class="faction-card" onclick="toggleFaction(this)">
+                    <div class="faction-header">
+                        <!-- Image Faction -->
+                        <img style="height: 10%; width: 10%;" src="../raid-image/raid-order66/faction.png">
+                        <!-- ID unique requis (ex: f-1, f-2...) -->
+                        <span class="faction-name" id="f-1">Faction Bonus: Pirates</span>
+                    </div>
+                    <!-- ID unique de contenu (ex: content-f-1, content-f-2...) -->
+                    <div class="faction-content-box" id="content-f-1">
+                        Whenever a Pirate gains a stack of Profit, they dispel all debuffs on themselves and their next
+                        ability deals bonus True damage equal to 10% of their Max Health to target enemy on their next
+                        turn.
+                    </div>
+                </div>
+
+                <div class="faction-card" onclick="toggleFaction(this)">
+                    <div class="faction-header">
+                        <img style="height: 10%; width: 10%;" src="../raid-image/raid-order66/faction.png">
+                        <span class="faction-name" id="f-2">Faction Bonus: Jedi Vanguard</span>
+                    </div>
+                    <div class="faction-content-box" id="content-f-2">
+                        +50% Max Health and Max Protection. Whenever any turn ends, if a Jedi Vanguard has 3 or more
+                        buffs, they gain 5% Offense (stacking) for the rest of the encounter.
+                    </div>
+                </div>
+
+                <div class="faction-card" onclick="toggleFaction(this)">
+                    <div class="faction-header">
+                        <img style="height: 10%; width: 10%;" src="../raid-image/raid-order66/faction.png">
+                        <span class="faction-name" id="f-3">Faction Bonus: Dark Side Clone Troopers</span>
+                    </div>
+                    <div class="faction-content-box" id="content-f-3">
+                        Whenever an enemy is inflicted with Order 66, all Dark Side Clone Troopers and Grand Moff Tarkin
+                        gain 25% Turn Meter and 100% Offense for 1 turn.
+                    </div>
+                </div>
+
+                <div class="faction-card" onclick="toggleFaction(this)">
+                    <div class="faction-header">
+                        <img style="height: 10%; width: 10%;" src="../raid-image/raid-order66/faction.png">
+                        <span class="faction-name" id="f-4">Faction Bonus: Bad Batch</span>
+                    </div>
+                    <div class="faction-content-box" id="content-f-4">
+                        [Stealthed characters deal 5% more damage. Non-Stealthed characters take 5% less damage when
+                        targeted.
+                    </div>
+                </div>
+
+                <div class="faction-card" onclick="toggleFaction(this)">
+                    <div class="faction-header">
+                        <img style="height: 10%; width: 10%;" src="../raid-image/raid-order66/windu.png">
+                        <span class="faction-name" id="f-5">Hero Bonus: Jedi Master Mace Windu</span>
+                    </div>
+                    <div class="faction-content-box" id="content-f-5">
+                        Whenever an enemy is Revealed, Jedi Master Mace Windu dispels all debuffs on himself and
+                        recovers 100% Health. If Jedi Master Mace Windu is the ally in the Leader slot, Jedi Vanguards
+                        gain benefits based on their role:<br>
+                        - Attackers: +100% Offense<br>
+                        - Healers and Supports: Dispel Stealth at the start of their turn<br>
+                        - Tanks: Gain Protection Up (100%) for 2 turns whenever Jedi Master Mace Windu uses a Special
+                        ability
+                    </div>
+                </div>
+
+                <div class="faction-card" onclick="toggleFaction(this)">
+                    <div class="faction-header">
+                        <img style="height: 10%; width: 10%;" src="../raid-image/raid-order66/jocasta.png">
+                        <span class="faction-name" id="f-6">Hero Bonus: Jocasta Nu</span>
+                    </div>
+                    <div class="faction-content-box" id="content-f-6">
+                        Whenever a Jedi Vanguard ally attacks out of turn, Jocasta's cooldowns are reduced by 1.
+                        Whenever she uses a Special ability Jedi Vanguard allies gain Crit Avoidance Up for 2 turns.
+                    </div>
+                </div>
+
+                <div class="faction-card" onclick="toggleFaction(this)">
+                    <div class="faction-header">
+                        <img style="height: 10%; width: 10%;" src="../raid-image/raid-order66/kelleran.png">
+                        <span class="faction-name" id="f-7">Hero Bonus: Kelleran Beq</span>
+                    </div>
+                    <div class="faction-content-box" id="content-f-7">
+                        While Kelleran Beq has full Health he has +25% Speed.
+                    </div>
+                </div>
+
+                <div class="faction-card" onclick="toggleFaction(this)">
+                    <div class="faction-header">
+                        <img style="height: 10%; width: 10%;" src="../raid-image/raid-order66/tarkin.png">
+                        <span class="faction-name" id="f-8">Hero Bonus: Grand Moff Tarkin</span>
+                    </div>
+                    <div class="faction-content-box" id="content-f-8">
+                        Grand Moff Tarkin gains Tenacity equal to 5% of his Potency.
+                    </div>
+                </div>
+
+                <div class="faction-card" onclick="toggleFaction(this)">
+                    <div class="faction-header">
+                        <img style="height: 10%; width: 10%;" src="../raid-image/raid-order66/appo.png">
+                        <span class="faction-name" id="f-9">Hero Bonus: CC-1119 "Appo"</span>
+                    </div>
+                    <div class="faction-content-box" id="content-f-9">
+                        While Knightfall Trooper is active, Appo has +25% Defense.
+                    </div>
+                </div>
+
+                <div class="faction-card" onclick="toggleFaction(this)">
+                    <div class="faction-header">
+                        <img style="height: 10%; width: 10%;" src="../raid-image/raid-order66/omega-s3.png">
+                        <span class="faction-name" id="f-9">Hero Bonus: Omega (Fugitive)</span>
+                    </div>
+                    <div class="faction-content-box" id="content-f-9">
+                        Whenever Omega dispels a debuff, she gains 50% Tenacity for 1 turn.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ----------------------------------------------------------------------
+         3. SECTION ABILITIES (Capacités conférées, Boss, Sbires)
+         ---------------------------------------------------------------------- -->
+        <div id="section-capacities" class="section-content">
+            <h2 id="h-capa">Abilities</h2>
+
+            <!-- GROUPE 1: Capacités conférées (Granted Abilities) -->
+            <div class="accordion-item-sw">
+                <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                    <span id="capa-granted">Granted Abilities</span><span>+</span>
+                </div>
+                <div class="accordion-content-sw" id="val-capa-granted-1">
+                    <!-- A MODIFIER / DUPLIQUER: Capacité Conférée 1 -->
+                    <div class="faction-card mb-3 shadow-sm">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-order66/special1.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="capa-name-1" style="white-space: nowrap;">Rescue</span>
+                        </div>
+                        <div class="p-3" id="capa-desc-1"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Deal damage to Lord Vader 3 times to unlock. Rescue the endangered Jedi.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-content-sw" id="val-capa-granted-2">
+                    <div class="faction-card mb-3 shadow-sm">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-order66/special2.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="capa-name-2" style="white-space: nowrap;">Dire
+                                Fortitude</span>
+                        </div>
+                        <div class="p-3" id="capa-desc-2"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Add 5 stacks of Execute to enemy Lord Vader (10 stacks if all allies are Jedi Vanguard). All
+                            allies gain <u class="speciale">Dire Fortitude</u> for the rest of the battle.
+                            <br><br>
+                            <u class="speciale">Dire Fortitude:</u> +35% Critical Chance, Defense, and Offense; whenever
+                            this character gains a buff, they also gain 10% Critical Damage (stacking) for the rest of
+                            the battle
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-content-sw" id="val-capa-granted-3">
+                    <div class="faction-card mb-3 shadow-sm">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-order66/special3.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="capa-name-3" style="white-space: nowrap;">[Nom Capacité 1
+                                (EN)]</span>
+                        </div>
+                        <div class="p-3" id="capa-desc-3"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            All enemies are <u class="speciale">Subdued</u> until defeated, which can't be copied,
+                            dispelled, evaded, or resisted. Whenever an enemy is inflicted with a debuff they take True
+                            damage equal to 5% of their Max Health.
+                            <br><br>
+                            <u class="speciale">Subdued:</u> -35% Critical Avoidance, Defense, and Tenacity
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lord Vader: Boss Principal -->
+            <div class="accordion-item-sw">
+                <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                    <div class="d-flex align-items-center gap-3" style="flex: 1; min-width: 0;">
+                        <img src="../raid-image/raid-order66/lord-vader.png"
+                            style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                        <span id="capa-boss-1"
+                            style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Lord Vader</span>
+                    </div>
+                    <span style="flex-shrink: 0;">+</span>
+                </div>
+                <div class="accordion-content-sw" id="val-capa-boss-1">
+
+                    <!-- A MODIFIER / DUPLIQUER: Attaque Boss 1 -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-order66/lv-spe1.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="boss-capa-name-1" style="white-space: nowrap;">Vindictive
+                                Strike</span>
+                        </div>
+                        <div class="p-3" id="boss-capa-desc-1"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Deal True damage to target enemy. Enemies defeated by this ability can't be revived.
+                        </div>
+                    </div>
+
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-order66/empire.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="boss-capa-name2" style="white-space: nowrap;">My New
+                                Empire</span>
+                        </div>
+                        <div class="p-3" id="boss-capa-desc-2"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Other Empire allies have +40 Speed, +40% Mastery, and +30% Max Health.
+                            <br><br>
+                            Whenever a Dark Side ally loses a buff, Empire allies gain 1% Mastery (stacking) until the
+                            end of battle. Whenever a debuffed Dark Side ally takes damage, they gain 20 Speed for 1
+                            turn.
+                            <br><br>
+                            Empire allies have +35% Critical Chance and Critical Damage when targeting a Galactic
+                            Republic enemy. Whenever an enemy critically hits an Empire ally, that enemy has -30%
+                            Critical Damage (stacking) for 3 turns.
+                            <br><br>
+                            While Empire allies are at certain Health thresholds, they gain different benefits:<br>
+                            - While above 35% Health: Empire allies are immune to Turn Meter reduction<br>
+                            - While above 50% Health: They are immune to Damage Over Time and cooldown increase<br>
+                            - While below 80% Health: Can't be critically hit<br>
+                        </div>
+                    </div>
+
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-order66/lv-spe3.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="boss-capa-name-3" style="white-space: nowrap;">Twisted
+                                Omenspan>
+                        </div>
+                        <div class="p-3" id="boss-capa-desc-3"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Lord Vader can't be targeted while all Knightfall Troopers or Disguised Clone Troopers are
+                            active. Lord Vader is immune to cooldown and Turn Meter manipulation and has 0 Speed. At the
+                            start of battle, Lord Vader has 25 stacks of Execute (reduced to 15 if there are fewer than
+                            5 enemies).
+                            <br><br>
+                            Whenever a Dark Side Clone Trooper ally scores a critical hit, Lord Vader loses 1 stack of
+                            Execute. Whenever all stacks of Execute are lost, Lord Vader takes a bonus turn, which can't
+                            be prevented. After this bonus turn, he is reset to 25 stacks of Execute, and all defeated
+                            Disguised Clone Troopers and Knightfall Troopers are reinforced.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- kngihtfall trooper: Boss Principal -->
+            <div class="accordion-item-sw">
+                <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                    <div class="d-flex align-items-center gap-3" style="flex: 1; min-width: 0;">
+                        <img src="../raid-image/raid-order66/knightfall.png"
+                            style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                        <span id="capa-boss-2"
+                            style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Knightfall
+                            trooper</span>
+                    </div>
+                    <span style="flex-shrink: 0;">+</span>
+                </div>
+                <div class="accordion-content-sw" id="val-capa-boss-2">
+
+                    <!-- A MODIFIER / DUPLIQUER: Attaque Boss 2 -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-order66/appo-basic.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="boss-capa-name-4" style="white-space: nowrap;">Imperial
+                                March</span>
+                        </div>
+                        <div class="p-3" id="boss-capa-desc-4"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Deal Physical damage to target enemy and grant Defense Penetration Up to the strongest ally
+                            that does not have it for 2 turns.
+                        </div>
+                    </div>
+
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-order66/appo-spe1.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="boss-capa-name-5" style="white-space: nowrap;">Defender of
+                                the Empire</span>
+                        </div>
+                        <div class="p-3" id="boss-capa-desc-5"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Call a random Dark Side Clone Trooper Support ally to assist and they Stealth for 1 turn at
+                            the end of the round. Then deal Physical damage to target opponent. Appo and Knightfall
+                            Trooper gain Advantage for 1 turn.
+                        </div>
+                    </div>
+
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-order66/appo-unique.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="boss-capa-name-6" style="white-space: nowrap;">Battalion
+                                Brothers</span>
+                        </div>
+                        <div class="p-3" id="boss-capa-desc-6"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Whenever Knightfall Trooper scores a critical hit gain 20% Offense (stacking) for the rest
+                            of the battle. Knightfall Trooper has +100% Critical Chance while they aren't debuffed.
+                            While Knightfall Trooper has Advantage they have +100% Critical Damage.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- disguised clone trooper": Boss Principal -->
+            <div class="accordion-item-sw">
+                <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                    <div class="d-flex align-items-center gap-3" style="flex: 1; min-width: 0;">
+                        <img src="../raid-image/raid-order66/disguised-clone.png"
+                            style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                        <span id="capa-boss-3"
+                            style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Disguised Clone
+                            Trooper</span>
+                    </div>
+                    <span style="flex-shrink: 0;">+</span>
+                </div>
+                <div class="accordion-content-sw" id="val-capa-boss-3">
+
+                    <!-- A MODIFIER / DUPLIQUER: Attaque Boss 3 -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-order66/disguised-basic.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="boss-capa-name-7" style="white-space: nowrap;">Covert
+                                Assault</span>
+                        </div>
+                        <div class="p-3" id="boss-capa-desc-7"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Deal Special damage to target enemy. If Disguised Clone Trooper has Ruse, Stun the target
+                            enemy for 1 turn, which can't be resisted. If the target was already Stunned, dispel all
+                            buffs on them and inflict <u class="speciale">Order 66</u> for 2 turns, which can't be
+                            copied, dispelled, or resisted.
+                        </div>
+                    </div>
+
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-order66/disguised-spe.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="boss-capa-name-8" style="white-space: nowrap;">Well-Executed
+                                Ambush</span>
+                        </div>
+                        <div class="p-3" id="boss-capa-desc-8"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Deal Special damage to all enemies, and deal an additional 10% damage per Damage Over Time
+                            stack on them (20% if Disguised Clone Trooper has Ruse, max 200% additional damage). Then
+                            grant Dark Side Clone Trooper allies Advantage for 2 turns.
+                            <br><br>
+                            If an enemy was:
+                            <br><br>
+                            - Less than full Health: Inflict Healing Immunity on them for 1 turn. If Disguised Clone
+                            Trooper has Ruse, Healing Immunity can't be dispelled or resisted, and inflict Damage Over
+                            Time for 2 turns.<br>
+                            - Less than 10% Turn Meter: Remove 10% Turn Meter then inflict -15 Speed on them for 2
+                            turns. If Disguised Clone Trooper has Ruse, inflict an additional -15 Speed, and inflict
+                            Damage Over Time for 2 turns.<br>
+                            - Light Side: Inflict Offense Down on them for 2 turns. If Disguised Clone Trooper has Ruse,
+                            Offense Down can't be dispelled or resisted, and inflict Damage Over Time for 2 turns.
+                        </div>
+                    </div>
+
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-order66/disguised-unique1.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="boss-capa-name-9" style="white-space: nowrap;">Clever
+                                Ruse</span>
+                        </div>
+                        <div class="p-3" id="boss-capa-desc-9"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            At the start of his turn, if Disguised Clone Trooper has Stealth, he recovers 15% Health and
+                            Protection, gains 20% Turn Meter, and gains <u class="speciale">Ruse</u> until the end of
+                            the turn. Whenever he attacks, he loses Stealth.
+                            <br><br>
+                            At the start of each opponent's turn, if Disguised Clone Trooper has Stealth, ally Dark Side
+                            Clone Troopers gain Retribution until the end of the turn, if that opponent is a Jedi,
+                            Disguised Clone Trooper gains Tenacity Up until the end of that opponent's turn, which can't
+                            be copied, dispelled, or prevented.
+                            <br><br>
+                            <u class="speciale">Ruse:</u> This effect triggers additional effects in abilities. Ruse is
+                            removed at the end of the turn.
+                        </div>
+                    </div>
+
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-order66/disguised-unique2.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="boss-capa-name-10" style="white-space: nowrap;">Decoy Squad
+                                Five</span>
+                        </div>
+                        <div class="p-3" id="boss-capa-desc-10"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            At the start of battle, Disguised Clone Trooper gains 30% Offense and Stealth for 2 turns.
+                            <br><br>
+                            At the end of his turn, if Disguised Clone Trooper did not have Ruse, he Stealths for 3
+                            turns.
+                            <br><br>
+                            If a target enemy had Order 66, Disguised Clone Trooper deals reduced Massive damage to them
+                            when using an ability on his turn.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- appo: Boss Principal -->
+            <div class="accordion-item-sw">
+                <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                    <div class="d-flex align-items-center gap-3" style="flex: 1; min-width: 0;">
+                        <img src="../raid-image/raid-order66/appo.png"
+                            style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                        <span id="capa-boss-4"
+                            style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">CT-1119
+                            "Appo"</span>
+                    </div>
+                    <span style="flex-shrink: 0;">+</span>
+                </div>
+                <div class="accordion-content-sw" id="val-capa-boss-4">
+
+                    <!-- A MODIFIER / DUPLIQUER: Attaque Boss 1 -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-order66/appo-basic.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="boss-capa-name-11" style="white-space: nowrap;">Imperial
+                                March</span>
+                        </div>
+                        <div class="p-3" id="boss-capa-desc-11"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Deal Physical damage to target enemy and grant Defense Penetration Up to the strongest ally
+                            that does not have it for 2 turns. On his turn, call all other Dark Side Clone Trooper
+                            allies with Defense Penetration Up to assist.
+                        </div>
+                    </div>
+
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-order66/appo-spe1.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="boss-capa-name-12"
+                                style="white-space: nowrap;">Knightfall</span>
+                        </div>
+                        <div class="p-3" id="boss-capa-desc-12"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Call a random Dark Side Clone Trooper Support to assist and they Stealth for 1 turn at the
+                            end of the round, then deal Physical damage to target enemy and Stun them for 1 turn. Dispel
+                            all buffs on all enemies. Appo and Knightfall Trooper gain Critical Damage Up for 2 turns.
+                        </div>
+                    </div>
+
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-order66/appo-spe2.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="boss-capa-name-13" style="white-space: nowrap;">No
+                                Witnesses</span>
+                        </div>
+                        <div class="p-3" id="boss-capa-desc-13"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Deal Physical Damage and trigger all Damage Over Time debuffs on all enemies. Knightfall
+                            Trooper assists and gains Advantage for 2 turns. If Appo is not debuffed, inflict Order 66
+                            on the target enemy for 2 turns, which can't be copied, dispelled, evaded, or resisted.
+                        </div>
+                    </div>
+
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-order66/appo-unique.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="boss-capa-name-14" style="white-space: nowrap;">Vader's
+                                Fist</span>
+                        </div>
+                        <div class="p-3" id="boss-capa-desc-14"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Dark Side Clone Troopers gain 5 speed for each opponent at the start of battle, doubled for
+                            Light Side Unaligned Force Users and Jedi opponents, which persists through defeat. Dark
+                            Side Clone Troopers dispel Foresight on all opponents at the start of their turn. Whenever
+                            an enemy is defeated, reduce the cooldown of No Witnesses by 1. At the start of battle, Dark
+                            Side Clone Troopers gain Dramatic Entrance for 2 turns, which can't be copied, dispelled, or
+                            prevented. Whenever Appo uses a Special ability, reinforce all defeated Disguised Clone
+                            Troopers and Knightfall Troopers, which can't be prevented. Appo is immune to Stun.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CT-0000/1010 "Fox": Boss Principal -->
+            <div class="accordion-item-sw">
+                <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                    <div class="d-flex align-items-center gap-3" style="flex: 1; min-width: 0;">
+                        <img src="../raid-image/raid-order66/fox.png"
+                            style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                        <span id="capa-boss-5"
+                            style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">CT-0000/1010
+                            "Fox"</span>
+                    </div>
+                    <span style="flex-shrink: 0;">+</span>
+                </div>
+                <div class="accordion-content-sw" id="val-capa-boss-5">
+
+                    <!-- A MODIFIER / DUPLIQUER: Attaque Boss 1 -->
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-order66/fox-basic.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="boss-capa-name-15" style="white-space: nowrap;">What I
+                                Say</span>
+                        </div>
+                        <div class="p-3" id="boss-capa-desc-15"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Deal Special damage and remove 1 stack of Execute from Lord Vader. Clone Trooper allies gain
+                            Speed Up for 1 turn.</span>
+                        </div>
+                    </div>
+
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-order66/fox-spe1.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="boss-capa-name-16" style="white-space: nowrap;">No Entry, No Escape</span>
+                        </div>
+                        <div class="p-3" id="boss-capa-desc-16"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Dispel all debuffs on all Clone Trooper allies. Deal Special damage to target enemy and
+                            remove 1 stack of Execute from Lord Vader. If the target enemy had no buffs, remove 2 more
+                            stacks of Execute from Lord Vader.
+                        </div>
+                    </div>
+
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-order66/fox-spe2.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="boss-capa-name-17" style="white-space: nowrap;">Hounding Pursuitspan</span>
+                        </div>
+                        <div class="p-3" id="boss-capa-desc-17"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            Deal Special damage to all enemies. Inflict a stack of Damage Over Time on the target enemy
+                            for each other debuff on them (max 5). Remove a stack of Execute from Lord Vader for each
+                            enemy that is debuffed and remove 25% Turn Meter from them. Recover 50% Health and
+                            Protection.
+                        </div>
+                    </div>
+
+                    <div class="faction-card mb-3">
+                        <div class="faction-header">
+                            <img src="../raid-image/raid-order66/fox-unique.png"
+                                style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+                            <span class="faction-name" id="boss-capa-name-18" style="white-space: nowrap;">Clone
+                                Commander</span>
+                        </div>
+                        <div class="p-3" id="boss-capa-desc-18"
+                            style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                            While Fox has a buff he has +100% Defense Penetration and while he has a debuff he has +100%
+                            Speed. Whenever Fox uses a Special ability, reinforce all defeated Disguised Clone Troopers
+                            and Knightfall Troopers, which can't be prevented. Fox is immune to Stun.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ----------------------------------------------------------------------
+         4. SECTION DIFFICULTÉ (Modificateurs par Niveaux)
+         ---------------------------------------------------------------------- -->
+        <div id="section-diff" class="section-content">
+            <h2 id="h-diff">Difficulty Modifiers</h2>
+            <div id="diff-container">
+
+                <!-- LEVEL 0 (Base) -->
+                <div class="accordion-item-sw">
+                    <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                        <span id="level-title-base">Level 0 (x1 Multiplier)</span><span>+</span>
+                    </div>
+                    <div class="accordion-content-sw">
+                        <div class="info-box mb-3">
+                            <span id="level-info-base">
+                                <strong>Max possible:</strong> 300,000 pts<br>
+                                <strong>Requirement:</strong> None
+                            </span>
+                        </div>
+                        <div class="faction-card active">
+                            <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-base">
+                                <strong>Additional Effects:</strong><br>
+                                • No Additional Effects.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item-sw">
+                    <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                        <span id="level-title-1">Level 1 (x1.5 Multiplier)</span><span>+</span>
+                    </div>
+                    <div class="accordion-content-sw">
+                        <div class="info-box mb-3" id="level-info-1">
+                            <strong>Max possible:</strong> 450,000 pts<br>
+                            <strong>Requirement:</strong> Tier XII
+                        </div>
+                        <div class="faction-card active">
+                            <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-1">
+                                <strong>Additional Effects:</strong><br>
+                                Enemies gain 70% Accuracy, Critical Chance, Critical Damage, Defense, Defense Penetration, Max Health, Offense, Potency, and Tenacity, and 30 Speed. This bonus Offense stacks with all subsequent tiers.
+                                <br><br>
+                                <u class="speciale">Vader's Fist (CC-1119 "Appo"):</u> Dark Side Clone Troopers also dispel Retribution on the start of their turn. Whenever Foresight or Retribution is dispelled, that enemy is Exposed for 2 turns, which can't be resisted. Whenever Appo is inflicted with a debuff, a random Knightfall Trooper ally gains 5% Turn Meter (once per turn).
+                                <br><br><u class="speciale">Imperial March (Knightfall Trooper):</u> Grant Defense Penetration Up to the weakest ally that doesn't have it for 2 turns and remove 1 stack of Execute from Lord Vader.
+                                <br><br><u class="speciale">Clone Commander (CC-1010 "Fox"):</u> Whenever Fox is inflicted with a debuff, a random Disguised Clone Trooper ally gains 5% Turn Meter (once per turn).
+                                <br><br><u class="speciale">My New Empire (Lord Vader):</u> Whenever an Empire ally is Marked, dispel it and that ally Stealths for 1 turn.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Niveau 2-->
+                <div class="accordion-item-sw">
+                    <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                        <span id="level-title-2">Level 2 (x2.0 Multiplier)</span><span>+</span>
+                    </div>
+                    <div class="accordion-content-sw">
+                        <div class="info-box mb-3" id="level-info-2">
+                            <strong>Max possible:</strong> 600,000 pts<br>
+                            <strong>Requirement:</strong> Relic 1
+                        </div>
+                        <div class="faction-card active">
+                            <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-2">
+                                <strong>Additional Effects:</strong><br>
+                                Enemies gain 120% Accuracy, Critical Chance, Defense, Defense Penetration, Max Health, and Potency, and 5000 Offense, and 75 Speed.
+                                <br><br>
+                                <u class="speciale">What I Say (CC-1010 "Fox"):</u> Remove an additional stack of Execute.<br>
+                                <u class="speciale">Battalion Brothers (Knightfall Trooper):</u> +100% Offense while he has Advantage.<br>
+                                <u class="speciale">Well-Executed Ambush (Disguised Clone Trooper):</u> Remove a stack of Execute from Lord Vader per Stealthed enemy.<br>
+                                <u class="speciale">Twisted Omen (Lord Vader):</u> -5 stacks of Execute after each bonus turn.<br>
+                                <u class="speciale">Faction Bonus:</u> Bad Batch: +20% Accuracy.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Niveau 3-->
+                <div class="accordion-item-sw">
+                    <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                        <span id="level-title-3">Level 3 (x3.0 Multiplier)</span><span>+</span>
+                    </div>
+                    <div class="accordion-content-sw">
+                        <div class="info-box mb-3" id="level-info-3">
+                            <strong>Max possible:</strong> 900,000 pts<br>
+                            <strong>Requirement:</strong> Relic 3
+                        </div>
+                        <div class="faction-card active">
+                            <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-3">
+                                <strong>Additional Effects:</strong><br>
+                                Enemies gain 140% Accuracy, Critical Chance, Defense, Defense Penetration, Max Health, and Potency, and 6000 Offense, and 90 Speed.
+                                <br><br>
+                                <u class="speciale">Granted Ability: Rescue:</u> +1 Additional instance of damage to unlock.<br>
+                                <u class="speciale">My New Empire (Lord Vader):</u> Whenever an enemy gains a buff they also are inflicted with a stack of Damage Over Time for 1 turn.<br>
+                                <u class="speciale">Decoy Squad Five (Disguised Clone Trooper):</u> Reduced Massive damage is now Massive damage.<br>
+                                <u class="speciale">Hero Bonus: Jedi Master Mace Windu:</u> Tanks gain Protection Up (150%) for 2 turns instead.<br>
+                                <u class="speciale">Hero Bonus: Grand Moff Tarkin:</u> Dark Side Clone Troopers gain Defense equal to 75% of his Potency.<br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Niveau 4-->
+                <div class="accordion-item-sw">
+                    <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                        <span id="level-title-4">Level 4 (x4.0 Multiplier)</span><span>+</span>
+                    </div>
+                    <div class="accordion-content-sw">
+                        <div class="info-box mb-3" id="level-info-4">
+                            <strong>Max possible:</strong> 1,200,000 pts<br>
+                            <strong>Requirement:</strong> Relic 5
+                        </div>
+                        <div class="faction-card active">
+                            <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-4">
+                                <strong>Additional Effects:</strong><br>
+                                Enemies gain 170% Defense, Defense Penetration, Max Health, and Potency, and 7000 Offense and 105 Speed.
+                                <br><br>
+                                <u class="speciale">Granted Ability: Dire Fortitude:</u> Jedi Vanguard add an additional 5 stacks of Execute to Lord Vader.<br>
+                                <u class="speciale">Vader's Fist (CC-1119 "Appo"):</u> Whenever Appo uses a Special ability a random Disguised Clone Trooper assists, dealing 30% less damage and then Stealths for 1 turn at the end of the round.<br>
+                                <u class="speciale">Clone Commander (CC-1010 "Fox"):</u> Whenever Fox uses a Special ability a random Disguised Clone Trooper assists, dealing 30% less Damage and then Stealths for 1 turn at the end of the round.<br>
+                                <u class="speciale">Decoy Squad Five (Disguised Clone Trooper):</u> Deal an additional instance of Massive damage against enemies with Order 66.<br>
+                                <u class="speciale">Faction Bonus: Bad Batch:</u> +40% Accuracy and +25% Max Health. Stealthed characters deal 25% more damage. Non-Stealthed characters take 25% less damage when targeted.<br>
+                                <u class="speciale">Faction Bonus: Jedi Vanguard:</u> +100% Max Health and Max Protection.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Niveau 5-->
+                <div class="accordion-item-sw">
+                    <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                        <span id="level-title-5">Level 5 (x6.0 Multiplier)</span><span>+</span>
+                    </div>
+                    <div class="accordion-content-sw">
+                        <div class="info-box mb-3" id="level-info-5">
+                            <strong>Max possible:</strong> 1,800,000 pts<br>
+                            <strong>Requirement:</strong> Relic 7
+                        </div>
+                        <div class="faction-card active">
+                            <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-5">
+                                <strong>Additional Effects:</strong><br>
+                                Enemies gain 190% Defense, Defense Penetration, Max Health, and Potency, and 8000 Offense and 120 Speed.
+                                <br><br>
+                                <u class="speciale">Battalion Brothers (Knightfall Trooper):</u> Whenever Knightfall Trooper is defeated, Stun the enemy who defeated them for 1 turn at the end of their turn, which can't be resisted.<br>
+                                <u class="speciale">No Entry, No Escape (CC-1010 "Fox"):</u> Ability Block target enemy for 1 turn, which can't be evaded or resisted.<br>
+                                <u class="speciale">Faction Bonus: Dark Side Clone Troopers:</u> At the start of battle, Dark Side Clone Troopers are immune to Stun for 1 turn.<br>
+                                <u class="speciale">Hero Bonus: Grand Moff Tarkin:</u> Dark Side Clone Troopers gain Defense equal to 100% of his Potency.<br>
+                                <u class="speciale">Hero Bonus: CC-1119 "Appo":</u> While Knightfall Trooper is active, Dark Side Clone Troopers have 50% Offense.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Niveau 6-->
+                <div class="accordion-item-sw">
+                    <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                        <span id="level-title-6">Level 6 (x9.0 Multiplier)</span><span>+</span>
+                    </div>
+                    <div class="accordion-content-sw">
+                        <div class="info-box mb-3" id="level-info-6">
+                            <strong>Max possible:</strong> 2,700,000 pts<br>
+                            <strong>Requirement:</strong> relic 8
+                        </div>
+                        <div class="faction-card active">
+                            <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-6">
+                                <strong>Additional Effects:</strong><br>
+                                Enemies gain 210% Defense, Defense Penetration, Max Health, and Potency, and 9000 Offense and 135 Speed.
+                                <br><br>
+                                <u class="speciale">Clever Ruse (Disguised Clone Trooper):</u> No longer loses Stealth whenever he attacks.<br>
+                                <u class="speciale">Twisted Omen (Lord Vader):</u> -5 stacks of Execute at start of battle.<br>
+                                <u class="speciale">Faction Bonus: Jedi Vanguard:</u> Whenever a Jedi Vanguard defeats an enemy, add a stack of Execute to Lord Vader.<br>
+                                <u class="speciale">Hero Bonus: Jocasta Nu:</u> Whenever she uses a Special ability Jedi Vanguard allies gain Critical Hit Immunity for 2 turns instead.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Niveau 7-->
+                <div class="accordion-item-sw">
+                    <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+                        <span id="level-title-7">Level 7 (x12.0 Multiplier)</span><span>+</span>
+                    </div>
+                    <div class="accordion-content-sw">
+                        <div class="info-box mb-3" id="level-info-7">
+                            <strong>Max possible:</strong> 3,600,000 pts<br>
+                            <strong>Requirement:</strong> Relic 9
+                        </div>
+                        <div class="faction-card active">
+                            <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-7">
+                                <strong>Additional Effects:</strong><br>
+                                Enemies gain 230% Defense, Defense Penetration, Max Health, and 10,000 Offense.
+                                <br><br>
+                                <u class="speciale">Faction Bonus: Bad Batch:</u> +100% Accuracy. Whenever an enemy dispels Marked, they are Marked for 1 turn, which can't be dispelled, prevented, or resisted, and Lord Vader gains 10 stacks of Execute. Stealthed characters deal 50% more damage. Non-Stealthed characters take 50% less damage when targeted.<br>
+                                <u class="speciale">Faction Bonus: Dark Side Clone Troopers:</u> Dark Side Clone Troopers and Tarkin are immune to Stun. Whenever an enemy is inflicted with Order 66, all Dark Side Clone Troopers and Grand Moff Tarkin gain 100% Turn Meter and 25% Offense for 1 turn, an additional 75% Offense for the rest of the battle, and Lord Vader gains 20 stacks of Execute.<br>
+                                <u class="speciale">Hero Bonus: Jedi Master Mace Windu:</u> Attackers instead gain 200% Offense. Healer and Support allies dispel all debuffs on Jedi Vanguard allies at the start of their turn. Tank allies instead gain Protection Up (200%) for 2 turns.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ----------------------------------------------------------------------
+         5. SECTION RESTRICTIONS (Galerie des unités)
+         ---------------------------------------------------------------------- -->
+        <div id="section-unites" class="section-content">
+            <h2 id="raid-unites">Eligible Units</h2>
+            <div class="info-box" id="raid-eligible-desc">Units eligible for this raid:</div>
+
+            <!-- Galerie générée dynamiquement par JS -->
+            <div id="units-gallery"></div>
+        </div>
+
+        <!-- ==========================================================================
+       SCRIPTS JS (Configuration et Traduction)
+       ========================================================================== -->
+        <script>
+            let currentLang = sessionStorage.getItem("selectedLanguage") || "en";
+            let allUnits = [];
+            const englishTexts = {};
+
+            /* ========================================================================
+               A MODIFIER OBLIGATOIREMENT : 
+               1. Nom exact du raid recherché dans le fichier JSON (units.json)
+               2. Dictionnaire de traduction complète FR
+               ======================================================================== */
+            const RAID_TARGET_EN = "order 66";
+
+            const dictFr = {
+                // En-tête principal & menu navigation
+                "raid-main-name": "Ordre 66",
+                "title-resume": "Résumé",
+                "title-details": "Détails",
+                "btn-history": "Histoire & Règles",
+                "btn-factions": "Factions Bonus",
+                "btn-capacities": "Capacités",
+                "btn-diff": "Modificateurs",
+                "btn-unites": "Unités autorisées",
+                "btn-back": "RETOUR",
+
+                // Titres des sections
+                "h-history": "Histoire & Règles",
+                "h-factions": "Bonus de Faction",
+                "h-capa": "Capacités",
+                "h-diff": "Modificateurs de Difficulté",
+                "h-unites": "Unités autorisées",
+
+                // Section 1: Histoire & Règles
+                "title-story": "HISTOIRE",
+                "text-story": "l'Opération Knightfall a commencé, et le Seigneur Vador a ordonné l'extermination des Jedi. Combattez les Soldats clones du Côté Obscur qui vous barrent la route. Essayez d'interrompre son assaut avant que l'Ordre 66 ne soit achevé.",
+                "title-rules": "RÈGLES",
+                "text-rules": "• Limite de temps : 2 jours et 23 heurs\n• Conditions : 5 étoiles, unités spécifiques\n• Actualisation des personnages : Jamais\n• Coût du lancement : 180 K ticket\n• Total de tentatives : 5",
+
+                // Section 2: Factions
+                "text-factions-intro": "Les personnages peuvent obtenir l'une ou plusieurs des capacités suivantes lors du raid",
+
+                "f-1": "Bonus de faction : Pirates",
+                "content-f-1": "Lorsqu'un Pirate obtient un cumul de Profit, il dissipe tous les affaiblissements l'affectant et sa prochaine capacité inflige des dégâts réels supplémentaires à hauteur de 10 % de sa santé maximale à la cible ennemie lors de son prochain tour.",
+
+                "f-2": "Bonus de faction : Avant-garde Jedi",
+                "content-f-2": "+50 % de santé maximale et de protection maximale. A la fin d'un tour, si un personnage de l'Avant-garde Jedi dispose de 3 améliorations ou plus, il gagne un bonus d'attaque de 5 % (cumulatif) jusqu'à la fin de la bataille.",
+
+                "f-3": "Bonus de faction : Soldats clones du Côté Obscur",
+                "content-f-3": "Lorsqu'un ennemi subit Ordre 66, la jauge de tour de tous les Soldats clones du Côté Obscur et du Grand Moff Tarkin se remplit de 25 % et ils obtiennentn un bonus d'attaque de 100 % pendant 1 tour.",
+
+                "f-4": "Bonus de faction : Bad Batch",
+                "content-f-4": "Les personnages camouflés infligent 5 % de dégâts supplémentaires. Les personnages qui ne sont pas camouflés subissent 5 % de dégâts en moins lorsqu'ils sont ciblés.",
+
+                "f-5": "Bonus de personnage : Maître Jedi Mace Windu",
+                "content-f-5": "Chaque fois qu'un ennemi subit Révélé, le Maître Jedi Mace Windu dissipe tous les affaiblissements qui l'affectent et récupère 100 % de santé. Si le %aître Jedi Mace Windu est l'allié dans l'emplacement de chef, les unités de l'Avant-garde Jedi reçoivent des avantages en fonction de leur rôle :\n\n- Attaquants : +100 % d'attaque\n- Soigneurs et soutiens : dissipent Camouflage au début de leur tour\n- Tanks : obtiennent un bonus de protection (100 %) pendant 2 tours lorsque le Maître Jedi Mace Windu utilise une capacité spéciale.",
+
+                "f-6": "Bonus de personnage : Jocasta Nu",
+                "content-f-6": "Lorsqu'un allié de l'Avant-garde Jedi attaque en dehors de son tour, les délais de Jocasta sont réduits de 1. Chaque fois qu'elle utilise une capacité spéciale, les alliés de l'Avant-garde Jedi obtiennent un bonus d'esquive des critiques pendant 2 tours.",
+
+                "f-7": "Bonus de personnage : Kelleran Beq",
+                "content-f-7": "A chaque fois que Kelleran Beq dispose de toute sa santé, il gagne +25 % de vitesse.",
+
+                "f-8": "Bonus de personnage : Grand Moff Tarkin",
+                "content-f-8": "Le Grand Moff Tarkin obtient de la ténacité à hauteur de 5 % de son pouvoir.",
+
+                "f-9": "Bonus de personnage : CC-1119 \#Appo\"",
+                "content-f-9": "tant que le Soldat Knightfall est actif, Appo a +25 % de défense.",
+
+                "f-10": "Bonus de personnage : Oméga (Fugitive)",
+                "content-f-10": "A chaque fois qu'Omega dissipe un affaiblissement, elle gagne 50 % de ténacité pendant 1 tour.",
+
+                // Section 3: Capacités
+                "capa-granted": "Capacités conférées",
+                "capa-boss-1": "Seigneur Vador",
+                "capa-boss-2": "Soldat knightfall",
+                "capa-boss-3": "Soldat clone déguisé",
+                "capa-boss-4": "CC-1119 \"Appo\"",
+                "capa-boss-5": "CT-0000/1010\"Fox\"",
+
+                "capa-name-1": "Sauvetage",
+                "capa-desc-1": "Infligez des dégâts 3 fois au Seigneur Vador pour déverrouiller. Sauvez les Jedi en danger.",
+
+                "capa-name-2": "Détermination désespérée",
+                "capa-desc-2": "Ajoute 5 cumuls d'Éxécution au Seigneur Vador ennemi (10 cumuls si tous les alliés sont de l'Avant-garde Jedi). Tous les alliés gagnent <u class='speciale'>Détermination désespérée</u> jusqu'à la fin de la bataille.\n\n<u class='speciale'>Détermination désespérée :</u> +35 % de chances de coup critique, de défense et d'attaque. A chaque fois que ce personnage obtient une amélioration, il obtient également 10 % de dégâts critiques (cumulatif) jusqu'à la fin de la bataille.",
+
+                "capa-name-3": "Soumission",
+                "capa-desc-3": "Tous les ennemis subissent <u class='speciale'>Soumission</u> jusqu'à ce qu'ils soit vaincu (ne peut pas être copié, dissipé, esquivé ou résisté). A chaque fois qu'un ennemi subit un affaiblissement, il subit des dégâts réels à hauteur de 5 % de sa santé maximale.\n\n<u class='speciale'>Soumission :</u> 35 % d'esquive des critiques, de défense et de ténacité en moins.",
+
+                "boss-capa-name-1": "Frappe vindicative",
+                "boss-capa-desc-1": "Inflige des dégâts réels à la cible ennemie. Les ennemis vaincus par cette capacité ne peuvent pas être ranimés",
+
+                "boss-capa-name-2": "Mon nouvel empire",
+                "boss-capa-desc-2": "[Les autres alliés de l'Empire reçoivent +40 de maîtrise et +30 % de santé maximale.\n\nChaque fois qu'un allié du Côté Obscur perd une amélioration, les alliés de l'Empire gagnent 1 % de maîtrise (cumulatif) jusqu'à la fin de la bataille. Lorsqu'un allié du Côté Obscur souffrant d'un affaiblissement subit des dégâts, il obtient 20 de vitesse pendant 1 tour.\n\nLes alliés de l'Empire gagnent +35 % de chances de coup critique et de dégâts critiques lorsqu'ils ciblent une unité de la République Galactique. Chaque fois qu'un ennemi inflige un coup critique à un allié de l'Empire, cet ennemi subit -30 % de dégâts critiques (cumulatif) pendant 3 tours.\n\nLorsque les alliés de l'Empire sont à certains niveaux de santé, ils obtiennent différents avantages :\n\n- Plus de 35 % de santé : les alliés de l'Empire sont immunisés contre les réductions de jauge de tour.\n- Plus de 50 % de santé : Ils sont immunisés contre les dégâts sur la durée et contre les augmentations de délais.\n- Moins de 80 % de santé : ils ne peuvent pas subir de coup critique.",
+
+                "boss-capa-name-3": "Mauvais augure",
+                "boss-capa-desc-3": "Le Seigneur Vador ne peut pas être pris pour cible tant que tous les Soldats Knightfall ou les Soldats clones déguisés sont actifs. Le Seigneur Vador est immunisés contre les manipulations de délais et de jauge de tour et sa vitesse est de 0. Au début de la bataille, le Seigneur Vador dispose de 25 cumuls d'Éxécution (réduit à 15 s'il y a moins de 5 ennemis présent).\n\nLorsqu'un Soldat Clone du Côté Obscur allié inflige un coup critique, le Seigneur Vador perd 1 cumul d'Éxécution. Lorsque tous les cumuls d'Éxécution sont perdus, le Seigneur Vador obtient un tour bonus (ne peut pas être empêché). Après ce tour bonus, il est réinitalisé à 25 cumuls de d'Éxécution et tous les soldats clons déguises et les soldats Knightfall vaincus sont renforcés.",
+
+                "boss-capa-name-4": "Marche impériale",
+                "boss-capa-desc-4": "[Inflige des dégâts physiques à la cible ennemie et confère un bonus de pénétration de défense à l'allié le plus puissant s'il n'en dispose pas déjà pendant 2 tours.",
+
+                "boss-capa-name-5": "Protecteur de l'Empire",
+                "boss-capa-desc-5": "Invoque un soldat Clone soutien du Côté Obscur allié aléatoire qui utilise Camouflage pendant 1 tour à la fin du tour. Inflige ensuite des dégâts physiques à la cible ennemie. Appo et le Soldat Kinghtfall obtiennent Avantage pendant 1 tour.",
+
+                "boss-capa-name-6": "Frères de bataillon",
+                "boss-capa-desc-6": "Chaque fois que le Soldat Knightfall inflige un coup critique, il obtient 20 % d'attaque (cumulatif) pour le reste de la bataille. Tant que le Soldat Knightfall ne souffre pas d'affaiblissements, il a +100 % de chances de coup critique. Tant que le Soldat Knightfall a Avantage, il a +100 % de dégâts critiques.",
+
+                "boss-capa-name-7": "Assaut sous couverture",
+                "boss-capa-desc-7": "Inflige des dégâts spéciaux à la cible ennemie. Si le Soldat clone déguisé dispose de Stratagème : il lui inflige Étourdissement pendant 1 tour (ne peut pas être résisté). Si la cible ennemie subissait déjà Étourdissement, toutes les améliorations dont elle dispose dont dissipées, et elle subit <u class='speciale'>Ordre 66</u> pendant 2 tours (ne peut pas être copié, dissipé ou résisté).",
+
+                "boss-capa-name-8": "Embuscade bien exécutée",
+                "boss-capa-desc-8": "Inflige des dégâts spéciaux à tous les ennemis et inflige 10 % de dégâts supplémentaires par cumul de dégâts sur la durée (20 % si le Soldat clone déguisé a Stratagème, 200 % de dégâts supplémentaires max). Ensuite, octroie Avantage aux Soldats clones du Côté Obscur alliés pendant 2 tours.\n\nSi un ennemi :\n\nN'avait pas toute sa protection : Inflige Immunité aux soins pendant 1 tour. Si le Soldat clone déguisé a Stratagème : Immunité aux soins ne peut pas être dissipée ou résistée, et inflige des dégâts sur la durée pendant 2 tours.\nA moins de 10 % de jauge de tour : réduit sa jauge de tour de 10 %, puis inflige un malus de vitesse de -15 pendant 2 tours. Si le Soldat clone déguisé a Stratagème, inflige un malus de vitesse de -15 supplémentaires et inflige des dégâts sur la durée pendant 2 tours.\nEst du Côté Lumineux, lui inflige un malus d'attaque pendant 2 tours. Si le Soldat clone déguisé a Stratagème : le malus d'attaque ne peut pas être dissipé ou résisté, et inflige des dégâts sur la durée pendant 2 tours.",
+
+                "boss-capa-name-9": "Stratagème intelligent",
+                "boss-capa-desc-9": "Au début de son tour, si le Soldat clone déguisé a Camouflage, il récupère 15 % de santé et de protection, sa jauge de tour se remplit de 20 % et il obtient <u class='speciale'>Stratagème</u> jusqu'à la fin du tour. Lorsqu'il attaque, il perd Camouflage.\n\nAu début du tour de chaque adversaire, si le Soldat clone déguisé a Camouflage, les Soldats clones du Côté Obscur alliés obtiennent Rétribution jusqu'à la fin du tour : si cet adversaire est un Jedi, le Soldat clone déguisé obtient un bonus de ténacité jusqu'à la fin du tour de cet adversaire (ne peut pas être copié, dissipé ou empêché).\n\n<u class='speciale'>Stratagème :</u> cet effet déclenche des effets supplémentaires à l'utilisation des capacités. Stratagème est supprimé à la fin du tour.",
+
+                "boss-capa-name-10": "Escouade 5 d'infiltration",
+                "boss-capa-desc-10": "Au début de la bataille, le Soldat clone déguisé obtient 30 % d'attaque et plus et Camouflage pendant 2 tours.\n\nA la fin de son tour, si le Soldat clone déguisé ne disposait pas de Stratagème, il obtient Camouflage pendant 3 tours.\n\nSi une cible enenmie subissait Ordre 66, le Soldat clone déguisé lui inflige de lourds dégâts diminués lorsqu'il utilise une capacité pendant son tour.",
+
+                "boss-capa-name-11": "Marche impériale",
+                "boss-capa-desc-11": "Inflige des dégâts physiques à la cible ennemie et confère à l'allié le plus puissant qui n'en dispose pas déjà un bonus de pénétration de défense pendant 2 tours. Pendant son tour, tous les autres Soldats clones du Côté Obscur alliés disposant d'un bonus de pénétration de défense sont invoqués.",
+
+                "boss-capa-name-12": "Knightfall",
+                "boss-capa-desc-12": "[Invoque un Soldat clone soutien du Côté Obscur aléatoire qui utilisent Camouflage pendant 1 tour à la fin du tour, et inflige des dégâts physiques à la cible ennemie, puis Étourdissement pendant 1 tour. Dissipe toutes les améliorations dont disposent les ennemis. Appo et le soldat Kinghtfall obtiennent un bonus de dégâts critiques pendant 2 tours.",
+
+                "boss-capa-name-13": "Aucun témoin",
+                "boss-capa-desc-13": "Inflige des dégâts physiques et déclenche tous les affaiblissements de dégâts sur la durée à tous les ennemis. Le Soldat Knightfall est invoqué et obtient Avantage pendant 2 tours. Si Appo ne souffre pas d'affaiblissement, inflige Ordre 66 à la cible ennemie pendant 2 tours (ne peut pas être copié, dissipé, esquivé ou résisté).",
+
+                "boss-capa-name-14": "Poing de Vador",
+                "boss-capa-desc-14": "Les Soldats clones du Côté Obscur obtiennent un bonus de vitesse de 5 par adversaire au début de la bataille (doublé pour les ennemis Jedi et utilisateurs de la Force non alignés du Côté Lumineux,  persiste en cas de défaite). Les soldats clones du Côté Obscur dissipent Prévoyance sur tous les adversaires au début de leur tour. Chaque fois qu'un ennemi est vaincu, le délai d'Aucun témoin est réduit de 1. Au début de la bataille, les Soldats clones du Côté Obscur obtiennent Entrée dramatique pendant 2 tours (ne peut pas être copié, dissipé ou évité). Quand Appo utilise une capacité spéciale, tous les Soldats clones déguisés et les Soldats Knightfall sont renforcés (ne peut pas être empeché). Appo est immunisé contre Étourdissement.",
+
+                "boss-capa-name-15": "Ce que je dis",
+                "boss-capa-desc-15": "Inflige des dégâts spéciaux et retire 1 cumul d'Éxécution au Seigneur Vador. Les Soldats clones alliés obtiennent un bonus de vitesse pendant 1 tour.",
+
+                "boss-capa-name-16": "Aucune issue, aucune fuite possible",
+                "boss-capa-desc-16": "Dissipe tous les affaiblissements affectant les Soldats clones alliés. Inflige des dégâts spéciaux à une cible ennemie et retire 1 cumul d'Éxécution au Seigneur Vador. Si la cible ennemie n'a pas d'améliorations, supprime 2 cumuls d'Éxécution au Seigneur Vador.",
+
+                "boss-capa-name-17": "Traque acharnée",
+                "boss-capa-desc-17": "Inflige des dégâts spéciaux à tous les ennemis. Inflige un cumul de dégâts sur la durée à la cible ennemie pour chaque autre affaiblissement qu'elle subit (5 mamximum). Supprime un cumul d'1xécution au Seigneur Vador pour chaque ennemi souffrant d'un affaiblissement et réduit leur jauge de tour de 25 %. Récupère 50 % de santé et de protection.",
+
+                "boss-capa-name-18": "Commandant clone",
+                "boss-capa-desc-18": "Tant que Fox a une amélioration, il a +100 % de pénétration de défense, et lorsqu'il a un affaiblissement, il a +100 % de vitesse. Lorsque Fox utilise une capacité spécial, tous les Soldats clones déguisés et les Soldats Knightfall vaincus sont renforcés (ne peut pas être empêché). Foix est immunisé contre Étourdissement.",
+               
+
+                // Section 4: Niveaux de Difficulté
+                "level-title-base": "Niveau 0 (x1 Multiplicateur)",
+                "level-info-base": "<strong>Score Max :</strong> 300 000 pts<br><strong>Conditions :</strong> Aucune",
+                "level-desc-base": "<strong>Effets supplémentaires :</strong><br>• Aucun effet supplémentaire.",
+
+                "level-title-1": "Niveau 1 (x1,5 Multiplicateur)",
+                "level-info-1": "<strong>Score Max :</strong> 450 000 pts<br><strong>Conditions :</strong> Équipement 12",
+                "level-desc-1": "<strong>Effets supplémentaires :</strong><br>Les ennemis obtiennent 70 % de précisionn de chances de coup critiquen de dégâts critiques, de pénétration de défense, de santé maximale, d'attaque, de pouvoir et de ténacité ainsi que 30 de vitesse. Cette attaque supplémentaire se cumule avec tous les paliers ultérieurs.\n\n<u class='speciale'>Poing de vador (CC-1119\"Appo\") :</u> les Soldats clones du Côté Obscur dissipent également Rétributionau début de leur tour. Chaqur fois que Prévoyance ou Rétribution sont dissipées, cet ennemi subit Exposition pendant 2 tours (ne peut pas être résisté). Chaque fois qu'Appo subit un affaiblissement, un Soldat Knightfall allié aléatoire gagne 5 % de jauge de tour (une fois par tour).\n<u class='speciale'>Marche Impériale (Soldat Knightfall)</u> confère un bonus de pénétration de défense pendant 2 tours à l'allié le plus faible qui n'en dispose pas déjà et supprime 1 cumul d'Éxécution au Seigneur Vador.\n<u class='speciale'>Commandant Clone (CC-1010 \"Fox\") :</u> lorsque Fox subit un affaiblissement, un Soldat clone déguisé allié gagne 5 % de jauge de tour (une fois par tour).\n<u class='speciale'>Mon nouvel Empire (Seigneur vador) :</u> chaque fois qu'un allié de l'Empire subit Marque, l'affaiblissement est dissipé, et l'allié utilise Camouflage pendant 1 tour.",
+
+                "level-title-2": "Niveau 2 (x2,0 Multiplicateur)",
+                "level-info-2": "<strong>Score Max :</strong> 600 000 pts<br><strong>Conditions :</strong> relique 1",
+                "level-desc-2": "<strong>Effets supplémentaires :</strong><br>Les ennemis gagnent 120 % de précision, de chances de coup critique, de défense, de pénétration de défense, de santé maximale, de pouvoir, ainsi que 5 000 d'attaque et 75 de vitesse.\n\n<u class='speciale'>Ce que je dis (CC-1010 \"Fox\") :</u> supprime un cumul supplémentaire d'Éxécution.\n<u class='speciale'>Frères de bataillon (Soldat Knightfall) :</u> +100 % d'attaqye tant qu'il dispose d'Avantage.\n<u class='speciale'>Mauvais augure (Seigneur Vador) :</u> 5 cumuls d'Éxécution en moins après chaque tour bonus.\n<u class='speciale'>Bonus de faction : Bad Batch :</u> +20 % de précision.",
+
+                "level-title-3": "Niveau 3 (x3,0 Multiplicateur)",
+                "level-info-3": "<strong>Score Max :</strong> 900 000 pts<br><strong>Conditions :</strong> Relique 3",
+                "level-desc-3": "<strong>Effets supplémentaires :</strong><br>Les ennemis gagnent 140 % de précision, de chances de coup critique, de défense, de pénétration de défense, de santé maximale, de pouvoir, ainsi que 6 000 d'attaque et 90 de vitesse.\n\n<u class='speciale'>Capacité conférée : Sauvetage :</u> +1 instance de dégâts supplémentaires pour dévérouiller.\n<u class='speciale'>Mon nouvel Empire (Seigneur vador :)</u> a chaque fois qu'un ennemi obtient une amélioration, il subut également un cumul de dégâts sur la durée.\n<u class='speciale'>Bonus de Héros : Maître jedi Mace Windu :</u> les tanks obtiennent une hausse de protection (150 %) pendant 2 tours.\n<u class='speciale'>Bonus de Héros : Grand Moff tarkin :</u> chaque soldat clone du Côté Obscur obtient un bonus de défense égal à 75 % de son pouvoir.",
+
+                "level-title-4": "Niveau 4 (x4,0 Multiplicateur)",
+                "level-info-4": "<strong>Score Max :</strong> 1 200 000 pts<br><strong>Conditions :</strong> Relique 5",
+                "level-desc-4": "<strong>Effets supplémentaires :</strong><br>Les ennemis gagnent 170 % de défense, de pénétration de défense, de santé maximale, de pouvoirn, ainsi que 7 000 d'attaque et 105 de vitesse.\n\n<u class='speciale'>Capacité conférée : Détermination désespérée :</u> un personnage de l'Avant-garde Jedi ajoute 5 cumuls d'1xécution au Seigneur Vador.\n<u class='speciale'>Poing de Vador (CC-1119 \"Appo\") :</u> A chaque fois qu'Appo utilise une capacité spécial, un Soldat clone déguisé aléatoire l'assiste en infligeant 30 % de dégâts en moins, puis en lui conférant Camouflage pendant 1 tour à la fin du tour.\n<u class='speciale'>Commandant clone (CC-1010 \"Fox\") :</u> A chaque fois que Fox utilise une capacité spéciale, un Soldat clone déguisé aléatoire l'assiste en infligeant 30 % de dégâts en moins, pui en lui conférant Camouflage pendant 1 tour à la fin du tour.\n<u class='speciale'>Escouade 5 d'infiltration (Soldat clone déguisé) :</u> inflige une instance supplémentaire de lourds dégâts aux ennemis qui subissent Ordre 66.\n<u class='speciale'>Bonus de Faction : Bad Batch :</u> +40 % de précision et +25 % de santé maximale. Les personnages camouflés infligent 25 % de dégâts supplémentaires. Les personnages qui ne sont pas camouflés subissent 25 % de dégâts en moins.\n<u class='speciale'>Bonus de Faction : Avant-garde Jedi :</u> +100 % de santé maximale et de protection maximale.",
+
+                "level-title-5": "Niveau 5 (x6,0 Multiplicateur)",
+                "level-info-5": "<strong>Score Max :</strong> 1 800 000 pts<br><strong>Conditions :</strong> Relique 7",
+                "level-desc-5": "<strong>Effets supplémentaires :</strong><br>Les ennemis gagnent 190 % de défense, de pénétration de défense, de santé maximale, de pouvoir, ainsi que 8 000 d'attaque et 120 de vitesse.\n\n<u class='speciale'>Frères de bataillon (Soldat Knightfall) :</u> A chaque fois que le Soldat Knightfall est vaincu, l'ennemi qui l'a vaincu subit Étourdissement pendant 1 tour à la fin de son tour (ne peut pas être résisté).\n<u class='speciale'>Aucune issue, Aucune fuite possible (CC-1010 \"Fox\") :</u> Inflige Entrave des capacités à l'ennemi ciblé pendant 1 tour (ne peut pas être esquivé ou résisté).\n<u class='speciale'>Bonus de Factions : Soldats clones du Côté Obscur :</u> Au début de la bataille, chaque soldat clone du Côté Obscur est immunisé contre Étourdissement pendant 1 tour.\n<u class='speciale'>Bonus de personnage : Grand Moff Tarkin :</u> chaque Soldat clone du Côté Obscur obtient un bonus de défense à 100 % de son pouvoir.\n<u class='speciale'>Bonus de personnage : CC-1119 \"Appo\" :</u> tant que le Soldat Knightfall est actif, chaque Soldat clone du Côté Obscur obtient 50 % d'attaque.",
+
+                "level-title-6": "Niveau 6 (x9,0 Multiplicateur)",
+                "level-info-6": "<strong>Score Max :</strong> 2 700 000 pts<br><strong>Conditions :</strong> Relique 8",
+                "level-desc-6": "<strong>Effets supplémentaires :</strong><br>Les ennemis gagnent 210 % de défense, de pénétration de défense, de santé maximale, de pouvoir, ainsi que 9 000 d'attaque et 135 de vitesse.\n\n<u class='speciale'>Stratagème intelligent (Soldat clone déguisé) :</u> ne perd plus Camouflage lorsqu'il attaque.\n<u class='speciale'>Mauvais augure (Seigneur Vador) :</u> -5 cumuls d'Éxécution au début de la bataille.\n<u class='speciale'>Bonus de Faction : Avant-garde Jedi :</u> Lorsqu'un Avant-garde Jedi élimine un ennemi, ajoute un cumul d'Éxécution au Seigneur vador.\n<u class='speciale'>Bonus de personnage : Jocasta Nu :</u> Chaqye fois qu'elle utilise une capacité spéciale, tous les alliés de l'Avant-garde Jedi obtiennent Immunité aux coups critiques pendant 2 tours à la place.",
+
+                "level-title-7": "Niveau 7 (x12,0 Multiplicateur)",
+                "level-info-7": "<strong>Score Max :</strong> 3 600 000 pts<br><strong>Conditions :</strong> Relique 9",
+                "level-desc-7": "<strong>Effets supplémentaires :</strong><br>Les ennemis obtiennent 230 % de défense, de pénétration de défense, de santé maximale et 10 000 d'attaque.\n\n<u class='speciale'>Bonus de Faction (Bad-Batch) :</u> +100 M de précision. Chaque fois qu'un ennemi dissipe Marque, il subit Marque pendant 1 tour (ne peut pas être dissipé, empêché ou résisté), et le Seigneur Vador gagne 10 cumuls d'Éxécution. Les personnages utilisant Camouflage infligent 50 % de dégâts supplémentaires. Les personnages n'utilisant pas Camouflage subissent 50 % de dégâts en moins lorsqu'ils sont ciblés.\n<u class='speciale'>Bonus de Faction (Soldats clones du Côté Obscur) :</u> Les Soldats clones du Côté Obscur et Tarkin sont immunisés contre Étourdissement. Chaque fois qu'un ennemi subit Ordre 66, tous les Soldats clones du Côté Obscur et le Grand Moff Tarkin obtiennent 100 % de jauge de tour et 25 % d'attaque pendant 1 tour iansi que 75 % d'atatque supplémentaire pour le reste de la bataille, puis le Seigneur Vador obtient 20 cumuls d'Éxécution.\n<u class='speciale'>Bonus de héros (Maître Jedi Mace Windu) :</u> les attaquants gagnent plutôt 200 % d'attaque. Les SOigneurs et soutiens alliés dissipent tous les affaiblissements sur les alliés de l'Avant-garde Jedi au début de leur tour. Les tanks alliés obtiennent plutôt un bonus de protection (200 %) pendant 2 tours.",
+
+
+                // Section 5: Unités
+                "raid-unites": "Unités éligibles",
+                "raid-eligible-desc": "Unités éligibles pour ce raid :",
+            };
+
+            /* ========================================================================
+               FONCTIONS LOGIQUES DE LA PAGE (À CONSERVER DANS LE MODÈLE)
+               ======================================================================== */
+            function toggleAccordion(element) {
+                const parent = element.parentElement;
+                parent.classList.toggle('active');
+                const icon = element.querySelectorAll('span')[1];
+                if (icon) {
+                    icon.innerHTML = parent.classList.contains('active') ? '-' : '+';
+                }
+            }
+
+            function switchLanguage(lang) {
+                currentLang = lang;
+                sessionStorage.setItem("selectedLanguage", lang);
+                updateUI();
+            }
+
+            function updateUI() {
+                const isFr = (currentLang === "fr");
+                const source = isFr ? dictFr : englishTexts;
+
+                for (let id in source) {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        if (isFr) {
+                            el.innerHTML = source[id].replace(/\n/g, '<br>');
+                        } else {
+                            el.innerHTML = source[id].replace(/\s+/g, ' ').trim();
+                        }
+                    }
+                }
+
+                const btnEn = document.getElementById("lang-en");
+                const btnFr = document.getElementById("lang-fr");
+                if (btnEn) btnEn.classList.toggle("active", currentLang === 'en');
+                if (btnFr) btnFr.classList.toggle("active", currentLang === 'fr');
+
+                renderUnits();
+            }
+
+            function showSection(sectionId, element) {
+                document.querySelectorAll('.section-content').forEach(s => s.classList.remove('active'));
+                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                document.getElementById('section-' + sectionId).classList.add('active');
+                element.classList.add('active');
+            }
+
+            function toggleFaction(element) {
+                element.classList.toggle('active');
+            }
+
+            window.addEventListener("DOMContentLoaded", () => {
+                // Sauvegarde dynamique des valeurs HTML par défaut en anglais
+                Object.keys(dictFr).forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) englishTexts[id] = el.innerHTML;
+                });
+
+                // Récupération automatique du Roster SWGOH
+                fetch("https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json")
+                    .then(res => res.json())
+                    .then(data => {
+                        allUnits = data;
+                        updateUI();
+                    });
+            });
+
+            function renderUnits() {
+                const gallery = document.getElementById("units-gallery");
+                if (!gallery) return;
+
+                gallery.innerHTML = "";
+
+                const filtered = allUnits.filter(u =>
+                    u.raids && u.raids.some(r => r.en.toLowerCase() === RAID_TARGET_EN)
+                );
+
+                filtered.forEach(u => {
+                    const link = document.createElement("a");
+                    link.href = u.page;
+                    link.target = "_self";
+
+                    const img = document.createElement("img");
+                    img.src = u.image;
+                    img.className = "raid-unit-img";
+                    img.title = u.name[currentLang] || u.name.en;
+                    img.loading = "lazy";
+
+                    link.appendChild(img);
+                    gallery.appendChild(link);
+                });
+            }
+        </script>
+</body>
+
+</html>

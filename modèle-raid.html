@@ -2,323 +2,657 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title id="big-title">SWGOH - Raid Name</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <!-- A MODIFIER: Titre de la page dans l'onglet du navigateur -->
+  <title>SWGOH - [NOM DU RAID]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --sw-bg-dark: #050505;
-            --sw-bg-card: #121212;
-            --sw-border: #333;
-            --sw-text-main: #e0e0e0;
-            --sw-blue-text: #00a2ff;
-            --font-titles: 'Orbitron', sans-serif;
-            --sidebar-width: 380px;
-        }
+  <style>
+    /* ==========================================================================
+       1. STYLES GÉNÉRIQUES & VARIABLES (A CONSERVER SANS MODIFICATION)
+       ========================================================================== */
+    u.speciale {
+      font-weight: bold;
+      color: yellow;
+      text-decoration: none;
+    }
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--sw-bg-dark);
-            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-            color: var(--sw-text-main);
-            margin: 0;
-            overflow-x: hidden;
-        }
+    u.rage {
+      font-weight: bold;
+      color: red;
+      text-decoration: none;
+    }
 
-        #sidebar {
-            position: fixed;
-            top: 0; left: 0;
-            height: 100vh;
-            width: var(--sidebar-width);
-            background-color: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(5px);
-            padding: 25px;
-            border-right: 2px solid var(--sw-border);
-            z-index: 1000;
-            overflow-y: auto;
-        }
+    :root {
+      --sw-bg-dark: #050505;
+      --sw-bg-card: #121212;
+      --sw-border: #333;
+      --sw-text-main: #e0e0e0;
+      --sw-blue-text: #00a2ff;
+      --font-titles: 'Orbitron', sans-serif;
+      --sidebar-width: 380px;
+    }
 
-        #content {
-            margin-left: var(--sidebar-width);
-            padding: 40px;
-            min-height: 100vh;
-        }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--sw-bg-dark);
+      background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+      color: var(--sw-text-main);
+      margin: 0;
+      overflow-x: hidden;
+    }
 
-        .raid-header-img {
-            width: 100%;
-            height: auto;
-            max-height: 300px;
-            object-fit: contain;
-            background: #000;
-            border-radius: 12px;
-            margin-bottom: 25px;
-            border: 1px solid var(--sw-border);
-            display: block;
-        }
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: var(--sidebar-width);
+      background-color: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(5px);
+      padding: 25px;
+      border-right: 2px solid var(--sw-border);
+      z-index: 10000;
+      overflow-y: auto;
+    }
 
-        .main-raid-title {
-            font-family: var(--font-titles);
-            color: white;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-            border-left: 5px solid var(--sw-blue-text);
-            padding-left: 15px;
-        }
+    #content {
+      margin-left: var(--sidebar-width);
+      padding: 40px;
+      min-height: 100vh;
+    }
 
-        .nav-section { margin-bottom: 20px; }
-        .nav-title {
-            font-family: var(--font-titles);
-            color: var(--sw-blue-text);
-            font-size: 0.8rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            border-bottom: 1px solid #222;
-        }
+    .raid-header-img {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: contain;
+      background: #000;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      border: 1px solid var(--sw-border);
+    }
 
-        .nav-item {
-            display: block;
-            padding: 12px 15px;
-            color: #aaa;
-            text-decoration: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+    .main-raid-title {
+      font-family: var(--font-titles);
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+      border-left: 5px solid var(--sw-blue-text);
+      padding-left: 15px;
+    }
 
-        .nav-item:hover { background: rgba(0, 162, 255, 0.1); color: #fff; }
-        .nav-item.active { background: var(--sw-blue-text); color: #000; font-weight: bold; }
-        .sub-item { padding-left: 35px; font-size: 0.9rem; }
+    .nav-section { margin-bottom: 20px; }
 
-        .section-content { display: none; animation: fadeIn 0.4s ease-out; }
-        .section-content.active { display: block; }
+    .nav-title {
+      font-family: var(--font-titles);
+      color: var(--sw-blue-text);
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      border-bottom: 1px solid #222;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    .nav-item {
+      display: block;
+      padding: 12px 15px;
+      color: #aaa;
+      text-decoration: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-        #units-gallery {
-            display: flex; flex-wrap: wrap; gap: 12px;
-            justify-content: center; padding: 20px;
-            background: rgba(255, 255, 255, 0.03); border-radius: 15px;
-        }
+    .nav-item:hover {
+      background: rgba(0, 162, 255, 0.1);
+      color: #fff;
+    }
 
-        .raid-unit-img {
-            width: 100px; height: 100px; object-fit: contain;
-            border-radius: 10px; border: 2px solid var(--sw-border);
-            background-color: #000; transition: 0.3s;
-        }
+    .nav-item.active {
+      background: var(--sw-blue-text);
+      color: #000;
+      font-weight: bold;
+    }
 
-        .raid-unit-card:hover .raid-unit-img {
-            transform: scale(1.1); border-color: var(--sw-blue-text);
-            box-shadow: 0 0 15px rgba(0, 162, 255, 0.5);
-        }
+    .section-content {
+      display: none;
+      animation: fadeIn 0.4s ease-out;
+    }
 
-        .lang-toggle { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; }
-        .lang-toggle img {
-            cursor: pointer; width: 25px; opacity: 0.4;
-            transition: 0.3s; border: 2px solid transparent; border-radius: 4px;
-        }
-        .lang-toggle img.active { opacity: 1; border-color: var(--sw-blue-text); }
+    .section-content.active { display: block; }
 
-        .info-box {
-            background: var(--sw-bg-card); padding: 25px;
-            border-radius: 12px; border: 1px solid var(--sw-border); line-height: 1.7;
-        }
+    .faction-name {
+      font-size: 120%;
+      text-decoration: underline;
+    }
 
-        h2 { font-family: var(--font-titles); color: var(--sw-blue-text); margin-bottom: 20px; font-size: 1.4rem; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        @media (max-width: 992px) {
-            #sidebar { position: relative; width: 100%; height: auto; border-right: none; }
-            #content { margin-left: 0; }
-        }
-    </style>
+    /* ACCORDIONS */
+    .accordion-item-sw {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--sw-border);
+      border-radius: 8px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .accordion-header-sw {
+      padding: 15px 20px;
+      cursor: pointer;
+      font-family: var(--font-titles);
+      color: var(--sw-blue-text);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.3s;
+      background: rgba(0, 162, 255, 0.05);
+    }
+
+    .accordion-header-sw:hover { background: rgba(0, 162, 255, 0.15); }
+
+    .accordion-content-sw {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+      padding: 0 20px;
+    }
+
+    .accordion-item-sw.active .accordion-content-sw {
+      max-height: 3000px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-top: 1px solid var(--sw-border);
+    }
+
+    /* FACTION CARDS */
+    .faction-card {
+      background: var(--sw-bg-card);
+      border: 1px solid var(--sw-border);
+      border-radius: 10px;
+      padding: 0;
+      text-align: left;
+      cursor: pointer;
+      transition: 0.3s;
+      overflow: hidden;
+    }
+
+    .faction-content-box {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+      background: #0a0a0a;
+      color: var(--sw-text-main);
+      border-top: 0 solid var(--sw-border);
+    }
+
+    .faction-card.active .faction-content-box {
+      max-height: 3000px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-top-width: 1px;
+    }
+
+    .info-box {
+      background: var(--sw-bg-card);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--sw-border);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .lang-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .lang-toggle img {
+      cursor: pointer;
+      width: 25px;
+      opacity: 0.4;
+      transition: 0.3s;
+      border: 2px solid transparent;
+      border-radius: 4px;
+    }
+
+    .lang-toggle img.active {
+      opacity: 1;
+      border-color: var(--sw-blue-text);
+    }
+
+    #units-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 15px;
+    }
+
+    .raid-unit-img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 2px solid var(--sw-border);
+      background: #000;
+    }
+
+    @media (max-width: 992px) {
+      #sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+      }
+      #content { margin-left: 0; }
+    }
+  </style>
 </head>
 
 <body>
 
-    <div id="sidebar">
-        <div class="lang-toggle">
-            <img src="https://flagcdn.com/us.svg" alt="EN" id="lang-en" onclick="switchLanguage('en')">
-            <img src="https://flagcdn.com/fr.svg" alt="FR" id="lang-fr" onclick="switchLanguage('fr')">
-        </div>
-
-        <!-- IMAGE DU RAID -->
-        <img src="../raid-image/VOTRE_IMAGE.png" class="raid-header-img" alt="Raid Boss">
-
-        <div class="nav-section">
-            <div class="nav-title" id="title-resume">Summary</div>
-            <div id="btn-history" class="nav-item active" onclick="showSection('resume', this)">Story & Rules</div>
-        </div>
-
-        <div class="nav-section">
-            <div class="nav-title" id="title-details">Details</div>
-            <div id="btn-apercu" class="nav-item" onclick="showSection('apercu', this)">Overview</div>
-            <div id="btn-finale" class="nav-item sub-item" onclick="showSection('phase-finale', this)">Final Phase</div>
-        </div>
-
-        <div class="nav-section">
-            <div class="nav-title" id="title-restrict">Restrictions</div>
-            <div id="btn-unites" class="nav-item" onclick="showSection('unites', this)">Eligible Units</div>
-        </div>
-
-        <button class="btn btn-outline-info w-100 mt-4" onclick="window.location.href='raid.html'" id="btn-back">BACK</button>
+  <!-- ==========================================================================
+     BARRE LATÉRALE (SIDEBAR)
+     ========================================================================== -->
+  <div id="sidebar">
+    <!-- Sélecteur de langue (À CONSERVER) -->
+    <div class="lang-toggle">
+      <img src="https://flagcdn.com/us.svg" alt="EN" id="lang-en" onclick="switchLanguage('en')">
+      <img src="https://flagcdn.com/fr.svg" alt="FR" id="lang-fr" onclick="switchLanguage('fr')">
     </div>
 
-    <div id="content">
-        <h1 class="main-raid-title" id="raid-main-name">Raid Name</h1>
+    <!-- A MODIFIER: Image d'en-tête du Raid -->
+    <img src="../raid-image/[DOSSIER_RAID]/[IMAGE_HEADER_RAID].png" class="raid-header-img" alt="[NOM DU RAID]">
 
-        <!-- Section Histoire -->
-        <div id="section-resume" class="section-content active">
-            <h2 id="h-history">Story & Rules</h2>
-            <div class="info-box" id="text-history">Description in English...</div>
-        </div>
-
-        <!-- Section Aperçu -->
-        <div id="section-apercu" class="section-content">
-            <h2 id="h-apercu">Raid Overview</h2>
-            <div class="info-box" id="text-apercu">English overview details...</div>
-        </div>
-
-        <!-- Section Phase Finale -->
-        <div id="section-phase-finale" class="section-content">
-            <h2 id="h-finale">Final Phase</h2>
-            <div class="info-box" id="text-finale">English final phase details...</div>
-        </div>
-
-        <!-- Section Unités -->
-        <div id="section-unites" class="section-content">
-            <h2 id="h-unites">Eligible Units</h2>
-            <!-- Input de recherche (optionnel mais recommandé) -->
-            <input type="text" id="searchInput" class="form-control mb-3 bg-dark text-light border-secondary" placeholder="Search unit..." onkeyup="renderUnits()">
-            <div id="units-gallery"></div>
-        </div>
+    <!-- Navigation (À CONSERVER) -->
+    <div class="nav-section">
+      <div class="nav-title" id="title-resume">Summary</div>
+      <div id="btn-history" class="nav-item active" onclick="showSection('resume', this)">Story & Rules</div>
     </div>
 
+    <div class="nav-section">
+      <div class="nav-title" id="title-details">Details</div>
+      <div id="btn-factions" class="nav-item" onclick="showSection('factions', this)">Faction Bonuses</div>
+      <div id="btn-capacities" class="nav-item" onclick="showSection('capacities', this)">Abilities</div>
+      <div id="btn-diff" class="nav-item" onclick="showSection('diff', this)">Difficulty Modifiers</div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-title" id="title-restrict">Restrictions</div>
+      <div id="btn-unites" class="nav-item" onclick="showSection('unites', this)">Eligible Units</div>
+    </div>
+
+    <button class="btn btn-outline-info w-100 mt-4" onclick="window.location.href='raid.html'" id="btn-back">BACK</button>
+  </div>
+
+  <!-- ==========================================================================
+     CONTENU PRINCIPAL
+     ========================================================================== -->
+  <div id="content">
+    <!-- A MODIFIER: Nom du Raid par défaut (Anglais) -->
+    <h1 class="main-raid-title" id="raid-main-name">[NOM DU RAID (EN)]</h1>
+
+    <!-- ----------------------------------------------------------------------
+         1. SECTION RESUME (Histoire & Règles)
+         ---------------------------------------------------------------------- -->
+    <div id="section-resume" class="section-content active">
+      <h2 id="h-history">Story & Rules</h2>
+      
+      <!-- Accordéon Histoire -->
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <span id="title-story">STORY</span><span>+</span>
+        </div>
+        <!-- A MODIFIER: Texte de l'histoire en Anglais -->
+        <div class="accordion-content-sw" id="text-story">
+          [Description de l'histoire du raid en Anglais]
+          <br><br><strong>Hero Units:</strong> [Unités Héros]
+        </div>
+      </div>
+
+      <!-- Accordéon Règles -->
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <span id="title-rules">RULES</span><span>+</span>
+        </div>
+        <!-- A MODIFIER: Règles du raid en Anglais -->
+        <div class="accordion-content-sw" id="text-rules">
+          • Time Limit: [Temps]<br>
+          • Requirements: [Conditions]<br>
+          • Roster Refresh: Never<br>
+          • Launch Cost: [Coût]<br>
+          • Max Attempts: [Nb Tentatives]
+        </div>
+      </div>
+    </div>
+
+    <!-- ----------------------------------------------------------------------
+         2. SECTION FACTIONS (Bonus de Faction)
+         ---------------------------------------------------------------------- -->
+    <div id="section-factions" class="section-content">
+      <h2 id="h-factions">Faction Bonuses</h2>
+      <div class="info-box" id="text-factions-intro">Characters can obtain one or more of the following abilities during the raid.</div>
+
+      <div class="faction-grid">
+        <!-- A MODIFIER / DUPLIQUER : Carte Faction (Répéter autant de fois qu'il y a de factions) -->
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <!-- Image Faction -->
+            <img style="height: 10%; width: 10%;" src="../raid-image/[DOSSIER_RAID]/[ICONE_FACTION_1].png">
+            <!-- ID unique requis (ex: f-1, f-2...) -->
+            <span class="faction-name" id="f-1">[Nom Faction 1 (EN)]</span>
+          </div>
+          <!-- ID unique de contenu (ex: content-f-1, content-f-2...) -->
+          <div class="faction-content-box" id="content-f-1">
+            [Description des bonus de la Faction 1 en Anglais]
+          </div>
+        </div>
+
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <img style="height: 10%; width: 10%;" src="../raid-image/[DOSSIER_RAID]/[ICONE_FACTION_2].png">
+            <span class="faction-name" id="f-2">[Nom Faction 2 (EN)]</span>
+          </div>
+          <div class="faction-content-box" id="content-f-2">
+            [Description des bonus de la Faction 2 en Anglais]
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ----------------------------------------------------------------------
+         3. SECTION ABILITIES (Capacités conférées, Boss, Sbires)
+         ---------------------------------------------------------------------- -->
+    <div id="section-capacities" class="section-content">
+      <h2 id="h-capa">Abilities</h2>
+
+      <!-- GROUPE 1: Capacités conférées (Granted Abilities) -->
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <span id="capa-granted">Granted Abilities</span><span>+</span>
+        </div>
+        <div class="accordion-content-sw" id="val-capa-granted">
+          
+          <!-- A MODIFIER / DUPLIQUER: Capacité Conférée 1 -->
+          <div class="faction-card mb-3 shadow-sm">
+            <div class="faction-header">
+              <img src="../raid-image/[DOSSIER_RAID]/[ICONE_CAPA_1].png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="capa-name-1" style="white-space: nowrap;">[Nom Capacité 1 (EN)]</span>
+            </div>
+            <div class="p-3" id="capa-desc-1" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              [Description Capacité 1 (EN)]
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- GROUPE 2: Boss Principal -->
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <div class="d-flex align-items-center gap-3" style="flex: 1; min-width: 0;">
+            <img src="../raid-image/[DOSSIER_RAID]/[ICONE_BOSS].png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+            <span id="capa-boss" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">[Nom du Boss (EN)]</span>
+          </div>
+          <span style="flex-shrink: 0;">+</span>
+        </div>
+        <div class="accordion-content-sw" id="val-capa-boss">
+
+          <!-- A MODIFIER / DUPLIQUER: Attaque Boss 1 -->
+          <div class="faction-card mb-3">
+            <div class="faction-header">
+              <img src="../raid-image/[DOSSIER_RAID]/[ICONE_BOSS_SPE_1].png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-1" style="white-space: nowrap;">[Nom Attaque 1 (EN)]</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-1" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              [Description Attaque 1 (EN)]
+              <br><br>
+              <u class="rage">Enraged:</u> [Effet Enragé si applicable]
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div> 
+
+    <!-- ----------------------------------------------------------------------
+         4. SECTION DIFFICULTÉ (Modificateurs par Niveaux)
+         ---------------------------------------------------------------------- -->
+    <div id="section-diff" class="section-content">
+      <h2 id="h-diff">Difficulty Modifiers</h2>
+      <div id="diff-container">
+
+        <!-- LEVEL 0 (Base) -->
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-base">Level 0 (x1 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3">
+              <span id="level-info-base">
+                <strong>Max possible:</strong> 300,000 pts<br>
+                <strong>Requirement:</strong> None
+              </span>
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-base">
+                <strong>Additional Effects:</strong><br>
+                • No Additional Effects.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- A MODIFIER: LEVEL 1 A LEVEL N (Ajuster les descriptions / requis / scores) -->
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-1">Level 1 (x1.5 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3" id="level-info-1">
+              <strong>Max possible:</strong> 450,000 pts<br>
+              <strong>Requirement:</strong> Tier XII
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-1">
+                <strong>Additional Effects:</strong><br>
+                • [Effets du Niveau 1 (EN)]
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ----------------------------------------------------------------------
+         5. SECTION RESTRICTIONS (Galerie des unités)
+         ---------------------------------------------------------------------- -->
+    <div id="section-unites" class="section-content">
+      <h2 id="raid-unites">Eligible Units</h2>
+      <div class="info-box" id="raid-eligible-desc">Units eligible for this raid:</div>
+
+      <!-- Galerie générée dynamiquement par JS -->
+      <div id="units-gallery"></div>
+    </div>
+
+    <!-- ==========================================================================
+       SCRIPTS JS (Configuration et Traduction)
+       ========================================================================== -->
     <script>
-        let currentLang = sessionStorage.getItem("selectedLanguage") || "en";
-        let allUnits = [];
-        
-        // --- À CONFIGURER POUR CHAQUE PAGE ---
-        const RAID_TARGET_EN = "raid name in json"; // Doit correspondre exactement au texte dans ton units.json
+      let currentLang = sessionStorage.getItem("selectedLanguage") || "en";
+      let allUnits = [];
+      const englishTexts = {};
 
-        const dictFr = {
-            "big-title": "SWGOH - Nom du Raid",
-            "raid-main-name": "Nom du Raid",
-            "title-resume": "Résumé",
-            "btn-history": "Histoire & Règles",
-            "title-details": "Détails",
-            "btn-apercu": "Aperçu",
-            "btn-finale": "Phase Finale",
-            "title-restrict": "Restrictions",
-            "btn-unites": "Unités autorisées",
-            "btn-back": "RETOUR",
-            "h-history": "Histoire & Règles",
-            "h-apercu": "Aperçu du Raid",
-            "h-finale": "Phase Finale",
-            "h-unites": "Unités autorisées",
-            "text-history": "Texte de l'histoire en français...",
-            "text-apercu": "Texte de l'aperçu en français...",
-            "text-finale": "Texte de la phase finale en français...",
-            "search-placeholder": "Rechercher une unité..."
-        };
+      /* ========================================================================
+         A MODIFIER OBLIGATOIREMENT : 
+         1. Nom exact du raid recherché dans le fichier JSON (units.json)
+         2. Dictionnaire de traduction complète FR
+         ======================================================================== */
+      const RAID_TARGET_EN = "[NOM DU RAID EXACT DANS UNITS.JSON EN MINUSCULES]"; // Ex: "speeder bike pursuit"
 
-        const englishTexts = {};
+      const dictFr = {
+        // En-tête principal & menu navigation
+        "raid-main-name": "[NOM DU RAID EN FRANÇAIS]",
+        "title-resume": "Résumé",
+        "title-details": "Détails",
+        "btn-history": "Histoire & Règles",
+        "btn-factions": "Factions Bonus",
+        "btn-capacities": "Capacités",
+        "btn-diff": "Modificateurs",
+        "btn-unites": "Unités autorisées",
+        "btn-back": "RETOUR",
 
-        function normalize(str) {
-            return str ? str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim() : '';
+        // Titres des sections
+        "h-history": "Histoire & Règles",
+        "h-factions": "Bonus de Faction",
+        "h-capa": "Capacités",
+        "h-diff": "Modificateurs de Difficulté",
+        "h-unites": "Unités autorisées",
+
+        // Section 1: Histoire & Règles
+        "title-story": "HISTOIRE",
+        "text-story": "[Histoire traduite en Français]\n\nUnités héros : [Héros]",
+        "title-rules": "RÈGLES",
+        "text-rules": "• Limite de temps : [Temps FR]\n• Conditions : [Conditions FR]\n• Actualisation des personnages : Jamais\n• Coût du lancement : [Coût FR]\n• Total de tentatives : [Nb FR]",
+
+        // Section 2: Factions
+        "text-factions-intro": "Les personnages peuvent obtenir l'une ou plusieurs des capacités suivantes lors du raid",
+        "f-1": "[Nom Faction 1 FR]",
+        "content-f-1": "[Bonus Faction 1 FR]",
+        "f-2": "[Nom Faction 2 FR]",
+        "content-f-2": "[Bonus Faction 2 FR]",
+
+        // Section 3: Capacités
+        "capa-granted": "Capacités conférées",
+        "capa-boss": "[Nom Boss FR]",
+
+        "capa-name-1": "[Nom Capacité Conférée 1 FR]",
+        "capa-desc-1": "[Description Capacité Conférée 1 FR]",
+
+        "boss-capa-name-1": "[Nom Attaque Boss 1 FR]",
+        "boss-capa-desc-1": "[Description Attaque Boss 1 FR]",
+
+        // Section 4: Niveaux de Difficulté
+        "level-title-base": "Niveau 0 (x1 Multiplicateur)",
+        "level-info-base": "<strong>Score Max :</strong> 300 000 pts<br><strong>Conditions :</strong> Aucune",
+        "level-desc-base": "<strong>Effets supplémentaires :</strong><br>• Aucun effet supplémentaire.",
+
+        "level-title-1": "Niveau 1 (x1.5 Multiplicateur)",
+        "level-info-1": "<strong>Score Max :</strong> 450 000 pts<br><strong>Conditions :</strong> Équipement 12",
+        "level-desc-1": "<strong>Effets supplémentaires :</strong>\n\n• [Effets du niveau 1 FR]",
+
+        // Section 5: Unités
+        "raid-unites": "Unités éligibles",
+        "raid-eligible-desc": "Unités éligibles pour ce raid :",
+      };
+
+      /* ========================================================================
+         FONCTIONS LOGIQUES DE LA PAGE (À CONSERVER DANS LE MODÈLE)
+         ======================================================================== */
+      function toggleAccordion(element) {
+        const parent = element.parentElement;
+        parent.classList.toggle('active');
+        const icon = element.querySelectorAll('span')[1];
+        if (icon) {
+          icon.innerHTML = parent.classList.contains('active') ? '-' : '+';
+        }
+      }
+
+      function switchLanguage(lang) {
+        currentLang = lang;
+        sessionStorage.setItem("selectedLanguage", lang);
+        updateUI();
+      }
+
+      function updateUI() {
+        const isFr = (currentLang === "fr");
+        const source = isFr ? dictFr : englishTexts;
+
+        for (let id in source) {
+          const el = document.getElementById(id);
+          if (el) {
+            if (isFr) {
+              el.innerHTML = source[id].replace(/\n/g, '<br>');
+            } else {
+              el.innerHTML = source[id].replace(/\s+/g, ' ').trim();
+            }
+          }
         }
 
-        window.addEventListener("DOMContentLoaded", () => {
-            // Sauvegarde automatique des textes anglais
-            for (let id in dictFr) {
-                const el = document.getElementById(id);
-                if (el) {
-                    englishTexts[id] = (id === "searchInput") ? el.placeholder : el.innerText;
-                }
-            }
+        const btnEn = document.getElementById("lang-en");
+        const btnFr = document.getElementById("lang-fr");
+        if (btnEn) btnEn.classList.toggle("active", currentLang === 'en');
+        if (btnFr) btnFr.classList.toggle("active", currentLang === 'fr');
 
-            fetch("https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json")
-                .then(res => res.json())
-                .then(data => {
-                    allUnits = data;
-                    updateUI();
-                });
+        renderUnits();
+      }
+
+      function showSection(sectionId, element) {
+        document.querySelectorAll('.section-content').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+        document.getElementById('section-' + sectionId).classList.add('active');
+        element.classList.add('active');
+      }
+
+      function toggleFaction(element) {
+        element.classList.toggle('active');
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        // Sauvegarde dynamique des valeurs HTML par défaut en anglais
+        Object.keys(dictFr).forEach(id => {
+          const el = document.getElementById(id);
+          if (el) englishTexts[id] = el.innerHTML;
         });
 
-        function switchLanguage(lang) {
-            currentLang = lang;
-            sessionStorage.setItem("selectedLanguage", lang);
+        // Récupération automatique du Roster SWGOH
+        fetch("https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json")
+          .then(res => res.json())
+          .then(data => {
+            allUnits = data;
             updateUI();
-        }
+          });
+      });
 
-        function updateUI() {
-            const isFr = (currentLang === "fr");
-            const source = isFr ? dictFr : englishTexts;
+      function renderUnits() {
+        const gallery = document.getElementById("units-gallery");
+        if (!gallery) return;
 
-            for (let id in dictFr) {
-                const el = document.getElementById(id);
-                if (el) {
-                    if (id === "searchInput") {
-                        el.placeholder = isFr ? dictFr["search-placeholder"] : englishTexts["search-placeholder"];
-                    } else if (id === "big-title") {
-                        document.title = source[id];
-                    } else {
-                        el.innerText = source[id];
-                    }
-                }
-            }
+        gallery.innerHTML = "";
 
-            document.getElementById("lang-en").classList.toggle("active", currentLang === 'en');
-            document.getElementById("lang-fr").classList.toggle("active", currentLang === 'fr');
+        const filtered = allUnits.filter(u =>
+          u.raids && u.raids.some(r => r.en.toLowerCase() === RAID_TARGET_EN)
+        );
 
-            renderUnits();
-        }
+        filtered.forEach(u => {
+          const link = document.createElement("a");
+          link.href = u.page;
+          link.target = "_self";
 
-        function showSection(sectionId, element) {
-            document.querySelectorAll('.section-content').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-            document.getElementById('section-' + sectionId).classList.add('active');
-            element.classList.add('active');
-        }
+          const img = document.createElement("img");
+          img.src = u.image;
+          img.className = "raid-unit-img";
+          img.title = u.name[currentLang] || u.name.en;
+          img.loading = "lazy";
 
-        function renderUnits() {
-            const gallery = document.getElementById("units-gallery");
-            const searchVal = document.getElementById("searchInput") ? document.getElementById("searchInput").value : "";
-            const search = normalize(searchVal);
-            if (!gallery) return;
-            gallery.innerHTML = "";
-
-            const filtered = allUnits.filter(u => {
-                const hasRaid = u.raids && u.raids.some(r => normalize(r.en) === normalize(RAID_TARGET_EN));
-                const nameMatch = normalize(u.name[currentLang] || u.name.en).includes(search);
-                return hasRaid && nameMatch;
-            });
-
-            filtered.forEach(u => {
-                const anchor = document.createElement("a");
-                anchor.href = u.page || "#";
-                anchor.className = "raid-unit-card";
-                anchor.title = u.name[currentLang] || u.name.en;
-
-                const img = document.createElement("img");
-                img.src = u.image;
-                img.className = "raid-unit-img";
-                img.onerror = function () { this.src = 'https://e-rimbault.github.io/swgoh-kit/image/logo_star_wars.png'; };
-
-                anchor.appendChild(img);
-                gallery.appendChild(anchor);
-            });
-
-            if (filtered.length === 0) {
-                gallery.innerHTML = `<p class='text-center w-100 opacity-50 mt-4'>${currentLang === 'fr' ? 'Aucune unité trouvée.' : 'No units found.'}</p>`;
-            }
-        }
+          link.appendChild(img);
+          gallery.appendChild(link);
+        });
+      }
     </script>
 </body>
+
 </html>
