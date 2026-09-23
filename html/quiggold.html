@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Quiggold</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/quiggold/quiggold-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/quiggold/quiggold-image.png" alt="quiggold" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Quiggold</u></h1>
+            <p id="description">
+                A fierce and ruthless Pirate Tank with an ironclad loyalty to his captain
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/pirate.html" id="pirate">Pirate</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Deck Sweeper</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Quiggold basic" src="../image-perso/quiggold/quiggold-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Steal any Taunt from all enemies and reset its duration. Deal Physical damage to all enemies, then inflict Defense Down for 2 turns. If no Taunt was Stolen and if Quiggold had 2 or more stacks of Profit, he consumes 2 of them and Taunts for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Buccaneer (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Quiggold spécial 1" src="../image-perso/quiggold/quiggold-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Steal any Foresight and Tenacity Up from all enemies, grant them to all Pirate allies, and reset their duration. Deal Physical damage to all enemies, then inflict Tenacity Down and Blind for 1 turn. This attack can't be evaded.
+                <br><br>
+                If Quiggold had 5 or more stacks of Profit, consume 5 of them and inflict 1 stack of Damage Over Time for 2 turns and remove 50% Turn Meter from the target enemy, which can't be resisted. This stack of Damage Over Time and Turn Meter removal is doubled if the target enemy is a Sith. If no buffs were Stolen, all Pirate allies gain Defense Up and Protection Up (50%) for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : First Mate</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Quiggold unique 1" src="../image-perso/quiggold/quiggold-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of battle, Quiggold Taunts for 2 turns and gains 10% Defense, Max Health, and Max Protection for each Pirate ally. If the ally in the Leader slot is Maz Kanata, this Taunt can't be dispelled or prevented, and Quiggold gains double those stat increases. Whenever Quiggold's Health drops below 50%, he gains Defense Up and Protection Up (50%) for 2 turns.
+                <br><br>
+                Whenever Quiggold resists a debuff, he gains 1 stack of Profit (max once per turn). Whenever Quiggold Taunts, he gains 1 stack of Bulwark (max 5 stacks) for every stack of Profit for 2 turns. Quiggold is immune to Stun if he has 5 or more stacks of Profit.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Prayer Necklace</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Quiggold unique 2" src="../image-perso/quiggold/quiggold-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                At the end of each of his turns, if Quiggold is Taunting, he gains 1 stack of Retaliate (max 5 stacks) for every 2 stacks of Profit for 1 turn which can't be copied. If the ally in the Leader slot is a non-Galactic Legend Pirate (excluding himself) and Ithano is an active ally, the first time Quiggold is defeated, he consumes all stacks of Profit on him and all Pirate allies recover 50% Max Health and Max Protection and gain Damage Immunity for 1 turn, which can't be copied, dispelled, or prevented.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Battles:</u> Quiggold starts the battle with 5 stacks of Profit and gains 250% Defense and 50% Tenacity. While Quiggold is active, and if at the start of battle there is no Galactic Legend ally, enemies defeated by Pirate allies can't be revived and all Pirate allies have 50% Max Health and Max Protection, can't be critically hit and take 30% reduced damage. The first time any Pirate ally loses 50% of their Health, they dispel all debuffs on themselves and gain Damage Immunity for 2 turns, which can't be copied, dispelled, or prevented (this can only occur once per battle for each Pirate ally).
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Quiggold",
+                "title": "<u>Quiggold</u>",
+                "description": "Un tank Pirate féroce et impitoyable qui voue une loyauté indéfectible à son capitaine.",
+
+                "darkside": "Coté Obscur",
+                "tank": "Tank",
+                "pirate": "pirate",
+                "scoundrel": "Vaurien",
+
+                "basic-attack-title": "<u>Attaque Basique: Balayeur de pont</u>",
+                "basic-attack": "Vole Raillerie à tous les ennemis et réinitialise sa durée. Inflige des dégâts physiques à tous les ennemis, puis inflige un malus de défense pendant 2 tours. Si Raillerie n'a pas été volée, Quiggold consomme 2 cumuls et utilise Raillerie pendant 1 tour.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Boucanier (délai : 4)</u>",
+                "special-attack1": "Vole toute prévoyance et tout bonus de ténacité dont disposent les ennemis et les confère à tous les alliés Pirates, puis réinitialise leur durée. Inflige des dgéâts physiques à tous les ennemis, puis un malus de ténacité et Cécité pendant 1 tour. Cette attaque ne peut pas être esquivée.\n\nSi Quiggold disposait de 5 cumuls de Profit ou plus, il en consomme 5 et inflige 1 cumul de dégâts sur la durée pendant 2 tours, puis réduit de 50 % la jauge de tour de la cible ennemie (ne peut pas être résisté). Ce cumul de dégâts sur la durée et la réduction de jauge de tour sont doublés si la cible ennemie est un Sith. Si aucune amélioration n'a été volée, tous les alliés Pirates obtiennent un bonus de protection (50 %) pendant 2 tours.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Second</u>",
+                "unique-ability1": "Au début de la bataille, Quiggold utilise Raillerie pendant 2 tours et obtient 10 % de défense, de santé maximale et de protection maximale pour chaque allié Pirate. Si l'allié dans l'emplacement de chef est Maz Kanata, Raillerie ne peut pas être dissipée ou empêchée, et Quiggold obtient le double de ces augmentations de statistiques. Chaque fois que la santé de Quiggold tombe en dessous de 50 %, il gagne un bonus de défense et un bonus de protection (50 %) pendabnt 2 tours.\n\nChaque fois que Quiggold résiste à un affaiblissement, il gagne 1 cumul de Profit (1 fois par tour maximum). Chaque fois que Quiggold utilise Raillerie, il gagne 1 cumul de Rempart (5 cumuls maximum) pour chaque cumul de Profit pour 2 tours. Quiggold est immunisé contre Étourdissement s'il dispose de 5 cumuls de Profit ou plus.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Chapelet</u>",
+                "unique-ability2": "A la fin de chaqun de ses tours, si Quiggold utilise Raillerie, il obtient 1 cumul de Représailles (5 cumuls maximum) pendant 1 tour par tranche de 2 cumuls de Profite (ne peut pas être copié). Si l'allié dans l'emplacement de chef (si ce n'est pas lui) est un Pirate qui n'est pas une Légende galactique et si Ithano est un allié actif, la première fois que Quiggold est vaincu, tous ses cumuls de Profit sont supprimés et tous les alliés Pirates récupèrent 50 % de santé maximale et de protection maximale, puis ils reçoivent Immunité aux dégâts pendant 1 tour (ne peut pas être copié, dissipé ou empêché).\n\n<u class='omicron'>Amélioration Omicron : Dans les Batailles de territoire :</u> Quiggold commence la bataille avec 5 cumuls de Profit et obtient 250 % de défense et 50 % de ténacité. Tant que Quiggold est actif, et si au début de la bataille aucune Légende galactique n'est présente, les ennemis vaincus par les alliés Pirates ne peuvent pas être ranimés, et tous les alliés Pirates reçoivent 50 % de santé maximale et de protection maximale, ne peuvent pas subir de coup critique, et reçoivent des dégâts réduits de 30 %. La première fois que n'importe quel allié Pirate perd 50 % de sa santé, tous ses affaiblissements sont dissipés, et il reçoit Immunité aux dégâts pendant 2 tours (ne peut pas être copié, dissipé ou empêché : une fois par bataille pour chaque allié Pirate).",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "quiggold"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
