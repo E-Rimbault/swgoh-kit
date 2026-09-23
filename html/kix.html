@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Kix</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/kix/kix-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/kix/kix-image.png" alt="Kix" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Kix</u></h1>
+            <p id="description">
+                A conflicted and skilled Healer who does anything it takes to keep his allies alive
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soigneur.html" id="healer">Healer</a>
+                <a class="capacite" href="../classement-perso/soldat-clone.html" id="clone">Clone Trooper</a>
+                <a class="capacite" href="../classement-perso/pirate.html" id="pirate">Pirate</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Rapidfire Blast</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Kix basic" src="../image-perso/kix/kix-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Special damage twice to target enemy and grant all Pirate allies Tenacity Up for 1 turn. For each critical hit scored, dispel all debuffs from a random debuffed Pirate ally. If no Pirate allies were debuffed, a random Pirate ally with less than 100% Health recovers 5% Health and a random Pirate ally with less than 100% Protection recovers 5% Protection.
+                <br><br>
+                During Kix's turn, he gains 1 stack of Profit (max 5) for the rest of the battle, and Retribution for 2 turns.
+
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Explosive Response (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Kix special 1" src="../image-perso/kix/kix-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Kix dispels all debuffs on himself. Deal Special damage to all enemies, inflict Healing Immunity for 2 turns, and Steal Critical Hit Immunity, Heal Over Time, Health Up, Health Steal Up, Protection Over Time, and Protection Up. If any buffs were Stolen, grant them to all Pirate allies and reset their duration. For each enemy that didn't have any buffs Stolen, Kix gains 1 stack of Profit (max 5) for the rest of the battle.
+                <br><br>
+                If target enemy is Sith, their cooldowns are increased by 1. Otherwise, call target other Pirate ally to assist, dealing 50% more damage.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Emergency Medpac (cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Kix special 2" src="../image-perso/kix/kix-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Revive a random Pirate ally with 50% Health and Protection. If the revived Pirate ally is a Tank, they Taunt for 2 turns, otherwise they Stealth for 2 turns. All Pirate allies recover 10% Health and Protection. If no Pirate ally was revived, reduce the cooldown of this ability by 2.
+                <br><br>
+                This ability gains additional effects depending on how many stacks of Profit Kix has. Kix loses 1 stack of Profit for each effect triggered.
+                <br><br>
+                - <u class="speciale">3+ Stacks of Profit:</u> All Pirate allies recover 30% Health and Protection<br>
+                - <u class="speciale">10+ Stacks of Profit:</u> If there are no allied Galactic Legends, the weakest Pirate ally gains Damage Immunity for 1 turn, which can't be copied, dispelled, or prevented
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Republic Medic Corps</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Kix unique" src="../image-perso/kix/kix-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Kix has +20 Speed for each Pirate ally below 100% Health and Stealths for 1 turn whenever he falls below 100% Health (limit once per encounter). If Maz Kanata is the Leader, all Pirate allies gain 20% bonus Protection and Tenacity Up for 1 turn at the start of the encounter. If Pirate King Hondo Ohnaka or Maz Kanata is the ally in the Leader slot, the cap for Profit is removed for Kix.
+                <br><br>
+                Whenever a Pirate ally is inflicted with Healing Immunity or Shock, Kix dispels all debuffs on himself, gains Speed Up for 1 turn and 20% Turn Meter, and he assists himself the next time he uses a Special ability.
+                <br><br>
+                At the start of his turn, Pirate allies below 100% Health gain Evasion Up for 1 turn, otherwise they gain 20% Offense for 1 turn. During Kix's turn, his Health and Protection recovery abilities gain an additional 4% healing (once per turn, stacking, max 20%) for each stack of Profit on him.
+                <br><br>
+                If there are no allied Galactic Legends and there's an active ally, if Kix has 3+ stacks of Profit, the first time each Pirate ally would be defeated, the defeated ally is revived with 30% Health and Protection, and Kix loses 3 stacks of Profit. If Kix had 5+ stacks of Profit whenever he revives a Pirate ally, the revived ally gains 3 stacks of <u class="speciale">Endure</u> for 2 turns.
+                <br><br>
+                <u class="speciale">Endure:</u> Can't be instantly defeated; the first time this character would be reduced to 1% Health, dispel 1 stack of Endure, and recover 1% Health which can't be prevented
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> Kix gains 20% Critical Avoidance, Defense, and Tenacity for the rest of the battle whenever a Pirate ally falls below 100% Health (limit once per ally). Whenever Kix revives a Pirate ally, they gain a bonus turn and 100% Offense for 1 turn, their cooldowns are reset, and if they're a Tank, they Taunt for 2 turns, otherwise they Stealth for 2 turns. If a Pirate ally was unable to be revived by Kix, all active Pirate allies gain 20% Defense, Health, and Offense (stacking) for the rest of the encounter, and 20% bonus Protection for 2 turns. Whenever a Pirate ally gains Endure, they gain Damage Immunity until the start of their next turn, which can't be copied, dispelled, or prevented.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Kix",
+                "title": "<u>Kix</u>",
+                "description": "Un guérisseur expérimentée qui fait tout son possible pour garder ses alliés en vie.",
+
+                "lightside": "Coté Lumineuc",
+                "healer": "Soigneur",
+                "clone": "Soldat Clone",
+                "pirate": "Pirate",
+                "scoundrel": "Vaurien",
+
+                "basic-attack-title": "<u>Attaque Basique: Rafale rapide</u>",
+                "basic-attack": "Inflige des dégâts spéciaux deux fois à la cible ennemie et confère un bonus de ténacité à tous les alliés Pirates pendant 1 tour. Pour chaque coup critique infligé, dissipe tous les affaiblissements affectant un allié Pirate aléatoire. Si aucun allié Pirate ne subit d'affaiblissement, un allié Pirate aléatoire disposant de moins de 100 % de santé récupère 5 % de santé, et un allié Pirate aléatoire disposant de moins de 100 % de protection récupère 5 % de protection.\n\nPendant son tour, Kix obtient 1 cumul de Profit (5 maximum) pour le reste de la bataille, et Rétribution pendant 2 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Réponse explosive (délai : 3)</u>",
+                "special-attack1": "Kix dissipe tous les affaiblissements l'affectant. Inflige des dégâts spéciaux à tous les ennemis, inflige Immunité aux soins pendant 2 tours et vole Immunité aux coups critiques ainsi que les cumuls de soins sur la durée, les bonus de santé, de vol de santé, la protection sur la durée et les bonus de protection. Si des améliorations ont été volées, elles sont conférées à tous les alliés Pirates et leur durée est réinitialisée. Pour chaque ennemie sur lequel aucune amélioration n'a été volée, Kix obtient 1 cumul de Profit (5 maximum) pendant le reste de la bataille.\n\nSi la cible ennemie est Sith, les délais de cette dernière sont augmentés de 1. Sinon, invoque la cible allié Pirate, qui inflige 50 % de dégâts supplémentaires.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Médipac d'urgence (délai : 5)</u>",
+                "special-attack2": "Ranime un allié Pirate aléatoire avec 50 % de santé et de protection. Si l'allié Pirate qui a été ranimé est un tank, il utilise Raillerie pendant 2 tours. Sinon, il utilise camouflage pendant 2 tours. Tous les alliés Pirates récupèrent 10 % de santé et de protection. Si aucun allié Pirate n'a été ranimé, le délai de cette capacité est réduit de 2.\n\nCette capacité obtient des effets supplémentaires en fonction du nombre de cumuls de Profit dont dipose Kix. Ce dernier perd 1 cumul de Profit pour chaque effet déclenché.\n\n- <u class='speciale'>3 cumuls de Profit ou plus :</u> tous les alliés Pirates récupèrent 30 % de santé et de protection.\n- <u class='speciale'>10 cumuls de Profit ou plus :</u> si aucune Légende galactique alliée n'est présente, l'allié Pirate le plus faible obtient Immunité aux dégâts pendant 1 tour (ne peut pas être copié, dissipé ou empêché).",
+
+                "unique-ability1-title": "<u>Capacité Unique : Corps médical de la République</u>",
+                "unique-ability1": "Kix dispose de +20 de vitesse pour chaque allié Pirate dont la santé est inférieur à 100 % et utilise Camouflage pendant 1 tour chaque fois que sa propre santé est inférieure à 100 % (limité à une fois par affrontement). Si Maz Kanata est dans l'emplacement de chef, tous les alliés Pirates obtiennent 20 % de protection supplémentaire et un bonus de ténacité pendant 1 tour au début de l'affrontement. Si le Roi Pirate hondo Ohnaka ou Maz kanata est l'allié dans l'emplacement de chef, la limite de cumuls de Profit est supprimé pour Kix.\n\nChaque fois qu'un allié Pirate subit Immunité aux soins ou Choc, Kix dissipe tous les affaiblissements dont il dispose lui-même, obtient un bonus de vitesse pendant 1 tour et 20 % de jauge de tour, puis s'ilvique la prochaine fois qu'il utilise une capacité spéciale.\n\nAu début de son tour, les alliés Pirates dont la santé est inférieur à 100 % obtiennent un bonus d'esquive pendant 1 tour. Sinon, ils obtiennent 20 % d'attaque pendant 1 tour. Pendant le tour de Kix, ses capacité de récupération de santé et de protection obtiennent 4 % de soins supplémentaires (une fois par tour, cumulatif, maximum 20 %) pour chaque cumul de Profit dont il dispose.\n\nSi aucune Légende galactique n'est présente, qu'un allié est actif, et que kix dispose de 3 cumuls de Profit ou plus, la première fois que chaque allié Pirate aurait été vaincu, il est ranimé avec 30 % de santé et de protection, puis Kix perd 3 cumuls de Profit. Si Kix avait 5 cumul de profit ou plus lorsqu'il ranime un allié Pirate, l'allié ranimé gagne 3 cumuls de <u class='speciale'>Résiste</u> pendant 2 tours.\n\n<u class='speciale'>Résiste :</u> ne peut pas subir de défaite instantanée. La première fois que ce personnage aurait dû tomber à 1 % de santé, dissipe 1 cumul de Résiste et récupère 1 % de santé (ne peut pas être empêché).\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> Kix obtient 20 % d'esquive des critiques, de défense et de ténacité pour le reste de la bataille chaque fois qu'un allié Pirate tombe en dessous de 100 % de santé (limité à une fois par allié). Chaque fois que kix ranime un allié Pirate, cet allié reçoit un tour bonus, 100 % d'attaque pendant 1 tour, ses délais sont réinitialisés, et si c'est un tank, il utilise Raillerie pendant 2 tours. Si ce n'est pas un tank, il utilise Camouflage pendant 2 tours. Si un allié Pirate n'a pas pu être ranimé par Kix, tous les alliés Pirates actifs obtiennent 20 % de défense, de santé et d'attaque (cumulatif) pour le reste de l'affrontement, puis 20 % de protection supplémentaire pendant 2 tours. Chaque fois qu'un allié Pirate obtient Résiste, il gagne Immunité aux dégâts jusqu'au début de son prochain tour (ne peut pas être copié, dissipé ou empêché).",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "kix"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
