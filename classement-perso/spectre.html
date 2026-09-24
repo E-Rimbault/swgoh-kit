@@ -10,33 +10,296 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
-    body { background-color: #031952; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    .table-container { background-color: #ffffff; border-radius: 12px; padding: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); overflow-x: auto; }
-    .table { margin-bottom: 0; vertical-align: middle; color: #212529; }
-    .unit-link { color: #212529 !important; font-weight: 700; text-decoration: underline; display: flex; align-items: center; gap: 12px; }
-    .unit-link:hover { color: #0d6efd !important; }
-    .unit-img-table { width: 85px !important; height: 85px !important; object-fit: contain; border-radius: 4px; flex-shrink: 0;}
-    
-    .filter-sidebar { background-color: rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); }
-    .form-label { font-weight: 600; color: #0d6efd; text-transform: uppercase; font-size: 0.8rem; }
-    
-    /* Rôle : Vert + Souligné */
-    .role { color: #198754; font-weight: 600; text-decoration: underline; }
-    .role:hover { text-decoration: underline; }
+    body {
+      background: #090a0f url('https://e-rimbault.github.io/swgoh-kit/image/background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+    }
 
-    /* Alignements dynamiques */
-    .alignment { font-weight: bold; text-decoration: none; }
-    .alignment.lightside { color: #0d6efd !important; }
-    .alignment.darkside { color: #dc3545 !important; }
-    .alignment.neutral { color: #6c757d !important; }
+    /* En-tête et sélecteur de langue */
+    .flag-switcher {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      padding: 10px 15px;
+    }
 
-    .badge-faction { background-color: #495057; color: #fff; padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; margin: 2px; display: inline-block; text-decoration: none; }
-    .flag-switcher { display: flex; justify-content: end; gap: 15px; padding: 15px; }
-    .flag-switcher img { width: 32px; cursor: pointer; border: 2px solid transparent; border-radius: 4px; transition: 0.2s; }
-    .btn-return-container { margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
-    
-    .btn-reset { width: 100%; background-color: #6c757d; border: none; font-weight: bold; margin-bottom: 15px; }
-    .badge-count { background-color: #0d6efd !important; }
+    .flag-switcher img {
+      width: 28px;
+      height: auto;
+      cursor: pointer;
+      border: 2px solid transparent;
+      border-radius: 4px;
+      transition: 0.2s;
+    }
+
+    /* Sidebar de filtres */
+    .filter-sidebar {
+      background: rgba(15, 20, 32, 0.9);
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+    }
+
+    .form-label {
+      font-weight: 600;
+      color: #0dcaf0;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+    }
+
+    /* Section Statistiques non cliquables */
+    .stats-card {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 12px 16px;
+      backdrop-filter: blur(8px);
+      margin-bottom: 20px;
+    }
+
+    .stats-title {
+      font-size: clamp(0.75rem, 2vw, 0.85rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #0dcaf0;
+      margin-bottom: 10px;
+    }
+
+    .stats-badge {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: clamp(0.72rem, 1.8vw, 0.82rem);
+      color: #cbd5e1;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .stats-badge strong {
+      color: #ffffff;
+    }
+
+    /* Titres de catégories / rôles */
+    .category-header {
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #94a3b8;
+      text-transform: uppercase;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .category-header .count {
+      color: #64748b;
+      font-size: 0.8rem;
+    }
+
+    .category-header-gl {
+      color: #ffd700 !important;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+    }
+
+    /* Grille Responsive des Cartes d'Unités */
+    .units-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+    }
+
+    /* Cartes compactes entièrement cliquables */
+    .unit-card-compact {
+      background: rgba(15, 23, 42, 0.85);
+      border-radius: 8px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      min-height: 80px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .unit-card-compact:hover {
+      transform: translateY(-2px);
+      color: inherit;
+    }
+
+    /* Border Alignements */
+    .border-lightside {
+      border: 1px solid #00d2ff !important;
+      box-shadow: 0 0 8px rgba(0, 210, 255, 0.15);
+    }
+
+    .border-darkside {
+      border: 1px solid #ff334b !important;
+      box-shadow: 0 0 8px rgba(255, 51, 75, 0.15);
+    }
+
+    .border-neutral {
+      border: 1px solid #d1d5db !important;
+      box-shadow: 0 0 8px rgba(209, 213, 219, 0.15);
+    }
+
+    .border-gl {
+      background: radial-gradient(circle at top left, rgba(255, 215, 0, 0.15), rgba(15, 23, 42, 0.9)) !important;
+      border: 1px solid #ffd700 !important;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3) !important;
+    }
+
+    .unit-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      flex-shrink: 0;
+    }
+
+    .avatar-gl {
+      border: 2px solid #ffd700 !important;
+      box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+    }
+
+    .unit-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .unit-name {
+      font-size: clamp(0.88rem, 2vw, 0.98rem);
+      font-weight: 700;
+      color: #ffffff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 2px;
+    }
+
+    .unit-card-compact:hover .unit-name {
+      color: #0dcaf0;
+    }
+
+    .unit-tags {
+      font-size: 0.75rem;
+      color: #38bdf8;
+      line-height: 1.25;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+    }
+
+    .unit-stats-preview {
+      margin-top: 4px;
+      font-size: 0.7rem;
+      color: #22c55e;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    /* Section Related Factions */
+    .related-factions-section {
+      margin-top: 35px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .related-factions-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .related-faction-btn {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      padding: 6px 12px;
+      color: #ffffff;
+      font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+      text-decoration: none;
+    }
+
+    .related-faction-btn:hover {
+      background: rgba(30, 41, 59, 1);
+      border-color: #0dcaf0;
+      color: #0dcaf0;
+    }
+
+    .related-faction-count {
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .btn-return-container {
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Modal Pop-up Responsive */
+    .modal-content {
+      background: rgba(15, 20, 32, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(12px);
+      color: #ffffff;
+    }
+
+    .modal-header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-close-white {
+      filter: invert(1);
+    }
+
+    @media (max-width: 767.98px) {
+      .filter-sidebar {
+        margin-bottom: 20px;
+      }
+
+      .units-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-card {
+        padding: 10px 12px;
+      }
+
+      .unit-avatar {
+        width: 42px;
+        height: 42px;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      .units-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
   </style>
 </head>
 
@@ -47,82 +310,136 @@
     <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="EN" onclick="switchLanguage('en')">
   </div>
 
-  <div class="container-fluid px-lg-5">
+  <div class="container-fluid px-2 px-sm-3 px-lg-5 pb-5">
     <div class="row">
-      <div class="col-lg-3 col-md-4 mb-4">
+      <!-- Sidebar / Filtres -->
+      <div class="col-lg-3 col-md-4 mb-3">
         <div class="filter-sidebar">
-          <h4 id="sidebar-title" class="mb-4">Options</h4>
+          <h4 id="sidebar-title" class="mb-3 fs-5">Options</h4>
           
           <div class="mb-3">
             <label id="label-search" class="form-label">Recherche</label>
-            <input type="text" id="searchInput" class="form-control" placeholder="..." onkeyup="renderUnits()">
+            <input type="text" id="searchInput" class="form-control form-control-sm bg-dark text-white border-secondary" placeholder="..." onkeyup="renderUnits()">
           </div>
           
           <div class="mb-3">
             <label id="label-role" class="form-label">Rôle</label>
-            <select id="roleFilter" class="form-select" onchange="renderUnits()"></select>
+            <select id="roleFilter" class="form-select form-select-sm bg-dark text-white border-secondary" onchange="renderUnits()"></select>
           </div>
 
           <div class="mb-3">
             <label id="label-align" class="form-label">Alignement</label>
-            <select id="alignFilter" class="form-select" onchange="renderUnits()"></select>
+            <select id="alignFilter" class="form-select form-select-sm bg-dark text-white border-secondary" onchange="renderUnits()"></select>
           </div>
           
-          <div class="mb-4 form-check form-switch">
+          <div class="mb-3 form-check form-switch">
             <input class="form-check-input" type="checkbox" id="leadCheck" onchange="renderUnits()">
-            <label class="form-check-label" for="leadCheck" id="label-lead">Chef uniquement</label>
+            <label class="form-check-label small" for="leadCheck" id="label-lead">Chef uniquement</label>
           </div>
 
-          <button id="btn-reset" class="btn btn-secondary btn-reset" onclick="resetFilters()">Réinitialiser</button>
+          <button id="btn-reset" class="btn btn-sm btn-secondary w-100 fw-bold mb-2" onclick="resetFilters()">Réinitialiser</button>
 
           <div class="btn-return-container text-center">
-            <p id="txt-return" class="mb-2" style="font-size: 0.85rem;">Retour</p>
+            <p id="txt-return" class="mb-2 small" style="font-size: 0.8rem;">Retour</p>
             <a href="../filtre-recherche/filtre-personnage.html">
-              <img src="../image/logo_star_wars.png" alt="Logo" style="width: 80px;">
+              <img src="../image/logo_star_wars.png" alt="Logo" style="width: 60px;">
             </a>
           </div>
         </div>
       </div>
 
+      <!-- Zone d'affichage principal -->
       <div class="col-lg-9 col-md-8">
-        <h2 id="filter-title" class="mb-4 d-flex align-items-center flex-wrap"></h2>
-        <div class="table-container">
-          <table class="table table-hover">
-            <thead class="table-dark"><tr id="table-head"></tr></thead>
-            <tbody id="characters-table-body"></tbody>
-          </table>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h2 id="filter-title" class="m-0 d-flex align-items-center flex-wrap fs-4"></h2>
+        </div>
+
+        <!-- Section Statistiques (Statique) -->
+        <div class="stats-card">
+          <div id="txt-stats-title" class="stats-title">Statistiques de la faction</div>
+          <div id="stats-container" class="d-flex flex-wrap gap-2"></div>
+        </div>
+
+        <!-- Conteneur dynamique des unités par catégories -->
+        <div id="categories-container"></div>
+
+        <!-- Section Spectre leaders -->
+        <div id="leaders-section" class="mt-4" style="display: none;">
+          <h3 id="txt-leaders-title" class="fw-bold fs-5 mb-1">Chefs Spectre</h3>
+          <p id="txt-leaders-desc" class="text-muted small mb-2">Capacités de chef accordant des bonus aux alliés Spectre.</p>
+          <div id="leaders-grid" class="units-grid"></div>
+        </div>
+
+        <!-- Section Related factions -->
+        <div class="related-factions-section">
+          <h3 id="txt-related-title" class="fw-bold fs-5 mb-2">Factions liées</h3>
+          <div id="related-factions-grid" class="related-factions-grid"></div>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Pop-up (Modal) pour Factions Liées -->
+  <div class="modal fade" id="factionModal" tabindex="-1" aria-labelledby="factionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center gap-3 flex-wrap">
+            <h5 class="modal-title fs-6 m-0" id="factionModalLabel">Unités Spectre & <span id="modalFactionName"></span></h5>
+            <a id="btnSeeFaction" href="#" class="btn btn-sm btn-outline-info fw-bold">
+              <span id="txt-see-faction">Voir la faction</span> →
+            </a>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalUnitsBody">
+          <!-- Les cartes filtrées s'afficheront ici -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     const translations = {
       en: {
         "page-title": "spectre", "filter-title": "Characters: spectre",
         "sidebar-title": "Filters", "label-search": "Search", 
         "label-role": "Role", "label-align": "Alignment", "label-lead": "Leader only", "opt-all": "All",
-        "txt-return": "Main Menu", "table-head": ["Unit", "Role", "Alignment", "Factions"],
-        "count-suffix": "results", "btn-reset": "Reset Filters"
+        "txt-return": "Main Menu", "count-suffix": "results", "btn-reset": "Reset Filters",
+        "txt-leaders-title": "Spectre leaders",
+        "txt-leaders-desc": "Leader abilities that grant bonuses to Spectre allies, decoded from the kit.",
+        "txt-related-title": "Related factions",
+        "txt-stats-title": "Faction Statistics",
+        "gl-header-title": "Galactic Legend",
+        "txt-see-faction": "See faction"
       },
       fr: {
         "page-title": "spectre", "filter-title": "Personnages : spectre",
         "sidebar-title": "Filtres", "label-search": "Recherche", 
         "label-role": "Rôle", "label-align": "Alignement", "label-lead": "Chef uniquement", "opt-all": "Tous",
-        "txt-return": "Menu Principal", "table-head": ["Unité", "Rôle", "Alignement", "Factions"],
-        "count-suffix": "résultats", "btn-reset": "Réinitialiser les filtres"
+        "txt-return": "Menu Principal", "count-suffix": "résultats", "btn-reset": "Réinitialiser les filtres",
+        "txt-leaders-title": "Chefs Spectre",
+        "txt-leaders-desc": "Capacités de chef accordant des bonus aux alliés Spectre.",
+        "txt-related-title": "Factions liées",
+        "txt-stats-title": "Statistiques de la faction",
+        "gl-header-title": "Légende Galactique",
+        "txt-see-faction": "Voir la faction"
       }
     };
 
     let currentLang = "fr";
     let allUnits = [], factionsMap = [], rolesMap = [], alignmentsMap = [];
+    let modalInstance = null;
 
     window.addEventListener("load", () => {
+      modalInstance = new bootstrap.Modal(document.getElementById('factionModal'));
+
       Promise.all([
-        fetch("../filtre-recherche/units.json").then(res => res.json()),
-        fetch("../data/faction.json").then(res => res.json()),
-        fetch("../data/roles.json").then(res => res.json()),
-        fetch("../data/alignements.json").then(res => res.json())
+        fetch("https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json").then(res => res.json()),
+        fetch("../data/faction.json").then(res => res.json()).catch(() => []),
+        fetch("../data/roles.json").then(res => res.json()).catch(() => []),
+        fetch("../data/alignements.json").then(res => res.json()).catch(() => [])
       ]).then(([units, factions, roles, alignments]) => {
         allUnits = units; factionsMap = factions; rolesMap = roles; alignmentsMap = alignments;
         const savedLang = sessionStorage.getItem("selectedLanguage") || "fr";
@@ -140,11 +457,10 @@
         const el = document.getElementById(key);
         if (el) el.innerText = translations[lang][key];
       }
-      document.getElementById("table-head").innerHTML = translations[lang]["table-head"].map(t => `<th>${t}</th>`).join('');
 
       const flags = document.querySelectorAll(".flag-switcher img");
-      flags[0].style.border = (lang === 'fr') ? "2px solid #0d6efd" : "2px solid transparent";
-      flags[1].style.border = (lang === 'en') ? "2px solid #0d6efd" : "2px solid transparent";
+      flags[0].style.border = (lang === 'fr') ? "2px solid #0dcaf0" : "2px solid transparent";
+      flags[1].style.border = (lang === 'en') ? "2px solid #0dcaf0" : "2px solid transparent";
 
       populateFilter("roleFilter", "role");
       populateFilter("alignFilter", "alignment");
@@ -182,66 +498,258 @@
     }
 
     function normalize(str) { return str ? str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim() : ''; }
-    function findMapping(mapArray, name) { return mapArray.find(m => normalize(m.en) === normalize(name) || normalize(m.fr) === normalize(name)); }
-    
-    function getAlignmentClass(alignment) {
+
+    function isGL(unit) {
+      return (unit.factions || []).some(f => normalize(f.en) === "galactic legend" || normalize(f.fr) === "legende galactique");
+    }
+
+    function getAlignmentBorderClass(alignment) {
       const val = normalize(alignment);
-      if (val.includes("light") || val.includes("lumineux")) return "lightside";
-      if (val.includes("dark") || val.includes("obscur")) return "darkside";
-      return "neutral";
+      if (val.includes("light") || val.includes("lumineux")) return "border-lightside";
+      if (val.includes("dark") || val.includes("obscur")) return "border-darkside";
+      return "border-neutral";
+    }
+
+    function createUnitCardCompactHTML(unit) {
+      const name = unit.name?.[currentLang] || unit.name?.en || "";
+      const roleText = unit.role?.[currentLang] || unit.role?.en || "";
+      const alignText = unit.alignment?.[currentLang] || unit.alignment?.en || "";
+      
+      const isGalacticLegend = isGL(unit);
+      const borderClass = isGalacticLegend ? "border-gl" : getAlignmentBorderClass(alignText);
+      const avatarClass = isGalacticLegend ? "avatar-gl" : "";
+
+      const otherFactions = (unit.factions || [])
+        .map(f => f[currentLang] || f.en)
+        .filter(f => normalize(f) !== "spectre");
+
+      const tagsList = [roleText, ...otherFactions, "Spectre"].join(" • ");
+
+      let leaderBonuses = "";
+      if (unit.leaderBonus) {
+        leaderBonuses = `<div class="unit-stats-preview">${unit.leaderBonus}</div>`;
+      }
+
+      return `
+        <a href="${unit.page || '#'}" class="unit-card-compact ${borderClass}">
+          <img src="${unit.image || '../image/default.png'}" class="unit-avatar ${avatarClass}" alt="${name}">
+          <div class="unit-details">
+            <span class="unit-name">${name}</span>
+            <div class="unit-tags">${tagsList}</div>
+            ${leaderBonuses}
+          </div>
+        </a>
+      `;
+    }
+
+    function renderStats(units) {
+      const container = document.getElementById("stats-container");
+      container.innerHTML = "";
+
+      const total = units.length;
+      let light = 0, dark = 0, neutral = 0;
+      let attacker = 0, healer = 0, support = 0, tank = 0;
+
+      units.forEach(u => {
+        const align = normalize(u.alignment?.en || u.alignment?.fr || "");
+        if (align.includes("light") || align.includes("lumineux")) light++;
+        else if (align.includes("dark") || align.includes("obscur")) dark++;
+        else neutral++;
+
+        const role = normalize(u.role?.en || "");
+        if (role.includes("attacker") || role.includes("attaquant")) attacker++;
+        else if (role.includes("healer") || role.includes("soigneur")) healer++;
+        else if (role.includes("support") || role.includes("soutien")) support++;
+        else if (role.includes("tank")) tank++;
+      });
+
+      const stats = [
+        { label: currentLang === 'fr' ? 'Total' : 'Total', val: total, color: '#ffffff' },
+        { label: currentLang === 'fr' ? 'Côté Lumineux' : 'Light Side', val: light, color: '#00d2ff' },
+        { label: currentLang === 'fr' ? 'Côté Obscur' : 'Dark Side', val: dark, color: '#ff334b' },
+        { label: currentLang === 'fr' ? 'Neutre' : 'Neutral', val: neutral, color: '#d1d5db' },
+        { label: currentLang === 'fr' ? 'Attaquant' : 'Attacker', val: attacker, color: '#f97316' },
+        { label: currentLang === 'fr' ? 'Soigneur' : 'Healer', val: healer, color: '#10b981' },
+        { label: currentLang === 'fr' ? 'Soutien' : 'Support', val: support, color: '#a855f7' },
+        { label: currentLang === 'fr' ? 'Tank' : 'Tank', val: tank, color: '#3b82f6' }
+      ];
+
+      stats.forEach(s => {
+        if (s.val > 0) {
+          const badge = document.createElement("span");
+          badge.className = "stats-badge";
+          badge.innerHTML = `<span style="color: ${s.color}; font-weight: bold;">●</span> ${s.label} : <strong>${s.val}</strong>`;
+          container.appendChild(badge);
+        }
+      });
     }
 
     function renderUnits() {
-      const tbody = document.getElementById("characters-table-body");
+      const categoriesContainer = document.getElementById("categories-container");
+      const leadersGrid = document.getElementById("leaders-grid");
+      const leadersSection = document.getElementById("leaders-section");
+      
       const searchTerm = normalize(document.getElementById("searchInput").value);
       const roleVal = document.getElementById("roleFilter").value;
       const alignVal = document.getElementById("alignFilter").value;
       const isLeadOnly = document.getElementById("leadCheck").checked;
-      const factionTag = (currentLang === "fr") ? "spectre" : "spectre";
 
-      tbody.innerHTML = "";
+      categoriesContainer.innerHTML = "";
+      leadersGrid.innerHTML = "";
 
-      let filtered = allUnits.filter(unit => {
+      let spectreUnits = allUnits.filter(unit => {
         const unitFactions = unit.factions || [];
-        const isMando = unitFactions.some(f => normalize(f.en) === "spectre" || normalize(f.fr) === "spectre");
-        
+        return unitFactions.some(f => normalize(f.en) === "spectre" || normalize(f.fr) === "spectre");
+      });
+
+      let filtered = spectreUnits.filter(unit => {
         const name = normalize(unit.name?.[currentLang] || unit.name?.en || "");
         const matchesSearch = name.includes(searchTerm);
         const matchesRole = (roleVal === "all" || normalize(unit.role?.en) === roleVal);
         const matchesAlign = (alignVal === "all" || normalize(unit.alignment?.en) === alignVal);
-        const hasLeadTag = unitFactions.some(f => normalize(f.en) === "leader" || normalize(f.fr) === "chef");
+        const hasLeadTag = (unit.factions || []).some(f => normalize(f.en) === "leader" || normalize(f.fr) === "chef") || unit.isLeader;
         const matchesLead = !isLeadOnly || hasLeadTag;
 
-        return isMando && matchesSearch && matchesRole && matchesAlign && matchesLead;
+        return matchesSearch && matchesRole && matchesAlign && matchesLead;
+      });
+
+      document.getElementById("filter-title").innerHTML = `${translations[currentLang]["filter-title"]} <span class="badge bg-primary ms-2 fs-6">${filtered.length} ${translations[currentLang]["count-suffix"]}</span>`;
+
+      renderStats(filtered);
+
+      const glUnits = filtered.filter(u => isGL(u));
+      const nonGlUnits = filtered.filter(u => !isGL(u));
+
+      if (glUnits.length > 0) {
+        glUnits.sort((a, b) => (a.name?.[currentLang] || "").localeCompare(b.name?.[currentLang] || "", currentLang));
+
+        const glHeader = document.createElement("div");
+        glHeader.className = "category-header category-header-gl";
+        glHeader.innerHTML = `★ ${translations[currentLang]["gl-header-title"]} <span class="count" style="color: #ffd700;">${glUnits.length}</span>`;
+
+        const glGrid = document.createElement("div");
+        glGrid.className = "units-grid";
+
+        glUnits.forEach(unit => {
+          glGrid.innerHTML += createUnitCardCompactHTML(unit);
+        });
+
+        categoriesContainer.appendChild(glHeader);
+        categoriesContainer.appendChild(glGrid);
+      }
+
+      const groupedByRole = {};
+      nonGlUnits.forEach(unit => {
+        const roleKey = unit.role?.en?.toUpperCase() || "AUTRES";
+        const roleLabel = unit.role?.[currentLang]?.toUpperCase() || roleKey;
+        if (!groupedByRole[roleKey]) {
+          groupedByRole[roleKey] = { label: roleLabel, units: [] };
+        }
+        groupedByRole[roleKey].units.push(unit);
+      });
+
+      Object.keys(groupedByRole).sort().forEach(roleKey => {
+        const group = groupedByRole[roleKey];
+        group.units.sort((a, b) => (a.name?.[currentLang] || "").localeCompare(b.name?.[currentLang] || "", currentLang));
+
+        const catHeader = document.createElement("div");
+        catHeader.className = "category-header";
+        catHeader.innerHTML = `${group.label} <span class="count">${group.units.length}</span>`;
+
+        const grid = document.createElement("div");
+        grid.className = "units-grid";
+
+        group.units.forEach(unit => {
+          grid.innerHTML += createUnitCardCompactHTML(unit);
+        });
+
+        categoriesContainer.appendChild(catHeader);
+        categoriesContainer.appendChild(grid);
+      });
+
+      const leaders = filtered.filter(u => 
+        (u.factions || []).some(f => normalize(f.en) === "leader" || normalize(f.fr) === "chef") || u.isLeader
+      );
+
+      if (leaders.length > 0) {
+        leadersSection.style.display = "block";
+        leaders.forEach(unit => {
+          leadersGrid.innerHTML += createUnitCardCompactHTML(unit);
+        });
+      } else {
+        leadersSection.style.display = "none";
+      }
+
+      renderRelatedFactions(spectreUnits);
+    }
+
+    function renderRelatedFactions(spectreUnits) {
+      const grid = document.getElementById("related-factions-grid");
+      grid.innerHTML = "";
+
+      const factionCounts = {};
+      const factionLabels = {};
+
+      spectreUnits.forEach(unit => {
+        (unit.factions || []).forEach(f => {
+          const fEn = f.en;
+          const fLabel = f[currentLang] || fEn;
+          
+          if (normalize(fEn) !== "spectre") {
+            factionCounts[fEn] = (factionCounts[fEn] || 0) + 1;
+            factionLabels[fEn] = fLabel;
+          }
+        });
+      });
+
+      const sortedFactions = Object.keys(factionCounts).sort((a, b) => factionCounts[b] - factionCounts[a]);
+
+      sortedFactions.forEach(fEn => {
+        const count = factionCounts[fEn];
+        const label = factionLabels[fEn];
+
+        const btn = document.createElement("button");
+        btn.className = "related-faction-btn";
+        btn.innerHTML = `${label} <span class="related-faction-count">${count}</span>`;
+        btn.onclick = () => openFactionModal(fEn, label);
+
+        grid.appendChild(btn);
+      });
+    }
+
+    function openFactionModal(factionEn, factionLabel) {
+      document.getElementById("modalFactionName").innerText = factionLabel;
+      
+      const factionFileName = normalize(factionEn).replace(/\s+/g, '-');
+      const btnSeeFaction = document.getElementById("btnSeeFaction");
+      btnSeeFaction.href = `./${factionFileName}.html`;
+
+      const modalBody = document.getElementById("modalUnitsBody");
+      modalBody.innerHTML = "";
+
+      const targetFaction = normalize(factionEn);
+
+      let filtered = allUnits.filter(unit => {
+        const unitFactions = unit.factions || [];
+        const isSpectre = unitFactions.some(f => normalize(f.en) === "spectre" || normalize(f.fr) === "spectre");
+        const hasFaction = unitFactions.some(f => normalize(f.en) === targetFaction || normalize(f.fr) === targetFaction);
+        return isSpectre && hasFaction;
       });
 
       filtered.sort((a, b) => (a.name?.[currentLang] || "").localeCompare(b.name?.[currentLang] || "", currentLang));
 
-      document.getElementById("filter-title").innerHTML = `${translations[currentLang]["filter-title"]} <span class="badge badge-count ms-3">${filtered.length} ${translations[currentLang]["count-suffix"]}</span>`;
+      if (filtered.length === 0) {
+        modalBody.innerHTML = `<p class="text-center text-muted">Aucune unité trouvée.</p>`;
+      } else {
+        const grid = document.createElement("div");
+        grid.className = "units-grid";
+        filtered.forEach(unit => {
+          grid.innerHTML += createUnitCardCompactHTML(unit);
+        });
+        modalBody.appendChild(grid);
+      }
 
-      filtered.forEach(unit => {
-        const name = unit.name?.[currentLang] || unit.name?.en || "";
-        const roleText = unit.role?.[currentLang] || unit.role?.en || "";
-        const alignText = unit.alignment?.[currentLang] || unit.alignment?.en || "";
-        const alignClass = getAlignmentClass(alignText);
-
-        const rMap = findMapping(rolesMap, roleText);
-        const aMap = findMapping(alignmentsMap, alignText);
-
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>
-            <a href="${unit.page || '#'}" class="unit-link">
-              <img src="${unit.image || '../image/default.png'}" class="unit-img-table">
-              <span>${name}</span>
-            </a>
-          </td>
-          <td>${rMap?.url ? `<a href="${rMap.url}" class="role">${roleText}</a>` : `<span class="role opacity-50">${roleText}</span>`}</td>
-          <td>${aMap?.url ? `<a href="${aMap.url}" class="alignment ${alignClass}">${alignText}</a>` : `<span class="alignment ${alignClass}">${alignText}</span>`}</td>
-          <td>${unit.factions.map(f => `<a href="${findMapping(factionsMap, f.en)?.url || '#'}" class="badge-faction">${f[currentLang] || f.en}</a>`).join("")}</td>
-        `;
-        tbody.appendChild(row);
-      });
+      modalInstance.show();
     }
   </script>
 </body>
