@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Maz Kanata</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/maz/maz-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/maz/maz-image.png" alt="Maz Kanata" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Maz Kanata</u></h1>
+            <p id="description">
+                A loyal Support to her pirate crew; feared, respected, and known by many as the Pirate Queen
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/pirate.html" id="pirate">Pirate</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="capacite" href="../classement-perso/contrebandier.html" id="smuggler">Smuggler</a>
+                <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Force User</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Steadfast Shot</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Maz Kanata basic" src="../image-perso/maz/maz-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy and inflict them with Healing Immunity and Pinned for 1 turn. If target enemy is Sith, Healing Immunity and Pinned can't be evaded or resisted.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Eyes Everywhere (cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Maz Kanata special 1" src="../image-perso/maz/maz-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Dispel all debuffs on all Pirate and Smuggler allies.
+                <br><br>
+                If all allies were Pirates and if there were no Galactic Legend allies at the start of battle, call all Pirate allies to assist, dealing 40% less damage, and they gain 50% Turn Meter and have their cooldowns reduced by 1.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Keeper of Secrets (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Maz Kanata special 2" src="../image-perso/maz/maz-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Maz Steals Stealth, resets its duration, and grants it to all non-Tank Pirate allies and she Steals 1 stack of Profit that she granted to enemies from each enemy until the end of the encounter.
+                <br><br>
+                If all allies are Pirates and there are no Galactic Legend allies at the start of battle, inflict all enemies with 3 stacks of Expose for 2 turns and the target enemy's cooldowns are increased by 1.
+                <br><br>
+                This attack can't be evaded or resisted.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas and there are no Galactic Legend allies:</u> If all allies were Pirates at the start of battle, Maz Steals an additional stack of Profit that she granted to enemies from each enemy until the end of encounter, and all enemies have their cooldowns increased by 1 instead.
+                <br><br>
+                If target enemy had lost all 5 stacks of Profit given from Maz, Deathmark them until the end of encounter, which can't be copied or dispelled. If the enemy already had Deathmark, set target enemy to 100 Max Health until the end of encounter. If target enemy was a Galactic Legend, inflict them with Armor Shred instead, which can't be dispelled, until the end of encounter.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Pirate Queen</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Maz Kanata leader" src="../image-perso/maz/maz-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                At the start of each encounter and if there were no Galactic Legend allies:
+                <br><br>
+                - All Pirate and Smuggler allies are immune to Fear and they gain Foresight for 1 turn<br>
+                - Whenever Maz gains a stack of Profit, all other Pirate allies gain 1 stack of Profit until the end of the encounter<br>
+                - Whenever a Pirate ally with Retribution uses a Basic ability, they ignore that enemy's Protection
+                - Whenever an enemy uses a Basic ability, all Pirate allies gain 5% Turn Meter<br>
+                - If there were no Galactic Legend enemies at the start of battle: If there is an enemy Sith, Pirate allies take reduced damage from percent Health effects, and whenever they target an enemy Sith with an ability, they deal 300% more damage and ignore Protection, and at the start of each Sith enemy's turn, all Pirate allies gain Foresight for 1 turn
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas and there are no Galactic Legend allies:</u> Pirate and Smuggler allies gain 30% Max Health and Max Protection, and 30 Speed.
+                <br><br>
+                Whenever a Pirate ally scores a critical hit, they gain 5% Tenacity (stacking) until the end of encounter.
+                <br><br>
+                If a Pirate ally is instantly defeated by a non-Galactic Legend enemy, that enemy is Deathmarked for 1 turn, which can't be copied, dispelled, or prevented. If a Pirate ally uses an ability on their turn against an enemy with this Deathmark, they instantly defeat them.
+                <br><br>
+                The condition of no Galactic Legend enemies at the start of battle is removed on this ability.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Ancient Wisdom</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Maz Kanata unique" src="../image-perso/maz/maz-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                The maximum cap for Profit is removed for Maz Kanata.
+                <br><br>
+                At the start of battle and if all allies were Pirates, Maz gains 100% counter chance and 75% Critical Chance until the end of battle, and 20% Max Health and Max Protection until the first time she is defeated.
+                <br><br>
+                If there were no Galactic Legend Pirate allies or enemies at the start of battle, at the start of Maz's first turn each encounter:
+                <br><br>
+                - Grant all non-Pirate enemies 5 Stacks of Profit, which can't be prevented, until the end of encounter<br>
+                - Whenever Maz critically hits an enemy, she Steals a stack of Profit from that enemy until the end of the encounter<br>
+                - Whenever an enemy loses all 5 stacks of Profit, Maz gains a bonus turn
+                <br><br>
+                <u class="omicron">omicron Boost : While in Grand Arenas and there are no Galactic Legend allies:</u> Maz gains 5% Mastery whenever she gains a stack of Profit until the end of battle.
+                <br><br>
+                Whenever an enemy loses a stack of Profit given from Maz, they also lose 5% Offense (stacking, max 25%) and 5 Speed (stacking, max 25) until the end of battle.
+                <br><br>
+                Whenever a Pirate ally inflicts a debuff on their turn, they deal True damage to all enemies, once per turn (this damage can't defeat them).
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Maz Kanata",
+                "title": "<u>Maz Kanata</u>",
+                "description": "Un soutien fidèle envers son équipage Pirate. Crainte, respectée et connue par beaucoup comme la reine des Pirates.",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "leader": "Chef",
+                "pirate": "Pirate",
+                "scoundrel": "Vaurien",
+                "smuggler": "Contrebandier",
+                "force-user": "Utilisateur de la Force non aligné",
+
+                "basic-attack-title": "<u>Attaque Basique: Tir inébranlable</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie, ainsi qu'Immunité aux soins et Coincé pendant 1 tour. Si cette dernière est un Sith, Immunité aux soins et Coincé ne peuvent pas être esquivé ou résistés.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Des yeux partout (délai : 5)</u>",
+                "special-attack1": "Dissipe tous les affaiblissements affectant les alliés Pirates et Contrebandiers.\n\nSi tous les alliés sont des Pirates et qu'aucune Légende galactique alliée n'est présente au début de la bataille, invoque tous les alliés Pirates, qui infligent 40 % de dégâts en moins, gagnent 50 % de jauge de tour et voient leurs délais réduits de 1.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Gardienne des secrets (délai : 4)</u>",
+                "special-attack2": "Maz vole Camouflage, réinitialise sa durée et le confère à tous les alliés Pirates à l'exception des tanks et vole 1 cumul de Profit par ennemi parmi ceux qu'elle a conférés à l'équipe adverse jusqu'à la fin de l'affrontement.\n\nSi tous les alliés sont des Pirates et qu'aucune Légende galactique n'était présente au début de la bataille, inflige 3 cumuls d'Exposition à tous les ennemis pendant 2 tours, et les délais de la cible ennemie sont augmentés de 1.\n\nCette attaque ne peut pas être esquivée ou résistée.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes, et si aucune Légende galactique n'est présente :</u> si tous les alliés sont des Pirates au début de la bataille, Maz vole un cumul supplémentaire de Profit par ennemi parmis ceux qu'elle a conférés à l'équipe adverse jusqu'à la fin de l'affrontement et tous les délais de tous les ennemis augmentent de 1 à la place.\n\nSi la cible ennemie a perdu les 5 cumuls de Profit conférés par Maz, elle subit Marque de mort jusqu'à la fin de l'affrontement (ne peut pas être copié ou dissipé). Si l'ennemi subissait déjà Marque de mort, la santé maximale de la cible ennemie est plafonnée à 100 jusqu'à la fin de l'affrontement. Si la cible ennemie était une Légende galactique, elle subit plutôt Destruction d'armure (ne peut pas être dissipé) jusqu'à la fin de l'affrontement.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Reine des pirates</u>",
+                "lead-ability": "Au début de chaque affrontement et si aucune Légende galactique alliée n'est présente :\n\n- Tous les alliés Pirates et Contrebandiers sont immunisés contre Peur et obtiennent Prévoyance pendant 1 tour.\n- Chaque fois que Maz gagne un cumul de Profit, tous les autres alliés Pirates reçoivent 1 cumul de Profit jusqu'à la fin de l'affrontement.\n- Chaque fois qu'un allié Pirate disposant de Rétribution utilise une capacité de base, il ignore la protection de l'ennemi.\n- Chaque fois qu'un ennemi utilise une capacité de base, tous les alliés pirates reçoivent 5 % de jauge de tour.\n- Si aucune Légende galactique ennemie n'est présente au début de la bataille : si un ennemi Sith est présent, les alliés Pirates subissent des dégâts réduits des effets de pourcentage de santé et, chaque fois qu'ils ciblent un ennemi Sith avec une capacité, ils infligent des dégâts sipplémentaires et ignorent la protection. Au début du tour de chaque ennemi Sith, tous les alliés Pirates obtiennent Prévoyance pendant 1 tour.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes, si aucune Légende galactique alliée n'est présente :</u> les alliés Pirates obtiennent 30 % de santé maximale et de protection maximale ainsi que 30 de vitesse.\n\nChaque fois qu'un allié Pirate inflige un coup critique, il gagne 5 % de ténacité (cumulatif) jusqu'à la fin de l'affrontement.\n\nSi un allié Pirate subit une défaite instantanée de la part d'un ennemi qui n'est pas une Légende galactique, cet ennemi subit Marque de mort pendant 1 tour (ne peut pas être copié, dissipé ou empêché), et si un allié Pirate utilise une capacité pendant son tour sur un ennemi souffrant de Marque de mort, ce dernier est vaincu instantanément.\n\nLa condition demandant à ce qu'aucune Légende galactique ennemie ne doit pas être présente au début de la bataille est supprimée pour cette capacité.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Sagesse ancestrale</u>",
+                "unique-ability1": "La limite maximum de cumul de Profit est supprimée pour Maz Kanata.\n\nAu début de la bataille, et si tous les alliés sont des Pirates, Maz obtient 100 % de chances de contre-attaque et 75 % de chances de coup critique jusqu'à la fin de la bataille ainsi que 20 % de santé maximale et de protection maximale jusqu'à la première fois où elle est vaincue.\n\nSi aucune Légende galactique Pirate alliée ou ennemie n'était Présente au début de la bataille, au début du premier tour de Maz lors de chaque affrontement :\n\n- Confère 5 cumuls de Profit à tous les ennemis qui ne sont pas des Pirates (ne peut pas être empêché) jusqu'à la fin de l'affrontement.\n- Chaque fois que Maz inflige un coup critique à un ennemi, elle vole un cumul de Profit à cet ennemi jusqu'à la fin de l'affrontement.\n- Chaque fois qu'un ennemi perd ses 5 cumuls de Profit, Maz obtient un tour bonus.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes, si aucune Légende galactique alliée n'est présente :</u> Ma obtient 5 % de maîtrise jusqu'à la fin de la bataille chaque fois qu'elle obtient un cumul de Profit.\n\nChaque fois qu'un ennemi perd un cumul de Profit conféré par Maz, il perd également 5 % d'attaque (cumulatif, maximum 25 %) et 5 de vitesse (cumulatif, maximum 25) jusqu'à la fin de la bataille.\n\nChaque fois qu'un allié Pirate inflige un affaiblissement pendant son tour, il inflige des dégâts réels à tous les ennemis, une fois par tour (ces dégâts ne peuvent pas vaincre d'ennemi).",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "maz kanata"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
