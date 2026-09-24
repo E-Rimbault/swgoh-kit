@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Captain Ithano</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/ithano/ithano-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/ithano/ithano-image.png" alt="Captain Ithano" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Captain Ithano</u></h1>
+            <p id="description">
+                The Crimson Corsair led a crew of pirates, and gained a reputation as the best pirate in the region
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/pirate.html" id="pirate">Pirate</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Corsair Blaster Rifle</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Captain Ithano basic" src="../image-perso/ithano/ithano-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and gain Offense Up for 1 turn. During Ithano's turn, grant Foresight to Pirate Support and Tank allies for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Lower Ye Shields! (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Captain Ithano special 1" src="../image-perso/ithano/ithano-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy. If the target enemy has Defense Up or Protection Up, Steal them, reset their duration and grant all Stolen buffs on himself to all Pirate allies then attack again dealing 50% more damage. If no buffs are Stolen, attack again and inflict Defense Down on target enemy for 1 turn.
+                <br><br>
+                If Ithano has 3 or fewer stacks of Profit, dispel all buffs on the target enemy. If Ithano has more than 3 stacks of Profit, he dispels all debuffs on himself.
+                <br><br>
+                <u class="speciale">Steal:</u> Dispel target buffs from enemies and grant them to self
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Intimidating Display (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Captain Ithano special 2" src="../image-perso/ithano/ithano-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to all enemies, gain Defense Penetration Up for 2 turns and Expose the target enemy for 1 turn. If the ally in the Leader slot is a non-Galactic Legend Pirate Support and Ithano has Foresight, attack again and call allied Kix and Quiggold to assist.
+                <br><br>
+                If Ithano has at least 4 stacks of Profit, inflict Fear on the target enemy for 1 turn at the end of his turn, which can't be evaded or resisted.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Crimson Corsair</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Captain Ithano leader" src="../image-perso/ithano/ithano-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Ithano gains 100% Offense. At the start of battle, all Pirate allies gain 70% Critical Chance, 30% Max Health and Max Protection then gain Offense Up and Tenacity Up for 1 turn. At the start of their turn, if another Pirate ally has more buffs than debuffs, they gain 1 stack of Profit (stacking, max 5) and Ithano gains 1 stack of Profit. If they have more debuffs than buffs, they lose a stack of Profit and dispel all debuffs on themselves. At the start of Ithano's turn, he gains 1 stack of Profit and dispels all debuffs on himself. Whenever Ithano removes a stack of Profit on himself, he gains 20% Offense (max 200%) for the rest of the battle.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : I Don't Die So Easily</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Captain Ithano unique" src="../image-perso/ithano/ithano-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of battle, if all allies are Pirates, Captain Ithano gains 50% Offense and the first time Ithano is defeated, he is revived with 50% Health.
+                <br><br>
+                While Ithano has Foresight, he gains 30% Offense and whenever Foresight expires on him, Ithano gains Retribution for 1 turn.
+                <br><br>
+                Whenever Quiggold falls below 50% of his Health for the first time, Ithano Marks himself for 2 turns. While Ithano is Marked this way, he gains 80% bonus Protection, 40% Offense and Tenacity Up until Marked expires. If Ithano defeats an enemy while he is Marked this way, he gains 2 stacks of Profit (stacking, max 5).
+                <br><br>
+                Whenever Ithano uses an ability on his turn, he gains Foresight for 1 turn. Whenever Ithano uses a Special ability and has at least 4 stacks of Profit, remove all stacks and deal bonus True damage to the target enemy. If Pirate King Hondo Ohnaka or Maz Kanata is the ally in the Leader slot, the cap for Profit is removed for Ithano.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> At the start of each encounter, Ithano gains Accuracy Up and Speed Up for 5 turns. Whenever Ithano scores a critical hit, call a random Pirate Support and Tank ally to assist dealing 50% more damage.
+                <br><br>
+                At the start of his turn, if there is no ally Galactic Legend and Ithano has more than 3 stacks of Profit, inflict Deathmark on the healthiest enemy for 1 turn, which can't be dispelled or evaded. If an enemy is defeated, all Pirate allies gain 3 stacks of Profit (stacking, max 5) and gain Defense Penetration Up, Offense Up and Retribution for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Capitaine Ithano",
+                "title": "<u>Capitaine Ithano</u>",
+                "description": "Le Corsaire Écarlate menait un équipage de pirates et était considéré comme l'un des meilleurs pirates du secteur",
+
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "pirate": "Pirate",
+                "scoundrel": "Vaurien",
+
+                "basic-attack-title": "<u>Attaque Basique: Fusil blaster du Corsaire</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à la cible ennemie et obtient un bonus d'attaque pendant 1 tour. Durant le tour d'Ithano, confère Prévoyance aux soutiens et tanks alliés Pirates pendant 1 tour.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Maudits bouclier (délai : 4)</u>",
+                "special-attack1": "inflige des dégâts physiques à la cible ennemie. Si la cible ennemie dispose d'un bonus de défense ou d'un bonus de protection, Ithano les vole, réinitialise leur durée et confère toutes les améliorations volées à tous les alliés Pirates, puis attaque à nouveau en infligeant 50 % de dégâts supplémentaires. Si aucune amélioration n'est volée, attaque à nouveau et inflige un malus de défense à la cible ennemie pendant 1 tour.\n\nSi Ithano dispose de 3 cumuls ou moins de Profit, dissipe toutes les améliorations de la cible ennemie. Si Ithano dispose de plus de 3 cumuls de Profit, dissipe tous les affaiblissements dont il souffre.\n\n<u class='speciale'>Vol :</u> dissipe les améliorations des ennemis et les confère à cette unité.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Démonstration intimidante (délai : 4)</u>",
+                "special-attack2": "Inflige des dégâts physiques à tous les ennemis, obtient un bonus de pénétration de défense pendant 2 tours et inflige Exposition à la cible ennemie pendant 1 tour. Si l'allié dans l'emplacement de chef est un soutien Pirate et n'est pas une Légende galactique, et qu'Ithano dispose de Prévoyance, il attaque de nouveau et invoque les alliés Kix et Quiggold.\n\nSi Ithano dispose d'au moins 4 cumuls de Profit, inflige Peur à la cible ennemie pendant 1 tour à la fin de son tour (ne peut pas être esquivé ou résisté).",
+
+                "lead-ability-title": "<u>Capacité de Chef: Corsaire Écarlate</u>",
+                "lead-ability": "Ithano gagne 100 % d'attaque. Au début de la bataille, tous les alliés Pirates obtiennent +70 % de chances de coup critique, 30 % de sabté maximale et de protection maximale, puis un bonus d'attaque et un bonus de ténacité pendant 1 tour. Au début de leur tour, si un autre allié Pirate dispose de plus d'améliorations que d'affaiblissements, ils obtiennent un cumul de Profit (cumulatif, 5 maximum) et Ithano obtient 1 cumul de Profit. S'ils disposent de plus d'affaiblissement que d'améliorations, ils perdent 1 cumul de Profit et dissipent tous les affaiblissements dont ils souffrent. Au début de son tour, Ithano obtient 1 cumul de Profit et dissipe tous les affaiblissements dont il souffre. Lorsqu'Ithano supprime 1 cumul de Profit sur lui-même, il gagne 20 % d'attaque (maximum 200 %) pour le reste de la bataille.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Je ne meurs pas si facilement</u>",
+                "unique-ability1": "Au début de la bataille, si tous les alliés sont des Pirates, le Capitaine Ithano obtient 50 % d'attaque, et la première fois qu'Ithano est vaincu, il est ranimé avec 50 % de santé.\n\ntant qu'Ithano dispose de Prévoyance, il obtient 30 % d'attaque et, chaque fois que sa Prévoyance expire, Ithano gagne Rétribution pendant 1 tour.\n\nLorsque la santé que Quiggold tombe en dessous de 50 % pour la première fois, Ithano subit Marque pendant 2 tours. Tant qu'Ithano subit Marque de cette manière, il obtient 80 % de protection supplémentaire, 40 % d'attaque et un bonus de ténacité jusqu'à ce que Marque expire. Si Ithano élimine un ennemi alors qu'il subit Marque de cette manière, il obtient 2 cumuls de Profit (cumulatif, 5 maximum).\n\nChaque fois qu'Ithano utilise une capacité pendant son tour, il obtient Prévoyance pendant 1 tour. Chaque fois qu'Ithano utilise une capacité spéciale et dispose d'au moins 4 cumuls de Profit, supprime tous les cumuls et inflige des dégâts réels supplémentaires à la cible ennemie. Si le Roi Pirate Hondo Ohnaka ou Maz Kanata est l'allié dans l'emplacement de chef, la limite de Profit est supprimé pour Ithano.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> au début de chaque affrontement,, Ithano obtient un bonus de précision et un bonus de vitesse pendant 5 tours. Chaque fois qu'Ithano inflige un coup critique, invoque un soutien et un tank Pirates alliés aléatoires, qui infligent 50 % de dégâts supplémentaires.\n\nAu début de son tour, si aucune Légende galactique alliée n'est présente et qu'Ithano dispose de plus de 3 cumuls de Profit, inflige Marque de mort à l'ennemi à la santé la plus élevée pendant 1 tour (ne peut pas être dissipé ou esquivé). Si un ennemi est vaincu, tous les alliés Pirates gagnent 3 cumuls de Profit (cumulatif, 5 maximum) et obtiennent un bonus de pénétration de défense, un bonus d'attaque et Rétribution pendant 2 tours.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "captain ithano"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
