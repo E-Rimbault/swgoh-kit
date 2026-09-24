@@ -51,7 +51,7 @@
       font-size: 0.75rem;
     }
 
-    /* Section Statistiques non cliquables */
+    /* Section Statistiques cliquables */
     .stats-card {
       background: rgba(15, 23, 42, 0.85);
       border: 1px solid rgba(255, 255, 255, 0.15);
@@ -81,6 +81,19 @@
       align-items: center;
       gap: 6px;
       white-space: nowrap;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s, transform 0.1s;
+    }
+
+    .stats-badge-clickable {
+      cursor: pointer;
+    }
+
+    .stats-badge-clickable:hover {
+      background: rgba(13, 202, 240, 0.2);
+      border-color: #0dcaf0;
+      color: #ffffff;
+      transform: translateY(-1px);
     }
 
     .stats-badge strong {
@@ -354,7 +367,7 @@
           <h2 id="filter-title" class="m-0 d-flex align-items-center flex-wrap fs-4"></h2>
         </div>
 
-        <!-- Section Statistiques (Statique) -->
+        <!-- Section Statistiques -->
         <div class="stats-card">
           <div id="txt-stats-title" class="stats-title">Statistiques de la faction</div>
           <div id="stats-container" class="d-flex flex-wrap gap-2"></div>
@@ -563,21 +576,27 @@
         else if (role.includes("tank")) tank++;
       });
 
+      const getUrlFromData = (key, map) => {
+        const found = map.find(item => normalize(item.en) === normalize(key));
+        return found ? found.url : null;
+      };
+
       const stats = [
-        { label: currentLang === 'fr' ? 'Total' : 'Total', val: total, color: '#ffffff' },
-        { label: currentLang === 'fr' ? 'Côté Lumineux' : 'Light Side', val: light, color: '#00d2ff' },
-        { label: currentLang === 'fr' ? 'Côté Obscur' : 'Dark Side', val: dark, color: '#ff334b' },
-        { label: currentLang === 'fr' ? 'Neutre' : 'Neutral', val: neutral, color: '#d1d5db' },
-        { label: currentLang === 'fr' ? 'Attaquant' : 'Attacker', val: attacker, color: '#f97316' },
-        { label: currentLang === 'fr' ? 'Soigneur' : 'Healer', val: healer, color: '#10b981' },
-        { label: currentLang === 'fr' ? 'Soutien' : 'Support', val: support, color: '#a855f7' },
-        { label: currentLang === 'fr' ? 'Tank' : 'Tank', val: tank, color: '#3b82f6' }
+        { label: currentLang === 'fr' ? 'Total' : 'Total', val: total, color: '#ffffff', url: null },
+        { label: currentLang === 'fr' ? 'Côté Lumineux' : 'Light Side', val: light, color: '#00d2ff', url: getUrlFromData('lightside', alignmentsMap) },
+        { label: currentLang === 'fr' ? 'Côté Obscur' : 'Dark Side', val: dark, color: '#ff334b', url: getUrlFromData('darkside', alignmentsMap) },
+        { label: currentLang === 'fr' ? 'Neutre' : 'Neutral', val: neutral, color: '#d1d5db', url: getUrlFromData('neutral', alignmentsMap) },
+        { label: currentLang === 'fr' ? 'Attaquant' : 'Attacker', val: attacker, color: '#f97316', url: getUrlFromData('attacker', rolesMap) },
+        { label: currentLang === 'fr' ? 'Soigneur' : 'Healer', val: healer, color: '#10b981', url: getUrlFromData('healer', rolesMap) },
+        { label: currentLang === 'fr' ? 'Soutien' : 'Support', val: support, color: '#a855f7', url: getUrlFromData('support', rolesMap) },
+        { label: currentLang === 'fr' ? 'Tank' : 'Tank', val: tank, color: '#3b82f6', url: getUrlFromData('tank', rolesMap) }
       ];
 
       stats.forEach(s => {
         if (s.val > 0) {
-          const badge = document.createElement("span");
-          badge.className = "stats-badge";
+          const badge = document.createElement(s.url ? "a" : "span");
+          badge.className = "stats-badge" + (s.url ? " stats-badge-clickable" : "");
+          if (s.url) badge.href = s.url;
           badge.innerHTML = `<span style="color: ${s.color}; font-weight: bold;">●</span> ${s.label} : <strong>${s.val}</strong>`;
           container.appendChild(badge);
         }
@@ -720,9 +739,15 @@
     function openFactionModal(factionEn, factionLabel) {
       document.getElementById("modalFactionName").innerText = factionLabel;
       
-      const factionFileName = normalize(factionEn).replace(/\s+/g, '-');
+      const foundFaction = factionsMap.find(f => normalize(f.en) === normalize(factionEn));
       const btnSeeFaction = document.getElementById("btnSeeFaction");
-      btnSeeFaction.href = `./${factionFileName}.html`;
+      
+      if (foundFaction && foundFaction.url) {
+        btnSeeFaction.href = foundFaction.url;
+      } else {
+        const factionFileName = normalize(factionEn).replace(/\s+/g, '-');
+        btnSeeFaction.href = `./${factionFileName}.html`;
+      }
 
       const modalBody = document.getElementById("modalUnitsBody");
       modalBody.innerHTML = "";
