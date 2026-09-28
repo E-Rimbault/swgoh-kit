@@ -35,6 +35,20 @@
       transition: 0.2s;
     }
 
+    .flag-switcher img:focus-visible {
+      outline: 2px solid #0dcaf0;
+      outline-offset: 2px;
+    }
+
+    .leaders-desc {
+      color: #ffffff;
+    }
+
+    .no-results {
+      color: #94a3b8;
+      margin-top: 20px;
+    }
+
     /* Sidebar de filtres */
     .filter-sidebar {
       background: rgba(15, 20, 32, 0.9);
@@ -190,17 +204,20 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      overflow: hidden;
-      width: 100%;
+      flex: 1;
+      min-width: 0;
+      width: auto;
     }
 
     .unit-name {
       font-size: clamp(0.88rem, 2vw, 0.98rem);
       font-weight: 700;
       color: #ffffff;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      overflow-wrap: anywhere;
+      word-break: normal;
       margin-bottom: 2px;
     }
 
@@ -319,8 +336,8 @@
 <body>
 
   <div class="flag-switcher">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="FR" onclick="switchLanguage('fr')">
-    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="EN" onclick="switchLanguage('en')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="FR" role="button" tabindex="0" onclick="switchLanguage('fr')" onkeydown="flagKey(event, 'fr')">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="EN" role="button" tabindex="0" onclick="switchLanguage('en')" onkeydown="flagKey(event, 'en')">
   </div>
 
   <div class="container-fluid px-2 px-sm-3 px-lg-5 pb-5">
@@ -376,10 +393,10 @@
         <!-- Conteneur dynamique des unités par catégories -->
         <div id="categories-container"></div>
 
-        <!-- Section Mandalorien leaders -->
+        <!-- Section chefs de la faction -->
         <div id="leaders-section" class="mt-4" style="display: none;">
           <h3 id="txt-leaders-title" class="fw-bold fs-5 mb-1">Chefs Mandalorien</h3>
-          <p id="txt-leaders-desc" style="color: white !important;" class="text-muted small mb-2">Capacités de chef accordant des bonus aux alliés Mandaloriens.</p>
+          <p id="txt-leaders-desc" class="small mb-2 leaders-desc">Capacités de chef accordant des bonus aux alliés Mandaloriens.</p>
           <div id="leaders-grid" class="units-grid"></div>
         </div>
 
@@ -398,7 +415,7 @@
       <div class="modal-content">
         <div class="modal-header d-flex justify-content-between align-items-center">
           <div class="d-flex align-items-center gap-3 flex-wrap">
-            <h5 class="modal-title fs-6 m-0" id="factionModalLabel">Unités Mandalorien & <span id="modalFactionName"></span></h5>
+            <h5 class="modal-title fs-6 m-0" id="factionModalLabel"><span id="modal-title-prefix">Unités Mandalorien &</span> <span id="modalFactionName"></span></h5>
             <a id="btnSeeFaction" href="#" class="btn btn-sm btn-outline-info fw-bold">
               <span id="txt-see-faction">Voir la faction</span> →
             </a>
@@ -425,7 +442,11 @@
         "txt-related-title": "Related factions",
         "txt-stats-title": "Faction Statistics",
         "gl-header-title": "Galactic Legend",
-        "txt-see-faction": "See faction"
+        "txt-see-faction": "See faction",
+        "modal-title-prefix": "Mandalorian units &",
+        "no-units": "No units found.",
+        "no-results": "No unit matches these filters.",
+        "load-error": "Unable to load unit data. Please try again later."
       },
       fr: {
         "page-title": "Mandalorien", "filter-title": "Personnages : Mandalorien",
@@ -437,9 +458,17 @@
         "txt-related-title": "Factions liées",
         "txt-stats-title": "Statistiques de la faction",
         "gl-header-title": "Légende Galactique",
-        "txt-see-faction": "Voir la faction"
+        "txt-see-faction": "Voir la faction",
+        "modal-title-prefix": "Unités Mandalorien &",
+        "no-units": "Aucune unité trouvée.",
+        "no-results": "Aucune unité ne correspond à ces filtres.",
+        "load-error": "Impossible de charger les données des unités. Réessaie plus tard."
       }
     };
+
+    // Faction de la page (variantes acceptées dans units.json)
+    const FACTION_KEYS = ["mandalorian", "mandalorien"];
+    const FACTION_LABEL = { en: "Mandalorian", fr: "Mandalorien" };
 
     let currentLang = "fr";
     let allUnits = [], factionsMap = [], rolesMap = [], alignmentsMap = [];
@@ -449,7 +478,10 @@
       modalInstance = new bootstrap.Modal(document.getElementById('factionModal'));
 
       Promise.all([
-        fetch("https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json").then(res => res.json()),
+        fetch("https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json").then(res => {
+          if (!res.ok) throw new Error("units.json : HTTP " + res.status);
+          return res.json();
+        }),
         fetch("../data/faction.json").then(res => res.json()).catch(() => []),
         fetch("../data/roles.json").then(res => res.json()).catch(() => []),
         fetch("../data/alignements.json").then(res => res.json()).catch(() => [])
@@ -457,13 +489,30 @@
         allUnits = units; factionsMap = factions; rolesMap = roles; alignmentsMap = alignments;
         const savedLang = sessionStorage.getItem("selectedLanguage") || "fr";
         switchLanguage(savedLang);
+      }).catch(err => {
+        console.error(err);
+        showLoadError();
       });
     });
+
+    function showLoadError() {
+      const lang = sessionStorage.getItem("selectedLanguage") || "fr";
+      document.getElementById("categories-container").innerHTML =
+        `<div class="alert alert-danger mt-3">${translations[lang]["load-error"]}</div>`;
+    }
+
+    function flagKey(event, lang) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        switchLanguage(lang);
+      }
+    }
 
     function switchLanguage(lang) {
       const prevRole = document.getElementById("roleFilter").value;
       const prevAlign = document.getElementById("alignFilter").value;
       currentLang = lang;
+      document.documentElement.lang = lang;
       sessionStorage.setItem("selectedLanguage", lang);
 
       for (let key in translations[lang]) {
@@ -496,10 +545,8 @@
         }
       });
       uniqueValues.sort((a, b) => a.label.localeCompare(b.label, currentLang));
-      select.innerHTML = `<option value="all">${translations[currentLang]["opt-all"]}</option>`;
-      uniqueValues.forEach(v => {
-        select.innerHTML += `<option value="${v.en.toLowerCase()}">${v.label}</option>`;
-      });
+      select.innerHTML = `<option value="all">${translations[currentLang]["opt-all"]}</option>` +
+        uniqueValues.map(v => `<option value="${v.en.toLowerCase()}">${v.label}</option>`).join("");
     }
 
     function resetFilters() {
@@ -511,6 +558,10 @@
     }
 
     function normalize(str) { return str ? str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim() : ''; }
+
+    function isFactionUnit(unit) {
+      return (unit.factions || []).some(f => FACTION_KEYS.includes(normalize(f.en)) || FACTION_KEYS.includes(normalize(f.fr)));
+    }
 
     function isGL(unit) {
       return (unit.factions || []).some(f => normalize(f.en) === "galactic legend" || normalize(f.fr) === "legende galactique");
@@ -534,10 +585,9 @@
 
       const otherFactions = (unit.factions || [])
         .map(f => f[currentLang] || f.en)
-        .filter(f => normalize(f) !== "mandalorian" && normalize(f) !== "mandalorien");
+        .filter(f => !FACTION_KEYS.includes(normalize(f)));
 
-      const mandoTag = currentLang === "fr" ? "Mandalorien" : "Mandalorian";
-      const tagsList = [roleText, ...otherFactions, mandoTag].join(" • ");
+      const tagsList = [roleText, ...otherFactions, FACTION_LABEL[currentLang]].join(" • ");
 
       let leaderBonuses = "";
       if (unit.leaderBonus) {
@@ -577,8 +627,9 @@
         else if (role.includes("tank")) tank++;
       });
 
+      const squash = str => normalize(str).replace(/[\s_-]+/g, '');
       const getUrlFromData = (key, map) => {
-        const found = map.find(item => normalize(item.en) === normalize(key));
+        const found = map.find(item => squash(item.en) === squash(key) || squash(item.fr) === squash(key));
         return found ? found.url : null;
       };
 
@@ -617,12 +668,9 @@
       categoriesContainer.innerHTML = "";
       leadersGrid.innerHTML = "";
 
-      let mandoUnits = allUnits.filter(unit => {
-        const unitFactions = unit.factions || [];
-        return unitFactions.some(f => normalize(f.en) === "mandalorian" || normalize(f.fr) === "mandalorien");
-      });
+      let factionUnits = allUnits.filter(isFactionUnit);
 
-      let filtered = mandoUnits.filter(unit => {
+      let filtered = factionUnits.filter(unit => {
         const name = normalize(unit.name?.[currentLang] || unit.name?.en || "");
         const matchesSearch = name.includes(searchTerm);
         const matchesRole = (roleVal === "all" || normalize(unit.role?.en) === roleVal);
@@ -637,6 +685,10 @@
 
       renderStats(filtered);
 
+      if (filtered.length === 0) {
+        categoriesContainer.innerHTML = `<p class="no-results">${translations[currentLang]["no-results"]}</p>`;
+      }
+
       const glUnits = filtered.filter(u => isGL(u));
       const nonGlUnits = filtered.filter(u => !isGL(u));
 
@@ -650,9 +702,7 @@
         const glGrid = document.createElement("div");
         glGrid.className = "units-grid";
 
-        glUnits.forEach(unit => {
-          glGrid.innerHTML += createUnitCardCompactHTML(unit);
-        });
+        glGrid.innerHTML = glUnits.map(createUnitCardCompactHTML).join("");
 
         categoriesContainer.appendChild(glHeader);
         categoriesContainer.appendChild(glGrid);
@@ -668,7 +718,9 @@
         groupedByRole[roleKey].units.push(unit);
       });
 
-      Object.keys(groupedByRole).sort().forEach(roleKey => {
+      Object.keys(groupedByRole)
+        .sort((a, b) => groupedByRole[a].label.localeCompare(groupedByRole[b].label, currentLang))
+        .forEach(roleKey => {
         const group = groupedByRole[roleKey];
         group.units.sort((a, b) => (a.name?.[currentLang] || "").localeCompare(b.name?.[currentLang] || "", currentLang));
 
@@ -679,9 +731,7 @@
         const grid = document.createElement("div");
         grid.className = "units-grid";
 
-        group.units.forEach(unit => {
-          grid.innerHTML += createUnitCardCompactHTML(unit);
-        });
+        grid.innerHTML = group.units.map(createUnitCardCompactHTML).join("");
 
         categoriesContainer.appendChild(catHeader);
         categoriesContainer.appendChild(grid);
@@ -693,29 +743,27 @@
 
       if (leaders.length > 0) {
         leadersSection.style.display = "block";
-        leaders.forEach(unit => {
-          leadersGrid.innerHTML += createUnitCardCompactHTML(unit);
-        });
+        leadersGrid.innerHTML = leaders.map(createUnitCardCompactHTML).join("");
       } else {
         leadersSection.style.display = "none";
       }
 
-      renderRelatedFactions(mandoUnits);
+      renderRelatedFactions(factionUnits);
     }
 
-    function renderRelatedFactions(mandoUnits) {
+    function renderRelatedFactions(factionUnits) {
       const grid = document.getElementById("related-factions-grid");
       grid.innerHTML = "";
 
       const factionCounts = {};
       const factionLabels = {};
 
-      mandoUnits.forEach(unit => {
+      factionUnits.forEach(unit => {
         (unit.factions || []).forEach(f => {
           const fEn = f.en;
           const fLabel = f[currentLang] || fEn;
           
-          if (normalize(fEn) !== "mandalorian" && normalize(fEn) !== "mandalorien") {
+          if (!FACTION_KEYS.includes(normalize(fEn))) {
             factionCounts[fEn] = (factionCounts[fEn] || 0) + 1;
             factionLabels[fEn] = fLabel;
           }
@@ -757,21 +805,19 @@
 
       let filtered = allUnits.filter(unit => {
         const unitFactions = unit.factions || [];
-        const isMando = unitFactions.some(f => normalize(f.en) === "mandalorian" || normalize(f.fr) === "mandalorien");
+        const isThisFaction = isFactionUnit(unit);
         const hasFaction = unitFactions.some(f => normalize(f.en) === targetFaction || normalize(f.fr) === targetFaction);
-        return isMando && hasFaction;
+        return isThisFaction && hasFaction;
       });
 
       filtered.sort((a, b) => (a.name?.[currentLang] || "").localeCompare(b.name?.[currentLang] || "", currentLang));
 
       if (filtered.length === 0) {
-        modalBody.innerHTML = `<p class="text-center text-muted">Aucune unité trouvée.</p>`;
+        modalBody.innerHTML = `<p class="text-center no-results">${translations[currentLang]["no-units"]}</p>`;
       } else {
         const grid = document.createElement("div");
         grid.className = "units-grid";
-        filtered.forEach(unit => {
-          grid.innerHTML += createUnitCardCompactHTML(unit);
-        });
+        grid.innerHTML = filtered.map(createUnitCardCompactHTML).join("");
         modalBody.appendChild(grid);
       }
 

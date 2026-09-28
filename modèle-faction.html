@@ -1,14 +1,28 @@
 <!DOCTYPE HTML>
+<!--
+  MODÈLE TYPE — PAGE DE FACTION SWGOH
+  Base technique : pirate.html
+  Remplacer les éléments [À MODIFIER] avant publication.
+  Les styles et fonctions communes sont à conserver sauf besoin spécifique.
+-->
 <html lang="fr">
 
 <head>
   <meta charset="utf-8">
-  <title id="page-title">Rogue One</title>
+  <!-- À MODIFIER : nom anglais de la faction pour l’onglet -->\n  <title id="page-title">[FACTION_EN]</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Rimbault Enzo">
   <link rel="icon" type="image/png" href="../image/logo_star_wars.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+  <!--
+    CHECKLIST AVANT PUBLICATION :
+    1. Remplacer [FACTION_EN] et [FACTION_FR] dans les textes HTML et les traductions.
+    2. Définir FACTION_TARGET_EN avec le nom anglais exact présent dans units.json.
+    3. Adapter la description des chefs et les éventuels textes spécifiques à la faction.
+    4. Vérifier les chemins d’accès, le lien de retour et les images si la page est déplacée.
+    5. Vérifier que data/faction.json contient l’URL de cette faction (pour le bouton de la modale).
+  -->
   <style>
     body {
       background: #090a0f url('https://e-rimbault.github.io/swgoh-kit/image/background.jpg') no-repeat center center fixed;
@@ -33,20 +47,6 @@
       border: 2px solid transparent;
       border-radius: 4px;
       transition: 0.2s;
-    }
-
-    .flag-switcher img:focus-visible {
-      outline: 2px solid #0dcaf0;
-      outline-offset: 2px;
-    }
-
-    .leaders-desc {
-      color: #ffffff;
-    }
-
-    .no-results {
-      color: #94a3b8;
-      margin-top: 20px;
     }
 
     /* Sidebar de filtres */
@@ -336,13 +336,13 @@
 <body>
 
   <div class="flag-switcher">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="FR" role="button" tabindex="0" onclick="switchLanguage('fr')" onkeydown="flagKey(event, 'fr')">
-    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="EN" role="button" tabindex="0" onclick="switchLanguage('en')" onkeydown="flagKey(event, 'en')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="FR" onclick="switchLanguage('fr')">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="EN" onclick="switchLanguage('en')">
   </div>
 
   <div class="container-fluid px-2 px-sm-3 px-lg-5 pb-5">
     <div class="row">
-      <!-- Sidebar / Filtres -->
+      <!-- ZONE COMMUNE : filtres de recherche, rôle, alignement et chefs. -->\n      <!-- Sidebar / Filtres -->
       <div class="col-lg-3 col-md-4 mb-3">
         <div class="filter-sidebar">
           <h4 id="sidebar-title" class="mb-3 fs-5">Options</h4>
@@ -384,23 +384,23 @@
           <h2 id="filter-title" class="m-0 d-flex align-items-center flex-wrap fs-4"></h2>
         </div>
 
-        <!-- Section Statistiques -->
+        <!-- DYNAMIQUE : statistiques calculées depuis les unités correspondant à la faction cible. -->\n        <!-- Section Statistiques -->
         <div class="stats-card">
           <div id="txt-stats-title" class="stats-title">Statistiques de la faction</div>
           <div id="stats-container" class="d-flex flex-wrap gap-2"></div>
         </div>
 
-        <!-- Conteneur dynamique des unités par catégories -->
+        <!-- DYNAMIQUE : les unités sont regroupées automatiquement par rôle ; ne pas ajouter les cartes manuellement. -->\n        <!-- Conteneur dynamique des unités par catégories -->
         <div id="categories-container"></div>
 
-        <!-- Section chefs de la faction -->
+        <!-- SECTION CHEFS : affichée uniquement si des unités identifiées comme chefs sont présentes. -->
         <div id="leaders-section" class="mt-4" style="display: none;">
-          <h3 id="txt-leaders-title" class="fw-bold fs-5 mb-1">Chefs Rogue One</h3>
-          <p id="txt-leaders-desc" class="small mb-2 leaders-desc">Capacités de chef accordant des bonus aux alliés Rogue One.</p>
+          <h3 id="txt-leaders-title" class="fw-bold fs-5 mb-1">Chefs [FACTION_FR]</h3>
+          <p id="txt-leaders-desc" style="color: white !important;" class="text-muted small mb-2">Capacités de chef accordant des bonus aux alliés [FACTION_FR]. [À ADAPTER]</p>
           <div id="leaders-grid" class="units-grid"></div>
         </div>
 
-        <!-- Section Related factions -->
+        <!-- SECTION FACTIONS LIÉES : générée à partir des autres factions des unités affichées. -->
         <div class="related-factions-section">
           <h3 id="txt-related-title" class="fw-bold fs-5 mb-2">Factions liées</h3>
           <div id="related-factions-grid" class="related-factions-grid"></div>
@@ -409,13 +409,13 @@
     </div>
   </div>
 
-  <!-- Pop-up (Modal) pour Factions Liées -->
+  <!-- MODALE COMMUNE : liste les unités qui appartiennent à la faction cible et à la faction liée choisie. -->
   <div class="modal fade" id="factionModal" tabindex="-1" aria-labelledby="factionModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header d-flex justify-content-between align-items-center">
           <div class="d-flex align-items-center gap-3 flex-wrap">
-            <h5 class="modal-title fs-6 m-0" id="factionModalLabel"><span id="modal-title-prefix">Unités Rogue One &</span> <span id="modalFactionName"></span></h5>
+            <h5 class="modal-title fs-6 m-0" id="factionModalLabel">Unités [FACTION_FR] & <span id="modalFactionName"></span></h5>
             <a id="btnSeeFaction" href="#" class="btn btn-sm btn-outline-info fw-bold">
               <span id="txt-see-faction">Voir la faction</span> →
             </a>
@@ -431,57 +431,51 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    /*
+     * CONFIGURATION À MODIFIER POUR CHAQUE FACTION :
+     * La valeur doit correspondre exactement au champ factions[].en dans units.json.
+     * Le code utilise cette constante pour filtrer les unités et construire les cartes.
+     */
+    const FACTION_TARGET_EN = "[FACTION_EN]"; // À MODIFIER : nom anglais exact de la faction.
+
     const translations = {
       en: {
-        "page-title": "Rogue One", "filter-title": "Characters: Rogue One",
+        "page-title": "pirate", "filter-title": "Characters: [FACTION_EN]",
         "sidebar-title": "Filters", "label-search": "Search", 
         "label-role": "Role", "label-align": "Alignment", "label-lead": "Leader only", "opt-all": "All",
         "txt-return": "Main Menu", "count-suffix": "results", "btn-reset": "Reset Filters",
-        "txt-leaders-title": "Rogue One leaders",
-        "txt-leaders-desc": "Leader abilities that grant bonuses to Rogue One allies, decoded from the kit.",
+        "txt-leaders-title": "[FACTION_EN] leaders",
+        "txt-leaders-desc": "Leader abilities that grant bonuses to [FACTION_EN] allies. [À ADAPTER]",
         "txt-related-title": "Related factions",
         "txt-stats-title": "Faction Statistics",
         "gl-header-title": "Galactic Legend",
-        "txt-see-faction": "See faction",
-        "modal-title-prefix": "Rogue One units &",
-        "no-units": "No units found.",
-        "no-results": "No unit matches these filters.",
-        "load-error": "Unable to load unit data. Please try again later."
+        "txt-see-faction": "See faction"
       },
       fr: {
-        "page-title": "Rogue One", "filter-title": "Personnages : Rogue One",
+        "page-title": "pirate", "filter-title": "Personnages : [FACTION_FR]",
         "sidebar-title": "Filtres", "label-search": "Recherche", 
         "label-role": "Rôle", "label-align": "Alignement", "label-lead": "Chef uniquement", "opt-all": "Tous",
         "txt-return": "Menu Principal", "count-suffix": "résultats", "btn-reset": "Réinitialiser les filtres",
-        "txt-leaders-title": "Chefs Rogue One",
-        "txt-leaders-desc": "Capacités de chef accordant des bonus aux alliés Rogue One.",
+        "txt-leaders-title": "Chefs [FACTION_FR]",
+        "txt-leaders-desc": "Capacités de chef accordant des bonus aux alliés [FACTION_FR]. [À ADAPTER]",
         "txt-related-title": "Factions liées",
         "txt-stats-title": "Statistiques de la faction",
         "gl-header-title": "Légende Galactique",
-        "txt-see-faction": "Voir la faction",
-        "modal-title-prefix": "Unités Rogue One &",
-        "no-units": "Aucune unité trouvée.",
-        "no-results": "Aucune unité ne correspond à ces filtres.",
-        "load-error": "Impossible de charger les données des unités. Réessaie plus tard."
+        "txt-see-faction": "Voir la faction"
       }
     };
-
-    // Faction de la page
-    const FACTION_KEYS = ["rogue one", "rogue-one"];
-    const FACTION_LABEL = { en: "Rogue One", fr: "Rogue One" };
 
     let currentLang = "fr";
     let allUnits = [], factionsMap = [], rolesMap = [], alignmentsMap = [];
     let modalInstance = null;
 
+    // CHARGEMENT COMMUN : units.json alimente la galerie ; les fichiers data/ alimentent les liens.
+    // Conserver ces chemins si la page reste au même emplacement dans le dépôt.
     window.addEventListener("load", () => {
       modalInstance = new bootstrap.Modal(document.getElementById('factionModal'));
 
       Promise.all([
-        fetch("https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json").then(res => {
-          if (!res.ok) throw new Error("units.json : HTTP " + res.status);
-          return res.json();
-        }),
+        fetch("https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json").then(res => res.json()),
         fetch("../data/faction.json").then(res => res.json()).catch(() => []),
         fetch("../data/roles.json").then(res => res.json()).catch(() => []),
         fetch("../data/alignements.json").then(res => res.json()).catch(() => [])
@@ -489,30 +483,13 @@
         allUnits = units; factionsMap = factions; rolesMap = roles; alignmentsMap = alignments;
         const savedLang = sessionStorage.getItem("selectedLanguage") || "fr";
         switchLanguage(savedLang);
-      }).catch(err => {
-        console.error(err);
-        showLoadError();
       });
     });
-
-    function showLoadError() {
-      const lang = sessionStorage.getItem("selectedLanguage") || "fr";
-      document.getElementById("categories-container").innerHTML =
-        `<div class="alert alert-danger mt-3">${translations[lang]["load-error"]}</div>`;
-    }
-
-    function flagKey(event, lang) {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        switchLanguage(lang);
-      }
-    }
 
     function switchLanguage(lang) {
       const prevRole = document.getElementById("roleFilter").value;
       const prevAlign = document.getElementById("alignFilter").value;
       currentLang = lang;
-      document.documentElement.lang = lang;
       sessionStorage.setItem("selectedLanguage", lang);
 
       for (let key in translations[lang]) {
@@ -545,8 +522,10 @@
         }
       });
       uniqueValues.sort((a, b) => a.label.localeCompare(b.label, currentLang));
-      select.innerHTML = `<option value="all">${translations[currentLang]["opt-all"]}</option>` +
-        uniqueValues.map(v => `<option value="${v.en.toLowerCase()}">${v.label}</option>`).join("");
+      select.innerHTML = `<option value="all">${translations[currentLang]["opt-all"]}</option>`;
+      uniqueValues.forEach(v => {
+        select.innerHTML += `<option value="${v.en.toLowerCase()}">${v.label}</option>`;
+      });
     }
 
     function resetFilters() {
@@ -558,10 +537,6 @@
     }
 
     function normalize(str) { return str ? str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim() : ''; }
-
-    function isFactionUnit(unit) {
-      return (unit.factions || []).some(f => FACTION_KEYS.includes(normalize(f.en)) || FACTION_KEYS.includes(normalize(f.fr)));
-    }
 
     function isGL(unit) {
       return (unit.factions || []).some(f => normalize(f.en) === "galactic legend" || normalize(f.fr) === "legende galactique");
@@ -585,9 +560,9 @@
 
       const otherFactions = (unit.factions || [])
         .map(f => f[currentLang] || f.en)
-        .filter(f => !FACTION_KEYS.includes(normalize(f)));
+        .filter(f => normalize(f) !== normalize(FACTION_TARGET_EN));
 
-      const tagsList = [roleText, ...otherFactions, FACTION_LABEL[currentLang]].join(" • ");
+      const tagsList = [roleText, ...otherFactions, FACTION_TARGET_EN].join(" • ");
 
       let leaderBonuses = "";
       if (unit.leaderBonus) {
@@ -627,9 +602,8 @@
         else if (role.includes("tank")) tank++;
       });
 
-      const squash = str => normalize(str).replace(/[\s_-]+/g, '');
       const getUrlFromData = (key, map) => {
-        const found = map.find(item => squash(item.en) === squash(key) || squash(item.fr) === squash(key));
+        const found = map.find(item => normalize(item.en) === normalize(key));
         return found ? found.url : null;
       };
 
@@ -655,6 +629,7 @@
       });
     }
 
+    // AFFICHAGE PRINCIPAL : applique les filtres à la faction configurée puis regroupe par rôle.
     function renderUnits() {
       const categoriesContainer = document.getElementById("categories-container");
       const leadersGrid = document.getElementById("leaders-grid");
@@ -668,7 +643,10 @@
       categoriesContainer.innerHTML = "";
       leadersGrid.innerHTML = "";
 
-      let factionUnits = allUnits.filter(isFactionUnit);
+      let factionUnits = allUnits.filter(unit => {
+        const unitFactions = unit.factions || [];
+        return unitFactions.some(f => normalize(f.en) === normalize(FACTION_TARGET_EN) || normalize(f.fr) === normalize(translations[currentLang]["page-title"]));
+      });
 
       let filtered = factionUnits.filter(unit => {
         const name = normalize(unit.name?.[currentLang] || unit.name?.en || "");
@@ -685,10 +663,6 @@
 
       renderStats(filtered);
 
-      if (filtered.length === 0) {
-        categoriesContainer.innerHTML = `<p class="no-results">${translations[currentLang]["no-results"]}</p>`;
-      }
-
       const glUnits = filtered.filter(u => isGL(u));
       const nonGlUnits = filtered.filter(u => !isGL(u));
 
@@ -702,7 +676,9 @@
         const glGrid = document.createElement("div");
         glGrid.className = "units-grid";
 
-        glGrid.innerHTML = glUnits.map(createUnitCardCompactHTML).join("");
+        glUnits.forEach(unit => {
+          glGrid.innerHTML += createUnitCardCompactHTML(unit);
+        });
 
         categoriesContainer.appendChild(glHeader);
         categoriesContainer.appendChild(glGrid);
@@ -718,9 +694,7 @@
         groupedByRole[roleKey].units.push(unit);
       });
 
-      Object.keys(groupedByRole)
-        .sort((a, b) => groupedByRole[a].label.localeCompare(groupedByRole[b].label, currentLang))
-        .forEach(roleKey => {
+      Object.keys(groupedByRole).sort().forEach(roleKey => {
         const group = groupedByRole[roleKey];
         group.units.sort((a, b) => (a.name?.[currentLang] || "").localeCompare(b.name?.[currentLang] || "", currentLang));
 
@@ -731,7 +705,9 @@
         const grid = document.createElement("div");
         grid.className = "units-grid";
 
-        grid.innerHTML = group.units.map(createUnitCardCompactHTML).join("");
+        group.units.forEach(unit => {
+          grid.innerHTML += createUnitCardCompactHTML(unit);
+        });
 
         categoriesContainer.appendChild(catHeader);
         categoriesContainer.appendChild(grid);
@@ -743,7 +719,9 @@
 
       if (leaders.length > 0) {
         leadersSection.style.display = "block";
-        leadersGrid.innerHTML = leaders.map(createUnitCardCompactHTML).join("");
+        leaders.forEach(unit => {
+          leadersGrid.innerHTML += createUnitCardCompactHTML(unit);
+        });
       } else {
         leadersSection.style.display = "none";
       }
@@ -751,6 +729,8 @@
       renderRelatedFactions(factionUnits);
     }
 
+    // CALCUL AUTOMATIQUE des factions liées : toutes les factions associées aux unités de la cible,
+    // sauf la faction cible elle-même.
     function renderRelatedFactions(factionUnits) {
       const grid = document.getElementById("related-factions-grid");
       grid.innerHTML = "";
@@ -763,7 +743,7 @@
           const fEn = f.en;
           const fLabel = f[currentLang] || fEn;
           
-          if (!FACTION_KEYS.includes(normalize(fEn))) {
+          if (normalize(fEn) !== normalize(FACTION_TARGET_EN)) {
             factionCounts[fEn] = (factionCounts[fEn] || 0) + 1;
             factionLabels[fEn] = fLabel;
           }
@@ -785,6 +765,8 @@
       });
     }
 
+    // MODALE : affiche les unités de la faction cible qui possèdent aussi la faction sélectionnée.
+    // Le lien de destination vient de data/faction.json si une URL y est définie.
     function openFactionModal(factionEn, factionLabel) {
       document.getElementById("modalFactionName").innerText = factionLabel;
       
@@ -805,19 +787,21 @@
 
       let filtered = allUnits.filter(unit => {
         const unitFactions = unit.factions || [];
-        const isThisFaction = isFactionUnit(unit);
+        const ispirate = unitFactions.some(f => normalize(f.en) === normalize(FACTION_TARGET_EN) || normalize(f.fr) === normalize(translations[currentLang]["page-title"]));
         const hasFaction = unitFactions.some(f => normalize(f.en) === targetFaction || normalize(f.fr) === targetFaction);
-        return isThisFaction && hasFaction;
+        return isTargetFaction && hasFaction;
       });
 
       filtered.sort((a, b) => (a.name?.[currentLang] || "").localeCompare(b.name?.[currentLang] || "", currentLang));
 
       if (filtered.length === 0) {
-        modalBody.innerHTML = `<p class="text-center no-results">${translations[currentLang]["no-units"]}</p>`;
+        modalBody.innerHTML = `<p class="text-center text-muted">Aucune unité trouvée.</p>`;
       } else {
         const grid = document.createElement("div");
         grid.className = "units-grid";
-        grid.innerHTML = filtered.map(createUnitCardCompactHTML).join("");
+        filtered.forEach(unit => {
+          grid.innerHTML += createUnitCardCompactHTML(unit);
+        });
         modalBody.appendChild(grid);
       }
 
