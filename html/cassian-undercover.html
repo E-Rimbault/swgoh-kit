@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Cassian Andor (Undercover)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/cassian-undercover/cassian-undercover-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/cassian-undercover/cassian-undercover-image.png" alt="Cassian Andor (Undercover)" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Cassian Andor (Undercover)</u></h1>
+            <p id="description">
+                Cassian utilizes his talents in obfuscation to Undermine his enemies and protect valuable allies
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="capacite" href="../classement-perso/combattant-rebelle.html" id="rebel-fighter">Rebel Fighter</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Clem</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="cassian-undercover basic" src="../image-perso/cassian-undercover/cassian-undercover-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Speed Down for 1 turn. If they already had Speed Down from this ability, Undermine them for 1 turn, which can't be resisted. If they were already Undermined, Undermine another random enemy who doesn't already have it for 2 turns, which can't be dispelled.
+                <br><br>
+                During his turn, if all enemies are Undermined, call all other Rebel Fighter allies to assist.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Keef Girgo (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="cassian-undercover special 1" src="../image-perso/cassian-undercover/cassian-undercover-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Dispel all debuffs on Rebel Fighter allies and they gain High Morale for 1 turn, which can't be copied, and 10% Turn Meter. Deal Physical damage to all enemies and an additional instance of damage to Undermined enemies. Undermine the enemy with the least Turn Meter for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Varian Skye (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="cassian-undercover special 2" src="../image-perso/cassian-undercover/cassian-undercover-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Target Rebel Fighter ally gains 50 Speed for 1 turn and recovers 20% Health and Protection. If all allies are Rebel Fighters, target other ally also gains VIP until they are damaged twice.
+                <br><br>
+                Cassian deals 30,000 True damage to target enemy, which can't be evaded, and Blinds them for 1 turn. Undermine the enemy in the Leader slot for 1 turn, which can't be resisted. This ability deals 15,000 more True damage for each turn a VIP has taken this encounter (stacking max 150,000 additional damage).
+                <br><br>
+                <u class="omicron">omicron Boost : While in Grand Arenas:</u> If all allies are Rebel Fighters, target other Rebel Fighter ally gains Damage Immunity for 1 turn. Rebel Fighter allies gain 10% Turn Meter and Max Health for the rest of the encounter. Target enemy is inflicted with Healing Immunity for 1 turn, which can't be dispelled or resisted, and if they had Undermine all other enemies without Undermine are Undermined for 1 turn, which can't be resisted.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: I Have Friends Everywhere</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="cassian-undercover leader" src="../image-perso/cassian-undercover/cassian-undercover-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Rebel Fighter allies have +100% Potency and 50% Defense. Undermined enemies have -25 Speed and can't be assisted. If all allies are Rebel Fighters, Cassian takes only 1 damage from attacks unless he is critically hit on that turn. Rebel Fighter allies have +100% Tenacity until a Rebel Fighter ally is defeated (excluding summoned units).
+                <br><br>
+                At the start of Cassian's VIP's turn, all Undermined enemies lose 10% Max Health for the rest of the encounter and Rebel Fighter allies gain 10% Defense Penetration and Offense (stacking) for the rest of the encounter. While a Rebel Fighter ally has Cassian's VIP all allied Rebel Fighters have +100% Critical Avoidance.
+                <br><br>
+                Whenever an enemy dispels Undermine, Rebel Fighter allies gain 20% Turn Meter. Whenever an enemy dispels a buff on a Rebel Fighter ally they are Undermined for 1 turn, which can't be resisted.
+                <br><br>
+                <u class="omicron">omicron Boost : While in Grand Arenas:</u> Rebel Fighter allies take reduced damage from Percentage Health damage effects and gain Instant Defeat Immunity which can't be copied, dispelled, or prevented, until a Rebel Fighter ally is defeated (excluding summoned units). Whenever an ally is damaged while they have Cassian's VIP, the cooldown of Varian Skye is reset. At the start of Cassian's VIP's turn, Rebel Fighter allies gain 5% Mastery.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : More Than Your Fear</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="cassian-undercover unique" src="../image-perso/cassian-undercover/cassian-undercover-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Cassian has +50% Critical Avoidance per Undermined enemy and gains 100% counter chance at the start of each non-Undermined enemy's turn until the end of their turn. Cassian is immune to Critical Hit Immunity. Whenever Cassian attacks out of turn he is inflicted with Vulnerable for 1 turn.
+                <br><br>
+                If there were no Galactic Legends at the start of battle, whenever there are 3 or more out of turn attacks during an enemy's turn, that enemy is Undermined for 1 turn, which can't be resisted. Whenever an enemy is Undermined, Cassian gains Fearless until no enemies are Undermined. Whenever an enemy is Undermined, Cassian gains 10% Turn Meter. Whenever an Undermined enemy removes Turn Meter from Cassian, all enemies lose 25% Turn Meter.
+                <br><br>
+                Whenever an enemy with Undermine gains a buff from their ally, that ally is Undermined for 1 turn, which can't be resisted, and at the end of the turn, all buffs are dispelled on the enemy who gained the buff, and ally Rebel Fighters have their debuffs dispelled.
+                <br><br>
+                At the start of Cassian's VIP's turn, Cassian recovers full Health and Protection. Whenever Cassian's VIP uses a Special ability the target enemy is Undermined for 1 turn.
+                <br><br>
+                <u class="omicron">omicron Boost : While in Grand Arenas:</u>: The enemy that damages an ally with VIP is Undermined for 1 turn, which can't be dispelled or resisted. At the start of Cassian's VIP's turn, also recover full Health and Protection of the weakest ally. Whenever Cassian's VIP uses an ability, the target enemy is Undermined for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Cassian Andor (infiltré)",
+                "title": "<u>Cassian Andor (infiltré)</u>",
+                "description": "Cassiant utilise ses talents de dissimulation pour démoraliser ses ennemis et protéger ses précieux alliés.",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "leader": "Chef",
+                "rebel": "Rebelle",
+                "rebel-fighter": "Combattant Rebelle",
+
+                "basic-attack-title": "<u>Attaque Basique: Clem</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie et lui inflige un malus de vitesse pendant 1 tour. Si elle subissait déjà un malus de vitesse de cette capacité, lui inflige Démoralisation pendant 1 tour (ne peut pas être résisté). Si elle subissait déjà Démoralisation, inflige Démoralisation à un autre ennemi aléatoire qui n'en disposait pas déjà pendant 2 tours (ne peut pas être dissipé).\n\nPendant son tour, si tous les ennemis subissent Démoralisation, invoque tous les autres alliés combattant rebelles.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Kreef Girgo (délai : 3)</u>",
+                "special-attack1": "Dissipe tous les affaiblissements sut les combattants rebelles alliés, et ils gagnent Moral elevé pendant 1 tour (ne peut pas être copié) et 10 % de jauge de tour. Inflige des dégâts physiques à tous les ennemis et un cumul de dégâts supplémentaires aux ennemis subissant Démoralisation. L'ennemi qui a le moins de jauge de tour subit Démoralisation pendant 2 tours.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Varian skye (délai : 4)</u>",
+                "special-attack2": "La cible alliée combattant rebelle gagne 50 de vitesse pendant 1 tour et récupère 20 % de santé et de protection. Si tous les alliés sont des combattants rebelles, la cible alliée obtient VIP jusqu'à ce qu'elle subisse des dégâts deux fois.\n\nCassian inflige 30 000 dégâts réels à la cible ennemie (ne peut pas être esquivé) et lui inflige Cécité pendant 1 tour. Inflige Démoralisation à l'ennemi dans l'emplacement de chef pendant 1 tour (ne peut pas être résité). Cette capacité inflige 15 000 dégâts réels supplémentaire pour chaque tour qu'un VIP a effectué pendant cet affrontement (cumulable, 150 000 dégâts supplémentaires maximum).\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> si tous les alliés sont des combattant rebelles, la cible alliée combattant rebelle obtient Immunité aux dégâts pendant 1 tour. Les alliés combattant rebelles obtiennent 10 % de jauge de tour et de santé maximale pour le reste de l'affrontement. La cible ennemie subit Immunité aux soins pendant 1 tour (ne peut pas être dissipé ou résisté), et si elle subissait Démoralisation, tous les autres ennemis sans Démoralisation subissent Démoralisation pendant 1 tour (ne peut pas être résisté).",
+
+                "lead-ability-title": "<u>Capacité de Chef: J'ai des amis un peu partout </u>",
+                "lead-ability": "Les alliés combattant rebelles ont +100 % de pouvoir et 50 % de défense. Les ennemis souffrant de Démoralisation ont -25 de vitesse et ne peuvent pas être invoqués. Si tous les alliés sont des combattants rebelles, Cassiant ne subit que 1 dégâts des attaques, sauf s'il subit un coup critique pendant ce tour. Les alliés combattant rebelles ont +100 % de ténacité jusqu'à ce qu'un allié combattant rebelle soit vaincu (à l'exception des unités invoqués).\n\nAu début du tour du VIP de Cassian, tous les ennemis souffrant de Démoralisation perdent 10 % de santé maximale pour le reste de l'affrontement et les alliés combattants rebelles gagnent 10 % de pénétration de défense et d'attaque (cumulatif) pour le reste de l'affrontement. Tant qu'un allié dispose de du VIP de Cassian, tous les alliés combattants rebelles ont +100 % d'esquive des critiques.\n\nChaque fois qu'un ennemi dissipe Démoralisation, les alliés combattant rebelles gagnent 20 % de jauge de tour. Chaque fois qu'un ennemi dissipe une amélioration sur un allié combattant rebelle, il subit Démoralisation pendant 1 tour (ne peut pas être résisté).\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> les alliés combattant rebelles subissent des dégâts réduits des effets de dégâts de pourcentage de santé et obtiennent Immunité aux défaites instantanées (ne peut pas être copié, dissipé ou empêché), jusqu'à ce qu'un allié combattant rebelle soit vaincu (à l'exception des unités invoqués). Chaque fois qu'un allié subit des dégâts alors qu'il dispose du VIP de Cassian, le délai de Varian Skye est réinitialisé. Au début du tour du VIP de Cassian, les alliés combattants rebelles gagnent 5 % de maîtrise.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Bien plus que ta peur</u>",
+                "unique-ability1": "Cassian a +50 % d'esquive des critiques par ennemi qui subit Démoralisation et obtient 100 % de chances de contre attaque au début du tour de chaque ennemi qui ne subit pas Démoralisation jusqu'à la fin de son tour. Cassian est immunisé contre Immunité aux coups critiques. Chaque fois que Cassian attaque en dehors de son tour, il est vulnérable pendant 1 tour.\n\nS'il n'y avait pas de Légende galactique au début de la bataille, chaque fois qu'il y a 3 attaques ou plus en dehors du tour pendant le tour d'un ennemi, cet ennemi subit Démoralisation pendant 1 tour (ne peut pas être résisté). Chaque fois qu'un ennemi subit Démoralisation, Cassian gagne 10 % de jauge de tour. Chaque fois qu'un ennemi subissant Démoralisation, retire de la jauge de tour à Cassian, tous les ennemis perdent 25 % de jauge de tour.\n\nChaque fois qu'un ennemi subissant Démoralisation obtient une amélioration de la part d'un allié, cet allié subit Démoralisation pendant 1 tour (ne peut pas être résisté), et à la fin du tour, toutes les améliorations sont dissipées sur l'ennemi qui a obtenu l'amélioration, et les affaiblissements des alliés combattants rebelles sont dissipés.\n\nAu début du tour d'un VIP, Cassian récupère toute sa santé et sa protection. Chaque fois que le VIP de Cassian utilise une capacité spéciale, la cible ennemie subit Démoralisation pendant 1 tour.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> l'ennemi qui inflige des dégâts à un allié avec le VIP de Cassiant subit Démoralisation pendant 1 tour (ne peut pas être dissipé ou résisté). Au début du tour du VIP de cassian, récupère également toute la santé et la protection de l'allié le plus faible. Chaque foi que le VIP de Cassian utilise une capacité, la cible ennemie subit Démoralisation pendant 1 tour.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "CASSIANUNDERCOVER"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
