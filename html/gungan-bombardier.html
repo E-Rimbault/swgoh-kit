@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Gungan Boomadier</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/gunganboomadier/gunganboomadier-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/gunganboomadier/gunganboomadier-image.png" alt="Bombardier Gungan" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Gungan Boomadier</u></h1>
+            <p id="description">
+                Gungan Boomadier's swift attacks are most amplified when capitalizing on debuffed enemies and gains impressive bonuses while the Shield Generator is active.
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attaquant</a>
+                <a class="capacite" href="../classement-perso/gungan.html" id="gungan">Gungan</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt="Gungan Boomadier"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Catch This!</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Gungan Boomadier basic" src="../image-perso/gunganboomadier/gunganboomadier-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy, this damage is tripled if the enemy is Shocked. Gain Speed Up for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Cluster Booma (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Gungan Boomadier special 1" src="../image-perso/gunganboomadier/gunganboomadier-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy. Deal an additional instance of damage for each Offense Down, Defense Down, Healing Immunity, and Speed Down present on target enemy (max 5). Always deal 5 instances of damage to Separatist enemies. Remove 1 stack of Recharge from the ally Shield Generator per instance of damage.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Horn of Otoh Gunga (cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Gungan Boomadier special 2" src="../image-perso/gunganboomadier/gunganboomadier-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to all enemies and inflict Ability Block on them for 1 turn. Separatist enemies are inflicted with Protection Disruption, which can't be copied, dispelled, or resisted for 2 turns. Remove 3 stacks of Recharge from allied Shield Generator and it gains 2 stacks of Plasma Shielding. Swap Turn Meter with target other Gungan ally, and Boomadier gains Frenzy for 1 turn. Target other Gungan ally gains Accuracy Up for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Grand Army Specialist</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Gungan Boomadier unique" src="../image-perso/gunganboomadier/gunganboomadier-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of battle, Gungan Boomadier loses 75% Max Health and gains that much Max Protection.
+                <br><br>
+                Gungan Boomadier has +30% Defense Penetration and Offense.
+                <br><br>
+                While an allied Shield Generator is active:<br>
+                - Enemies defeated by Gungan Attackers can't be revived<br>
+                - Whenever Gungan Boomadier uses a Special ability, gain 5% Defense Penetration and Offense (stacking, persists through defeat) for the rest of battle<br>
+                - While a Gungan ally has Retribution, they are immune to Target Lock
+                <br><br>
+                <u class="omicron">Omicron Boost : While in certain Raids:</u> Shield Generator allies gain 10 stacks of Plasma Shielding and when Gungan Boomadier uses Horn of Otoh Gunga, it gains an additional 2 stacks of Plasma Shielding.
+                <br><br>
+                While an allied Shield Generator is active, when any allied Gungan uses a Special ability, all Gungan allies gain 2% Defense Penetration and Offense (stacking, persists through defeat) for the rest of battle and 1 stack of Recharge is removed from the ally Shield Generator.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Bombardier Gungan",
+                "title": "<u>Bombardier Gungan</u>",
+                "description": "Les attaques rapides du Bombardier gungan sont amplifiées lorsqu'elles sont dirigées aux ennemis subissant un affaiblissement. Il obtient également d'impressionnant bonus lorsque le générateur de bouclier est actif.",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "gungan": "Gungan",
+
+                "basic-attack-title": "<u>Attaque Basique: Attrape ça !</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie. Ces dégâts sont triplés si l'ennemi subit Choc. Obtient un bonus de de vitesse pendant 1 tour.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Grappe de Booma (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie. Inflige une instance supplémentaire de dégâts pour chaque malus d'attaque, malus de défense, Immunité aux soins ou malus de vitesse subit par la cible ennemie (maximum 5). Inflige toujours 5 instances de dégâts aux Séparatistes ennemis. Supprime 1 cumul de Recharge du générateur de bouclier allié par instance de dégâts.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Corne d'otoh Gunga (délai : 5)</u>",
+                "special-attack2": "Inflige des dégâts physiques à tous les ennemis et leur inflige Entrave des capacités pendant 1 tour. Les ennemis Séparatistes subissent Protection perturbée (ne peut pas être copié, dissipé ou résisté) pendant 2 tours. Supprime 3 cumuls de Recharge du générateur de bouclier allié et lui fait gagner 2 cumuls de Bouclier plasma. Échange de jauge de tour avec la cible allié Gungan et le Bombardier Gungan obtient Frénésie pendant 1 tour. La cible allié Gungan gagne un bonus de précision pendant 2 tours.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Spécialiste de la Grande armée</u>",
+                "unique-ability1": "Au début de la bataille, le Bombardier Gungan perd 75 % de santé maximale et obtient le même montant de protection maximale.\n\nLe Bombardier Gungan reçoit +30 % de pénétration de défense et d'attaque.\n\nLorsque le générateur de bouclier allié est actif :\n- Les ennemis vaincus par des attaquants Gungan ne peuvent pas être ranimés.\n- A chaque fois que le Bombardier Gungan utilise une capacité spéciale, obtient 5 % de pénétration de défense et d'attaque (cumulatif, persiste après la défaite) jusqu'à la fin de la bataille.\n- Tant qu'un allié Gungan dispose de Rétribution, il est immunisé contre Verrouillage.\n\n<u class='omicron'>Amélioration Omicron : Dans certains raids :</u> le générateur de bouclier allié obtient 10 cumuls de Bouclier plasma et lorsque le Bombardier Gungan utilise Corne d'Otoh Gunga, il gagne 2 cumuls supplémentaires de Bouclier plasma.\n\nTant qu'un générateur de bouclier allié est actif, à chaque fois qu'un allié Gungan utilise une capacité spéciale, tous les alliés Gungan reçoivent 2 % de pénétration de défense et d'attaque (cumulatif, persiste après la défaite) pour le reste de la bataille et 1 cumul de Recharge est supprimé du générateur de bouclier allié.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "gungan boomadler"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
