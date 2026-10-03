@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Vandor Chewbacca</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/vandor/vandor-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/vandor/vandor-image.png" alt="Vandor Chewbacca" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Vandor Chewbacca</u></h1>
+            <p id="description">
+                Aggressive Scoundrel Tank that provides Protection Recovery for his allies when they are attacked
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/mercenaire.html" id="mercenary">Mercenary</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="capacite" href="../classement-perso/contrebandier.html" id="smuggler">Smuggler</a>
+                <a class="capacite" href="../classement-perso/wookie.html" id="wookie">Wookie</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Unchained</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Vandor Chewbacca basic" src="../image-perso/vandor/vandor-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. If it's Chewbacca's turn, he also gains Advantage for 2 turns. This attack ignores Defense.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Freedom Fighter (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Vandor Chewbacca special" src="../image-perso/vandor/vandor-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage, based on Chewbacca's Max Health instead of his Attack Damage, to target enemy twice. Target other ally recovers Health equal to 50% of the damage dealt. Then, Chewbacca and target other ally gain Protection Up (30%) for 2 turns.
+                <br><br>
+                <u class="speciale">Prepared:</u> If Chewbacca is Prepared, he deals double damage for this attack, recovers Health equal to 50% of the damage dealt, reduces this ability's cooldown by 2, and grants all Prepared allies Protection Up (30%) for 2 turns. Then, Chewbacca is no longer Prepared.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : The Beast</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Vandor Chewbacca unique 1" src="../image-perso/vandor/vandor-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Chewbacca has 40% less Max Protection, but 80% more Max Health. In addition, all enemies deal -25% damage while Chewbacca is buffed.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Ferocious Protector</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Vandor Chewbacca unique 2" src="../image-perso/vandor/vandor-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                While Chewbacca is buffed, he has 100% Counter Chance. At the end of each turn while Chewbacca is buffed, if any ally took damage from an attack and Chewbacca did not, he recovers Protection equal to 10% of his Max Health and other Scoundrel allies recover half of that amount. When Chewbacca recovers to Max Protection this way, he becomes Prepared. When another light side Scoundrel ally is defeated, Revive that ally at 60% Health, if Chewbacca is Prepared. Then, Chewbacca is no longer Prepared.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Chewbacca Vandor",
+                "title": "<u>Chewbacca Vandor</u>",
+                "description": "Tank vaurien qui confère une récupération de protection à ses alliés quand ils sont attaqués.",
+
+                "lightside": "Coté Lumineux",
+                "tank": "Tank",
+                "mercenary": "Mercenaire",
+                "scoundrel": "Vaurien",
+                "smuggler": "Contrebandier",
+                "wookie": "Wookie",
+
+                "basic-attack-title": "<u>Attaque Basique: Déchaînement</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie. S'il s'agit du tour de Chewbacca, celui-ci gagne également l'avantage pendant 2 tours. Cette attaque ignore la défense.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Combattant de la liberté (délai : 4)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie deux fois en fonction de la santé maximum de Chewbacca et non de ses dégâts d'attaque. Une cible alliée récupère de la santé à hauteur de 50 % des dégâts infligés. Puis, Chewbacca et l'allié ciblé bénéficient d'une hausse de protection (30 %) pendant 2 tours.\n\n<u class='speciale'>Préparé :</u> si Chewbacca est préparé, ses attaques infligent deux fois plus de dégâts, il récupère de la santé à hauteur de 50 % des dégâts infligés, réduit le délai de cette capacité de 2 et confère à tous les alliés préparés une hausse de protection (30 %) pendant 2 tours. Ensuite, Chewbacca n'est plus préparé.",
+
+                "unique-ability1-title": "<u>Capacité Unique : La Bête</u>",
+                "unique-ability1": "La protection maximum de Chewbacca est réduite de 40 % mais sa santé maximum augmente de 80 %. De plus, tous les ennemis infligent -25 % de dégâts quand Chewbacca dispose d'améliorations.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Protecteur féroce</u>",
+                "unique-ability2": "Quand Chewbacca dispose d'améliorations, il a 100 % de chances de contre-attaque. A la fin de chaque tour où Chewbacca dispose d'améliorations, si un allié a subi des dégâts mais que Chewbacca n'a pas été touché, il récupère de la protection à hauteur de 10 % de sa santé maximum et les autres Vauriens alliés récupèrent de la protection à hauteur de la moitié de cette valeur. Quand Chewbacca récupère sa protection maximum de cette façon, il bénéficie de la préparation. Quand un autre Vaurien allié du Côté Lumineux est vaincu, cet allié est ranimé avec 60 % de sa santé si Chewbacca est préparé. Ensuite, Chewbacca n'est plus préparé.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "vandor chewbacca"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>

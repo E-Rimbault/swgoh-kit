@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Greedo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/greedo/greedo-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/greedo/greedo-image.png" alt="Greedo" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Greedo</u></h1>
+            <p id="description">
+                Deadly Attacker that gains extra attacks from Critical Hits
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">leader</a>
+                <a class="capacite" href="../classement-perso/chasseur-de-primes.html" id="bounty">Bounty Hunter</a>
+                <a class="capacite" href="../classement-perso/cartell-des-hutt.html" id="hutt-cartel">Hutt Cartel</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Who Shot First?</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Greedo basic" src="../image-perso/greedo/greedo-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 70% chance to gain Potency Up for 1 turn. When attacking an enemy with a Thermal Detonator on them, this attack has +25% Critical Damage.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Explosive Sabotage (cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Greedo special 1" src="../image-perso/greedo/greedo-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Place Thermal Detonators on all enemies. After 1 turn, these Thermal Detonators explode and Greedo gains 25% Turn Meter for each Thermal Detonator that explodes.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Threaten (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Greedo special 2" src="../image-perso/greedo/greedo-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                All allies gain Critical Chance Up for 2 turns. Reduce target enemy's Turn Meter by an amount equal to Greedo's Critical Chance, which can't be resisted (excludes raid bosses and Galactic Legends). Then, Greedo gains an equal amount of Turn Meter removed this way. If the target is reduced to less than 20% Turn Meter, Stun them for 1 turn, which can't be resisted. Dispel all buffs on target enemy. This attack can't be evaded.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Ambuscade</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Greedo lead" src="../image-perso/greedo/greedo-lead-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Scoundrel allies gain 50% Critical Damage. When Greedo is in the Leader slot, and not the Ally slot, the following Contract is active:
+                <br><br>
+                <u class="speciale">Contract:</u> Damage an enemy with less than 50% Turn Meter 10 times with a Basic Ability. (Only Bounty Hunter allies can contribute to the Contract.)
+                <br><br>
+                <u class="speciale">Reward:</u> All Bounty Hunter allies have +50% Critical Damage for the rest of the battle and their Payouts are activated.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : If at First You Don't Succeed</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Greedo unique" src="../image-perso/greedo/greedo-lead-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Greedo has +15% Critical Chance and a 50% chance to attack again whenever he scores a Critical Hit (no cap).
+            </p>
+        </div>
+    </div>
+
+    <h2 class="prime"><u class="prime" id="prime-title">Greedo's Payout</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Greedo prime" src="../image-perso/greedo/greedo-prime.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="prime">
+                Whenever Greedo receives a Reward from a Contract, he also gains the following Payout. (Contracts are granted by certain Bounty Hunter Leader Abilities.)
+                <br><br>
+                <u class="speciale">Payout:</u> Greedo has +75% Counter chance, +25% Critical Damage, and +50% Health Steal until the end of battle.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Greedo",
+                "title": "<u>Greedo</u>",
+                "description": "Attaquant meurtrier qui obtient des attaques supplémentaires en cas de coup critique.",
+
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "bounty": "Chasseur de primes",
+                "hutt-cartel": "Cartel des Hutt",
+                "scoundrel": "Vaurien",
+
+                "basic-attack-title": "<u>Attaque Basique: Qui a tiré le premier ?</u>",
+                "basic-attack": "Inflige des des dégâts physiques à une cible ennemie, avec 70 % de chances de conférer un bonus de pouvoir pendant 1 tour. Si la cible ennemie porte un détonateur thermique, cette attaque inflige +25 % de dégâts critiques",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Sabotage exposif (délai : 5)</u>",
+                "special-attack1": "Place sur tous les ennemis un détonateur thermique qui explose 1 tour plus tard. La jauge de tour de Greedo se remplit de 25 % pour chaque détonateur qui explose.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Menacer (délai : 4)</u>",
+                "special-attack2": "Tous les alliés obtiennent un bonus de chances de coup critique pendant 2 tours. Réduit la jauge de tour de la cible ennemie (ne peut pas être résisté, sauf par les boss de raid et les Légendes galactique) à hauteur des chances de coup critique de Greedo. Puis la jauge de tour de Greedo se remplit à hauteur de la réduction de la jauge de tour ennemie. Si la jauge de tour de la cible est réduite à moins de 20 %, la cible est étourdie sans pouvoir résister pendant 1 tour. Disspe toutes les améliorations sur la cible ennemie. Cette attaque ne peut pas être esquivée.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Embuscade</u>",
+                "lead-ability": "Les Vauriens alliés gagnent un bonus de dégâts critiques de 50 %. Lorsque greedo est placé dans l'emplacement de chef, et non dans l'emplacement allié, le contrat suivant est actif :\n\n<u class='speciale'>Contrat :</u> infliger 10 fois des dégâts à un ennemi dont la jauge de tour est remplie à moins de 50 % avec une capacité de base (Seuls les chasseurs de primes alliés peuvent participer au contrat.)\n\n<u class='speciale'>Récompense :</u> tous les Chasseurs de primes alliés gagnent un bonus de dégâts critiques de +50 % pendant le reste de l'affrontement et leur prime est activée.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Si tu ne réussis pas du premier coup</u>",
+                "unique-ability1": "Greedo a +15 % de chances d'infliger un coup critique et 50 % de chances d'attaquer à nouveau s'il inflige un coup critique (pas de limite).",
+
+                "prime-title": "Prime de Greedo",
+                "prime": "Lorsque Greedo reçoit des récompenses pour un contrat rempli, il bénéficie également de la prime suivante. (les contrats sont conférés par certaines capacités de chef des Chassseurs de primes).\n\n<u class='speciale'>prime :</u> Greedo gagne +75 % de chances de contre-attaque, +25 % de dégâts critiques et +50 % de vol de santé jusqu'à la fin de la bataille.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "greedo"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
