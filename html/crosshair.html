@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Crosshair (Scarred)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/crosshair/crosshair-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/crosshair/crosshair-image.png" alt="Crosshair (Scarred)" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Crosshair (Scarred)</u></h1>
+            <p id="description">
+                A relentless sharpshooter who works with his allies to overcome his scars
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/bad-batch.html" id="bad-batch">Bad Batch</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: A Hit or A Miss</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Crosshair (Scarred) basic" src="../image-perso/crosshair/crosshair-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy 3 times and inflict Defense Down on them for 2 turns, which can't be evaded or resisted. If this attack misses, Expose them for 2 turns, which can't be evaded or resisted.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : I Will Handle It (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Crosshair (Scarred) special 1" src="../image-perso/crosshair/crosshair-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy, dealing 10% more damage for each relic amplifier level Crosshair (Scarred) has. Call target Bad Batch ally to assist, dealing 50% more damage.
+                <br><br>
+                If Crosshair (Scarred) was the target ally, he is not called to assist and instead removes 6 stacks of Shaken from himself and Stuns the target enemy for 1 turn.
+                <br><br>
+                If ally Omega (Fugitive) is in the leader slot and the target enemy took damage from a Bad Batch ally's attack on the previous turn, reduce the cooldown of Target Secured by 1.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Target Secured (cooldown: 8)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Crosshair (Scarred) special 2" src="../image-perso/crosshair/crosshair-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Crosshair (Scarred) gains 200% Critical Damage until the end of his turn.
+                <br><br>
+                Deal Physical damage to target enemy and inflict Armor Shred until the end of the encounter (excluding Galactic Legends and Raid Bosses).
+                <br><br>
+                This attack deals 50% more damage based on the number of turns taken by enemies and Crosshair (Scarred) before Target Secured is used again (max 500%).
+                <br><br>
+                This attack can't be evaded and can't be used if Crosshair (Scarred) has Shaken.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : It's In My Head</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Crosshair (Scarred) unique" src="../image-perso/crosshair/crosshair-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of battle, Crosshair (Scarred) gains 200% Defense for 3 turns and is inflicted with 20 stacks of <u class="speciale">Shaken</u>, which can't be copied, dispelled, evaded, or resisted.
+                <br><br>
+                Whenever Crosshair (Scarred) gains a stack of Target Practice, he removes 1 stack of Shaken and gains 15% Turn Meter.
+                <br><br>
+                Whenever all stacks of Shaken are removed, Crosshair (Scarred) dispels all debuffs on himself and takes a bonus turn. He gains 100% Accuracy while targeting a Marked enemy.
+                <br><br>
+                If there are no Galactic Legends, Crosshair (Scarred)'s attacks ignore Protection.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas and there are no Galactic Legends:</u> Whenever Crosshair (Scarred) is inflicted with a debuff, he dispels it and gains 5% Offense (stacking, max 100%) for 1 turn. Whenever a Bad Batch ally with Target Practice uses a Special ability, Crosshair (Scarred) assists.
+                <br><br>
+                <u class="speciale">Shaken:</u> -10% Accuracy per stack, this effect persists through defeat
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Crosshair (Cicatrice)",
+                "title": "<u>Crosshair (Cicatrice)</u>",
+                "description": "Un tireur d'élite implacable qui collabore avec ses alliés pour surmonter ses traumatismes.",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "bad-batch": "Bad Batch",
+
+                "basic-attack-title": "<u>Attaque Basique: Question de chance</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie à 3 reprises et un malus de défense pendant 2 tours. En cas d'échec de cette attaque, la cible est exposée 2 tours (ne peut pas être esquivé ou résisté).",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Je m'en occupe (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie et 10 % de dégâts supplémentaires pour chaque niveau d'amplificateur de relique que possède Crosshair (Cicatrice). Invoque l'allié du Bad Batch cible, qui inflige 50 % de dégâts en plus.\n\nSi Crosshair (Cicatrice) était l'allié cible, il n'est pas invoqué, il perd 6 cumuks de l'effet Bousculade, et il inflige Étourdissement à la cible ennemie pendant 1 tour.\n\nSi l'allié Omega (Fugitive) est dans l'emplacement de chef et la cible ennemie a subi des dégâts de l'attaque d'un allié du Bad Batch au tour précédent, réduit de 1 le délai de Cible sous contrôle.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Cible sous contrôle (délai : 8)</u>",
+                "special-attack2": "Crosshair (Cicatrice) obtient un bonus de dégâts critiques de 200 % jusqu'à la fin de son tour.\n\nInflige des dégâts physiques à une cible ennemie et Destruction d'armure jusqu'à la fin de l'affrontement (sauf si la cible est une Légende galactique ou un boss de raid).\n\nCette attaque inflige 50 % de dégâts en plus en fonction du nombre de tours pris par les ennemis et Crosshair (Cicatrice) avant que la capacité Cible sous contrôle soit de nouveau utilisé (500 % max).\n\nCette attaque ne peut pas être esquivée et elle ne peut pas être utilisée si Crosshair (Cicatrice) est affecté par Ébranlé.",
+
+                "unique-ability1-title": "<u>Capacité Unique : C'est dans ma tête</u>",
+                "unique-ability1": "Au début de la bataille, Crosshair (Cicatrice) gagne 200 % de défense pendant 3 tours et il subit 20 cumuls de l'effet <u class='speciale'>Bousculade</u> (ne peut pas être copié, dissipé, esquivé ou résisté).\n\nLorsque Crosshair (Cicatrice) obtient un cumul de Tir su cibles, il retire 1 cumul de l'effet Bousculade et gagne 15 % de jauge de tour.\n\nLorsque tous les cumuls de l'effet Bousculade sont retirés, Crosshair (Cicatrice) dissipe tous les affaiblissements qui l'affectent et il joue un tour bonus. Il gagne 100 % de précision quand il vise un ennemi subissant Marque.\n\nS'il n'y a pas de Légendes galactiques, les attaques de Crosshair (Cicatrice) ignorent la protection.\n\n<u class='omicron'>Amélioration Omicron : Dans les grandes arènes et s'il n'y a pas de Légendes galactiques :</u> lorsque Crosshair (Cicatrice) subit un affaiblissement, il le dissipe et gagne 5 % d'attaque (cumulatif, 100 % maximum) pendant 1 tour. Lorsque les alliés du Bad Batch avec Tir sur cibles utilise une capacité spéciale, Crosshair (Cicatrice) est invoqué.\n\n<u class='speciale'>Bousculade :</u> -10 % de précision par cumul. Cet effet persiste après la défaite.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "crosshair (scarred)"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
