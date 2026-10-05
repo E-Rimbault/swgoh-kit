@@ -1,164 +1,289 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Huitième Frère</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Eighth Brother</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/8th-brother/huit-image.png">
-
-    <!-- Lien vers la feuille de style -->
-     <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/8th-brother/huit-image.png" alt="Eighth Brother" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>Huitième Frère</u></h1>
-        <p>
-            Un membre furtif de l'Inquisitorius, qui dispose d'un arsenal de ruse et d'armes<br>
-            conséquent pour surprendre ses adversaire.
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: red;" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/empire.html">Empire</a>
-            <a class="capacite" href="../classement-perso/inquisitorious.html">Inquisitorius</a>
-            <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html">Utilisateur de la force non utilisateur-de-la-force-non-aligné</a>
-        </nav>
+            <h1 id="title"><u>Eighth Brother</u></h1>
+            <p id="description">A stealthy member of the Inquisitorious with an arsenal of tricks and weapons to surprise his opponent.</p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="capacite" href="../classement-perso/inquisitorious.html" id="inquisitorius">Inquisitorius</a>
+                <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Force User</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso//8th-brother/8th-brother.png" alt="Eight Brother"><br>
+    <img class="first" src="../image-perso/8th-brother/8th-brother.png" alt="Eighth brother"><br>
 
-    <h2 class="titre"><u>attaque basique : Frappe Tournoyante</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Whirling Strike</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Huitième basic" src="../image-perso/8th-brother/eight-basic.png">
+            <img class="attaque" alt="Eighth Brother basic" src="../image-perso/8th-brother/eight-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Si le Huitième frère ne disposait pas du camouflage pendant ce tour, il obtient le camouflage pendant 3 tours.<br>
-                Ensuite, inflige des dégâts physiques à la cible ennemie. Si la cible est un Jedi, inflige 1 cumul de purge<br>
-                (6 max). Jusqu'à la fin de l'affrontement (ne peut pas être copié ou résisté).
+            <p class="attaque" id="basic-attack">
+                If Eighth Brother did not have Stealth this turn, he gains Stealth for 3 turns. Then, deal Physical damage to target enemy and, if the target is a Jedi, inflict 1 stack of Purge (max 6) until the end of the encounter, which can't be copied or resisted.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Grenades à photons (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Photon Grenades (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Huitième spé 1" src="../image-perso/8th-brother/eight-spe1.png">
+            <img class="attaque" alt="Eighth Brother special 1" src="../image-perso/8th-brother/eight-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Si le Huitième Frère ne disposait pas du camouflage pendant ce tour, il obtient le camouflage pendant 3 tours,<br>
-                inflige des dégâts physiques à tous les ennemis, ainsi qu'un malus de précision et une Brûlure pendant 2 tours. Les<br>
-                ennemis Jedi touchés par cette capacités subissent la Cécité et la Brûlure pendant 2 tours (ne peut pas être résisté)
+            <p class="attaque" id="special-attack1">
+                If Eighth Brother did not have Stealth this turn, he gains Stealth for 3 turns. Deal Physical damage to all enemies and inflict Accuracy Down and Burning for 2 turns. Jedi enemies damaged by this ability are instead inflicted with Blind and Burning for 2 turns, which can't be resisted.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Poignée acérée (délai: 5)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Bladed Hilt (cooldown: 5)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Huitième spé 2" src="../image-perso/8th-brother/eight-spe2.png">
+            <img class="attaque" alt="Eighth Brother special 2" src="../image-perso/8th-brother/eight-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Si le Huitième Frère ne disposait pas du camouflage pendant ce tour, il obtient le camouflage pendant 3 tours,<br>
-                inflige des dégâts physiques et consoomme jusqu'à 5 cumuls de Purge. Pour chaque cumul de Purge consommé de<br>
-                cette façon après le premier, inflige des dégâts physiques supplémentaires.<br>
-                <br>
-                <u class="speciale">1 cumuls consommé ou +:</u> inflige l'immunité aux soins pendant 2 tours.<br>
-                <br>
-                <u class="speciale">2 cumuls consommés ou +:</u> inflige un malus de vitesse pendant 2 tours.<br>
-                <br>
-                <u class="speciale">3 cumuls consommés ou +:</u> entrave les capacités pendant 1 tour.<br>
-                <br>
-                <u class="speciale">4 cumus consommés ou +:</u> inflige l'immunité aux améliorations pendant 2 tours.<br>
-                <br>
-                <u class="speciale">5 cumuls consommés :</u> inflige la destruction d'Armure jusqu'à la fin de la bataille.<br>
-                <br>
-                Ces affaiblissements ne peuvent pas être résistés par les ennemis Jedi.
+            <p class="attaque" id="special-attack2">
+                If Eighth Brother did not have Stealth this turn, he gains Stealth for 3 turns. Deal Physical damage and consume up to 5 stacks of Purge. For each stack of Purge consumed this way after the first, deal Physical damage again.
+                <br><br>
+                - <u class="speciale">1+ stack consumed:</u> Inflict Healing Immunity for 2 turns<br>
+                - <u class="speciale">2+ stacks consumed:</u> Inflict Speed Down for 2 turns<br>
+                - <u class="speciale">3+ stacks consumed:</u> Inflict Ability Block for 1 turn<br>
+                - <u class="speciale">4+ stacks consumed:</u> Inflict Buff Immunity for 2 turns<br>
+                - <u class="speciale">5 stacks consumed:</u> Inflict Armor Shred for the rest of the battle
+                <br><br>
+                These debuffs cannot be resisted by Jedi enemies.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>Capacité de chef: Plus qu'assez</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: More Than Enough</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Huitième lead" src="../image-perso/8th-brother/eight-lead.png">
+            <img class="attaque" alt="Eighth Brother leader" src="../image-perso/8th-brother/eight-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Les alliés de l'Empire ont +5% de précision et +5% de pouvoir. Les alliés de L'Inquisitorius obtiennent un bonus<br>
-                supplémentaires de +30% de précision et +30% de pouvoir. Les ennemis Jedi qui obtiennent la prévoyance avec les capacités<br>
-                Uniques des Jedis ont également la cécité pendant 2 tours (ne peut pas être esquivé ou résisté). Chaque fois que les autres<br>
-                alliés de l'Inquisitorius utilisent une capacité de base, ils ont 30% de chances d'infliger un cumul de Purge (6 max) jusqu'à<br>
-                la fin de l'affrontement (ne peut pas être copié, esquivé ou résisté).<br>
-                <br>
-                <u class="omicron">Dans les Guerres de territoire:</u><br>
-                <br>
-                Lorsqu'un ennemi Jedi obtient la raillerie avec une capacité unique de Jedi, tous les ennemis subissent des dégâts à hauteur de 20%<br>
-                de leurs santé maximale. Ces dégâts ne peuvent pas éliminer les ennemis. Lorsqu'un ennemi Jedi obtient l'immunité aux coups critiques<br>
-                avec une capacité unique de Jedi, il dissipe l'immunité aux coups critiques et obtient la Vulnérabilité pendant 1 tour (ne peut pas être résisté). 
+            <p class="attaque" id="lead-ability">
+                Empire allies have +5% Accuracy and +5% Potency. Inquisitorius allies have an additional +30% Accuracy and +30% Potency. Jedi enemies that gain Foresight from Jedi Unique abilities also gain Blind for 2 turns which can't be evaded or resisted. Whenever other Inquisitorius allies use a Basic ability, they have a 30% chance to inflict a stack of Purge (max 6) until the end of the encounter, which can't be copied, evaded, or resisted.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> Whenever a Jedi enemy gains Taunt from Jedi Unique abilities, all enemies take damage equal to 20% of their max Health. This damage can't defeat enemies. Whenever a Jedi enemy gains Critical Hit Immunity from Jedi Unique abilities, they dispel Critical Hit Immunity and gain Vulnerable for one 1 turn, which can't be resisted.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>capacité unique: Traquer une Ombre</u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Hunting A Shadow</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Huitième unique" src="../image-perso/8th-brother/eight-unique.png">
+            <img class="attaque" alt="Eighth Brother unique" src="../image-perso/8th-brother/eight-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Au début de la bataille, le Huitième Frère obtient le camouflage pendant 3 tours. Chaque fois que le Huitième Frère<br>
-                obtient le camouflage, il récupère 20% de santé et 20% de protection.<br>
-                <br>
-                Chaque fois que le Huitième Frère utilise une capacité pendant son tour, s'il disposait de camouflage au début<br>
-                de son tour, il perd le camouflage et obtient un bonus de précision et un bonus de pouvoir pendant 2 tours. S'il<br>
-                utilise Frappe tourbillonnante ou Grenades à photons, il inflige 1 cumul de Purge (6 max)<br>
-                à n'importe quel ennemi ayant subi des dégâts de ces capacités.
+            <p class="attaque" id="unique-ability1">
+                At the start of battle, Eighth Brother gains Stealth for 3 turns. Whenever Eighth Brother gains Stealth, he recovers 20% Health and 20% Protection.
+                <br><br>
+                Whenever Eighth Brother uses any of his abilities during his turn, if he had Stealth at the beginning of the turn, he loses Stealth and gains Accuracy Up and Potency Up for 2 turns. If that ability was Whirling Strike or Photon Grenades, he inflicts 1 stack of Purge (max 6) on any enemy damaged by that ability.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>capacité unique 2: Patience </u></h2>
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Patience</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Huitièle unique 2" src="../image-perso/8th-brother/eight-patiente.png">
+            <img class="attaque" alt="Eighth Brother unique patience" src="../image-perso/8th-brother/eight-patiente.png">
         </div>
         <div class="right-column">
-            <p class="attaque"> 
-                Au début de l'affrontement, si tous les allié (au moins 3) appartiennent à l'Inquisitorious, ce personnage obtient<br>
-                20% de santé maximale, de protection maximale et de pouvoir.  Si ce personnage est camouflé au début du tour, il<br>
-                gagne +40% de pénétration de défense et d'attaque tant qu'il est camouflé. Lorsqu'un ennemi attaque ce personnage<br>
-                en dehors de son tour, il obtient un cumul de Purge (6 max, ne peut pas petre esquivé ou résisté).<br>
-                Lorsque les cumuls de Purge sont consommés ou dissipés sur un ennemi, ce personnage obtient 3% de jauge de tour.  
+            <p class="attaque" id="unique-ability2">
+                At the start of battle, if all allies (minimum 3) are Inquisitorius, this character gains 20% Max Health, Max Protection, and Potency. If this character is Stealthed at the start of turn, this character has +40% Defense Penetration and Offense while Stealthed. Whenever an enemy damages this character with an attack while attacking out of turn, that enemy gains a stack of Purge (max 6), which can't be evaded or resisted. Whenever Purge is consumed or dispelled on an enemy, this character gains 3% Turn Meter.
             </p>
         </div>
     </div>
 
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Huitième Frère",
+                "title": "<u>Huitième Frère</u>",
+                "description": "Un membre furtif de l'Inquisitorius, qui dispose d'un arsenal de ruses et d'armes conséquent pour surprendre ses adversaires.",
+
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "empire": "Empire",
+                "inquisitorius": "Inquisitorius",
+                "force-user": "Utilisateur de la Force non aligné",
+
+                "basic-attack-title": "<u>Attaque Basique: Frappe tourbillonnante</u>",
+                "basic-attack": "Si le Huitième Frère ne disposait pas du camouflage pendant ce tour, il obtient le camouflage pendant 3 tours. Ensuite, inflige des dégâts à la cible ennemie. Si la cible est je Jedi, inflige 1 cumul de Purge (6 max.) jusqu'à la fin de l'affrontement (ne peut pas être copié ou résisté).",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Grenades à photons (délai : 3)</u>",
+                "special-attack1": "Si le Huitième Frère ne disposait pas du camouflage pendant ce tour, il obtient le camouflage pendant 3 tours. Inflige des dégâts physiques à tous les ennemisn ainsi qu'un malus de précision et une brûlure pendant 2 tours. Les ennemis Jedi touchés par cette capacité subissent la Cécité et la brûlure pendant 2 tours (ne peut pas être résisté).",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Poignée acérée (délai : 5)</u>",
+                "special-attack2": "Si le Huitième Frère ne disposait pas du camouflage pendant ce tour, il obtient le camouflage pendant 3 tours. Inflige des dégâts physiques et consomme jusqu'à 5 cumuls de Purge. Pour chaque cumul de Purge consommé de cette façon après le premier, inflige des dégâts physiques supplémentaires.\n\n- <u class='speciale'>1 cumul consommé ou + :</u> inflige l'immunité aux soins pendant 2 tours.\n- <u class='speciale'>2 cumuls consommés ou + :</u> inflige un malus de vitesse pendant 2 tours.\n- <u class='speciale'>3 cumuls consommés ou + :</u> entrave les capacités pendant 1 tour.\n- <u class='speciale'>4 cumuls consommés ou + :</u> inflige l'immunité aux améliorations pendant 2 tours.\n- <u class='speciale'>5 cumuls consommés ou + :</u> inflige la destruction d'armure jusqu'à la fin de la bataille.\n\nCes affaiblissements ne peuvent pas être résistés par les ennemis Jedi.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Plus qu'assez</u>",
+                "lead-ability": "Les alliés de l'Empire ont +5 % de précision et +5 % de pouvoir. Les alliés de l'Inquisitorius obtiennent un bonus supplémentaire de +30 % de précision et +30 % de pouvoir. Les ennemis Jedi qui obtiennent Prévoyance avec les capacités uniques des Jedi ont également la cécité pendant 2 tours (ne peut pas être esquivé ou résisté). Chaque fois que les autres alliés de l'Inquisitorius utilisent une capacité de base, ils ont 30 % de chances d'infliger un cumul de Purge (6 max.) jusqu'à la fin de l'affrontement (ne peut pas être copié, esquivé ou résisté).\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> Lorsqu'un ennemi Jedi obtient Raillerie avec une capacité unique de Jedi, tous les ennemis subissent des dégâts à hauteur de 20 % de leur santé maximale. Ces dégâts ne peuvent pas éliminer les ennemis. Lorsqu'un ennemi Jedi obtient l'immunité aux coups critiques avec une capacité unique de Jedi, il dissipe l'immunité aux coups critiques et obtient la Vulnérabilité pendant 1 tour (ne peut pas être résisté).",
+
+                "unique-ability1-title": "<u>Capacité Unique : traquer une ombre</u>",
+                "unique-ability1": "Au début de la bataille, le Huitième Frère obtient le camouflage pendant 3 tours. Chaque fois que le Huitième Frère obtient le camouflage, il récupère 20 % de santé et 20 % de protection.\n\nChaque fois que le huitième Frère utilise une capacité pendant son tour, s'il disposait de Camouflage au début du tour, il perd le camouflage et obtient un bonus de précision et un bonus de pouvoir pendant 2 tours. S'il utilise Frappe tourbilonnante ou Grenades à photons, il inflige 1 cumul de Purge (6 max.) à n'importe quel ennemi ayant subi des dégâts de ces capacités.",
+
+                "unique-ability2-title": "<u>Capacité Unique : patience</u>",
+                "unique-ability2": "Si tous les alliés (3 minimum) sont de l'Inquisitorius, ce personnage obtient 20 % de santé maximum, de protection maximum et de pouvoir. Si ce personnage est camouflé au début du tour, il obtient +40 % de pénétration de défense et d'attaque tant qu'il est camouflé. Lorsqu'un ennemi attaque ce personnage en dehors de son tour, il obtient un cumul de Purge (6 max, ne peut pas être esquivé ou résisté). Lorsque les cumuls de Purge sont consommés ou dissipés sur un ennemi, ce personnage obtient 3 % de jauge de tour.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "eighth brother"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
     </footer>
 </body>
-</html>    
+</html>
