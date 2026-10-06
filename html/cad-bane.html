@@ -2,18 +2,18 @@
 <html lang="en">
 
 <head>
-    <title id="big-title">Colonel Ward</title>
+    <title id="big-title">Cad Bane</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-    <link rel="icon" type="image/png" href="../image-perso/ward/ward-image.png">
+    <link rel="icon" type="image/png" href="../image-perso/cad-bane/cad-bane-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/ward/ward-image.png" alt="Colonel Ward" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/cad-bane/cad-bane-image.png" alt="Cad Bane" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
             <!-- Sélecteur de langue -->
@@ -26,81 +26,104 @@
                     style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
 
-            <h1 id="title"><u>Colonel Ward</u></h1>
+            <h1 id="title"><u>Cad Bane</u></h1>
             <p id="description">
-                A seasoned Colonel of the New Republic and former Rebel pilot, Ward supports her allies on the battlefield
+                Bounty Hunter Support with a powerful Stun and bonuses against Jedi characters
             </p>
             <br>
 
             <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
-                <a class="class" href="../classement-perso/soutien.html" id="suport">Support</a>
-                <a class="capacite" href="../classement-perso/new-republic.html" id="new-republic">New Republic</a>
+                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/chasseur-de-primes.html" id="hunter">Bounty Hunter</a>
+                <a class="capacite" href="../classement-perso/cartell-des-hutt.html" id="hutt">Hutt Cartel</a>
+                <a class="capacite" href="../classement-perso/mercenaire.html" id="mercenary">Mercenary</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
                 <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
                 <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
             </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/xanadu.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/" alt="Xanadu Blood">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: Xanadu Blood</u>
+                </h2>
+            </section>
         </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/ward/ward.png" alt="Colonel Ward"><br>
+    <img class="first" src="../image-perso/" alt=""><br>
 
     <!-- Capacités -->
 
-    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: A180 Blaster Pistol</u></h2>
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Gun Slinger</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Colonel Ward basic" src="../image-perso/ward/ward-basic.png">
+            <img class="attaque" alt="Cad Bane basic" src="../image-perso/cad-bane/cad-bane-basic.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
-                Deal Physical damage to target enemy and inflict Evasion Down for 1 turn. If it's Ward's turn, also inflict Defense Down for 1 turn.
+                Deal Physical damage to target enemy with a 100% chance to attack again. Inflict Accuracy Down on target enemy for 2 turns. Cad Bane gains 15% Turn Meter for each Critical Hit.
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack1-title"><u>Special Attack : New Republic's Most Wanted (cooldown: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Stun Glove (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Colonel Ward spe 1" src="../image-perso/ward/ward-spe1.png">
+            <img class="attaque" alt="Cad Bane spécial" src="../image-perso/cad-bane/cad-bane-spe.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1">
-                Dispel all debuffs on target ally. The next time the target ally counterattacks, they inflict Evasion Down on the enemy for 1 turn.
-                <br><br>
-                Dispel Stealth from all enemies. Each enemy that lost Stealth this way is Marked for 2 turns. Inflict all enemies with Critical Damage Down and Expose them for 2 turns.
+                Deal Physical damage to target enemy, dispel all buffs on them and Stun them for 1 turn. In addition, remove 50% Turn Meter, doubled against Jedi enemies. If the target is debuffed, remove 25% of their Max Protection (stacking). This attack can't be Evaded.
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack2-title"><u>Special Attack : X-haul Fly-by (cooldown: 4)</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: At Your Service</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Colonel Ward spe 2" src="../image-perso/ward/ward-spe2.png">
+            <img class="attaque" alt="Cad Bane lead" src="../image-perso/cad-bane/cad-bane-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque" id="special-attack2">
-                Deal Physical damage to all enemies, inflict them with Burning and Healing Immunity for 2 turns.
+            <p class="attaque" id="lead-ability">
+                Bounty Hunter allies have +100% Potency and gain Advantage for 2 turns when they inflict a debuff. When Cad Bane is in the Leader slot, and not the Ally slot, the following Contract is active:
+                <br><br>
+                <u class="speciale">Contract:</u> Inflict 20 debuffs on enemies. (Only Bounty Hunter allies can contribute to the Contract.)
+                <br><br>
+                <u class="speciale">Reward:</u> All enemies have -50% Tenacity for the rest of the battle. All Bounty Hunter allies have their Payouts activated.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u id="unique-ability-title">Unique Ability : New Republic Officer</u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : For The Right Price</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Colonel Ward unique" src="../image-perso/ward/ward-unique.png">
+            <img class="attaque" alt="Cad Bane unique" src="../image-perso/cad-bane/cad-bane-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque" id="unique-ability">
-                henever a Support or Healer ally is damaged by an enemy ability while an ally is Taunting, Ward inflicts the enemy with Evasion Down for 1 turn.
+            <p class="attaque" id="unique-ability1">
+                Cad Bane has +30% Critical Chance and +30% Critical Damage. When Cad Bane inflicts a debuff, he recovers 5% Max Health and 5% Max Protection. When Cad Bane scores a Critical Hit, he has a 50% chance to reduce his cooldowns by 1.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="prime"><u class="prime" id="prime-title">Cad Bane's Payout</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Cad Bane prime" src="../image-perso/cad-bane/cad-bane-prime.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="prime">
+                Whenever Cad Bane receives Rewards from a Contract, he also gains the following Payout. (Contracts are granted by certain Bounty Hunter Leader Abilities.)
                 <br><br>
-                Whenever the enemy dispels Retaliate on any ally, New Republic allies gain 10% Offense (stacking, max 50%) when attacking enemies out of turn. Whenever allies trigger Expose out of turn, they gain Critical Damage Up for 1 turn. Whenever Ward uses X-Haul Fly-by, if any enemies have On the Run, all New Republic allies assist the next time any ally counterattacks.
-                <br><br>
-                If all allies were New Republic at the start of battle: Whenever a Taunting Tank ally is damaged, the enemy that damaged them is Ability Blocked for 1 turn. If there is an allied New Republic Galactic Legend or there are no other Galactic Legends in the battle, whenever a Healer or Support ally is damaged by an enemy ability while an ally is Taunting, increase all cooldowns of the enemy who damaged them by 1 (excluding raid bosses and Galactic Legends) and the enemy gains 1 stack of On the Run.
-                <br><br>
-                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> At the start of battle, all New Republic allies gain 10% Potency and Tenacity for each New Republic ally until the end of battle.
-                <br><br>
-                If all allies are New Republic at the start of battle, enemies start the battle with 2 stacks of On the Run. If there is an allied New Republic Galactic Legend or there are no other Galactic Legends in the battle, whenever enemies gain a stack of On the Run, Ward inflicts them with an additional stack of On the Run (once per target enemy’s turn). When enemies take damage from On the Run, they are also Exposed for 1 turn.
+                <u class="speciale">Payout:</u> Cad Bane has +25% Evasion. Inflict Thermal Detonator for 2 turns on attacking enemy when Cad Bane Evades. This Thermal Detonator can't be Evaded.
             </p>
         </div>
     </div>
@@ -113,25 +136,35 @@
         <script>
             // Dictionnaire français
             const translationsFr = {
-                "big-title": "Colonel Ward",
-                "title": "<u>Colonel Ward</u>",
-                "description": "Colonel chevronée de la Nouvelle République et ancienne pilote Rebelle, Ward soutient ses alliés sur le champ de btaille.",
+                "big-title": "Cad Bane",
+                "title": "<u>Cad Bane</u>",
+                "description": "Ce soutien chasseur de primes étourdit ses proies et bénéficie de bonus contre les Jedi.",
 
-                "lightside": "Coté Lumineux",
+                "darkside": "Coté Obscur",
                 "support": "Soutien",
-                "new-republic": "Nouvelle République",
+                "leader": "Chef",
+                "hunter": "Chasseur de primes",
+                "hutt": "Cartel des Hutt",
+                "mercenary": "Mercenaire",
+                "scoundrel": "Vaurien",
+                "crew-members": "Membres d’Équipage",
 
-                "basic-attack-title": "<u>Attaque Basique: Pistolet blaster A180</u>",
-                "basic-attack": "inflige des dégâts physiques à la cible ennemie et lui inflige un malus d'esquive pendant 1 tour. Si c'est le tour de Ward, inflige également un malus de défense pendant 1 tour.",
+                "basic-attack-title": "<u>Attaque Basique: Porte flingue</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie avec 100 % de chances d'attaquer à nouveau. Inflige également un malus de précision à la cible pendant 2 tours. La jauge de tour de Cad Bane se remplit de 15 % à chaque coup critique.",
 
-                "special-attack1-title": "<u>Attaque Spéciale : Les plus recherchés de la Nouvelle République (délai : 3)</u>",
-                "special-attack1": "Dissipe tous les affaiblissements sur la cible alliée. La prochaine fois que la cible allié contre-attaque, elle inflige un malus d'esquive à l'ennemi ciblé pendant 1 tour.\n\nDissipe camouflage de tous les ennemis. Chaque ennemi qui a perdu Camouflage de cette façon subit Marquee pendant 2 tours. Inflige un malus de dégâts critiques et Exposition à tous les ennemis pendant 2 tours.",
+                "special-attack1-title": "<u>Attaque Spéciale : Gant étourdissant (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à la cible ennemie, dissipe toutes ses améliorations et l'étourdit pendant 1 tour. De plus, sa jauge de tour est réduite de 50 % (réduction doublée si l'ennemi est un Jedi). Si la cible subit un affaiblissement, sa protection maximale est réduite de 25 % (cumulatif). Cette attaque ne peut pas être esquivée.",
 
-                "special-attack2-title": "<u>Attaque Spéciale : Survol de X-wing (délai : 4)</u>",
-                "special-attack2": "Inflige des dégâts physiques à tous les ennemis, leur inflige Brûlure et Immunité aux soins pendant 2 tours.",
+                "lead-ability-title": "<u>Capacité de Chef: A votre service </u>",
+                "lead-ability": "Les Chasseurs de primes alliés gagnent un bonus de pouvoir de 100 % et ils obtiennent l'avantage pendant 2 tours lorsqu'ils infligent un affaiblissement. Lorsque Cad Bane est dans l'emplacement de chef, et non dans l'emplacement allié, le contrat suivant est actif :\n\n<u class='speciale'>Contrat :</u> infliger 20 affaiblissemebts aux ennemis (Seuls les Chasseurs de primes alliés peuvent participer au contrat).\n\n<u class='speciale'>Récompense :</u> tous les ennemis subissent un malus de ténacité de -50 % jusqu'à la fin de l'affrontement. Les primes de tous les Chasseurs de primes alliés sont activées.",
 
-                "unique-ability-title": "<u>Capacité Unique : Officier de la Nouvelle République</u>",
-                "unique-ability": "chaque fois qu'un soutien ou soigneur allié subit des dégâts d'une capacité ennemie pendant qu'un allié utulise une Raillerie, Ward inflige un malus d'esquive à l'ennemi pendant 1 tour.\n\nChaque fois que l'ennemi dissipe Représailles sur un allié, les alliés de la Nouvelle République gagnent 10 % d'attaque (cumulatif, 50 % max) lorsqu'ils attaquent des ennemis hors de leur tout. Chaque fois que les alliés déclenchent Exposition hors de leur tour, ils obtiennent un bonus de dégâts critiques pendant 1 tour. Chaque fois que Ward utilise survol de X-wing, si un ennemi subit En cavale, tous les alliés de la Nouvelle République sont invoqués la prochaine fois qu'un allié contre-attaque.\n\nSi tous les alliés étaient de la Nouvelle République au début de la bataille : chaque fois qu'un allié tank utilisant Raillerie subit des dégâts, l'ennemi qui l'a attaqué subit entrave des capacités pendant 1 tour. S'il y a une Légende Galactique allié de la Nouvelle République ou s'il n'y a pas d'autres Légendes Galactiques dans la bataille, chaque fois qu'un soigneur ou soutien allié subit des dégâts d'une capacité ennemie pendant qu'un allié utilise Raillerie, augmente tous les délais de l'ennemi qui l'a attaqué de 1 (à l'exception des Boss de raid et les Légendes Galactiques) et l'ennemi obtient 1 cumul d'En cavale.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> au début de la bataille, tous les alliés de la Nouvelle République gagnent 10 % de pouvoir et de ténacité pour chaque allié de la Nouvelle République jusqu'à la fin de la bataille.\n\nSi tous les alliés sont de la Nouvelle République, les ennemis commencent la bataille avec 2 cumuls d'En cavale. S'il y a une Légende Galactique de la Nouvelle République ou s'il n'y a pas d'autres Légendes Galactiques dans la bataille, chaque fois que les ennemis obtiennent un cumul d'En cavale, Ward leur inflige un cumul d'En cavale supplémentaire (une fois par tour de l'ennemi ciblé). Lorsque les ennemis souffrent d'En cavale, ils subissent aussi Exposition pendant 1 tour.",
+                "unique-ability1-title": "<u>Capacité Unique : Le juste prix</u>",
+                "unique-ability1": "Cad Bane bénéficie d'un bonus de chances de coup critique de 30 % et d'un bonus de dégâts critiques de 30 %. Lorsque Cad Bane inflige un affaiblissement à un ennemi, il récupère 5 % de sa santé maximale et 5 % de sa protection maximale. De plus, lorsqu'il assène un coup critique, Cad a 50 % de chabces de réduire le délai de ses capacités de 1 point.",
+
+                "prime-title": "Prime de Cad Bane",
+                "prime": "A chaque fois que Cad Bane reçoit des récompenses pour un contrat rempli, il bébéficie également de la prime suivante. (Les contrats sont conférés par certaines capacités de chef des Chasseurs de primes).\n\n<u class='speciale'>Prime :</u> Cad Bane gagne +25 % d'esquive. Lorsqu'il esquive, Cad Bane inflige un détonateur thermique a l'attaquant adverse pendant 2 tours (ne peut pas être esquivé).",
+
+                "ship-title": "<u>Vaisseau : Xanadu Blood</u>",
             };
 
             const originalTexts = {};
@@ -189,7 +222,7 @@
 
             function loadUnitEraData() {
                 const params = new URLSearchParams(window.location.search);
-                const unitId = params.get('id') || "bishop"; //filtre unité ici
+                const unitId = params.get('id') || "cad bane"; //filtre unité ici
 
                 // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
                 return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
