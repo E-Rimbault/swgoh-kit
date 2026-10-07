@@ -1,106 +1,263 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>K-2SO</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">K-2SO</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/k-2so/k-2s0-image.png">
-
-    <!-- Lien vers la feuille de style -->
-    <link rel="stylesheet" href="../style/styles.css">
-    <link rel="stylesheet" href="../style/capacite.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/k-2so/k-2s0-image.png" alt="K-2SO" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>K-2SO</u></h1>
-        <p>
-            Tank Rebelle qui utilise la raillerie et la contre attaque.
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: blue;" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/tank.html">Tank</a>
-            <a class="capacite" href="../classement-perso/droïde.html">Droïde</a>
-            <a class="capacite" href="../classement-perso/rebelle.html">Rebelle</a>
-            <a class="capacite" href="../classement-perso/combattant-rebelle.html">Combattant Rebelle</a>
-            <a class="capacite" href="../classement-perso/rogue-one.html">Rogue One</a>
-            <a class="pilote" href="../classement-perso/membres-équipages.html">Membre Équipages</a>
-        </nav>
+            <h1 id="title"><u>K-2SO</u></h1>
+            <p id="description">
+                Rebel Tank who Taunts and Counter Attacks
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/droïde.html" id="droïd">Droïd</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="capacite" href="../classement-perso/combattant-rebelle.html" id="rebel-fighter">Rebel Fighter</a>
+                <a class="capacite" href="../classement-perso/rogue-one.html" id="rogue-one">Rogue One</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/" alt="Cassian's U-WING">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: Cassian's U-WING</u>
+                </h2>
+            </section>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/k-2so/K-2SO.png" alt="K-2SO"><br>
+    <img class="first" src="../image-perso/" alt=""><br>
 
-    <h2 class="titre"><u>attaque basique : Poing en alliage carbo-plas</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Carboplast Composite Fist</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="K-2SO Basic" src="../image-perso/k-2so/k-2-basic.png">
+            <img class="attaque" alt="K-2SO basic" src="../image-perso/k-2so/k-2-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie avec 70% de chances d'infliger un malus d'attaque pendant 2 tours.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 70% chance to inflict Offense Down for 2 turns.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Charge conductrice (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Conductive Charge (cooldown: 2)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="K-2SO spé" src="../image-perso/k-2so/k2-spe.png">
+            <img class="attaque" alt="K-2SO special" src="../image-perso/k-2so/k2-spe.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques  une cible ennemie et la rend Confuse pendant 2 tours.<br>
-                Cassian Andor est invoqué s'il est présent.
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and Daze them for 2 turns. If Cassian Andor is present, he is called to Assist.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>capacité unique: Exécuteur</u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Enforcer</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="K-2SO unique" src="../image-perso/k-2so/k2-unique.png">
         </div>
-        <p class="attaque">
-            A chaque fois que K-2SO utilise une capacité, il a 75% de chances (100% lorsqu'il dispose d'améliorations)<br>
-            d'utiliser la raillerie pendant 1 tour. La raillerie est dissipé lorsque K-2SO subit des dégâts.
-        </p>
-        </div>
-    </div>
-
-
-    <h2 class="titre"><u>capacité unique: Droïde impérial reprorammé</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="K-2SO unique 2" src="../image-perso/k-2so/k2-unique2.png">
-        </div>
         <div class="right-column">
-            <p class="attaque">
-                K-2SO dispose de +97,6% de chances de contre-attaque. Ces chances sont dimiués de moitié lorsque K-2So souffre<br>
-                d'un affaiblissement. De plus, K-2SO obtient un bonus de protection maximum de 1% lorsqu'il subit des dégâts.
+            <p class="attaque" id="unique-ability1">
+                Whenever K-2SO uses an abilty, he has a 75% (100% while buffed) chance to Taunt for 1 turn. This Taunt is dispelled whenever K-2SO takes damage.
             </p>
         </div>
     </div>
 
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Reprogrammed Imperial Droid</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="K-2SO unique" src="../image-perso/k-2so/k2-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                K-2SO has +97.6% Counter Chance. This chance is halved while K-2SO is debuffed. In addition, K-2SO gains 1% Max Protection whenever he takes damage.
+            </p>
+        </div>
+    </div>
 
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "K-2SO",
+                "title": "<u>K-2SO</u>",
+                "description": "Tank rebelle qui utilise Raillerie et la contre-attaque",
+
+                "lightside": "Coté Lumineux",
+                "tank": "Tank",
+                "droïd": "Droïde",
+                "rebel": "Rebelle",
+                "rebel-fighter": "Combattant Rebelle",
+                "rogue-one": "Rogue One",
+                "crew-members": "Membres d’Équipage",
+
+                "basic-attack-title": "<u>Attaque Basique: Poing en alliage carbo-plas</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie avec 70 % de chances d'infliger un malus d'attaque pendant 2 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Charge conductrice (délai : 2)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie et la rend confuse pendant 2 tours. Cassian Andor est invoqué s'il est présent.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Exécuteur</u>",
+                "unique-ability1": "A chaque fois que K-2SO utilise une capacité, il a 75 % de chances (100 % lorsqu'il dispose d'améliorations) d'utiliser Raillerie pendant 1 tour. Raillerie se dissipe lorsque K-2SO subit des dégâts.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Droïde impérial reprogrammé</u>",
+                "unique-ability2": "K-2SO dispose de plus de 97,6 % de chances de contre-attaque. Ces chances sont diminuées de moitié lorsque K-2SO subit un affaiblissement. De plus, K-2SO obtient un bonus de protection maximum de 1 % lorsqu'il subit des dégâts.",
+
+                "ship-title": "<u>Vaisseau : U-Wing de Cassian</u>",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "k-2so"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
     </footer>
 </body>
-</html>  
+</html>
