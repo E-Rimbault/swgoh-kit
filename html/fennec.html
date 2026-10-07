@@ -1,142 +1,280 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Fennec Shand</title>
-
+    <title id="big-title">Fennec Shand</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
     <link rel="icon" type="image/png" href="../image-perso/fennec/fennec.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/fennec/fennec.png" alt="Fennec Shand" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Fennec shand</u></h1>
-        <p>
-            Chasseuse de primes redoutable capable d'affronter les ennemis les plus dangereux.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: red;" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/chasseur-de-primes.html">Chasseur de primes</a>
-            <a class="capacite" href="../classement-perso/mercenaire.html">Mercenaire</a>
-            <a class="capacite" href="../classement-perso/vaurien.html">Vaurien</a>
-        </nav>
+            <h1 id="title"><u>Fennec Shand</u></h1>
+            <p id="description">
+                Lethal Bounty Hunter capable of taking on the most dangerous foes
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">leader</a>
+                <a class="capacite" href="../classement-perso/chasseur-de-primes.html" id="hunter">Bounty Hunter</a>
+                <a class="capacite" href="../classement-perso/mercenaire.html" id="mercenary">Mercenary</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/fennec/fennec-image.png" alt="Fenenc"><br>
+    <img class="first" src="../image-perso/" alt=""><br>
 
-    <h2 class="titre"><u>attaque basique : Frappe écrasante </u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Crushing Strike</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Fennec basic" src="../image-perso/fennec/fennec-basic.png">
+            <img class="attaque" alt="Fennec Shand basic" src="../image-perso/fennec/fennec-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à la cible ennemie 5 fois. Si la cible ne dispose pas de protection, cette<br>
-                capacité inflige 50% de dégâts supplémentaires. Si c'est le tour de Fennec shand et qu'elle dispose de<br>
-                <u class="speciale">Vétéran chevronné: </u>, Fennec obtient un bonus d'attaque pendant 1 tour.<br>
-                <br>
-                <u class="speciale">Vétéran chevronné: </u> Fennec peut ignorer les effets de Raillerie et gagne<br>
-                des effets supplémentaires sur ses capacités.
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy 5 times. If the target has no Protection, this ability deals 50% more damage. If it's Fennec Shand's turn and she has <u class="speciale">Seasoned Veteran</u>, Fennec gains Offense Up for 1 turn.
+                <br><br>
+                <u class="speciale">Seasoned Veteran:</u> Fennec can ignore Taunt effects and gains additional effects on her abilities
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Je ne rate pas (délai: 2)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : (cooldown: )</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Fennec spé 1" src="../image-perso/fennec/fennec-spe.png">
+            <img class="attaque" alt="Fennec Shand special" src="../image-perso/fennec/fennec-spe.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à tous les ennemis. Ensuite, inflige des dégâts spéciaux à l'ennemi qui était le plus<br>
-                faible au début de cette attaque. Elle inflige 50% de dégâts supplémentaires pour chaque ennemi blessé par cette capacité.<br>
-                <br>
-                Si cette capacité inflige des dégâts, la cible choisie souffre de Destruction d'armure et tous les vaurien alliés du Coté<br>
-                Obscur obtiennent <u class="speciale">Excès de confiance</u> pendant 2 tours s'il n'en disposent pas déjà (ne peut pas être copié<br>
-                ou résisté). Si tous les Vauriens alliés du Coté Obscur disposent déjà d'excès de confiance, tous les vauriens alliés obtiennent<br>
-                Excès de confiance pendant 2 tours à la place (ne peut pas être copié ou résisté).<br>
-                <br>
-                Si Fennec dispose de Vétéran chevronné, cette attaque ne peut pas être esquivé et inflige<br>
-                un cumul supplémentaire de Destruction d'armure.<br>
-                <br>
-                <u class="speciale">Excès de confiance: </u>-20% de défense, +50% d'attaque, +10% de vitesse, +15% d'esquive.
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to all but the weakest enemy. Then, deal Special damage to the enemy that was the weakest at the start of this attack; this deals 50% more damage for each other enemy damaged during this ability.
+                <br><br>
+                If this ability deals damage, the selected target is inflicted with Armor Shred and all Dark Side Scoundrel allies gain <u class="speciale">Overconfident</u> for 2 turns if they do not have it, which can't be copied or resisted. If all Dark Side Scoundrel allies already have Overconfident, instead all Scoundrel allies gain Overconfident for 2 turns, which can't be copied or resisted.
+                <br><br>
+                If Fennec has Seasoned Veteran, this attack can't be evaded and inflicts an additional stack of Armor Shred.
+                <br><br>
+                <u class="speciale">Overconfident:</u> -20% Defense, +50% Offense, +10% Speed, +15% Evasion
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Capacité de chef: Renard solitaire</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Lone Fox</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Fennec lead" src="../image-perso/fennec/fennec-lead.png">
+            <img class="attaque" alt="Fennec Shand lead" src="../image-perso/fennec/fennec-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Au début de la bataille, Fennec Shand obtient +100% de santé maximale, de protection maximale, de défense et d'attaque.<br>
-                Ces montants diminuent de 25% pour chaque autre allié présent au début de la bataille.<br>
-                <br>
-                Lorsque Fennec Shand est dans l'emplacement de chef (et non dans l'emplacement d'allié) le contrat suivant est actif:<br>
-                <br>
-                <u class="speciale">Contrat: </u> 20 affaiblissements sont dissipés ou expirent sur les Chasseurs de primes ou Vaurien<br>
-                alliés (seuls les Chasseurs de primes ou les Vauriens peuvent participer au contrat).<br>
-                <br>
-                <u class="speciale">Récompense: </u>La prime de tous les Chasseurs de primes alliés est activée, et tous les<br>
-                Chasseurs de primes ou Vaurien alliés obtiennent 20% de défense et excès de confiance jusqu'à la fin de la<br>
-                bataille (ne peut pas être copié, dissipé ou résisté).
+            <p class="attaque" id="lead-ability">
+                At the start of battle, Fennec Shand gains +100% Defense, Max Health, Max Protection, and Offense. These bonuses are reduced by 25% for each other ally present at the start of battle.
+                <br><br>
+                When Fennec Shand is in the Leader slot, and not the Ally slot, the following Contract is active:
+                <br><br>
+                <u class="speciale">Contract:</u> 20 debuffs are dispelled or expire from Bounty Hunter or Scoundrel allies. (Only Bounty Hunter or Scoundrel allies can contribute to the Contract.)
+                <br><br>
+                <u class="speciale">Reward:</u> All Bounty Hunter allies have their payouts activated, and all Bounty Hunter or Scoundrel allies gain 20% Defense and Overconfident until the end of battle, which can't be copied, dispelled, or prevented.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Bonne impression </u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Making an Impression</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Fennec unique" src="../image-perso/fennec/fennec-unique.png">
+            <img class="attaque" alt="Fennec Shand unique" src="../image-perso/fennec/fennec-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Lorsque Fennec Shand obtient un bonus de ténacité, elle a +10% d'attaque (cumulatif) jusqu'à la fin de l'affrontement.<br>
-                Ce baonus passe à 20% si le Mandalorien (armure en beskar) est un allié. Si Boba Fett, héritier de Janfo est dans<br>
-                l'emplacement de chef, ce bonus est doublé et Fennec commence la bataille avec Détermination du Chasseur de primes.<br>
-                Lorsqu'un allié perd Excès de confiance, Fennec obtient 20% de jauge de tour.
+            <p class="attaque" id="unique-ability1">
+                Whenever Fennec Shand gains Tenacity Up, she gains 10% Offense (stacking) until the end of encounter, increased to 20% if The Mandalorian (Beskar Armor) is an ally. If Boba Fett, Scion of Jango is in the Leader slot, this bonus is doubled and she starts the battle with Bounty Hunter's Resolve. Whenever an ally loses Overconfident, Fennec gains 20% Turn Meter.
             </p>
         </div>
     </div>
 
-
-    <h2 class="prime">Prime de Fennec Shand</h2>
+    <h2 class="prime"><u class="prime" id="prime-title">Fennec Shand's Payout</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Fennec shand prime" src="../image-perso/fennec/fennec-prime.png">
+            <img class="attaque" alt="Fennec Shand prime" src="../image-perso/fennec/fennec-prime.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                A chaque fois que fennec Shand reçoit des récompenses pour un contrat rempli, elle bénéficie de la prime suivante.<br>
-                (les contrats sont conférés par certaines capacités de chef des Chasseurs de primes.)<br>
-                <br>
-                <u class="speciale">Prime: </u>Fennec a +15% de chances de coup critique, +25% de dégâts critiques et obtient<br>
-                vétéran chevronné jusqu'à la fin de la bataille (ne peut pas être copié, disipé ou évité).
+            <p class="attaque" id="prime">
+                Whenever Fennec Shand receives a Reward from a Contract, she also gains the following Payout. (Contracts are granted by certain Bounty Hunter Leader Abilities.)
+                <br><br>
+                <u class="speciale">Payout:</u> Fennec receives +15% Critical Chance, +25% Critical Damage, and Seasoned Veteran until the end of the battle, which can't be copied, dispelled, or prevented.
             </p>
         </div>
     </div>
-
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-    
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Fennec Shand",
+                "title": "<u>Fennec Shand</u>",
+                "description": "Chasseuse de primes redoutable capable d'affronter les ennemis les plus dangereux.",
+
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "hunter": "Chasseurs de primes",
+                "mercenary": "Mercenaire",
+                "scoundrel": "Vaurien",
+
+                "basic-attack-title": "<u>Attaque Basique: Frappe écrasante</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à la cible ennemie 5 fois. Si la cible ne dispose pas de protection, cette attaque inflige 50 % de dégâts supplémentaires. Si c'est le tour de Fennec Chand et qu'elle dispose de <u class='speciale'>Vétéran chevronné</u>, Fennec obtient un bonus d'attaque pendant 1 tour.\n\n<u class='speciale'>Vétéran chevronné :</u> Fennec peut ignorer les effets de Raillerie et gagne des effets supplémentaires sur ses capacités.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Je ne rate pas (délai : 2)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à tous les ennemis. Ensuite, inflige des dégâts spéciaux à l'ennemi qui était le plus faible au début de cette attaque. Elle inflige 50 % de dégâts supplémentaires pour chaque autre ennemi blessé par cette capacité.\n\nSi cette capacité inflige des dégâts, la cible choisie souffre de destruction d'armure et tous les Vauriens alliés du Côté Obscur obtiennent <u class='speciale'>Excès de confiance</u> pendant 2 tours s'ils n'en disposent pas déjà (ne peut pas être copié ou résisté). Si tous les Vauriens alliés du Côté Obscur disposent déjà d'Excès de confiance, tous les Vauriens alliés obtiennent Excès de confiance pendant 2 tours à la place (ne peut pas être copié ou résisté).\n\nSi Fennec dispose de Vétéran chevronné, cette attaque ne peut pas être esquivée et inflige un cumul supplémentaire de destruction d'armure.\n\n<u class='speciale'>Excès de confiance :</u> -20 % de défense, +50 % d'attaque, +10 % de vitesse, +15 % d'esquive.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Renard solitaire</u>",
+                "lead-ability": "Au début de la bataille, Fennec Shand obtient +100 % de santé maximale, de protection maximale, de défense et d'attaque. Ces montants diminuent de 25 % pour chaque autre allié présent au début de la bataille.\n\nLorsque Fennec Shand est dans l'emplacement de chef (et non dans l'emplacement d'allié), le contrat suivant est actif :\n\n<u class='speciale'>Contrat :</u> 20 affaiblissement sont dissipés ou expirent sur les Chasseurs de primes ou Vauriens alliés (seuls les Chasseurs de primes ou les Vauriens alliés peuvent participer au contrat).\n\n<u class='speciale'>Récompense :</u> La prime de tous les Chasseurs de primes alliés est activée, et tous les Chasseurs de primes ou Vauriens alliés obtiennent 20 % de défense et Excès de confiance jusqu'à la fin de la bataille (ne peut pas être copié, dissipé ou évité).",
+
+                "unique-ability1-title": "<u>Capacité Unique : Bonne impression</u>",
+                "unique-ability1": "Lorsque Fennec Shand obtient un bonus de ténacité, elle a 10 % d'attaque (cumulatif) jusqu'à la fin de l'affrontement. Ce bonus passe à 20 % si le Mandalorien (armure en beskar) est un allié. Si Boba fett, Héritier de Jango est dans l'emplacement de chef, ce bonus est doublé et Fennec commence la bataille avec Détermination du Chasseur de primes. Lorsqu'un allié perd Excès de confiance, Fennec obtient 20 % de jauge de tour.",
+
+                "prime-title": "Prime de Fennec Shand",
+                "prime": "A chaque fois que Fennec Shand reçoit des récompenses pour un contrat rempli, elle bénéficie également de la prime suivante. (Les contrats sont conférés par certaines capacités de chef des Chasseurs de primes).\n\n<u class='speciale'>Prime :</u> Fennec a +15 % de chances de coup critique, +25 % de dégâts critiques et obtient Vétéran chevronné jusqu'à la fin de la bataille (ne peut pas être copié, dissipé ou évité).",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "fennec shand"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
     </footer>
-    
-    
 </body>
-</html>   
+</html>
