@@ -1,170 +1,286 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<title>Hondo Ohnaka</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="utf-8">
-<meta name="author" content="Rimbault Enzo" >
-
-<link rel="icon" type="image/png" href="../image-perso/hondo/Hondo-image.png">
-<link rel="stylesheet" href="../style/unit-style.css">
-<style>
-    img{
-        width: 40%;
-        height: 40%;
-    }
-        table,tr,td{
-        margin: auto;
-    }   
-</style>
+    <title id="big-title">Hondo Ohnaka</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/hondo/Hondo-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/hondo/Hondo-image.png" alt="Hondo Ohnaka" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Hondo Ohnaka</u></h1>
-        <p>
-            Le vaurien hors pair qui ne reculera devant<br>
-            rien pour augmenter ses gains.
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color:purple" href="../classement-perso/coté-neutre.html">Coté Neutre</a>
-            <a class="class" href="../classement-perso/soutien.html">Soutien</a>
-            <a class="capacite" href="../classement-perso/contrebandier.html">Contrebandier</a>
-            <a class="capacite" href="../classement-perso/vaurien.html">Vaurien</a>
-        </nav>
+            <h1 id="title"><u>Hondo Ohnaka</u></h1>
+            <p id="description">
+                The unparalleled Scoundrel willing to play all angles for his own gains
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:grey !important" href="../classement-perso/coté-neutre.html" id="neutral">Neutral</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/mercenaire.html" id="mercenary">Mercenary</a>
+                <a class="capacite" href="../classement-perso/pirate.html" id="pirate">Pirate</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="capacite" href="../classement-perso/contrebandier.html" id="smuggler">Smuggler</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
     </header>
+    <br>
 
-    <img class="first" src="../image-perso/hondo/Hondo.png" alt="Hondo"><br>
+    <img class="first" src="../image-perso/" alt="Hondo Ohnaka"><br>
 
-    <h2 class="titre"><u>attaque basique : Ca sent le profit</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: I Smell Prof</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Hondo basic" src="../image-perso/hondo/hondo-basic.png">
+            <img class="attaque" alt="Hondo Ohnaka basic" src="../image-perso/hondo/hondo-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à la cible ennemie. Confère 1 cumul de<br>
-                <u class="speciale">Rançon</u> (50 maximum) pour le reste de l'affrontement<br>
-                (ne peut pas être copié, dissipé ou évité). Si l'ennemi est du Coté Lumineux,<br>
-                Hondo lui retire 10% de jauge de tour. Si l'ennemi est du Coté Obscur, Hondo<br>
-                gagne 10% de jauge de tour.<br>
-                <br>
-                <u class="speciale">Rançon:</u> +2% de santé maximale et de ténacité.
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy. Gain 1 stack of <u class="speciale">Ransom</u> (max 50) for the rest of the encounter, which can't be copied, dispelled, or prevented. If the enemy is Light Side, Hondo removes 10% Turn Meter from them. If the enemy is Dark Side, Hondo gains 10% Turn Meter.
+                <br><br>
+                <u class="speciale">Ransom:</u> +2% Max Health and Tenacity
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: je ne veux pas te tuer</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : I Don't Want to Kill You Per Se (cooldown: 6)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Hondo spé 1" src="../image-perso/hondo/hondo-spe1.png">
+            <img class="attaque" alt="Hondo Ohnaka special 1" src="../image-perso/hondo/hondo-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                La jauge de tour de tous les ennemis est réduite de 20%.<br>
-                Hondo obtient Plan déjoués pendant 2 tours (ne peut pas<br>
-                être copié). Inflige <u class="speciale">Captivité</u> à la cible ennemie,<br>
-                à l'exception des Légendes galactique (ne peut pas être copié,<br>
-                dissipé, esquivé, empeché ou résisté), jusqu'au sébut du deuxième<br>
-                tour de Hondo, que les ennemis obtiennent 25 améliorations ou que<br>
-                Hondo soit vaincu et la dissipe de tous les autres adversaires.<br>
-                Lorsque Captivité expire, Hondo obtient 10 cumuls de Rançon.<br>
-                <br>
-                <u class="speciale">Captivité sur les personnages :</u> vitesse réduite à 0, pas<br>
-                d'attaque bonus ou de gain de jauge de tour bonus.
-                <br>
-                <u class="speciale">Captivité sur les boss de raid :</u> -30% de dégâts critique, de défense et d'attaque.
+            <p class="attaque" id="special-attack1">
+                Remove 20% Turn Meter from all enemies. Hondo gains Outmaneuver for 2 turns, which can't be copied. Inflict <u class="speciale">Captive</u> on the target enemy (excluding Galactic Legends), which can't be copied, dispelled, evaded, prevented, or resisted, until the start of Hondo's second turn, enemies gain 25 buffs, or Hondo is defeated, and remove it from all other enemies. Whenever Captive expires, Hondo gains 10 stacks of Ransom.
+                <br><br>
+                <u class="speciale">Captive on characters:</u> Speed set to 0, can't bonus attack or gain bonus Turn Meter
+                <br><br>
+                <u class="speciale">Captive on raid bosses:</u> -30% Critical Damage, Defense, and Offense
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Qu'est ce que l'insolence pour les pirates ?</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Insolence? We are Pirates (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Hondo spé 2" src="../image-perso/hondo/hondo-spe2.png">
+            <img class="attaque" alt="Hondo Ohnaka special 2" src="../image-perso/hondo/hondo-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe tous les affaiblissements en cours sur tous les vauriens alliés.<br>
-                Invoque la cible alliée, puis Hondo l'assiste. Si la cible alliée est du<br>
-                Coté Lumineux, elle obtient 25% de dégâts et de pénétration de défense pour<br>
-                cette attaque. Si la cible alliée est du Coté Obscur, elle obtient 25% de chance<br>
-                de coup critique et de dégats critiques pour cette attaque. Hondo gagne un bonus<br>
-                de défense pendant 2 tours et obtient 4% d'attaque par cumul de Rançon pendant 3 tours.<br>
-                <br>
-                Si Hondo possède au moins 5 cumuls de rançon, les ennemis du Coté Obscur subissent<br>
-                l'entrave des capacités pendant 1 tour(ne peut pas être esquivé ou résisté) et les<br>
-                ennemis du Coté Lumineux subissent l'immunité aux améliorations pendant 1 tour<br>
-                (ne peut pas être esquivé ou résisté). Si Hondo possède au moins 25 cumuls de rançon,<br>
-                tous les délais des ennemis sont augmentés de 1.
+            <p class="attaque" id="special-attack2">
+                Dispel all debuffs on all Mercenary and Scoundrel allies. Call target ally to assist, then Hondo assists. If target ally is Light Side they gain 25% damage and Defense Penetration for this attack. If target ally is Dark Side they gain 25% Critical Chance and Critical Damage for this attack. Hondo gains Defense Up for 2 turns and 4% Offense per stack of Ransom for 3 turns.
+                <br><br>
+                If Hondo has at least 5 stacks of Ransom, Dark Side enemies are inflicted with Ability Block for 1 turn, which can't be evaded or resisted, and Light Side enemies are inflicted with Buff Immunity for 1 turn, which can't be evaded or resisted. If Hondo has at least 25 stacks of Ransom, increase cooldowns of all enemies by 1.
+            </p>
+        </div>
+    </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : That's Just Good Business</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Hondo Ohnaka unique 1" src="../image-perso/hondo/hondo-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Hondo has 100% Health Steal. Whenever Hondo evades an attack, he gains a stack of Ransom. If a Captive enemy is defeated and Hondo does not have at least 10 stacks of Ransom, Hondo escapes from battle.
+                <br><br>
+                Hondo can't gain more than 5 stacks of Profit.
+                <br><br>
+                Hondo gains bonuses based on the amount of stacks of Ransom:
+                <br><br>
+                - <u class="speciale">5+ Stacks:</u> Add Expose to the target enemy for 1 turn and gain Foresight for 1 turn on his Basic ability<br>
+                - <u class="speciale">10+ Stacks:</u> Immune to critical hits<br>
+                - <u class="speciale">15+ Stacks:</u> Recover 20% Health at the start of his turn<br>
+                - <u class="speciale">20+ Stacks:</u> Recover 20% Protection at the start of his turn
+                <br><br>
+                At the start of his turn, if there is an enemy with the Captive debuff, Hondo gains 15% Critical Chance, Critical Damage, and Defense Penetration (stacking, max 150%), and 3 Speed (stacking, max 30) for the rest of the encounter.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> Hondo starts the encounter with 25% Turn Meter for each other Mercenary, Scoundrel or Smuggler ally. If there is an enemy with the Captive debuff at the start of Hondo's turn, Hondo gains an additional 15% Critical Chance, Critical Damage, and Defense Penetration per turn (stacking, max 150%) and 3 Speed (stacking, max 30).
             </p>
         </div>
     </div>
 
-    
-    <h2 class="titre"><u>Unique: Juste une bonne affaire</u></h2>
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : I Guess We Won't Be Friends</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Hondo unique" src="../image-perso/hondo/hondo-unique.png">
+            <img class="attaque" alt="Hondo Ohnaka unique 2" src="../image-perso/hondo/hondo-unique2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Hondo reçoit 100% de vol de santé. Lorsque Hondo esquive une attaque,<br>
-                il obtient un cumul de Rançon. Si un ennemi en Captivité est vainc et que<br>
-                Hondo ne dispose pas d'au moins 10 cumuls de rançon Hondo fuit la bataille.
-                <br>
-                <br>
-                Hondo obtient des bonus en fonction de la quantité de cumuls de rançon:<br>
-                <br>
-                <u class="speciale">5 cumuls ou +:</u> expose la cible ennemie pendant 1 tour et<br>
-                confère la prévoyance à sa capacité de base pendant 1 tour.<br>
-                <u class="speciale">10 cumuls ou +:</u> immunité contre les coups critiques.<br>
-                <u class="speciale">15 cumuls ou +:</u> récupère 20% de santé au début de son tour.<br>
-                <u class="speciale">20 cumuls ou +:</u> récupère 20% de protection au début de son tour.<br>
-                <br>
-                Au début de son tour, si un ennemi est affaibli par la captivité, Hondo obtien<br>
-                15% de chance de coup critique, de dégâts critiques et de pénétration de défense<br>
-                (cumulatif, 150% maximum) et 3 de vitesse (cumulatif, maximum 30) pour le reste de l'affrontement.<br>
-                <br>
-                <u class="omicron">Dans les Grandes arènes:</u><br>
-                <br>
-                Hondo commence l'affrontement avec 25% de jauge de tour pour chaque autre allié vaurien ou contrebandier.<br>
-                Si un ennemi est affaibli par la Captivité au début du tour de Hondo, il obtient 15% de chances de coup<br>
-                critiques, de dégâts critiques et de pénétration de défense supplementaires par tour (cumulatif, 150%<br>
-                maximum) et 3 de vitesse (cumulatif, maximum 30).
-            </p>
-        </div>
-    </div>
-
-
-    <h2 class="titre"><u>Unique: J'imagine qu'on ne sera pas amis</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="Hondo unique 2" src="../image-perso/hondo/hondo-unique2.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                La première fois qu'un personnage obtient, chaque tour, un bonus de jauge de tour, Hondo<br>
-                obtient un bonus de 5% de jauge de tour. Lorsqu'un personnage obtient une amélioration, Hondo<br>
-                récupère 5% de protection. Lorsqu'un personnage attaque en dehors de son tour, Hondo gagne un <br>
-                bonus de protection(5%, cumulatif)pendant 1 tour. Si Hondo avait au moins 2 autres alliés<br>
-                au début de l'affrontement, la première fois que Hondo n'a pas d'alliés actif, il gagne 100%<br>
-                de jauge de tour et 25% de chance de contre-attaque, de défense, d'esquive, de pouvoir<br>
-                et de ténacité jusqu'à la fin de l'affrontement.
+            <p class="attaque" id="unique-ability2">
+                The first time any character gains bonus Turn Meter each turn, Hondo gains 5% bonus Turn Meter. Whenever any character gains a buff, Hondo recovers 5% Protection. Whenever any character attacks out of turn, Hondo gains Protection Up (5%, stacking) for 1 turn. If Hondo had at least 2 other allies at the start of the encounter, the first time Hondo has no other active allies, he gains 100% Turn Meter and 25% counter chance, Defense, Evasion, Offense, Potency, and Tenacity for the rest of the encounter.
             </p>
         </div>
     </div>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Hondo Ohnaka",
+                "title": "<u>Hondo Ohnaka</u>",
+                "description": "Le vaurien hors pair qui ne reculera devant rien pour augmenter ses gains.",
+
+                "neutral": "Neutre",
+                "support": "Soutien",
+                "mercenary": "Mercenaire",
+                "pirate": "Pirate",
+                "scoundrel": "Vaurien",
+                "smuggler": "Contrebandier",
+
+                "basic-attack-title": "<u>Attaque Basique: Ça sent le profit</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à la cible ennemie. Confère 1 cumul de <u class='speciale'>Rançon</u> (50 maximum) pour le reste de l'affrontement (ne peut pas être copié, dissipé ou évité). Si l'ennemi est du Côté Lumineux, Hondo lui retire 10 % de jauge de tour. Si l'ennemi est est du Côté Obscur, Hondo gagne 10 % de jauge de tour.\n\n<u class='speciale'>Rançon :</u> +2 % de santé maximale et de ténacité.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Je ne veux pas te tuer (délai : 6)</u>",
+                "special-attack1": "La jauge de tour de tous les ennemis est réduite de 20 %. Hondo obtient Plans déjoués pendant 2 tours (ne peut pas être copié). Inflige <u class='speciale'>Captivité</u> à la cible ennemie, à l'exception des Légendes galactiques (ne peut pas être copié, dissipé, esquivé, empêché ou résisté) jusqu'au début du deuxième tour de Hondo, que les ennemis obtiennent 25 améliorations ou que Hondo soit vaincu et la dissipe de tous les autres adversaires. Lorsque Captivité expire, Hondo obtient 10 cumuls de rançon.\n\n<u class='speciale'>Captivité sur les personnages :</u> vitesse réduite à 0, pas d'attaque bonus ou de gain de jauge de tour bonus.\n\n<u class='speciale'>Captivité sur les boss de raid :</u> -30 % de dégâts critiques, de défense et d'attaque.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Qu'est-ce que l'insolence pour les pirates ? (délai : 4)</u>",
+                "special-attack2": "Dissipe tous les affaiblissements en cours sur tous les mercenaires et Vauriens alliés. Invoque la cible alliée, puis Hondo l'assiste. Si la cible alliée est du Côté Lumineux, elle obtient 25 % de dégâts et de pénétration de défense pour cette attaque. Si la cible alliée est du Côté Obscur, elle obtient 25 % de chances de coup critique et de dégâts critiques pour cette attaque. Hondo gagne un bonus de défense pendant 2 tours et 4 % d'attaque par cumul de rançon pendant 3 tours.\n\nSi Hondo possède au moins 5 cumuls de rançon, les ennemis du Côté Obscur subissent l'entrave des capacités pendant 1 tour (ne peut pas être esquivé ou résisté) et les ennemis du Côté Lumineux subissent l'immunité aux améliorations pendant 1 tour (ne peut pas être esquivé ou résisté). Si Hondo possède au moins 25 cumuls de ranàn, tous les délais des ennemis sont augmentés de 1.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Juste une bonne affaire</u>",
+                "unique-ability1": "Hondo reçoit 100 % de vol de santé. Lorsqu'Hondo esquive une attaque, il obtient un cumul de rançon. Si un ennemi en captivité est vaincu et que Hondo ne dispose pas d'au moins 10 cumuls de rançon, Hondo fuit la bataille.\n\nHondo ne peut pas gagner plus de 5 cumuls de Profit.\n\nHondo obtient des bonus en fonction de la quantité de cumuls de rançon :\n\n- <u class='speciale'>5 cumuls ou + :</u> expose la cible ennemie pendant 1 tour et confère Prévoyance à sa capacité de base pendant 1 tour.\n- <u class='speciale'>10 cumuls ou +</u> immunité contre les coups critiques.\n- <u class='speciale'>15 cumuls ou + :</u> récupère 20 % de santé au début de son tour.\n- <u class='speciale'>20 cumuls ou + :</u> récupère 20 % de protection au début de son tour.\n\nAu début de son tour, si un ennemi est affaibli par la captivité, Hondo obtient 15 % de chances de coup critique, de dégâts critiques et de pénétration de défense (cumulatif, 150 % maximum) et 3 de vitesse (cumulatif, maximum 30) pour le reste de l'affrontement.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> Hondo commence l'affrontement avec 25 % de jauge de tour pour chaque autre allié mercenaire, Vaurien ou Contrebandier. Si un ennemi est affibli par la captivité au début du tour de Hondo, il obtient 15 % de chances de coup critique, de dégâts critiques et de pénétration de défense supplémentaires par tour (cumulatif, 150 % maximum) et 3 de vitesse (cumulatif, maximum 30).",
+
+                "unique-ability2-title": "<u>Capacité Unique : J'imagine qu'on se sera pas amis</u>",
+                "unique-ability2": "La première fois qu'un personnage obtient, chaque tour, un bonus de jauge de tour, Hondo obtient 5 % de jauge de tour. Lorsqu'un personnage obtient une amélioration, Hondo récupère 5 % de protection. Lorsqu'un personnage attaque en dehors de son tour, Hondo gagne un bonus de protection (5 %, cumulatif) pendant 1 tour. Si Hondo avait au moins 2 autres alliés au début de l'affrontement, la première fois que Hondo n'a pas d'allié actifs, il gagne 100 % de jauge de tour et 25 % de chances de contre-attaque, de défense, d'esquive, de pouvoir et de ténacité jusqu'à la fin de l'affrontement.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "hondo ohnaka"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
     </footer>
 </body>
-</html>    
-    
+</html>
