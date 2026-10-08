@@ -1,119 +1,268 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-<title>tech</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="utf-8">
-<meta name="author" content="Rimbault Enzo">
-
-<link rel="icon" type="image/png" href="../image-perso/tech/tech-image.png">
-<link rel="stylesheet" href="../style/unit-style.css">
+    <title id="big-title">Tech</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/tech/tech-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/tech/tech-image.png" alt="Tech" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <header class="perso">
-        <h1><u>Tech</u></h1>
-        <p>
+            <h1 id="title"><u>Tech</u></h1>
+            <p id="description">
+                Stealthy support character that gives Translation to other Clone Troopers and applies Target Lock to enemies.
+            </p>
+            <br>
 
-        </p>
-        <br>
-        <nav class="perso" style="font-size: 20px;"> 
-            <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html">Coté Lumineux</a>
-            <a class="class" href="../classement-perso/soutien.html">Soutien</a>
-            <a class="capacite" href="../classement-perso/bad-batch.html">Bad Batch</a>
-            <a class="capacite" href="../classement-perso/soldat-clone.html">Soldat Clone</a>
-            <a class="capacite" href="../classement-perso/république-galactique.html">République Galactique</a>
-            <a class="pilote" href="../classement-perso/membres-équipages.html">Membres Equipages</a>
-        </nav>
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/bad-batch.html" id="bad-batch">Bad Batch</a>
+                <a class="capacite" href="../classement-perso/soldat-clone.html" id="clone">Clone trooper</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html" id="galactic-republic">Galactic Republic</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/maraudeur.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/" alt="Marauder">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: Marauder</u>
+                </h2>
+            </section>
+        </div>
     </header>
     <br>
 
-    <img class="first" src="../image-perso/tech/Tech.png" alt="Tech"><br>
+    <img class="first" src="../image-perso/" alt="Tech"><br>
 
-    <h2 class="titre"><u>attaque basique : Parés à l'attaque </u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Call the Shot</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="Tech basic" src="../image-perso/tech/tech-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts spéciaux à une cible ennemie et verouille<br>
-                pendant 2 tours cette cible, ainsi que l'ennemi à la santé la<br>
-                plus élevée qui n'en souffrait pas déjà. Si la cible ennemie<br>
-                était vérouillée, inflige une attaque supplémentaire.
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy and inflict Target Lock for 2 turns on target enemy and the healthiest enemy that didn't already have it. If target enemy was already Target Locked, attack again.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>1ere spéciale: Opération Délicate (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Delicate Operation (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Tech spé 1" src="../image-perso/tech/tech-spe1.png">
+            <img class="attaque" alt="Tech special 1" src="../image-perso/tech/tech-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Tech et le soldat clone allié ciblé récupèrent 40% de leur santé<br>
-                maximale  (doublé si la cible appartient au Bad Batch), obtiennent<br>
-                un bonus de pouvoir et le camouflage pendant 2 tours, ainsi que <br>
-                Traduction pendant 3 tours. Si Tech était déjà camouflé tous les autres<br>
-                alliés du Bad Batch obtiennent aussi Traduction pendant 3 tours.
+            <p class="attaque" id="special-attack1">
+                Tech and target other Clone Trooper ally recover 40% of their Max Health, doubled if target ally is Bad Batch, gain Potency Up and Stealth for 2 turns, and Translation for 3 turns. If Tech was already Stealthed, all other Bad Batch allies also gain Translation for 3 turns.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>2eme spéciale: Brillante idée (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="tech spé2" src="../image-perso/tech/tech-spe2.png">
+            <img class="attaque" alt="Tech special 2" src="../image-perso/tech/tech-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe tous les affaiblissements des soldats clones alliés.<br>
-                Tous les alliés du Bad Batch obtiennent la prévoyance, le<br>
-                camouflage et un bonus de ténacité pendant 2 tours. Inflige<br>
-                des dégats spéciaux à tous les ennemis, ainsi que l'étourdissement<br>
-                pendant 1 tour aux ennemis qui sont confus ou vérouillées.
+            <p class="attaque" id="special-attack2">
+                Dispel all debuffs from Clone Trooper allies. All Bad Batch allies gain Foresight, Stealth, and Tenacity Up for 2 turns. Deal Special damage to all enemies and inflict Stun for 1 turn on enemies that are Dazed or Target Locked.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>capacité unique: Interprète clone</u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Clone Interpreter</u></h2>
     <div class="capacity-container">
         <div class="left-column">
             <img class="attaque" alt="Tech unique" src="../image-perso/tech/tech-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Au début de la bataille, Tech obtient +1 de vitesse pour chaque<br>
-                soldat clone allié (doublé pour les alliés du Bad Batch). Si <br>
-                tous les alliés sont des soldats clones, Tech obtient le camouflage<br>
-                pendant 1 tour. Tech a +25% de pouvoir pour  chacun de ses cumuls<br>
-                de Traduction.<br>
-                <br>
-                Tant que Tech est actif, les soldats clones alliés obtiennent<br>
-                Traduction pendant 3 tours (3 cumuls maximum) à chaque fois<br>
-                qu'ils utilisent une capacité spéciale. Traduction ne peut<br>
-                pas être copiée. Si le personnage dispose déjà de Traduction,<br>
-                la durée de tous ses cumuls se réinitialise à 3 tours. Si tous<br>
-                les alliés qui peuvent conférer Traduction sont vaincus, tous<br>
-                les cumuls de Traduction expirent.<br>
-                <br>
-                <u class="speciale">Traduction</u>- Les effets positifs sont calculés selon le nombre de cumuls.<br>
-                1 : +30% à la santé maximale.<br>
-                2 : +15% de chances de coup critiques.<br>
-                3 : Si un seul allié conférant Traduction es présent, diminue les délais<br>
-                de ce personnage de 1 lorsque cet allié utilise sa capacité de base.
+            <p class="attaque" id="unique-ability1">
+                At the start of battle, Tech gains +1 Speed for each Clone Trooper ally, doubled for Bad Batch allies. If all allies are Clone Troopers, Tech gains Stealth for 1 turn. Tech has +25% Potency for each of his own stacks of Translation.
+                <br><br>
+                While Tech is active, Clone Trooper allies gain Translation for 3 turns (max 3 stacks) each time they use a Special ability. Translation cannot be copied. If the character already has Translation, the duration for all current stacks on that character resets to 3 turns. If all allies that can apply Translation are defeated, all stacks of Translation expire.
+                <br><br>
+                <u class="speciale">Translation :</u> - Beneficial effects build based on the cumulative number of stacks:<br>
+                1: Gain +30% Max Health<br>
+                2: Gain +15% Critical Chance<br>
+                3: If only one ally who grants Translation is present, decrease this character's cooldowns by 1 when that ally uses their Basic ability (limit once per turn)
             </p>
         </div>
     </div>
 
     <footer>
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Tech",
+                "title": "<u>Tech</u>",
+                "description": "Personnage de soutien furtif qui confère traduction aux autres soldats clones et Verouille les ennemis.",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "bad-batch": "Bad Batch",
+                "clone": "Soldat Clone",
+                "galactic-republic": "République Galactique",
+                "crew-members": "Membres d’Équipage",
+
+                "basic-attack-title": "<u>Attaque Basique: Parés à l'attaque</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie et verouille pendant 2 tours cette cible, ainsi que l'ennemi à la santé la plus élevée qui n'en souffre pas déjà . Si la cible ennemie était déjà verouillé, inflige une attaque supplémentaire.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Opération délicate (délai : 3)</u>",
+                "special-attack1": "Tech et le soldat clone allié ciblé récupèrent 40 % de leur santé maximale (doublé si la cible alliée appartient au Bad Batch), obtiennent un bonus de pouvoir et le camouflage pendant 2 tours, ainsi que Traduction pendant 3 tours. Si Tech est déjà camouflé, tous les autres alliés du Bad Batch obtiennent ainsi Traduction pendant 3 tours.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Brillante idée (délai : 4)</u>",
+                "special-attack2": "Dissipe tous les affaiblissements des soldats clones alliés. Tous les alliés du Bad Batch obtiennent Prévoyance, le camouflage et un bonus de ténacité pendant 2 tours. Inflige des dégâts spéciaux à tous les ennemis, ainsi que l'étourdissement pendant 1 tour aux ennemis qui sont confus ou verrouillés.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Interprète clone</u>",
+                "unique-ability1": "Au début de la bataille, Tech obtient un +1 de vitesse pour chaque soldat clone allié (doublé pour les alliés du bad Batch). Si tous les alliés sont des soldats clones, Tech obtient le camouflage pendant 1 tour. Tech a +25 % de pouvoir pour chacun de ses cumuls de Traduction.\n\nTant que Tech est actif, les soldats clones alliés obtiennent Traduction pendant 3 tours (3 cumuls maximum) à chaque fois qu'ils utilisent une capacité spéciale. Traduction ne peut pas être copiée. Si le personnage dispose déjà de Traduction, la durée de tous ses cumuls se réinitialise à 3 tours. Si tous les alliés qui peuvent conférer Traduction sont vaincus, tous les cumuls de Traduction expirent.\n\n<u class='speciale'>Traduction :</u> - Les effets positifs sont calculés selon le nombre de cumuls.\n1 : +30 % à la santé maximale\n2 : +15 % de chances de coup critique\n3 : si un seul allié conférant traduction est présent, diminue les délais de ce personnage de 1 lorsque cet allié utilise sa capacité de base.",
+
+                "ship-title": "<u>Vaisseau : Marauder</u>",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "tech"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
     </footer>
 </body>
-</html>    
+</html>
