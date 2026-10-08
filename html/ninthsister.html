@@ -1,147 +1,281 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Neuvième Soeur</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Ninth Sister</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
     <link rel="icon" type="image/png" href="../image-perso/9th-sister/ninthsister.png">
-
-    <!-- Lien vers la feuille de style -->
-    <link rel="stylesheet" href="../style/styles.css">
-    <link rel="stylesheet" href="../style/capacite.css">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/9th-sister/ninthsister.png" alt="Ninth Sister" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>Neuvième Soeur</u></h1>
-        <p>
-            Un membre impitoyable de l'Inquisitorius, qui ne s'arretera pas avant d'avoir traqué tous les Jedi.
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite"  style="color: red;" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-            <a class="class" href="../classement-perso/tank.html">Tank</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/empire.html">Empire</a>
-            <a class="capacite" href="../classement-perso/inquisitorious.html">Inquisitorius</a>
-            <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html">Utilisateur de la Force non aligné</a>
-        </nav>
+            <h1 id="title"><u>Ninth Sister</u></h1>
+            <p id="description">
+                A ruthless member of the feared Inquisitorius who will stop at nothing in her hunt for the Jedi
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="capacite" href="../classement-perso/inquisitorious.html" id="inuqisitorius">Inquisitorius</a>
+                <a class="capacite" href="../classement-perso/utilisateur-de-la-force-non-aligné.html" id="force-user">Unaligned Force user</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/9th-sister/9th-sister.png" alt="9Th SISTER"><br>
+    <img class="first" src="../image-perso/" alt="Ninth Sister"><br>
 
-    <h2 class="titre"><u>attaque basique : Trop facile</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Too Easy</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="ninthsister basique" src="../image-perso/9th-sister/ninth-basique.png">
+            <img class="attaque" alt="Ninth Sister basic" src="../image-perso/9th-sister/ninth-basique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à la cible ennemie. Ensuite, inflige des dégâts physiques à nouveau, à hauteur de 40% supplémentaires.<br>
-                Inflige 1 cumul de Purge (6 maximum) à la cible ennemie pendant le reste de l'affrontement.<br>
-                Si la cible est un Jedi, cette attaque inflige un second cumul de Purge et ne peut pas être résistée.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. Then, deal Physical damage again, dealing 40% more damage. Inflict 1 stack of Purge (max 6) on target enemy for the rest of the encounter. If the target is a Jedi, this inflicts a second stack of Purge and can't be resisted.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>1ere spéciale: Ce n'est pas digne de moi (délai: 3)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Not Worth My Time (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="ninthsister spé 1" src="../image-perso/9th-sister/ninth-spe1.png">
+            <img class="attaque" alt="Ninth Sister special 1" src="../image-perso/9th-sister/ninth-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques et consomme tous les cumuls de Purge sur une cible ennemie. Pour chaque cumul de Purge supprimé, inflige le même<br>
-                nombre d'effets de dégâts sur la durée à la cible ennemie pendant 1 tur (ne peut pas être résisté) et la Neuvième Soeur obtient le même<br>
-                nombre d'effet de soins sur la durée pendant 1 tour. Si la cible est un Jedi, dissipe toutes ses améliorations.
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage and consume all stacks of Purge on target enemy. For each stack of Purge removed, inflict that many Damage Over Time effects on target enemy for 1 turn, which can't be resisted, and Ninth Sister gains that many Heal Over Time effects for 1 turn. If the target is a Jedi, dispel all of their buffs.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: Frappe au sol (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Ground Pound (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="ninthsister spé 2" src="../image-perso/9th-sister/ninth-spe2.png">
+            <img class="attaque" alt="Ninth Sister special 2" src="../image-perso/9th-sister/ninth-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à tous les ennemis, ainsi que la confusion, un malus de défense et un malus de pouvoir pendant 2 tours (ne peut pas être<br>
-                résisté par les Jedi). La Neuvième Soeur utilise ensuite la Raillerie pendant 2 tours. Pour chaque ennemi avec Purge qui subit des dégâts de cette<br>
-                capacité, la Neuvième Soeur obtient 10% de défense (cumulatif, 50% max) pendant 2 tours.
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to all enemies and inflict Daze, Defense Down, and Potency Down for 2 turns, which can't be resisted by Jedi. Ninth Sister gains Taunt for 2 turns. For each enemy inflicted with Purge and damaged by this ability, Ninth Sister gains 10% Defense (stacking, max 50%) for 2 turns.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>Capacité de chef: Tu n'arrêtera pas l'Empire</u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Can't Stop the Empire</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="ninthsister lead" src="../image-perso/9th-sister/ninthlead.png">
+            <img class="attaque" alt="Ninth Sister lead" src="../image-perso/9th-sister/ninthlead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Les alliés sont immunisés contre les effets de limitation de vitesse. Lorsqu'un ennemi obtient un bonus de jauge de tour, tous les alliés de l'Inquisitorius<br>
-                obtiennent 2% de pouvoir et 2% de ténacité (cumulatif) pendant le reste de l'affrontement. Si cet ennemi est un Jedi, il a 50% de chances d'obtenir un cumul<br>
-                de Purge (6 max) jusqu'à la fin de l'affrontement.<br>
-                <br>
-                <u class="omicron">Dans les Guerres de teritoire</u><br>
-                <br>
-                Tous les alliés de l'Empire obtiennent 20% de défense et tous les alliés de l'inquisitorious sont immunisés contre l'Entrave des capacités et l'Étourdissement.
+            <p class="attaque" id="lead-ability">
+                Allies are immune to Speed limiting effects. Whenever an enemy gains bonus Turn Meter, all Inquisitorius allies gain 2% Potency and 2% Tenacity (stacking) for the rest of the encounter. If that enemy is a Jedi, they have a 50% chance to gain a stack of Purge (max 6) until the end of the encounter.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> All Empire allies gain 20% Defense and all Inquisitorius allies are immune to Ability Block and Stun.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Juste une égratinure</u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : It's Just a Scratch</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="ninthsister unique" src="../image-perso/9th-sister/ninth-unique.png">
+            <img class="attaque" alt="Ninth Sister unique" src="../image-perso/9th-sister/ninth-unique.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Pour chaque autre allié de l'Empire présent au début de la bataille, la Neuvième Soeur obtient 5% de défense, de santé maximale et de ténacité. Ces effets sont doublés<br>
-                pour chaque allié de l'Inquisitorius. Chaque fois qu'un autre allié de l'Empire subit un coup critique, elle utilise la Raillerie et obtient 50% d'esquive des critiques<br>
-                pendant 1 tour, et les alliés de l'EMpire obtiennent 20% d'esquive des critiques pendant 1 tour. Si l'allié appartient également à l'Inquisitorius la Neuvième Soeur récupère 5% de santé.
+            <p class="attaque" id="unique-ability1">
+                For each other Empire ally present at the start of battle, Ninth Sister gains 5% Defense, Max Health, and Tenacity; these effects are doubled for Inquisitorius allies. Each time another Empire ally is damaged by a critical hit, she gains Taunt and 50% Critical Avoidance for 1 turn, and Empire allies gain 20% Critical Avoidance for 1 turn. If the ally is also an Inquisitorius, Ninth Sister recovers 5% Health.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>capacité unique: Patience</u></h2>
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Patience</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="ninthsister Patience" src="../image-perso/9th-sister/ninth-patience.png">
+            <img class="attaque" alt="Ninth Sister unique 2" src="../image-perso/9th-sister/ninth-patience.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Si tous les alliés (3 minimum) sont de l'Inquisitorius, ce personnage obtient 20% de santé maximum, de protection maximum et de pouvoir.<br>
-                Lorsque ce personnage perd la raillerie, il la récupère pendant 1 tour, si un ennemi souffre de Purge. lorsqu'un ennemi attaque ce personnage<br>
-                en dehors de son tour, il obtient un cumul de Purge (6 max, ne peut pas être esquivé ou résisté). Lorsque les cumuls de Purge sont consommés ou<br>
-                dissipés sur un ennemi, ce personnage obtient 3% de jauge de tour.
+            <p class="attaque" id="unique-ability2">
+                At the start of battle, if all allies (minimum 3) are Inquisitorius, this character gains 20% Max Health, Max Protection, and Potency. Whenever this character loses Taunt, gain Taunt for 1 turn if an enemy has Purge. Whenever an enemy damages this character with an attack while attacking out of turn, that enemy gains a stack of Purge (max 6), which can't be evaded or resisted. Whenever Purge is consumed or dispelled on an enemy, this character gains 3% Turn Meter.
             </p>
         </div>
     </div>
-
 
     <footer>
-        <!-- Bouton pour remonter en haut de la page -->
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
-
-        <!-- Script JavaScript pour le bouton -->
         <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Neuvième Sœur",
+                "title": "<u>Neuvième Sœur</u>",
+                "description": "Un membre impitoyable de l'Inquisitorius, qui ne s'arrêtera pas avant d'avoir traqué tous les Jedi.",
+
+                "darkside": "Coté Obscur",
+                "tank": "Tank",
+                "leader": "Chef",
+                "empire": "Empire",
+                "inquisitorius": "Inquisitorius",
+                "force-user": "Utilisateur de la Force non aligné",
+
+                "basic-attack-title": "<u>Attaque Basique: Trop facile</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie. Ensuite, inflige des dégâts physiques à nouveau, à hauteur de 40 % supplémentaires. Inflige 1 cumul de Purge (6 max.) à la cible ennemie pendant le reste de l'affrontement. Si la cible est un Jedi, cette attaque inflige un second cumul de Purge et ne peut pas être résistée.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : C'est pas digne de moi (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques et consomme tous les cumuls de Purge sur une cible ennemie. Pour chaque cumul de Purge supprimé, inflige le même nombre d'effets de dégâts sur la durée à la cible ennemie pendant 1 tour (ne peut pas être résisté) et la Neuvième Sœur obtient le même nombre d'effets de soins sur la durée pendant 1 tour. Si la cible est un Jedi, dissipe toutes ses améliorations.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Frappe au sol (délai : 4)</u>",
+                "special-attack2": "Inflige des dégâts physiques à tous les ennemis, ainsi que la confusion, un malus de défense et un malus de pouvoir pendant 2 tours (ne peut pas être résisté par les Jedi). La Neuvième Sœur utilise ensuite Raillerie pendant 2 tours. Pour chaque ennemi avec Purge qui subit des dégâts de cette capacité, la Neuvième Sœur obtient 10 % de défense (cumulatif, 50 % max.) pendant 2 tours.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Tu n'arrêteras pas l'Empire</u>",
+                "lead-ability": "Les alliés sont immunisés contre les effets de limitation de vitesse. Lorsqu'un ennemi obtient un bonus de jauge de tour, tous les alliés de l'Inquisitorius obtiennent 2 % de pouvoir et 2 % de ténacité (cumulatif) pendant le reste de l'affrontement. Si cet ennemi est un Jedi, il a 50 % de chances d'obtenir un cumul de Purge (6 max.) jusqu'à la fin de l'affrontement.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> tous les alliés de l'Empire obtiennent 20 % de défense et tous les alliés de l'Inquisitorius sont immunisés contre l'entrave des capacités et l'étourdissement.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Juste une égratinure</u>",
+                "unique-ability1": "Pour chaque autre allié de l'Empire présent au début de la bataille, la Neuvième Sœur obtient 5 % de défense, de santé maximale et de ténacité. Ces effets sont doublés pour les alliés de l'Inquisitorius. Chaque fois qu'un autre allié de l'Empire subit un coup critique, elle utilise Raillerie et obtient 50 % d'esquive des critiques pendant 1 tour, et les alliés de l'Empire obtiennent 20 % d'esquive des critiques pendant 1 tour. Si l'allié appartient également à l'Inquisitorius, la Neuvième Sœur récupère 5 % de santé.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Patience</u>",
+                "unique-ability2": "Si tous les alliés (3 minimum) sont de l'Inquisitorius, ce personnage obtient 20% de santé maximum, de protection maximum et de pouvoir. Lorsque ce personnage perd la raillerie, il la récupère pendant 1 tour, si un ennemi souffre de Purge. lorsqu'un ennemi attaque ce personnage en dehors de son tour, il obtient un cumul de Purge (6 max, ne peut pas être esquivé ou résisté). Lorsque les cumuls de Purge sont consommés ou dissipés sur un ennemi, ce personnage obtient 3% de jauge de tour.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "ninth sister"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
     </footer>
 </body>
-</html>  
+</html>
