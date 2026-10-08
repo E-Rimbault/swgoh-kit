@@ -1,130 +1,284 @@
-<!DOCTYPE HTML>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Iden Versio</title>
-
-    <!-- Les métadonnées pour le rendu sur différents appareils -->
+    <title id="big-title">Iden Versio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-
-    <!-- Lien vers l'icône du site -->
-    <link rel="icon" type="image/png" href="../image-perso//iden/iden-image.png">
-
-    <!-- Lien vers la feuille de style -->
-     <link rel="stylesheet" href="../style/unit-style.css">
+    <link rel="icon" type="image/png" href="../image-perso/iden/iden-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/iden/iden-image.png" alt="Iden Versio" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
 
-    <!-- Entête de la page -->
-    <header class="perso">
-        <h1><u>Iden Versio</u></h1>
-        <p>
-            Attaquante tenace de l'Empire qui élimine ses ennemis<br>
-            habilement tout en soutenant son escouade.
-        </p>
-        <br>
-        <!-- Navigation pour les capacités du personnage -->
-        <nav class="perso" style="font-size: 20px;">
-            <a class="capacite" style="color: red;" href="../classement-perso/coté-obscur.html">Coté Obscur</a>
-            <a class="class" href="../classement-perso/attaquant.html">Attaquant</a>
-            <a class="capacite" href="../classement-perso/chef.html">Chef</a>
-            <a class="capacite" href="../classement-perso/empire.html">Empire</a>
-            <a class="capacite" href="../classement-perso/soldat-de-lempire.html">Soldat de l'Empire</a>
-        </nav>
+            <h1 id="title"><u>Iden Versio</u></h1>
+            <p id="description">
+                Tenacious Empire Attacker who expertly takes out foes while supporting her squad
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="capacite" href="../classement-perso/soldat-de-lempire.html" id="empire-trooper">Empire Trooper</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/" alt="TIE Defender">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: TIE Defender</u>
+                </h2>
+            </section>
+        </div>
     </header>
     <br>
 
-    <!-- Image principale du personnage -->
-    <img class="first" src="../image-perso/iden/Iden-versio.png" alt="Iden Versio"><br>ù
+    <img class="first" src="../image-perso/" alt="Iden Versio"><br>
 
-    <h2 class="titre"><u>attaque basique : Cibles faciles</u></h2>
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Take Them Down</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Iden basique" src="../image-perso/iden/iden-basic.png">
+            <img class="attaque" alt="Iden Versio basic" src="../image-perso/iden/iden-basic.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Inflige des dégâts physiques à une cible ennemie. Si aucun autre allié à l'identifiant<br>
-                Chef, Iden inflige des dégâts supplémentaires deux fois. Pour chaque coup critique,<br>
-                Iden récupère 5% de santé et de protection.
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. If no other allies have the Leader tag, Iden deals damage two more times. For each critical hit, Iden recovers 5% Health and Protection.
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>1ere spéciale: En Avant (délai: 2)</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Push Forward (cooldown: 2)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Iden spé 1" src="../image-perso/iden/iden-spe1.png">
+            <img class="attaque" alt="Iden Versio special 1" src="../image-perso/iden/iden-spe1.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                inflige des dégâts physiques à tous les ennemis, ainsi que Vulnérabilité pendant 2 tours.<br>
-                Dissipe toutes les améliorations sur la cible ennemie, inflige l'immunité aux soins pendant<br>
-                2 tours et l'étourdissement pendant 1 tour. Les ennemis Rebelles ne peuvent pas résister à ces effets.<br>
-                Si aucun autre allié n'a l'identifiant "Chef", invoque tous les autres soldats de l'Empire<br>
-                non-droïdes, qui infligent 20% de dégâts en moins.
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies and inflict Vulnerable for 2 turns. Dispel all buffs on target enemy and inflict Healing Immunity for 2 turns and Stun for 1 turn. These effects can't be resisted by Rebel enemies. If no other allies have the Leader tag, call all other non-Droid Imperial Trooper allies to assist, dealing 20% less damage.
             </p>
         </div>
     </div>
 
-
-    <h2 class="titre"><u>2eme spéciale: On se lamentera plus tard (délai: 4)</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : We Can Grieve Later (cooldown: 4)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="Iden spé 2" src="../image-perso/iden/iden-spe2.png">
+            <img class="attaque" alt="Iden Versio special 2" src="../image-perso/iden/iden-spe2.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-                Dissipe tous les affaiblissements sur les soldats de l'Empire alliés. Iden obtient une<br>
-                hausse de protection (100%) pendant 2 tours, et tous les autres soldat de l'Empire alliés<br>
-                obtiennent une hausse de protection (50%). Les soldats de l'Empire alliés récupèrent 35% de protection.<br>
-                <br>
-                Si aucun autre allié n'a l'identifiant "Chef", tous les soldats de l'empire non-droïdes <br>
-                obtiennent <u class="spéciale">S'adapter ou mourrir</u> pendant 3 tours (ne peut pas être copié).<br>
-                <br>
-                <u class="spéciale">S'adapter ou mourrir:</u> +30% de chances de coup critique, +30% d'attaque et +30<br>
-                de vitesse. Le personnage est ranimé avec 70% de santé lorsqu'il est vaincu. Si l'amélioration est<br>
-                dissipé, confère 80% de jauge de tour et ne peut pas subir de coup critique pendant 2 tours. 
-            </p>
-        </div>
-    </div>
-    
-    <h2 class="titre"><u>Capacité de chef: exactement comme prévu</u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="iden lead" src="../image-perso/iden/iden-lead.png">
-        </div>
-        <div class="right-column">
-            <p class="attaque">
-                Les soldats de l'Empire ont +35% de chances de coup critique, +35% d'attaque et +35 de vitesse.<br>
-                <br>
-                Au début de la bataille, si aucun autre allié n'a l'identifiant "Chef", chaque fois qu'un<br>
-                soldat de l'Empire allié non-droïde attaque en dehors de son tour, il obtient 2% d'attaque<br>
-                (cumulatif) jusqu'à la fin de l'affrontement, un bonus de dégâts critiques pendant 2 tours au<br>
-                début de chaque affrontement, +100% de chances de contre-attaque, et tant que les ennemis<br>
-                sont Vulnérables, ils ont -25% de vitesse.<br>
-                <br>
-                <u class="omicron">Dans les Grandes arènes:</u><br>
-                <br>
-                Au début de la bataille, si aucun autre allié n'a l'identifiant "Chef", les soldats de l'Empire<br>
-                alliés obtiennent également 35% de santé maximale et de protection maximale. Chaque fois qu'un<br>
-                ennemi attaque en dehors de son tour, les soldats de l'Empire alliés récupèrent 20% de santé<br>
-                et de protection et obtiennent également 10% de jauge de tour.
+            <p class="attaque" id="special-attack2">
+                Dispel all debuffs on Imperial Trooper allies. Iden gains Protection Up (100%) for 2 turns, and all other Imperial Trooper allies gain Protection Up (50%). Imperial Trooper allies recover 35% Protection.
+                <br><br>
+                If no other allies have the Leader tag, all non-Droid Imperial Trooper allies gain <u class="speciale">We Adapt, Or Die</u> for 3 turns, which can't be copied.
+                <br><br>
+                <u class="speciale">We Adapt, Or Die:</u> +30% Critical Chance, +30% Offense, and +30 Speed; revive with 70% Health when defeated; if dispelled, recover 80% Health, gain 80% Turn Meter, and can't be critically hit for 2 turns
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u>Capacité unique: </u></h2>
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Exactly as Planned</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="iden unique" src="../image-perso/iden/iden-unique.png">
+            <img class="attaque" alt="Iden Versio lead" src="../image-perso/iden/iden-lead.png">
         </div>
         <div class="right-column">
-            <p class="attaque">
-
+            <p class="attaque" id="lead-ability">
+                Imperial Trooper allies have +35% Critical Chance, +35% Offense, and +35 Speed.
+                <br><br>
+                At the start of battle, if no other allies have the Leader tag, whenever a non-Droid Imperial Trooper ally attacks out of turn, they gain 2% Offense (stacking) until the end of the encounter, Critical Damage Up for 2 turns at the start of each encounter, have +100% counter chance, and while enemies are Vulnerable, they have -25% Speed.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> At the start of battle, if no other allies have the Leader tag, Imperial Trooper allies also gain 35% Max Health and Max Protection, and whenever an enemy attacks out of turn, Imperial Trooper allies recover 20% Health and Protection and gain 10% Turn Meter.
             </p>
         </div>
     </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : First In, Last Out</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Iden Versio unique" src="../image-perso/iden/iden-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                If no other allies have the Leader tag, and all allies are non-Droid Imperial Troopers, Iden gains 100% Turn Meter at the start of each encounter, and whenever she is defeated she revives with 100% Health and Protection if there is another active Imperial Trooper ally.
+                <br><br>
+                While Iden has Protection Up, she has +30% Potency; while she is active, Imperial Trooper allies have +30% Offense.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Iden versio",
+                "title": "<u>Iden versio</u>",
+                "description": "Attaquante tenace de l'Empire qui élimine ses ennemis habilement tout en soutenant son escouade.",
+
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "empire": "Empire",
+                "empire-trooper": "Soldat Clone",
+                "crew-members": "Membres d’Équipage",
+
+                "basic-attack-title": "<u>Attaque Basique: Cibles faciles</u>",
+                "basic-attack": "Infliges des dégâts physiques à une cible ennemie. Si aucun autre allié n'a l'identifiant \"Chef\", Iden inflige des dégâts supplémentaires deux fois. Pour chaque coup critique, Iden récupère 5 % de santé et de protection",
+
+                "special-attack1-title": "<u>Attaque Spéciale : En avant (délai : 2)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis, ainsi que la vulnérabilité pendant 2 tours. Dissipe toutes les améliorations sur la cible ennemie, inflige l'immunité aux soins pendant 2 tours et l'étourdissement pendant 1 tour. Les ennemis rebelles ne peuvent pas résister à ces effets. Si aucun autre allié n'a l'identifiant \"Chef\", invoque tous les autres soldats de l'Empire non-droïdes qui infligent 20 % de dégâts en moins.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : On se lamentera plus tard (délai : 4)</u>",
+                "special-attack2": "Dissipe tous les affaiblissements sur les soldats de l'Empire alliés. Iden obtient une hausse de protection (100 %) pendant 2 tours, et tous les soldats de l'Empire alliés obtiennent une hausse de protection (50 %). Les soldats de l'Empire alliés récupèrent 35 % de protection.\n\nSi aucun autre allié n'a l'identifiant \"Chef\", tous les soldats de l'Empire alliés non-droïdes obtiennent <u class='speciale'>S'adapter ou mourir</u> pendant 3 tours (ne peut pas être copié).\n\n<u class='speciale'>S'adapter ou mourir :</u> +30 % de chances de coup critique, +30 % d'attaque et +30 de vitesse. Le personnage est ranimé avec 70 % de santé lorsqu'il est vaincu. Si l'amélioration est dissipée, confère 80 % de santé, de jauge de tour et ne peut pas subir de coup critique pendant 2 tours.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Exactement comme prévu</u>",
+                "lead-ability": "Les soldats de l'Empire alliés ont +35 % de chances de coup critique, +35 % d'attaque et +35 de vitesse.\n\nAu début de la bataille, si aucun autre allié n'a l'identifiant \"Chef\", chaque fois qu'un soldat de l'Empire allié non-droïde attaque en dehors de son tour, il obtient 2 % d'attaque (cumulatif) jusqu'à la fin de l'affrontement, un bonus de dégâts critiques pendant 2 tours au début de chaque affrontement, +100 % de chances de contre-attaque, et tabt que les ennemis sont vulnérables, ils ont -25 % de vitesse.\n\n<u class=omicron>Amélioration Omicron : Dans les Grandes arènes :</u> Au début de la bataille, si aucun autre allié n'a l'identifiant \"Chef\", les soldats de l'Empire obtiennent également 35 % de santé maximale et de protection maximale. Chaque fois qu'un ennemi attaque en dehors de son tour, les soldats de l'Empire alliés récupèrent 20 % de santé et de protection et obtiennent 10 % de jauge de tour.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Première arrivée, dernière partie</u>",
+                "unique-ability1": "Si aucun autre allié n'a l'identifiant \"Chef\" et que tous les alliés sont des soldats de l'Empire non-droïdes, Iden obtient 100 % de jauge de tour au début de chaque affrontement. Lorsqu'elle est vaincue, elle est ranimée avec 100 % de santé et de protection si un autre soldzt de l'Empire allié est actif.\n\nTant qu'Iden dipose de hausse de protection, elle a +30 % de pouvoir. Lorsqu'elle est active, les soldats de l'Empire ont +30 % d'attaque.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "iden versio"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
