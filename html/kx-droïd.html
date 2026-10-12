@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">KX Security Droid</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/kx-droïd/kx-droïd-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/kx-droïd/kx-droïd-image.png" alt="KX Security Droid" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>KX Security Droid</u></h1>
+            <p id="description">
+                Play as Imperial Security Bureau's Enforcer, who makes sure all tasks are performed optimally
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="capacite" href="../classement-perso/bsi.html" id="isb">ISB</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Baton Deployed</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="KX Security Droid basic" src="../image-perso/kx-droïd/kx-droïd-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical Damage to the target enemy and gain a stack of Overcharge (max 5), and recover 20% Health and Protection per stack of Overcharge. During his turn, if he has 5 stacks of Overcharge, Shock the enemy for 1 turn, which can't be resisted, and remove all Overcharge stacks.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Please Do Not Resist (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="KX Security Droid special" src="../image-perso/kx-droïd/kx-droïd-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                KX Security Droid gains Offense equal to 200% of his Defense for 1 turn. Deal Physical damage to all enemies and KX gains Defense Up and Taunts for 2 turns. If all allies are ISB, also gain Alert and Protection Up (100%) for 2 turns. Other ally ISB Droids take 5% Max Health damage that ignores Protection.
+                <br><br>
+                - If KX Security Droid is Rank 2 or above, call him to assist.<br>
+                - If he is Rank 3, Stagger the target enemy for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Controlled Operation</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="KX Security Droid unique 1" src="../image-perso/kx-droïd/kx-droïd-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of battle, KX Security Droid gains 15% Max Health for each ISB ally until the end of battle. Whenever KX gains 5 stacks of Overcharge, he gains Max Health (10%, stacking) until the end of battle.
+                <br><br>
+                If KX damages a Target Locked enemy, Expose them for 2 turns. If KX is critically hit, he gains a stack of Overcharge and inflicts Defense Down on the attacking enemy for 2 turns. Whenever an ISB Droid ally is defeated, KX gains Frenzy for 2 turns and a stack of Endure for the rest of the encounter.
+                <br><br>
+                Whenever an Undermined ally is damaged, Taunt for 1 turn, and whenever KX is Undermined, he gains Protection Up (25%, stacking) for the rest of the encounter.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars, if all allies are ISB:</u> At the start of battle, KX gains Retribution for 1 turn, Taunts for 3 turns, and immunity to Daze, and all allies have +50% Max Health and Max Protection until the end of battle.<br><br>
+                Whenever KX gains Rank 3, he can no longer lose rank. Whenever KX attacks out of turn, he gains 5% Max Health (stacking) until the end of battle, and all allies gain 5% Turn Meter.<br><br>
+                Whenever an ISB ally uses a Special ability, KX assists.<br><br>
+                Whenever KX uses his ability Please Do Not Resist and has more than 3 stacks of Overcharge, he gains Foresight for 2 turns. If he has 5 stacks of Overcharge, also Blind all enemies for 2 turns.<br><br>
+                Whenever IPD uses Self Destruct, all allies gain Endure for 2 turns, which can't be dispelled, they recover 100% Protection, and the cooldown of KX's ability, Please Do Not Resist is reset.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Chain of Command</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="KX Security Droid unique 2" src="../image-perso/kx-droïd/kx-droïd-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                At the start of the battle, KX Security Droid gains Rank 1. Whenever KX Security Droid attacks out of turn while Taunting, he gains a Rank. Whenever Taunt is dispelled, KX Security Droid loses a Rank.
+                <br><br>
+                - While KX is Rank 2 or above, his Basic ability deals an additional 10% True damage based on his Max Health.<br>
+                - While KX is Rank 3, he has a 100% counter chance.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Droïde de sécurité KX",
+                "title": "<u>Droïde de sécurité KX</u>",
+                "description": "Incarnez l'Exécuteur du Bureau de la sécurité impériale, qui s'assure que toutes les tâches sont exécutées de manière optimale.",
+
+                "darkside": "Coté Obscur",
+                "tank": "Tank",
+                "empire": "Empire",
+                "isb": "B.S.I.",
+
+                "basic-attack-title": "<u>Attaque Basique: Bâton déployé</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie et obtient un cumul de Surcharge (5 maximum), et récupère 20 % de santé et de protection par cumul de Surcharge. Pendant son tour, s'il a 5 cumuls de Surcharge, inflige Choc à l'ennemi pendant 1 tour (ne peut pas être résisté), et retire tous les cumuls de Surcharge.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Veuillez ne pas résister (délai : 4)</u>",
+                "special-attack1": "Le Droïde de sécurité KX obtient un bonus d'attaque à hauteur de 200 % de sa défense pendant 1 tour. Inflige des dégâts physiques à tous les ennemis, et KX obtient un bonus de défense et Raillerie pendant 2 tours. Si tous les alliés sont du B.S.I., il obtient également En alerte et un bonus de protection (100 %) pendant 2 tours. Les autres droïdes du B.S.I. alliés subissent 5 % de dégâts liés à la santé maximale qui ignorent la protection.\n\n- Si le Droïde de Sécurité KX est de rang 2 ou supérieur, l'invoque en renfort.\n\n- S'il est de rang 3, inflige Faux pas à la cible ennemie pendant 1 tour.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Opération contrôlée</u>",
+                "unique-ability1": "Au début de la bataille, le Droïde de sécurité KX gagne 15 % de santé maximale pour chaque allié du B.S.I. jusqu'à la fin de l'affrontement. Chaque fois que KX gagne 5 cumuls de Surcharge, il gagne de la santé maximale (10 %, cumulatif) jusqu'à la fin de l'affrontement.\n\nSi KX inflige des dégâts à un ennemi qui subit Verrouillage, il lui inflige Exposition pendant 2 tours. Si KX subit un coup critique, il gagne un cumul de Surcharge et inflige un malus de défense à l'ennemi attaquant pendant 2 tours. Chaque fois qu'un allié droïde du B.S.I. est vaincu, KX gagne Frénésie pendant 2 tours et un cumul d'endurance pour le reste de l'affrontement.\n\nChaque fois qu'un allié affecté par Démoralisation subit des dégâts, il utilise Raillerie pendant 1 tour, et chaque fois que KX subit Démoralisation, il gagne un bonus de protection (25 %, cumulatif) pour le reste de l'affrontement.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire, si tous les alliés sont du B.S.I. :</u> au début de la bataille, KX obtient rétribution pendant 1 tour, utilise Raillerie pendant 3 tours, immunité à Confusion, et tous les alliés ont +50 % de santé maximale et de protection maximale jusqu'à la fin de la bataille.\n\nChaque fois que KX gagne le rang 3, il ne peut plus perdre de rang. Chaque fois que KX attaque en dehors de son tour, il obtient 5 % de santé maximale (cumulatif) jusqu'à la fin de la bataille, et tous les alliés gagnent 5 % de jauge de tour.\n\nChaque fois qu'un allié du B.S.I. utilise une capacité spéciale, KX l'assiste.\n\nChaque fois que KX utilise sa capacité, Veuillez ne pas résister et dispose de plus de 3 cumuls de Surcharge, il gagne Prévoyance pendant 2 tours. S'il dispose de 5 cumuls de Surcharge, il inflige aussi cécité à tous les ennemis pendant 2 tours.\n\nChaque fois que le Droïde Sonde Impérial utilise Autodestruction, tous les alliés obtiennent Endurance pendant 2 tours (ne peut pas être dissipé), et ils récupèrent 100 % de protection et le délai de la capacité de KX, Veuillez ne pas résister est réinitialisé.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Châine de commandement</u>",
+                "unique-ability2": "Au début de la bataille, le Droïde de sécurité KX gagne le rang 1. Chaque fois que le Droïde de sécurité KX attaque en dehors de son tour alors qu'il utilise Raillerie, il gagne un rang. Chaque fois que Raillerie est dissipée, le Droïde de sécurité KX perd un rang.\n\n- Tant que KX est de rang 2 ou plus, sa capacité de base inflige en plus 10 % de dégâts réels basés sur sa santé maximale.\n- Tant que KX est de rang 33, il a 100 % de chances de contre-attaque.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "KXSECURITYDROID"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
