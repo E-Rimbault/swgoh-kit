@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">T3-M4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/t3-m4/t3-m4-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/t3-m4/t3-m4-image.png" alt="T3-M4" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>T3-M4</u></h1>
+            <p id="description">
+                Offensive Droid who supports a Droid team with extra stats and debuffs the enemy team
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/droïde.html" id="droïd">Droïd</a>
+                <a class="capacite" href="../classement-perso/ancienne-république.html" id="old-republic">Old Republic</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/" alt="Ebon Hawk">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: Ebon Hawk</u>
+                </h2>
+            </section>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Disable</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="T3-M4 basic" src="../image-perso/t3-m4/t3-m4-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy with a 75% chance to inflict Ability Block for 1 turn. If the enemy has Target Lock, the Ability Block can't be Resisted.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Repair Kit (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="T3-M4 special 1" src="../image-perso/t3-m4/t3-m4-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Dispel all debuffs from target ally. If that ally was a Droid, also recover 50% Health, 50% Protection, and gain Critical Hit Immunity and Offense Up for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Carbonite Projector (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="T3-M4 special 2" src="../image-perso/t3-m4/t3-m4-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Dispel all buffs on all enemies and deal Special damage to them. Inflict Critical Chance Down and Offense Down for 2 turns, then remove 20% Turn Meter from all enemies. Target Locked enemies can't resist these debuffs.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Combat Logic Upgrade</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="T3-M4 unique 1" src="../image-perso/t3-m4/t3-m4-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Droid allies gain 8% Potency and 8% Critical Hit Chance (stacking) each time T3-M4 uses an ability. Also, Droid allies have +8% Critical Damage for each debuff on the enemy team.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Master Gearhead</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="T3-M4 unique 2" src="../image-perso/t3-m4/t3-m4-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                T3-M4 has +100% Defense Penetration, and Droid allies gain 100% of T3-M4's Defense Penetration. Additionally, each time T3-M4 starts his turn, he has a 75% chance to inflict Target Lock for 2 turns on a random enemy who does not already have it. This Target Lock can't be evaded.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> At the start of the encounter, T3-M4 gains Stealth for 2 turns, and Droid allies gain 15 Armor Penetration and 30% Max Health. Droid allies have +20% Defense for each Target Locked enemy, +20% Defense while debuffed, and +20% Defense while buffed. At the start of T3-M4's turn, inflict Target Lock for 2 turns on a random enemy who does not already have it, which can't be evaded. Then, all allies recover 5% Health and Protection for each Target Locked enemy.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "T3-M4",
+                "title": "<u>T3-M4</u>",
+                "description": "Droïde d'attaque qui soutient une équipe de droïdes grâce à ses bonus et affaiblit l'équipe ennemie.",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "droïd": "Droïde",
+                "old-republic": "Ancienne République",
+                "crew-members": "Membres d’Équipage",
+
+                "basic-attack-title": "<u>Attaque Basique: Désactivation</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie avec 75 % de chances d'entraver ses capacités pendant 1 tour. Si la cible est verrouillée, l'entrave des capacités ne peut pas être résistée.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Kit de réparation (délai : 3)</u>",
+                "special-attack1": "Dissipe tous les affaiblissements dont souffre la cible alliée. Si cet allié est un Droïde, il récupère également 50 % de santé et 50 % de protection et gagne l'immunité aux coups critiques et un bonus d'attaque pendant 2 tours.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Projecteur de carbonite (délai : 4)</u>",
+                "special-attack2": "Dissipe toutes les améliorations en cours sur tous les ennemis et leur inflige des dégâts spéciaux. Inflige un malus de chances de coup critique et un malus d'attaque pendant 2 tours, puis réduit la jauge de tour de tous les ennemis de 20 %. Les ennemis verrouillés ne peuvent pas résister à ces affaiblissements.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Amélioration de tactique de combat</u>",
+                "unique-ability1": "Les Droïdes alliés gagnent 8 % de pouvoir et 8 % de chances de coup critique (cumulable) à chaque fois que T3-M4 utilise une capacité. Les droïdes alliés reçoivent aussi un bonus de dégâts critiques de +8 % pour chaque affaiblissement dont souffre l'équipe ennemie.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Fou du volant</u>",
+                "unique-ability2": "T3-M4 gagne un bonus de pénétration de défense de +100 % et les droïdes alliés gagnent 100 % de la pénétration de défense de T3-M4. Au début de son tour, T3-M4 a 75 % de chances d'infliger le verrouillage pendant 2 tours à un ennemi aléatoire qui n'est pas déjà verrouillé. Ce verrouillage ne peut pas être esquivé.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> Au début de l'affrontement, T3-M4 obtient le camouflage pendant 2 tours, et les droïdes alliés obtiennent 15 % de pénétration de défense et 30 % de santé maximale. Les alliés droïdes ont +20 % de défense pour chaque ennemi verrouillé, +20 % de défense lorsqu'ils subissent un affaiblissement, et +20 % de défense lorsqu'ils disposent d'améliorations. Au début du tout de T3-M4, inflige le verrouillage pendant 2 tours à un ennemi aléatoire qui n'en dispose pas déjà (ne peut pas être esquivé). Ensuite, tous les alliés récupèrent 5 % de santé et de protection pour chaque ennemi verrouillé.",
+
+                "ship-title": "<u>Vaisseau : Ebon Hawk</u>",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "t3-m4"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
