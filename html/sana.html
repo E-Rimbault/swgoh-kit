@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Sana Starros</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/sana/sana-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/sana/sana-image.png" alt="Sana Starros " style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Sana Starros</u></h1>
+            <p id="description">
+                Scoundrel turned Rebel sympathizer that helps her team deal area of effect damage
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="lead">Leader</a>
+                <a class="capacite" href="../classement-perso/mercenaire.html" id="mercenary">Mercenary</a>
+                <a class="capacite" href="../classement-perso/pirate.html" id="pirate">Pirate</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="capacite" href="../classement-perso/contrebandier.html" id="smuggler">Smuggler</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/sana/sana.png" alt="sana starros"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Cheap Shot</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Sana Starros basic" src="../image-perso/sana/sana-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy and inflict Vulnerable for 1 turn. If the enemy already had Vulnerable, inflict Vulnerable to all enemies for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Lessons in Coercion (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Sana Starros special 1" src="../image-perso/sana/sana-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Rebel Scoundrel Tanks recover 20% Protection. Dispel all debuffs on non-Tank Rebel allies and Sana, and they gain Critical Chance Up and Stealth for 2 turns. Then, call all Stealthed allies to assist with +100% Critical Damage.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Smart-targeting Scatterblaster (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Sana Starros special 2" src="../image-perso/sana/sana-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Special damage to all enemies and inflict Tenacity Down for 2 turns. Deal damage again to all Target Locked enemies and Stagger them for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Rebel Sympathizer</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Sana Starros lead" src="../image-perso/sana/sana-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Rebel Scoundrel Tanks have +30% Defense, Max Health, and Max Protection and gain 15% Turn Meter whenever a non-Tank Rebel ally or Sana is damaged by an attack. Rebel allies and Sana have +30% Offense and Potency. At the start of battle, Rebel allies and Sana gain Protection Up (100%) until they use an ability.
+                <br><br>
+                Whenever a Rebel ally or Sana has less than 100% Turn Meter and gains bonus Turn Meter, they gain 25% Critical Damage (stacking) until they critically hit an enemy. If a Rebel Scoundrel removes Turn Meter from an enemy, that enemy also takes damage equal to 20% of their Max Health, which can't be evaded. This damage can't defeat enemies. The first time each turn Rebel allies or Sana deal damage more than once, they gain 25% Max Health (stacking, max 200%) for the rest of the encounter. Whenever Rebel allies or Sana critically hit an enemy, they inflict Target Lock for 1 turn, which can't be evaded. Whenever an enemy is inflicted with Target Lock, reduce Rebel Scoundrel Tanks' cooldowns by 1.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> Rebel Scoundrels and Sana are immune to Daze. At the start of battle, Rebel Scoundrel Tanks Taunt for 1 turn and Rebel Scoundrels and Sana start with Tenacity Up for 1 turn. Target Lock can't be resisted from this ability. The first time each turn Rebel allies and Sana deal damage more than once, dispel all buffs on all enemies and inflict Healing Immunity for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : A Professional I Can Trust...ish</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Sana Starros unique" src="../image-perso/sana/sana-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Sana has +35% counter chance and +20% Critical Chance. At the start of each Rebel ally's turn, whenever Sana evades an attack, or whenever Sana attacks out of turn, all non-Scoundrel allies are inflicted with <u class="speciale">Suspicious</u> for 1 turn, which can't be copied or resisted. Sana assists whenever a non-Attacker Rebel Scoundrel uses a Special ability. Whenever Sana assists this way, she recovers 20% Protection and Rebel allies recover half that amount. Whenever an enemy is inflicted with Target Lock, Sana gains 5% Turn Meter.
+                <br><br>
+                Sana can't gain more than 5 stacks of Profit.
+                <br><br>
+                <u class="speciale">Suspicious:</u> -10 Speed, +100% Critical Chance (Does not stack with Critical Chance Up)
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Sana Staros",
+                "title": "<u>Sana Staros</u>",
+                "description": "Une vaurienne devenue sympathisante rebelle qui aide son équipe à infliger des dégâts à effets de zone.",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "mercenary": "Mercenaire",
+                "pirate": "Pirate",
+                "scoundrel": "Vaurien",
+                "smuggler": "Contrebandier",
+
+                "basic-attack-title": "<u>Attaque Basique: Tir bas de gamme</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie, ainsi que Vulnérabilité pendant 1 tour. Si l'ennemi est déjà vulnérable, inflige Vulnérabilité à tous les ennemis pendant 1 tour.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Leçons sous contrainte (délai : 4)</u>",
+                "special-attack1": "Les tanks vauriens rebelles récupèrent 20 % de protection. Dissipe tous les affaiblissement affectant les alliés rebelles qui ne sont pas des tanks et Sana. Ils obtiennent un bonus de chances de coup critique et Cammouflage pendant 2 tours. Ensuite, invoque tous les alliés camouflés avec +100 % de dégâts critiques.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Fusil à dispersion à visée intelligente (délai : 3)</u>",
+                "special-attack2": "Inflige des dégâts spéciaux à tous les ennemis et inflige un malus de ténacité pendant 2 tours. Inflige des dégâts supplémentaires à tous les ennemis verrouillés et inflige Faux pas pendant 1 tour.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Sympathisante rebelle</u>",
+                "lead-ability": "Les tanks Vauriens rebelle gagnent +30 % de défense, de santé maximale et de protection maximale, et ils obtiennent 15 % de jauge de tour lorsqu'un allié rebelle qui n'est pas un tank ou Sana subit des dégâts. Les alliés rebelles et Sana ont +30 % d'attaque et de pouvoir. AU début de la bataille, les alliés rebelles et Sana obtiennent un bonus de protection (100 %) jusqu'à ce qu'ils utilisent une capacité.\n\nChaque fois qu'un allié rebelle ou Sana a moins de 100 % de jauge de tour et qu'ils obtiennent un bonus de jage de tour, il gagne un bonus de 25 % de dégâts critiques (cumulable) jusqu'à ce qu'ils infligent un coup critique à un ennemi. Si un vaurien rebelle supprime la jauge de tour d'un ennemi, cet ennemi subit également des dégâts à hauteur de 20 % de sa santé maximale (ne peut pas être esquivé). Ces dégâts ne peuvent pas éliminer les ennemis. A chaque tour, la première fois que les alliés rebelles ou Sana infligent des dégâts plus d'une fois, ils obtiennent 25 % de santé maximale (cumulable, 200 % maximum) pendant le reste de l'affrontement. Lorsque des alliés ou Sana infligent un coup critique à un ennemi, ils infligent Verrouillage pendant 1 tour (ne peut pas être esquivé). A chaque fois qu'un ennemi subit Verrouillage, les délais des Vauriens reblles sont diminués de 1.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> les Vauriens rebelles et Sana sont immunisés contre Confusion. Au début de la bataille, les tanks Vauriens rebelles utilisent Raillerie pendant 1 tour. Cette capacité ne peut pas résister au verrouillage. Chaque tour, la première fois que les alliés rebelles ou Sana infligent des dégâts plus d'une fois, dissipe toutes les améliorations en place sur les ennemis et inflige Immunité aux soins pendant 1 tour. ",
+
+                "unique-ability1-title": "<u>Capacité Unique : Une professionnelle digne de confiance ?</u>",
+                "unique-ability1": "Sana gagne un bonus de chances de contre-attaque de +35 % et un bonus de chances de coup critique de +20 %. Au début du tour de chaque allié rebelle, à chaque fois que Sana esquive une attaque, ou lorsque Sana attaque quand ce n'est pas son tour, tous les alliés qui ne sont pas Vauriens subissent <u class='speciale'>Suspect</u> pendant 1 tour (ne peut pas être copié ou résisté). Sana est invoquée lorsqu'un Vaurien rebelle qui n'est pas attaquant utilise une capacité spéciale. Sana récupère 20 % de protection lorsque Sana l'assiste ainsi que les alliés rebelles récupèrent la moitié de cette valeur. Lorsqu'un ennemi subit Verrouillage, Sana gagne 5 % de jauge de tour.\n\nSana ne peut pas gagner plus de 5 cumuls de Profit.\n\n<u class='speciale'>Suspect :</u> -10 de vitesse, +100 % de chances de coup critique (ne se cumule pas avec un bonus de chances de coup critique.)",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "sana starros"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>

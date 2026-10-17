@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Yoda and Chewie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/yoda-chewie/yoda-chewie-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/yoda-chewie/yoda-chewie-image.png" alt="Yoda and Chewie" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Yoda and Chewie</u></h1>
+            <p id="description">
+                A Support Wookiee who's got your back!
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/république-galactique.html" id="galactic-republic">Galactic Republic</a>
+                <a class="capacite" href="../classement-perso/jedi.html" id="jedi">Jedi</a>
+                <a class="capacite" href="../classement-perso/wookie.html" id="wookie">Wookie</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/yoda-chewie/yoda-chewie.png" alt="Yoda and Chewie"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: May the Furce be with You</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Yoda and Chewie basic" src="../image-perso/yoda-chewie/yoda-chewie-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy three times and Yoda & Chewie gain Speed Up for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : One with the Furce (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Yoda and Chewie special 1" src="../image-perso/yoda-chewie/yoda-chewie-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                All Wookiee allies recover 20% Health and Protection and gain Foresight for 2 turns.
+                <br><br>
+                If Tarfful was the ally in the Leader slot at the start of battle, all Wookiee Support allies gain Frenzy for 1 turn, which can't be copied or dispelled.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : The Furce Awakens (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Yoda and Chewie special 2" src="../image-perso/yoda-chewie/yoda-chewie-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Dispel all buffs on all enemies and deal Special damage to them, and Distract target enemy for 1 turn.
+                <br><br>
+                If Tarfful was the ally in the Leader slot at the start of battle, Yoda & Chewie assist, dealing 55% less damage and all Wookiee allies gain Advantage for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : The Furce is My Ally</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Yoda and Chewie unique" src="../image-perso/yoda-chewie/yoda-chewie-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of each encounter, Wookiee allies gain Foresight for 2 turns.
+                <br><br>
+                If all allies were Wookiees at the start of battle:
+                <br><br>
+                - Wookiee Jedi gain Master's Training until the end of battle<br>
+                - Whenever an enemy attacks an ally out of turn, that ally gains 5% Turn Meter<br>
+                - Whenever an ally gains Foresight, they gain 10% Offense (stacking, max 100%) until the end of battle (once per turn) and 5% Turn Meter and whenever Foresight expires on an ally, inflict a stack of Off Balance on a random enemy who didn't already have it for 1 turn (once per turn)
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas and if there are no Galactic Legend enemies:</u> Wookiee allies gain 25 Speed and 40% Critical Damage.
+                <br><br>
+                If all allies were Wookiees at the start of battle:
+                <br><br>
+                - All allies gain Master's Training until the end of battle<br>
+                - Whenever an ally attacks out of turn, they inflict the target enemy with a stack of Damage Over Time for 1 turn<br>
+                - Whenever an ally gains Foresight, they also gain Retribution for 2 turns and whenever Foresight expires, remove 5% Turn Meter from all enemies<br>
+                - The first time each ally defeats an enemy, inflict all enemies with Fear for 1 turn and all allies gain Foresight for 1 turn<br>
+                - At the start of each of Yoda & Chewie's turns, inflict all enemies with Vulnerable for 1 turn<br>
+                - Whenever Yoda & Chewie use a Special ability while they have Foresight, they trigger all stacks of Damage Over Time on all enemies and inflict Disarm on the target enemy for 2 turns or until Yoda & Chewie are defeated and remove it from all enemies, which can't be copied, dispelled, evaded, or resisted
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Yoda et Chewie",
+                "title": "<u>Yoda et Chewie</u>",
+                "description": "Un soutien Wookie qui assure vos arrières !",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "galactic-republic": "République Galactique",
+                "jedi": "Jedi",
+                "Wookie": "",
+
+                "basic-attack-title": "<u>Attaque Basique: Que la fourrure soit avec vous !</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie trois fois, puis Yoda et Chewie obtient un bonus de vitesse pendant 1 tour.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : La fourrure est avec moi (délai : 4)</u>",
+                "special-attack1": "Tous les alliés Wookies récupèrent 20 % de santé et de protection, puis gagnent prévoyance pendant 2 tours.\n\nSi Tarfful était l'allié dans l'emplacement de chef au début de la bataille, tous les soutiens alliés Wookies obtiennent Frénésie pendant 1 tour (ne peut pas être vopié ou dissipé).",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Le réveil de la Fourrure (délai : 4)</u>",
+                "special-attack2": "Dissipe toutes les améliorations en cours sur tous les ennemis et leur inflige des dégâts spéciaux. La cible ennemie subit Distraction pendant 1 tour.\n\nSi Tarfful était l'allié dans l'emplacement de chef au début de la bataille, Yoda et Chewie est invoqué (inflige 55 % de dégâts en moins) et tous les alliés Wookies obtiennent Avantage pendant 2 tours.",
+
+                "unique-ability1-title": "<u>Capacité Unique : La Fourrure est mon alliée</u>",
+                "unique-ability1": "Au début de chaque affrontement, les alliés Wookies obtiennent Prévoyance pendant 2 tours.\n\nSi tous les alliés sont des Wookies au début de la bataille :\n\n- Les Jedis Wookies obtiennent Entraînement du Maître jusqu'à la fin de la bataille.\n- Chaque fois qu'un ennemi attaque un allié hors de son tour, cet allié récupère 5 % de jauge de tour.\n- Chaque fois qu'un allié gagne Prévoyance, il gagne 10 % d'attaque(cumulatif, maximum 100 %) jusqu'à la fin de la bataille (une fois par tour) et 5 % de jauge de tour et chaque fois que Préoyance expire sur un allié, inflige un cumul de Déséquilibre sur un ennemi aléatoire qui n'en disposait pas déjà pendant 1 tour (une fois par tour).\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes et si aucune Légende galactique ennemie n'est présente :</u> les alliés Wookies gagnent 25 de vitesse et 40 % de dégâts critiques.\n\nSi tous les alliés sont des Wookies au début de la bataille :\n\n- Tous les alliés obtiennent Entrînement du Maître jusqu'à la fin de la bataille.\n- Chaque fois qu'un allié attaque hors de son tour, il inflige un cumul de dégâts sur la durée pendant 1 tour à la cible ennemie.\n- Lorsqu'un allié obtient Prévoyance, il gagne aussi Rétribution pendant 2 tours et chaque fois que Prévoyance expire, réduit de 5 % la jauge de tour de tous les ennemis.\n- La première fois que chaquue allié élimine un ennemi, inflige Peur à tous les ennemis pendant 1 tour et tous les alliés obtiennent Prévoyance pendant 1 tour.\n- Au début de chacun des tours de Yoda et Chewie, inflige Vulnérabilité à tous les ennemis pendant 1 tour.\n- Lorsque Yoda et Chewie utilise une capacité spéciale alors que l'unité dispose de Prévoyance, tous les cumuls de dégâts sur la durée sont déclenchés sur tous les ennemis et Désarmement est infligé à la cible ennemie pendant 2 tours ou jusqu'à ce que Yoda et Chewie soit vaincu et que cet effet soit suprimé de tous les ennemis (ne peut pas être copié, dissipé, esquivé ou résisté).",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "YODACHEWBACCA"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
