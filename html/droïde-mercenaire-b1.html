@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Mercenary Guard Droid (B1)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/b1-mercenaire-droide/b1-mercenaire-droide-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/b1-mercenaire-droide/b1-mercenaire-droide-image.png" alt="Mercenary Guard Droid (B1)" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Mercenary Guard Droid (B1)</u></h1>
+            <p id="description">
+                A heavily armed security droid employed by mercenaries to protect their interests
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/mercenaire.html" id="mercenary">Mercenary</a>
+                <a class="capacite" href="../classement-perso/cartell-des-hutt.html" id="hutt">Hutt Cartel</a>
+                <a class="capacite" href="../classement-perso/droïde.html" id="droïd">Droïd</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Modified E-10 Blaster Rifle</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Mercenary Guard Droid (B1) basic" src="../image-perso/b1-mercenaire-droide/b1-mercenaire-droide-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. Bounty Hunter Mercenary allies gain Offense Up for 1 turn. If there is any version of Embo present in the allied Leader slot, he assists and gains Speed Up for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Overhead Smash (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Mercenary Guard Droid (B1) special" src="../image-perso/b1-mercenaire-droide/b1-mercenaire-droide-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and Blind them for 1 turn. Bounty Hunter Mercenary allies gain Protection Up (40%) for 2 turns. If the ally in the Leader slot is Embo & Keibu, Bounty Hunter Mercenary allies gain 25% Offense (stacking, max 100%) until the end of battle and Stagger all enemies for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Mercenary Gotra</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Mercenary Guard Droid (B1) unique" src="../image-perso/b1-mercenaire-droide/b1-mercenaire-droide-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Mercenary Guard Droid (B1) has no Protection, 1 Health, 25 stacks of Mercenary Battalion, and can't be defeated or destroyed while they have Mercenary Battalion. If the ally in the Leader slot is Embo & Keibu, Mercenary Guard Droid has 50 stacks of Mercenary Battalion instead. At the start of battle, if Embo & Keibu is the ally in the Leader slot, the first time Mercenary Battalion stacks reach 20 or lower, Mercenary Guard Droid gains 100 stacks of Mercenary Battalion.
+                <br><br>
+                When all stacks of Mercenary Battalion expire, Mercenary Guard Droid is immediately destroyed. Mercenary Guard Droid is immune to Damage Over Time and their Max Health and Max Protection can't be increased.
+                <br><br>
+                When Mercenary Guard Droid takes damage, they dispel all debuffs on themselves and lose 6 stacks of Mercenary Battalion (max 18 per turn). If they are Taunting, lose 3 stacks instead. At the start of Mercenary Guard Droid's turn, they gain 3 stacks of Mercenary Battalion. Mercenary Guard Droid has +5 stacks of Mercenary Battalion for each Relic Amplifier level they have. Mercenary Guard Droid can't gain Spare Parts and can't be revived.
+                <br><br>
+                <u class="speciale">Mercenary Battalion:</u> Each stack grants Mercenary Guard Droid +0.5% Potency and Mercenary allies +0.5% Critical Avoidance and Defense
+
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Droid Mercenary</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Mercenary Guard Droid (B1) unique 2" src="../image-perso/b1-mercenaire-droide/b1-mercenaire-droide-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                At the start of battle, Mercenary Guard Droid taunts for 1 turn, which can't be dispelled, and all other Bounty Hunter Mercenary allies gain 120% Defense until the end of battle.
+                <br><br>
+                Whenever a Bounty Hunter Mercenary ally gains a bonus turn, Mercenary Guard Droid gains 3 stacks of Mercenary Battalion and Taunts for 1 turn, which can't be dispelled. Whenever Mercenary Guard Droid uses an ability, they Taunt for 1 turn. If they are Taunting, they gain 2 stacks of Mercenary Battalion instead.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in 3v3 Grand Arenas:</u> All other Bounty Hunter Mercenary allies gain 100% Defense until the end of battle. The first time a Bounty Hunter Mercenary ally falls below 25% Health, they recover 100% Health and gain Damage Immunity for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability3-title">Unique Ability : Soldier of Fortune</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Mercenary Guard Droid (B1) unique 3" src="../image-perso/b1-mercenaire-droide/b1-mercenaire-droide-unique3.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability3">
+                At the start of battle, Mercenary Guard Droid gains 1 stack of Soldier of Fortune for each Relic Amplifier level they have until the end of battle. Whenever Mercenary Guard Droid is damaged while Taunting, they gain 1 stack of Soldier of Fortune.
+                <br><br>
+                Whenever Mercenary Guard Droid takes damage while they are not Taunting, they lose 5 stacks of Soldier of Fortune.
+                <br><br>
+                At the start of each Bounty Hunter Mercenary ally's turn, they gain 5% Defense Penetration (stacking) and 5% Tenacity (stacking) per stack of Soldier of Fortune Mercenary Guard Droid have until the start of their next turn.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Droïde Garde mercenaire (B1)",
+                "title": "<u>Droïde Garde mercenaire (B1)</u>",
+                "description": "Un droïde de sécurité lourdement armé, employé par des mercenaires pour protéger leurs intérêts.",
+
+                "darkside": "Coté Obscur",
+                "tank": "Tank",
+                "mercenary": "Mercenaire",
+                "hutt": "Cartel des Hutt",
+                "droïd": "Droïde",
+
+                "basic-attack-title": "<u>Attaque Basique: Fusil blaster E-10 modifié</u>",
+                "basic-attack": "Inflige des dégâts physiques  la cible ennemie. Les alliés Chasseurs de primes mercenaires gagnent un bonus d'attaque pendant 1 tour. Si une version d'Embo est présente dans l'emplacement de chef allié, il est invoqué et obtient un bonus de vitesse pendant 1 tour.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Frappe descendante (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à la cible ennemie et lui inflige Cécité pendant 1 tour. Les Chasseurs de primes mercenaires lliés obtiennent un bonus de protection (40 %) pendant 2 tours. Si l'allié dans l'emplacement de chef est Embo et Keibu, les chasseurs de primes alliés obtiennent +25 % d'attaque (cumulatif, 100 % maximum) jusqu'à la fin de la bataille et inflige Faux pas à tous les ennemis pendant 2 tours.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Gotra mercenaire</u>",
+                "unique-ability1": "Le Droïde Garde mercenaire (B1) n'a aucune protection, a 1 point de santé, 25 cumuls de Bataillon de mercenaires, et ne peut pas e^tre vaincu ou détruit tant qu'il dispose de Bataillon de mercenaires. Si l'allié dans l'emplacement de chef est Embo et Keibu, le Droïde Garde mercenaire dispose de 0 cumuls de Bataillon de mercenaires à la place. Au début de la bataille, si Embo et Keibu est l'allié dans l'emplacement de chef, la première fois que les cumuls de Bataillon de mercenaires obtiennent 20 cumuls ou moins, le Droïde Garde mercenaire obtient 100 cumuls de Bataillon de mercenaires.\n\nLorsque tous les cumuls de Bataillon de mercenaires expirent, le Droïde Garde mercenaire est détruit immédiatement. Le Droïde Garde mercenaire est immunisé contre les dégâts sur la durée et sa santé maximale et sa protection maximale ne peuvent pas être augmentées.\n\nLorsque le Droïde Garde mercenaire subit des dégâts, il dissipe tous les affaiblissement sur lui-même et perd 6 cumuls de Bataillon de mercenaires (18 maximum par tour). S'il utilise Raillerie, il perd 3 cumuls à la place. Au début de son tour, il gagne 3 cumuls de Bataillon de mercenaires a +5 cumuls de Bataillon de mercenaires pour chaque niveau de relique dont il dispose. Le Droïde Garde mercenaire ne peut pas obtenir Pièces de rechange et ne peut pas être ranimé.\n\n<u class='speciale'>Bataillon de mercenaire :</u> chaque cumul accorde au Droïde garde mercenaire +0,5 % de pouvoir et aux alliés mercenaires +0,5 % d'esquive des critiques et de défense.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Droïde mercenaire</u>",
+                "unique-ability2": "Au début de la bataille, le Droïde garde mercenaire utilise Raillerie pendant 1 tour (ne peut pas être dissipé) et tous les autres Chasseurs de primes alliés gagnent 120 % de défense jusqu'à la fin de la bataille.\n\nChaque fois qu'un Chasseur de primes mercenaire allié gagne un tour bonus, le Droïde Garde mercenaire gagne 3 cumuls de Bataillon de mercenaires et utilise Raillerie pendant 1 tour (ne peut pas être dissipé). Chaque fois que le Droïde Garde mercenaire utilise une capacité, il utilise Raillerie pendant 1 tour. S'il utilise Raillerie, il gagne 2 cumuls de Bataillon de mercenaires à la place.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes en 3c3 :</u> tous les autres Chasseurs de primes mercenaires alliés gagnent 100 % de défense jusqu'à la fin de la bataille. La première fois que la santé d'un Chasseur de primes mercenaire allié tombe en dessous de 25 %, il récupère 100 % de santé et obtient Immunité aux dégâts pendant 1 tour.",
+
+                "unique-ability3-title": "<u>Capacité Unique : Soldat de fortune</u>",
+                "unique-ability3": "Au début de la bataille, le Droïde Garde mercenaire gagne 1 cumul de Soldat de fortune pour chaque niveau d'amplificateur de relique dont il dispose jusqu'à la fin de la bataille. Lorsqu'il subit des dégâts en utilisant Raillerie, il gagne 1 cumul de Soldat de fortune.\n\nChaque fois que le Droïde Garde mercenaire subit des dégâts alors qu'il n'utilise pas Raillerie, il perd 5 cumuls de Soldat de fortune.\n\nAu début du tour de chaque Chasseur de primes mercenaire allié, il gagne 5 % de pénétration de défense (cumulatif) et 5 % de ténacité (cumulatif) par cumul de Soldat de fortune du Droïde Garde mercenaire jusqu'au début de son tour suivant.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "B1MERCDROID"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
