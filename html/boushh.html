@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Boushh (Leia Organa)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/boushh/boushh-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/boushh/boushh-image.png" alt="Boushh (Leia Organa)" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Boushh (Leia Organa)</u></h1>
+            <p id="description">
+                A princess in disguise, fooling Jabba's court with strong Thermal Detonator synergy
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/chasseur-de-primes.html" id="hunter">Bounty Hunter</a>
+                <a class="capacite" href="../classement-perso/cartell-des-hutt.html" id="hutt">Hutt Cartel</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt="Boushh (Leia Organa)"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Ambidextrous Assault</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Boushh (Leia Organa) basic" src="../image-perso/boushh/boushh-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy and inflict a Thermal Detonator for 2 turns. If the ally in the Leader slot is Hutt Cartel, this attack can't be evaded. If the ally in the Leader slot is Bounty Hunter, inflict Defense Down for 2 turns. If it's Boushh's turn and the ally in the Leader slot is Smuggler, attack again.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Inventive (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Boushh (Leia Organa) special" src="../image-perso/boushh/boushh-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to all enemies and detonate all Thermal Detonators. Then, inflict a Thermal Detonator for 2 turns on all enemies.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Brutal Bargainer</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Boushh (Leia Organa) leader" src="../image-perso/boushh/boushh-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Bounty Hunter allies gain 25% Max Health and Max Protection, and enemies with Deadly Bluff lose 25% Tenacity. At the end of each turn, dispel all buffs on enemies with both Deadly Bluff and Thermal Detonator.
+                <br><br>
+                <u class="speciale">Contract:</u> Defeat an enemy with damage from Thermal Detonators.
+                <br><br>
+                <u class="speciale">Reward:</u> All Bounty Hunter allies have their Payouts activated and are immune to Stun. Additionally, enemies can't be revived.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Fearless</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Boushh (Leia Organa) unique" src="../image-perso/boushh/boushh-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Boushh is immune to Fear. At the start of battle, Boushh gains 1 stack of <u class="speciale">My Kind of Scum</u> until the end of battle, which can't be copied, dispelled, or prevented. At the start of the encounter, all enemies gain <u class="speciale">Deadly Bluff</u> for 3 turns. At the end of each turn, if an enemy with Deadly Bluff was inflicted with any Thermal Detonators, inflict an additional Thermal Detonator for 2 turns.
+                <br><br>
+                If all allies were Hutt Cartel at the start of battle, enemies with Deadly Bluff can't assist and if they have both Deadly Bluff and Thermal Detonator, they lose 25 Speed. If the ally in the Leader slot is Hutt Cartel and not a Galactic Legend, Boushh is immune to Turn Meter manipulation. Boushh will assist (limit once per turn) whenever another Hutt Cartel ally uses an ability during their turn and target enemy has Deadly Bluff.
+                <br><br>
+                <u class="speciale">My Kind of Scum:</u> +10% Max Health and Defense
+                <br><br>
+                <u class="speciale">Deadly Bluff:</u> Boushh's Abilities gain additional effects against this character
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Ubese Ogygian Cloak</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Boushh (Leia Organa) unique 2" src="../image-perso/boushh/boushh-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                Boushh and Light Side Smuggler allies gain 5% Armor Penetration, 15% Offense, 10% Potency, and 10 Speed. If the ally in the Leader slot is Hutt Cartel, Boushh and Light Side Smuggler allies are immune to Ability Block and Stun, and these bonuses are doubled. Light Side Smuggler allies gain 20% Critical Chance.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Raids:</u> The max cooldown of Inventive is reduced by 1. If the ally in the Leader slot is Hutt Cartel, when Fearless inflicts a Thermal Detonator, all Hutt Cartel allies gain 10% Armor Penetration (max 200%), 20% Offense (max 400%), 20% Potency (max 400%), and 10 Speed (max 100).
+            </p>
+        </div>
+    </div>
+
+    <h2 class="prime"><u class="prime" id="prime-title">Boushh's Payout</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Boushh (Leia Organa) prime" src="../image-perso/boushh/boushh-prime.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="prime">
+                Whenever Boushh receives Rewards from a Contract, they also gain the following Payout. (Contracts are granted by certain Bounty Hunter Leader abilities.)
+                <br><br>
+                <u class="speciale">Payout:</u> Inflict 3 Thermal Detonators for 2 turns on all enemies. Ambidextrous Assault and Inventive inflict 1 additional Thermal Detonator until the end of battle. If all allies were Hutt Cartel at the start of battle, the cooldown of Inventive is reset and the max cooldown is reduced by 1.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Boushh (Leia Organa)",
+                "title": "<u>Boushh (Leia Organa)</u>",
+                "description": "Une princesse déguisé qui dupe la cour de Jabba avec une puissante synergie avec les détonateurss thermique",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "leader": "Chef",
+                "hunter": "Chasseur de primes",
+                "hutt": "Cartel des Hutt",
+                "scoundrel": "Vaurien",
+
+                "basic-attack-title": "<u>Attaque Basique: Attaque ambidextre</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie et lui inflige un détonateur thermique pendant 2 tours. Si l'allié dans l'emplacement de chef appartient au Cartel des hutt, cette attaque ne peut pas être esquivée. Si l'allié dans l'emplacement de chef est un Chasseur de primes, inflige un malus de défense pendant 2 tours. Si c'est au tour de Bopushh et que l'allié dans l'emplacement de chef est un Contrebandier, attaquez à nouveau.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Inventif (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à tous les ennemis et fait exploser tous les détonateur thermiques. Ensuite, un détonateur thermique est posé pendant 2 tour sur tous les ennemis.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Négociation brutale</u>",
+                "lead-ability": "Les Chasseurs de primes alliés gagnent 25 % de santé maximale et de protection maximale, et les ennemis possédant Bluff mortel perdent 25 % de ténacité à la fin de chaque tour, dissipe toutes les améliorations sur les ennemis avec Bluff mortel et un détonateur thermique.\n\n<u class='speciale'>Contrat :</u> vaincre un ennemi avec des dégâts infligés par un détonteur thermique.\n\n<u class='speciale'>Récompense :</u> tous les Chasseurs de primes alliés activent leur prime et sont immunisés contre l'étourdissement. De plus, les ennemis ne peuvent pas être ranimés.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Intrépide</u>",
+                "unique-ability1": "Boushh est immunisée contre la peur. Au début de l'affrontement, Boshh obtient 1 cumul de <u class='speciale'>Mon genre de Vaurien</u> jusqu'à la fin de la bataille (ne peut pas être copié, disispé ou empêché). Au début de l'affrontement, tous les ennemis reçoivent <u class='speciale'>Bluff mortel</u> pendant 3 tours. A la fin de chaque tour, si un ennemi qui possède Bluff mortel a reçu un ou plusieurs détonateurs thermiques, inflige un détonateur thermique supplémentaire pendant 2 tours.\n\nSi tous les alliés appartenaient au Cartel des Hutt au début de l'affrontement, les ennemis qui possèdent Bluff mortel ne peuvent pas assiter et s'ils possèdent à la fois Bluff mortel et un détonateur thermique, ils perdent 25 de vitesse. Si l'allié dans l'emplacement de chef appartient au Cartel des hutt et n'est pas une Légende galactique, Boushh est immunisée contre la manipulation de jauge de tour. Boushh sera invoquée (dans la limite d'une fois par tour) lorsqu'un allié appartenant au Cartel des Hutt utilise une capacité pendant son tour sur une cible possédant Bluff mortel.\n\n<u class='speciale'>Mon genre de Vaurien :</u> +10 % de santé maximale et de défense.\n\n<u class='speciale'>Bluff mortel :</u> les capacités de Boushh obtiennent des effets supplémentaires contre ce personnage.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Cape d'Ogygie ubese</u>",
+                "unique-ability2": "Boushh et les Contrebandiers alliés du Côté Lumineux gagnent 5 % de pénétration d'armire, 15 % d'attaque, 10 % de pouvoir et 10 de vitesse. Si l'allié dans l'emplacement de chef appartient au Cartel des Hutt, Boushh et les alliés Contrebandiers du Côté Lumineux sont immunisés contre l'entrave des capacités et l'étourdissement, et ces bonus sont doublés. Les Contrebandiers alliés du Côté Lumineux obtiennent 20 % de chances de coup critique.\n\n<u class='omicron'>Amélioration Omicron : Dans les raids :</u> le délai maximum d'Inventif est réduit de 1. Si l'allié dans l'emplacement de chef appartient au Cartel des Hutt, lorsqu'Intrépide inflige un détonateur thermique, tous les alliés appartenant au Cartel des Hutt gagnent 10 % de pénétration d'armure (200 % max.), 20 % d'attaque (400 % max.), 20 % de pouvoir (400 % max.) et 10 de vitesse (100 max.).",
+
+                "prime-title": "Prime de Boushh",
+                "prime": "A chaque fois que Boushh reçoit les récompenses d'un contrat elle obtient également la prime suivante (les contrats sont conférés par certaines capacités de chef des Chasseurs de primes).\n\n<u class='speciale'>Prime :</u> inflige 3 détonateurs thermiques pendant 2 tours à tous les ennemis. Attaque ambidextre et Inventif lancent un détonateur thermique supplémentaire jusqu'à la fin de l'affrontement. Si tous les alliés appartenaient au Cartel des Hutt au début de l'affrontement, le délai d'inventif est réinitialisé et le délai maximal est réduit de 1.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "boushh (leia organa)"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
