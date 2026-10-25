@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Stormtrooper Luke</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/luke-trooper/luke-trooper-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/luke-trooper/luke-trooper-image.png" alt="Stormtrooper Luke" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Stormtrooper Luke</u></h1>
+            <p id="description">
+                Short for a Stormtrooper, but mighty as a Rebel Support
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/luke-trooper/luke-trooper.png" alt="Stormtrooper Luke"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: TK-421</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Stormtrooper Luke basic" src="../image-perso/luke-trooper/luke-trooper-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy, if it is Stormtrooper Luke's turn, inflict target enemy with <u class="speciale">Buff Disruption</u> for 1 turn, which can't be dispelled or resisted. This attack has high damage variance.
+                <br><br>
+                <u class="speciale">Buff Disruption:</u> Immune to buffs until damaged by an attack; Once damaged by an attack, lose 100% Turn Meter
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Short for a Stormtrooper (cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Stormtrooper Luke special 1" src="../image-perso/luke-trooper/luke-trooper-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Dispel all buffs on all enemies. Rally all Rebel allies, and they gain Tenacity Up for 2 turns, which can't be dispelled or prevented. Grant target other ally a bonus turn. If that target ally is Princess Leia, she gains 30% Offense and ignores Taunt effects during this bonus turn. If Princess Leia and Stormtrooper Han are allies, their chance effects increased to 100% for 2 turns.
+                <br><br>
+                <u class="orange">Rallied characters act based on their role:</u><br>
+                - <strong>Tanks</strong> Taunt and gain Critical Hit Immunity for 2 turns<br>
+                - <strong>Attackers</strong> assist<br>
+                - <strong>Healers and Supports</strong> restore 15% Health and Protection to all allies<br>
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Where Could He Be? (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Stormtrooper Luke special 2" src="../image-perso/luke-trooper/luke-trooper-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Inflict Vulnerable on all enemies for 1 turn. Rebel Attacker allies gain Offense Up for 2 turns and non-Tank Rebel allies gain Stealth for 1 turn. Call all Rebel allies to assist, dealing 10% more damage for each Stealthed ally.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: The Brains</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Stormtrooper Luke lead" src="../image-perso/luke-trooper/luke-trooper-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                At the start of battle, Rebel allies gain 10% Critical Chance, Critical Damage, Defense, Max Health and Max Protection. If Princess Leia and Stormtrooper Han are present, these increases are tripled. While a Rebel ally has more than 50% Health, they have 100% Defense and whenever they use an ability on their turn, they Expose the target enemy for 1 turn. While a Rebel ally has less than 50% Health, they gain 50% Offense.
+                <br><br>
+                While a Rebel ally is Stealthed, they have 20% Defense Penetration. If Stealth or Taunt is dispelled from a Rebel ally, they gain Defense Up and Foresight for 1 turn. If a Rebel ally removes Turn Meter from an enemy, <u class="speciale">Distract</u> that enemy for 1 turn, which can't be evaded or resisted.
+                <br><br>
+                <u class="speciale">Distracted:</u> Can't gain bonus Turn Meter
+                <br><br>
+                <u class="omicron">Omicron Boost : While in 3v3 Grand Arenas, and there is an allied Princess Leia, Stormtrooper Han, and no enemy Galactic Legends:</u>
+                Whenever Stealth is dispelled from a Rebel ally, reduce the cooldowns of their abilities by 1. While Stealthed, Princess Leia ignores the target enemy's Protection. Whenever a Rebel ally scores a critical hit against an enemy, that enemy loses 10% Turn Meter.
+                <br><br>
+                Whenever an enemy is <u class="speciale">Distracted</u>, they are also Ability Blocked for 1 turn, which can't be evaded or resisted. Whenever a Rebel ally is Dazed or Stunned, dispel that effect, <u class="speciale">Distract</u> and inflict Protection Disruption for 1 turn on the enemy, which can't be evaded or resisted.
+                <br><br>
+                Princess Leia and Stormtrooper Han have their chance effects increased to 100% until the end of battle. While Stormtrooper Luke is active, he gains 15% Evasion, increased by 5% (stacking, max 50%) each time a Rebel ally attacks out of turn. Tank allies gain 100% Defense, increased by 5% (stacking, max 450%) each time they take damage. Attacker allies gain 15% Critical Damage and Offense, increased by 1% (stacking, max 135%) each time they score a critical hit against an enemy.
+                <br><br>
+                While another ally has Protection, Stormtrooper Luke can't be defeated.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Something Just Moved Past My Leg</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Stormtrooper Luke unique" src="../image-perso/luke-trooper/luke-trooper-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of battle, Stormtrooper Luke gains 10 Speed. If Princess Leia and Stormtrooper Han are allies, they and Stormtrooper Luke gain 30 Speed until the end of the battle instead.
+                <br><br>
+                At the start of each encounter, all Rebel Tank allies Taunt for 1 turn, and all other Rebel allies Stealth for 1 turn.
+                <br><br>
+                Whenever a Rebel ally Stealths, all other Rebel Tank allies Taunt for 1 turn. Whenever a Rebel ally gains bonus Turn Meter while below 100% Turn Meter, they gain Protection Up (10%, stacking, max 50%) for 2 turns. Whenever a Rebel ally scores a critical hit, they recover 10% Health and Protection.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Luke en stormtrooper",
+                "title": "<u>Luke en stormtrooper</u>",
+                "description": "Un peu petit pour un stormtrooper, mais un grand soutien rebelle.",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "leader": "Chef",
+                "rebel": "Rebelle",
+
+                "basic-attack-title": "<u>Attaque Basique: TK-421</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à la cible ennemie. Si c'est le tour de Luke en stormtrooper, inflige <u class='speciale'>Améliorations perturbées</u> à la cible ennemie pendant 1 tour (ne peut pas être dissipé ou résisté). Cette attaque a une amplitude e dégâts élevée.\n\n<u class='speciale'>Amélioration perturbées :</u> ne peut pas obtenir d'amélioations jusqu'à ce qu'une attaque lui inflige des dégâts. Une fois que cette unité a subit des dégâts d'une attaque, sa jauge de tour diminue de 100 %.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Un peu petit pour un stormtrooper (délai : 5)</u>",
+                "special-attack1": "Dissipe toutes les améliorations dont disposent les ennemis. Confère Ralliement à tous les alliés Rebelles qui obtiennent un bonus de ténacité pendant 2 tours (ne peut pas être dissipé ou évité). L'autre allié ciblé reçoit un tour bonus. Si cet allié est la Princesse Leia, pendant son tour, elle obtient 30 % d'attaque et ignore les effets de Raillerie. Si la Princesse Leia et Han en stormtrooper font partie des alliés, leurs effets de chance sont augmentés de 100 % pendant 2 tours.\n\n<u class='orange'>Les personnages ralliés agissent en fonction de leur rôle :</u>\n- Les <strong>tanks</strong> utilisent Raillerie et bénéficient de l'immunité aux coups critiques pendant 2 tours.\n- Les <strong>attaquants</strong> apportent leur aide.\n- Les <strong>soigneurs et soutiens</strong> restaurent 15 % de santé et de protection à tous les alliés.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Où peut-il être ? (délai : 4)</u>",
+                "special-attack2": "Inflige vulnérabilité à tous les ennemis pendant 1 tour. Les alliés Rebelles attaquants obtiennent un bonus d'attaque pendant 2 tours et les alliés Rebelles qui ne sont pas des tanks utilisent Camouflage pendant 1 tour. Invoque tous les alliés Rebelles qui infligent 10 % de dégâts supplémentaires pour chaque allié utilisant Camouflage.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Le cerveau</u>",
+                "lead-ability": "Au début de la bataille, les alliés rebelles obtiennent 10 % de chances de coup critique, de dégâts critiques, de défense, de santé maximale et de protection maximale. Si la Princesse Leia et Han en stormtrooper sont présents, ces augmentations sont triplées. Tant qu'un allié rebelle possède plus de 50 % de sa santé, il dispose de 100 % de défense et chaque fois qu'il utilise une capacité pendant son tour, la cible ennemie subit Exposition pendant 1 tour. Lorsqu'un allié rebelle a moins de 50 % de santé, il gagne 50 % d'attaque.\n\nLorsqu'un allié rebelle utilise camouflage, il reçoit 20 % de pénétration de défense. Si Camouflage ou Raillerie sont dissipés sur un allié rebelle, celui-ci obtient un bonus de défenseet Prévoyance pendant 1 torur. Si un allié rebelle supprime de la jauge de tour à un ennemi, cet ennemi subit <u class='speciale'>Distraction</u> pendant 1 tour (ne peut pas être esquivé ou résisté).\n\n<u class='speciale'>Distraction :</u> impossible d'obtenir de la jauge de tour supplémentaire.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes en 3c3, si une Princesse Leia et un Han en stormtrooper sont présent et qu'aucun ennemi n'est une Légende galactique :</u> Chaque fois que le Camouflage est dissipé sur un allié rebelle, les délais de ces capacités sont réduits de 1. Lorsqu'elle utilise Camouflage, la Princesse Leia ignore la protection de la cible ennemi. Chaque fois qu'un allié rebelle inflige un coup critique à un ennemi, cet ennemi perd 10 % de sa jauge de tour.\n\nChaque fois qu'un ennemi subit <u class='speciale'>Distraction</u>, il subit également Entrave des capacités pendant 1 tour (ne peut pas être esquivé ou résisté). Lorsqu'un allié rebelle subit Confusion ou Étourdissement, cet effet est dissipé puis les affaiblissements <u class='speciale'>Distraction</u> et Protection perturbée sont infligés à l'ennemi pendant 1 tour (ne peut pas être esquivé ou résisté).\n\nLes effets de chances de la Princesse Leia et de Han en stormtrooper augmentent à 100 % jusqu'à la fin de l'affrontement. Tant que Luke en stormtrooper est actif, il gagne 15 % d'esquive, ce qui augmente de 5 % chaque fois qu'un allié rebelle attaque hors de son tour (cumulatif, 50 % maximum). Les tanks alliés gagnent 100 % de défense, ce qui augmente de 5 % chaque fois qu'ils subissent des dég^^ats (cumulatif, 450 % maximum). Les attaquants alliés gagnent 15 % de dégâts critiques et d'attaque, ce qui augmente de 1 % chaque fois qu'ils infligent un coup critique à un ennemi (cumulatif, 135 % maximum).\n\nTant qu'un autre allié a encore de la protection, Luke en stormtrooper ne peut pas être vaincu.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Quelque chose qui bouge près de moi</u>",
+                "unique-ability1": "Au début de la bataille, Luke en stormtrooper obtient 10 de vitesse. Si la Princesse Leia et Han en stormtrooper font partis des alliés, Luke en stormtrooper et eux obtiennent plutôt 30 de vitesse jusqu'à la fin de l'affrontement.\n\nAu début de chaque affrontement, tous les tanks alliés Rebelles utilisent Raillerie pendant 1 tour et tous les autres alliés Rebelles utilisent Camouflage pendant 1 tour.\n\nChaque fois qu'un allié Rebelle utilise Camouflage, tous les autres tanks alliés rebelles utilisent Raillerie pendant 1 tour. Lorsqu'un allié Rebelle obtient de la jauge de tour supplémentaire alors que sa jauge de tour est inférieure à 100 %, il obtient un bonus de protection (10 %, cumulatif, maximum 50 %) pendant 2 tours. Chaque fois qu'un allié Rebelle  inflige un coup critique, il récupère 10 % de santé et de protection.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "STORMTROOPERLUKE"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
