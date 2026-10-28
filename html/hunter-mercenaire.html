@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Hunter (Mercenary)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/hunter-s3/hunter-s3-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/hunter-s3/hunter-s3-image.png" alt="Hunter (Mercenary)" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Hunter (Mercenary)</u></h1>
+            <p id="description">
+                A veteran Bad Batch member who now specializes in supporting allies through marking enemies.
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/bad-batch.html" id="bad-batch">Bad Batch</a>
+                <a class="capacite" href="../classement-perso/mercenaire.html" id="mercenary">Mercenary</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: DC-17 Blaster</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Hunter (Mercenary) basique" src="../image-perso/hunter-s3/hunter-s3-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Speed Down on them for 1 turn. During Hunter's turn, call a random Bad Batch Attacker ally to assist, and all Attacker allies gain Critical Chance Up for 1 turn. If the target enemy is Marked, all Bad Batch Attacker allies gain 5% Offense (stacking, max 50%) until the end of the encounter, and has their Defense reduced by 5% (stacking, max 50%) which can't be resisted until the end of the encounter.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Take a Shot (cooldown: 2)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Hunter (Mercenary) special 1" src="../image-perso/hunter-s3/hunter-s3-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                If no enemies are Marked, inflict Marked on the target enemy for 2 turns, which can't be evaded or resisted. All Bad Batch allies gain Offense Up and Protection Up (50%) for 1 turn. Call all Bad Batch Attacker allies to assist dealing 30% less damage.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : This Will Hurt (cooldown: 30)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Hunter (Mercenary) special 2" src="../image-perso/hunter-s3/hunter-s3-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to target enemy equal to 100% of their Max Health, increased to 200% if they are Marked, which can't be evaded. Shock all enemies for 2 turns, which can't be evaded and inflict Protection Disruption on target enemy for 3 turns, which can't be evaded, or resisted. Bad Batch allies gain 100% Defense Penetration (stacking) until the end of the encounter.
+                <br><br>
+                This ability starts on cooldown.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Focused Co-operation</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Hunter (Mercenary) unique 1" src="../image-perso/hunter-s3/hunter-s3-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of encounter, all Bad Batch allies gain 50% Max Protection. Whenever an enemy is Marked, all Bad Batch allies recover 7% Health. Whenever a Marked enemy is damaged by a Bad Batch ally, if the ally with lowest Turn Meter is Bad Batch, they gain Speed Up for 1 turn. Whenever Marked expires on an enemy, Daze them and inflict Healing Immunity for 1 turn. At the start of the Marked enemy's turn, inflict Offense Down on them for 1 turn, which can't be evaded. Whenever a Marked enemy is defeated, Expose all enemies for 2 turns and reduce the cooldown of This Will Hurt by 5.
+                <br><br>
+                If Hunter has 15 or more stacks of Target Practice, he gains a bonus turn when Marked expires on enemies. Whenever Hunter gains a stack of Target Practice, reduce the cooldown of This Will Hurt by 1. While a Bad Batch ally is Captive, Bad Batch allies deal an additional instance of damage to the target enemy on their turn. While Hunter has 40 or more stacks of Soldier of Fortune, enemies are inflicted with Buff Immunity for 1 turn whenever their buffs are dispelled. When a Bad Batch ally loses Captive, reset the cooldown of This Will Hurt.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> At the start of encounter Hunter has This Will Hurt available. When Hunter gains a stack of Target Practice, reduce This Will Hurt's cooldown by 5. If there are no Galactic Legends, while a Bad Batch ally is Captive, Bad Batch allies deal an additional instance of damage to the target enemy on their turn, which can't be evaded. Whenever a Marked enemy takes a turn, reduce their Max Health by 10% (stacking) until the end of the encounter (excludes Galactic Legends).
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Soldier of Fortune</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Hunter (Mercenary) unique 2" src="../image-perso/hunter-s3/hunter-s3-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                Whenever a Marked enemy is damaged by a Mercenary ally, Hunter gains a stack of Soldier of Fortune.
+                <br><br>
+                Whenever Marked is dispelled or expires, Hunter loses 5 stacks of Soldier of Fortune.
+                <br><br>
+                At the start of their turn, each Mercenary ally gains 3% Accuracy for each stack of Soldier of Fortune they have until the start of their next turn
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Hunter (Mercenaire)",
+                "title": "<u>Hunter (Mercenaire)</u>",
+                "description": "Un vétéran du Bad Batch qui se spécialise désormais dans le soutien aux alliés en marquant ses ennemis.",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "bad-batch": "Bad Batch",
+                "mercenary": "Mercenaire",
+
+                "basic-attack-title": "<u>Attaque Basique: Blaster DC-17</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie et lui inflige un malus de vitesse pendant 1 tour. Pendant le tour de Hunter, invoque un attaquant allié aléatoire du Bad Batch et tous les attaquants alliés obtiennent un bonus de chances de coup critique pendant 1 tour. Si la cible ennemie subit Marque, tous les attaquants alliés du Bad Batch obtiennent 5 % d'attaque (cumulatif, 50 % maximum) jusqu'à la fin de l'affrontement, puis voient leur défense réduite de 5 % (cumulatif, 50 % maximum, ne peut pas être résisté jusqu'à la fin de l'affrontement).",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Tir crucial (délai : 2)</u>",
+                "special-attack1": "Si aucun ennemi ne subit Marque, inflige Marque à la cible ennemie pendant 2 tours (ne peut pas être esquivé ou résisté). Tous les alliés du Bad Batch gagnent un bonus d'attaque et de protection (50 %) pendant 1 tour. Invoque tous les attaquants alliés du Bad Batch qui infligent 30 % de dégâts en moins.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Ça va faire mal (délai : 30)</u>",
+                "special-attack2": "Inflige des dégâts physiques à la cible ennemie à hauteur de 100 % de sa santé maximale, ce qui augmente à 200 % si la cible subit Marque (ne peut pas être esquivé). Inflige Choc à tous les ennemis pendant 2 tours (ne peut pas être esquivé) et inflige Protection perturbée à la cible ennemie pendant 3 tours (ne peut pas être esquivé ou résisté). Les alliés du Bad Batch obtiennent 100 % de pénétration de défense (cumulatif) jusqu'à la fin de l'affrontement.\n\nCette capacité commence avec un délai.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Coopération ciblée</u>",
+                "unique-ability1": "Au début de l'affrontement, tous les alliés du Bad Batch obtiennent 50 % de protection maximale. Chaque fois qu'un ennemi subit Marque, tous les alliés du Bad Batch récupèrent 7 % de santé. Lorsqu'un ennemi disposant de Marque subit des dégâts infligés par un allié du Bad Batch, si l'allié disposant de la jauge de tour la plus basse est du Bad Batch, alors ce dernier gagne un bonus de vitesse pendant 1 tour. Chaque fois que Marque expire sur un ennemi, il subit Confusion et Immunité aux soins pendant 1 tour. Au début du tour de l'ennemi souffrant de Marque, il subit un malus d'attaque pendant 1 tour (ne peut pas être esquivé). Lorsqu'un ennemi subissant Marque est vaincu, tous les ennemis reçoivent Exposition pendant 2 tours et le délai de Ça va faire mal est réduit de 5.\n\nSi Hunter dispose de 15 cumuls ou plus de Tir sur cibles, il obtient un tour bonus lorsque Marque expire sur les ennemis. Chaque fois que Hunter gagne un cumul de Tir sur cible, réduit le délai de Ça va faire mal de 1. Tant qu'un allié du Bad Batch subit Captivité, les alliés du Bad Batch infligent une instance supplémentaire de dégâts à la cible ennemie pendant leur tour. Tant que Hunter dispose de 40 cumuls ou plus de Soldat de fortune, les ennemis subissent Immunité aux améliorations pendant 1 tour à chaque fois que leurs améliorations sont dissipées. Quand un allié du Bad Batch perd Captivité, le délai de Ça va faire mal est réinitialisé.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> dès le début de l'affrontement, Hunter peut utiliser Ça va faire mal. Quand Hunter gagne un cumul de Tir sur cibles, le délai de Ça va faire mal est réduit de 5. S'il n'y a pas de Légende galactique, tant qu'un allié du Bad Batch subit Captivité, les alliés du Bad Batch infligent une instance supplémentaire de dégâts à la cible ennemie pendant leur tour (ne peut pas être esquivé). Chaque fois qu'un ennemi subissant Marque joue un tour, sa santé maximale est réduite de 10 % (cumulatif) jusqu'à la fin de l'affrontement (à l'exception des Légendes galactiques).",
+
+                "unique-ability2-title": "<u>Capacité Unique : Soldat de fortune</u>",
+                "unique-ability2": "Lorsqu'un ennemi disposant de Marque subit des dégâs d'un allié Mercenaire, Hunter gagne un cumul de Soldat de fortune.\n\nChaque fois que Marque est dissipée ou expire, Hunter perd 5 cumuls de Soldat de fortune.\n\nAu début de leur tour, chaque allié Mercenaire gagne 3 % de précision pour chaque cumul de Soldat de fortune dont il dispose jusqu'au début de son tour suivant.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "hunter (mercenary)"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
