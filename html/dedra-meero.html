@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Dedra Meero</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/dedra-meero/dedra-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/dedra-meero/dedra-image.png" alt="Dedra Meero" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Dedra Meero</u></h1>
+            <p id="description">
+                A cunning lieutenant of the ISB, sabotaging her allies to seize victory in battle
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/bsi.html" id="isb">ISB</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Effective Covert Action</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Dedra Meero basic" src="../image-perso/dedra-meero/dedra-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to the target enemy and Expose them for 1 turn. If they are already Exposed at the start of Dedra's turn, she deals an additional 50% bonus damage and gains Retaliate for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Watch Your Back (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Dedra Meero special 1" src="../image-perso/dedra-meero/dedra-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Dispel all debuffs on ISB allies, and Dedra gains Tenacity Up for 2 turns. Call all other ISB allies that are not Undermined and the target ally to assist. Then, Undermine target other ally for 2 turns which can't be copied, dispelled, evaded, or resisted. Grant assisting allies Offense Up for 2 turns, and they recover 15% of their Max Health at the end of the turn.
+                <br><br>
+                <u class="speciale">Undermine:</u> +25 Speed; -25% Critical Avoidance and Critical Chance; can't gain bonus Turn Meter
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Do Not Bore Me (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Dedra Meero special 2" src="../image-perso/dedra-meero/dedra-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Dedra gains 20% Critical Chance and Critical Damage, and an additional 20% (stacking, max 100%) for each other Undermined ISB ally until she uses her Basic ability on her turn.
+                <br><br>
+                - If Dedra is Rank 2 or above, she gains Protection Up (20%) for 2 turns
+                <br><br>
+                - If Dedra is Rank 3, grant all ISB Support allies Retribution and Speed Up for 2 turns
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Systems Either Change or Die</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Dedra Meero unique 1" src="../image-perso/dedra-meero/dedra-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of battle, if all allies are ISB, Dedra gains 35% Tenacity and 50% Turn Meter.
+                <br><br>
+                Whenever other ISB allies trigger Expose on an enemy on their turn, Dedra Undermines that ISB ally for 1 turn. Additionally, if Dedra is Rank 3, whenever an ISB ally uses a Special ability against an enemy with Expose, they inflict Torture on the target enemy for 2 turns at the end of the turn, which can't be copied or dispelled.
+                <br><br>
+                Whenever Dedra Undermines an ISB ally, she recovers 10% of her Max Health and gains Overconfident for 2 turns. Whenever an Undermined ISB ally takes a turn, she gains 10% Turn Meter. Whenever an ISB ally's Undermine debuff expires, they gain Overconfident for 2 turns. While Dedra has Overconfident, she is immune to Taunt effects.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in 3v3 Grand Arenas:</u> At the start of battle, Dedra Exposes all enemies for 2 turns and gains 30% Max Health. While ISB allies are Undermined, they have +80% Offense and Defense. When ISB allies gain Undermined, if they are already below 50% Health or drop below 50% Health (limit once per Undermined), they gain Protection Up and Tenacity Up (20%) until they are no longer Undermined. Whenever Dedra Undermines an ISB ally below 50% Health, she gains Potency Up for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Chain of Command</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Dedra Meero unique 2" src="../image-perso/dedra-meero/dedra-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                Every time Dedra Undermines an ally, she gains a rank. Every time Undermine expires from an ally without them taking damage, Dedra loses a rank.
+                <br><br>
+                - Whenever Dedra gains Rank 2, she gains Health Steal Up for 1 turn
+                <br><br>
+                - Whenever she gains Rank 3, she gains Foresight for 2 turns
+                <br><br>
+                <u class="speciale">ISB Rank:</u> Abilities gain additional effects based on Rank; ranges from 1-3
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Dedra Meero",
+                "title": "<u>Dedra Meero</u>",
+                "description": "Lieutenant rusée du B.S.I., en sabotant ses alliés pour s'emparer de la victoire en bataille.",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "empire": "Empire",
+                "isb": "B.S.I.",
+
+                "basic-attack-title": "<u>Attaque Basique: Action secrète efficace</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie et lui inflige Exposition pendant 1 tour. Si la cible est déjà affectée par Exposition au début du tour de Dedra, elle inflige 50 % de dégâts bonus supplémentaires et obtient Représailles pendant 1 tour.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Surveillez vos arrières (délai : 3)</u>",
+                "special-attack1": "Dissipe tous les affaiblissements sur les alliés du B.S.I., et Dedra obtient un bonus de ténacité pendant 2 tours. Invoque la cible alliée et tous les autres alliés du B.S.I. qui ne subissent pas Démoralisation. Ensuite, inflige Démoralisation à la cible alliée pendant 2 tours (ne peut pas être copiée, dissipé, esquivé ou résisté). Confère aux alliés invoqués un bonus d'attaque pendant 2 tours et ils récupèrent 15 % de leur santé maximale à la fin du tour.\n\n<u class='speciale'>Démoralisation :</u> +25 de vitesse et -25 % d'esquive des critiques et de chances de coup critique. Impossible d'obtenir des bonus de jauge de tour.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Ne m'ennuie pas (délai : 3)</u>",
+                "special-attack2": "Dedra obtient 20 % de chances de coup critique et de dégâts critiques, et 20 % supplémentaires (cumulatif, maximum 100 %) pour chaque autre allié du B.S.I. qui subit Démoralisation, jusqu'à ce qu'elle utilise sa capacité de base pendant son tour.\n\n- Si Dedra est de rang 2 ou supérieur, elle obtient un bonus de protection (20 %) pendant 2 tours.\n\n- Si Dedra est de rang 3, confère Rétribution à tous les alliés du B.S.I. et un bonus de vitesse pendant 2 tours.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Les systèmes évoluent ou meurent</u>",
+                "unique-ability1": "Au début de la bataille, si tous les alliés font partie du B.S.I., Dedra obtient 35 % de ténacité et 50 % de jauge de tour.\n\nChaque fois que d'autres alliés du B.S.I. déclenchent Exposition sur un ennemi pendant leur tour, Dedra inflige Démoralisation sur cet allié du B.S.I. pendant 1 tour. De plus, si Dedra est de rang 3, chaque fois qu'un allié du B.S.I. utilise une capacité spéciale contre un ennemi avec Exposition, il inflige Torture à la cible ennemie pendant 2 tours à la fin du tour (ne peut pas être copié ou dissipé).\n\nChaque fois que Dedra inflige Démoralisation à un allié du B.S.I., elle récupère 10 % de sa santé maximale et obtient Excès de confiance pendant 2 tours. Chaque fois qu'un allié du B.S.I. subissant Démoralisation joue un tour, elle gagne 10 % de jauge de tour. Chaque fois que l'affaiblissement Démoralisation d'un allié du B.S.I. expire, il obtient Excès de confiance pendant 2 tours. Tant que Dedra dispose d'Excès de confiance, elle est immunisée contre les effets de Raillerie.\n\n<u class='omicron'>Amélioration Omicron : Dans les grandes arènes en 3c3 :</u> Au début de la bataille, Dedra inflige Exposition à tous les ennemis pendant 2 tours et obtient 30 % de santé maximale. Tant que les alliés du B.S.I. subissent Démoralisation, ils ont +50 % d'attaque et de défense. Lorsque les alliés du B.S.I. subissent Démoralisation, s'ils ont déjà moins de 50 % de santé ou tombent en dessous de 50 % de santé (limité à une fois par Démoralisation), ils obtiennent un bonus de protection et un bonus de ténacité (20 %) jusqu'à ce qu'ils ne subissent plus Démoralisation. Chaque fois que Dedra inflige Démoralisation à un allié du B.S.I. qui a moins de 50 % de santé, elle obtient un bonus de pouvoir pendant 2 tours.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Châine de commandement</u>",
+                "unique-ability2": "Chaque fois que Dedra inflige Démoralisation à un allié, elle gagne un rang. Chaque fois que Démoralisation expire sur un allié sans qu'il ne subisse de dégâts, Dedra perd un rang.\n\n- Chaque fois que Dedra atteint le rang 2, elle obtient un bonus de vol de santé pendant 1 tour.\n\n- Chaque fois qu'elle obtient le rang 3, elle obtient Prévoyance pendant 2 tours.\n\n<u class='speciale'>Rang du B.S.I. :</u> Les capacités obtiennent des effets supplémentaires en fonction du rang (de 1 à 3).",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "DEDRAMEERO"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
