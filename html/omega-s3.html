@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Omega (Fugitive)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/omega-s3/omega-s3-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/omega-s3/omega-s3-image.png" alt="Omega (Fugitive)" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Omega (Fugitive)</u></h1>
+            <p id="description">
+                A clever Support who Stealths and heals her allies from the shadows.
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/bad-batch.html" id="bad-batch">Bad Batch</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Energy Crossbow</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Omega (Fugitive) basic" src="../image-perso/omega-s3/omega-s3-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy. If any Bad Batch allies are Captive, progress their Rescue objectives by 5. Otherwise, the healthiest Bad Batch ally without Stealth gains Critical Avoidance Up for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Big Sister (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Omega (Fugitive) special 1" src="../image-perso/omega-s3/omega-s3-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Dispel all debuffs on all Bad Batch allies. Target ally recovers 100% Protection and an additional 15% Protection per Omega's Relic Amplifier Level. This is reduced by 5% per debuff dispelled.
+                <br><br>
+                For each 1% Protection recovery received while that ally has 100% Protection, they recover 1% Health.
+                <br><br>
+                For each 20% Health recovery received while that ally has 100% Health, they reduce their cooldowns by 1.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Our Way Out (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Omega (Fugitive) special 2" src="../image-perso/omega-s3/omega-s3-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Remove Stealth from the healthiest Bad Batch ally, and all other Bad Batch allies gain Stealth until the end of the encounter, which can't be copied, dispelled, or prevented. If they already had Stealth, they instead gain 10% Turn Meter and an additional 5% Turn Meter per Omega's Relic Amplifier Level.
+                <br><br>
+                All Bad Batch allies gain Retribution, Riposte, and Tenacity Up for 2 turns. All Stealthed allies gain Advantage, Foresight, and Speed Up for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Learn by Watching</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Omega (Fugitive) leader" src="../image-perso/omega-s3/omega-s3-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                Bad Batch allies have +30% Critical Damage and Offense. At the start of the encounter, all Bad Batch allies gain Stealth until the end of the encounter (excluding the healthiest Bad Batch ally), which can't be copied, dispelled, or prevented. At the start of each character's turn, Stealthed allies recover 0.5% Health and Protection per Omega's Relic Amplifier Level. Stealthed Bad Batch allies can't be critically hit.
+                <br><br>
+                During a Bad Batch ally's turn, whenever a Bad Batch ally damages the same enemy or enemies that were damaged in the previous Bad Batch ally's turn, all Bad Batch allies gain a stack of Target Practice until the end of the encounter or unless they damage a different enemy while the previously damaged enemy is still active.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas if there are no Galactic Legends and all allies are Bad Batch:</u> Whenever an ally is damaged by Expose or by an enemy with bonus Protection, all enemies receive damage equal to 1% of their Max Health for each stack of Target Practice on all allies. This damage can't be evaded and can't defeat enemies. Stealthed allies are immune to Damage Over Time and Plague, enemies they defeat can't be revived, and they take a bonus turn whenever they are Stunned or another ally falls below 100% Health.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Odd Little Clone</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Omega (Fugitive) unique" src="../image-perso/omega-s3/omega-s3-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Omega (Fugitive) has +50 Speed.
+                <br><br>
+                If Omega (Fugitive) is in the Leader slot, the first time each ally Omega (Fugitive), Batcher, Hunter (Mercenary), Wrecker (Mercenary), and Crosshair (Scarred) would be defeated:
+                <br><br>
+                - Remove all buffs and debuffs and they are inflicted with 10 stacks of Captive until the end of battle<br>
+                - While Captive, they can't be targeted, they are immune to all damage, recovery, buffs, and debuffs, and they lose 1 stack of Captive whenever an ally takes a turn<br>
+                - Bad Batch allies can contribute to their Rescue Objective<br>
+                - If their Rescue Objective is met before they lose all stacks of Captive, they lose Captive and recover 100% Health and Protection; otherwise, they are instantly defeated<br>
+                - If all allies are Captive this way, they immediately fail their Rescue Objective<br>
+                - This effect persists through defeat   
+                <br><br>
+                <u class="speciale">Captive:</u> Speed set to 0, can't bonus attack or gain bonus Turn Meter
+                <br><br>
+                <u class="speciale">Rescue Objective:</u> Gain 30 stacks of Target Practice
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Omega (Fugitive)",
+                "title": "<u>Omega (Fugitive)</u>",
+                "description": "Un soutien qui octroie Camouflage et soigne ses alliés dans l'ombre.",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "leader": "Chef",
+                "bad-batch": "Bad Batch",
+
+                "basic-attack-title": "<u>Attaque Basique: Arablète à énergie</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à l'ennemi ciblé. Si des alliés du Bad Batch sont captifs, augmente leur objectif de sauvetage de 5. Sinon, l'allié du Bad Batch à la santé la plus élevée qui n'est pas camouflé obtient Esquive des critiques pendant 2 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Grande Sœurs (délai : 3)</u>",
+                "special-attack1": "Dissipe tous les affaiblissements sur tous les alliés du Bad Batch. L'allié ciblé récupère 100 % de protection ainsi que 15 % de protection supplémentaire pour chaque niveau d'amplificateur de relique d'Omega. Cet effet réduit de 5 % pour chaque affaiblissement dissipé.\n\nSi cet allié a 100 % de protection, chaque 1 % de récupération de protection reçue lui fait récupérer 1 % de santé.\n\nSi cet allié a 100 % de santé, chaque 20 % de récupération de santé réduit ses délais de 1.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Notre porte de sortie (délai : 3)</u>",
+                "special-attack2": "Retire Camouflage de l'allié du Bad Batch à la santé la plus élevée, et tous les autres alliés du Bad Btach obtiennent Camouflage jusqu'à la fin de l'affrontement (ne peut pas être copié, dissipé ou empêché). Si les alliés ont déjà Camouflage, ils obtiennent 10 % de juage de tour ainsi que 5 % de jauge de tour supplémentaire pour chaque niveau d'amplificateur de relique d'Omega.\n\nTous les alliés du Bad Batch gagnent Rétribution, Riposte et un bonus de ténacité pendant 2 tours. Tous les alliés camouflés obtiennent Avantage, Prévoyance et un bonus de vitesse pendant 2 tours.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Apprendre en observant</u>",
+                "lead-ability": "Les alliés du Bad Batch ont +30 % de dégâts critiques et d'attaque. Au début de l'affrontement, tous les alliés du Bad Batch gagnent Camouflage jusqu'à la fin de l'affrontement (à l'exception de l'allié du Bad Batch à la santé la plus élevée ; ne peut pas être copié, dissipé ou empêché). Au début de son tour, Chaque allié camouflés récupère 0,5 % de santé et de protection pour chaque niveau d'amplificateur de relique d'Omega. Les alliés du Bad Batch camouflés ne peuvent pas subir de coups critiques.\n\nLors d'un tour d'un allié du Bad Batch, chaque fois qu'un allié du Bad Batch inflige des dégâts au même ennemi ou aux mêmes ennemis qui ont subis des dégâts lors du tour précédent de l'allié du Bad Batch, tous les alliés du Bad Batch obtiennent un cumul de Tir sur cibles jusqu'à la fin de l'affrontement ou jusqu'à ce qu'ils infligent des dégâts à un autre ennemi tant que l'ennemi qui a précédemment subi des dégâts est toujours actif.\n\n<u class='omicron'>Amélioration Omicron : Dans les grandes arènes s'il n'y a pas de Légende galactique et que tous les alliés sont du Bad Batch :</u> Chaque fois qu'un allié subit des dégâts d'Exposition ou d'un ennemi avec un bonus de protection, tous les ennemis subissent des dégâts équivalent à 1 % de santé maximale pour chaque cumul de Tir sur cibles sur tous les alliés. Ces dégâts ne peuvent pas éliminer les ennemis. Les alliés camouflés sont immunisés contre les dégâts sur la durée et Pestilence, les ennemis qu'ils battent ne peuvent pas être ranimés, et ils obtiennent un tour bonus chaque fois qu'ils subissent Étourdissement ou que la santé d'un autre allié devient inférieure à 100 %.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Étrange petit clone</u>",
+                "unique-ability1": "Omega (Fugitive) a +50 de vitesse.\n\nSi Omega (Fugitive) est dans l'emplacement de chef, la première fous que chaque allié Omega (Fugitive), Batcher, Hunter (Mercenaire), Wrecker (Mercenaire), et Crosshair (Cicatrice) est vaincu :\n\n- Retire toutes les améliorations et tous les affaiblissements, et ils subissent 10 cumuls de Captivité jusqu'à la fin de la bataille.\n- Pendant qu'ils subissent Captivité, ils ne peuvent pas être ciblés, sont immunisés à tous les dégâts, à la récupération, aux améliorations et aux affaiblissements, et ils perdent 1 cumul de Captivité chaque fois qu'un allié joue son tour.\n- Les alliés du Bad Batch peuvent contribuer à leur objectif de sauvetage.\n- Si leur objectif de sauvetage est atteint avant qu'ils ne perdent tous les cumuls de Captivité, ils perdent Captivité et récupèrent 100 % de santé et de protection ; sinon, ils sont immédiatements vaincus.\n- Si tous les allués subissent Captivité, leur objectif de sauvetage échoue immédiatement.\n- Cet effet persiste après la défaite.\n\n<u class='speciale'>Captivité :</u> vitesse à 0, impossible d'obtenir un bonus d'attaque ou un bonus de jauge de tour.\n\n<u class='speciale'>Objectif de sauvetage :</u> obtenez 30 cumuls de Tir sur cibles.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "omega (fugitive)"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Vel Sartha</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/vel/vel-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/vel/vel-image.png" alt="Vel Sartha" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Vel Sartha</u></h1>
+            <p id="description">
+                A strategic Rebel operative who disrupts enemies and strengthens allies
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="capacite" href="../classement-perso/combattant-rebelle.html" id="rebel-fighter">Rebel Fighter</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: BK-43 Blaster Rifle</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Vel Sartha basic" src="../image-perso/vel/vel-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and inflict Offense Down for 1 turn. If the target is Undermined, this Offense Down can't be dispelled. Vel gains a stack of Resilient Defense and an additional stack per Undermined enemy for 2 turns (max 8 stacks).
+                <br><br>
+                On her turn, if all enemies are Undermined, Rebel Fighter allies gain Protection Up (50%) for 1 turn and Vel gains Deflective Ward for 1 turn or until she receives damage.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Disrupting Barrage (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Vel Sartha special" src="../image-perso/vel/vel-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies and Blind them for 1 turn. Blind can't be resisted by Undermined enemies. Rebel Fighter allies gain Entrenched for 1 turn, which can't be copied, dispelled, or prevented.
+                <br><br>
+                If all enemies are Undermined, Rebel Fighter allies gain Critical Chance Up and Critical Damage Up for 2 turns.
+                <br><br>
+                <u class="speciale">Entrenched:</u> +50% Defense; deal 25% more damage for each other Entrenched ally when attacking; recover 5% Health and Protection at the start of their turn
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : One Path One Choice</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Vel Sartha unique 1" src="../image-perso/vel/vel-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of the encounter, if all allies are Rebel Fighters, Vel gains a stack of Resilient Defense and 2 additional stacks if Cinta is an ally.
+                <br><br>
+                At the start of her turn, Rebel Fighter allies gain 8% of Vel's Critical Chance, Critical Damage, Defense Penetration, and Offense for 1 turn. Vel gains 50% Offense per Undermined enemy until the start of her next turn.
+                <br><br>
+                While Vel has Resilient Defense, she has +100% Critical Avoidance, Counter Chance, and Defense. Undermined enemies deal 10% less damage.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Battles:</u> All Rebel Fighter allies gain 100% Max Health, Offense and Max Protection until the end of battle. Whenever Vel gains a stack of Resilient Defense, all Rebel Fighter allies gain 50% Offense (stacking) until the start of Vel's next turn. Whenever a Rebel Fighter ally defeats an enemy, all Rebel Fighter allies recover 25% Health and Protection and gain Damage Immunity for 1 turn, which can't be copied, dispelled, or prevented. Whenever a Rebel Fighter ally defeats an Undermined enemy, all other enemies become Undermined for 1 turn, which can't be resisted.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : She Was a Miracle</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Vel Sartha unique 2" src="../image-perso/vel/vel-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                At the start of the encounter, Vel has +35% Accuracy. Whenever Cinta or Vel are attacked by an Undermined enemy, Vel gains a stack of Resilient Defense (max 8 stacks) for 2 turns.
+                <br><br>
+                Whenever an Undermined enemy attacks Cinta, she recovers 10% Protection and Vel gains 10% Turn Meter. Whenever Vel uses a Basic ability on an Undermined enemy, Cinta assists.
+                <br><br>
+                Whenever an enemy attacks Cinta, at the start of Vel's turn that enemy is Exposed until the end of the turn. The first time Vel falls below 50% Health, she and Cinta reset their cooldowns and equalize their Health and Protection.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Vel Sartha",
+                "title": "<u>Vel Sartha</u>",
+                "description": "Une agente rebelle stratégique qui perturbe les ennemis et renforce les alliés.",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "rebel": "Rebelle",
+                "rebel-fighter": "Combattant rebelle",
+
+                "basic-attack-title": "<u>Attaque Basique: Fusil blaster BK-43</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie et lu inflige un malus d'attaque pendant 1 tour. Si la cible subit Démoralisation , ce malus ne peut être dissipé. Vel obtient un cumul de Solide défense et 1 cumul supplémentaire par ennemi subissant Démoralisation pendant 2 tours (8 cumuls maximum).\n\nAu début de son tour, si tous les ennemis sont affectés par Démoralisation, les alliés combattants rebelles gagnent un bonus de protection (50 %) pendant 1 tour et Vel gagne Parade déroutante pendant 1 tour ou jusqu'à ce qu'elle subisse des dégâts.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Barrage perturbateur (délai : 4)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis et leur inflige Cécité pendant 1 tour. Cécité ne peut pas être résisté par les ennemis qui subissent Démoralisation. Les alliés combattants rebelles obtiennent Retranchement pendant 1 tour (ne peut pas être copié, dissipé ou empêché).\n\nSi tous les ennemis subissent Démoralisation, les alliés combattants rebelles obtiennent un bonus de chances de coup critique et un bonus de dégâts critiques pendant 2 tours.\n\n<u class='speciale'>Retranchement :</u> +50 % de défense, inflige 25 % de dégâts supplémentaires pour chaque allié retranché, et récupère 5 % de santé et de protection au début de son tour.",
+
+                "unique-ability1-title": "<u>Capacité Unique : un seul chemin un seul choix </u>",
+                "unique-ability1": "Au début de l'affrontement, si tous les alliés sont des combattants rebelles, Vel gagne un cumul de Solide défense et 2 cumuls supplémentaires si Cinta est une alliée.\n\nAu début de son tour, les alliés combattants rebelles gagnent 8 % des chances de coup critique, des dégâts critiques, de la pénétration de défense et de l'attaque de Vel pendant 1 tour. Vel gagne 50 % d'attaque par ennemi subissant Démoralisation jusqu'au début de son prochain tour.\n\nTant que Vel dispose de Solide défense, elle a +100 % d'esquive des critiques, de chances de contre-attaque et de défense. Les ennemis subissant Démoralisation infligent 10 % de dégâts en moins.\n\n<u class='omicron'>Amélioration Omicron : Dans les Batailles de territoire :</u> Tous les alliés combattants rebelles gagnent 100 % de santé maximale, d'attaque et de protection maximale jusqu'à la fin de la bataille. Chaque fois que Vel gagne un cumul de Solide défense, tous les alliés combattants rebelles gagnent 50 % d'attaque (cumulatif) jusqu'à la fin du prochain tour de Vel. Chaque fois qu'un allié combattant rebelle vainc un ennemi, tous les alliés combattants rebelles récupèrent 25 % de santé et de protection et gagnent Immunité aux dégâts pendant 1 tour (ne peut pas être copién dissipé ou empêché). Chaque fois qu'un allié combattant rebelle vainc un ennemi subissant Démoralisation, tous les autres ennemis subissent Démoralisation pendant 1 tour (ne peut pas être résisté).",
+
+                "unique-ability2-title": "<u>Capacité Unique : Elle était un miracle</u>",
+                "unique-ability2": "Au début de l'affrontement, Vel a +35 % de précision. Chaque fois que Cinta ou Vel sont attaquées par un ennemi subissant Démoralisation, Vel gagne un bonus de Solide défense (8 cumuls maximum) pendant 2 tours.\n\nChaque fois qu'un ennemi subissant Démoralisation attaque Cinta, elle récupère 10 % de protection et Vel gagne 10 % de jauge de tour. Chaque fois que Vel utilise une capacité de base sur un ennemi subissant Démoralisation, Cinta est invoquée.\n\nChaque fois qu'un ennemi attaque Cinta, au début du tour de Vel, cet ennemi subit Démoralisation jusqu'à la fin du tour. La première fois que la santé de Vel passe en dessous de 50 %, elle et Cinta réinitialisent leurs délais et égalisent leur santé et leur protection.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "VEL"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
