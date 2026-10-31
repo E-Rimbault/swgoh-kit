@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Rey's Millennium Falcon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-vaisseaux/rey-falcon/rey-falcon-image.png">
+    <link rel="stylesheet" href="../style/ship-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-vaisseaux/rey-falcon/rey-falcon-image.png" alt="Rey's Millennium Falcon" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Rey's Millennium Falcon</u></h1>
+            <p id="description">
+                Daring Resistance freighter that can turn the tide by sacrificing buffs
+            </p>
+            <br>
+
+            <nav class="perso ship-nav">
+                <!-- Partie gauche : catégories -->
+                <div class="nav-left">
+                    <a class="capacite" style="color: blue !important;" href="../vaisseaux/vaisseau-coté-lumineux.html" id="lightside">Light Side</a>
+                    <a class="class" href="../vaisseaux/vaisseau-attaquant.html" id="attacker">Attacker</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-résistance.html" id="resistance">Resistance</a>
+                    <a class="capacite" href="../vaisseaux/vaisseux-de-marchandise.html" id="cargo-ship">Cargo Ship</a>
+                </div>
+
+                <!-- Partie droite : unités associées -->
+                <div class="nav-right">
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href="../html/rey_pilleuse.html"><img src="../image-perso/rey_pilleuse/rey-image.png" alt="Rey (Scavenger)" class="ship-unit-image"></a>
+                        <span id="unit-rey" class="ship-unit-name">Rey (Scavenger)</span>
+                    </div>
+
+                    <div class="ship-unit">
+                        <a href="../html/finn.html"><img src="../image-perso/finn/finn-image.png" alt="" class="ship-unit-image"></a>
+                        <span id="unit-finn" class="ship-unit-name">Finn</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-vaisseaux/rey-falcon/rey-falcon.png" alt="Rey's Millennium Falcon"><br>
+
+    <!-- Capacités du vaisseau -->
+    <h2 class="titre" id="crew-ability-title-1">
+        <u>Crew Ability - <strong><u class="speciale">Rey (Scavenger)</u></strong> : Thrust Reversal (cooldown: 5)</u>
+    </h2>
+      <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/rey-falcon/rey-falcon-crew-rey.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/rey_pilleuse.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/rey_pilleuse/rey-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability-1">
+                The Falcon gains Protection Up (50%) for 2 turns and gains 3 stacks of the Thrust Reversal unique buff (can't be copied, dispelled, or prevented).
+                <br><br>
+                <u class="speciale">Thrust Reversal:</u> +100% Counter Chance. Whenever the Falcon uses its basic attack, 1 stack is consumed to gain 50% Turn Meter.
+            </p>
+        </div>
+    </div>
+
+    <!-- Capacités du vaisseau -->
+    <h2 class="titre" id="crew-ability-title-2">
+        <u>Crew Ability - <strong><u class="speciale">Finn</u></strong> : Gambit (cooldown: 4)</u>
+    </h2>
+      <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/rey-falcon/rey-falcon-crew-finn.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/finn.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/finn/finn-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability-2">
+                Dispel all buffs on the Falcon and deal Physical damage to all enemies. This attack deals +30% bonus damage for each buff dispelled.
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité basique-->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Quad Laser</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Rey's Millennium Falcon basic" src="../image-vaisseaux/rey-falcon/rey-falcon-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy, with a 75% chance to hit them a second time, plus an additional hit if the Falcon is buffed. Hits after the first deal 75% less damage.
+                <br><br>
+                <u class="speciale">Target Lock:</u> This attack scores an additional hit
+            </p>
+        </div>
+    </div>
+
+    <!--capacité unique-->
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : Against the Odds</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Rey's Millennium Falcon unique" src="../image-vaisseaux/rey-falcon/rey-falcon-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                The Falcon gains 10% Turn Meter and 10% Offense (stacking) whenever it is damaged. If it is buffed when it is attacked, it also inflicts Target Lock on its attacker, which can't be Resisted. Additionally, while the Falcon has Thrust Reversal it has +100% Defense, and +15% Evasion while it doesn't.
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité de type renfort-->
+    <h2 class="titre" id="reinforcement-title"><u>Reinforcement Ability: Thrust Accelerator</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Rey's Millennium Falcon reinforcement" src="../image-vaisseaux/rey-falcon/rey-falcon-reinforcement.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="reinforcement-description">
+                <u class='speciale'>Enter Battle :</u> The Falcon gains 3 stacks of Thrust Reversal.
+                <br><br>
+                <u class="speciale">Thrust Reversal:</u> +100% Counter Chance. Whenever the Falcon uses its basic attack, 1 stack is consumed to gain 50% Turn Meter
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            const translationsFr = {
+                "big-title": "Faucon Millenium de Rey",
+                "title": "<u>Faucon Millenium de Rey</u>",
+                "description": "Cargo de la Résistance téméraire qui peut inverser le cours de la bataille en sacrifiant ses améliorations.",
+                "unit-rey": "Rey (Pilleuse)",
+                "unit-finn": "Finn",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "resistance": "Résistance",
+                "cargo-ship": "Vaisseau de marchandise",
+
+                "basic-attack-title": "<u>Attaque Basique: Quand laser</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie, avec 75 % de chances d'infliger un second coup. Si le Faucon dispose d'améliorations, inflige un coup supplémentaire. Les dégâts infligés après le premier coup sont 75 % moins importants.\n\n<u class='speciale'>Verrouillage :</u> cette attaque inflige un coup supplémentaire.",
+
+                "crew-ability-title-1": "<u>Capacité équipage - <strong><u class='speciale'>Rey (Pilleuse)</u></strong> : Inversion de poussée (délai : 5)</u>",
+                "crew-ability-1": "Le Faucon bénéficie d'un bonus de protection (50 %) pendant 2 tours et gagne 3 cumuls de l'amélioration unique Inversion de poussée (ne peut pas être copié, dissipé ou empêché).\n\n<u class='speciale'>Inversion de poussée :</u> +100 % de chances de contre-attaque. A chaque fois que le Faucon utilise son attaque de base, il consomme 1 cumul pour remplir sa jauge de tour de 50 %.",
+
+                "crew-ability-title-2": "<u>Capacité équipage - <strong><u class='speciale'>Finn</u></strong> : Gambit (délai : 4)</u>",
+                "crew-ability-2": "Dissipe toutes les améliorations dont dispose le Faucon et inflige des dégâts physiquues à tous les ennemis. Cette attaque inflige +30 % de dégâts bonus pour chaque amélioration dissipée.",
+
+                "unique-ability-title": "<u>Capacité Unique : Contre toute attente</u>",
+                "unique-ability": "La jauge de tour du Faucon se remplit de 10 % et il gagne 10 % d'attaque (cumulatif) chaque fois qu'il subit des dégâts. S'il bénéficie d'une amélioration lorsqu'il est attaqué, il inflige également le Verrouillage à son attaquant, ce qui n epeut pas être résisté. De plus, lorsque le Faucon a l'Inversion de poussée, il bénéficie d'un bonus de +100 % de défense, et de +15 % d'esquive lorsqu'il ne l'a pas.",
+
+                "reinforcement-title": "<u>Capacité de Renfort : Accélérateur de poussée</u>",
+                "reinforcement-description": "<u class='speciale'>Rejoindre la Bataille :</u> le Faucon gagne 3 cumuls d'Inversion de poussée.\n\n<u class='speciale'>Inversion de poussée :</u> +100 % de chances de contre-attaque. A chaque fois que le Faucon utilise son attaque de base, il consomme 1 cumul pour remplir sa jauge de tour de 50 %.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Hound's Tooth</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-vaisseaux/houndstooth/houndstooth-image.png">
+    <link rel="stylesheet" href="../style/ship-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-vaisseaux/houndstooth/houndstooth-image.png" alt="Hound's Tooth" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Hound's Tooth</u></h1>
+            <p id="description">
+                Sustainable Bounty Hunter Tank that debilitates enemies
+            </p>
+            <br>
+
+            <nav class="perso ship-nav">
+                <!-- Partie gauche : catégories -->
+                <div class="nav-left">
+                    <a class="capacite" style="color: red !important;" href="../vaisseaux/vaisseau-coté-obscur.html" id="darkside">Dark Side</a>
+                    <a class="class" href="../vaisseaux/vaisseau-tank.html" id="tank">Tank</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-chasseur-de-primes.html" id="hunter">Bounty Hunter</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-vaurien.html" id="scoundrel">Scoundrel</a>
+                    <a class="capacite" href="../vaisseaux/vaisseux-de-marchandise.html" id="cargo-ship">Cargo Ship</a>
+                </div>
+
+                <!-- Partie droite : unités associées -->
+                <div class="nav-right">
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href="../html/bossk.html"><img src="../image-perso/bossk/bossk-image.png" alt="Bossk" class="ship-unit-image"></a>
+                        <span id="unit-bossk" class="ship-unit-name">Bossk</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-vaisseaux/houndstooth/houndstooth.png" alt="Hound's Tooth"><br>
+
+    <!-- Capacités du vaisseau -->
+    <h2 class="titre" id="crew-ability-title">
+        <u>Crew Ability - <strong><u class="speciale">Bossk</u></strong> : Trandoshan Barricade</u>
+    </h2>
+      <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/houndstooth/houndstooth-crew.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/bossk.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/bossk/bossk-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability">
+                Hound's Tooth gains 25% Protection Up (stacking) for 2 turns whenever it takes damage from an enemy's attack. While not Taunting, it has +50% Tenacity and gains +25% Turn Meter whenever another ally takes damage from an enemy's attack. Attacks that deal damage multiple times will not trigger these effects more than once. When Hound's Tooth loses Taunt, it gains Taunt for 1 turn if an enemy is Breached.
+                <br><br>
+                While Hound's Tooth is active, Breached enemies have -25% Evasion.
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité basique-->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Tooth and Nail</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="hound-tooth basic" src="../image-vaisseaux/houndstooth/houndstooth-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and dispel all debuffs on Hound's Tooth. Hound's Tooth recovers +10% Health and +10% Protection if it has Taunt.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité spécial-->
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Devourer of Prey (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="houndstooth special" src="../image-vaisseaux/houndstooth/houndstooth-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and inflict Breach for 3 turns, which can't be Evaded. Hound's Tooth gains Taunt for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité de type renfort-->
+    <h2 class="titre" id="reinforcement-title"><u>Reinforcement Ability: Secure the Hunt</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="hound-tooth reinforcement" src="../image-vaisseaux/houndstooth/houndstooth-reinforcement.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="reinforcement-description">
+                <u class='speciale'>Enter Battle :</u> Grant all other allies +25% Tenacity. Other Bounty Hunter allies also gain +5% Counter Chance (stacking) whenever they Resist a detrimental effect.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            const translationsFr = {
+                "big-title": "Dent du Molosse",
+                "title": "<u>Dent du Molosse</u>",
+                "description": "Ce tank chasseur de primes inflige des malus aux ennemis",
+                "unit-bossk": "Bossk",
+                
+                "darkside": "Coté Obscur",
+                "tank": "Tank",
+                "hunter": "Chasseur de primes",
+                "scoundrel": "Vaurien",
+                "cargo-ship": "Vaisseau de marchandise",
+
+                "basic-attack-title": "<u>Attaque Basique: Croc et griffe</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie et dissipe tous les affaiblissements affectant la Dent du Molosse. La Dent du Molosse récupère 10 % de santé et 10 % de protection si elle utilise Raillerie.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Prédateur vorace (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques ainsi que Faille pendant 3 tours (ne peut pas être esquivé). La Dent du Molosse utilise Raillerie pendant 2 tours.",
+
+                "crew-ability-title": "<u>Capacité équipage - <strong><u class='speciale'>Bossk</u></strong> : Barricade trandoshane</u>",
+                "crew-ability": "Lorsqu'il subit des dégâts causés par une attaque ennemie, le vaisseau Dent du Molosse bénéficie d'une hausse de protection de 25 % (cumulatif) pendant 2 tours. Lorsqu'un allié subit des dégâts caisés par une attaque ennemie, si le vaisseau n'utilise pas Raillerie, il gagne un bonus de ténacité de 50 % et sa juage de tour se remplit de 25 %. Si une même attaque ennemie cause plusieurs salve de dégâts, ces effets ne se déclenchent qu'une seule fois. Lorsque la Dent du Molosse perd Raillerie, si un ennemi souffre de Faille, il utilise Raillerie pendant 1 tour.\n\nLorsque le vaisseau Dent du Molosse est actif, les ennemis qui souffrent de Faille subissent un malus d'esquive de -25 %.",
+
+                "reinforcement-title": "<u>Capacité de Renfort : Poursuite de la proie</u>",
+                "reinforcement-description": "<u class='speciale'>Rejoindre la Bataille :</u> tous les autres alliés bénéficient d'un bonus de ténacité de 25 %. Les autres Chasseurs de primes alliés bénéficient également d'un bonus de chances de contre-attaque de 5 % (cumulatif) lorsqu'ils résistent à un effet négatif.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+    </footer>
+</body>
+
+</html>
