@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">CX-2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/cx-2/cx-2-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/cx-2/cx-2-image.png" alt="CX-2" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>CX-2</u></h1>
+            <p id="description">
+                A support character, operating from the shadows to empower his fellow Dark Side Clones
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color: red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/soldat-clone.html" id="clone">Clone Trooper</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/cx-2/cx-2.png" alt="CX-2"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Infiltrate and Extract</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="CX-2 basic" src="../image-perso/cx-2/cx-2-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage and inflict Speed Down on target enemy for 2 turns.
+                <br><br>
+                On CX-2's turn, if the target enemy has Order 66, Empire allies gain 10% Turn Meter and recover 10% Health. If CX-2 was Stealthed, recover an additional 10% Health. CX-2 Stealths for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Instruments of the Empire (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="CX-2 special" src="../image-perso/cx-2/cx-2-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage and inflict Disarm for 2 turns or until CX-2 is defeated and remove it from all other enemies, which can't be copied, dispelled, evaded, or resisted. Inflict target enemy with Vulnerable for 2 turns.
+                <br><br>
+                Empire allies gain bonuses based on their roles, and if there is an active Lord Vader ally, he gains all of these bonuses:
+                <br><br>
+                - <strong>Attackers:</strong> Gain Offense Up for 2 turns<br>
+                - <strong>Healers and Supports:</strong> Gain Speed Up for 2 turns<br>
+                - <strong>Tanks:</strong> Gain 30% bonus Protection for 2 turns
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : You Chose the Wrong Side</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="CX-2 unique" src="../image-perso/cx-2/cx-2-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Whenever an enemy dispels a debuff, all Empire allies gain 10% bonus Protection until the end of the encounter.
+                <br><br>
+                At the start of battle, if CC-1119 "Appo" is an ally, all Empire allies can ignore taunt effects to target enemies inflicted with Order 66 and gain Instant Defeat Immunity until the end of battle or CX-2 is defeated, which can't be copied, dispelled or prevented. If all allies gained Dramatic Entrance at the start of encounter, all allies gain Dramatic Entrance for 2 turns whenever an enemy unit is defeated.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in 3v3 Grand Arenas:</u> Empire allies gain 100% Max Health.
+                <br><br>
+                If all allies at the start of battle are Dark Side Clone Troopers and/or Lord Vader, all allies gain 50% Offense, and the first time they fall below 50% Health, they recover 100% Health and gain 30% bonus Protection for 2 turns.
+                <br><br>
+                Whenever any stacks of Damage Over Time are dispelled on the enemy, they gain a stack of Damage Over Time, which can't be dispelled, evaded, or resisted, until the end of battle.
+                <br><br>
+                If CC-1119 "Appo" is active, CX-2 is immune to taunt effects and can't be targeted during enemy turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Focused and Determined</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="CX-2 unique 2" src="../image-perso/cx-2/cx-2-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                At the start of battle, CX-2 gains 10% Max Health and Offense for each other Empire ally. At the start of each encounter, CX-2 Stealths for 2 turns.
+                <br><br>
+                While another Empire ally is active, CX-2 ignores taunt effects on his turn.
+                <br><br>
+                Whenever CX-2 uses an ability against the same targeted enemy that he did in the previous turn, he gains 50% Critical Chance and Potency (stacking, max 100%) and all Empire allies recover 15% Health and Protection until he uses an ability on his turn against a different target.
+                <br><br>
+                Whenever CX-2 uses an ability against the same targeted enemy 3 times in a row, inflict Order 66 on that enemy for 2 turns, which can't be copied, dispelled, evaded or resisted. If all allies at the start of battle are Dark Side Clone Troopers and/or Lord Vader, Lord Vader gains 25% Ultimate Charge whenever an enemy is inflicted with Order 66.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "CX-2",
+                "title": "<u>CX-2</u>",
+                "description": "Un personnage de soutien, opérant dans l'Ombre pour donner de la puissance à ses alliés clones du Côté Obscur.",
+
+                "darkside": "Dark Side",
+                "support": "Soutien",
+                "clone": "Soldat Clone",
+                "empire": "Empire",
+
+                "basic-attack-title": "<u>Attaque Basique: Infiltration et exfiltration</u>",
+                "basic-attack": "Inflige des dégâts physiques et un malus de vitesse à la cible ennemie pendant 2 tours.\n\nPendant le tour de CX-2, si la cible ennemie subit l'Ordre 66, les alliés de l'Empire obtiennent 10 % de jauge de tour et récupèrent 10 % de santé. Si CX-2 utilisait Camouflage, ils récupèrent 10 % de santé supplémentaire. CX-2 utilise Camouflage pendant 1 tour.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Marionnettes de l'Empire (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques et Désarmement pendant 2 tours ou jusqu'à ce que CX-2 soit vaincu et le retire de tous les autres ennemis (ne peut pas être copié, dissipé, esquivé ou résisté). Inflige Vulnérabilité à la cible ennemie pendant 2 tours.\n\nLes alliés de l'Empire obtiennent des bonus en fonction de leur rôle et si un Seigneur Vador allié est actif, alors il gagne tous les bonus suivants :\n\n- <strong>Attaquants :</strong> bonus d'attaque pendant 2 tours.\n- <strong>Soigneurs et soutiens :</strong> bonus de vitesse pendant 2 tours.\n- <strong>Tanks :</strong> 30 % de protection bonus pendant 2 tours.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Tu as choisi le mauvais camp</u>",
+                "unique-ability1": "Lorsqu'un ennemi dissipe un affaiblissement, tous les alliés de l'Empire obtiennent 10 % de protection supplémentaire jusqu'à la fin de l'affrontement.\n\nAu début de la bataille, si CC-1119\"Appo\" est un allié, tous les alliés de l'Empire peuvent ignorer les effets de Raillerie pour cibler les ennemis subissant Ordre 66 et obtiennent Immunité contre la défaite instantanée jusqu'à la fin de la bataille ou que CX-2 soit vaincu (ne peut pas être copié, dissipé ou empêché). Si tous les alliés gagnent Entrée dramatique au début de la bataille, tous les alliés reçoivent Entrée dramatique pendant 2 tours chaque fois qu'une unité ennemie est vaincue.\n\n<u class'omicron>Amélioration Omicron : Dans les Grandes arènes en 3c3 :</u> les alliés de l'Empire gagnent 100 % de santé maximale.\n\nAU début de la bataille, si tous les alliés sont des soldats clones du Côté Obscur et/ou le Seigneur Vador, tous les alliés obtiennent 50 % d'attaque et la première fois qu'ils tombent en dessous de 50 % de santé, ils récupèrent 100 % de santé et obtiennent 30 % de protection supplémentaire pendant 2 tours.\n\nChaque fois que n'importe quelle quantité de cumul de dégâts sur la durée est dissipée sur un ennemi, il reçoit un cumul de dégâts sur la durée (ne peut pas être dissipé, esquivé ou résisté) jusqu'à la fin de la bataille.\n\nSi CC-1119 \"Appo\" est actif, CX-2 est immunisé contre les effets de Raillerie et ne peut âs être ciblé pendant le tour des ennemis.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Concentré et déterminé</u>",
+                "unique-ability2": "Au début de la bataille, CX-2 gagne 10 % de santé maximale et d'attaque pour chaque autre allié de l'Empire. Au début de chaque affrontement, CX-2 utilise Camouflage pendant 2 tours.\n\nTant qu'un autre allié de l'Empire est actif, CX-2 ignore les effets de Raillerie pendant son tour.\n\nChaque fois que CX-2 utilise une capacité contre le même ennemi ciblé qu'à on tour précédent, il gagne 50 % de chances de coup critique et de pouvoir (cumulatif, max. 100 %) et tous les alliés de l'Empire récupèrent 15 % de santé et de protection jusqu'à ce qu'il utilise une capacité pendant son tour contre une cible différente.\n\nChaque fois que CX-2 utilise une capacité contre le même ennemi ciblé 3 fois d'affilé, il lui inflige Ordre 66 pendant 2 tours (ne peut pas être copié, dissipé, esquivé ou résisté). Si tous les alliés au début de la bataille sont des Soldats clones du Côté Obscur et/ou le Seigneur Vador, le Seigneur Vador gagne 25 % de charge ultime chaque fois qu'un ennemi subit Ordre 66.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "cx-2"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
