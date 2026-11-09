@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Jar Jar Binks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/jar-jar/jar-jar-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/jar-jar/jar-jar-image.png" alt="jar jar binks image" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Jar Jar Binks</u></h1>
+            <p id="description">
+                A Gungan Support who isn’t afraid to interject into the battle and offer his own brand of help, frustrating the enemy.
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/gungan.html" id="gungan">Gungan</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/jar-jar/jar-jar.png" alt="jar jar binks image profil"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: How Wude!</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="jar jar binks basic" src="../image-perso/jar-jar/jar-jar-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to all enemies. On his turn 1 of 3 effects will occur:
+                <br><br>
+                - Inflict Deathmark for 1 turn to the healthiest enemy, which can't be resisted, if they have at least 3 debuffs<br>
+                - The weakest Gungan ally gains Damage Immunity for 1 turn<br>
+                - Gungan allies gain Tenacity Up for 1 turn
+                <br><br>
+                Additionally, this attack has a 0.01% chance to instantly defeat a random enemy, which can't be evaded (increased to 1% chance if there are any Separatist enemies). This attack can't be countered.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Uh Oh, Big Boomas (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="jar jar binks special 1" src="../image-perso/jar-jar/jar-jar-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Special damage to all enemies. If target enemy had Protection, Stun them for 1 turn, otherwise inflict them with 3 stacks of Expose for 1 turn. 0.01% chance all enemies lose all Turn Meter and are inflicted with Fear for 1 turn, which can't be copied, dispelled, prevented, or resisted (increased to 1% chance if there are any Separatist enemies). If all allies are Gungans, all enemies are inflicted with <u class="speciale">Plasma Residue</u> for 1 turn, which can't be copied.
+                <br><br>
+                <u class="speciale">Plasma Residue:</u> This character loses 100% Evasion; if this character becomes inflicted with Shock, deal reduced massive damage to all enemies with Plasma Residue then remove all instances of Plasma Residue
+                <br><br>
+                <u class="omicron">Omicron Boost: While in Grand Arenas and all allies are Gungans:</u> Dispel bonus Protection and Protection Up on all enemies and they lose 5% Max Health and Max Protection (stacking), which can't be evaded, for the rest of the encounter, then inflict the target enemy with Protection Disruption for 1 turn. Plasma Residue can't be resisted. Whenever this ability is used, reduce the cooldown of all other Gungan ally's abilities by 1.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Wesa Warriors (cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="jar jar binks special 2" src="../image-perso/jar-jar/jar-jar-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Special damage to target enemy and a random enemy. Gungan allies recover 10% Protection. 0.01% chance all Gungan allies recover 100% Health and Protection and gain 100% Turn Meter and Foresight for 2 turns (increased to 1% chance if there are any Separatist enemies). All enemies are inflicted with 2 stacks of <u class="speciale">Frustration</u> for 1 turn, which can't be copied.
+                <br><br>
+                If all allies are Gungans (excluding summoned allies), for each different debuff on target enemy or random enemy that could be copied and dispelled (excluding stacking debuffs), that debuff is dispelled and inflicted on that enemy for 1 turn. These debuffs can't be dispelled or resisted.
+                <br><br>
+                <u class="speciale">Frustration:</u> Detrimental effects build based on the cumulative number of stacks:<br>
+                <u class="speciale">1 or more stacks:</u> Can't assist or counter attack<br>
+                <u class="speciale">2 or more stacks:</u> Whenever this character gains bonus Turn Meter remove 2 stacks of Recharge from enemy Shield Generator and Expose this character for 2 turns<br>
+                <u class="speciale">3 stacks:</u> Special abilities are unusable for 1 attack; remove all stacks of Frustration after this attack
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Mesa Okeyday</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="jar jar binks unique" src="../image-perso/jar-jar/jar-jar-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of battle, Jar Jar loses 75% Max Health and gains that much as Max Protection, and is inflicted with Deathmark until he receives damage or evades an attack. If the enemy leader is Separatist, at the start of the encounter, Jar Jar gains 50 Speed for the rest of the encounter. Jar Jar's debuffs can't be evaded and he can't be called to assist. Whenever another character gains Foresight, Jar Jar gains Foresight for 1 turn. Whenever Jar Jar gains Foresight he dispels it and Blinds himself instead for 1 turn.
+                <br><br>
+                Whenever Jar Jar evades a Basic ability, the enemy that missed is inflicted with a stack of Frustration for 1 turn at the start of the next turn, which can't be copied or resisted. Whenever an enemy Dazes, Staggers, or Stuns a Gungan ally, Deathmark Jar Jar until he receives damage or evades an attack.
+                <br><br>
+                If there is an active ally Shield Generator: Jar Jar has +1000% Evasion. Whenever a character gains bonus Turn Meter, Jar Jar has a 1% chance of gaining a bonus turn (increased to 10% if it is an enemy). Whenever this bonus turn occurs Jar Jar can't gain another bonus turn this way for 2 turns.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas and all allies are Gungans:</u> Whenever the Shield Generator uses Plasma Pulse reset all of Jar Jar's cooldowns. Whenever a Gungan ally is Dazed, Staggered, or Stunned, they dispel it and gain Shield Up (25%) for 2 turns
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Mooie-Mooie, I Love You</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="jar jar binks unique" src="../image-perso/jar-jar/jar-jar-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                Gungan allies have +75% Accuracy. If the enemy leader is Separatist, at the start of the encounter, all Gungan allies gain 50% Max Protection until the end of the encounter or Jar Jar is defeated for the first time.
+                <br><br>
+                At the start of the battle, if there are no Galactic Legends, all enemies are inflicted with a stack Frustration for 1 turn (increased to 3 stacks if they are Stealthed), which can't be resisted. If different enemies take consecutive turns, a random Gungan ally gains a bonus turn. Whenever Jar Jar misses an attack on his turn, all other Gungan allies assist (once per turn) dealing 50% less damage. Whenever the ally Shield Generator uses Plasma Pulse, Gungan allies ignore Protection for one attack.
+                <br><br>
+                If there is an active ally Shield Generator: Gungan allies can't drop below 100% Health while they have Protection and can't be instantly defeated.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas and all allies are Gungans:</u> At the start of the battle, the ally Shield Generator gains 2 stacks of Plasma Shielding for every 3 Relic Amplifier levels Jar Jar has. Whenever a non-Gungan enemy gains Damage Immunity, all Gungan allies gain Damage Immunity for 1 turn. Whenever a Gungan ally gains a bonus turn from this ability they gain 5% Mastery until the end of the encounter.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Jar Jar Binks",
+                "title": "<u>Jar Jar Binks</u>",
+                "description": "Un soutien gungan qui n'hésite pas à s'imbriquer dans le combat et à aider à sa manière, ce qui ne manque pas de frustrer l'ennemi",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "gungan": "Gungan",
+
+                "basic-attack-title": "<u>Attaque Basique: Quelle brutalité !</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à tous les ennemis. Lors de son tour, 1 des 3 effets suivants se produit :\n\n- l'ennemi disposant du plus grand niveau de santé subit Marque de mort pendant 1 tour (ne peut pas être résisté) s'il souffre d'au moins 3 affaiblissements ;\n- l'allié Gungan le plus faible gagne Immunité aux dégâts pendant 1 tour ;\n- les alliés Gungans gagnent un bonus de ténacité pendant 1 tour.\n\nDe plus, cette attaque a 0,01 % de chances de vaincre instantanément un ennemi aléatoire (ne peut pas être esquivé). Les chances augementent à 1 % en présence d'ennemis séparatistes. Cette attaque ne peut pas être contrée.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Oh, oh méga-boomas (délai : 4)</u>",
+                "special-attack1": "Inflige des dégâts spéciaux à tous les ennemis. Si la cible ennemie disposait de protection, elle subit Étourdissement pendant 1 tour ; autrement, elle reçoit 3 cumuls d'Exposition pendant 1 tour. 0,01 % de chances que tous les ennemis perdent toute leur jauge de tour et subissent Peur pendant 1 tour (ne peut pas être copié, dissipé, empêché ou résisté)(augmente à 1 % de chances en présence d'ennemi séparatistes). Si tous les alliés sont des Gungans, tous les ennemis subissent <u class='speciale'>Résidu de plasma</u> pendant 1 tour (ne peut pas être copié).\n\n<u class='speciale'>Résidu de plasma :</u> ce personnage perd 100 % d'esquive. S'il subit Choc, inflige de lourds dégâts diminués à tous les ennemis affectés par Résidu de plasma, puis retire tous les Résidus de plasma.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes, et si tous ses alliés sont des Gungans :</u> dissipe la protection et le bonus de protection de tous les ennemis, et leur fait perdre 5 % de santé maximale et de protection maximale (cumulatif) (ne peut pas être esquivé) pour le reste de l'affrontement. Inflige ensuite protection perturbée à la cible ennemie pendant 1 tour Le Résidu de plasma ne peut pas être résisté. Chaque utilisation de cette capacité diminue le délai de toutes les capacités des autres alliés Gungans de 1. ",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Noussa guerriers (délai : 5)</u>",
+                "special-attack2": "Inflige des dégâts spéciaux à la cible ennemie et à un ennemi aléatoire. Les autres alliés Gungans récupèrent 10 % de protection. 0,01 % de chances que tous les alliés Gungans récupèrent 100 % de santé et de protection, et obtiennent 100 % de jauge de tour et Prévoyance pendant 2 tours (augment à 1 % de chances en présence d'ennemis séparatistes). Tous les ennemis subissent 2 cumuls de <u class='speciale'>Frustration</u> pendant 1 tour (ne peut pas être copié).\n\nSi tous les alliés sont des Gungans (à l'exception des alliés invoqués), pour chaque affaiblissements différent sur la cible ennemie ou un ennemi aléatoire qui peut être copié et dissipé (à l'exception des affaiblissements cumulatifs), cet affaiblissement est dissipé et infligé à cet ennemi pendant 1 tour. Ces affaiblissments ne peuvent pas être dissipés ou résistés.\n\n<u class='speciale'>Frustration :</u> les effets négatifs sont basés sur le nombre de cumuls :\n<u class='speciale'>1 ou plus :</u> impossible d'assister ou de contre-attaquer.\n<u class='speciale'>2 cumuls ou plus :</u> lorsque ce personnage obtient un bonus de jauge de tour, 2 cumuls de Recharge sont retirés du générateur de bouclier ennemi et ce personnage subit exposition pendant 2 tours.\n<u class='speciale'>3 cumuls :</u> les capacités spéciales sont inutilisables pendant 1 attaque. Tous les cumuls de Frustration sont retirés après cette attaque.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Missa bien</u>",
+                "unique-ability1": "Au début de l'affrontement, Jar Jar perd 75 % de sa santé maximale et obtient le même montant en protection maximale, puil il reçoit Marque de mort jusqu'à ce qu'il subisse des dégâts ou qu'il esquive une attaque. Si le chef ennemi est un Séparatiste au début de l'affrontement, Jar Jar obtient un bonus de 50 de vitesse jusqu'à la fin de l'affrontement. Les affaiblissements de Jar Jar ne peuvent pas être esquivés, et il ne peut pas être invoqué. Lorsqu'un autre personnage obtient Prévoyance, Jar Jar obtient aussi Prévoyance pendant 1 tour. Lorsque Jar Jar obtient Prévoyance, il la dissipe et s'inflige Cécité pendant 1 tour.\n\nLorsque Jar Jar esquive une capacité de base, l'enenmi qui a raté l'attaque subit un cumul de Frustration pendant 1 tour au début du prochain tour (ne peut pas être copié ou résisté). Lorsqu'un ennemi inflige Confusion, Faux pas ou Étourdissment à un allié Gungan, Jar Jar reçoit Marque de mort jusqu'à ce qu'il subisse des dégâts ou esquive une attaque.\n\nSi un générateur de bouclier allié est actif : Jar Jar obtient + 1 000 % d'esquive. Lorsqu'un personnage obtient un bonus de jauge de tour, Jar Jar a 1 % de chances d'obtenir un tour bonus (augmenté à 10 % s'il s'agit d'un ennemi). Lorsque ce tour bonus se produit, Jar Jar ne peut pas obtenir un autre tour bonus de cette façon pendant 2 tours.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes, et si tous les alliés sont des Gungans :</u> à chaque fois que le générateur de bouclier utilise Impulsion de plasma, tous les délais de Jar Jar sont réinitialisés. Lorsqu'un allié Gungan subit Cocnfusion, Faux pas ou Étourdissment, il le dissipe et obtient Derrière le bouclier (25 %) pendant 2 tours.",
+
+                "unique-ability2-title": "<u>Capacité Unique : Moï-moï je vous aime</u>",
+                "unique-ability2": "Les alliés Gungans gagnent un bonus de précision de +75 %. Si le chef ennemi est un Séparatiste, tous les alliés Gungan obtiennent au début de l'affrontement 50 % de protection maximale jusqu'à la fin de l'affrontement ou la première fois que Jar Jar est vaincu.\n\nAu début de la bataille, s'il n'y a aucune Légende galactique, tous les ennemis subissent un cumul de Frustration pendant 1 tour (augmentés à 3 cumuls s'ils bénéficient de camouflage) (ne peut pas être résisté). Si des ennemis différents enchaînent leurs tours, un allié Gungan aléatoire obtient un tour bonus. Lorsque Jar Jar rate une attaque pendant son tour, tous les autres alliés Gungans sont invoqués (une fois par tour) et infligent 50 % de dégâts en moins. Lorsque le générateur de bouclier allié utilise Impulsion plasma, les alliés Gungan ignorent la protection pour une attaque.\n\nSi un générateur de bouclier allié est actif : les alliés Gungans ne peuvent pas descendre sous 100 % de santé tant qu'ils disposent de la protection, et ils ne peuvent pas être immédiatement vaincus.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes, si tous les alliés sont des Gungans :</u> au début de la bataille, le générateur de bouclier allié obtient 2 cumuls de Bouclier plasma par tranche de 3 niveaux d'amplifiacteur de relique dont dispose Jar Jar. Lorsqu'un ennemi qui n'est pas gungan obtient Immunité aux dégâts, tous les alliés Gungan obtiennent Immunité aux dégâts pendant 1 tour. Lorsqu'un allié Gungan obtient un tour bonus avec cette capacité, il obtient 5 % de maîtrise jusqu'à la fin de l'affrontement.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "jar jar binks"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
