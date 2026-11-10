@@ -862,11 +862,84 @@ function renderCurrentEra(erasData, unitsData) {
     const gridContainer = document.getElementById('currentEraGrid');
     if (!headerContainer || !gridContainer || !erasData || erasData.length === 0) return;
 
-    const currentEra = erasData.reduce((maxEra, era) => {
-        const currentNum = Number(era.numero_ere || era.id) || 0;
-        const maxNum = Number(maxEra.numero_ere || maxEra.id) || 0;
-        return currentNum > maxNum ? era : maxEra;
-    }, erasData[0]);
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+    // Filtrer et trier les ères par ordre croissant ou décroissant de numéro
+    const sortedEras = [...erasData].sort((a, b) => {
+        const numA = Number(a.numero_ere || a.id) || 0;
+        const numB = Number(b.numero_ere || b.id) || 0;
+        return numB - numA; // Du plus grand au plus petit
+    });
+
+    let currentEra = null;
+
+    // On parcourt les ères de la plus récente à la plus ancienne
+    for (const era of sortedEras) {
+        const targetEraEn = (era.name_en || '').trim().toLowerCase();
+        const targetEraFr = (era.name_fr || '').trim().toLowerCase();
+        const targetEraNum = Number(era.numero_ere || era.id);
+
+        // Trouver toutes les unités appartenant à cette ère
+        const eraUnits = (unitsData || []).filter(unit => {
+            let unitEraEn = '';
+            let unitEraFr = '';
+
+            if (unit.era && typeof unit.era === 'object') {
+                unitEraEn = unit.era.en || unit.era.name_en || '';
+                unitEraFr = unit.era.fr || unit.era.name_fr || '';
+            } else {
+                unitEraEn = typeof unit.era === 'string' ? unit.era : '';
+                unitEraFr = typeof unit.ere === 'string' ? unit.ere : '';
+            }
+
+            unitEraEn = unitEraEn.trim().toLowerCase();
+            unitEraFr = unitEraFr.trim().toLowerCase();
+
+            const matchEn = targetEraEn !== '' && unitEraEn === targetEraEn;
+            const matchFr = targetEraFr !== '' && unitEraFr === targetEraFr;
+            const unitNum = unit.numero_ere || unit.era_id;
+            const matchNum = unitNum && (Number(unitNum) === targetEraNum);
+
+            return matchEn || matchFr || matchNum;
+        });
+
+        // Trouver la date de sortie de la première unité de cette ère
+        let isReleased = false;
+        if (eraUnits.length > 0) {
+            // Trier les unités par date de sortie croissante pour choper la première
+            eraUnits.sort((a, b) => {
+                const partsA = (a.release_date || "1970-01-01").trim().split('-');
+                const partsB = (b.release_date || "1970-01-01").trim().split('-');
+                const timeA = new Date(parseInt(partsA[0], 10), parseInt(partsA[1], 10) - 1, parseInt(partsA[2], 10)).getTime();
+                const timeB = new Date(parseInt(partsB[0], 10), parseInt(partsB[1], 10) - 1, parseInt(partsB[2], 10)).getTime();
+                return timeA - timeB;
+            });
+
+            const firstUnitDateStr = eraUnits[0].release_date;
+            if (firstUnitDateStr) {
+                const parts = firstUnitDateStr.trim().split('-');
+                if (parts.length === 3) {
+                    const releaseDate = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+                    // Si la date de sortie de la première unité est passée ou d'aujourd'hui, l'ère est active
+                    if (releaseDate <= today) {
+                        isReleased = true;
+                    }
+                }
+            }
+        }
+
+        // Si l'ère a au moins une unité dont la date est arrivée, c'est notre ère actuelle
+        if (isReleased) {
+            currentEra = era;
+            break;
+        }
+    }
+
+    // Fallback sur la première ère si aucune condition n'est remplie
+    if (!currentEra && erasData.length > 0) {
+        currentEra = sortedEras[sortedEras.length - 1];
+    }
 
     if (!currentEra) {
         headerContainer.innerHTML = '';
@@ -886,6 +959,7 @@ function renderCurrentEra(erasData, unitsData) {
 
     gridContainer.innerHTML = '';
     
+    // Récupérer les unités filtrées de cette ère validée
     const targetEraEn = (currentEra.name_en || '').trim().toLowerCase();
     const targetEraFr = (currentEra.name_fr || '').trim().toLowerCase();
     const targetEraNum = Number(currentEra.numero_ere || currentEra.id);
@@ -907,7 +981,6 @@ function renderCurrentEra(erasData, unitsData) {
 
         const matchEn = targetEraEn !== '' && unitEraEn === targetEraEn;
         const matchFr = targetEraFr !== '' && unitEraFr === targetEraFr;
-        
         const unitNum = unit.numero_ere || unit.era_id;
         const matchNum = unitNum && (Number(unitNum) === targetEraNum);
 
