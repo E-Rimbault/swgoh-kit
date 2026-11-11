@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Doctor Aphra</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/aphra/aphra-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/aphra/aphra-image.png" alt="Doctor Aphra" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Doctor Aphra</u></h1>
+            <p id="description">
+                An inventive and chaotic Support who employs dangerous treasures and technology to empower her team and unravel her foes
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/mercenaire.html" id="mercenary">Mercenary</a>
+                <a class="capacite" href="../classement-perso/vaurien.html" id="scoundrel">Scoundrel</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+            <br>
+            <!-- Partie pour les invocations -->
+            <section class="header-invocation">
+                <a href="../html/commando-droid.html" class="invocation-link">
+                    <img class="invocation-image main-image" src="../image-perso/aphra/commando-droid-image.png" alt="Hacked Commando Droid">
+                </a>
+                <h2 class="invocation" id="invocation-title">
+                    <u style="margin-left: 25px;">Invocation: Hacked Commando Droid</u>
+                </h2>
+            </section>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/aphra/aphra.png" alt="Doctor Aphra"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Destructive Excavation</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Doctor Aphra basic" src="../image-perso/aphra/aphra-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy. If they are a Droid, Stun them for 1 turn.
+                <br><br>
+                On Aphra's turn, she gains 10% Max Protection (stacking, max 50%) and 2 Siphon until the end of the encounter.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Dangerous Tech (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Doctor Aphra special 1" src="../image-perso/aphra/aphra-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Inflict Accuracy Down for 2 turns on target enemy. Dark Side allies gain Potency Up for 2 turns and 10% Turn Meter. Dark Side Droid allies gain Critical Damage Up and Offense Up for 2 turns and recover 30% Health and Protection. Revive a random non-Separatist Dark Side Droid ally, BT-1, and 0-0-0.
+                <br><br>
+                At the start of battle if there were no Galactic Legend allies and all allies are Dark Side Scoundrels, Dark Side Droids, Krrsantan, or Darth Vader, summon a Hacked Commando Droid. If a Hacked Commando Droid is already present, inflict Breach and Target Lock on target enemy for 2 turns and call Hacked Commando Droid to assist, dealing damage again as true damage with additional damage equal to 20% of Aphra's Potency.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Rogue Archaeology (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Doctor Aphra special 2" src="../image-perso/aphra/aphra-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Special damage to all enemies, increase their cooldowns by 1, and inflict Doubt on them for 2 turns. Aphra <u class="speciale">Siphons Potency</u> from target enemy, which can't be resisted.
+                <br><br>
+                This ability can't be countered.
+                <br><br>
+                <u class="speciale">Siphon Potency:</u> Gain a percentage of Potency equal to this unit's Siphon until the end of the encounter and the target loses that much Potency (stacking, excludes raid bosses and Galactic Legends)
+                <br><br>
+                <u class="omicron">Omicron Boost : While in 5v5 Grand Arenas:</u> Deal bonus damage to target enemy equal to 50% of Aphra's Potency. Inflict Buff Immunity, Healing Immunity, and Stagger on target enemy for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Suspended Doctorate</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Doctor Aphra lead" src="../image-perso/aphra/aphra-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                At the start of battle, Doctor Aphra gains Max Health and Max Protection equal to 30% of her Potency, and if BT-1 or 0-0-0 are an ally, she gains 50% Turn Meter for each. Dark Side allies have +20% Offense. Allied Dark Side Droid, Darth Vader, and Krrsantan also have +20% Max Health.
+                <br><br>
+                Whenever a Dark Side ally inflicts a debuff, they gain 5% Offense for 1 turn and Aphra gains 5 Siphon until the end of the encounter. If the Dark Side ally is a Droid, Darth Vader, or Krrsantan, they instead gain 10% Offense for 1 turn and Aphra instead gains 10 Siphon until the end of the encounter. Whenever Doctor Aphra, BT-1, or 0-0-0 inflict a debuff or are critically hit, they gain 10% Turn Meter.
+                <br><br>
+                Whenever an enemy falls below 30% Health, they are inflicted with Expose and Speed Down for 2 turns, which can't be evaded or resisted.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in 5v5 Grand Arenas:</u> Dark Side Droid and Dark Side Scoundrel allies have +50% Critical Avoidance and +30 Speed. Aphra has +50% Potency. Whenever a Dark Side Droid or Scoundrel ally inflicts a debuff on an enemy, they gain 10% Turn Meter (limit once per turn). While enemies are debuffed, they have -20% Tenacity.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Droid Savant</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Doctor Aphra unique" src="../image-perso/aphra/aphra-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of Aphra's turn, she, Dark Side Droid, Dark Side Scoundrel, Darth Vader, and Krrsantan allies gain Defense, Offense, and Tenacity equal to 30% of Doctor Aphra's Potency until the start of her next turn. Hacked Commando Droid ally instead gains 60%. While she is active, if BT-1 or 0-0-0 are allies, they have +20% Potency and +20 Speed.
+                <br><br>
+                The first time a Dark Side Droid ally falls below 50% Health, they gain Protection Up (40%) for 2 turns.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in 5v5 Grand Arenas:</u> The first time a non-Separatist Dark Side Droid or Dark Side Scoundrel ally falls below 20% Health, they gain Damage Immunity for 1 turn. Whenever a Dark Side Droid is defeated, they inflict a Damage Over Time on all enemies for 2 turns. Inflict an additional Damage Over Time for 2 turns for each Relic level that character has.
+                <br><br>
+                Aphra, non-Separatist Dark Side Droids, Dark Side Scoundrels, and Krrsantan are immune to Ability Block and Healing Immunity.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u class="speciale" id="unique-ability2-title">Unique Ability : Hacked Commando Droid</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Doctor Aphra unique 2" src="../image-perso/aphra/commando-droid-image.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                <u class="red">Dark Side</u>, Attacker, Droid
+                <br><br>
+                <u class="speciale">[Basic] Enfilade:</u> Deal Physical damage to target enemy. All allies without Offense Up gain Offense Up for 2 turns.
+                <br><br>
+                <u class="speciale">[Special] Besiege:</u> Deal Physical damage to target enemy and call a random ally to assist.
+                <br><br>
+                <u class="speciale">[Special] Lunging Strike:</u> Deal Physical damage to target enemy and inflict Armor Shred for the rest of the battle. This attack deals 20% more damage for each buff and debuff on the target enemy. Enemies defeated by this ability can't be revived.
+                <br><br>
+                <u class="speciale">[Unique] Summoned:</u> This unit's stats scale with the summoner's stats. This unit can only be summoned to the ally slot if it's available. This unit can't be summoned in certain raids. This unit can't be revived. If an effect counts defeated units, this unit doesn't count. When there are no other allied combatants, this unit escapes from battle. A unit can't be revived if this summoned unit exists in their slot.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Docteur Aphra",
+                "title": "<u>Docteur Aphra</u>",
+                "description": "Un soutien inventif et chaotique qui utilise de la technologie et des trésors dangereux pour renforcer son équipe et écraser ses enenmis.",
+
+                "darkside": "Coté Obscur",
+                "leader": "Chef",
+                "support": "Soutien",
+                "mercenary": "Mercenaire",
+                "scoundrel": "Vaurien",
+
+                "basic-attack-title": "<u>Attaque Basique: Fouilles destructrices</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie. Si c'est un droïde, l'étourdit pendant 1 tour.\n\nPendant le tour d'Aphra, elle obtient 10 % de protection maximale (cumulatif, maximum 50 %) et 2 cumuls de Siphonnage jusqu'à la fin de l'affrontement.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Tech dangereuse (délai : 3)</u>",
+                "special-attack1": "Inflige un malus de précision pendant 2 tours à la cible ennemie. Les alliés du Côté Obscur obtiennent un bonus de pouvoir pendant 2 tours et 10 % de jauge de tour. Les droïdes alliés du Côté Obscur obtiennent un bonus de dégâts critiques et un bonus d'attaque pendant 2 tours et récupèrent 30 % de santé et de protection. Ranime un droïde non séparatiste du Côté Obscur aléatoire allié, BT-1 et 0-0-0.\n\nAu début de la bataille, s'il n'y a pas de Légende galactique alliée et que tous les alliés sont des Vauriens du Côté Obscur, des droïdes du Côté Obscur, Krrsantan ou Dark Vador, un droïde commando piraté est invoqué. Si un droïde commando piraté est déjà présent, inflige Faille et Verrouillage à la cible ennemie pendant 2 tours et invoque le droïde commando piraté, qui inflige à nouveau des dégâts réels, avec des dégâts supplémentaires à hauteur de 20 % du pouvoir d'Aphra.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Archéologue véreuse (délai : 4)</u>",
+                "special-attack2": "Inflige des dégâts spéciaux à tous les ennemis, augmente leurs délais de 1 et inflige Doute pendant 2 tours. Aphra <u class='speciale'>siphonne le pouvoir</u> de la cible ennemie (ne peut pas être résisté).\n\nCette capacité ne peut pas être contrée.\n\n<u class='speciale'>Siphonnage de pouvoir :</u> Aphra gagne un pourcentage de pouvoir égal au Siphonnage de cette unité jusqu'à la fin de l'affrontement et la cible perd le pouvoir qu'elle lui a pris (cumulatif, exclut les boss de raid et les Légendes galactiques).\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes en 5c5 :</u> inflige des dégâts supplémentaires à la cible ennemie à hauteur de 50 % du pouvoir d'Aphra. Inflige Immunité aux améliorations, Immunité aux soins et Faux pas à la cible ennemie pendant 2 tours.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Doctorat interrompu</u>",
+                "lead-ability": "Au début de la bataille, le Docteur Aphra obtient un bonus de santé et de protection maximale à hauteur de 30 % de son pouvoir et si 0-0-0 ou BT-1 font partie des alliés, elle gagne 50 % de jauge de tour pour chaqun d'eux. Les alliés du Côté Obscur obtiennent 20 % d'attaque. Les Droïdes alliés du Côté Obscur, Dark Vador, Krrsantan reçoivent également +20 % de santé maximale.\n\nLorsqu'un allié du Cöté Obscur inflige un affaiblissement, il gagne 5 % d'attaque pendant 1 tour et Aphra reçoit 5 cumuls de Siphonnage jusqu'à la fin de l'affrontement. Si l'allié du Cöté Obscur est un droïde, Dark Vador ou Krrsantan, ils gagnent plutôt 10 % d'atatque pendant 1 tour et Aphra obtient plutôt 10 cumuls de Siphonnage jusqu'à la fin de l'affrontement. Lorsque le Docteur Aphra, BT-1 ou 0-0-0 infligent un affaiblissement ou subissent un coup critique, ils gagnent 10 % de jauge de tour.\n\nLorsque la santé d'un ennemi tombe en dessous de 30 % il subit Exposition et un malus de vitesse pendant 2 tours (ne peut pas être esquivé ou résisté).\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes en 5c5 :</u> les droïdes du Cöté Obscur et les Vauriens alliés du Côté Obscur obtiennent +50 % d'esquive des critiques et +30 de vitesse. Aphra gagne +50 % de pouvoir. Lorsqu'un droïde ou un Vaurien allié du Côté Obscur inflige un affaiblissement à un ennemi, il gagne 10 % de jauge de tour (limité à une fois par tour.) Tant que les ennemis subissent un affaiblissement, ils perdent 20 % de ténacité.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Experte en droïde</u>",
+                "unique-ability1": "Au début de son tour, Aphra, les droïdes du Côté Obscur, Dark Vador et Krrsantan alliés obtiennent un bonus de défense, d'attaque et de ténacité à hauteur de 30 % du pouvoir de Aphraa jusqu'au début de son prochain tour. Le droïde commando piraté allié reçoit plutôt 60 %. Tant qu'elle est active, si BT-1 ou 0-0-0 sont des alliés, ils reçoivent +20 % de pouvoir et +20 de vitesse.\n\nLa première fois que la santé d'un droïde allié du Côté Obscur est réduite à moins de 50 %,  il gagne un bonus de protection (40 %) pendant 2 tours.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes en 5c5 :</u> la première fois que la santé d'un droïde non séparatiste du Côté Obscur ou d'un Vaurien allié du Côté Obscur tombe en dessous de 20 %, il obtient Immunité aux dégâts pendant 1 tour. Lorsqu'un droïde du Côté Obscur est vaincu, il inflige des dégâts sur la durée à tous les ennemis pendant 2 tours et inflige des dégâts sur la durée supplémentaires pendant 2 tours pour chaque niveau de relique que ce personnage possède.\n\nAphra, les droïdes non séparatistes du Côté Obscur, les Vauriens du Côté Obscur et Krrsantan sont immunisés contre Entrave des capacités et Immunité aux soins.",
+
+                "unique-ability2-title": "<u class='speciale'>Capacité Unique : Droïde commando piraté</u>",
+                "unique-ability2": "<u class='red'>Côté Obscur</u>, Attaquant, Droïde\n\n<u class='speciale'>[Basique] Enfilade :</u> inflige des dégâts physiques à la cible ennemie. Tous les alliés sans bonus d'attaque en obtiennent un pendant 2 tours.\n\n<u class='speciale'>[Spéciale] Assiéger :</u> inflige des dégâts physiques à la cible ennemie et invoque un allié aléatoire.\n\n<u class='speciale'>[Spéciale] Frappe plongée :</u> inflige des dégâts physiques à la cible ennemie et Destruction d'armure jusqu'à la fin de la bataille. Cette attaque inflige 20 % de dégâts en plus pour chaque amélioration et affaiblissement que possède la cible ennemie. Les ennemis vaincus par cette capacité ne peuvent pas être ranimés.\n\n<u class='speciale'>[Unique] Invocation :</u> Les statistiques de cette unités s'améliorent avec celles de l'invocateur. Cette unité ne peut être invoquée dans l'emplacement d'allié que si elle est disponible. Cette unité ne peut pas être invoquée dans certains raids. Cette unité ne peut pas être ranimée. Si un effet compte les unités vaincus, cette unité ne compte pas. Quand il n'y a pas d'autres combattants alliés, cette unité fuit la bataille. Une unité ne peut pas être ranimée si cette unité invoquée existe dans son emplacement.",
+
+                "invocation-title": "<u style='margin-left: 25px'>Invocation : Droïde commando piraté</u> "
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "doctor aphra"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>

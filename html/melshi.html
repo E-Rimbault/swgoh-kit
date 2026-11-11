@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Sergeant Melshi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/melshi/melshi-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/melshi/melshi-image.png" alt="Sergeant Melshi" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Sergeant Melshi</u></h1>
+            <p id="description">A shadowy Rogue One operative who Stealths between strikes, leaving enemies Exposed and helping allies with Spark of Rebellion</p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="capacite" href="../classement-perso/combattant-rebelle.html" id="fighter">Rebel Fighter</a>
+                <a class="capacite" href="../classement-perso/rogue-one.html" id="rogue-one">Rogue One</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt="Sergeant Melshi"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Tactical Exploit</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Sergeant Melshi basic" src="../image-perso/melshi/melshi-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and Expose them for 1 turn. If target enemy has Offense Down, this attack has +50% Defense Penetration. On a critical hit, remove 5% Turn Meter from target enemy.
+                <br><br>
+                Sergeant Melshi gains Defense Penetration Up for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Draw Them Out (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Sergeant Melshi special 1" src="../image-perso/melshi/melshi-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Inflict Burning on all enemies for 2 turns, and the target enemy is Staggered for 1 turn. Then deal Physical damage to all enemies, dealing 20% more damage for each debuffed enemy.
+                <br><br>
+                Allies with Spark of Rebellion gain Tenacity Up for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : 10 Men Feel Like 100 (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Sergeant Melshi special 2" src="../image-perso/melshi/melshi-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Dispel all buffs on target enemy. Call target other Rogue One ally to assist, and deal Physical damage to target enemy 3 times. The damage from this ability is increased by 5% for each ally with Spark of Rebellion.
+                <br><br>
+                Sergeant Melshi gains 10% Critical Chance (stacking, max 100%) and Offense (stacking, max 100%) until the end of encounter for each buff dispelled by this ability.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Shadow Operations</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Sergeant Melshi unique" src="../image-perso/melshi/melshi-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of each encounter, Rogue One allies gain Spark of Rebellion for 3 turns. Sergeant Melshi Stealths for 1 turn whenever he scores a critical hit during his turn.
+                <br><br>
+                If the ally in the Leader slot is Rogue One:<br>
+                - Whenever Rogue One allies gain Protection Up, they gain 25% Critical Damage (stacking) until the end of their next turn<br>
+                - Whenever Rogue One allies attack out of turn Sergeant Melshi assists (once per turn), if he can't assist this way, reduce his cooldowns by 1<br>
+                - Whenever Sergeant Melshi critically hits a targeted enemy that is Dazed, he gains 50% Turn Meter
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars and there are no Galactic Legends and all allies are Rogue One:</u> At the start of battle, allies gain 50% Max Health and Max Protection. Allies with Spark of Rebellion are immune to Ability Block and Turn Meter reduction.
+                <br><br>
+                Whenever an enemy resists a debuff from an ally, they lose 50% Critical Chance (stacking) and 50% Tenacity (stacking) for 1 turn.
+                <br><br>
+                Whenever Sergeant Melshi assists another Rogue One ally during their turn, he deals 50% more damage. While Sergeant Melshi is Stealthed, enemies he defeats can't be revived.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Sergent Melshi",
+                "title": "<u>Sergent Melshi</u>",
+                "description": "Un mystérieux agent Rogue One qui utilise camouflage entre ses attaques, infligeant Exposition aux ennemis et aidant ses alliés grâce à Étincelle de la Rébellion.",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "rebel": "Rebelle",
+                "fighter": "Combattant Rebelle",
+                "rogue-one": "Rogue One",
+
+                "basic-attack-title": "<u>Attaque Basique: Exploitation tactique</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie et Exposition pendant 1 tour. Si la cible ennemie subit un malus d'attaque, cette attaque a +50 % de pénétration de défense. En cas de coup critique, supprime 5 % de jauge de tour à la cible ennemie.\n\nLe Sergent Melshi obtient un bonus de pénétration de défense pendant 2 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Les faire sortir (délai : 4)</u>",
+                "special-attack1": "Inflige Brûlure à tous les ennemis pendant 2 tours, et la cible ennemie subit Faux pas pendant 1 tour. Inflige ensuite des dégâts physiques à tous les ennemis, infligeant 20 % de dégâts en plus pour chaque ennemi subissant un affaiblissement.\n\nLes alliés disposant d'Étincelle de la Rébellion obtiennent un bonus de ténacité pendant 2 tours.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : 10 hommes en valent 100 (délai : 3)</u>",
+                "special-attack2": "Dissipe toutes les améliorations de la cible ennemie. Invoque un autre allié Rogue One ciblé, et inflige des dégâts physiques à la cible ennemie 3 fois. Les dégâts de cette capacité sont augmentés de 5 % pour chaque allié disposant d'Étincelle de la Rébellion.\n\nLe Sergent Melshi gagne 10 % de chances de coup critique (cuumulatif, 100 % max.) et d'attaque (cumulatif, 100 % max.) jusqu'à la fin de l'affrontement pour chaque amélioration dissipée par cette capacité.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Opérations dans l'ombre</u>",
+                "unique-ability1": "Au début de chaque affrontement, les alliés Rogue One obtiennent Étincelle de la Rébellion pendant 3 tours. Le Sergent Melshi utilise Camouflage pendant 1 tour chaque fois qu'il inflgige un coup critique pendant son tour.\n\nSi l'allié dans l'emplacement de chef appartient à Rogue One :\n- Chaque fois que les alliés Rogue One obtiennent un bonus de protection, ils gagnent 25 % de dégâts critiques (cumulatif) jusqu'à la fin de leur prochain tour.\n- Chaque fois que les alliés Rogue One attaquent en dehors de leur tour, le Sergent Melshi est invoqué (une fois par tour). S'il ne peut pas aider de cette façon, ses délais sont réduits de 1.\n- Chaque fois que le Sergent Melshi inflige un coup critique à une cible ennemie subissant Confusion, il gagne 50 % de jauge de tour.\n\n<u class='omicron'>Amélioration Omicron : Dans les Guerres de territoire, s'il n'y a pas de Légendes galactiques et que tous les alliés appartiennent à Rogue One :</u> au début de la bataille, les alliés gagnent 50 % de santé et de protection maximales. Les alliés disposant d'Étincelle de la Rébellion sont immunisés contre Entrave des capacités et la réduction de jauge de tour.\n\nLorsqu'un ennemi résiste à un affaiblissement provenant d'un allié, il perd 50 % de chances de coup critique (cumulatif) et 50 % de ténacité (cumulatif) pendant 1 tour.\n\nLorsque le Sergent Melshi est invoqué par un autre allié Rogue One pendant son tour, il inflige 50 % de dégâts supplémentaires. tant que le Sergent Melshi utilise Camouflage, les ennemis qu'il élimine ne peuvent pas être ranimés.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "SERGEANTMELSHI"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
