@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Admiral Raddus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/admiral-raddus/admiral-raddus-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/admiral-raddus/admiral-raddus-image.png" alt="Admiral Raddus" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Admiral Raddus</u></h1>
+            <p id="description">
+                A brilliant Rebel tactician who supports his allies by buying time for them to carry out their mission
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="capacite" href="../classement-perso/rogue-one.html" id="rogue-one">Rogue One</a>
+                <a class="capacite" href="../classement-perso/commandant-de-la-flotte.html" id="fleet-commander">Fleet Commander</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+            <br>
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/profundity.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/" alt="Profundity">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: Profundity</u>
+                </h2>
+            </section>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/admiral-raddus/admiral-raddus.png" alt="Admiral Raddus"><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Protective Shot</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Admiral Raddus basic" src="../image-perso/admiral-raddus/admiral-raddus-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy and grant the weakest ally Protection Up (20%) for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Inspiring Maneuver (cooldown: 6)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Admiral Raddus special 1" src="../image-perso/admiral-raddus/admiral-raddus-special1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                All Rebel allies gain Protection Up (50%) for 2 turns and recover 35% Max Protection. All ally Tanks gain Taunt for 2 turns. All Rogue One allies gain <u class="speciale">Spark of Rebellion</u> for 3 turns, which can't be copied and call all Rogue One allies to assist. If target enemy is Dark Side and debuffed, increase their cooldowns by 1 (excluding Galactic Legends).
+                <br><br>
+                If all allies are Rogue One, reduce the cooldown of Inspiring Maneuver by 2.
+                <br><br>
+                <u class="speciale">Spark of Rebellion:</u> Gain 40% Offense and 30 Speed; when this character attacks, recover 20% Max Health and Protection; Empire enemies defeated by this character can't be revived; if Spark of Rebellion is dispelled, gain 40% Turn Meter, 5% Upload progress, and Protection Up (50%) for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Blue Squadron Air Support (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Admiral Raddus special 2" src="../image-perso/admiral-raddus/admiral-raddus-special2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Dispel all debuffs from all Light Side allies. Then, deal Special damage to all enemies. If Admiral Raddus is in the Leader slot and not the ally slot, gain 5% Upload progress and if this ability defeats an enemy, gain an additional 8% Upload progress.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: Rebel Assault</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Admiral Raddus lead" src="../image-perso/admiral-raddus/admiral-raddus-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                For each Rogue One ally at the start of battle, Rogue One allies gain 10% Health, 12% Potency, 8 Speed, and 12% Tenacity. When an Empire enemy gains bonus Turn Meter, they are inflicted with Daze for 2 turns, which can't be resisted. If a Rogue One ally is critically hit by an enemy, that enemy gains Expose for 2 turns, which can't be resisted.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> Rogue One allies gain 40% Max Protection. At the start of battle, all Rogue One allies gain Spark of Rebellion for 3 turns. When Spark of Rebellion is dispelled from an ally, they gain Critical Chance Up, Critical Damage Up, Defense Up, Health Up, Offense Up, Potency Up, and Protection Up (20%) for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Transmission from Scarif</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Admiral Raddus unique" src="../image-perso/admiral-raddus/admiral-raddus-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Admiral Raddus gains 30% Defense and 40% Tenacity.
+                <br><br>
+                If any version of Jyn Erso is an ally, she gains Spark of Rebellion at the start of each encounter and when any version of Jyn Erso loses Spark of Rebellion, she regains Spark of Rebellion for 3 turns. While Admiral Raddus is alive, any version of Jyn Erso can't be defeated. If there are multiple ally versions of Jyn Erso, only Jyn Erso (Undercover) gains all of these benefits.
+                <br><br>
+                If Admiral Raddus is in the Leader slot and not the Ally slot, he gains the granted ability, <u class="speciale">Hope</u>.
+                <br><br>
+                Admiral Raddus gains 1% Upload Progress for each detrimental effect resisted by a Rogue One ally. Whenever a Rogue One ally deals damage to an enemy with Expose, Admiral Raddus gains 1% Upload Progress for each stack of Expose on that enemy. Whenever a Rogue One ally uses a Special ability, Admiral Raddus gains 2% Upload Progress. Whenever any version of Jyn Erso uses a Basic or Special ability, Admiral Raddus gains 5% Upload Progress. If there are multiple ally versions of Jyn Erso, only Jyn Erso (Undercover) provides this benefit. At 100% Upload Progress, Admiral Raddus gains a bonus turn.
+                <br><br>
+                <u class="speciale">Hope:</u> Limit one use per battle. Requires 100% Upload Progress to activate. Revive all allies, and all allies recover 100% Health and Protection. Then, deal True damage to all enemies and inflict Healing Immunity and Protection Disruption for 4 turns, which can't be dispelled, evaded, or resisted.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="invocation"><u id="granted-title">Granted Ability : Hope</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Admiral Raddus granted" src="../image-perso/admiral-raddus/admiral-raddus -granted.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="granted">
+                Limit one use per battle. Requires 100% Upload progress to activate. Revive all allies, and all allies recover 100% Health and Protection. Then, deal true damage to all enemies and inflict Protection Disruption and Healing Immunity for 4 turns, which can't be dispelled, evaded, or resisted.
+            </p>
+        </div>
+    </div>
+
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Amiral Raddus",
+                "title": "<u>Amiral Raddus</u>",
+                "description": "Un brillant tacticien rebelle qui soutient ses alliés en leur donnant le temps de mener leur mission à bien.",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "leader": "Chef",
+                "rebel": "Rebelle",
+                "rogue-one": "Rogue One",
+                "fleet-commander": "Commandant de la flotte",
+
+                "basic-attack-title": "<u>Attaque Basique: Tir de protection</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à une cible ennemie, et confère à l'allié le plus faible une hausse de protection (20 %) pendant 2 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Manœuvre exaltante (délai : 6)</u>",
+                "special-attack1": "Tous les alliés rebelles obtiennent une hausse de protection (50 %) pendant 2 tours et récupèrent 35 % de protection maximale. Tous les tanks alliés utilisent Raillerie pendant 2 tours. Tous les alliés de Rogue One obtiennent <u class='speciale'>Étincelle de la Rébellion</u> pendant 3 tours (ne peut pas être copié). Invoque tous les alliés de Rogue One. Si la cible ennemie fait partie du Côté Obscur et subit un affaiblissement, augmente ses délais de 1 (à l'exception des Légendes galactiques).\n\nSi tous les alliés font partie de Rogue One, diminue le délai de Manœuvre exaltante de 2.\n\n<u class='speciale'>Étincelle de la Rébellion :</u> Confère 40 % d'attaque et 30 de vitesse. Lorsque ce personnage attaque, il récupère 20 % de santé et de protection maximales. Les ennemis de l'Empire vaincus par ce personnage ne peuvent pas être ranimés. Si Étincelle de la Rébellion est dissipée, confère 40 % de jauge de tour, 5 % de progression de téléchargement et une hausse de protection (50 %) pendant 2 tours.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Soutien aérien de l'escadron Bleu (délai : 3)</u>",
+                "special-attack2": "Dissipe tous les affaiblissements des alliés du Côté Lumineux. Ensuite, inflige des dégâts spéciaux à tous les ennemis. Si l'Amiral Raddus est dans l'emplacement de chef et non dans l'emplacement d'allié, Progression de téléchargement se remplit de 5 %. Si cette capacité élimine un ennemi, confère 8 % de Progression de téléchargement supplémentaires.",
+
+                "lead-ability-title": "<u>Capacité de Chef: Assaut rebelle</u>",
+                "lead-ability": "Pour chaque allié de Rogue One présent au début de la bataille, les alliés de Rogue One obtiennent 10 % de santé, 12 % de pouvoir, 8 de vitesse et 12 % de ténacité. Lorsqu'un ennemi de l'Empire obtient un bonus de jauge de tour, il souffre de Confusion pendant 2 tours (ne peut pas être résisté). Si un allié de Rogue One subit un coup critique, l'ennemi qui l'a infligé est exposé pendant 2 tours (ne peut pas être résisté).\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> les alliés de Rogue One obtiennent 40 % de protection maximale. Au début de la bataille, tous les alliés de Rogue One obtiennent Étincelle de la Rébellion pendant 3 tours. Lorsqu'Étincelle de la Rébellion est dissipé sur un allié, il obtient un bonus de chances de coup critique, un bonus de dégâts crtiiques, un bonus de défense, un bonus de santé, un bonus d'attaque, un bonus de pouvoir et une hausse de protection (20 %) pendant 2 tours.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Transmission de Scarif</u>",
+                "unique-ability1": "L'Amiral Raddus gagne 30 % de défense et 40 % de ténacité.\n\nSi n'importe quelle version de Jyn Erso est une alliée, elle gagne Étincelle de la Rébellion au début de chaque affrontement et lorsqu'une version de Jyn Erso perd cette capacité, elle l'obtient à nouveau pendant 3 tours. Tant que l'Amiral Raddus est en vie, n'importe quelle version de Jyn Erso ne peut pas être vaincue. S'il y a plusieurs versions alliées de Jyn Erso, seule Jyn Erso (infiltrée) gagne tous ses avantages.\n\nSi l'Amiral Raddus est dans l'emplacement de chef et pas dans l'emplacement d'allié, il obtient la capacité <u class='speciale'>Espoir</u>.\n\nL'Amiral Raddus obtient 1 % de Progression de téléchargement pour chaque effet néfaste résisté par un allié Rogue One. Chaque fois qu'un allié Rogue One inflige des dégâts à un ennemi subissant Exposition, l'Amiral Raddus gagne 1 % de Progression de téléchargement pour chaque cumul d'exposition sur cet ennemi. Chaque fois qu'un allié Rogue One utilise une capacité spéciale, l'Amiral Raddus obtient 2 % de Progression de téléchargement. Chaque fois qu'une version de Jyn Erso utilise une capacité de base ou spéciale, l'Amiral Raddus obtient 5 % de Progression de téléchargement. S'il y a plusieurs versions alliées de Jyn Erso, seule Jyn Erso (infiltrée) fournit cet avantage. A 100 % de progression de téléchargement, l'Amiral Raddus obtient un tour bonus.\n\n<u class='speciale'>Espoir :</u> Limité à une utilisation par bataille. Nécessite 100 % de Progression de téléchargement pour être activé. Ranime tous les alliés, et tous les alliés récupèrent 100 % de santé et de protection. Ensuite, inflige des dégâts réels à tous les ennemis et leur inflige Immunité aux soins et Perturbation de protection pendant 4 tours (ne peut pas être dissipé, esquivé ou résisté).",
+
+                "granted-title": "Capacité accordée : Espoir",
+                "granted": "Limité à une utilisation par bataille. Nécessite 100 % de Progression de téléchargement pour être activé. Ranime tous les alliés, et tous les alliés récupèrent 100 % de santé et de protection. Ensuite, inflige des dégâts réels à tous les ennemis et leur inflige Immunité aux soins et Perturbation de protection pendant 4 tours (ne peut pas être dissipé, esquivé ou résisté).",
+
+                "ship-title": "<u>Vaisseau : Profundity</u>",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "admiral raddus"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
