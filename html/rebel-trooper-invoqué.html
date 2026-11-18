@@ -38,11 +38,11 @@
             <br>
             <!-- Partie pour les invocations -->
             <section class="header-invocation">
-                <a href="../html/mon-mothma.html" class="invocation-link">
-                    <img class="invocation-image main-image" src="../image-perso/mon-mothma/mon-mothma-image.png" alt="">
+                <a id="invocation-link" href="../html/mon-mothma.html" class="invocation-link">
+                    <img id="invocation-img" class="invocation-image main-image" src="../image-perso/mon-mothma/mon-mothma-image.png" alt="">
                 </a>
                 <h2 class="invocation" id="invocation-title">
-                    <u style="margin-left: 25px;">Original Unit : Mon Mothma</u>
+                    <u style="margin-left: 25px;" id="invocation-title-text">Original Unit : Mon Mothma</u>
                 </h2>
             </section>
         </div>
@@ -116,9 +116,31 @@
         <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
         <script src="../javascript/bouton.js"></script>
 
-        <!-- SCRIPT DE TRADUCTION -->
+        <!-- SCRIPT DE TRADUCTION ET GESTION DES INVOCATEURS -->
         <script>
-            // Dictionnaire français
+            // Données des unités invocatrices pour automatiser l'affichage dynamique
+            const summonersData = {
+                "mon-mothma": {
+                    nameEn: "Mon Mothma",
+                    nameFr: "Mon Mothma",
+                    link: "../html/mon-mothma.html",
+                    image: "../image-perso/mon-mothma/mon-mothma-image.png"
+                },
+                "draven": {
+                    nameEn: "General Draven",
+                    nameFr: "Général Draven",
+                    link: "../html/draven.html",
+                    // Adaptez le chemin de l'image de Draven selon votre arborescence
+                    image: "../image-perso/draven/draven-image.png" 
+                }
+            };
+
+            // Récupération du paramètre "summoner" dans l'URL (par défaut "mon-mothma")
+            const urlParams = new URLSearchParams(window.location.search);
+            const summonerKey = urlParams.get("summoner") || "mon-mothma";
+            const currentSummoner = summonersData[summonerKey] || summonersData["mon-mothma"];
+
+            // Dictionnaires de traduction incluant la variable dynamique pour l'invocateur
             const translationsFr = {
                 "big-title": "Soldat Rebelle",
                 "title": "<u>Soldat Rebelle</u>",
@@ -139,12 +161,18 @@
                 "unique-ability2-title": "Invocation",
                 "unique-ability2": "- les statistiques de cette unité s'ajustent aux statistiques de l'invocateur.\n- Cette unité peut uniquement être invoquée à l'emplacement d'allié si celui-ci est disponible.\n- Cette unité ne peut pas être invoquée dans certains raids.\n- Cette unité ne peut pas être ranimée. Si un effet compte les unités vaincues, cette unité ne compte pas.\n- Lorsqu'il n'y a plus d'autres combattants alliés, cette unité fuit la bataille.\n- Une unité ne peut pas être ranimée si cette unité invoquée se trouve dans son emplacement.",
 
-                "invocation-title" : "<u style='margin-left: 25px'>Invocateur : Mon Mothma</u> "
+                "invocation-title-text" : `<u style='margin-left: 25px'>Invocateur : ${currentSummoner.nameFr}</u>`
             };
 
             const originalTexts = {};
 
             function saveOriginalTexts() {
+                // On met à jour dynamiquement le texte en anglais avec le nom du bon invocateur avant de sauvegarder
+                const enTitleEl = document.getElementById("invocation-title-text");
+                if (enTitleEl) {
+                    enTitleEl.innerHTML = `<u style='margin-left: 25px;'>Original Unit : ${currentSummoner.nameEn}</u>`;
+                }
+
                 for (const id in translationsFr) {
                     const el = document.getElementById(id);
                     if (el) originalTexts[id] = el.innerHTML;
@@ -179,8 +207,18 @@
                 document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
             }
 
-            // ✅ Tout est dans "load" → le DOM est prêt avant exécution
+            // Application des données de l'invocateur et du chargement de la page
             window.addEventListener("load", () => {
+                // Application dynamique des liens et images de l'invocateur dans le DOM
+                const linkEl = document.getElementById("invocation-link");
+                const imgEl = document.getElementById("invocation-img");
+
+                if (linkEl) linkEl.href = currentSummoner.link;
+                if (imgEl) {
+                    imgEl.src = currentSummoner.image;
+                    imgEl.alt = currentSummoner.nameEn;
+                }
+
                 saveOriginalTexts();
                 const lang = sessionStorage.getItem("selectedLanguage") || "en";
                 switchLanguageTo(lang);
