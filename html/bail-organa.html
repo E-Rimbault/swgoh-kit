@@ -2,18 +2,18 @@
 <html lang="en">
 
 <head>
-    <title id="big-title"></title>
+    <title id="big-title">Bail Organa</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="author" content="Rimbault Enzo">
-    <link rel="icon" type="image/png" href="../image-perso/">
+    <link rel="icon" type="image/png" href="../image-perso/bail-organa/bail-organa-image.png">
     <link rel="stylesheet" href="../style/unit-style.css">
 </head>
 
 <body class="simple">
     <header class="perso" style="display: flex; align-items: center;">
         <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
-            <img src="../image-perso/" alt="" style="max-width: 100%; max-height: 100%;">
+            <img src="../image-perso/bail-organa/bail-organa-image.png" alt="Bail Organa" style="max-width: 100%; max-height: 100%;">
         </div>
         <div style="flex: 1; padding-left: 20px;">
             <!-- Sélecteur de langue -->
@@ -26,38 +26,19 @@
                     style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
             </div>
 
-            <h1 id="title"><u></u></h1>
-            <p id="description"></p>
+            <h1 id="title"><u>Bail Organa</u></h1>
+            <p id="description">
+                A steadfast Tank who bears the Empire's gaze while quietly protecting the future of the Rebellion
+            </p>
             <br>
 
             <nav class="perso" style="font-size: 20px;">
-                <a class="capacite" style="color:blue or red !important" href="../classement-perso/*" id=""></a>
-                <a class="class" href="../classement-perso/" id=""></a>
-                <a class="capacite" href="../classement-perso/" id=""></a>
-                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
                 <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
                 <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
             </nav>
-
-            <!-- lien vers le vaisseaux -->
-            <section class="header-ship">
-                <a href="../html/" class="ship-link">
-                    <img class="ship-image main-image" src="../image-vaisseaux/" alt="">
-                </a>
-                <h2 class="vaisseaux" id="ship-title">
-                    <u>Ship: </u>
-                </h2>
-            </section>
-
-            <!-- Partie pour les invocations -->
-            <section class="header-invocation">
-                <a href="../html/" class="invocation-link">
-                    <img class="invocation-image main-image" src="../image-/" alt="">
-                </a>
-                <h2 class="invocation" id="invocation-title">
-                    <u style="margin-left: 25px;">Invocation: </u>
-                </h2>
-            </section>
         </div>
     </header>
     <br>
@@ -66,89 +47,88 @@
 
     <!-- Capacités -->
 
-    <h2 class="titre"><u id="ultime-title">Ultimate: </u></h2>
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Quiet Defiance</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="" src="../image-perso/">
-        </div>
-        <div class="right-column">
-            <p class="attaque" id="ulti"></p>
-        </div>
-    </div>
-
-    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: </u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="" src="../image-perso/">
+            <img class="attaque" alt="Bail Organa basic" src="../image-perso/bail-organa/bail-organa-basic.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="basic-attack">
+                Inflict Offense Down on target enemy for 1 turn. If it is Bail Organa's turn and the ally in the Leader slot is a Rebel, also remove 10% Turn Meter from target enemy.
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack1-title"><u>Special Attack : (cooldown: )</u></h2>
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Political Cover (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="" src="../image-perso/">
+            <img class="attaque" alt="Bail Organa special 1" src="../image-perso/bail-organa/bail-organa-spe1.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack1">
+                Gain 8 stacks of Resilient Defense (max 10) until the end of the encounter. Bail Organa and targeted ally gain Defense Up for 2 turns.
+                <br><br>
+                If the targeted ally is a Rebel Fighter, reduce their cooldowns by 1 and they and Bail Organa gain <u class="speciale">Diplomatic Immunity</u> for 2 turns, which can't be copied.
+                <br><br>
+                <u class="speciale">Diplomatic Immunity:</u> Can't be instantly defeated; if defeated, revives with 100% Health; if dispelled, gain 20% Turn Meter and Damage Immunity for 1 turn.
             </p>
         </div>
     </div>
 
-    <h2 class="titre" id="special-attack2-title"><u>Special Attack : (cooldown: )</u></h2>
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Alderaanian Resolve (cooldown: 3)</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="" src="../image-perso/">
+            <img class="attaque" alt="Bail Organa special 2" src="../image-perso/bail-organa/bail-organa-spe2.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="special-attack2">
+                Rebel allies recover 25% Protection and gain Protection Up (20%, stacking) for 2 turns.
+                <br><br>
+                All non-tank Rebel Fighter allies Stealth and all Rebel Fighters gain Tenacity Up for 2 turns.
+                <br><br>
+                <u class="orange">Rally</u> Bail Organa, Mon Mothma, and all Rebel Fighter allies.
+                <br><br>
+                <u class="orange">Rallied characters act based on their role:</u>
+                <br><br>
+                - <strong>Attackers</strong> assist<br>
+                - <strong>Healers and Supports</strong> restore 15% Health and Protection to all allies<br>
+                - <strong>Tanks</strong> Taunt and gain Critical Hit Immunity for 2 turns
+                <br><br>
+                <u class="orange">Allies that were Rallied this way also gain the following benefits based on their role:</u>
+                <br><br>
+                - <strong>Attackers</strong> gain Diplomatic Immunity for 2 turns<br>
+                - <strong>Healers and Supports</strong> gain 25% Turn Meter<br>
+                - <strong>Tanks</strong> Gain 5 stacks of Resilient Defense (max 10) until the end of the encounter
             </p>
         </div>
     </div>
 
-    <h2 class="titre"><u id="lead-ability-title">Leader Ability: </u></h2>
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Hope for a Better Dawn</u></h2>
     <div class="capacity-container">
         <div class="left-column">
-            <img class="attaque" alt="" src="../image-perso/">
-        </div>
-        <div class="right-column">
-            <p class="attaque" id="lead-ability">
-            </p>
-        </div>
-    </div>
-
-    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : </u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="" src="../image-perso/">
+            <img class="attaque" alt="Bail Organa unique" src="../image-perso/bail-organa/bail-organa-unique.png">
         </div>
         <div class="right-column">
             <p class="attaque" id="unique-ability1">
-            </p>
-        </div>
-    </div>
-
-    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : </u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt="" src="../image-perso/">
-        </div>
-        <div class="right-column">
-            <p class="attaque" id="unique-ability2">
-            </p>
-        </div>
-    </div>
-
-    <h2 class="prime"><u class="prime" id="prime-title"></u></h2>
-    <div class="capacity-container">
-        <div class="left-column">
-            <img class="attaque" alt=" prime" src="../image-perso/">
-        </div>
-        <div class="right-column">
-            <p class="attaque" id="prime">
+                At the start of each encounter, Bail Organa gains 6 stacks of Resilient Defense (max 10) until the end of battle.
+                <br><br>
+                Whenever Bail Organa Taunts, he dispels it and gains 5 stacks of Resilient Defense (max 10) until the end of the encounter.
+                <br><br>
+                If there are no other allied combatants at the start of a turn, Bail escapes from battle.
+                <br><br>
+                If Mon Mothma is the ally in the Leader slot, Bail Organa gains the Rebel Fighter tag for the rest of the battle.
+                <br><br>
+                Whenever a Rebel Fighter ally with Diplomatic Immunity attacks out of turn, Bail Organa gains 2% Defense (stacking, max 100%) until the end of the encounter.
+                <br><br>
+                If there are no Galactic Legend allies: Whenever Bail Organa gains Resilient Defense, Rebel Fighter allies gain 10% Turn Meter (once per turn). Whenever Resilient Defense is dispelled, Bail Organa gains 5 stacks of Resilient Defense (max 10) until the end of the encounter.
+                <br><br>
+                <u class="omicron">Omicron boost : While in Grand Arenas and there are no Galactic Legends:</u> At the start of battle, Rebel Fighter allies gain Protection Up (50%) for 2 turns.
+                <br><br>
+                The first time each Rebel Fighter ally is reduced to 50% Health or less, Bail Organa gains 5 stacks of Resilient Defense (max 10) until the end of battle, that Rebel Fighter ally Stealths for 2 turns, and recovers 50% Health and Protection.
+                <br><br>
+                Whenever Bail Organa gains a stack of Resilient Defense, Rebel Fighter allies gain 10% Defense (stacking, max 100%) and 15% Offense (stacking, max 225%) until the end of battle.
+                <br><br>
+                Once per turn, whenever another Rebel Fighter ally gains Turn Meter, Bail Organa gains 10% Turn Meter.
             </p>
         </div>
     </div>
@@ -161,40 +141,25 @@
         <script>
             // Dictionnaire français
             const translationsFr = {
-                "big-title": "",
-                "title": "<u></u>",
-                "description": "",
+                "big-title": "Bail Organa",
+                "title": "<u>Bail Organa</u>",
+                "description": "Un tank inébralable qui attire le regard de l'Empire tout en protégeant discrètement l'avenir de la rébellion.",
 
-                "": "",
-                "crew-members": "Membres d’Équipage",
+                "lightside": "Coté Lumineux",
+                "tank": "Tank",
+                "rebel": "Rebelle",
 
-                "ultime-title": "<u>Capacité Ultime: <u>",
-                "ulti": "",
+                "basic-attack-title": "<u>Attaque Basique: Défi tranquille</u>",
+                "basic-attack": "Inflige un malus d'attaque à la cible ennemie pendant 1 tour. Si c'est la tour de  et que l'allié dans l'emplacement de chef est un rebelle, supprime 10 % de jauge de tour à la cible ennemie.",
 
-                "basic-attack-title": "<u>Attaque Basique: </u>",
-                "basic-attack": "",
+                "special-attack1-title": "<u>Attaque Spéciale : Couverture politique (délai : 4)</u>",
+                "special-attack1": "Obtient 8 cumuls de Solide défense (10 max.) jusqu'à la fin de l'affrontement. Bail Organa et l'allié ciblé obtiennent un bonus de défense pendant 2 tours.\n\nSi l'allié ciblé est un combattant rebelle, réduit ses délais de 1, et lui et Bail Organa obtiennent <u class='speciale'>Immunité diplomatique</u> pendant 2 tours (ne peut pas être copié).\n\n<u class='speciale'>Immunité diplomatique :</u> cette unité ne peut pas être éliminée instantanément. Si elle est vaincue, elle est ranimée avec 100 % de santé. Si cet effet est dissipé, gagne 20 % de jauge de tour et Immunité aux dégâts pendant 1 tour.",
 
-                "special-attack1-title": "<u>Attaque Spéciale : (délai : )</u>",
-                "special-attack1": "",
+                "special-attack2-title": "<u>Attaque Spéciale : La détermination d'Alderaan (délai : 3)</u>",
+                "special-attack2": "Les alliés rebelles récupèrent 25 % de protection et obtiennent un bonus de protection (20 %, cumulatif) pendant 2 tours.\n\nTous les alliés combattants rebelles qui ne sont pas des tanks utilisent Camouflage, et tous les combattants rebelles obtiennent un bonus de ténacité pendant 2 tours.\n\nOctroie <u class='orange'>Ralliement</u> à Bail Organa, Mon Mothma et tous les alliés combattants rebelles.\n\n<u class='orange'>Les personnages disposant de Ralliement agissent en fonction de leur rôle :</u>\n\n- Les <strong>attaquants</strong> sont invoqués\n- Les <strong>soigneurs et soutiens</strong> restaurent 15 % de santé et de protection à tous les alliés\n- Les <strong>tanks</strong> utilisent Raillerie et bénéficient de l'Immunité aux coups critiques pendant 2 tours.\n\n<u class='orange'>Les alliés qui disposent de Ralliement de cette manière obtiennent également les avantages suivants en fonction de leur rôle :\n\n- Les <strong>attaquants</strong> obtiennent Immunité diplomatique pendant 2 tours\n- Les <strong>soigneurs et soutiens</strong> gagnent 25 % de jauge de tour\n- Les <strong>tanks</strong> gagnent 5 cumuls de Solide défense (10 max.) jusqu'à la fin de l'affrontement.",
 
-                "special-attack2-title": "<u>Attaque Spéciale : (délai : )</u>",
-                "special-attack2": "",
-
-                "lead-ability-title": "<u>Capacité de Chef: </u>",
-                "lead-ability": "",
-
-                "unique-ability1-title": "<u>Capacité Unique : </u>",
-                "unique-ability1": "",
-
-                "unique-ability2-title": "<u>Capacité Unique : </u>",
-                "unique-ability2": "",
-
-                "prime-title": "",
-                "prime": "",
-
-                "ship-title": "<u>Vaisseau : </u>",
-
-                "invocation-title": "<u style='margin-left: 25px'>Invocation :</u> "
+                "unique-ability1-title": "<u>Capacité Unique : L'espoir d'une aube meilleure</u>",
+                "unique-ability1": "Au début de chaque bataille, <strong></strong> gagne 6 cumuls de Solide défense (10 max.) jusqu'à la fin de la bataille.\n\nChaque fois que Bail utilise Raillerie, il la dissipe et gagne 5 cumuls de Solide défense (10 max.) jusqu'à la fin de l'affrontement.\n\nS'il n'y a pas d'autres combattants alliés au début d'un tour, Bail fuit le combat.\n\nSi l'allié dans l'emplacement de chef est Mon Mothma, Bail obtient l'identifiant combattant rebelle pour le reste de la bataille.\n\nChaque fois qu'un allié combattant rebelle disposant d'Immunité dipmlomatique attaque hors de son tour, Bail gagne 2 % de défense (cumulatif, 100 % max.) jusqu'à la fin de l'affrontement.\n\nS'il n'y a pas de Légende galactique alliée : chaque fois que Bail obtient Solide défense, les alliés combattants rebelles gagnent 10 % de jauge de tour (une fois par tour). Chaque fois que Solide défense est dissipée, Bail obtient 5 cumuls de Solide défense (10 max.) jusqu'à la fin de l'affrontement.\n\n<u class='omicron'>Amélioration Omicron : Dans les grandes arènes et s'il n'y a pas de Légendes galactiques :</u> au début de la bataille, les alliés combattants rebelles obtiennent un bonus de protection (50 %) pendant 2 tours.\n\nLa première fois que la santé de chaque allié combattant rebelle est réduite à 50 % ou moins, Bail gagne 5 cumuls de Solide défense (10 max.) jusqu'à la fin de la bataille, ce combattant rebelle obtient Camouflage pendant 2 tours et récupère 50 % de santé et de protection.\n\nChaque fois que Bail obtient un cumul de Solide défense, les alliés combattants rebelles gagnent 10 % de défense (cumulatif, 100 % max.) et 15 % d'attaque (cumulatif, 225 % max.) jusqu'à la fin de la bataille.\n\nUne fois par tour, chaque fois qu'un autre allié combattant rebelle gagne de la jauge de tour, Bail gagne 10 % de jauge de tour.",
             };
 
             const originalTexts = {};
