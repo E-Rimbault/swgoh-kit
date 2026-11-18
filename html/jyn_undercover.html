@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Jyn Erso (Undercover)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/jyn-undercover/jyn-undercover-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/jyn-undercover/jyn-undercover-image.png" alt="Jyn Erso (Undercover)" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Jyn Erso (Undercover)</u></h1>
+            <p id="description">
+                A Rogue One Attacker who goes undercover on Scarif to infiltrate the data vault within
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebelle</a>
+                <a class="capacite" href="../classement-perso/combattant-rebelle.html" id="fighter">Rebel Fighter</a>
+                <a class="capacite" href="../classement-perso/rogue-one.html" id="rogue-one">Rogue One</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: I Rebel</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Jyn Erso (Undercover) basic" src="../image-perso/jyn-undercover/jyn-undercover-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage and inflict Breach on the target enemy for 1 turn and remove 10% Turn Meter. If the target enemy was already Breached, Jyn Erso (Undercover) attacks again and deals 20% more damage.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Get This Over With (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Jyn Erso (Undercover) special 1" src="../image-perso/jyn-undercover/jyn-undercover-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Remove 100% Turn Meter from the target enemy. If target enemy is Stunned, Jyn assists.
+                <br><br>
+                If a Rogue One ally is Taunting, the next time she deals damage, she deals 10% more damage for each stack of Expose on all enemies and target ally gains Critical Avoidance Up for 2 turns. If target ally is a Rogue One Tank, they also gain Defense Up and Protection Up (50%, stacking) for 2 turns.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> Remove 100% Turn Meter from all enemies inflicted with Breach.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : We Have Hope (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Jyn Erso (Undercover) special 2" src="../image-perso/jyn-undercover/jyn-undercover-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Physical damage to target enemy and gain 25% Offense (stacking, max 200%) until the end of battle. If Jyn has Spark of Rebellion, she dispels it, takes a bonus turn, and resets all other Rogue One allies' cooldowns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Rebellions are Built on Hope</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Jyn Erso (Undercover) unique 1" src="../image-perso/jyn-undercover/jyn-undercover-unique1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of battle, Jyn has +10% Tenacity for each Rogue One ally. If all allies are Rogue One, they gain 40% Max Health and Max Protection.
+                <br><br>
+                If all allies are Rogue One, whenever an ally is Dazed, they dispel it and recover 100% Protection and whenever an ally attacks out of turn, they gain 20% Defense (stacking, max 200%).
+                <br><br>
+                Whenever a Rogue One Tank ally uses an ability, they gain Accuracy Up for 1 turn.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> At the start of battle, if all allies are Rogue One, allies take 20% less damage.
+                <br><br>
+                Whenever an enemy has been inflicted with debuffs 10 times, starting on the next turn, the next time they are damaged, that enemy takes 50% more damage.
+                <br><br>
+                Whenever Jyn is Dazed, Distracted, Shocked, or Stunned, all non-Tank Rogue One allies gain Speed Up for 2 turns, and at the end of that turn, she Stuns the enemy that inflicted the debuff for 2 turns.
+                <br><br>
+                Whenever Empire enemies with less than 100% Turn Meter gain bonus Turn Meter, they can't gain bonus Turn Meter until the start of their next turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability2-title">Unique Ability : Time To Fight Is Now</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Jyn Erso (Undercover) unique 2" src="../image-perso/jyn-undercover/jyn-undercover-unique2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability2">
+                Whenever Jyn triggers Expose while she has Spark of Rebellion, she gains 10% Critical Chance and Critical Damage (stacking, max 200%).
+                <br><br>
+                Whenever Jyn gains Spark of Rebellion:
+                <br><br>
+                - Dispel all debuffs from herself<br>
+                - Inflict all enemies with Breach and Buff Disruption for 2 turns, and Healing Immunity for 1 turn
+                <br><br>
+                Jyn gains 20 Speed (max 100) for every 5 times she gains Spark of Rebellion.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Grand Arenas:</u> Whenever she loses Spark of Rebellion, her cooldowns are reduced by 1.
+                <br><br>
+                The first time she gains Spark of Rebellion from another ally, she dispels it from herself.
+                <br><br>
+                Whenever Jyn gains a bonus turn, she dispels Spark of Rebellion from herself the next time she uses <u class="speciale">I Rebel</u>.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Jyn Erso (infiltré)",
+                "title": "<u>Jyn Erso (infiltré)</u>",
+                "description": "Une attaquante Rogue One qui se camoufle sur Scarif pour infiltrer le coffre-fort de données qui s'y trouve",
+
+                "lightside": "Coté Lumineux",
+                "attacker": "Attaquant",
+                "rebel": "Rebelle",
+                "fighter": "Combattant rebelle",
+                "rogue-one": "Rogue One",
+
+                "basic-attack-title": "<u>Attaque Basique: Moi, rebelle</u>",
+                "basic-attack": "Inflige des dégâts physiques et Faille à la cible ennemie pendant 1 tour, puis supprime 10 % de sa jauge de tour. Si la cible ennemie subissait déjà Faille, Jyn Erso (infiltré) attaque à nouveau et inflige 20 % de dégâts supplémentaires.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : En finir avec ça (délai : 3)</u>",
+                "special-attack1": "Supprime 100 % de la jauge de tour de la cible ennemie. Si la cible ennemie subit Étourdissement, Jyn est invoquée.\n\nSi un allié Rogue One utilise Raillerie, la prochaine fois qu'elle inflige des dégâts, elle inflige 10 % de dégâts supplémentaires pour chaque cumul d'Exposition sur tous les ennemis et la cible alliée obtient un bonus d'esquive des critiques pendant 2 tours. Si la cible alliée est un tank Rogue One, elle obtient également un bonus de défense et un bonus de protection (50 %, cumulatif) pendant 2 tours.\n\n<u class='omicron'>Amélioration Omicron : Dans les grandes arènes :</u> supprime 100 % de la jauge de tour de tous les ennemis subissant Faille.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Nous avons de l'espoir (délai : 4)</u>",
+                "special-attack2": "Inflige des dégâts physiques à la cible ennemie et obtient 25 % d'attaque (cumulatif, 200 % max.) jusqu'à la fin de la bataille. Si Jyn dispose d'Étincelle de la Rébellion, elle dissipe cet effet, obtient un tour bonus et réinitialise tous les délais des autres alliés Rogue One.",
+
+                "unique-ability1-title": "<u>Capacité Unique : l'espoir est à la base de toute rébellion</u>",
+                "unique-ability1": "Au début de la bataille, Jyn a +10 % de ténacité pour chaque allié Rogue One. Si tous les alliés appartiennent à Rogue One, ils gagnent 40 % de santé maximale et de protection maximale.\n\nSi tous les alliés appartiennent à Rogue One, chaque fois qu'un allié subit Confusion, il dissipe cet effet et récupère 100 % de protection et chaque fois qu'un allié attaque en dehors de son tour, il gagne 20 % de défense (cumulatif, 200 % max.).\n\nChaque fois qu'un tank allié Rogue One utilise une capacité, il gagne un bonus de précision pendant 1 tour.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> au début de la bataille, si tous les alliés appartiennent à Rogue One, les alliés subissent 20 % de dégâts en moins.\n\nChaque fois qu'un ennemi a subi des affaiblissements 10 fois, à partir du tour suivant, la prochaine fois qu'il subit des dégâts, cet ennemi subit 50 % de dégâts supplémentaires.\n\nChaque fois que Jyn subit Confusion, Distraction, Choc ou Étourdisement, tous les alliés Rogue One qui ne sont pas des tanks gagnent un bonus de vitesse pendant 2 tours et à la fin de ce tour, elle inflige Étourdissement à l'ennemi qui lui avait infliglé l'affaiblissement pendant 2 tours.\n\nChaque fois que les ennemis de l'Empire ayant moins de 100 % de jauge de tour obtiennent un bonus de jauge de tour, ils ne peuvent pas obtenir de bonus de jauge de tour avant le début de leur prochain tour.",
+
+                "unique-ability2-title": "<u>Capacité Unique : C'est maintenant qu'il faut se battre</u>",
+                "unique-ability2": "Chaque fois que Jyn déclenche Exposition alors qu'elle dispose d'Étincelle de la Rébellion, elle gagne 10 % de chances de coup critique et de dégâts critiques (cumulatif, 200 % max.).\n\nChaque fois que Jyn gagne Étincelle de la Rébellion :\n\n- Dissipe tous les affaiblissements qu'elle subit\n- Inflige Faille et Améliorations pertrubées à tous les ennemis pendant 2 tours, et Immunité aux soins pendant 1 tour.\n\nJyn gagne 20 de vitesse (100 max.) pour chaque 5 fois qu'elle gagne Étincelle de la Rébellion.\n\n<u class='omicron'>Amélioration Omicron : Dans les Grandes arènes :</u> chaque fois qu'elle perd Étincelle de la Rébellion, ses délais sont réduits de 1.\n\nLa première fois qu'elle obtient Étincelle de la Rébellion grâce à un autre allié, elle la dissipe sur elle-même.\n\nChaque fois que Jyn gagne un tour bonus, elle dissipe Étincelle de la Rébellion sur elle-même la prochaine fois qu'elle utilise <u class='speciale'>Moi, rebelle</u>.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "JYNERSOUNDERCOVER"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1558 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <!-- A MODIFIER: Titre de la page dans l'onglet du navigateur -->
+  <title>SWGOH - Droid Destruction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. STYLES GÉNÉRIQUES & VARIABLES (A CONSERVER SANS MODIFICATION)
+       ========================================================================== */
+    u.speciale {
+      font-weight: bold;
+      color: yellow;
+      text-decoration: none;
+    }
+
+    u.rage {
+      font-weight: bold;
+      color: red;
+      text-decoration: none;
+    }
+
+    :root {
+      --sw-bg-dark: #050505;
+      --sw-bg-card: #121212;
+      --sw-border: #333;
+      --sw-text-main: #e0e0e0;
+      --sw-blue-text: #00a2ff;
+      --font-titles: 'Orbitron', sans-serif;
+      --sidebar-width: 380px;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--sw-bg-dark);
+      background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+      color: var(--sw-text-main);
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: var(--sidebar-width);
+      background-color: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(5px);
+      padding: 25px;
+      border-right: 2px solid var(--sw-border);
+      z-index: 10000;
+      overflow-y: auto;
+    }
+
+    #content {
+      margin-left: var(--sidebar-width);
+      padding: 40px;
+      min-height: 100vh;
+    }
+
+    .raid-header-img {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: contain;
+      background: #000;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      border: 1px solid var(--sw-border);
+    }
+
+    .main-raid-title {
+      font-family: var(--font-titles);
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+      border-left: 5px solid var(--sw-blue-text);
+      padding-left: 15px;
+    }
+
+    .nav-section { margin-bottom: 20px; }
+
+    .nav-title {
+      font-family: var(--font-titles);
+      color: var(--sw-blue-text);
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      border-bottom: 1px solid #222;
+    }
+
+    .nav-item {
+      display: block;
+      padding: 12px 15px;
+      color: #aaa;
+      text-decoration: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .nav-item:hover {
+      background: rgba(0, 162, 255, 0.1);
+      color: #fff;
+    }
+
+    .nav-item.active {
+      background: var(--sw-blue-text);
+      color: #000;
+      font-weight: bold;
+    }
+
+    .section-content {
+      display: none;
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    .section-content.active { display: block; }
+
+    .faction-name {
+      font-size: 120%;
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ACCORDIONS */
+    .accordion-item-sw {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--sw-border);
+      border-radius: 8px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .accordion-header-sw {
+      padding: 15px 20px;
+      cursor: pointer;
+      font-family: var(--font-titles);
+      color: var(--sw-blue-text);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.3s;
+      background: rgba(0, 162, 255, 0.05);
+    }
+
+    .accordion-header-sw:hover { background: rgba(0, 162, 255, 0.15); }
+
+    .accordion-content-sw {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+      padding: 0 20px;
+    }
+
+    .accordion-item-sw.active .accordion-content-sw {
+      max-height: 3000px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-top: 1px solid var(--sw-border);
+    }
+
+    /* FACTION CARDS */
+    .faction-card {
+      background: var(--sw-bg-card);
+      border: 1px solid var(--sw-border);
+      border-radius: 10px;
+      padding: 0;
+      text-align: left;
+      cursor: pointer;
+      transition: 0.3s;
+      overflow: hidden;
+    }
+
+    .faction-content-box {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+      background: #0a0a0a;
+      color: var(--sw-text-main);
+      border-top: 0 solid var(--sw-border);
+    }
+
+    .faction-card.active .faction-content-box {
+      max-height: 3000px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-top-width: 1px;
+    }
+
+    .info-box {
+      background: var(--sw-bg-card);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--sw-border);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .lang-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .lang-toggle img {
+      cursor: pointer;
+      width: 25px;
+      opacity: 0.4;
+      transition: 0.3s;
+      border: 2px solid transparent;
+      border-radius: 4px;
+    }
+
+    .lang-toggle img.active {
+      opacity: 1;
+      border-color: var(--sw-blue-text);
+    }
+
+    #units-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 15px;
+    }
+
+    .raid-unit-img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 2px solid var(--sw-border);
+      background: #000;
+    }
+
+    @media (max-width: 992px) {
+      #sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+      }
+      #content { margin-left: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+     BARRE LATÉRALE (SIDEBAR)
+     ========================================================================== -->
+  <div id="sidebar">
+    <!-- Sélecteur de langue (À CONSERVER) -->
+    <div class="lang-toggle">
+      <img src="https://flagcdn.com/us.svg" alt="EN" id="lang-en" onclick="switchLanguage('en')">
+      <img src="https://flagcdn.com/fr.svg" alt="FR" id="lang-fr" onclick="switchLanguage('fr')">
+    </div>
+
+    <!-- A MODIFIER: Image d'en-tête du Raid -->
+    <img src="../raid-image/raid-droïd.png" class="raid-header-img" alt="Droid Destruction">
+
+    <!-- Navigation (À CONSERVER) -->
+    <div class="nav-section">
+      <div class="nav-title" id="title-resume">Summary</div>
+      <div id="btn-history" class="nav-item active" onclick="showSection('resume', this)">Story & Rules</div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-title" id="title-details">Details</div>
+      <div id="btn-factions" class="nav-item" onclick="showSection('factions', this)">Faction Bonuses</div>
+      <div id="btn-capacities" class="nav-item" onclick="showSection('capacities', this)">Abilities</div>
+      <div id="btn-diff" class="nav-item" onclick="showSection('diff', this)">Difficulty Modifiers</div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-title" id="title-restrict">Restrictions</div>
+      <div id="btn-unites" class="nav-item" onclick="showSection('unites', this)">Eligible Units</div>
+    </div>
+
+    <button class="btn btn-outline-info w-100 mt-4" onclick="window.location.href='raid.html'" id="btn-back">BACK</button>
+  </div>
+
+  <!-- ==========================================================================
+     CONTENU PRINCIPAL
+     ========================================================================== -->
+  <div id="content">
+    <!-- A MODIFIER: Nom du Raid par défaut (Anglais) -->
+    <h1 class="main-raid-title" id="raid-main-name">Droid Destruction</h1>
+
+    <!-- ----------------------------------------------------------------------
+         1. SECTION RESUME (Histoire & Règles)
+         ---------------------------------------------------------------------- -->
+    <div id="section-resume" class="section-content active">
+      <h2 id="h-history">Story & Rules</h2>
+      
+      <!-- Accordéon Histoire -->
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <span id="title-story">STORY</span><span>+</span>
+        </div>
+        <!-- A MODIFIER: Texte de l'histoire en Anglais -->
+        <div class="accordion-content-sw" id="text-story">
+            The Gotra Boss Guards stand as an unyielding last line of defense protecting Hutt Palace. Those who seek the palace's inner sanctum must overcome these relentless enforcers guarding the seat of power.
+        </div>
+      </div>
+
+      <!-- Accordéon Règles -->
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <span id="title-rules">RULES</span><span>+</span>
+        </div>
+        <!-- A MODIFIER: Règles du raid en Anglais -->
+        <div class="accordion-content-sw" id="text-rules">
+          • Time Limit: 2d 23h<br>
+          • Requirements: 4★ · Droid Destruction Raid<br>
+          • Roster Refresh: Never<br>
+          • Launch Cost: 180K<br>
+          • Max Attempts: 5
+        </div>
+      </div>
+    </div>
+
+    <!-- ----------------------------------------------------------------------
+         2. SECTION FACTIONS (Bonus de Faction)
+         ---------------------------------------------------------------------- -->
+    <div id="section-factions" class="section-content">
+      <h2 id="h-factions">Faction Bonuses</h2>
+      <div class="info-box" id="text-factions-intro">Characters can obtain one or more of the following abilities during the raid.</div>
+
+      <div class="faction-grid">
+        <!-- A MODIFIER / DUPLIQUER : Carte Faction (Répéter autant de fois qu'il y a de factions) -->
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <!-- Image Faction -->
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-droïd/faction.png">
+            <!-- ID unique requis (ex: f-1, f-2...) -->
+            <span class="faction-name" id="f-1">Faction Bonus: New Republic</span>
+          </div>
+          <!-- ID unique de contenu (ex: content-f-1, content-f-2...) -->
+          <div class="faction-content-box" id="content-f-1">
+            Whenever a Healer or Support ally targets the Gotra Boss Guard (Detonator)'s Core with an ability while it's inflicted with On the Run, dispel all debuffs on all allies, they recover 10% Health and Protection, and they inflict the Core with 3 stacks of Expose for 1 turn. If there is an allied The Mandalorian and Grogu or Rotta the Hutt, inflict the Core with 6 stacks of Expose instead.
+          </div>
+        </div>
+
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <!-- Image Faction -->
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-droïd/faction.png">
+            <!-- ID unique requis (ex: f-1, f-2...) -->
+            <span class="faction-name" id="f-2">Faction Bonus: Sith</span>
+          </div>
+          <!-- ID unique de contenu (ex: content-f-1, content-f-2...) -->
+          <div class="faction-content-box" id="content-f-2">
+            Allies gain 40% Defense, Max Health, and Max Protection, until the end of battle. Whenever a Sith ally uses a Special ability while they have Siphon, they gain 15% Critical Damage for 1 turn.
+          </div>
+        </div>
+
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <!-- Image Faction -->
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-droïd/faction.png">
+            <!-- ID unique requis (ex: f-1, f-2...) -->
+            <span class="faction-name" id="f-3">Faction Bonus: Rebel</span>
+          </div>
+          <!-- ID unique de contenu (ex: content-f-1, content-f-2...) -->
+          <div class="faction-content-box" id="content-f-3">
+            All non-New Republic allies gain 50% Max Health and Max Protection and 40% Potency until the end of battle. Whenever an enemy is inflicted with Undermine (limit once per turn):
+            <br><br>
+            - Dispel all debuffs on all allies<br>
+            - All allies recover 20% Health and Protection<br>
+            - Vel gains a stack of Resilient Defense until she is damaged
+          </div>
+        </div>
+
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <!-- Image Faction -->
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-droïd/faction.png">
+            <!-- ID unique requis (ex: f-1, f-2...) -->
+            <span class="faction-name" id="f-4">Faction Bonus: Empire</span>
+          </div>
+          <!-- ID unique de contenu (ex: content-f-1, content-f-2...) -->
+          <div class="faction-content-box" id="content-f-4">
+            Allies gain 45% Defense, Max Health, Max Protection, and Offense until the end of battle. Whenever an ally inflicted with Undermined damages any arm, Expose target enemy for 1 turn, and all allies gain 25% Turn Meter.
+          </div>
+        </div>
+
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-droïd/mando.png">
+            <span class="faction-name" id="f-hero-1">Hero Bonus: The Mandalorian and Grogu</span>
+          </div>
+          <div class="faction-content-box" id="content-f-hero-1">
+                If The Mandalorian and Grogu is the ally in the Leader slot, and there are four other New Republic allies, or if The Mandalorian and Grogu is the ally in the Leader slot, there are three other New Republic allies, and Yoda & Chewie are allies:
+                <br><br>
+                - All allies gain 50% Defense, Max Health and Max Protection until the end of battle and the Wookiee tag<br>
+                - Yoda & Chewie gain the New Republic tag and all allies gain Master's Training until they are defeated<br>
+                - The Mandalorian and Grogu is considered Jedi Knight Luke Skywalker and Tarfful<br>
+                - If Mara Jade Skywalker is an ally, Mara Jade Skywalker, The Mandalorian and Grogu, and Yoda & Chewie gain Jedi's Will until they are defeated<br>
+                - Whenever a Healer or Support ally uses an ability on Gotra Boss Guard (Detonator)'s Core, call all allies to assist (limit once per turn)
+            </div>
+        </div>
+
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-droïd/rotta-image.png">
+            <span class="faction-name" id="f-hero-2">Hero Bonus: Rotta the Hutt</span>
+          </div>
+          <div class="faction-content-box" id="content-f-hero-2">
+                If Carson Teva is the ally in the Leader slot and there are 3 other New Republic allies:
+                <br><br>
+                - Rotta gains the New Republic tag, and all other allies gain the Hutt Cartel tag<br>
+                - Rotta gains 50% Defense until the end of battle<br>
+                - Whenever Rotta targets Gotra Boss Guard (Detonator)'s Arms with an ability while they are inflicted with Bleed, Rotta gains 30% Turn Meter, all allies recover 30% Health and Protection, and gain 50% Offense for 2 turns<br>
+                - Whenever any Arms are defeated, Gotra Boss Guard (Detonator)'s Core is inflicted with a stack of On the Run until the end battle, which can't be evaded or resisted<br>
+                - Whenever an ally attacks Gotra Boss Guard (Detonator)'s Left Arm out of turn, the cooldown of <u class="speciale">Lob Explosive</u> is no longer decreased
+            </div>
+        </div>
+
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-droïd/carson-image.png">
+            <span class="faction-name" id="f-hero-3">Hero Bonus: Carson Teva</span>
+          </div>
+          <div class="faction-content-box" id="content-f-hero-3">
+                If Carson Teva is the ally in the Leader slot and there are 4 other New Republic allies, or if Carson Teva is the ally in the Leader slot, there are three other New Republic allies, and Rotta the Hutt is an ally:
+                <br><br>
+                - All allies gain 40% Defense, Max Health, and Max Protection until the end of battle<br>
+                - Whenever an ally uses an ability on Gotra Boss Guard (Detonator)'s Core while it's inflicted with On the Run, reduce the cooldown of R5-D4's Bad Motivator by 2, if Rotta is an ally, decrease it by 4 instead
+            </div>
+        </div>
+
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-droïd/dark-jar-jar-image.png">
+            <span class="faction-name" id="f-hero-4">Hero Bonus: Darth Jar Jar</span>
+          </div>
+          <div class="faction-content-box" id="content-f-hero-4">
+                If Darth Jar Jar is the ally in the Leader slot, and there are 3 other Sith allies, and Inquisitor Barriss is an ally:
+                <br><br>
+                - Inquisitor Barriss gains the Sith tag<br>
+                - All allies gain the Unaligned Force User tag<br>
+                - Gotra Boss Guard (Detonator)'s Core is considered the Shield Generator<br>
+                - Whenever an enemy is inflicted with Plasma Residue, they are inflicted with 2 stacks of Purge (max 6) until the end of battle, and all enemies Taunt until the end of The Ronin's next turn, which can't be evaded, dispelled, or resisted<br>
+                - Whenever an enemy Arm is inflicted with Manipulated, they have -80% Critical Chance until the end of battle
+            </div>
+        </div>
+
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-droïd/ig-90-image.png">
+            <span class="faction-name" id="f-hero-5">Hero Bonus: IG-90</span>
+          </div>
+          <div class="faction-content-box" id="content-f-hero-5">
+                If IG-90 is the ally in the Leader slot, there are 3 other Bounty Hunters allies, and one of the following is true:<br>
+                    - Jaxxon is an ally<br>
+                    - Mercenary Guard Droid (B1) is an ally
+                <br><br>
+                Then:
+                <br><br>
+                    - All allies gain the Scoundrel tag<br>
+                    - All allies gain the Mercenary tag<br>
+                    - Jaxxon gains the Bounty Hunter tag, and all allies gain Prepared at the start of battle<br>
+                    - Mercenary Guard Droid (B1) gains 5 stacks of Mercenary Battalion<br>
+                    - All allies gain Defense Up for 2 turns, which can't be dispelled<br>
+                    - Whenever an ally is critically hit, they gain Foresight for 2 turns and all allies recover 10% Health and Protection and have their debuffs dispelled
+            </div>
+        </div>
+
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-droïd/cassian-undercover-image.png">
+            <span class="faction-name" id="f-hero-6">Hero Bonus: Cassian Andor (Undercover)</span>
+          </div>
+          <div class="faction-content-box" id="content-f-hero-6">
+                If Cassian Andor (Undercover) is the ally in the Leader slot and there are 4 other Rebel allies:
+                <br><br>
+                - Cassian is considered Commander Luke Skywalker and Princess Leia<br>
+                - Whenever Cassian uses <u class="speciale">Varian Skye</u>, grant a random ally VIP who doesn't already have it until they are damaged twice and allies gain Call to Action for 1 turn<br>
+                - If Starkiller (Luke Concept) or Stormtrooper Luke are allies, they gain 55% Defense and Offense for the rest of battle and the Rebel Fighter tag<br>
+                - At the start of battle, inflict all enemies with Undermine for 1 turn
+            </div>
+        </div>
+
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-droïd/luke-trooper-image.png">
+            <span class="faction-name" id="f-hero-7">Hero Bonus: Stormtrooper Luke</span>
+          </div>
+          <div class="faction-content-box" id="content-f-hero-7">
+                If Stormtrooper Luke is the ally in the Leader slot and there are 4 other Rebel allies:
+                <br><br>
+                - All allies gain the Rebel Figher tag and 40% Defense, Max Health, and Max Protection
+                <br><br>
+                - Whenever an enemy is inflicted with Breach, they are inflicted with Undermine for 2 turns, which can't be evaded or resisted, and a random ally who wasn't already Stealthed, Stealths for 1 turn<br>
+                - Stealthed allies deal 2 additional instances of True damage<br>
+                - If Starkiller (Luke Concept) is an ally, he gains 40% Offense until the end of battle, and whenever he inflicts an enemy with Buff Immunity, all allies gain 40% Critical Damage and Advantage for 1 turn 
+            </div>
+        </div>
+
+        <div class="faction-card" onclick="toggleFaction(this)">
+          <div class="faction-header">
+            <img style="height: 10%; width: 10%;" src="../raid-image/raid-droïd/partagaz-image.png">
+            <span class="faction-name" id="f-hero-8">Hero Bonus: Major Partagaz</span>
+          </div>
+          <div class="faction-content-box" id="content-f-hero-8">
+            If Major Partagaz is the ally in the Leader slot, there are two other ISB allies, and one of the following is true:<br>
+                - There are two Imperial Trooper allies<br>
+                - There is one Imperial Trooper ally, and there is an allied Maul (Hate-Fueled)
+            <br><br>
+            Then:
+                - Major Partagaz ignores Taunt effects for his first turn<br>
+                - All allies gain the Empire, Imperial Trooper, and ISB tag<br>
+                - If Maul (Hate-Fueled) is not an ally, all Tanks Taunt for 1 turn, which can't be dispelled            
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ----------------------------------------------------------------------
+         3. SECTION ABILITIES (Capacités conférées, Boss, Sbires)
+         ---------------------------------------------------------------------- -->
+    <div id="section-capacities" class="section-content">
+      <h2 id="h-capa">Abilities</h2>
+
+      <!-- GROUPE 1: Capacités conférées (Granted Abilities) -->
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <span id="capa-granted">Granted Abilities</span><span>+</span>
+        </div>
+        <div class="accordion-content-sw" id="val-capa-granted">
+          
+          <!-- A MODIFIER / DUPLIQUER: Capacité Conférée 1 -->
+          <div class="faction-card mb-3 shadow-sm">
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/capacité-conférée.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="capa-name-1" style="white-space: nowrap;">Malfunction</span>
+            </div>
+            <div class="p-3" id="capa-desc-1" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                Deal True damage to Gotra Boss Guard (Detonator), and if Gotra Boss Guard (Detonator)'s Core had any stacks of Detonation, reduce the stacks to 0. Gotra Boss Guard (Malfunction)'s Head gains Reinitializing and is inflicted with a stack of <u class="speciale">Malfunction</u> (stacking, max 5) for the rest of battle, which can't be copied, dispelled, evaded, or resisted.
+                <br><br>
+                <u class="speciale">Malfunction:</u> -10% Accuracy and Defense; +50 Speed
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- GROUPE 2: tête du gardient du boss gotra (dysfonctionnement) -->
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <div class="d-flex align-items-center gap-3" style="flex: 1; min-width: 0;">
+            <img src="../raid-image/raid-droïd/boss-image-1.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+            <span id="capa-boss-1" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Gotra Boss Guard (Malfunction)'s Head</span>
+          </div>
+          <span style="flex-shrink: 0;">+</span>
+        </div>
+        <div class="accordion-content-sw" id="val-capa-boss">
+
+        <!-- A MODIFIER / DUPLIQUER: Attaque Boss 1 -->
+        <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-1/capacité-1.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-1" style="white-space: nowrap;">Gotra Boss Guard (Malfunction)'s Head</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-1" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                Dispel all buffs on all enemies and Expose them for 2 turns.
+                <br><br>
+                Enemies are inflicted with additional debuffs based on their roles:
+                <br><br>
+                    - <strong style="color: #B5E7F5 !important;">Attackers:</strong> Disarm for 1 turn or until Gotra Boss Guard (Malfunction)'s Head is reduced to 2% Health<br>
+                    - <strong style="color: #B5E7F5 !important;">Healers and Supports:</strong> Speed Down for 1 turn<br>
+                    - <strong style="color: #B5E7F5 !important;">Tanks:</strong> Breach for 1 turn
+                <br><br>
+                This attack can't be evaded.
+                <br><br>
+                <u class="rage">Enraged:</u> Inflict all enemies with 3 stacks of Expose for 2 turns. On Gotra Boss Guard (Malfunction)s Right Arm's next turn, it ignores enemy Protection and deals 100% more damage.
+            </div>
+        </div><!--Fin bloc une capacité-->
+               <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-1/capacité-2.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-2" style="white-space: nowrap;">Hard Headed</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-2" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                Gotra Boss Guard (Malfunction)'s Head is immune to Provoked, can't counter attack, Stealth or be reduced below 1% Health, and gains 9000% Critical Avoidance and Defense for each active Gotra Boss Guard (Malfunction)'s Left Arm and Gotra Boss Guard (Malfunction)'s Right Arm.
+                <br><br>
+                Whenever Gotra Boss Guard (Malfunction)'s Head is reduced to 2% Health, it removes 35% Turn Meter from all enemies, which can't be evaded or resisted, and it gains a bonus turn and the granted ability Malfunction. Whenever Gotra Boss Guard (Malfunction)'s Head uses this granted ability, it revives its Left and Right arms at 100% Health, and the Head is inflicted with a stack of <u class="speciale">Malfunction</u> and gains <u class="speciale">Reinitializing</u>. Whenever Gotra Boss Guard (Malfunction)'s Head gains Reinitializing, it dispels all buffs, debuffs (excluding <u class="speciale">Malfunction</u>), and status effects on itself, and its Left and Right arms can't take turns.
+                <br><br>
+                Whenever Reinitializing expires on Gotra Boss Guard (Malfunction)'s Head, it recovers 100% Health, and it revives its Left and Right arms at 100% Health, which can't be prevented. If Gotra Boss Guard (Malfunction)'s Head and Gotra Boss Guard (Detonator)'s Core both had <u class="speciale">Reinitializing</u> and all arms were defeated, Gotra Boss Guard (Malfunction)'s Head and Gotra Boss Guard (Detonator)'s Core dispel <u class="speciale">Reinitializing</u> and all arms are revived at 100% Health, which can't be prevented.
+                <br><br>
+                <u class="speciale">Malfunction:</u> -10% Accuracy and Defense; +50 Speed
+            </div>
+        </div><!--Fin bloc une capacité-->
+
+        <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-1/capacite-3.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-3" style="white-space: nowrap;">Enrage</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-3" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                This character becomes <u class="speciale">Enraged</u> when this ability comes off of cooldown, and this cooldown is shared between all allies.
+                <br><br>
+                - At the start of each turn for Gotra Boss Guard (Malfunction)'s Head and Gotra Boss Guard (Detonator)'s Core: <u class="speciale">2%</u>
+                <br><br>
+                - At the start of each turn for Gotra Boss Guard (Malfunction)'s Left and Right Arm and Gotra Boss Guard (Detonator)'s Left and Right Arm <u class="speciale">4%</u>
+                <br><br>
+                - If Gotra Boss Guard (Malfunction)'s Head and Gotra Boss Guard (Detonator)'s Core both had Reinitializing and all arms were defeated: <u class="speciale">15%</u>
+            </div>
+        </div><!--Fin bloc une capacité-->
+               
+        <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-1/capacite-4.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-4" style="white-space: nowrap;">Raid Boss Immunities</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-4" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              This unit is immune to Ability Block, Buff Disruption, Daze, Distracted, Fear, Health Down, Shock, Stagger, and Stun, as well as cooldown increase.
+            </div>
+        </div><!--Fin bloc une capacité-->
+        </div>
+      </div>
+
+    <!-- GROUPE 3: bras droit du garde du boss gotra (dysfonctionnemnt) -->
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <div class="d-flex align-items-center gap-3" style="flex: 1; min-width: 0;">
+            <img src="../raid-image/raid-droïd/boss-image-2.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+            <span id="capa-boss-2" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Gotra Boss Guard (Malfunction)'s Right Arm</span>
+          </div>
+          <span style="flex-shrink: 0;">+</span>
+        </div>
+        <div class="accordion-content-sw" id="val-capa-boss">
+
+          <!-- A MODIFIER / DUPLIQUER: Attaque Boss 1 -->
+          <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-2/capacite1.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-5" style="white-space: nowrap;">Gotra Boss Guard (Malfunction)'s Right Arm</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-5" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                Deal Physical damage to all enemies and inflict them with Burning for 2 turns. Recover 20% Health and gains a stack of Heat (stacking, max 10) for each critical hit scored.
+                <br><br>
+                - <u class="speciale">5+ Stacks of Heat:</u> Trigger the damage effects of Burning on all enemies<br>
+                - <u class="speciale">10+ Stacks of Heat:</u> gain 3 stacks of Overheat (stacking, max 20)<br>
+                - <u class="speciale">5+ Stacks of Overheat:</u> Daze all enemies for 1 turn and remove 20% Turn Meter from them
+                <br><br>
+                <u class="rage">Enraged:</u> If Gotra Boss Guard (Malfunction)'s Right Arm had any stacks of Overheat, it deals 5 instances of Massive Damage. If there are no stacks of Overheat, gain 10 stacks of Heat (stacking, max 10).
+            </div>
+          </div><!--Fin bloc une capacité-->
+
+          <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-2/capacite-2.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-6" style="white-space: nowrap;">Burning Blaster</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-6" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                Gain 10% Critical Chance and Critical Damage per stack of Heat. At 10+ stacks of Heat, abilities and effects that generate Heat instead generate Overheat (stacking, max 20) until the end of battle, which can't be copied, dispelled, or prevented.
+                <br><br>
+                This arm can't counter attack or Stealth, and is immune to Provoked.
+            </div>
+          </div><!--Fin bloc une capacité-->
+
+          <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-2/capacite-3.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-7" style="white-space: nowrap;">Enrage</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-7" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                This character becomes <u class="speciale">Enraged</u> when this ability comes off of cooldown, and this cooldown is shared between all allies.
+                <br><br>
+                - At the start of each turn for Gotra Boss Guard (Malfunction)'s Head and Gotra Boss Guard (Detonator)'s Core: <u class="speciale">2%</u>
+                <br><br>
+                - At the start of each turn for Gotra Boss Guard (Malfunction)'s Left and Right Arm and Gotra Boss Guard (Detonator)'s Left and Right Arm <u class="speciale">4%</u>
+                <br><br>
+                - If Gotra Boss Guard (Malfunction)'s Head and Gotra Boss Guard (Detonator)'s Core both had Reinitializing and all arms were defeated: <u class="speciale">15%</u>
+            </div>
+          </div><!--Fin bloc une capacité-->
+
+          <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-2/capacite-4.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-8" style="white-space: nowrap;">Raid Boss Immunities</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-8" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              This unit is immune to Ability Block, Buff Disruption, Daze, Distracted, Fear, Health Down, Shock, Stagger, and Stun, as well as cooldown increase.
+            </div>
+          </div><!--Fin bloc une capacité-->
+
+        </div>
+      </div>
+
+    <!-- GROUPE 4: Bras gauche du garde du boss gotra dysfonctionnement -->
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <div class="d-flex align-items-center gap-3" style="flex: 1; min-width: 0;">
+            <img src="../raid-image/raid-droïd/boss-image-3.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+            <span id="capa-boss-3" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Gotra Boss Guard (Malfunction)'s Left Arm</span>
+          </div>
+          <span style="flex-shrink: 0;">+</span>
+        </div>
+        <div class="accordion-content-sw" id="val-capa-boss">
+
+          <!-- A MODIFIER / DUPLIQUER: Attaque Boss 1 -->
+          <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-3/capacite-1.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-9" style="white-space: nowrap;">Gotra Boss Guard (Malfunction)'s Left Arm</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-9" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                Deal True damage to target enemy and inflict them with 1 stack of Off-Balance for 2 turns, which can't be evaded. If this arm had more than 3 debuffs, Stagger target enemy for 2 turns, which can't be evaded, and dispels all debuffs on itself.
+                <br><br>
+                <u class="rage">Enraged:</u> Inflict target enemy with Healing Immunity and Protection Disruption for the rest of battle, which can't be evaded, and all allies gain 50% Turn Meter.
+            </div>
+          </div><!--Fin bloc une capacité-->
+
+          <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-3/capacite-2.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-10" style="white-space: nowrap;">Seismic Fist</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-10" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                At the start of battle, this arm is inflicted with Tenacity Down for 2 turns, which can't be dispelled, evaded, or resisted, and gains 700% Offense, but loses 50% Offense per stack of Malfunction on the Head and per active enemy at the start of battle.
+                <br><br>
+                Gain 5% Defense Penetration (stacking) and Offense (stacking) until defeated whenever it is inflicted with debuffs. Gain 15% Turn Meter whenever inflicted with a debuff.
+                <br><br>
+                This arm can't counter attack or Stealth, and is immune to Provoked. 
+            </div>
+          </div><!--Fin bloc une capacité-->
+
+          <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-3/capacite-3.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-11" style="white-space: nowrap;">Enrage</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-11" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                This character becomes <u class="speciale">Enraged</u> when this ability comes off of cooldown, and this cooldown is shared between all allies.
+                <br><br>
+                - At the start of each turn for Gotra Boss Guard (Malfunction)'s Head and Gotra Boss Guard (Detonator)'s Core: <u class="speciale">2%</u>
+                <br><br>
+                - At the start of each turn for Gotra Boss Guard (Malfunction)'s Left and Right Arm and Gotra Boss Guard (Detonator)'s Left and Right Arm <u class="speciale">4%</u>
+                <br><br>
+                - If Gotra Boss Guard (Malfunction)'s Head and Gotra Boss Guard (Detonator)'s Core both had Reinitializing and all arms were defeated: <u class="speciale">15%</u>
+            </div>
+          </div><!--Fin bloc une capacité-->
+
+          <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-3/capacite-4.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-12" style="white-space: nowrap;">Raid Boss Immunities</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-12" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              This unit is immune to Ability Block, Buff Disruption, Daze, Distracted, Fear, Health Down, Shock, Stagger, and Stun, as well as cooldown increase.
+            </div>
+          </div><!--Fin bloc une capacité-->
+
+        </div>
+      </div>
+
+    <!-- GROUPE 5: Noyau du garde du boss gotra (détonateur) -->
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <div class="d-flex align-items-center gap-3" style="flex: 1; min-width: 0;">
+            <img src="../raid-image/raid-droïd/boss-image-4.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+            <span id="capa-boss-4" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Gotra Boss Guard (Detonator)'s Core</span>
+          </div>
+          <span style="flex-shrink: 0;">+</span>
+        </div>
+        <div class="accordion-content-sw" id="val-capa-boss">
+
+          <!-- A MODIFIER / DUPLIQUER: Attaque Boss 1 -->
+          <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-4/capacite-1.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-13" style="white-space: nowrap;">Gotra Boss Guard (Detonator)'s Core</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-13" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                If Gotra Boss Guard (Detonator)'s Core had any stacks of Detonation, reduce the cooldown of <u class="speciale">Lob Explosive</u> by 1. If Gotra Boss Guard's Core didn't have any stacks of Detonation, it grants itself a bonus turn.
+            </div>
+          </div><!--Fin bloc une capacité-->
+
+          <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-4/capacite-2.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-14" style="white-space: nowrap;">Cook Explosive</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-14" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                Gotra Boss Guard (Detonator)'s Core gains 50 stacks of <u class="speciale">Detonation</u> and increases the cooldown of <u class="speciale">Lob Explosive</u> to max.
+                <br><br>
+                <u class="speciale">Detonation:</u> Lose a stack when damaged during an enemy's turn, once reduced to 0, Gotra Boss Guard (Detonator)'s Core and Arms take True damage
+            </div>
+          </div><!--Fin bloc une capacité-->
+
+          <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-4/capacite-3.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-15" style="white-space: nowrap;">Lob Explosive</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-15" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                Dispel all stacks of Detonation on Gotra Boss Guard (Detonator)'s Core, deal True damage to all enemies, and inflict them with a stack of <u class="speciale">Explosive Residue</u> (stacking, max 5) until the end of battle, which can't be copied, dispelled, evaded, or resisted. Revive Gotra Boss Guard (Detonator)'s Left and Right arm at 100% Health, which can't be prevented. 
+                <br><br>
+                <u class="speciale">Explosive Residue:</u> -30 Speed and -30% Tenacity; receive True damage at the start of each player's turn for each stack, this damage can't defeat enemies
+                <br><br>
+                <u class="rage">Enraged:</u> Inflict all enemies with 5 stacks of Damage Over Time, for the rest of battle, which can't be evaded.
+            </div>
+          </div><!--Fin bloc une capacité-->
+
+          <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-4/capacite-4.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-16" style="white-space: nowrap;">Core Detonator</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-16" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                Gotra Boss Guard (Detonator)'s Core is immune to Provoked, can't counter attack, Stealth or be reduced below 1% Health.
+                <br><br>
+                Cook Explosive can only be used if it has no stacks of Detonation. <u class="speciale">Lob Explosive</u> starts on cooldown and can only be used while it has stacks of Detonation.
+                <br><br>
+                Whenever Gotra Boss Guard (Detonator)'s Core is reduced to 2% Health, it gains <u class="speciale">Reinitializing</u> for 5 character turns. Whenever Gotra Boss Guard (Detonator)'s Core gains Reinitializing it dispels all buffs, debuffs, and status effects on itself. Whenever Reinitializing expires on Gotra Boss Guard (Detonator)'s Core, it recovers 100% Health and it revives its Left and Right arms at 100% Health, if they were defeated, which can't be prevented. If Gotra Boss Guard (Malfunction)'s Head and Gotra Boss Guard (Detonator)'s Core both had <u class="speciale">Reinitializing</u> and all arms were defeated, Gotra Boss Guard (Malfunction)'s Head and Gotra Boss Guard (Detonator)'s Core dispel <u class="speciale">Reinitializing</u> and all arms are revived at 100% Health, which can't be prevented.
+                <br><br>
+                <u class="speciale">Reinitializing:</u> Can't be targeted or inflicted with debuffs, take turns, recover Health, gain Turn Meter or Buffs, or use abilities
+            </div>
+          </div><!--Fin bloc une capacité-->
+
+          <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-4/capacite-5.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-17" style="white-space: nowrap;">Enrage</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-17" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                This character becomes <u class="speciale">Enraged</u> when this ability comes off of cooldown, and this cooldown is shared between all allies.
+                <br><br>
+                - At the start of each turn for Gotra Boss Guard (Malfunction)'s Head and Gotra Boss Guard (Detonator)'s Core: <u class="speciale">2%</u>
+                <br><br>
+                - At the start of each turn for Gotra Boss Guard (Malfunction)'s Left and Right Arm and Gotra Boss Guard (Detonator)'s Left and Right Arm <u class="speciale">4%</u>
+                <br><br>
+                - If Gotra Boss Guard (Malfunction)'s Head and Gotra Boss Guard (Detonator)'s Core both had Reinitializing and all arms were defeated: <u class="speciale">15%</u>
+            </div>
+          </div><!--Fin bloc une capacité-->
+
+          <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-4/capacite-6.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-18" style="white-space: nowrap;">Raid Boss Immunities</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-18" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              This unit is immune to Ability Block, Buff Disruption, Daze, Distracted, Fear, Health Down, Shock, Stagger, and Stun, as well as cooldown increase.
+            </div>
+          </div><!--Fin bloc une capacité-->
+        </div>
+      </div>
+
+    <!-- GROUPE 6: bras droit du garde du boss gotra (détonateur) -->
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <div class="d-flex align-items-center gap-3" style="flex: 1; min-width: 0;">
+            <img src="../raid-image/raid-droïd/boss-image-5.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+            <span id="capa-boss-5" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Gotra Boss Guard (Detonator)'s Right Arm</span>
+          </div>
+          <span style="flex-shrink: 0;">+</span>
+        </div>
+        <div class="accordion-content-sw" id="val-capa-boss">
+
+          <!-- A MODIFIER / DUPLIQUER: Attaque Boss 1 -->
+          <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-5/capacite-1.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-19" style="white-space: nowrap;">Gotra Boss Guard (Detonator)'s Right Arm</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-19" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                Deal True damage to target enemy and Shock them for 2 turns, which can't be evaded. This arm gains Offense Up for 2 turns and Gotra Boss Guard (Detonator)'s Left Arm and Core gain 30% Turn Meter. If target enemy had a stack of Explosive Residue, this attack deals 100% more damage, and this arm gains 1 stack of Overcharge for the rest of battle, which can't be dispelled.
+                <br><br>
+                <u class="rage">Enraged:</u> Trigger all stacks of Damage Over Time on target enemy. If they had any stacks of Explosive Residue, or if Gotra Boss Guard (Detonator)'s Right Arm had any stacks of Overcharge, instantly defeat target enemy and they can't be revived. 
+            </div>
+          </div><!--Fin bloc une capacité-->
+
+          <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-5/capacite-2.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-20" style="white-space: nowrap;">Polearm</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-20" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                This arm ignores Taunt effects. Whenever it is defeated, it loses all stacks of Overcharge.
+                <br><br>
+                This arm can't counter attack or Stealth, and is immune to Provoked.
+            </div>
+          </div><!--Fin bloc une capacité-->
+
+          <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-5/capacite-3.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-21" style="white-space: nowrap;">Enrage</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-21" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                This character becomes <u class="speciale">Enraged</u> when this ability comes off of cooldown, and this cooldown is shared between all allies.
+                <br><br>
+                - At the start of each turn for Gotra Boss Guard (Malfunction)'s Head and Gotra Boss Guard (Detonator)'s Core: <u class="speciale">2%</u>
+                <br><br>
+                - At the start of each turn for Gotra Boss Guard (Malfunction)'s Left and Right Arm and Gotra Boss Guard (Detonator)'s Left and Right Arm <u class="speciale">4%</u>
+                <br><br>
+                - If Gotra Boss Guard (Malfunction)'s Head and Gotra Boss Guard (Detonator)'s Core both had Reinitializing and all arms were defeated: <u class="speciale">15%</u>
+            </div>
+          </div><!--Fin bloc une capacité-->
+
+          <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-5/capacite-4.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-22" style="white-space: nowrap;">Raid Boss Immunities</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-22" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              This unit is immune to Ability Block, Buff Disruption, Daze, Distracted, Fear, Health Down, Shock, Stagger, and Stun, as well as cooldown increase.
+            </div>
+          </div><!--Fin bloc une capacité-->
+
+        </div>
+      </div>
+
+    <!-- GROUPE 7: Bras gauche du garde du boss gotra (détonateur) -->
+      <div class="accordion-item-sw">
+        <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+          <div class="d-flex align-items-center gap-3" style="flex: 1; min-width: 0;">
+            <img src="../raid-image/raid-droïd/boss-image-6.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+            <span id="capa-boss-6" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Gotra Boss Guard (Detonator)'s Left Arm</span>
+          </div>
+          <span style="flex-shrink: 0;">+</span>
+        </div>
+        <div class="accordion-content-sw" id="val-capa-boss">
+
+          <!-- A MODIFIER / DUPLIQUER: Attaque Boss 1 -->
+          <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-6/capacite-1.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-23" style="white-space: nowrap;">Gotra Boss Guard (Detonator)'s Left Arm</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-23" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                Deal Physical damage to target enemy, Provoke them for 1 turn, and reduce the cooldown of <u class="speciale">Lob Explosive</u> by 2.
+                <br><br>
+                <u class="rage">Enraged:</u> reduce the cooldown of <u class="speciale">Lob Explosive</u> by 3.
+            </div>
+          </div><!--Fin bloc une capacité-->
+
+          <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-6/capacite-2.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-24" style="white-space: nowrap;">Heavy Strike</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-24" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                At the start of battle, this arm is Marked for 1 turn which can't be dispelled, evaded, or resisted.
+                <br><br>
+                Whenever an enemy attacks this arm out of turn, it gains 20% Bonus Protection (stacking until defeated), recovers 20% Health, and reduces the cooldown of <u class="speciale">Lob Explosive</u> by 1.
+                <br><br>
+                This arm can't counter attack or Stealth, and is immune to Provoked. 
+            </div>
+          </div><!--Fin bloc une capacité-->
+
+          <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-6/capacite-3.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-25" style="white-space: nowrap;">Enrage</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-25" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+                This character becomes <u class="speciale">Enraged</u> when this ability comes off of cooldown, and this cooldown is shared between all allies.
+                <br><br>
+                - At the start of each turn for Gotra Boss Guard (Malfunction)'s Head and Gotra Boss Guard (Detonator)'s Core: <u class="speciale">2%</u>
+                <br><br>
+                - At the start of each turn for Gotra Boss Guard (Malfunction)'s Left and Right Arm and Gotra Boss Guard (Detonator)'s Left and Right Arm <u class="speciale">4%</u>
+                <br><br>
+                - If Gotra Boss Guard (Malfunction)'s Head and Gotra Boss Guard (Detonator)'s Core both had Reinitializing and all arms were defeated: <u class="speciale">15%</u>
+            </div>
+          </div><!--Fin bloc une capacité-->
+
+          <div class="faction-card mb-3"><!--début bloc de capacité-->
+            <div class="faction-header">
+              <img src="../raid-image/raid-droïd/boss-6/capacite-4.png" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0;">
+              <span class="faction-name" id="boss-capa-name-26" style="white-space: nowrap;">Raid Boss Immunities</span>
+            </div>
+            <div class="p-3" id="boss-capa-desc-26" style="background: rgba(0,0,0,0.2); font-size: 110%; line-height: 1.4;">
+              This unit is immune to Ability Block, Buff Disruption, Daze, Distracted, Fear, Health Down, Shock, Stagger, and Stun, as well as cooldown increase.
+            </div>
+          </div><!--Fin bloc une capacité-->
+
+        </div>
+      </div>
+    <!--Dernier div pour fermer la partie capacité-->
+    </div> 
+
+    <!-- ----------------------------------------------------------------------
+         4. SECTION DIFFICULTÉ (Modificateurs par Niveaux)
+         ---------------------------------------------------------------------- -->
+    <div id="section-diff" class="section-content">
+      <h2 id="h-diff">Difficulty Modifiers</h2>
+      <div id="diff-container">
+
+        <!-- LEVEL 0 (Base) -->
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-base">Level 0 (x1 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3">
+              <span id="level-info-base">
+                <strong>Max possible:</strong> 300,000 pts<br>
+                <strong>Requirement:</strong> None
+              </span>
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-base">
+                <strong>Additional Effects:</strong><br>
+                • No Additional Effects.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- A MODIFIER: LEVEL 1 A LEVEL N (Ajuster les descriptions / requis / scores) -->
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-1">Level 1 (x1.5 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3" id="level-info-1">
+              <strong>Max possible:</strong> 450,000 pts<br>
+              <strong>Requirement:</strong> Tier XII
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-1">
+                <strong>Additional Effects:</strong><br>
+                    Enemies gain 80% Accuracy, Defense, Defense Penetration, Max Health, and Potency, 4500 Offense, and 50 Speed.
+                    <br><br>
+                    <u class="speciale">Malfunction (Gotra Boss Guard (Malfunction)'s Head):</u> Whenever this ability is used, if Gotra Boss Guard (Detonator)'s Core had any stacks of Detonation, reduce the stacks by 30 instead of 50.
+                    <br><br>
+                    <u class="speciale">Gotra Boss Guard (Malfunction)'s Left Arm Basic:</u> If this arm had more than 3 debuffs, it dispels all debuffs on allies in addition to itself.
+                    <br><br>
+                    <u class="speciale">Burning Blaster (Gotra Boss Guard (Malfunction)'s Right Arm):</u> Inflict all enemies with Vulnerable at the start of battle for 1 turn.
+                    <br><br>
+                    <u class="speciale">Gotra Boss Guard (Detonator)'s Core Basic:</u> If there were fewer than 5 enemies at the start of battle, reduce the cooldown of <u class="speciale">Lob Explosive</u> by 10.
+                    <br><br>
+                    <u class="speciale">Gotra Boss Guard (Detonator)'s Left Arm Basic:</u> Reduce the cooldown of Lob Explosive by 3. If there were fewer than 5 enemies at the start of battle, reduce the cooldown of Lob Explosive by 15 instead.
+                    <br><br>
+                    <u class="speciale">Heavy Strike (Gotra Boss Guard (Detonator)'s Left Arm):</u> If there were fewer than 5 enemies at the start of battle, all allies gain 200 Speed, and whenever an enemy attacks this arm out of turn and there were less than 5 enemies at the start of battle, reduce the cooldown of Lob Explosive by 15.
+                    <br><br>
+                    <u class="speciale">Gotra Boss Guard (Detonator)'s Right Arm Basic:</u> If there were fewer than 5 enemies at the start of battle, Gotra Boss Guard (Detonator)'s Core and Left Arm gain 100% Turn Meter.
+                    <br><br>
+                    <u class="speciale">Lob Explosive (Gotra Boss Guard (Malfunction)'s Core):</u> If there were fewer than 5 enemies at the start of battle, Gotra Boss Guard (Detonator)'s Core gains a bonus turn.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-2">Level 2 (x2.0 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3" id="level-info-2">
+              <strong>Max possible:</strong> 600,000 pts<br>
+              <strong>Requirement:</strong> Relic 2
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-2">
+                <strong>Additional Effects:</strong><br>
+                Enemies gain 200% Accuracy, Defense, Defense Penetration, Max Health, and Potency, 10,000 Offense, and 100 Speed. Gotra Boss Guard (Malfunction)'s Head gains an additional 50 Speed.
+                <br><br>
+                <u class="speciale">Malfunction (Gotra Boss Guard (Malfunction)'s Head):</u> Whenever this ability is used, if Gotra Boss Guard (Detonator)'s Core had any stacks of Detonation, reduce the stacks by 25 instead of 50.
+                <br><br>
+                <u class="speciale">Gotra Boss Guard (Malfunction)'s Head Basic:</u> Inflict all enemies with Vulnerable for 2 turns, which can't be evaded.
+                <br><br>
+                <u class="speciale">Seismic Fist (Gotra Boss Guard (Malfunction)'s Left Arm):</u> Gotra Boss Guard (Malfunction)'s Left Arm gains 30% Defense Penetration (stacking) and Offense (stacking) until it's defeated instead of 5%.
+                <br><br>
+                <u class="speciale">Gotra Boss Guard (Malfunction)'s Right Arm Basic:</u> Gotra Boss Guard (Malfunction)'s Head and Gotra Boss Guard (Malfunction)'s Left Arm recover 25% Health instead of 20% for each critical hit scored in addition to itself.
+                <br><br>
+                <u class="speciale">Enrage:</u> At the start of each of Gotra Boss Guard (Malfunction)'s Left and Right Arms and Gotra Boss Guard (Detonator)'s Left and Right Arms Turns increase the enrage by 6% instead of 4%.
+                <br><br>
+                <u class="speciale">Hero Bonus: Stormtrooper Luke:</u> Whenever a Support ally uses a Special ability, they inflict target enemy with Undermine for 1 turn.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-3">Level 3 (x3.0 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3" id="level-info-3">
+              <strong>Max possible:</strong> 900,000 pts<br>
+              <strong>Requirement:</strong> Relic 4
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-3">
+                <strong>Additional Effects:</strong><br>
+                    Enemies gain 220% Accuracy, Defense, Defense Penetration, Max Health, and Potency, 12,000 Offense, and 120 Speed. Gotra Boss Guard (Malfunction)'s Head gains an additional 80 Speed.
+                    <br><br>
+                    <u class="speciale">Malfunction (Gotra Boss Guard (Malfunction)'s Head):</u> Whenever this ability is used, if Gotra Boss Guard (Detonator)'s Core had any stacks of Detonation, reduce the stacks by 20 instead of 50.
+                    <br><br>
+                    <u class="speciale">Gotra Boss Guard (Malfunction)'s Left Arm Basic:</u> Inflict target enemy with Armor Shred for the rest of battle.
+                    <br><br>
+                    <u class="speciale">Gotra Boss Guard (Detonator)'s Right Arm Basic:</u> All allies gain Defense Up for 2 turns and recover 25% Health.
+                    <br><br>
+                    <u class="speciale">Core Detonator (Gotra Boss Guard (Detonator)'s Core Unique):</u> Reduce the Health and Protection recovery effects of Sith enemies by 50% until the end of battle.
+                    <br><br>
+                    <u class="speciale">Burning Blaster (Gotra Boss Guard (Malfunction)'s Right Arm Unique):</u> If there are no Galactic Legend enemies, whenever an enemy loses Deflective Ward, Gotra Boss Guard (Malfunction)'s Right Arm gains 5% Turn Meter.
+                    <br><br>
+                    <u class="speciale">Hero Bonus: Cassian Andor (Undercover):</u> At the start of battle, Cassian gains Keen Stratagem until the end of battle.
+                    <br><br>
+                    <u class="speciale">Hero Bonus: IG-90:</u> At the start of battle, if Zuckuss is an ally, he Taunts for 1 turn, which can't be dispelled.
+                    <br><br>
+                    <u class="speciale">Hero Bonus: Rotta the Hutt:</u> At the start of battle, all allies are immune to Vulnerable for 2 turns. Whenever Rotta uses <u class="speciale">Showboat</u> on Gotra Boss Guard (Detonator)'s Core or any of Gotra Boss Guard (Detonator)'s Arms he calls all allies to assist.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-4">Level 4 (x4.0 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3" id="level-info-4">
+              <strong>Max possible:</strong> 1,200,000 pts<br>
+              <strong>Requirement:</strong> Relic 4
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-4">
+                <strong>Additional Effects:</strong><br>
+                    Enemies gain 240% Accuracy, Defense, Defense Penetration, Max Health, and Potency, and 160 Speed.
+                    <br><br>
+                    <u class="speciale">Malfunction (Gotra Boss Guard (Malfunction)'s Head):</u> Whenever this ability is used, if Gotra Boss Guard (Detonator)'s Core had any stacks of Detonation, reduce the stacks by 15 instead of 50.
+                    <br><br>
+                    <u class="speciale">Polearm Unique (Gotra Boss Guard (Detonator)'s Right Arm):</u> At the start of battle, this arm gains a stack of Overcharge (stacking, max 5) until it is defeated.
+                    <br><br>
+                    <u class="speciale">Hero Bonus: Carson Teva:</u> At the start of battle, all allies gain 80% Defense, Max Health, and Max Protection instead of 40%.
+                    <br><br>
+                    <u class="speciale">Hero Bonus: IG-90:</u> At the start of battle, all allies gain Retribution for 1 turn, which can't be dispelled.
+                    <br><br>
+                    <u class="speciale">Hero Bonus: The Mandalorian and Grogu:</u> All allies take 40% less damage and they gain Critical Hit Immunity until the end of battle, which can't be dispelled.
+                    <br><br>
+                    <u class="speciale">Hero Bonus: Rotta the Hutt:</u> Whenever Rotta targets Gotra Boss Guard (Detonator)'s Arms with an ability while they are inflicted with Bleed, all allies gain Retribution for 1 turn, which can't be dispelled.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-5">Level 5 (x6.0 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3" id="level-info-5">
+              <strong>Max possible:</strong> 1,800,000 pts<br>
+              <strong>Requirement:</strong> Relic 8
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-5">
+                <strong>Additional Effects:</strong><br>
+                    Enemies gain 260% Defense, Defense Penetration, Max Health, and Potency, 13,000 Offense, and 180 Speed.
+                    <br><br>
+                    <u class="speciale">Gotra Boss Guard (Detonator)'s Left Arm Basic:</u> This arm gains Speed Up for 2 turns.
+                    <br><br>
+                    <u class="speciale">Hero Bonus: Darth Jar jar:</u> Whenever an enemy is inflicted with Plasma Residue, all enemies Taunt until the end of The Ronin's next 2 turns instead of his next turn. This Taunt can't be evaded, dispelled, or resisted.
+                    <br><br>
+                    <u class="speciale">Hero Bonus: Major Partagaz:</u> All allies gain 50% bonus Protection until the end of battle.
+                    <br><br>
+                    <u class="speciale">Hero Bonus:</u> Stormtrooper Luke: Stormtrooper Luke is considered Commander Luke Skywalker.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-6">Level 6 (x9.0 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3" id="level-info-6">
+              <strong>Max possible:</strong> 2,700,000 pts<br>
+              <strong>Requirement:</strong> Relic 9
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-6">
+                <strong>Additional Effects:</strong><br>
+                    Enemies gain 300% Defense, Max Health, and Potency, 280% Defense Penetration, and 200 Speed.
+                    <br><br>
+                    <u class="speciale">Gotra Boss Guard (Malfunction)'s Right Arm Basic:</u> If this arm has 5+ Stacks of Overheat and If The Mandalorian and Grogu or Rotta the Hutt were not enemies at the start of battle: Daze all New Republic enemies for 1 turn, which can't be dispelled, evaded, or resisted.
+                    <br><br>
+                    <u class="speciale">Gotra Boss Guard (Malfunction)'s Head Basic:</u> If The Mandalorian and Grogu or Rotta the Hutt are not enemies at the start of battle, reduce the Max Health of all New Republic Droids by 25% (stacking) until they are defeated.
+                    <br><br>
+                    <u class="speciale">Hero Bonus: Cassian Andor (Undercover):</u> At the start of each of Cassian's and Cassian's VIP's turns, inflict a random enemy with Undermine who doesn't already have it for 1 turn, which can't be dispelled, evaded, or resisted.
+                    <br><br>
+                    <u class="speciale">Hero Bonus: Major Partagaz:</u> All allies gain 15% Defense Penetration and all Tank allies are immune to Buff Immunity for 1 turn.
+                    <br><br>
+                    <u class="speciale">Faction Bonus: Rebel:</u> All non-New Republic Rebel allies gain 25% Max Health and Protection and 50% Offense.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item-sw">
+          <div class="accordion-header-sw" onclick="toggleAccordion(this)">
+            <span id="level-title-7">Level 7 (x12.0 Multiplier)</span><span>+</span>
+          </div>
+          <div class="accordion-content-sw">
+            <div class="info-box mb-3" id="level-info-7">
+              <strong>Max possible:</strong> 3,600,000 pts<br>
+              <strong>Requirement:</strong> Relic 10
+            </div>
+            <div class="faction-card active">
+              <div class="p-3" style="background: rgba(0,0,0,0.2);" id="level-desc-7">
+                <strong>Additional Effects:</strong><br>
+                    <u class="speciale">Malfunction (Gotra Boss Guard (Malfunction)'s Head):</u> Whenever this ability is used, if Gotra Boss Guard (Detonator)'s Core had any stacks of Detonation, reduce the stacks by 50.
+                    <br><br>
+                    <u class="speciale">Hero Bonus: Carson Teva:</u> Whenever an ally is Dazed, all allies gain 100% bonus Protection (stacking) until the end of battle and 200 Speed for 1 turn.
+                    <br><br>
+                    <u class="speciale">Hero Bonus: Darth Jar Jar:</u> All allies gain 100% Defense, Max Health, and Max Protection.
+                    <br><br>
+                    <u class="speciale">Hero Bonus: Major Partagaz:</u> Whenever Maul (Hate-Fueled) uses a Special ability, all allies assist.
+                    <br><br>
+                    <u class="speciale">Hero Bonus: Rotta the Hutt:</u> At the start of battle, inflict all enemies with On the Run until the end of battle, which can't be evaded, dispelled, or resisted.
+                    <br><br>
+                    <u class="speciale">Faction Bonus: New Republic:</u> All New Republic allies gain 100% Max Health and Max Protection.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ----------------------------------------------------------------------
+         5. SECTION RESTRICTIONS (Galerie des unités)
+         ---------------------------------------------------------------------- -->
+    <div id="section-unites" class="section-content">
+      <h2 id="raid-unites">Eligible Units</h2>
+      <div class="info-box" id="raid-eligible-desc">Units eligible for this raid:</div>
+
+      <!-- Galerie générée dynamiquement par JS -->
+      <div id="units-gallery"></div>
+    </div>
+
+    <!-- ==========================================================================
+       SCRIPTS JS (Configuration et Traduction)
+       ========================================================================== -->
+    <script>
+      let currentLang = sessionStorage.getItem("selectedLanguage") || "en";
+      let allUnits = [];
+      const englishTexts = {};
+
+      /* ========================================================================
+         A MODIFIER OBLIGATOIREMENT : 
+         1. Nom exact du raid recherché dans le fichier JSON (units.json)
+         2. Dictionnaire de traduction complète FR
+         ======================================================================== */
+      const RAID_TARGET_EN = "droid destruction"; // Ex: "speeder bike pursuit"
+
+      const dictFr = {
+        // En-tête principal & menu navigation
+        "raid-main-name": "Destruction de Droïdes",
+        "title-resume": "Résumé",
+        "title-details": "Détails",
+        "btn-history": "Histoire & Règles",
+        "btn-factions": "Factions Bonus",
+        "btn-capacities": "Capacités",
+        "btn-diff": "Modificateurs",
+        "btn-unites": "Unités autorisées",
+        "btn-back": "RETOUR",
+
+        // Titres des sections
+        "h-history": "Histoire & Règles",
+        "h-factions": "Bonus de Faction",
+        "h-capa": "Capacités",
+        "h-diff": "Modificateurs de Difficulté",
+        "h-unites": "Unités autorisées",
+
+        // Section 1: Histoire & Règles
+        "title-story": "HISTOIRE",
+        "text-story": "Les gardes du boos Gotra constituent une dernière ligne de défense inébranlabre pour le palais des Hutt. Quiconque cherche à atteindre le sanctuaire intérieur du palais doit surmonter ces éxécuteurs implacables gardant le siège du pouvoir.",
+        "title-rules": "RÈGLES",
+        "text-rules": "• Limite de temps : 2 jours et 23 heures\n• Conditions : 4 étoiles, unités spécifiques\n• Actualisation des personnages : Jamais\n• Coût du lancement : 180K tickets\n• Total de tentatives : 5",
+
+        // Section 2: Factions
+        "text-factions-intro": "Les personnages peuvent obtenir l'une ou plusieurs des capacités suivantes lors du raid",
+        "f-1": "Bonus de faction : Nouvelle République",
+        "content-f-1": "Chaque fois qu'un soigneur ou un soutien allié cible le noyau du Garde du boss Gotra (Détonateur) avec une capacité alors qu'il subit En cavale, dissipe tous les affaiblissements sur tous les alliés, ils récupèrent 10 % de santé et de protection, et ils infligent 3 cumuls d'exposition au noyau pendant 1 tour. Si le Mandalorien et Grogu ou Rotta le Hutt sont des alliés, inflige au noyau 6 cumuls à la place.",
+
+        "f-2": "Bonus de faction : Sith",
+        "content-f-2": "Les alliés obtiennent 40 % de défense, de santé maximale et de protection maximale, jusqu'à la fin de la bataille. Chaque fois qu'un allié Sith utilise une capacité spéciale alors qu'il dispose de Siphonnage, il obtient 15 % de dégâts critiques pendant 1 tour.",
+
+        "f-3": "Bonus de faction : Rebelle",
+        "content-f-3": "Tous les alliés qui ne sont pas de la Nouvelle République obtiennent 50 % de santé maximale et de protection maximale et 40 % de pouvoir jusqu'à la fin de la bataille. Chaque fois qu'un ennemi subit Démoralisation (limité à une fois par tour):\n\n- Dissipe tous les affaiblissements sur tous les alliés\n- Tous les alliés récupèrent 20 % de santé et de protection\n- Vel gagne un cumul de Solide défense jusqu'à ce qu'elle subisse des dégâts.",
+
+        "f-4": "Bonus de faction : Empire",
+        "content-f-4": "Les alliés obtiennent 45 % de défense, de santé maximale, de protection maximale et d'attaque jusqu'à la fin de la bataille. Chaque fois qu'un allié subissant Démoralisation inflige des dégâts à un bras, inflige Exposition à la cible ennemie pendant 1 tour et tous les alliés gagnent 25 % de jauge de tour.",
+
+        "f-hero-1": "Bonus de personnage : Le Mandalorien et Grogu",
+        "content-f-hero-1": "Si Le Mandalorien et Grogu sont l'allié dans l'emplacement de chef et qu'il y a 4 autres alliés de la Nouvelle République, ou si Le Mandalorien et Gorgu sont dans l'emplacement de chef et qu'il y a 3 autres alliés de la Nouvelle République et que Yoda et Chewie sont des alliés :\n\n- tous les alliés gagnent 50 % de défense, de santé maximale et de protection maximale jusqu'à la fin de la bataille et l'identifiant Wookie\n- Yoda et Chewie obtiennent l'identifiant Nouvelle République et tous les alliés gagnent Entraînement du maître jusqu'à ce qu'ils soient vaincus\n- Le Mandalorien et Gorgu sont considérés comme le Chevalier Jedi Luke Skywalker et Tarfful.\n- Si Mara jade Skywalker est une alliée, Mara Jade Skywalker, Le Mandalorien et Grogu, ainsi que Yoda et Chewie gagnent Volonté de Jedi jusqu'à ce qu'ils soient vaincus.\n- Chaque fois qu'un allié soigneur ou soutien utilise une capacité sur le noyau de Garde du boss Gotra (Détonateur), invoque tous les alliés une fois par tour",
+
+        "f-hero-2": "Bonus de personnage : Rotta le Hutt",
+        "content-f-hero-2": "Si Carson teva est l'allié dans l'emplacement de chef, et qu'il y a 3 autres alliés de la Nouvelle République :\n\n- Rotta obtient l'identifiant Nouvelle République, et tous les alliés obtiennent l'identifiant Cartel des Hutt.\n- Rotta obtient 50 % de défense jusqu'à la fin de la bataille.\n- Chaque fois que Rotta cible les bras du garde du boss Gotra (Détonateur) avec une capacité alors qu'ils subissent Saignement, Rotta gagne 30 % de jauge de tour, tous les alliés récupèrent 30 % de santé et de protection, et obtient 50 % d'attaque pendant 2 tours.\n- Chaque fois qu'un bras est vaincu, le noyau du Garde du boss Gotra (Détonateur) subit un cumul d'En cavale jusqu'à la fin de la bataille (ne peut pas être esquivé ou résisté)\n- Chaque fois qu'un allié attaque le bras gauche du garde du boss Gotra (Détonateur) en dehors de son tour, le délai de <u class='speciale'>Lancer d'explosif</u> n'est plus réduit.",
+
+        "f-hero-3": "Bonus de personnage : Carson Teva",
+        "content-f-hero-3": "Si Carson est dans l'emplacement de chef et qu'il y a 4 autres alliés de la Nouvelle République ou si Carson Teva est dans l'emplacement de chef et qu'il y a 3 autres alliés de la Nouvelle République et que Rotta le Hutt est un allié :\n\n- Tous les alliés obtiennent 40 % de défense, de santé maximale et de protection maximale jusqu'à la fin de la bataille\n- Chaque fois qu'un allié utilise une capacité sur le noyau du Garde du boss Gotra (Détonateur) alors qu'il subit En cavale, réduit le délai du <u class='speciale'>Motivateur défectueux</u> de R5-D4 de 2 ; Si Rotta est un allié, le réduit de 4 plutôt.",
+
+        "f-hero-4": "Bonus de personnage : Dark Jar Jar",
+        "content-f-hero-4": "Si Dark Jar Jar est dans l'emplacement de chef, qu'il y a autres alliés Sith et que l'Inquisitrice Barris est un allié :\n\n- L'Inquisitrice Barriss obtient l'identifiant Sith\n- Tous les alliés obtiennent l'identifiant Utilisateur de la Force non aligné\n- Le noyau du Garde du boss Gotra (Détonateur) est considéré comme le générateur de bouclier\n- Chaque fois qu'un ennemi subit Résidu de plasma, il subit 2 cumuls de Purge (cumulatif, 6 max.) jusqu'à la fin de la bataille et tous les ennemis utilisent Raillerie jusqu'à la fin du prochain tour du Ronin (ne peut pas être esquivé, dissipé ou résisté)\n- Chaque fois qu'un bras ennemi subit Manipulation, il a -80 % de chances de coup critique jusqu'à la fin de la bataille.",
+
+        "f-hero-5": "Bonus de personnage : IG-90",
+        "content-f-hero-5": "Si IG-90 est l'allié dans l'emplacement de chef, et qu'il y a 3 autres alliés Chasseurs de primes, et que l'une des conditions suivantes est remplie :\n- Jaxxon est un allié\n- Le Droïde garde mercenaire (B1) est un allié\n\n- ALors :\n\n- Tous les alliés obtiennent l'identifiant Vaurien\n- Tous les alliés obtiennent l'identifiant Mercenaire\n- Jaxxon obtient l'identifiant Chasseur de primes, et tous les alliés gagnent Préparé au début de la bataille.\n- Le Droïde garde mercenaire (B1) gagne 5 cumuls de Bataillon de mercenaires.\n- Tous les alliés gagnent un bonus de défense pendant 2 tours (ne peut pas être dissipé)\n- Chaque fois qu'un allié subit un coup critique, il gagne Prévoyance pendant 2 tours et tous les alliés Récupèrent 10 % de santé et de protection, et leurs affaiblissements sont dissipés.",
+
+        "f-hero-6": "Bonus de personnage : Cassian Andor (infiltré)",
+        "content-f-hero-6": "Si Cassian Andor (infiltré) est l'allié dans l'emplacement de chef et qu'il y a 4 autres alliés rebelles :\n\n- Cassian est considéré comme le Commandant Luke Skywalker et la Princesse Leia\n- Chaque fois que Cassian utilise <u class='speciale'>Varian Skye</u>, il confère VIP à un allié aléatoire qui ne l'a pas encore jusqu'à ce qu'il subisse des dégâts deux fois et les alliés obtiennent Appel aux armes pendant 1 tour.\n- Si Starkiller (Concept de luke) ou Luke en Stormtrooper sont des alliés, ils obtiennent 55 % de défense et d'attaque pour le reste de la bataille, et l'identifiant combattant rebelle\n- Au début de la bataille, inflige Démoralisation à tous les ennemis pendant 1 tour.",
+
+        "f-hero-7": "Bonus de personnage : Luke en stormtrooper",
+        "content-f-hero-7": "Si Luke en stormtrooper est l'allié dans l'emplacement de chef, et qu'il y a 4 autres alliés rebelles :\n\n- Tous les alliés obtiennent l'identifiant combattant rebelle et 40 % de défense, de santé maximale et de protection maximale\n\n- Chaque fois qu'un ennemi est affecté par Faille, il subit Démoralisation pendant 2 tours (ne peut pas être esquivé ou résisté), et un allié aléatoire qui ne disposait pas de Camouflage, l'obtient pendant 1 tour\n- Les alliés disposant de Camouflage infligent 2 instances supplémentaires de dégâts réels\n- Si Starkiller (Concept de Luke) est un allié, il gagne 40 % d'attaque jusqu'à la fin de la bataille, et chaque fois qu'il inflige Immunité aux améliorations à un ennemi, tous les alliés obtiennent 40 % de dégâts critiques et l'avantage pendant 1 tour.",
+
+        "f-hero-8": "Bonus de personnage : Major Partagaz",
+        "content-f-hero-8": "Si le Major Partagaz est l'allié dans l'emplacement de chef, et qu'il y a deux autres alliés du B.S.I., et que l'une des conditions suivantess est vraie :\n\n- Il y a deux soldats de l'Empire alliés\n- Il y a un soldat de l'Empire allié et un Maul (rempli de haine) allié\n\nAlors :\n\n- Le Major Partagaz ignore les effets de Raillerie pendant son premier tour\n- Tous les alliés obtiennent l'identifiant de l'Empire, soldat de l'Empire et B.S.I.\n- Si Maul (rempli de haine) n'est pas un allié, tous les tanks utilisent Raillerie pendant 1 tour (ne peut pas être dissipé).",
+
+        // Section 3: Capacités
+        "capa-granted": "Capacités conférées",
+        "capa-boss-1": "Tête du garde du Boss Gotra (Dysfonctionnement)",
+        "capa-boss-2": "Bras droit du garde du Boss Gotra (Dysfonctionnement)",
+        "capa-boss-3": "Bras gauche du garde du Boss Gotra (Dysfonctionnement)",
+        "capa-boss-4": "Noyau du Garde du Boss Gotra (Détonateur)",
+        "capa-boss-5": "Bras droit du Garde du Boss Gotra (Détonateur)",
+        "capa-boss-6": "Bras gauche du Garde du Boss Gotra (Détonateur)",
+
+        "capa-name-1": "Dysfonctionnement",
+        "capa-desc-1": "Inflige des dégâts réels au Garde du Boss Gotra (Détonateur), et si le Noyau du Garde du Boss Gotra (Détonateur) possédait des cumuls de Détonation, réduit les cumuls à 0. La tête du garde du Boss Gotra (Dysfonctionnement) gagne Réinitialisation et subit un cumul de <u class='speciale'>Dysfonctionnement</u> (cumulatif, 5 max.) pour le reste de la bataille, (ne peut pas être copié, dissipé, esquivé ou résisté).\n\n<u class='speciale'>Dysfonctionnement :</u> -10 % de précision et de défense, +50 de vitesse.",
+
+        "boss-capa-name-1": "tête du Garde du Boss Gotra (Dysfonctionnement)",
+        "boss-capa-desc-1": "Dissipe toutes les améliorations sur tous les ennemis et leur inflige Exposition pendant 2 tours.\n\nLes ennemis subissent des effets supplémentaires en fonction de leur rôle :\n\n- <strong>Attaquants :</strong> subissent Désarmement pendant 1 tour ou jusqu'à ce que la santé de la tête du Garde du boss Gotra (Dysfonctionnement) soit réduite à 2 %.\n- <strong>Soigneurs et soutiens :</strong> subissent un malus de de vitesse pendant 1 tour.\n- <strong>Tanks :</strong> subissent Faille pendant 1 tour.\n\n<u class='rage'>Enragé :</u> inflige 3 cumuls d'Exposition à tous les ennemis pendant 2 tours. Au prochain tour du bras droit du Garde du boss Gotra (Dysfonctionnement), celui-ci ignore la protection ennemie et inflige 100 % de dégâts supplémentaires.",
+
+        "boss-capa-name-2": "Obstiné",
+        "boss-capa-desc-2": "La tête du garde du boss Gotra (Dysfonctionnement) est immunisée contre Provocation, ne peut pas utiliser de contre-attaque, de camouflage ni voir sa santé réduite en dessous de 1 %, et gagne 9 000 % d'esquive des critiques et de défense pour chaque bras gauche actif du Garde du boss Gotra (Dysfonctionnement) et pour chaque bras droit actif du Garde du boss Gotra (Dysfonctionnement).\n\nChaque fois que la santé de la tête du Garde du boss Gotra (Dysfonctionnement) est réduite à 2 %, elle retire 35 % de jauge de tour à tous les ennemis (ne peut pas être esquivé ou résisté), gagne un tour bonus et obtient la capacité Dysfonctionnement. Chaque fois que la tête du Garde du Boss Gotra (Dysfonctionnement) utilise cette capacité, elle ranime son bras gauche et son bras droit à 100 % de sant, et la tête subit un cumul de <u class='speciale'>Dysfonctionnement</u> et gagne <u class='speciale'>Réinitialisation</u>. Chaque fois que la tête du Garde du boss Gotra (Dysfonctionnement) gagne Réinitialisation, elle dissipe toutes les améliorations, tous les affaiblissements (à l'exclusion de <u class='speciale'>Dysfonctionnement</u>) et tous les effets de statut sur elle-même, et son bras gauche et son bras droit ne peuvent pas jouer de tour.\n\nChaque fois que Réinitialisation expire sur la tête du Garde du boss Gotra (Dysfonctionnement), celle-ci récupère 100 % de santé et ranime son bras gauche et son bras droit à 100 % de santé (ne peut pas être empêché). Si la tête du Garde du boss Gotra (Dysfonctionnement) et le noyau du garde du boss Gotra (Détonateur) possédaient tous les deux <u class='speciale'>Réinitialisation</u> et que tous les bras étaient vaincus, la tête du Garde du boss Gotra (Dysfonctionnement) et le noyau du Garde du boss Gotra (Détonateur) dissipent <u class='speciale'>Réinitialisation</u> et tous les bras sont ranimés à 100 % de santé (ne peut pas être empêché).\n\n<u class='speciale'>Dysfonctionnement :</u> -10 % de pénétration de défense, +50 de vitesse.",
+
+        "boss-capa-name-3": "Enragé",
+        "boss-capa-desc-3": "Ce personnage devient <u class='speciale'>Enragé</u> lorsque le délai de cette capacité est écoulé, et ce délai est partagé entre tous les alliés.\n\n- Au début de chaque tour pour la tête du Garde du boss Gotra (Dysfonctionnement) et le noyau du Garde du boss Gotra (Détonateur) : <u class='speciale'>2 %</u>\n\n- Au début de chaque tour pour le bras gauche et le bras droit du Garde du boss Gotra (Dysfonctionnement) et le bras gauche et le bras droit du du Garde du boss Gotra (Détonateur) <u class='speciale'>4 %</u>\n\n- Si la tête du garde du boss Gotra (Dysfonctionnement) et le noyau du Garde du boss Gotra (Détonateur) possédaient tous les deux Réinitialisation et que tous les bras étaient vaincus : <u class='speciale'>15 %</u>.",
+
+        "boss-capa-name-4": "Immunités des boss de raid",
+        "boss-capa-desc-4": "Cette unité est immunisée contre l'entrave des capacités, Améliorations perturbées, Confusion, Distraction, Peur, les malus de santé, Choc, Faux pas et Étourdissement, ainsi que contre l'augmentation des délais.",
+
+        "boss-capa-name-5": "bras droit du Garde du Boss Gotra (Dysfonctionnement)",
+        "boss-capa-desc-5": "Inflige des dégâts physiques à tous les ennemis et leur inflige Brûlure pendant 2 tours. Récupère 20 % de santé et gagne un cumul de Chauffe (cumulatif, 10 max.) pour chaque coup critique infligé.\n\n- <u class='speciale'>5 cumuls de Chauffe ou plus :</u> déclenche les effets de dégâts de Brûlure sur tous les ennemis.\n- <u class='speciale'>10 cumuls de Chauffe ou plus :</u> gagne 3 cumuls de Surchauffe (cumulatif, 20 max.).\n- <u class='speciale'> cumuls de Surchauffe ou plus :</u> inflige Confusion à tous les ennemis pendant 1 tour et leur retire 20 % de jauge de tour.\n\n<u class='rage'>Enragé :</u> si le bras droit du Garde du boss gotra (Dysfonctionnement) possède des cumuls de Surchauffe, il inflige 5 instances de lourds dégâts. S'il n'a aucun cumul de Surchauffe, gagne 10 cumuls de Chauffe (cumulatif, 10 max.).",
+
+        "boss-capa-name-6": "Blaster brûlant",
+        "boss-capa-desc-6": "Gagne 10 % de chances de coup critique et de dégâts critiques par cumul de CHauffe. A partir de 10 cumuls de Chauffe, les capacités et effets qui généraient Chauffe, génèrent plutôt Surchauffe (cumulatif, 20 max.) jusqu'à la fin de la bataille (ne peut pas être copié, dissipé ou empêché).\n\nCe bras ne peut pas utiliser de contre-attaque ou de Camouflage, et est immunisé contre Provocation.",
+
+        "boss-capa-name-7": "Enragé",
+        "boss-capa-desc-7": "Ce personnage devient <u class='speciale'>Enragé</u> lorsque le délai de cette capacité est écoulé, et ce délai est partagé entre tous les alliés.\n\n- Au début de chaque tour pour la tête du Garde du boss Gotra (Dysfonctionnement) et le noyau du Garde du boss Gotra (Détonateur) : <u class='speciale'>2 %</u>\n\n- Au début de chaque tour pour le bras gauche et le bras droit du Garde du boss Gotra (Dysfonctionnement) et le bras gauche et le bras droit du du Garde du boss Gotra (Détonateur) <u class='speciale'>4 %</u>\n\n- Si la tête du garde du boss Gotra (Dysfonctionnement) et le noyau du Garde du boss Gotra (Détonateur) possédaient tous les deux Réinitialisation et que tous les bras étaient vaincus : <u class='speciale'>15 %</u>.",
+
+        "boss-capa-name-8": "Immunités des boss de raid",
+        "boss-capa-desc-8": "Cette unité est immunisée contre l'entrave des capacités, Améliorations perturbées, Confusion, Distraction, Peur, les malus de santé, Choc, Faux pas et Étourdissement, ainsi que contre l'augmentation des délais.",
+
+        "boss-capa-name-9": "bras gauche du Garde du boss Gotra (Dysfonctionnement)",
+        "boss-capa-desc-9": "Inflige des dégâts réels à la cible ennemie et lui inflige 1 cumul de Déséquilibre pendant 2 tours (ne peut pas être esquivé). Si ce bras subissait plus de 3 affaiblissements, inflige Faux pas à la cible ennemie pendant 2 tours (ne peut pas être esquivé) et dissipe tous les affaiblissements sur lui-même.\n\n<u class=rage>Enragé :</u> inflige Immunité aux soins et Protection perturbée à la cible ennemie pour le reste de la bataille (ne peut pas être esquivé) et tous les alliés gagnent 50 % de jauge de tour.",
+
+        "boss-capa-name-10": "Poing sismique",
+        "boss-capa-desc-10": "Au début de la bataille, ce bras subit un malus de ténacité pendant 2 tours (ne peut pas être dissipé, esquivé ou résisté) et gagne 700 % d'attaque mais perd 50 % par cumul de Dysfonctionnement présent sur la tête et par ennemi actif au début de la bataille.\n\nGagne 5 % de pénétration de défense (cumulatif) et d'attaque (cumulatif) jusqu'à sa défaite chaque fois qu'il subit des affaiblissements. Gagne 15 % de jauge de tour chaque fois qu'il subit un affaiblissement.\n\nCe bras ne peut pas utiliser de contre-attaque ou de Camouflage et est immunisé contre Provocation.",
+
+        "boss-capa-name-11": "Enragé",
+        "boss-capa-desc-11": "Ce personnage devient <u class='speciale'>Enragé</u> lorsque le délai de cette capacité est écoulé, et ce délai est partagé entre tous les alliés.\n\n- Au début de chaque tour pour la tête du Garde du boss Gotra (Dysfonctionnement) et le noyau du Garde du boss Gotra (Détonateur) : <u class='speciale'>2 %</u>\n\n- Au début de chaque tour pour le bras gauche et le bras droit du Garde du boss Gotra (Dysfonctionnement) et le bras gauche et le bras droit du du Garde du boss Gotra (Détonateur) <u class='speciale'>4 %</u>\n\n- Si la tête du garde du boss Gotra (Dysfonctionnement) et le noyau du Garde du boss Gotra (Détonateur) possédaient tous les deux Réinitialisation et que tous les bras étaient vaincus : <u class='speciale'>15 %</u>.",
+
+        "boss-capa-name-12": "Immunités des boss de raid",
+        "boss-capa-desc-12": "Cette unité est immunisée contre l'entrave des capacités, Améliorations perturbées, Confusion, Distraction, Peur, les malus de santé, Choc, Faux pas et Étourdissement, ainsi que contre l'augmentation des délais.",
+
+        "boss-capa-name-13": "Noyau du Garde du boss Gotra (Détonateur)",
+        "boss-capa-desc-13": "Si le noyau du Garde du Boss Gotra (Détonateur) possède des cumuls de Détonation, réduit le délai de <u class='speciale'>Lancer d'explosif</u> de 1. Si le noyau du Garde du boss Gotra (Détonateur) ne possède aucun cumul de Détonation, il se confère un tour bonus.",
+
+        "boss-capa-name-14": "préparation d'explosif",
+        "boss-capa-desc-14": "Le noyau du Garde du boss Gotra (Détonateur) gagne 50 cumuls de <u class='speciale'>Détonation</u> et augmente le délai de <u class='speciale'>Lancer d'explosif</u> au maximum.\n\n<u class='speciale'>Détonation :</u>perd un cumul lorsque l'unité subit des dégâts pendant le tour d'un ennemi. Une fois réduit à 0, le noyau et les bras du Garde du boss Gotra (Détonateur) subissent des dégâts réels.",
+
+        "boss-capa-name-15": "Lancer d'explosif",
+        "boss-capa-desc-15": "Dissipe tous les cumuls de Détonation sur le noyau du Garde du boss Gotra (Détonateur), inflige des dégâts réels à tous les ennemis et leur inflige un cumul de <u class='speciale'>Résidu explosif</u> (cumulatif, 5 max) jusqu'à la fin de la bataille (ne peut pas être copié, dissipé, esquivé ou réssité). Ranime le bras gauche et le bras droit du Garde du boss Gotra (Détonateur) à 100 % de santé (ne peut pas être empêché).\n\n<u class='speciale'>Résidu explosif :</u> -30 de vitesse et -30 % de ténacité. Subit des dégâts réels au début de chaque tour de joueur pour chaque cumul (ces dégâts ne peuvent pas vaincre d'ennemis).\n\n<u class='rage'>Enragé :</u> inflige 5 cumuls de dégâts sur la durée à tous les ennemis pour le reste de la bataille (ne peut pas être esquivé).",
+
+        "boss-capa-name-16": "Détonateur de noyau",
+        "boss-capa-desc-16": "Le noyau du Garde du boss Gotra (Détonateur) est immunisé contre Provocation, ne peut pas utiliser de contre-attaque, de Camouflage ou voir sa santé réduite en dessous de 1 %.\n\nPréparation d'explosif peut uniquement être utilise s'il ne possède aucun cumul de Détonation. <u class='speciale'>Lancer d'explosif</u> commence avec un délai et peut uniquement être utilisé tant qu'il possède des cumuls de Détonation.\n\nChaque fois que la noyau du Garde du boss Gotra (Détonateur) est réduit à 2 %, il obtient <u class='speciale'>Réinitialisation</u> pendant 5 tours. Chaque fois que le noyau du Garde du boss Gotra (Détonateur) obtient Réinitialisation, il dissipe toutes les améliorations, affaiblissements et effets sur lui-même. Chaque fois que Réinitialisation expire sur le noyau du Garde du boss Gotra (Détonateur), il récupère 100 % de santé et ranime son bras gauche et son bras droit à 100 % de santé, s'ils avaient été vaincus (ne peut pas être empêché). Si la tête du garde du boss gotra (Dysfonctionnement) et le noyau du Garde du boss Gotra (Détonateur) possèdent tous les deux <u class='speciale'>Réinitialisation</u> et que tous les bras ont été vaincus, la tête du Garde du boss Gotra (Dysfonctionnement) et le noyau du garde du boss Gotra (Détonateur) dissipent <u class='speciale'>Réinitialisation</u> et tous les bras sont ranimés à 100 % de santé (ne peut pas être empeché).\n\n<u class='speciale'>Réinitialisation :</u> ne peut pas être ciblé ou subir d'affaiblissements, jouer de tours, récupérer de la santé, gagner de la jauge de tour ou d'améliorations, ou utiliser des capacités.",
+
+        "boss-capa-name-17": "Enragé",
+        "boss-capa-desc-17": "Ce personnage devient <u class='speciale'>Enragé</u> lorsque le délai de cette capacité est écoulé, et ce délai est partagé entre tous les alliés.\n\n- Au début de chaque tour pour la tête du Garde du boss Gotra (Dysfonctionnement) et le noyau du Garde du boss Gotra (Détonateur) : <u class='speciale'>2 %</u>\n\n- Au début de chaque tour pour le bras gauche et le bras droit du Garde du boss Gotra (Dysfonctionnement) et le bras gauche et le bras droit du du Garde du boss Gotra (Détonateur) <u class='speciale'>4 %</u>\n\n- Si la tête du garde du boss Gotra (Dysfonctionnement) et le noyau du Garde du boss Gotra (Détonateur) possédaient tous les deux Réinitialisation et que tous les bras étaient vaincus : <u class='speciale'>15 %</u>.",
+
+        "boss-capa-name-18": "Immunité des boss de raid",
+        "boss-capa-desc-18": "Cette unité est immunisée contre l'entrave des capacités, Améliorations perturbées, Confusion, Distraction, Peur, les malus de santé, Choc, Faux pas et Étourdissement, ainsi que contre l'augmentation des délais.",
+
+        "boss-capa-name-19": "Bras droit du Garde du boss Gotra (Détonateur)",
+        "boss-capa-desc-19": "Inflige des dégâts réels à la cible ennemie et lui inflige Choc pendant 2 tours (ne peut pas être esquivé). Ce bras gagne un bonus d'attaque pendant 2 tours et le bras gauche et le noyau du Garde du boss Gotra (Détonateur) gagnent 30 % de jauge de tour. Si la cible ennemie posséait un cumul de Résidu explosif, cette attaque inflige 100 % de dégâts supplémentaires, et ce bras gagne 1 cumuls de Surcharge pour le reste de la bataille (ne peut pas être dissipé).\n\n<u class='rage'>Enragé :</u> déclenche tous les cumuls de dégâts sur la durée sur la cible ennemie. Si elle possédait des cumuls de Résidu explosif, ou si le bras droit du Garde du boss Gotra (Détonateur) possédait des cumuls de Surcharge, élimine instantanément la cible ennemie et ne peut pas être ranimée.",
+
+        "boss-capa-name-20": "Arme d'hast",
+        "boss-capa-desc-20": "Ce bras ignore les effets de Raillerie. Chaque fois qu'il est vaincu, il perd tous ses cumuls de Surcharge.\n\nCe bras ne peut pas utiliser de contre-attaque ou de Camouflage, et est immunisé contre Provocation.",
+
+        "boss-capa-name-21": "Enragé",
+        "boss-capa-desc-21": "Ce personnage devient <u class='speciale'>Enragé</u> lorsque le délai de cette capacité est écoulé, et ce délai est partagé entre tous les alliés.\n\n- Au début de chaque tour pour la tête du Garde du boss Gotra (Dysfonctionnement) et le noyau du Garde du boss Gotra (Détonateur) : <u class='speciale'>2 %</u>\n\n- Au début de chaque tour pour le bras gauche et le bras droit du Garde du boss Gotra (Dysfonctionnement) et le bras gauche et le bras droit du du Garde du boss Gotra (Détonateur) <u class='speciale'>4 %</u>\n\n- Si la tête du garde du boss Gotra (Dysfonctionnement) et le noyau du Garde du boss Gotra (Détonateur) possédaient tous les deux Réinitialisation et que tous les bras étaient vaincus : <u class='speciale'>15 %</u>.",
+
+        "boss-capa-name-22": "Immunités des boss de raid",
+        "boss-capa-desc-22": "Cette unité est immunisée contre l'entrave des capacités, Améliorations perturbées, Confusion, Distraction, Peur, les malus de santé, Choc, Faux pas et Étourdissement, ainsi que contre l'augmentation des délais.",
+
+        "boss-capa-name-23": "Bras gauche du Garde du boss Gotra (Détonateur)",
+        "boss-capa-desc-23": "Inflige des dégâts physiques à la cible ennemie, lui inflige Provocation pendant 1 tour et réduit le délai de <u class='speciale'>Lancer d'explosif</u> de 2.\n\n<u class='speciale'>Enragé :</u>réduit le délai de <u class='speciale'>Lancer d'explosif</u> de 3.",
+
+        "boss-capa-name-24": "Au début de la bataille, ce bras subit Marque pendant 1 tour (ne peut pas être dissipé, esquivé ou résisté).\n\nChaque fois qu'un ennemi attaque ce bras en dehors de son tour, il gagne 20 % de bonus de protection (cumulatif jusqu'à sa défaite), récupère 20 % de santé et réduit le délai de <u class='speciale'>Lancer d'explosif</u> de 1.\n\nCe bras ne peut pas utiliser de contre-attaque ou de Camouflage, et est immunisé contre Provocation.",
+        "boss-capa-desc-24": "",
+
+        "boss-capa-name-25": "Enragé",
+        "boss-capa-desc-25": "Ce personnage devient <u class='speciale'>Enragé</u> lorsque le délai de cette capacité est écoulé, et ce délai est partagé entre tous les alliés.\n\n- Au début de chaque tour pour la tête du Garde du boss Gotra (Dysfonctionnement) et le noyau du Garde du boss Gotra (Détonateur) : <u class='speciale'>2 %</u>\n\n- Au début de chaque tour pour le bras gauche et le bras droit du Garde du boss Gotra (Dysfonctionnement) et le bras gauche et le bras droit du du Garde du boss Gotra (Détonateur) <u class='speciale'>4 %</u>\n\n- Si la tête du garde du boss Gotra (Dysfonctionnement) et le noyau du Garde du boss Gotra (Détonateur) possédaient tous les deux Réinitialisation et que tous les bras étaient vaincus : <u class='speciale'>15 %</u>.",
+
+        "boss-capa-name-26": "Immunité des boss de raid",
+        "boss-capa-desc-26": "Cette unité est immunisée contre l'entrave des capacités, Améliorations perturbées, Confusion, Distraction, Peur, les malus de santé, Choc, Faux pas et Étourdissement, ainsi que contre l'augmentation des délais.",
+
+        // Section 4: Niveaux de Difficulté
+        "level-title-base": "Niveau 0 (x1 Multiplicateur)",
+        "level-info-base": "<strong>Score Max :</strong> 300 000 pts<br><strong>Conditions :</strong> Aucune",
+        "level-desc-base": "<strong>Effets supplémentaires :</strong><br>• Aucun effet supplémentaire.",
+
+        "level-title-1": "Niveau 1 (x1.5 Multiplicateur)",
+        "level-info-1": "<strong>Score Max :</strong> 450 000 pts<br><strong>Conditions :</strong> Équipement 12",
+        "level-desc-1": "<strong>Effets supplémentaires :</strong>\n\n• Les ennemis gagnent 80 % de précision, de défense, de pénétration de défense, de santé maximale et de pouvoir, 4 500 d'attaque, ainsi que 50 de vitesse.\n\n• <u class='speciale'>Dysfonctionnement (tête du Garde du boss Gotra (Dysfonctionnement))</u> : chaque fois que cette capacité est utilisée, si le noyau du Garde du boss Gotra (Détonateur) possédait des cumuls de Détonation, réduit les cumuls de 30 au lieu de 50.\n\n• <u class='speciale'>Capacité de base du bras gauche du Garde du boss Gotra (Dysfonctionnement)</u> : si ce bras subissait plus de 3 affaiblissements, il dissipe tous les affaiblissements sur les alliés en plus de lui-même.\n\n• <u class='speciale'>Blaster brûlant (bras droit du Garde du boss Gotra (Dysfonctionnement))</u> : inflige Vulnérable à tous les ennemis au début de la bataille pendant 1 tour.\n\n• <u class='speciale'>Capacité de base du noyau du Garde du boss Gotra (Détonateur)</u> : s'il y avait moins de 5 ennemis au début de la bataille, réduit le délai de <u class='speciale'>Lancer d'explosif</u> de 10.\n\n• <u class='speciale'>Capacité de base du bras gauche du Garde du boss Gotra (Détonateur)</u> : réduit le délai de <u class='speciale'>Lancer d'explosif</u> de 3. S'il y avait moins de 5 ennemis au début de la bataille, réduit plutôt le délai de <u class='speciale'>Lancer d'explosif</u> de 15.\n\n• <u class='speciale'>Frappe lourde (bras gauche du Garde du boss Gotra (Détonateur))</u> : s'il y avait moins de 5 ennemis au début de la bataille, tous les alliés gagnent 200 de vitesse, et chaque fois qu'un ennemi attaque ce bras en dehors de son tour et qu'il y avait moins de 5 ennemis au début de la bataille, réduit le délai de <u class='speciale'>Lancer d'explosif</u> de 15.\n\n• <u class='speciale'>Capacité de base du bras droit du Garde du boss Gotra (Détonateur)</u> : s'il y avait moins de 5 ennemis au début de la bataille, le noyau et le bras gauche du Garde du boss Gotra (Détonateur) gagnent 100 % de jauge de tour.\n\n• <u class='speciale'>Lancer d'explosif (noyau du Garde du boss Gotra (Dysfonctionnement))</u> : s'il y avait moins de 5 ennemis au début de la bataille, le noyau du Garde du boss Gotra (Détonateur) gagne un tour bonus.",
+
+        "level-title-2": "Niveau 2 (x2.0 Multiplicateur)",
+        "level-info-2": "<strong>Score Max :</strong> 600 000 pts<br><strong>Conditions :</strong> relique 2",
+        "level-desc-2": "<strong>Effets supplémentaires :</strong>\n\n• Les ennemis gagnent 200 % de précision, de défense, de pénétration de défense, de santé maximale et de pouvoir, 10 000 d'attaque, et 100 de vitesse. La tête du Garde du boss Gotra (Dysfonctionnement) gagne 50 de vitesse supplémentaire.\n\n• <u class='speciale'>Dysfonctionnement (tête du Garde du boss Gotra (Dysfonctionnement))</u> : chaque fois que cette capacité est utilisée, si le noyau du Garde du boss Gotra (Détonateur) avait des cumuls de Détonation, réduit les cumuls de 25 au lieu de 50.\n\n• <u class='speciale'>Capacité de base de la tête du Garde du boss Gotra (Dysfonctionnement)</u> : inflige Vulnérable à tous les ennemis pendant 2 tours (ne peut pas être esquivé).\n\n• <u class='speciale'>Poing sismique (bras gauche du Garde du boss Gotra (Dysfonctionnement))</u> : le bras gauche du Garde du boss Gotra (Dysfonctionnement) gagne 30 % de pénétration de défense (cumulatif) et d'attaque (cumulatif) jusqu'à ce qu'il soit vaincu, au lieu de 5 %.\n\n• <u class='speciale'>Capacité de base du bras droit du Garde du boss Gotra (Dysfonctionnement)</u> : la tête et le bras gauche du Garde du boss Gotra (Dysfonctionnement) récupèrent 25 % de santé au lieu de 20 % pour chaque coup critique porté en plus de lui-même.\n\n• <u class='speciale'>Enragé</u> : au début de chaque tour du bras gauche et du bras droit du Garde du boss Gotra (Dysfonctionnement) et du bras gauche et du bras droit du Garde du boss Gotra (Détonateur), Enragé augmente de 6 % au lieu de 4 %.\n\n• <u class='speciale'>Bonus de personnage : Luke en stormtrooper</u> : chaque fois qu'un allié de soutien utilise une capacité spéciale, il inflige Démoralisation à la cible ennemie pendant 1 tour.",
+
+        "level-title-3": "Niveau 3 (x3.0 Multiplicateur)",
+        "level-info-3": "<strong>Score Max :</strong> 900 000 pts<br><strong>Conditions :</strong> Relique 4",
+        "level-desc-3": "<strong>Effets supplémentaires :</strong>\n\n• Les ennemis gagnent 220 % de précision, de défense, de pénétration de défense, de santé maximale et de pouvoir, 12 000 d'attaque, et 120 de vitesse. La tête du Garde du boss Gotra (Dysfonctionnement) gagne 80 de vitesse supplémentaire.\n\n• <u class='speciale'>Dysfonctionnement (tête du Garde du boss Gotra (Dysfonctionnement))</u> : chaque fois que cette capacité est utilisée, si le noyau du Garde du boss Gotra (Détonateur) avait des cumuls de Détonation, réduit les cumuls de 20 au lieu de 50.\n\n• <u class='speciale'>Capacité de base du bras gauche du Garde du boss Gotra (Dysfonctionnement)</u> : inflige Destruction d'armure à la cible ennemie pour le reste de la bataille.\n\n• <u class='speciale'>Capacité de base du bras droit du Garde du boss Gotra (Détonateur)</u> : tous les alliés gagnent un bonus de défense pendant 2 tours et récupèrent 25 % de santé.\n\n• <u class='speciale'>Détonateur de noyau (unique du noyau du Garde du boss Gotra (Détonateur))</u> : réduit les effets de récupération de santé et de protection des ennemis Sith de 50 % jusqu'à la fin de la bataille.\n\n• <u class='speciale'>Blaster brûlant (unique du bras droit du Garde du boss Gotra (Dysfonctionnement))</u> : s'il n'y a pas de Légende galactique ennemie, chaque fois qu'un ennemi perd Parade déroutante, le bras droit du Garde du boss Gotra (Dysfonctionnement) gagne 5 % de jauge de tour.\n\n• <u class='speciale'>Bonus de personnage : Cassian Andor (infiltré)</u> : au début de la bataille, Cassian gagne Stratagème affûté jusqu'à la fin de la bataille.\n\n• <u class='speciale'>Bonus de personnage : IG-90</u> : au début de la bataille, si Zuckuss est un allié, il utilise Raillerie pendant 1 tour (ne peut pas être dissipé).\n\n• <u class='speciale'>Bonus de personnage : Rotta le Hutt</u> : au début de la bataille, tous les alliés sont immunisés contre Vulnérable pendant 2 tours. Chaque fois que Rotta utilise Pour la galerie sur le noyau du Garde du boss Gotra (Détonateur) ou sur l'un des bras du Garde du boss Gotra (Détonateur), il invoque tous les alliés.",
+
+        "level-title-4": "Niveau 4 (x4.0 Multiplicateur)",
+        "level-info-4": "<strong>Score Max :</strong> 1 200 000 pts<br><strong>Conditions :</strong> Relique 6",
+        "level-desc-4": "<strong>Effets supplémentaires :</strong>\n\n• Les ennemis gagnent 240 % de précision, de défense, de pénétration de défense, de santé maximale et de pouvoir, ainsi que 160 de vitesse.\n\n• <u class='speciale'>Dysfonctionnement (tête du Garde du boss Gotra (Dysfonctionnement))</u> : chaque fois que cette capacité est utilisée, si le noyau du Garde du boss Gotra (Détonateur) possédait des cumuls de Détonation, réduit les cumuls de 15 au lieu de 50.\n\n• <u class='speciale'>Capacité unique Arme d'hast (bras droit du Garde du boss Gotra (Détonateur))</u> : au début de la bataille, ce bras gagne un cumul de Surcharge (cumulatif, 5 max.) jusqu'à sa défaite.\n\n• <u class='speciale'>Bonus de personnage : Carson Teva</u> : au début de la bataille, tous les alliés gagnent 80 % de défense, de santé maximale et de protection maximale au lieu de 40 %.\n\n• <u class='speciale'>Bonus de personnage : IG-90</u> : au début de la bataille, tous les alliés obtiennent Rétribution pendant 1 tour (ne peut pas être dissipé).\n\n• <u class='speciale'>Bonus de personnage : Le Mandalorien et Grogu</u> : tous les alliés subissent 40 % de dégâts en moins et obtiennent Immunité aux coups critiques jusqu'à la fin de la bataille (ne peut pas être dissipé).\n\n• <u class='speciale'>Bonus de personnage : Rotta le Hutt</u> : chaque fois que Rotta cible les bras du Garde du boss Gotra (Détonateur) avec une capacité alors qu'ils subissent Saignement, tous les alliés obtiennent Rétribution pendant 1 tour (ne peut pas être dissipé).",
+
+        "level-title-5": "Niveau 5 (x6.0 Multiplicateur)",
+        "level-info-5": "<strong>Score Max :</strong> 1 800 000 pts<br><strong>Conditions :</strong> Relique 8",
+        "level-desc-5": "<strong>Effets supplémentaires :</strong>\n\n• Les ennemis obtiennent 260 % de défense, de pénétration de défense, de santé maximale et de pouvoir, 13 000 d'attaque et 180 de vitesse.\n\n• <u class='speciale'>Capacité de base du bras gauche du Garde du boss Gotra (Détonateur)</u> : ce bras obtient un bonus de vitesse pendant 2 tours.\n\n• <u class='speciale'>Bonus de personnage : Dark Jar Jar</u> : chaque fois qu'un ennemi subit Résidu de plasma, tous les ennemis obtiennent Raillerie jusqu'à ce que Le Ronin termine ses 2 prochains tours au lieu de son prochain tour. Cette Raillerie ne peut pas être esquivée, dissipée ou résistée.\n\n• <u class='speciale'>Bonus de personnage : Major Partagaz</u> : tous les alliés obtiennent 50 % de bonus de protection jusqu'à la fin de la bataille.\n\n• <u class='speciale'>Bonus de personnage : Luke en stormtrooper</u> : Luke en stormtrooper est considéré comme le Commandant Luke Skywalker.",
+
+        "level-title-6": "Niveau 6 (x9.0 Multiplicateur)",
+        "level-info-6": "<strong>Score Max :</strong> 2 700 000 pts<br><strong>Conditions :</strong> Relique 9",
+        "level-desc-6": "<strong>Effets supplémentaires :</strong>\n\n• Les ennemis gagnent 300 % de défense, de santé maximale et de pouvoir, 280 % de pénétration de défense, et 200 de vitesse.\n\n• <u class='speciale'>Capacité de base du bras droit du Garde du boss Gotra (Dysfonctionnement)</u> : si ce bras a 5 cumuls de Surcharge ou plus et si Le Mandalorien et Grogu ou Rotta le Hutt ne sont pas des ennemis au début de la bataille, inflige Confusion à tous les ennemis de la Nouvelle République pendant 1 tour (ne peut pas être dissipé, esquivé ou résisté).\n\n• <u class='speciale'>Capacité de base de la tête du Garde du boss Gotra (Dysfonctionnement)</u> : si Le Mandalorien et Grogu ou Rotta le Hutt ne sont pas des ennemis au début de la bataille, réduit la santé maximale de tous les droïdes de la Nouvelle République de 25 % (cumulatif) jusqu'à ce qu'ils soient vaincus.\n\n• <u class='speciale'>Bonus de personnage : Cassian Andor (infiltré)</u> : au début de chaque tour de Cassian et de son VIP, inflige Démoralisation à un ennemi aléatoire pendant 1 tour (s'il ne l'a pas déjà), ce qui ne peut être dissipé, esquivé ou résisté.\n\n• <u class='speciale'>Bonus de personnage : Major Partagaz</u> : tous les alliés gagnent 15 % de pénétration de défense et tous les alliés tank sont immunisés contre Immunité aux améliorations pendant 1 tour.\n\n• <u class='speciale'>Bonus de faction : Rebelle</u> : tous les alliés rebelles n'appartenant pas à la Nouvelle République gagnent 25 % de santé maximale et de protection et 50 % d'attaque.",
+
+        "level-title-7": "Niveau 7 (x12.0 Multiplicateur)",
+        "level-info-7": "<strong>Score Max :</strong> 3 600 000 pts<br><strong>Conditions :</strong> Relique 10",
+        "level-desc-7": "<strong>Effets supplémentaires :</strong>\n\n• <u class='speciale'>Dysfonctionnement (tête du Garde du boss Gotra (Dysfonctionnement))</u> : chaque fois que cette capacité est utilisée, si le noyau du Garde du boss Gotra (Détonateur) possédait des cumuls de Détonation, réduit les cumuls de 50.\n\n• <u class='speciale'>Bonus de personnage : Carson Teva</u> : chaque fois qu'un allié subit Confusion, tous les alliés gagnent 100 % de bonus de protection (cumulatif) jusqu'à la fin de la bataille et 200 de vitesse pendant 1 tour.\n\n• <u class='speciale'>Bonus de personnage : Dark Jar Jar</u> : tous les alliés gagnent 100 % de défense, de santé maximale et de protection maximale.\n\n• <u class='speciale'>Bonus de personnage : Major Partagaz</u> : chaque fois que Maul (rempli de haine) utilise une capacité spéciale, tous les alliés sont invoqués.\n\n• <u class='speciale'>Bonus de personnage : Rotta le Hutt</u> : au début de la bataille, inflige En Cavale à tous les ennemis jusqu'à la fin de la bataille (ne peut pas être esquivé, dissipé ou résisté).\n\n• <u class='speciale'>Bonus de faction : Nouvelle République</u> : tous les alliés de la Nouvelle République gagnent 100 % de santé maximale et de protection maximale.",
+
+        // Section 5: Unités
+        "raid-unites": "Unités éligibles",
+        "raid-eligible-desc": "Unités éligibles pour ce raid :",
+      };
+
+      /* ========================================================================
+         FONCTIONS LOGIQUES DE LA PAGE (À CONSERVER DANS LE MODÈLE)
+         ======================================================================== */
+      function toggleAccordion(element) {
+        const parent = element.parentElement;
+        parent.classList.toggle('active');
+        const icon = element.querySelectorAll('span')[1];
+        if (icon) {
+          icon.innerHTML = parent.classList.contains('active') ? '-' : '+';
+        }
+      }
+
+      function switchLanguage(lang) {
+        currentLang = lang;
+        sessionStorage.setItem("selectedLanguage", lang);
+        updateUI();
+      }
+
+      function updateUI() {
+        const isFr = (currentLang === "fr");
+        const source = isFr ? dictFr : englishTexts;
+
+        for (let id in source) {
+          const el = document.getElementById(id);
+          if (el) {
+            if (isFr) {
+              el.innerHTML = source[id].replace(/\n/g, '<br>');
+            } else {
+              el.innerHTML = source[id].replace(/\s+/g, ' ').trim();
+            }
+          }
+        }
+
+        const btnEn = document.getElementById("lang-en");
+        const btnFr = document.getElementById("lang-fr");
+        if (btnEn) btnEn.classList.toggle("active", currentLang === 'en');
+        if (btnFr) btnFr.classList.toggle("active", currentLang === 'fr');
+
+        renderUnits();
+      }
+
+      function showSection(sectionId, element) {
+        document.querySelectorAll('.section-content').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+        document.getElementById('section-' + sectionId).classList.add('active');
+        element.classList.add('active');
+      }
+
+      function toggleFaction(element) {
+        element.classList.toggle('active');
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        // Sauvegarde dynamique des valeurs HTML par défaut en anglais
+        Object.keys(dictFr).forEach(id => {
+          const el = document.getElementById(id);
+          if (el) englishTexts[id] = el.innerHTML;
+        });
+
+        // Récupération automatique du Roster SWGOH
+        fetch("https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json")
+          .then(res => res.json())
+          .then(data => {
+            allUnits = data;
+            updateUI();
+          });
+      });
+
+      function renderUnits() {
+        const gallery = document.getElementById("units-gallery");
+        if (!gallery) return;
+
+        gallery.innerHTML = "";
+
+        const filtered = allUnits.filter(u =>
+          u.raids && u.raids.some(r => r.en.toLowerCase() === RAID_TARGET_EN)
+        );
+
+        filtered.forEach(u => {
+          const link = document.createElement("a");
+          link.href = u.page;
+          link.target = "_self";
+
+          const img = document.createElement("img");
+          img.src = u.image;
+          img.className = "raid-unit-img";
+          img.title = u.name[currentLang] || u.name.en;
+          img.loading = "lazy";
+
+          link.appendChild(img);
+          gallery.appendChild(link);
+        });
+      }
+    </script>
+</body>
+
+</html>

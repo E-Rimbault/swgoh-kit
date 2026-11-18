@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">General Merrick</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/merrick/merrick-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/merrick/merrick-image.png" alt="General Merrick" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>General Merrick</u></h1>
+            <p id="description">
+                A dedicated Rebel pilot who provides tactical support to allied forces while leading from the front lines
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">rebel</a>
+                <a class="capacite" href="../classement-perso/combattant-rebelle.html" id="fighter">Rebel Fighter</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Twenty-four and Counting</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="General Merrick basic" src="../image-perso/merrick/merrick-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. If this attack scores a critical hit, allied Rebels gain 5% Turn Meter, then Expose target enemy for 1 turn at the end of the turn.
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Battles:</u> If this attack scores a critical hit, increase General Merrick's Critical Damage by 25% (stacking) until end of battle and inflict Protection Disruption on target enemy for 1 turn.
+                <br><br>
+                Characters defeated by this ability can't be revived. If this damage defeats a character, allied Rebel Fighters gain 50% Turn Meter.
+                <br><br>
+                If Mon Mothma is the ally in the Leader slot, General Merrick's out of turn attacks are not impacted by her assist penalty.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Squadron Tactics (cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="General Merrick special 1" src="../image-perso/merrick/merrick-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to all enemies.
+                <br><br>
+                This ability gains additional effects based on the number of stacks of Air Superiority on General Merrick:
+                <br><br>
+                <u class="speciale">- 1+ Stack:</u> Allied Rebel Fighters gain Offense Up for 2 turns
+                <br><br>
+                <u class="speciale">- 2+ Stacks:</u> Allied Rebel Fighters gain 25% Turn Meter
+                <br><br>
+                <u class="speciale">- 3+ Stacks:</u> Allied Rebel Fighters gain Speed Up for 2 turns
+                <br><br>
+                <u class="speciale">- 4+ Stacks:</u> Allied Rebel Fighters gain 25% Turn Meter
+                <br><br>
+                <u class="speciale">- 5 Stacks:</u> Deal two additional instances of damage to all enemies, which can't be countered
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Rarefied Air Cavalry of Virujansi</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="General Merrick unique" src="../image-perso/merrick/merrick-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                General Merrick starts each encounter with one stack of <u class="speciale">Air Superiority</u> which can't be copied, dispelled, or prevented. Whenever General Merrick is Rallied, he gains a stack of Air Superiority (max 5) until the end of the encounter, and the cooldown of Squadron Tactics is reset. Allied Rebel Fighters have 10% Offense and Potency for each stack of Air Superiority on General Merrick. These bonuses are doubled when attacking out of turn. When an ally damages an enemy with Expose on their turn, they recover 10% Health and Protection.
+                <br><br>
+                <u class="speciale">Air Superiority:</u> +25% Accuracy and Critical Chance
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Général Merrick",
+                "title": "<u>Général Merrick</u>",
+                "description": "Un pilote rebelle dévoué qui fournit un soutien tactique aux force alliées tout en dirigeant depuis la première ligne.",
+
+                "lightside": "Light Side",
+                "attacker": "Attaquant",
+                "rebel": "Rebelle",
+                "fighter": "Combattant rebelle",
+
+                "basic-attack-title": "<u>Attaque Basique: Ving-quatre, et ce n'est pas fini</u>",
+                "basic-attack": "Inflige des dégâts physiques à la cible ennemie. Si cette attaque inflige un coup critique, les alliés rebelles gagnent 5 % de jauge de tour, puis la cible ennnemie subit Exposition à la fin du tour.\n\n<u class='omicron'>Amélioration Omicron : Dans les Batailles de territoire :</u> si cette attaque inflige un coup critique, augmente les dégâts critiques du Général Merrick de 25 % (cumulatif) jusqu'à la fin de la bataille et inflige Protection perturbée à la cible ennemie pendant 1 tour.\n\nLes personnages vaincus par cette capacité ne peuvent pas être ranimés. Si ces dégâts éliminent un personnage, les alliés combattant rebelles gagnent 50 % de jauge de tour.\n\nSi Mon Mothma est l'alliée dans l'emplacement de chef, les attaques hors tour du Général Merrick ne sont pas affectées par son malus d'assistance.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Tactiques d'escadron (délai : 5)</u>",
+                "special-attack1": "Inflige des dégâts physiques à tous les ennemis.\n\nCette capacité obtient des effets supplémentaires basés sur le nombre de cumuls de Supériorité aérienne sur le Général Merrick :\n\n<u class='speciale'>- 1 cumul ou plus :</u> les alliés combattants rebelles gagnent un bonus d'attaque pendant 2 tours\n\n<u class='speciale'>- 2 cumuls ou plus :</u> les alliés combattants rebelles gagnent 25 % de jauge de tour\n\n<u class='speciale'>- 3 cumuls ou plus :</u> les alliés combattants rebelles gagnent un bonus de vitesse pendant 2 tours\n\n<u class='speciale'>- 4 cumuls ou plus :</u> les alliés combattants rebelles gagnent 25 % de jauge de tour\n\n<u class='speciale'>- 5 cumuls</u> inflige deux instances de dégâts supplémentaires à tous les ennemis (ne peut pas être contrée).",
+
+                "unique-ability1-title": "<u>Capacité Unique : Cavalerie aérienne raréfiée de Virujansi</u>",
+                "unique-ability1": "Le Général Merrick commence chaque affrontement avec un cumuls de <u class='speciale'>Supériorité aérienne</u> qui ne peut pas être copié, dissipé ou empêché. Chaque fois que le Général Merrick dispose de Ralliement, il gagne un cumul de Supériorité aérienne (5 max.) jusqu'à la fin de l'affrontement, et le délai de Tactique d'escouadron est réinitialisé. Les alliés combattants rebelles ont +10 % d'attaque et de pouvoir pour chaque cumul de Supériorité aérienne sur le Général Merrick. Ces bonus sont doublés lors d'attaque hors tour. Lorsqu'un allié inflige des dégâts à un ennemi affecté par Exposition pendant son tour, il récupère 10 % de santé et de protection.\n\n<u class='speciale'>Supériorité aérienne :</u> +25 % de précision et de chances de coup critique.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "GENERALMERRICK"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
