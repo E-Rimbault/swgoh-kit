@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Cassian Andor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/cassian-andor/cassian-andor-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/cassian-andor/cassian-andor-image.png" alt="Cassian Andor" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Cassian Andor</u></h1>
+            <p id="description">
+                Rebel Support who buffs allies at the start of battle and debuffs enemies during battle
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/rebelle.html" id="rebel">Rebel</a>
+                <a class="capacite" href="../classement-perso/combattant-rebelle.html" id="fighter">Rebel Fighter</a>
+                <a class="capacite" href="../classement-perso/rogue-one.html" id="rogue-one">Rogue One</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+
+            <!-- lien vers le vaisseaux -->
+            <section class="header-ship">
+                <a href="../html/cassian-u-wing.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/" alt="Cassian's u-wing">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>Ship: Cassian's U-wing</u>
+                </h2>
+            </section>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Two Steps Ahead</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Cassian Andor basic" src="../image-perso/cassian-andor/cassian-andor-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 85% chance to inflict Buff Immunity for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Shock Grenade (cooldown: 5)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Cassian Andor special 1" src="../image-perso/cassian-andor/cassian-andor-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Inflict Ability Block, Defense Down, Healing Immunity, Offense Down, and Speed Down (once each) on random enemies for 2 turns. If the primary target is Empire, Expose them for 2 turns. If K-2SO is present, he is called to Assist. Then, gain 20% Turn Meter for each debuffed enemy.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Crippling Shot (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Cassian Andor special 2" src="../image-perso/cassian-andor/cassian-andor-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Deal Special damage to target enemy. For each debuff present on other enemies, inflict that debuff on the target for 1 turn.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : </u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Cassian Andor unique" src="../image-perso/cassian-andor/cassian-andor-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of each encounter, Rebel allies gain Protection Up (20%) for 3 turns, Rebel Attacker allies gain Defense Up for 3 turns, Rebel Support allies gain Potency Up for 3 turns, and Rebel Tank allies gain Tenacity Up for 3 turns. If K-2SO is present, he gains all of these buffs.
+                <br><br>
+                While in Territory Battles: At the start of battle, if all allies are Rogue One, Cassian Andor takes a bonus turn to disguise himself as an enemy character until the end of battle. While disguised, Cassian retains his Unique ability and alignment and is part of the Rogue One faction in addition to his disguise's alignment and faction. At the start of each encounter, all Rebel allies gain Defense Up, Potency Up, and Tenacity Up for 3 turns. Whenever Cassian uses an ability, he gains 12% Turn Meter for each debuffed enemy, he inflicts Ability Block and Buff Immunity for 1 turn and Defense Down and Healing Immunity for 2 turns on target enemy, and K-2SO is called to assist, dealing 97.8% more damage.
+                <br><br>
+                - <strong>Rebel Assault Territory Battle:</strong> Cassian disguises as Snowtrooper Ops (Elite).<br>
+                - <strong>Republic Offensive Territory Battle:</strong> Cassian disguises as Wat Tambor.<br>
+                - <strong>Rise of the Empire Territory Battle:</strong> Cassian disguises as a modified version of Magmatrooper.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="prime"><u class="prime" id="disguised-title">Disguise</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Cassian andor disguised" src="../image-perso/cassian-andor/cassian-andor-disguised.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="disguised">
+                Take on a disguise of an enemy character in this Territory Battle.
+                <br><br>
+                - <strong>Rebel Assault Territory Battle:</strong> Cassian disguises as Snowtrooper Ops (Elite).<br>
+                - <strong>Republic Offensive Territory Battle:</strong> Cassian disguises as Wat Tambor.<br>
+                - <strong>Rise of the Empire Territory Battle:</strong> Cassian disguises as a modified version of Magmatrooper.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Cassian Andor",
+                "title": "<u>Cassian Andor</u>",
+                "description": "Soutien rebelle qui confère des améliorations à ses alliés au début de la bataille et inflige des affaiblissements aux ennemis.",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "rebel": "Rebelle",
+                "fighter": "Combattant rebelle",
+                "rogue-one": "Rogue One",
+                "crew-members": "Membres d’Équipage",
+
+                "basic-attack-title": "<u>Attaque Basique: Deux coups d'avance</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie avec 85 % de chances d'infliger une immunité contre les améliorations pendant 2 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Grenade étourdissante (délai : 2)</u>",
+                "special-attack1": "Entrave les capacités d'ennemis aléatoires et leur inflige un malus de défense, l'immunité aux soins, un malus d'attaque et un malus de vitesse (une fois chacun) pendant 2 tours. Si la cible principale appartient à l'Empire, l'expose pendant 2 tours. K-2SO est invoqué s'il est présent. Ensuite, remplit la jauge de tour de 20 % pour chaque ennemi subissant un affaiblissement.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Tir paralysant (délai : 3)</u>",
+                "special-attack2": "Inflige des dégâts spéciaux à une cible ennemie. Pour chaque affaiblissements présent sur les ennemis, inflige cet affaiblissement sur la cible pendant 1 tour.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Préparer le terrain</u>",
+                "unique-ability1": "Au début de chaque affrontement, les alliés rebelles obtiennent un bonus de protection (20 %) pendant 3 tours. Les alliés rebelles attaquants reçoivent un bonus de défense pendant 3 tours, les alliés rebelles support gagnent un bonus de pouvoir pendant 3 tours et les alliés rebelles tank obtiennent un bonus de ténacité pendant 3 tours. Si K-2SO est présent, il gagne toutes ces améliorations.\n\n<u class='omicron'>Amélioration Omicron : Dans les Batailles de territoire :</u> au début de la bataille, si tous les alliés font partie de Rogue One, Cassian Andor prend un tour bonus pour se déguiser en un personnage ennemi jusqu'à la fin de la bataille. Lorsqu'il est déguisé, Cassian conserve sa capacité unique et son alignement et est considéré comme un membre de Rogue One en plus de posséder l'alignement et la faction du personnage qu'il incarne. Au début de chaque affrontement, tous les alliés rebelles obtiennent un bonus de défense, un bonus de pouvoir et un bonus de ténacité pendant 3 tours. Lorsque Cassian utilise une capacité, il gagne 12 % de jauge de tour pour chaque ennemi subissant un affaiblissement, il inflige Entrave des capacités et Immunité aux améliorations pendant 1 tour, ainsi qu'un malus de défense et l'immunité aux soins pendant 2 tours à la cible ennemie. K-2So est invoqué, infligeant 97,8 % de dégâts supplémentaires.\n\n- <strong>Bataille de territoire : \"Assaut rebelle :\"</strong> Cassian se déguise en Snowtrooper de choc (Élite).\n- <strong>Bataille de territoire : \"Offensive de la République :\"</strong> Cassian se déguise en Wat Tambor.\n- <strong>Bataille de territoire : \"Avènement de l'Empire:\"</strong> Cassian se déguise en une version modifiée du Snowtrooper.",
+
+                "disguised-title": "Déguisement",
+                "disguised": "Se déguise en un personnage ennemi de cette bataille de territoire :\n\n- <strong>Bataille de territoire : \"Assaut rebelle :\"</strong> Cassian se déguise en Snowtrooper de choc (Élite).\n- <strong>Bataille de territoire : \"Offensive de la République :\"</strong> Cassian se déguise en Wat Tambor.\n- <strong>Bataille de territoire : \"Avènement de l'Empire:\"</strong> Cassian se déguise en une version modifiée du Snowtrooper.",
+
+                "ship-title": "<u>Vaisseau : U-wing de Cassian</u>",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "cassian andor"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
