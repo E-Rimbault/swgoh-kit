@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">shoretrooper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/shoretrooper/shoretrooper-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/shoretrooper/shoretrooper-image.png" alt="shoretrooper" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>shoretrooper</u></h1>
+            <p id="description">
+                Empire Tank who enters battle with Taunt, heals allies, and grants them Critical Hit Immunity
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark side</a>
+                <a class="class" href="../classement-perso/tank.html" id="tank">Tank</a>
+                <a class="capacite" href="../classement-perso/empire.html" id="empire">Empire</a>
+                <a class="capacite" href="../classement-perso/soldat-de-lempire.html" id="empire-trooper">Empire Trooper</a>
+                <a class="pilote" href="../classement-perso/membres-équipages.html" id="crew-members">Crew Members</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+
+            <section class="header-ship">
+                <a href="../html/tie-reaper.html" class="ship-link">
+                    <img class="ship-image main-image" src="../image-vaisseaux/" alt="TIE Reaper">
+                </a>
+                <h2 class="vaisseaux" id="ship-title">
+                    <u>ship: TIE Reaper</u>
+                </h2>
+            </section>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Target Weapons</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="shoretrooper basic" src="../image-perso/shoretrooper/shoretrooper-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy with a 70% chance to inflict Critical Chance Down for 3 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>special Attack : Regroup (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="shoretrooper special" src="../image-perso/shoretrooper/shoretrooper-spe.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                All allies recover Health equal to 24% of shoretrooper's Max Health and gain Critical Hit Immunity for 2 turns. shoretrooper gains Taunt for 2 turns.
+                <br><br>
+                Whenever shoretrooper loses a buff, reduce the cooldown of this ability by 1.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : stand Guard</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="shoretrooper unique" src="../image-perso/shoretrooper/shoretrooper-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                At the start of each encounter shoretrooper gains Taunt for 1 turn.
+                <br><br>
+                Whenever another allied Empire unit uses a special ability, if shoretrooper is Taunting, they gain 15% Turn Meter and shoretrooper recovers 10% Max Health.
+                <br><br>
+                While shoretrooper is active, Imperial Trooper allies have +10% Max Health.
+            </p>
+        </div>
+    </div>
+
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Shoretrooper",
+                "title": "<u>shoretrooper</u>",
+                "description": "Tank de l'Empire qui commence les combats en utilisant Raillerie, soigne les alliés et leur confère l'immunité aux coups critiques.",
+
+                "darkside": "Coté Obscur",
+                "tank": "Tank",
+                "empire": "Empire",
+                "empire-trooper": "soldat de l'Empire",
+                "crew-members": "Membres d’Équipage",
+
+                "basic-attack-title": "<u>Attaque Basique: Armes de visée</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie avec 70 % de chances d'infliger un malus de chances de coup critique pendant 3 tours.",
+
+                "special-attack1-title": "<u>Attaque spéciale : Regroupement (délai : 4)</u>",
+                "special-attack1": "soigne tous les alliés à hauteur de 24 % de la santé maximale du shoretrooper et gagne L'immunité aux coups critiques pendant 2 tours. Le shoretrooper utilise Raillerie pendant 2 tours.\n\nLorsque le shoretrooper perd une amélioration, diminue le délai de cette capacité de 1.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Monter la garde</u>",
+                "unique-ability1": "Au début de chaque affrontement, le shoretrooper utilise Raillerie pendant 1 tour.\n\nLorsqu'un autre allié de l'Empire utilise une capacité spéciale, si le shoretrooper utilise Raillerie, leur jauge de tour se remplit de 15 % et le shoretrooper récupère 10 % de sa santé maximale.\n\nTant que le shoretrooper est actif, les soldats de l'Empire alliés ont 10 % de santé maximale.",
+
+                "ship-title": "<u>Vaisseau : Faucheur TIE</u>",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "shoretrooper"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
