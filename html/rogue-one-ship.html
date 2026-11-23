@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Rogue One</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-vaisseaux/rogue-one/rogue-one-image.png">
+    <link rel="stylesheet" href="../style/ship-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-vaisseaux/rogue-one/rogue-one-image.png" alt="Rogue One" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français" id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English" id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Rogue One</u></h1>
+            <p id="description">
+                A covert Rebel Support ship that slips through enemy lines while empowering allies.
+            </p>
+            <br>
+
+            <nav class="perso ship-nav">
+                <!-- Partie gauche : catégories -->
+                <div class="nav-left">
+                    <a class="capacite" style="color: blue !important;" href="../vaisseaux/vaisseau-coté-lumineux.html" id="lightside">Light Side</a>
+                    <a class="class" href="../vaisseaux/vaisseau-soutien.html" id="support">Support</a>
+                    <a class="capacite" href="../vaisseaux/vaisseux-de-marchandise.html" id="cargo-ship">Cargo Ship</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-rebelle.html" id="rebel">Rebel</a>
+                    <a class="capacite" href="../vaisseaux/vaisseaux-rogue-one.html" id="rogue-one">Rogue One</a>
+                </div>
+
+                <!-- Partie droite : unités associées -->
+                <div class="nav-right">
+                    <!--Début d'une unité-->
+                    <div class="ship-unit">
+                        <a href="https://e-rimbault.github.io/swgoh-kit/html/bodhi-rook.html"><img src="../image-perso/bodhi/bodhi-image.png" alt="Bodhi Rook" class="ship-unit-image"></a>
+                        <span id="unit-bodhi" class="ship-unit-name">Bodhi Rook</span>
+                    </div>
+                    <div class="ship-unit">
+                        <a href="https://e-rimbault.github.io/swgoh-kit/html/pao.html"><img src="../image-perso/pao/pao-image.png" alt="pao" class="ship-unit-image"></a>
+                        <span id="unit-pao" class="ship-unit-name">Pao</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="" alt=""><br>
+
+    <!-- Capacités du vaisseau -->
+    <h2 class="titre" id="crew-ability1-title">
+        <u>Crew Ability - <strong><u class="speciale">Bodhi Rook :</u></strong> I'm the Pilot : (cooldown: 3)</u>
+    </h2>
+      <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/rogue-one/rogue-one-crew1.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/bodhi-rook.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/bodhi/bodhi-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability1">
+                Deal Special damage to all enemies.
+                <br><br>
+                If Profundity is the active ally Capital Ship: Call Outrider to assist and reduce target enemy's Speed by 10 for 2 turns, which can't be evaded or resisted.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="crew-ability2-title">
+    <u>Crew Ability - <strong><u class="speciale">Pao :</u></strong> Spoofed Clearance Codes : (cooldown: 3)</u>
+    </h2>
+      <div class="capacity-container">
+        <div class="left-column crew-visual">
+            <!-- Image capacité -->
+            <img class="attaque-ship" src="../image-vaisseaux/rogue-one/rogue-one-crew2.png" alt="Crew Ability">
+
+            <!-- Pilote -->
+            <a href="../html/pao.html" class="crew-pilot">
+                <img class="pilote-ship" src="../image-perso/pao/pao-image.png" alt="crew pilote">
+            </a>
+        </div>
+
+        <div class="right-column">
+            <p class="attaque" id="crew-ability2">
+                Rebel allies recover 20% Protection and gain Tenacity Up for 2 turns and if the enemy Capital Ship was Empire at the start of battle, inflict Accuracy Down on target enemy for 2 turns, which can't be resisted.
+                <br><br>
+                If Profundity is the allied Capital Ship, reduce the cooldown of all Rebel allies by 1.
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité basique-->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Covert Barrage</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Rogue One basic" src="../image-vaisseaux/rogue-one/rogue-one-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Special damage to target enemy 3 times and Target Lock them for 2 turns.
+                <br><br>
+                If the enemy Capital Ship is Empire, this Target Lock can't be resisted.
+            </p>
+        </div>
+    </div>
+
+    <!--capacité unique-->
+    <h2 class="titre"><u id="unique-ability-title">Unique Ability : SW-0608</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Rogue One unique" src="../image-vaisseaux/rogue-one/rogue-one-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability">
+                At the start of battle if the ally Capital Ship is Profundity: Rogue One gains 25% Max Health, and, if Rogue One is in the Reinforcement slot and the enemy Capital Ship is Empire, all Rebel allies gain Breach Immunity, which can't be copied, dispelled, or prevented and Protection Up (100%) for 2 turns which can't be dispelled.
+                <br><br>
+                If the enemy Capital Ship is Empire, while Rogue One is active or in Reinforcements, non-Capital Ship enemies are immune to cooldown reduction.
+                <br><br>
+                Whenever an ally Evades an enemy attack, they gain Speed Up for 2 turns.
+                <br><br>
+                While there are other, non-Capital Ship allies, Rogue One can't be targeted and is immune to taunt effects during enemy turns.
+            </p>
+        </div>
+    </div>
+
+    <!--Capacité de type renfort-->
+    <h2 class="titre" id="reinforcement-title"><u>Reinforcement Ability: Well, There Is Now</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque-ship" alt="Rogue One Reinforcement" src="../image-vaisseaux/rogue-one/rogue-one-reinforcement.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="reinforcement-description">
+                <u class='speciale'>Enter Battle :</u>Inflict Healing Immunity on all enemies for 2 turns which can't be evaded or resisted.
+                <br><br>
+                If Profundity is the ally Capital Ship, reset the cooldown of Call Reinforcement, and if the enemy Capital Ship is not Sith, increase Download by 20%.
+                <br><br>
+                If the enemy Capital Ship is Empire, increase the cooldowns of non-Capital Ship enemies by 1.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            const translationsFr = {
+                "big-title": "Rogue One",
+                "title": "<u>Rogue One</u>",
+                "description": "Un vaisseau de soutien rebelle discret qui se faufile à travers les lignes ennemies tout en renforçant les alliés.",
+                "unit-bodhi": "Bodhi Rook",
+                "unit-pao": "Pao",
+
+                "lightside": "Coté Amiral",
+                "support": "Soutien",
+                "cargo-ship": "Vaisseau de marchandise",
+                "rebel": "Rebelle",
+                "rogue-one": "Rogue One",
+
+                "basic-attack-title": "<u>Attaque Basique: Barrage secret</u>",
+                "basic-attack": "Inflige des dégâts spéciaux à la cible ennemie 3 fois et Verrouillage pendant 2 tours.\n\nSi le vaisseau amiral ennemi appartient à l'Empire, Verrouillage ne peut pas être résisté.",
+
+                "crew-ability1-title": "<u>Capacité équipage - <strong><u class='speciale'>Bodhi Rook :</u></strong> Le pilote, c'est moi : (délai : 3)</u>",
+                "crew-ability1": "Inflige des dégâts spéciaux à tous les ennemis.\n\nSi le Profundity est le vaisseau amiral allié actif : l'Outrider est invoqué et réduit la vitesse de la cible ennemie de 10 pendant 2 tours (ne peut pas être esquivé ou résisté).",
+
+                "crew-ability2-title": "<u>Capacité équipage - <strong><u class='speciale'>Pao :</u></strong> Codes d'autorisation usurpés : (délai : 3)</u>",
+                "crew-ability2": "Les alliés Rebelles récupèrent 20 % de protection et obtiennent un bonus de ténacité pendant 2 tours. Si le vaisseau amiral ennemi appartient à l'Empire au début de la bataille, inflige un malus de précision à la cible ennemie pendant 2 tours (ne peut pas être résisté).\n\nSi le Profundity est le vaisseau amiral allié, les délais de tous les alliés Rebelles sont réduits de 1.",
+
+                "unique-ability-title": "<u>Capacité Unique : SW-0608</u>",
+                "unique-ability": "Au début de la bataille, si le vaisseau amiral allié est le Profundity : le Rogue One obtient 25 % de santé maximale et, si le Rogue One est dans un des emplacements de renforts et que le vaisseau amiral ennemi appartient à l'Empire, tous les alliés Rebelles obtiennent Immunité contre Faille (ne peut pas être copié, dissipé ou empêché) ainsi qu'un bonus de protection (100 %) pendant 2 tours (ne peut pas être dissipé).\n\nSi le vaisseau amiral ennemi appartient à l'Empire alors que le Rogue One est actif ou présent parmis les renforts, les ennemis sont immunisés contre la réduction des délais (à l'exception du vaisseau amiral).\n\nChaque fois qu'un allié esquive une attaque ennemie, il obtient un bonus de vitesse pendant 2 tours.\n\nTant que d'autres alliés sont présents (en dehors du vaisseau amiral), le Rogue One ne peut pas être pris pour cible et est immunisé contre les effets de Raillerie pendant le tour des ennemis.",
+
+                "reinforcement-title": "<u>Capacité de Renfort : Maintenant il y en a</u>",
+                "reinforcement-description": "<u class='speciale'>Rejoindre la Bataille :</u> inflige Immunité aux soins à tous les ennemis pendant 2 tours (ne peut pas être esquivé ou résisté).\n\nSi le Profundity est le vaisseau amiral allié, le délai d'Appeler les renforts est réinitialisé et si le vaisseau amiral ennemi n'est pas Sithn Téléchargement est augmenté de 20 %.\n\nSi le vaisseau amiral ennemi appartient à l'Empire, les délais des ennemis sont augmentés de 1, à l'exception du vaisseau amiral.",
+            };
+
+            const originalTexts = {};
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else if (lang === "en") {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                document.getElementById("lang-en").style.borderColor = (lang === "en" ? "#007bff" : "transparent");
+                document.getElementById("lang-fr").style.borderColor = (lang === "fr" ? "#007bff" : "transparent");
+            }
+
+            window.addEventListener("load", () => {
+                saveOriginalTexts();
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                switchLanguageTo(lang);
+
+                document.getElementById("lang-fr").addEventListener("click", () => switchLanguageTo("fr"));
+                document.getElementById("lang-en").addEventListener("click", () => switchLanguageTo("en"));
+            });
+        </script>
+    </footer>
+</body>
+
+</html>
