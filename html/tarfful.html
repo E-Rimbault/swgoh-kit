@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Tarfful</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/tarfful/tarfful-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/tarfful/tarfful-image.png" alt="Tarfful" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Tarfful</u></h1>
+            <p id="description">
+                Ferocious Support that provides Defense to his allies and punishes enemies with Provoked
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:blue !important" href="../classement-perso/coté-lumineux.html" id="lightside">Light Side</a>
+                <a class="class" href="../classement-perso/soutien.html" id="support">Support</a>
+                <a class="capacite" href="../classement-perso/chef.html" id="leader">Leader</a>
+                <a class="capacite" href="../classement-perso/wookie.html" id="wookiee">Wookiee</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: DC-15S Blaster</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Tarfful basic" src="../image-perso/tarfful/tarfful-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy and dispel all buffs on them. Wookiee allies gain Defense Penetration Up and Defense Up for 1 turn, and Protection Up (10%) for 2 turns.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Wookiee Fury (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Tarfful special 2" src="../image-perso/tarfful/tarfful-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Wookiee allies gain 25% Defense (stacking) for the rest of the encounter. Call all Wookiee allies to assist and Stun target enemy for 1 turn. Ally Attackers gain Critical Damage Up for 2 turns, ally Healers and Supports gain Speed Up for 2 turns, and ally Tanks Taunt for 2 turns. 
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Rrrruuuurrr (cooldown: 4)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Tarfful special 2" src="../image-perso/tarfful/tarfful-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Dispel all debuffs on all allies, and they gain 50% Critical Damage for 2 turns. Wookiee allies gain Potency Up and Tenacity Up for 2 turns, and gain 10% Max Health (stacking) for the rest of the encounter. All enemies are inflicted with Provoked for 1 turn, which can't be evaded.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="lead-ability-title">Leader Ability: It's All in the Fur</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Tarfful lead" src="../image-perso/tarfful/tarfful-lead.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="lead-ability">
+                At the start of battle, all Wookiee ally Tanks Taunt for 1 turn. All allies gain 20% Defense and Max Health, doubled for Wookiee allies.
+                <br><br>
+                Whenever a Wookiee ally Taunts, all Wookiee allies gain 10% Defense (stacking), for the rest of the encounter.
+                <br><br>
+                Whenever Taunt expires, all Wookiees recover 25% Health.
+                <br><br>
+                At the start of each allied Wookiee's turn, they gain Offense equal to 200% of their Defense until the end of their turn.
+                <br><br>
+                At the start of battle, if there were no Galactic Legend enemies, whenever an allied Wookiee is critically hit, they reflect 50% of the damage dealt back onto the attacker (this damage can't defeat enemies).
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars:</u> At the start of battle, all allies gain 25% Defense, Protection Up (50%), and Tenacity Up for 2 turns.
+                <br><br>
+                Whenever an allied Wookiee is critically hit, Wookiee allies gain Foresight for 1 turn and +5% Defense (stacking) until the end of the encounter.
+                <br><br>
+                Whenever an allied Wookiee gains Retribution, all allies gain Retribution for 2 turns.
+                <br><br>
+                The first time each Wookiee ally is defeated, all Wookiee allies have their cooldowns refreshed, and they recover 100% of their Health, and gain 25% Offense (stacking) until the end of the encounter.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Better Together</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Tarfful unique" src="../image-perso/tarfful/tarfful-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Tarfful has +30% Tenacity and +20 Speed. Whenever an ally has a buff dispelled, Tarfful gains 10% Turn Meter.
+                <br><br>
+                If there are at least 3 Wookiee allies active at the start of battle:
+                <br><br>
+                - If Veteran Smuggler Chewbacca is an ally, Veteran Smuggler Han Solo also gains the effects of <u class="speciale">Rrrruuuurrr</u> when it is used<br>
+                - Whenever a Wookiee ally gains Health Up, all allies recover 50% Health and Protection and gain Advantage for 1 turn<br>
+                - Whenever a Wookiee ally gains Retribution, Wookiee allies inflict Damage Over Time to target enemy for 2 turns when they use a Basic ability, which can't be evaded<br>
+                - Whenever an enemy attacks out of turn, all allies gain 25 Speed (stacking, max 500) for 1 turn
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Tarfful",
+                "title": "<u>Tarfful</u>",
+                "description": "Soutien féroce qui confère de la défense à ses alliés et punit les ennemis avec Provocation.",
+
+                "lightside": "Coté Lumineux",
+                "support": "Soutien",
+                "leader": "Chef",
+                "wookiee": "Wookiee",
+
+                "basic-attack-title": "<u>Attaque Basique: Blaster DC-15S</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie et dissipe toutes ses améliorations. Les alliés Wookiees gagnent un bonus de pénétration de défense et de défense pendant 1 tour, et un bonus de protection (10 %) pendant 2 tours.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Fureur des Wookiees (délai : 4)</u>",
+                "special-attack1": "Les alliés Wookiees obtiennent 25 % de défense (cumulatif) pour le reste de l'affrontement. Invoque tous les alliés Wookiees et étourdit la cible ennemie pendant 1 tour. Les attaquants alliés reçoivent un bonus de dégâts critiques pendant 2 tours, les soigneurs et les soutiens alliés gagnent un bonus de vitesse pendant 2 tours et les tanks alliés utilisent Raillerie pendant 2 tours.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Rrruuuurrr (délai : 3)</u>",
+                "special-attack2": "Dissipe tous les affaiblissements sur tous les alliés et leur confère 50 % de dégâts critiques pendant 2 tours. Les alliés Wookiees obtiennent un bonus de pouvoir et de ténacité pendant 2 tours, ainsi que 10 % de santé maximale (cumulatif) pour le reste de l'affrontement. Tous les ennemis reçoivent Provocation pendant 1 tour (ne peut pas être esquivé).",
+
+                "lead-ability-title": "<u>Capacité de Chef: Tout est dans la fourrure</u>",
+                "lead-ability": "Au début de la bataille, tous les tanks alliés Wookiees utilisent Raillerie pendant 1 tour. Tous les alliés Wookiees obtiennent 20 % de défense et de santé maximale (doublé pour les alliés Wookiees).\n\nLorsqu'un allié Wookiee utilise Raillerie, tous les alliés Wookiees gagnent 10 % de défense (cumulatif) pour le reste de l'affrontement.\n\nLorsque Raillerie expire, tous les Wookiees récupèrent 25 % de santé.\n\nAu début du tour de chaque Wookiees allié, il obtient de l'attaque à hauteur de 200 % sa sa défense jusqu'à la fin de son tour.\n\nAu début de la bataille, s'il n'y a pas de Légende galactique ennemie, lorsqu'un allié Wookiee subit un coup critique, il renvoie 50 % de dégâts à l'attaquant (ces dégâts ne peuvent pas éliminer les ennemis).\n\n<u class)'omicron'>Amélioration Omicron : Dans les Guerres de territoire :</u> au début de la bataille, tous les alliés gagnent 25 % de défense, un bonus de protection (50 %) et un bonus de ténacité pendant 2 tours.\n\nA chaque fois qu'un Wookiee allié subit un coup critique, les alliés Wookiees obtiennent Prévoyance pendant 1 tour et +5 % de défense (cumulatif) jusqu'à la fin de l'affrontement.\n\nLorsqu'un Wookiee allié dispose de Rétribution, tous les alliés Wookiees obtiennent Rétribution pendant 2 tours.\n\nLa première fois que chaque allié Wookie est vaincu, les délais de tous les alliés Wookiees sont actualisés, ils récupèrent 100 % de leur santé et obtiennent 25 % d'attaque (cumulatif) jusqu'à la fin de l'affrontement.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Meilleurs ensemble</u>",
+                "unique-ability1": "Tarfful reçoit +30 % de ténacité et +20 de vitesse. Lorsqu'un amélioration est dissipée sur un allié, Tarfful gagne 10 % de jauge de tour.\n\nS'il y a au moins 3 alliés Wookiees au début de la bataille :\n\n- si le Contrebandier Vétéran Chewbacca est un allié, le Contrebandier vétéran Han Solo obtient également les effets de <u class='speciale'>Rrruuuurrr</u> lorsque la capacité est utilisée\n- lorsqu'un allié Wookiee obtient un bonus de santé, tous les alliés récupèrent 50 % de santé et de protection et obtiennent Avantage pendant 1 tour\n- Lorsqu'un allié Wookiee obtient Rétribution, les alliés Wookiees infligent des dégâts sur la durée à la cible ennemie pendant 2 tours quand ils utilisent une capacité de base (ne peut pas être esquivé)\n- Lorsqu'un ennemi attaque en dehors de son tour, tous les alliés gagnent 25 de vitesse (cumulatif, 500 maximum) pendant 1 tour",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "tarfful"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title id="page-title">wookie</title>
+  <title id="page-title">wookiee</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Rimbault Enzo">
   <link rel="icon" type="image/png" href="../image/logo_star_wars.png">
@@ -393,10 +393,10 @@
         <!-- Conteneur dynamique des unités par catégories -->
         <div id="categories-container"></div>
 
-        <!-- Section wookie leaders -->
+        <!-- Section wookiee leaders -->
         <div id="leaders-section" class="mt-4" style="display: none;">
-          <h3 id="txt-leaders-title" class="fw-bold fs-5 mb-1">Chefs wookie</h3>
-          <p id="txt-leaders-desc" class="small mb-2 leaders-desc">Capacités de chef accordant des bonus aux alliés wookie.</p>
+          <h3 id="txt-leaders-title" class="fw-bold fs-5 mb-1">Chefs wookiee</h3>
+          <p id="txt-leaders-desc" class="small mb-2 leaders-desc">Capacités de chef accordant des bonus aux alliés wookiee.</p>
           <div id="leaders-grid" class="units-grid"></div>
         </div>
 
@@ -415,7 +415,7 @@
       <div class="modal-content">
         <div class="modal-header d-flex justify-content-between align-items-center">
           <div class="d-flex align-items-center gap-3 flex-wrap">
-            <h5 class="modal-title fs-6 m-0" id="factionModalLabel"><span id="modal-title-prefix">Unités wookie &</span> <span id="modalFactionName"></span></h5>
+            <h5 class="modal-title fs-6 m-0" id="factionModalLabel"><span id="modal-title-prefix">Unités wookiee &</span> <span id="modalFactionName"></span></h5>
             <a id="btnSeeFaction" href="#" class="btn btn-sm btn-outline-info fw-bold">
               <span id="txt-see-faction">Voir la faction</span> →
             </a>
@@ -433,33 +433,33 @@
   <script>
     const translations = {
       en: {
-        "page-title": "wookie", "filter-title": "Characters: wookie",
+        "page-title": "wookiee", "filter-title": "Characters: wookiee",
         "sidebar-title": "Filters", "label-search": "Search", 
         "label-role": "Role", "label-align": "Alignment", "label-lead": "Leader only", "opt-all": "All",
         "txt-return": "Main Menu", "count-suffix": "results", "btn-reset": "Reset Filters",
-        "txt-leaders-title": "wookie leaders",
-        "txt-leaders-desc": "Leader abilities that grant bonuses to wookie allies, decoded from the kit.",
+        "txt-leaders-title": "wookiee leaders",
+        "txt-leaders-desc": "Leader abilities that grant bonuses to wookiee allies, decoded from the kit.",
         "txt-related-title": "Related factions",
         "txt-stats-title": "Faction Statistics",
         "gl-header-title": "Galactic Legend",
         "txt-see-faction": "See faction",
-        "modal-title-prefix": "wookie units &",
+        "modal-title-prefix": "wookiee units &",
         "no-units": "No units found.",
         "no-results": "No unit matches these filters.",
         "load-error": "Unable to load unit data. Please try again later."
       },
       fr: {
-        "page-title": "wookie", "filter-title": "Personnages : wookie",
+        "page-title": "wookiee", "filter-title": "Personnages : wookiee",
         "sidebar-title": "Filtres", "label-search": "Recherche", 
         "label-role": "Rôle", "label-align": "Alignement", "label-lead": "Chef uniquement", "opt-all": "Tous",
         "txt-return": "Menu Principal", "count-suffix": "résultats", "btn-reset": "Réinitialiser les filtres",
-        "txt-leaders-title": "Chefs wookie",
-        "txt-leaders-desc": "Capacités de chef accordant des bonus aux alliés wookie.",
+        "txt-leaders-title": "Chefs wookiee",
+        "txt-leaders-desc": "Capacités de chef accordant des bonus aux alliés wookiee.",
         "txt-related-title": "Factions liées",
         "txt-stats-title": "Statistiques de la faction",
         "gl-header-title": "Légende Galactique",
         "txt-see-faction": "Voir la faction",
-        "modal-title-prefix": "Unités wookie &",
+        "modal-title-prefix": "Unités wookiee &",
         "no-units": "Aucune unité trouvée.",
         "no-results": "Aucune unité ne correspond à ces filtres.",
         "load-error": "Impossible de charger les données des unités. Réessaie plus tard."
@@ -577,9 +577,9 @@
 
       const otherFactions = (unit.factions || [])
         .map(f => f[currentLang] || f.en)
-        .filter(f => normalize(f) !== "wookie");
+        .filter(f => normalize(f) !== "wookiee");
 
-      const tagsList = [roleText, ...otherFactions, "wookie"].join(" • ");
+      const tagsList = [roleText, ...otherFactions, "wookiee"].join(" • ");
 
       let leaderBonuses = "";
       if (unit.leaderBonus) {
@@ -662,7 +662,7 @@
 
       let wookieUnits = allUnits.filter(unit => {
         const unitFactions = unit.factions || [];
-        return unitFactions.some(f => normalize(f.en) === "wookie" || normalize(f.fr) === "wookie");
+        return unitFactions.some(f => normalize(f.en) === "wookiee" || normalize(f.fr) === "wookiee");
       });
 
       let filtered = wookieUnits.filter(unit => {
@@ -758,7 +758,7 @@
           const fEn = f.en;
           const fLabel = f[currentLang] || fEn;
           
-          if (normalize(fEn) !== "wookie") {
+          if (normalize(fEn) !== "wookiee") {
             factionCounts[fEn] = (factionCounts[fEn] || 0) + 1;
             factionLabels[fEn] = fLabel;
           }
@@ -800,7 +800,7 @@
 
       let filtered = allUnits.filter(unit => {
         const unitFactions = unit.factions || [];
-        const iswookie = unitFactions.some(f => normalize(f.en) === "wookie" || normalize(f.fr) === "wookie");
+        const iswookie = unitFactions.some(f => normalize(f.en) === "wookiee" || normalize(f.fr) === "wookiee");
         const hasFaction = unitFactions.some(f => normalize(f.en) === targetFaction || normalize(f.fr) === targetFaction);
         return iswookie && hasFaction;
       });

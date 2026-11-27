@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title id="big-title">Droideka</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Rimbault Enzo">
+    <link rel="icon" type="image/png" href="../image-perso/droïdeka/droïdeka-image.png">
+    <link rel="stylesheet" href="../style/unit-style.css">
+</head>
+
+<body class="simple">
+    <header class="perso" style="display: flex; align-items: center;">
+        <div style="flex: 0 0 20%; display: flex; justify-content: center; align-items: center;">
+            <img src="../image-perso/droïdeka/droïdeka-image.png" alt="Droideka" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div style="flex: 1; padding-left: 20px;">
+            <!-- Sélecteur de langue -->
+            <div class="language-switcher">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Français"
+                    id="lang-fr"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="English"
+                    id="lang-en"
+                    style="cursor:pointer; width:32px; height:32px; border:2px solid transparent; border-radius:50%;">
+            </div>
+
+            <h1 id="title"><u>Droideka</u></h1>
+            <p id="description">
+                Destructive Droid attacker that punishes fast enemies from behind its deflector shield
+            </p>
+            <br>
+
+            <nav class="perso" style="font-size: 20px;">
+                <a class="capacite" style="color:red !important" href="../classement-perso/coté-obscur.html" id="darkside">Dark Side</a>
+                <a class="class" href="../classement-perso/attaquant.html" id="attacker">Attacker</a>
+                <a class="capacite" href="../classement-perso/droïde.html" id="droïd">Droïd</a>
+                <a class="capacite" href="../classement-perso/séparatiste.html" id="separatist">Separatist</a>
+                <a class="ere" href="#" style="background-color: #6a1b9a; color: white !important; display: none;" id="unit-era"></a>
+                <span id="raids-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></span>
+            </nav>
+        </div>
+    </header>
+    <br>
+
+    <img class="first" src="../image-perso/" alt=""><br>
+
+    <!-- Capacités -->
+
+    <h2 class="titre" id="basic-attack-title"><u>Basic Attack: Twin Blaster Cannons</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Droideka basic" src="../image-perso/droïdeka/droïdeka-basic.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="basic-attack">
+                Deal Physical damage to target enemy. Additionally, if the target has higher Speed than Droideka, deal true damage (ignores Defense but can't critically hit) which scales based on the difference in their Speed.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack1-title"><u>Special Attack : Destructive Armament (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Droideka special 1" src="../image-perso/droïdeka/droïdeka-spe1.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack1">
+                Deal Physical damage to target enemy and true damage (ignores Defense but can't critically hit) an additional time for each stack of Charge, then inflict Target Lock for 2 turns. This attack can't be evaded.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre" id="special-attack2-title"><u>Special Attack : Reconstructive Revolution (cooldown: 3)</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Droideka special 2" src="../image-perso/droïdeka/droïdeka-spe2.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="special-attack2">
+                Dispel all debuffs on Droideka and gain Damage Immunity (can't be copied) and Tenacity Up for 2 turns. Then, recover 10% Protection for each stack of Charge
+            </p>
+        </div>
+    </div>
+
+    <h2 class="titre"><u id="unique-ability1-title">Unique Ability : Deflector Shield Generator</u></h2>
+    <div class="capacity-container">
+        <div class="left-column">
+            <img class="attaque" alt="Droideka unique" src="../image-perso/droïdeka/droïdeka-unique.png">
+        </div>
+        <div class="right-column">
+            <p class="attaque" id="unique-ability1">
+                Droideka gains 10% Turn Meter and 1 stack of <u class="speciale">Charge</u> for 1 turn whenever an enemy takes a turn. Additionally, Droideka recovers 10% Protection whenever it damages a Target Locked enemy.
+                <br><br>
+                Droideka has +50% Speed and +25% Evasion unless it has Damage Immunity. If Droideka has Damage Immunity, it has -50% Speed and a 35% chance to assist dealing 50% less damage whenever another Separatist ally uses an ability (limit once per turn).
+                <br><br>
+                <u class="speciale">Charge:</u> +5% Offense per stack
+                <br><br>
+                <u class="omicron">Omicron Boost : While in Territory Wars and if all allies are Separatist Droids:</u> Droideka gains Damage Immunity for 1 turn at the start of the encounter, which can't be copied, dispelled, or prevented. Droideka also gains 1 stack of Charge for 1 turn whenever another ally takes a turn. Whenever an ally is Marked, Droideka gains 25% Max Health (stacking) until the end of encounter and the ally in the Leader slot gains 20% Turn Meter. At the start of each turn, if Droideka has Damage Immunity, all allies are immune to Daze and Stun. While Droideka is Marked, all other allies have +25% Potency and +25 Speed. The first time Droideka is defeated while Marked and an ally is active, revive all allies at the end of the turn and then all allies recover 100% Health. At the start of Droideka's turn, all allies recover 10% Health and Protection.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">Top</button>
+        <script src="../javascript/bouton.js"></script>
+
+        <!-- SCRIPT DE TRADUCTION -->
+        <script>
+            // Dictionnaire français
+            const translationsFr = {
+                "big-title": "Droïdeka",
+                "title": "<u>Droïdeka</u>",
+                "description": "Attaquant droïde destructeur qui punit les ennemis rapides depuis l'abri de son bouclier déflecteur.",
+
+                "darkside": "Coté Obscur",
+                "attacker": "Attaquant",
+                "droïd": "Droïde",
+                "separatist": "Séparatiste",
+
+                "basic-attack-title": "<u>Attaque Basique: Double canon blaster</u>",
+                "basic-attack": "Inflige des dégâts physiques à une cible ennemie. De plus, si la cible dispose d'une vitesse plus élevée que le Droïdeka, inflige des dégâts réels (ignore la défense mais ne peut pas infliger de coup critique), qui sont echelonnéees en fonction de la différence entre les deux valeurs de vitesse.",
+
+                "special-attack1-title": "<u>Attaque Spéciale : Armement destructeur (délai : 3)</u>",
+                "special-attack1": "Inflige des dégâts physiques à une cible ennemie, ainsi que des dégâts réels (ignore la défense mais ne peut pas infliger de coup critique) pour chaque cumul de charge. Ensuite, verrouille la cible pendant 2 tours. Cette attaque ne peut pas être esquivée.",
+
+                "special-attack2-title": "<u>Attaque Spéciale : Révolution reconstructrice (délai : 3)</u>",
+                "special-attack2": "Dissipe tous les affaiblissements en cours sur le Droïdeka et confère l'immunité aux dégâts (ne peut pas être copié) et un bonus de ténacité pendant 2 tours. Ensuite, récupère 10 % de protection pour chaque cumul de charge.",
+
+                "unique-ability1-title": "<u>Capacité Unique : Générateur de bouclier déflecteur</u>",
+                "unique-ability1": "Droïdeka obtient 10 % de jauge de tour et 1 cumul de <u class='speciale'>Charge</u> pendant 1 tour lorsqu'un ennemi prend son tour. De plus, Droïdeka récupère 10 % de protection lorsqu'il inflige des dégâts à une cible ennemie verrouillée.\n\nDroïdeka reçoit +50 % de vitesse et +25 % d'esquive, sauf s'il possède Immunité aux dégâts. Si Droïdeka a Immunité aux dégâts, il reçoit -50 % de vitesse et 35 % de chances d'être invoqué, infligeant 50 % de dégâts en moins lorsqu'un autre allié séparatiste utilise une capacité (limité à une fois par tour).\n\n<u class='speciale'>Charge :</u> +5 % d'attaque par cumul.\n\n<u class='omicron'>Amélioration Omicron : Dans les guerres de territoire et si tous les alliés sont des droïdes séparatistes :</u> Droïdeka gagne Immunité aux dégâts pendant 1 tour au début de l'affrontement (ne peut pas être copié, dissipe ou évité). Droïdeka obtient également 1 cumul de Charge pendant 1 tour lorsqu'un autre allié utilise un tour. Lorsqu'un allié subit Marque, Droïdeka obtient 25 % de santé maximale (cumulatif) jusqu'à la fin de l'affrontement et l'allié dans l'emplacement de chef gagne 20 % de jauge de tour. Au début de chaque tour, si Droïdeka possède Immunité aux dégâts, tous les alliés sont immunisés contre Confusion et Étourdissement. Tant que Droïdeka subit Marque, tous les autres alliés ont +25 % de pouvoir et +25 de vitesse. La première fois que Droïdeka est vaincu alors qu'il subit Marque, et qu'un allié est actif, tous les alliés sont ranimés à la fin du tour, puis ces derniers récupèrent 100 % de santé. Au début du tour de Droïdeka, tous les alliés récupèrent 10 % de santé et de protection.",
+            };
+
+            const originalTexts = {};
+            let eraDataGlobal = null;
+            let raidsDataGlobal = [];
+
+            function saveOriginalTexts() {
+                for (const id in translationsFr) {
+                    const el = document.getElementById(id);
+                    if (el) originalTexts[id] = el.innerHTML;
+                }
+            }
+
+            function replaceNewLinesWithBr(text) {
+                return text.replace(/\n\s*\n/g, '<br><br>').replace(/([^\n])\n([^\n])/g, '$1<br>$2');
+            }
+
+            function switchLanguageTo(lang) {
+                sessionStorage.setItem("selectedLanguage", lang);
+
+                if (lang === "fr") {
+                    for (const [id, text] of Object.entries(translationsFr)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = replaceNewLinesWithBr(text);
+                    }
+                } else {
+                    for (const [id, text] of Object.entries(originalTexts)) {
+                        const el = document.getElementById(id);
+                        if (el) el.innerHTML = text;
+                    }
+                }
+
+                // Traduction en direct du bouton de l'Ère
+                const eraLink = document.getElementById('unit-era');
+                if (eraLink && eraDataGlobal) {
+                    eraLink.innerText = lang === "fr" ? eraDataGlobal.fr : eraDataGlobal.en;
+                }
+
+                // Traduction en direct de TOUS les boutons de raids générés
+                raidsDataGlobal.forEach((raid, index) => {
+                    const raidLink = document.getElementById(`unit-raid-${index}`);
+                    if (raidLink) {
+                        raidLink.innerText = lang === "fr" ? raid.fr : raid.en;
+                    }
+                });
+
+                updateFlagActive();
+            }
+
+            function updateFlagActive() {
+                const lang = sessionStorage.getItem("selectedLanguage") || "en";
+                if (document.getElementById("lang-en")) document.getElementById("lang-en").style.borderColor = lang === "en" ? "#007bff" : "transparent";
+                if (document.getElementById("lang-fr")) document.getElementById("lang-fr").style.borderColor = lang === "fr" ? "#007bff" : "transparent";
+            }
+
+            function loadUnitEraData() {
+                const params = new URLSearchParams(window.location.search);
+                const unitId = params.get('id') || "droideka"; //filtre unité ici
+
+                // On retourne le fetch pour pouvoir utiliser un .then() dans l'écouteur d'événement principal
+                return fetch('https://e-rimbault.github.io/swgoh-kit/filtre-recherche/units.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentUnit = data.find(u => u.id === unitId);
+                        const eraLink = document.getElementById('unit-era');
+                        const raidsContainer = document.getElementById('raids-container');
+
+                        if (currentUnit) {
+                            // Gestion de l'ère
+                            if (currentUnit.era) {
+                                eraDataGlobal = currentUnit.era;
+                                eraLink.href = `../classement-perso/era.html?name=${encodeURIComponent(currentUnit.era.en)}`;
+                                eraLink.style.display = 'inline-block';
+                            }
+
+                            // Gestion dynamique des Raids multiples
+                            if (currentUnit.raids && currentUnit.raids.length > 0) {
+                                raidsDataGlobal = currentUnit.raids;
+                                raidsContainer.innerHTML = ""; 
+
+                                currentUnit.raids.forEach((raid, index) => {
+                                    const newRaidLink = document.createElement('a');
+                                    newRaidLink.id = `unit-raid-${index}`;
+                                    newRaidLink.className = 'raid';
+                                    newRaidLink.href = `../classement-perso/raid.html?name=${encodeURIComponent(raid.en)}`;
+                                    
+                                    newRaidLink.style.backgroundColor = 'orange';
+                                    newRaidLink.style.color = 'white';
+                                    newRaidLink.style.textDecoration = 'none';
+                                    newRaidLink.style.padding = '2px 8px';
+                                    newRaidLink.style.borderRadius = '4px';
+
+                                    raidsContainer.appendChild(newRaidLink);
+                                });
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du chargement des données JSON :", err);
+                    });
+            }
+
+            // ✨ Modification de l'ordre d'exécution ici
+            window.addEventListener("load", () => {
+                saveOriginalTexts(); // 1. Sauvegarde l'anglais de base
+                
+                loadUnitEraData().then(() => { 
+                    // 2. ATTEND que le JSON soit chargé et que les boutons soient créés
+                    // 3. Applique enfin la langue (Français ou Anglais) sur TOUS les éléments d'un coup
+                    switchLanguageTo(sessionStorage.getItem("selectedLanguage") || "en");
+                });
+
+                document.getElementById("lang-fr").onclick = () => switchLanguageTo("fr");
+                document.getElementById("lang-en").onclick = () => switchLanguageTo("en");
+            });
+            </script>
+    </footer>
+</body>
+</html>
